@@ -25,7 +25,7 @@ const inputs=()=>({opportunity:{opportunityId:'ifopp_'+ 'a'.repeat(32),question:
  sourceAuthority:{'studio-pmid:12345':source('12345'),'studio-pmid:23456':source('23456')}},
  cases:[scene()],sections:[{page:'/guides/sleep/magnesium/',findingClaimId:'claim1',primarySourceId:'src1',
  anchor:'#evidence',contentFingerprint:F,verified:true}],trialLineage:{}})
-const deep=x=>structuredClone(x)
+const deep=x=>JSON.parse(JSON.stringify(x))
 test('single report joins exact signed case with registered section and routes all three review channels',()=>{
  const r=compileOpportunityReport(inputs());assert.equal(r.publicationAllowed,false);assert.equal(r.sources.length,1);
  assert.equal(r.relatedResearch[0].toPmid,'23456');assert.equal(r.exactArticleSections[0].anchor,'#evidence');
@@ -36,42 +36,42 @@ test('deterministic reporting and readable decision trace',()=>{
  const x=inputs(); const a=compileOpportunityReport(x),b=compileOpportunityReport(deep(x));
  assert.deepEqual(a,b);assert.equal(a.reportDigest,b.reportDigest);assert.equal(a.decisions.length,5)
 })
-test('duplicates same PMID without doubling source count',()=>{let x=inputs();x.cases.push(deep(x.cases[0])); const r=compileOpportunityReport(x);assert.equal(r.publicationCount,1);assert.ok(r.decisions.some(d=>d.action==='deduplicate-publication'))})
-test('reject conflicting duplicate PMID',()=>{let x=inputs();let c=deep(x.cases[0]);c.caseFile.reviewedCitationIds=['injected'];x.cases.push(c);assert.throws(()=>compileOpportunityReport(x),/conflicting/)})
-test('reject stale source snapshot',()=>{let x=inputs();x.inspection.snapshotId=F;assert.throws(()=>compileOpportunityReport(x),/snapshot/)})
-test('reject stale source signature',()=>{let x=inputs();x.cases[0].sourceSignature='2-aaaaaaaa-bbbbbbbb';assert.throws(()=>compileOpportunityReport(x),/stale/)})
-test('reject unauthorized clinical promotion',()=>{let x=inputs();x.cases[0].clinicalPromotions=1;assert.throws(()=>compileOpportunityReport(x),/authority/)})
-test('reject injected publication or content mutation permission',()=>{let x=inputs();x.cases[0].publicationAllowed=true;assert.throws(()=>compileOpportunityReport(x),/authority/)})
-test('reject fabricated article section',()=>{let x=inputs();x.sections[0].anchor='#anchor%0a';assert.throws(()=>compileOpportunityReport(x),/section/)})
-test('unknown sections remain unresolved, not guessed from topic or page',()=>{let x=inputs();x.sections=[];const r=compileOpportunityReport(x);assert.equal(r.exactArticleSections.length,0);assert.ok(r.unresolved.some(x=>x.kind==='section-identity-missing'))})
+test('duplicates same PMID without doubling source count',()=>{const x=inputs();x.cases.push(deep(x.cases[0])); const r=compileOpportunityReport(x);assert.equal(r.publicationCount,1);assert.ok(r.decisions.some(d=>d.action==='deduplicate-publication'))})
+test('reject conflicting duplicate PMID',()=>{const x=inputs();const c=deep(x.cases[0]);c.caseFile.reviewedCitationIds=['injected'];x.cases.push(c);assert.throws(()=>compileOpportunityReport(x),/conflicting/)})
+test('reject stale source snapshot',()=>{const x=inputs();x.inspection.snapshotId=F;assert.throws(()=>compileOpportunityReport(x),/snapshot/)})
+test('reject stale source signature',()=>{const x=inputs();x.cases[0].sourceSignature='2-aaaaaaaa-bbbbbbbb';assert.throws(()=>compileOpportunityReport(x),/stale/)})
+test('reject unauthorized clinical promotion',()=>{const x=inputs();x.cases[0].clinicalPromotions=1;assert.throws(()=>compileOpportunityReport(x),/authority/)})
+test('reject injected publication or content mutation permission',()=>{const x=inputs();x.cases[0].publicationAllowed=true;assert.throws(()=>compileOpportunityReport(x),/authority/)})
+test('reject fabricated article section',()=>{const x=inputs();x.sections[0].anchor='#anchor%0a';assert.throws(()=>compileOpportunityReport(x),/section/)})
+test('unknown sections remain unresolved, not guessed from topic or page',()=>{const x=inputs();x.sections=[];const r=compileOpportunityReport(x);assert.equal(r.exactArticleSections.length,0);assert.ok(r.unresolved.some(x=>x.kind==='section-identity-missing'))})
 test('independent-trial count requires separate approved lineage for every source',()=>{
- let x=inputs(); x.trialLineage['12345']={status:'verified',sourceSignature:S,underlyingStudyId:'trial-1',approvedIndependently:true,studyType:'primary-trial'};
+ const x=inputs(); x.trialLineage['12345']={status:'verified',sourceSignature:S,underlyingStudyId:'trial-1',approvedIndependently:true,studyType:'primary-trial'};
  const r=compileOpportunityReport(x);assert.equal(r.independentTrialCount,1)
 })
 test('reject self-attested or stale trial identity',()=>{
- let x=inputs(); x.trialLineage['12345']={status:'verified',sourceSignature:S,underlyingStudyId:'trial-1',approvedIndependently:false,studyType:'primary-trial'};
+ const x=inputs(); x.trialLineage['12345']={status:'verified',sourceSignature:S,underlyingStudyId:'trial-1',approvedIndependently:false,studyType:'primary-trial'};
  assert.throws(()=>compileOpportunityReport(x),/trial-lineage/)
 })
 test('research neighbor outside governed snapshot is not promoted',()=>{
- let x=inputs();delete x.inspection.sourceAuthority['studio-pmid:23456'];const r=compileOpportunityReport(x);
+ const x=inputs();delete x.inspection.sourceAuthority['studio-pmid:23456'];const r=compileOpportunityReport(x);
  assert.equal(r.relatedResearch.length,0);assert.equal(r.unresolved.find(x=>x.kind==='unregistered-neighbor').pmid,'23456')
 })
-test('report renderer rejects post-generation tampering',()=>{let r=compileOpportunityReport(inputs());r.question='This proves efficacy!';assert.throws(()=>renderOpportunityMarkdown(r),/altered report/)})
-test('DOI cannot hijack a target from a different publication',()=>{let x=inputs();x.cases[0].fabric.distributionReviewTargets[0].matchingDoi='10.1000/wrong';assert.throws(()=>compileOpportunityReport(x),/editorial target/)})
+test('report renderer rejects post-generation tampering',()=>{const r=compileOpportunityReport(inputs());r.question='This proves efficacy!';assert.throws(()=>renderOpportunityMarkdown(r),/altered report/)})
+test('DOI cannot hijack a target from a different publication',()=>{const x=inputs();x.cases[0].fabric.distributionReviewTargets[0].matchingDoi='10.1000/wrong';assert.throws(()=>compileOpportunityReport(x),/editorial target/)})
 test('two publications sharing verified underlying trial count as one independent trial',()=>{
- let x=inputs();x.cases.push(scene('23456',{relatedPapers:[]}));
+ const x=inputs();x.cases.push(scene('23456',{relatedPapers:[]}));
  x.trialLineage['12345']={status:'verified',sourceSignature:S,underlyingStudyId:'same-trial',approvedIndependently:true,studyType:'primary-trial'};
  x.trialLineage['23456']={status:'verified',sourceSignature:S,underlyingStudyId:'same-trial',approvedIndependently:true,studyType:'primary-trial'};
  const r=compileOpportunityReport(x);assert.equal(r.publicationCount,2);assert.equal(r.independentTrialCount,1);
  assert.equal(r.unresolved.find(y=>y.kind==='doi-alias-review').doi,'10.1000/sample');
 })
 test('one missing verified trial receipt makes the entire trial count unknown',()=>{
- let x=inputs();x.cases.push(scene('23456',{relatedPapers:[]}));
+ const x=inputs();x.cases.push(scene('23456',{relatedPapers:[]}));
  x.trialLineage['12345']={status:'verified',sourceSignature:S,underlyingStudyId:'same-trial',approvedIndependently:true,studyType:'primary-trial'};
  const r=compileOpportunityReport(x);assert.equal(r.independentTrialCount,null)
 })
 test('review target cannot specify a foreign web domain or disguised traversal route',()=>{
- let x=inputs(); x.cases[0].fabric.distributionReviewTargets[0].targetPage='/../../evil/';
+ const x=inputs(); x.cases[0].fabric.distributionReviewTargets[0].targetPage='/../../evil/';
  assert.throws(()=>compileOpportunityReport(x),/editorial target/)
 })
 
