@@ -17,6 +17,8 @@ from pathlib import Path
 
 WAV_SHA="9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435"
 MODEL_ID="Systran/faster-whisper-tiny.en"
+MODEL_REV="0d3d19a32d3338f10357c0889762bd8d64bbdeba"
+MODEL_BIN_SHA="1a5afae06a4db91c975c9a9d78be5cc110ee4ea022ad57d55492e4550e936b2a"
 # This is the REVISED actual-source narration, NOT the obsolete R8.05 draft.
 LINES=(
  "What makes seven O H different from mitragynine?",
@@ -121,13 +123,12 @@ def transcribe(audio,revision=None):
     duration=source_check(audio)
     try:
         from faster_whisper import WhisperModel
-        from huggingface_hub import HfApi,snapshot_download
+        from huggingface_hub import snapshot_download
     except ImportError as exc:
         hold("OFFLINE_ASR_DEPENDENCY_UNAVAILABLE: "+type(exc).__name__)
-    if revision is None:
-        sha=HfApi().model_info(MODEL_ID).sha
-    else:
-        sha=revision
+    if revision is not None and revision!=MODEL_REV:
+        hold("UNREVIEWED_ASR_MODEL_REVISION")
+    sha=MODEL_REV
     if not isinstance(sha,str) or not re.fullmatch(r"[0-9a-f]{40}",sha):
         hold("MUST_RESOLVE_IMMUTABLE_MODEL_COMMIT")
     path=Path(snapshot_download(repo_id=MODEL_ID,revision=sha,
@@ -135,6 +136,8 @@ def transcribe(audio,revision=None):
         max_workers=2))
     if not (path/"model.bin").exists():
         hold("PINNED_MODEL_BYTES_MISSING")
+    if sha256(path/"model.bin")!=MODEL_BIN_SHA:
+        hold("ASR_MODEL_BINARY_HASH_CHANGED")
     model=WhisperModel(str(path),device="cpu",compute_type="int8",cpu_threads=2,
                        num_workers=1)
     # PyAV 19 removed a keyword consumed by faster-whisper 1.2.1. Decode
