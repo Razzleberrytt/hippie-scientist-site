@@ -30,7 +30,9 @@ LINES=(
 )
 MODEL_LICENCE="MIT"
 TARGET_TERMS=("hydroxyl","mitragynine","hydroxymitragynine","receptor")
+# Safety-negating words are material even when overall ASR agrees 95%+.
 KEY_TERMS=set(TARGET_TERMS)
+SAFETY_WORDS={"not","computed","pose","effects","structure"}
 
 def hold(reason):
     raise ValueError("EVIDENCEMOTION_ASR_HOLD: "+reason)
@@ -93,6 +95,7 @@ def comparison(words,duration,model=None):
             unexpected+=emitted[b0:b1]
     ratio=matcher.ratio()
     suspect=sorted(set(word for word in missing if word in KEY_TERMS))
+    safety_missing=sorted(set(word for word in missing if word in SAFETY_WORDS))
     introduced_clinical_words=sorted(set(unexpected)&
         {"cures","withdrawal","proven","safe","treats","opioid","relieves","pain"})
     # Recognition is not pronunciation. Even "hydroxyl" recognized correctly
@@ -109,9 +112,10 @@ def comparison(words,duration,model=None):
             "unexpectedWords":unexpected[:50],
             "atRiskScientificNames":list(TARGET_TERMS),
             "possiblyMisrecognizedScientificTerms":suspect,
+            "missingSafetyOrScienceBoundaryWords":safety_missing,
             "unsupportedOrUnexpectedMedicalTerms":introduced_clinical_words,
             "speechRecognizer":model,
-            "decision":"AUTO_REVISE_SCRIPT_MISMATCH" if ratio<.92 or suspect or introduced_clinical_words
+            "decision":"AUTO_REVISE_SCRIPT_MISMATCH" if ratio<.92 or suspect or safety_missing or introduced_clinical_words
                        else "SCRIPT_MATCH_CANDIDATE_ONLY",
             "phoneticPronunciationVerified":False,
             "naturalnessVerified":False,
