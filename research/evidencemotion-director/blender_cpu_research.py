@@ -124,6 +124,12 @@ def render(packet_file, expected_sha, outdir, direction):
     scene.render.engine='CYCLES'
     scene.cycles.device='CPU'
     scene.cycles.samples=12
+    # The distro CPU build may not include OpenImageDenoiser; refuse implicit optional backends.
+    if hasattr(scene.cycles,'use_denoising'):
+        scene.cycles.use_denoising=False
+    for view_layer in scene.view_layers:
+        if hasattr(view_layer.cycles,'use_denoising'):
+            view_layer.cycles.use_denoising=False
     scene.render.resolution_x=270
     scene.render.resolution_y=480
     scene.render.resolution_percentage=100
