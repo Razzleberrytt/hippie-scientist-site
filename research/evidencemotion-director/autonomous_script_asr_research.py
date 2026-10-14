@@ -11,6 +11,7 @@ import difflib
 import hashlib
 import json
 import re
+import subprocess
 import wave
 from pathlib import Path
 
@@ -136,7 +137,21 @@ def transcribe(audio,revision=None):
         hold("PINNED_MODEL_BYTES_MISSING")
     model=WhisperModel(str(path),device="cpu",compute_type="int8",cpu_threads=2,
                        num_workers=1)
-    segments,info=model.transcribe(str(audio),beam_size=5,
+    # PyAV 19 removed a keyword consumed by faster-whisper 1.2.1. Decode
+    # the exact locked WAV through FFmpeg to known 16kHz float32 mono instead
+    # of allowing an unpinned decoder API to change the model's input.
+    try:
+        raw=subprocess.check_output(["ffmpeg","-nostdin","-v","error",
+            "-i",str(audio),"-ac","1","-ar","16000",
+            "-f","f32le","pipe:1"],timeout=50)
+    except (subprocess.CalledProcessError,subprocess.TimeoutExpired) as exc:
+        hold("PINNED_WAV_PCM_RESAMPLE_FAILED:"+type(exc).__name__)
+    import numpy as np
+    if len(raw)%4 or not raw:hold("INCOMPLETE_ASR_FLOAT_PCM")
+    model_input=np.frombuffer(raw,dtype="<f4").copy()
+    if not 16000*(duration-.1)<=len(model_input)<=16000*(duration+.1):
+        hold("RESAMPLED_AUDIO_DURATION_DRIFT")
+    segments,info=model.transcribe(model_input,beam_size=5,
         word_timestamps=True,language="en",vad_filter=False,
         condition_on_previous_text=False)
     words=[{"start":w.start,"end":w.end,"word":w.word,
@@ -145,7 +160,8 @@ def transcribe(audio,revision=None):
     output=comparison(words,duration,model={"id":MODEL_ID,
         "revisionSha":sha,"modelBinarySha256":sha256(path/"model.bin"),
         "engine":"faster-whisper CTranslate2 CPU int8","language":info.language,
-        "license":MODEL_LICENCE})
+        "license":MODEL_LICENCE,
+        "resampled16kFloatPcmSha256":hashlib.sha256(raw).hexdigest()})
     return output
 
 def main():
