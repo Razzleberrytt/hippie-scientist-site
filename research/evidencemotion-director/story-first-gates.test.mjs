@@ -41,6 +41,16 @@ test('hero image and captions cannot overlap',()=>{
 test('phone social-app UI must not cover source text',()=>{
  assert.ok(change(x=>x.acts[3].sourceBox={x1:.7,y1:.76,x2:.95,y2:.81}).includes('CLIPPED_OR_OVERLAPPING_STORY_ZONES'));
 });
+test('jargon-free stories may declare no technical terms',()=>{
+ const plan=g();plan.firstUseTerms=[];
+ assert.equal(validate(plan).status,'STORY_PREFLIGHT_READY_FOR_HUMAN_AND_PIXEL_REVIEW');
+ assert.ok(change(x=>x.firstUseTerms=undefined).includes('JARGON_NOT_TAUGHT_AT_FIRST_USE'));
+});
+test('duplicate claim IDs fail closed even when each record looks valid',()=>{
+ const plan=g();
+ plan.claims.push({...plan.claims[0],evidenceClass:'HUMAN',sourceIds:['different-study']});
+ assert.ok(errors(plan).includes('DUPLICATE_CLAIM_IDENTIFIERS'));
+});
 test('unfamiliar word must be defined before first spoken use',()=>{
  assert.ok(change(x=>x.firstUseTerms[0].explainedAtSec=2.3).includes('JARGON_NOT_TAUGHT_AT_FIRST_USE'));
 });
