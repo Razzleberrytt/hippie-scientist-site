@@ -1,7 +1,7 @@
 # Decision Log
 
 **Status:** Authoritative
-**Updated:** 2026-10-08
+**Updated:** 2026-10-13 (EvidenceMotion version policy and calibrated autonomous-review direction)
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
 ## 2026-10-09 — Add build/CI optimization to existing P0 without displacing it
@@ -433,3 +433,16 @@ Coverage: 9 routes × 2 themes × 3 breakpoints = 54 combinations, 7,998 element
 **Execution:** [Story-first repair register](../research/evidencemotion-director/STORY-FIRST-REPAIR-PATCH-2026-10-13.md) distinguishes **implemented research preflight code** from pending artistic rendering and human evidence. The stage-gates research director now requires that contract, but this does **not** constitute production EvidenceMotion integration, a new R version or owner craft approval.
 
 **Freeze and evidence:** Keep current pinned original narration and source assets unchanged until a replacement is authorized and properly re-audited. Preserve qualified independent scientific checks, iPhone playback, owner separate craft and correctness acceptance, protected CI, the first truly excellent first render plus five consecutive excellent first renders, and explicit publishing authority before promotion.
+
+
+## 2026-10-13 — Owner rescinds EvidenceMotion capability/version freeze
+
+**Decision:** The October 12 freeze on EvidenceMotion R-version increments and new features is **RESCINDED by the owner**. Continue incremental creative/rendering and reliability improvements, grounded in source identity, actual decoded media, protected CI and normal research/production admission. No first-premium-video or five-video first-render streak is required **before modifying the system or advancing R-versions**. Older documents stating “version freeze ON until 1+5” are superseded on this narrow point.
+
+**Quality target stays demanding:** One genuinely excellent native 1080x1920 finished film and five excellent first renders on different scientific topics remain the creative/reproducibility objectives. No artificial 46-item checklist credit is awarded by permission to iterate. No generic template, cheap CGI, mispronounced scientific terms, fake receptor footage, re-timed narration or source-unsupported therapeutic claims become acceptable merely because the freeze lifted.
+
+**Autonomous feedback:** The owner prefers ChatGPT-controlled, evidence-based routine correctness/craft/audio review rather than mandatory owner, V or human verdict for every draft. Fail-closed automated negative review can operate now. **Positive automated certification** requires real source-linked claim evidence, genuine decoded audio and phonetic checks, independent calibrated full-film quality judgments and inspectable disagreement/repair receipts; an uncalibrated model score or synthetic positive receipt is not approval. Human uncertainty should cause HOLD, not invent evidence.
+
+**Still unchanged:** CI/security/privacy/evidence-source integrity, repo WIP/sprint admission, scientific publishing boundaries, truthful conflict/source disclosures, platform account permissions, and explicit authorized publishing remain separate from permission to ship improvements. Never auto-post solely because the creative/version freeze was lifted.
+
+**Implementation:** Research issue #6743; exact-WAV source and microphone-independent ASR experiment tracked by PR #6788; prior real decoded-film critic PR #6782 and source-preserving audio reviewer PR #6783 merged. The canonical EvidenceMotion tracker has 24/46 verified until independent outcomes earn more.
