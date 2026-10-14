@@ -1,120 +1,86 @@
 #!/usr/bin/env python3
-"""EvidenceMotion native research media gate. Never certifies craft, science or posting.
+"""Fail-closed 7-OH native research review relying on EXISTING native_master_audit.
 
-This gate checks actual decoded file bytes and source-hash identity. It cannot
-infer whether a raster layer was upscaled or whether voice sounds natural;
-those require independently verified source pixels and human listening.
+This is a fixed media-review identity, NOT a generic publication certificate.
+Exact full-film/AAC fingerprints are frozen outside the caller's manifest.
+No user-supplied hash can endorse changed media. The canonical native master
+auditor performs real decoded frame timestamp grid and AAC ADTS byte checks.
 """
 import argparse
 import hashlib
 import json
-import subprocess
 from pathlib import Path
+from native_master_audit import verify as strict_native_master_verify
 
-W,H,FPS,N=1080,1920,30,1031
-PUBCHEM_CID=44301524
+MASTER_SHA="18e7084040daf6c029bbce7fae0521ae7233660a4ad1a4475d3baf84e22edfd8"
+AAC_ADTS_SHA="2792538a0a8cd1263d6790ea05a2e084db68a4026a94c4c7ce0294bcf4e2fd2d"
+WAV_SHA="9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435"
 INCHIKEY="RYENLSMHLCNXJT-CYXFISRXSA-N"
-ORIGINAL_WAV="9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435"
-HEX=set("0123456789abcdef")
+W,H,FPS,FRAMES=1080,1920,30,1031
 
 def hold(reason):
     raise ValueError("NATIVE_MEDIA_HOLD: "+reason)
 
-def digest(p):
+def digest(path):
     h=hashlib.sha256()
-    with open(p,"rb") as f:
-        for chunk in iter(lambda:f.read(1024*1024),b""):
-            h.update(chunk)
+    with open(path,"rb") as f:
+        for block in iter(lambda:f.read(1024*1024),b""):
+            h.update(block)
     return h.hexdigest()
 
 def validate_receipt(r):
     if not isinstance(r,dict) or r.get("status")!="RESEARCH_NOT_FINAL":
         hold("RESEARCH_STATUS_REQUIRED")
-    for k in ("ownerApproved","voiceAuditioned","scienceApproved","craftApproved",
-              "phonePlaybackApproved","mayPublish"):
-        if r.get(k) is not False:
-            hold("NO_SELF_APPROVAL_"+k)
-    if r.get("nativeCanvas") is not True:
-        hold("NATIVE_CANVAS_PROVENANCE_REQUIRED")
-    if r.get("resolution")!=[W,H] or r.get("fps")!=FPS or r.get("frames")!=N or r.get("fullFilm") is not True:
-        hold("INCOMPLETE_NATIVE_FILM")
-    if r.get("sourceWavSha256")!=ORIGINAL_WAV or r.get("sourceInchiKey")!=INCHIKEY:
-        hold("PINNED_SOURCE_IDENTITY_CHANGED")
+    for flag in ("mayPublish","craftApproved","ownerApproved","scienceApproved",
+                 "voiceAuditioned","phonePlaybackApproved"):
+        if r.get(flag) is not False:
+            hold("NO_SELF_APPROVAL_"+flag)
+    if r.get("nativeCanvas") is not True or r.get("fullFilm") is not True:
+        hold("NATIVE_SOURCE_AND_FULL_FILM_REQUIRED")
+    if r.get("resolution")!=[W,H] or r.get("fps")!=FPS or r.get("frames")!=FRAMES:
+        hold("EXPECTED_NATIVE_FILM_BOUNDS")
+    if r.get("sourceInchiKey")!=INCHIKEY or r.get("sourceWavSha256")!=WAV_SHA:
+        hold("PINNED_SCIENCE_OR_VOICE_IDENTITY_DRIFT")
+    if r.get("reviewVideoSha256")!=MASTER_SHA:
+        hold("UNREVIEWED_NEW_MASTER_SHA")
     if not isinstance(r.get("note"),str) or "lower-resolution" not in r["note"] or "inset" not in r["note"]:
-        hold("LOW_RES_COMPUTED_INSET_DISCLOSURE_REQUIRED")
-    v=r.get("reviewVideoSha256")
-    if not isinstance(v,str) or len(v)!=64 or not set(v)<=HEX:
-        hold("EXACT_REVIEW_VIDEO_SHA_REQUIRED")
-    return {"status":"RECEIPT_PREFLIGHT_REQUIRES_ACTUAL_FILE_DECODE","publishAllowed":False}
-
-def validate_probe(probe):
-    streams=probe.get("streams",[])
-    video=[s for s in streams if s.get("codec_type")=="video"]
-    audio=[s for s in streams if s.get("codec_type")=="audio"]
-    if len(streams)!=2 or len(video)!=1 or len(audio)!=1:
-        hold("EXACTLY_ONE_VIDEO_AND_AUDIO_STREAM")
-    v,a=video[0],audio[0]
-    if v.get("codec_name")!="h264" or (v.get("width"),v.get("height"))!=(W,H):
-        hold("NOT_NATIVE_HD_H264_ENCODE")
-    if v.get("avg_frame_rate")!="30/1" or int(v.get("nb_read_frames") or 0)!=N:
-        hold("WRONG_FRAME_GRID_OR_TRUNCATED_FILM")
-    if a.get("codec_name")!="aac":
-        hold("LOCKED_AAC_MASTER_REQUIRED")
-    movie_duration=float(probe.get("format",{}).get("duration",0))
-    # Exact 1031 frames at 30fps, allow <1 frame for AAC tail/container rounding.
-    if abs(movie_duration-N/FPS)>1/FPS+.005:
-        hold("VIDEO_DURATION_DRIFT")
-    a_dur=float(a.get("duration",0))
-    if not (34.20<=a_dur<=34.45):
-        hold("AUDIO_TOO_SHORT_OR_OVERLONG")
-    return {"nativeEncodedFrames":N,"durationSeconds":movie_duration,
-            "technicalMedia":"PASS_DECODE_STILL_REQUIRED",
-            "correctnessApproved":False,"craftApproved":False,
-            "mayPublish":False}
-
-def probe_video(path):
-    cmd=["ffprobe","-v","error","-count_frames","-show_streams","-show_format",
-         "-of","json",str(path)]
-    return json.loads(subprocess.check_output(cmd,timeout=90))
-
-def decode_video(path):
-    subprocess.run(["ffmpeg","-hide_banner","-loglevel","error","-nostdin",
-                    "-xerror","-i",str(path),"-f","null","-"],
-                   timeout=90,check=True)
+        hold("COMPUTED_3D_INSET_DISCLOSURE_REQUIRED")
+    return {"status":"RESEARCH_RECEIPT_PREFLIGHT_ONLY",
+            "requiresActualTimestampAndAdtsDecode":True,"mayPublish":False}
 
 def audit(video,wav,receipt_path):
     receipt=json.loads(Path(receipt_path).read_text())
     validate_receipt(receipt)
-    if digest(video)!=receipt["reviewVideoSha256"]:
-        hold("ACTUAL_MOVIE_SHA_MISMATCH")
-    if digest(wav)!=ORIGINAL_WAV:
-        hold("LOCKED_ORIGINAL_WAV_MISMATCH")
-    report=validate_probe(probe_video(video))
-    try:
-        decode_video(video)
-    except (subprocess.CalledProcessError,subprocess.TimeoutExpired):
-        hold("ACTUAL_H264_AAC_DECODE_FAILURE")
-    report.update({
-        "status":"NATIVE_RESEARCH_TECHNICAL_PASS_NOT_CRAFT_OR_RELEASE",
-        "exactMovieSha256":receipt["reviewVideoSha256"],
-        "exactOriginalWavSha256":ORIGINAL_WAV,
-        "lowResolution3dInsetDisclosed":True,
-        "claimAudit":"NEEDS_INDEPENDENT_QUALIFIED_HUMAN",
-        "wordLevelAcousticAlignment":"NOT_ESTABLISHED",
-        "originalVoiceEarCheck":"OWNER_PENDING",
-        "phonePlatformUiAndCraft":"OWNER_PENDING",
-        "sourcePixelNativeGeometry":"NOT_PROVEN_BY_PROBE_ALONE",
-        "mayPublish":False
-    })
-    return report
+    if digest(wav)!=WAV_SHA:
+        hold("WRONG_LOCKED_ORIGINAL_PCM")
+    if digest(video)!=MASTER_SHA:
+        hold("REVIEWED_MASTER_BYTES_CHANGED")
+    # Reuse strict, already tested audit. Audio is separately pinned to a
+    # reviewer-fixed elementary ADTS fingerprint. Passing the movie itself as
+    # 'reference audio' does NOT assert an independent audio-master export;
+    # the immutable expected ADTS SHA is the independent audio identity gate.
+    result=strict_native_master_verify(
+        video,video,MASTER_SHA,AAC_ADTS_SHA,FRAMES,
+        width=W,height=H,fps=FPS,decode_all=True)
+    if result.get("technical")!="PASS" or result.get("frameTimingVerified") is not True or result.get("fullDecodePerformed") is not True:
+        hold("EXISTING_STRICT_NATIVE_AUDIT_REJECTED_"+",".join(result.get("problems",[])))
+    if result.get("audioAdtsSha256")!=AAC_ADTS_SHA:
+        hold("PINNED_AAC_NARRATION_CHANGED")
+    return {"status":"PINNED_NATIVE_RESEARCH_TECHNICAL_PASS_NOT_RELEASE",
+            "reviewMovieSha256":MASTER_SHA,"voiceOriginalPcmSha256":WAV_SHA,
+            "encodedAacAdtsSha256":AAC_ADTS_SHA,
+            "actualFrameTimestampsVerified":True,"entireAvDecoded":True,
+            "scienceApproved":False,"voiceEarCheck":"OWNER_PENDING",
+            "wordLevelAcousticAlignment":"NOT_PROVEN",
+            "craftApproved":False,"phoneUiReviewed":False,
+            "sourceNativeOfEveryInset":"LOW_RES_COMPUTED_INSET_NOT_NATIVE",
+            "mayPublish":False}
 
 if __name__=="__main__":
     p=argparse.ArgumentParser()
-    p.add_argument("--video",required=True)
-    p.add_argument("--wav",required=True)
-    p.add_argument("--receipt",required=True)
-    p.add_argument("--report")
-    a=p.parse_args()
-    result=audit(a.video,a.wav,a.receipt)
-    if a.report: Path(a.report).write_text(json.dumps(result,indent=2)+"\n")
-    print(json.dumps(result,indent=2))
+    p.add_argument("--video",required=True);p.add_argument("--wav",required=True)
+    p.add_argument("--receipt",required=True);p.add_argument("--report")
+    args=p.parse_args()
+    r=audit(args.video,args.wav,args.receipt)
+    if args.report:Path(args.report).write_text(json.dumps(r,indent=2)+"\n")
+    print(json.dumps(r,indent=2))
