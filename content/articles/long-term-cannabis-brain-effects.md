@@ -148,3 +148,5 @@ Ask what each study measured. A **brain scan** showing changes in available CB1 
 The brain adapts to repeated THC exposure. Some changes are measurable, and some can reverse after use stops. The most useful science is about **which change, in which people, over what time**, rather than declaring cannabis perfectly harmless or permanently destructive.
 
 *Evidence note: This is an educational summary of studies, not a diagnosis or a recommendation about substance use.*
+
+*Editorial transparency: AI tools assisted with drafting and organizing this article. AI assistance is not independent scientific verification; readers can examine the cited sources for themselves.*
