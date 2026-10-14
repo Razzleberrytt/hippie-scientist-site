@@ -34,9 +34,6 @@ jobs:
         run: |
           python -m unittest discover -s research/evidencemotion-director -p test_native_autocritic.py -v
           python -m py_compile research/evidencemotion-director/native_autocritic.py
-      - name: End-to-end actual H264 -> Python vision -> JavaScript automatic decision
-        run: |
-          node --test research/evidencemotion-director/autonomous-quality-handoff.test.mjs
       - name: Run actual Python decoded-pixel to Node arbiter handoff in the provisioned media runner
         env:
           EVIDENCEMOTION_ACTUAL_MEDIA_HANDOFF: '1'
