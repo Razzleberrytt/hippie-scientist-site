@@ -210,7 +210,7 @@ def audit(movie, manifest, output):
                         "decodedOverlayFrames": frame_receipts, "publicationVerdict": "HOLD"})
         # Only generated filenames are ever cleaned up; unrelated files remain
         # untouched. A failed next run leaves no authoritative success report.
-        generated = re.compile(r"(?:[0-9]{2}-[a-z][a-z0-9_-]{0,49}|opening-(?:0_25|1_5))\\.png")
+        generated = re.compile(r"(?:[0-9]{2}-[a-z][a-z0-9_-]{0,49}|opening-(?:0_25|1_5))\.png")
         for old in output.iterdir():
             if old.is_file() and generated.fullmatch(old.name):
                 old.unlink()
