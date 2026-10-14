@@ -90,6 +90,8 @@ def comparison(words,duration,model=None):
             unexpected+=emitted[b0:b1]
     ratio=matcher.ratio()
     suspect=sorted(set(word for word in missing if word in KEY_TERMS))
+    introduced_clinical_words=sorted(set(unexpected)&
+        {"cures","withdrawal","proven","safe","treats","opioid","relieves","pain"})
     # Recognition is not pronunciation. Even "hydroxyl" recognized correctly
     # might be audibly unnatural, robotic, or wrongly stressed.
     return {"schema":"ths-actual-source-asr-research-v1",
@@ -104,8 +106,9 @@ def comparison(words,duration,model=None):
             "unexpectedWords":unexpected[:50],
             "atRiskScientificNames":list(TARGET_TERMS),
             "possiblyMisrecognizedScientificTerms":suspect,
+            "unsupportedOrUnexpectedMedicalTerms":introduced_clinical_words,
             "speechRecognizer":model,
-            "decision":"AUTO_REVISE_SCRIPT_MISMATCH" if ratio<.92 or suspect
+            "decision":"AUTO_REVISE_SCRIPT_MISMATCH" if ratio<.92 or suspect or introduced_clinical_words
                        else "SCRIPT_MATCH_CANDIDATE_ONLY",
             "phoneticPronunciationVerified":False,
             "naturalnessVerified":False,
