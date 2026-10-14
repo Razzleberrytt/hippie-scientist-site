@@ -94,6 +94,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
 | #6685 | Activate durable protected identities for citation-leading pages | D | Active — admitted | P0 | 4/4/4/5/0.75/2 | 120.0 | 2026-10-12 |
+| #6769 | Semantic Opportunity Compiler: source-bound cross-system review pilot | A | Active — admitted; source-bound review-only implementation | P1 | 4/5/3/5/0.75/3 | 75.0 | 2026-10-13 |
 
 
 
@@ -140,7 +141,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-After GitHub verified #6749 closed and #6762 merged, retire that A owner: #6685 alone occupies 1/3 normal WIP. Candidate #6769 (Semantic Opportunity Compiler) remains unadmitted until a separate scored exact-base admission; source/review controls and the existing D owner remain unchanged. No new scientific authority, publication or observed business impact is implied.
+After GitHub-verified retirement PR #6770, this distinct scored admission proposes A #6769 alongside D #6685 (2/3 WIP, R available). Scope is a single deterministic review-only source-to-section-and-media opportunity report using existing Insight Foundry and exact-PMID 8+12 research case. No clinical/publication authority, duplicate research corpus, new scheduler or provider integration; T0/T1/T2 exact-head checks and sole protected controller remain required, and commercial ROI remains Unknown.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
