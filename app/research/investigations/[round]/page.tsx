@@ -76,7 +76,8 @@ export default async function DeepEnrichmentRoundPage({ params }: RoundParams) {
         <article key={item.id} id={item.id.toLowerCase()} className='scroll-mt-24 rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm sm:p-7'>
           <p className='eyebrow-label'>{item.id} · Research-only / awaiting independent review</p>
           <h2 className='mt-2 text-2xl font-semibold tracking-tight text-ink'>{item.title}</h2>
-          <h3 className='mt-5 text-sm font-bold text-ink'>Direct original-study sources</h3>
+          <h3 className='mt-5 text-sm font-bold text-ink'>Linked PubMed research sources</h3>
+          <p className='mt-1 text-xs leading-5 text-muted'>Some citations are research syntheses that combine earlier studies; they are not additional independent clinical trials. Check each investigation for its source type and limitations.</p>
           <ul className='mt-3 flex flex-wrap gap-2'>
             {item.sourcePmids.map((pmid) => (
               <li key={pmid} className='flex flex-wrap items-center gap-2'>
