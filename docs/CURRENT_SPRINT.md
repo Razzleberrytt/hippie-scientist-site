@@ -106,7 +106,7 @@ Live GitHub #6259 is CLOSED and PR #6260 MERGED as `bba24cd536f7f75e95f86c0a8ec9
 
 Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0/3. Candidate #6149 is OPEN and `ready-next` with direct code reproduction and scored 4×4×3×5×1/1 = **240.0**. This separate control-plane PR admits only one R owner and does not implement consent logic or activate GA4/Ahrefs transport; exact-head checks, privacy and release proof remain required.
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 2/3
 
 **2026-10-13 owner retirement:** GitHub confirms #6749 closed after PR #6762 merged as `d8035514480f4abb2ff57169c0530ff18c26b1ca` at 2026-10-14 00:17 UTC (October 13 ET). Retire that A owner; D #6685 remains the only recorded active ticket. This is bookkeeping only, not a new scientific approval, release or verified Cloudflare deployment. Candidate Semantic Opportunity Compiler #6769 is **not admitted**; a separate fresh admission is required.
 
@@ -126,6 +126,7 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
 | D | #6685 | Activate durable protected identities for citation-leading pages | Active — admitted | P0 | 120.0 | 2026-10-12 |
+| A | #6769 | Semantic Opportunity Compiler: source-bound cross-system review pilot | Active — admitted; source-bound review-only implementation | P1 | 75.0 | 2026-10-13 |
 
 
 
@@ -209,7 +210,7 @@ Research-only enrichment staging is not canonical implementation admission. #633
 
 ## Ready next — strict dependency order
 
-Following verified #6683 retirement, P0 D #6685 is the **sole admitted normal implementation owner**, 1/3 WIP (D occupied; A/R free) at score **120.0**. This admission covers durable source/identity protection only, not scientific page rewrites or citation-share claims. Additional implementation requires a distinct fresh scored admission and must not overlap #6685. Evidence, science, accessibility, canonical, privacy, governance and release gates remain unchanged.
+After the completed #6749/#6762 retirement via PR #6770, this fresh-admission proposal reserves A #6769 for a bounded research-only Semantic Opportunity Compiler pilot alongside D #6685 (2/3 normal WIP; R free). A score of **75.0** is prioritization only, not measured business ROI. No code, scientific approval, publication permission, provider access, public page or deployment is conferred by admission itself. Future implementation uses a separate scoped PR after protected admission merge; scientific, safety, canonical, accessibility, privacy, SEO, governance and exact-head release gates remain unchanged.
 
 ### Blocked or deferred candidates
 
