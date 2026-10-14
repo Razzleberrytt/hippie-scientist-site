@@ -96,6 +96,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
 | #6685 | Activate durable protected identities for citation-leading pages | D | Active — admitted | P0 | 4/4/4/5/0.75/2 | 120.0 | 2026-10-12 |
+| #6769 | Semantic Opportunity Compiler: source-bound cross-system review pilot | A | Active — admitted (source-bound research-only pilot; no scientific or publication authority) | P1 | 4/5/3/5/0.75/3 | 75.0 | 2026-10-13 |
 
 
 
