@@ -159,4 +159,3 @@ ADHD is much more than "can't pay attention." Time estimation, holding instructi
 
 *Evidence note: This article is educational. Only an appropriate healthcare professional can evaluate whether a person meets diagnostic criteria.*
 
-*Editorial transparency: AI tools assisted with drafting and organizing this article. AI assistance is not independent scientific verification; readers can examine the cited sources for themselves.*
