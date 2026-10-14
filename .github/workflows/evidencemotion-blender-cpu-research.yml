@@ -4,6 +4,8 @@ on:
     paths:
       - 'research/evidencemotion-director/blender_cpu_research.py'
       - 'research/evidencemotion-director/test_blender_cpu_research.py'
+      - 'research/evidencemotion-director/validated_7oh_chemistry.py'
+      - 'research/evidencemotion-director/test_validated_7oh_chemistry.py'
       - '.github/workflows/evidencemotion-blender-cpu-research.yml'
   workflow_dispatch:
 permissions:
@@ -20,12 +22,13 @@ jobs:
       - name: Run strict offline safety and integrity regressions
         run: |
           python -m unittest discover -s research/evidencemotion-director -p test_blender_cpu_research.py -v
+          python -m pip install 'rdkit==2025.9.4'
+          python -m unittest discover -s research/evidencemotion-director -p test_validated_7oh_chemistry.py -v
           python -m py_compile research/evidencemotion-director/blender_cpu_research.py
       - name: Provision open-source CPU-only research renderer
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends blender
-          python -m pip install 'rdkit==2025.9.4'
           blender --version | head -n 2
       - name: Export genuine repo-verified RDKit computed conformer
         shell: bash
