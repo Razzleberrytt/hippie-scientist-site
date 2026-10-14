@@ -61,6 +61,14 @@ function trustedApprovalEvents({ comments, reviews, owner, number, headSha }) {
     // Missing app provenance is UNKNOWN, never proof of a manual action.
     // Revocation remains fail-closed even if issued by a delegated app.
     if (approve && comment.performed_via_github_app !== null) continue;
+    // GitHub comments can be edited by other users while retaining the
+    // original author's identity. An edited comment is not evidence that the
+    // original owner wrote the current exact-head approval token. Require
+    // stable creation/update timestamps; missing values fail closed.
+    if (approve &&
+        (!comment.created_at || !comment.updated_at ||
+         !Number.isFinite(Date.parse(comment.created_at)) ||
+         Date.parse(comment.created_at) !== Date.parse(comment.updated_at))) continue;
     events.push({
       approved: Boolean(approve),
       at: Date.parse(comment.updated_at || comment.created_at || '') || 0,

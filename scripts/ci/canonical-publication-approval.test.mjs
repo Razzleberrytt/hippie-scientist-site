@@ -8,7 +8,8 @@ const pr={number:6703,base:{repo:{owner:{login:'Razzleberrytt'},full_name:'Razzl
 const publicFile='content/articles/new-licorice-claim.md'
 const approval=(head=sha,login='Razzleberrytt',id=1)=>({
   id, user:{login,type:'User'},performed_via_github_app:null,
-  body:`THS-PUBLICATION-APPROVED PR=#6703 HEAD=${head}`,created_at:'2026-10-12T16:00:00Z'
+  body:`THS-PUBLICATION-APPROVED PR=#6703 HEAD=${head}`,created_at:'2026-10-12T16:00:00Z',
+  updated_at:'2026-10-12T16:00:00Z'
 })
 const decide=(changedFiles,extra={})=>assessPublicationApproval({pr,changedFiles,...extra})
 
@@ -76,6 +77,23 @@ describe('canonical publication approval',()=>{
     expect(decide([publicFile],{comments:[asApp]}).allowed).toBe(false)
     expect(decide([publicFile],{comments:[originUnknown]}).allowed).toBe(false)
     expect(decide([publicFile],{comments:[approval()]}).allowed).toBe(true)
+  })
+  it('rejects edited or timestamp-unknown owner comments, including a collaborator edit',()=>{
+    const original=approval()
+    const edited={...original,updated_at:'2026-10-12T16:01:00Z'}
+    const missingUpdated={...original}
+    delete missingUpdated.updated_at
+    const missingCreated={...original}
+    delete missingCreated.created_at
+    const invalid={...original,updated_at:'not-a-timestamp'}
+    expect(decide([publicFile],{comments:[original]}).allowed).toBe(true)
+    for(const c of [edited,missingUpdated,missingCreated,invalid]){
+      expect(decide([publicFile],{comments:[c]}).allowed).toBe(false)
+    }
+    // Retyping the right token into an existing owner's prior comment after
+    // a different person edited it must NOT inherit the original owner.
+    const alteredByCollaborator={...original,id:99,created_at:'2026-10-11T16:00:00Z',updated_at:'2026-10-12T16:00:00Z'}
+    expect(decide([publicFile],{comments:[alteredByCollaborator]}).allowed).toBe(false)
   })
   it('accepts later negative owner review/revocation without treating an app as publication approver',()=>{
     const first=approval()
