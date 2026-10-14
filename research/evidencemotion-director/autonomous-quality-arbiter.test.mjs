@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import {adjudicateFilm} from './autonomous-quality-arbiter.mjs';
 
 const H='a'.repeat(64), V='b'.repeat(64), R='c'.repeat(64), T='d'.repeat(64);
-const frame=()=>({actualVideoSha256:H,scope:'DECODED_LAYOUT_NEGATIVE_FILTER_NOT_AESTHETIC_CERTIFICATION',
-  samples:17,decision:'CONTINUE_TO_INDEPENDENT_SCIENCE_VOICE_AND_CRAFT_CHECKS',issues:[]});
+const frame=()=>({actualVideoSha256:H,schemaVersion:'ths-autonomous-film-critic-research-v1',critiqueScope:'AUTONOMOUS_ACTUAL_PIXELS_NEGATIVE_SCREENING_NOT_HUMAN_QUALITY',
+  samples:17,decision:'AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE',issues:[]});
 const science=()=>({filmSha256:H,origin:'INDEPENDENT_SOURCE_GRAPH_AUDIT',
  underlyingSourcesVerified:true,claimChecks:[{claimTextSha256:T,exactSourceIds:['PUBCHEM:44301524'],
  supportStatus:'SUPPORTED',humanEvidenceDirectness:'NOT_A_HUMAN_EFFECT_CLAIM',humanEffectAsserted:false}]});
