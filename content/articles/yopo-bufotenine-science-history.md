@@ -151,4 +151,3 @@ Continue with [what science says about psychedelics and the brain](/articles/psy
 
 *Evidence note: This is educational ethnobotany and pharmacology, not guidance for acquiring or preparing psychoactive materials.*
 
-*Editorial transparency: AI tools assisted with drafting and organizing this article. AI assistance is not independent scientific verification; readers can examine the cited sources for themselves.*
