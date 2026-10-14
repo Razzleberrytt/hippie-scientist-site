@@ -4,7 +4,7 @@
 
 ## Actual evidence this code can generate
 
-The research-only phone_ui_audit.py accepts an MP4, an externally authored JSON shot/annotation manifest and an output directory. It compares the file's actual SHA-256 with the manifest's expected SHA, measures actual width/height/30fps/duration with FFprobe, checks continuously covered shot times, declared opening hook times <=2s, essential text/diagram rectangles and minimum font sizes, then uses FFmpeg to decode one real frame from near the midpoint of each shot.
+The research-only phone_ui_audit.py accepts an MP4, an externally authored JSON shot/annotation manifest and an output directory. It compares the file's actual SHA-256 with the manifest's expected SHA, measures actual width/height/30fps/duration with FFprobe, checks continuously covered shot times, declared opening hook times <=2s, essential text/diagram rectangles and minimum font sizes, then uses FFmpeg to decode one real frame near the midpoint of each shot **plus two dedicated opening frames at 0.25 and 1.5 seconds**, avoiding missed hook pixels when the opening shot is long.
 
 PNG screenshots have **red research UI exclusion areas** and **green supplied annotation rectangles**. The SHA-256 hashes of the movie, manifest and each decoded PNG are saved in research-report.json. Each research receipt has publicationVerdict: HOLD and mayPublish: false.
 
