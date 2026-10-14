@@ -4,7 +4,7 @@
 
 ## Actual evidence this code can generate
 
-The research-only phone_ui_audit.py accepts an MP4, an externally authored JSON shot/annotation manifest and an output directory. It compares the file's actual SHA-256 with the manifest's expected SHA, measures actual width/height/30fps/duration with FFprobe, checks continuously covered shot times, declared opening hook times <=2s, essential text/diagram rectangles and minimum font sizes, then uses FFmpeg to decode one real frame near the midpoint of each shot **plus two dedicated opening frames at 0.25 and 1.5 seconds**, avoiding missed hook pixels when the opening shot is long.
+The research-only phone_ui_audit.py accepts an MP4, an externally authored JSON shot/annotation manifest and an output directory. It compares the file's actual SHA-256 with the manifest's expected SHA, measures actual width/height/duration with FFprobe and checks the full **decoded presentation-timestamp grid** against 1/30-second spacing (rather than trusting average frame rate), checks continuously covered shot times, declared opening hook times <=2s, essential text/diagram rectangles and minimum font sizes, then uses FFmpeg to decode one real frame near the midpoint of each shot **plus two dedicated opening frames at 0.25 and 1.5 seconds**, avoiding missed hook pixels when the opening shot is long.
 
 PNG screenshots have **red research UI exclusion areas** and **green supplied annotation rectangles**. The SHA-256 hashes of the movie, manifest and each decoded PNG are saved in research-report.json. Each research receipt has publicationVerdict: HOLD and mayPublish: false.
 
@@ -49,3 +49,10 @@ A synthetic H.264/FFmpeg actual decoded-frame regression is run alongside negati
 4. Independently establish original voice/pronunciation, claim-level scientific fidelity, professional craft and release authorization. Passing this runner does not tick A or D, and does not earn the first excellent video or streak goals.
 
 No laptop, GPU, paid inference, production import, new version freeze, automatic platform post or human-review impersonation.
+
+## PR #6790 review repairs (2026-10-14)
+
+- Reject variable frame-rate sources even when average rate resembles 30 fps. The audit reuses `native_master_audit.frame_timestamps()` and verifies the actual complete PTS grid; synthetic alternating-interval VFR is a negative fixture.
+- Bind `textVisibleAtSec` to an actual shot interval containing a hook annotation; a first-shot tag cannot validate a text appearance declared in an unrelated later shot.
+- When an output directory is reused, unlink any prior `research-report.json` **before** probing or validating input. Decode new PNGs inside a temporary per-run staging area, publish only completed frames and write the new receipt last via atomic rename. A failed rerun cannot leave a stale successful report. Note that output folders are **dedicated generated workspaces**; the audit only cleans previously generated matching PNG names, not arbitrary files. Regression tests include both a prior success followed by an intentionally wrong source hash and a real synthetically altered-timestamp video.
+- This establishes technical correctness of the preflight audit only; independent real-film/phone/craft/science gates are still open. No 46-item completion credit is claimed from synthetic CI.
