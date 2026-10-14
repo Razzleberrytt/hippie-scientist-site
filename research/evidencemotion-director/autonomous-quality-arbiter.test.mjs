@@ -82,6 +82,25 @@ test('synthetic high scores do not counterfeit actual model/source tool invocati
  assert.equal(x.productionVersionFreezeLifted,false);
  assert.equal(x.humanReviewerImpersonated,false);
 });
+test('missing evidence directness never counts as an independently supported claim',()=>{
+ const p=full();delete p.science.claimChecks[0].humanEvidenceDirectness;
+ const x=adjudicateFilm(p);
+ assert.ok(x.missingMachineWork.includes('CLAIM_PROVENANCE_OR_EVIDENCE_DIRECTNESS_MISSING'));
+ assert.equal(x.qualityAcceptableForResearch,false);
+});
+test('unknown and invented scientific evidence classes require more source research',()=>{
+ for(const directness of ['UNKNOWN','MYSTERY',null]){
+  const p=full();p.science.claimChecks[0].humanEvidenceDirectness=directness;
+  assert.ok(adjudicateFilm(p).missingMachineWork.includes('CLAIM_PROVENANCE_OR_EVIDENCE_DIRECTNESS_MISSING'));
+ }
+});
+test('missing, null, negative or nonfinite critic calibration rates are never valid reviewer proof',()=>{
+ for(const rate of [null,undefined,-.2,NaN,Infinity]){
+  const p=full();p.critics[0].anchorFalsePassRate=rate;
+  const x=adjudicateFilm(p);
+  assert.ok(x.missingMachineWork.includes('TWO_DIFFERENT_CALIBRATED_MULTIMODAL_REVIEWERS_MISSING'));
+ }
+});
 test('unsigned or mismatched video identities reject before any purported film review',()=>{
  const p=full();p.decodedVisual.actualVideoSha256='f'.repeat(64);
  const x=adjudicateFilm(p);
