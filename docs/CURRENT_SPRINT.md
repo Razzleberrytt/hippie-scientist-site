@@ -106,7 +106,11 @@ Live GitHub #6259 is CLOSED and PR #6260 MERGED as `bba24cd536f7f75e95f86c0a8ec9
 
 Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0/3. Candidate #6149 is OPEN and `ready-next` with direct code reproduction and scored 4×4×3×5×1/1 = **240.0**. This separate control-plane PR admits only one R owner and does not implement consent logic or activate GA4/Ahrefs transport; exact-head checks, privacy and release proof remain required.
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 2/3
+
+**2026-10-13 exact-main A #6769 admission proposal:** PR #6784 deferred human-review-blocked article release #6766 (publication PR #6774 remains OPEN and unmerged). This distinct A research-only compiler admission retains D #6685; score **75.0** = 4×5×3×5×0.75/3, ordinal priority only. Existing isolated prototype passed 69 native tests locally, but the real repository integration smoke, full CI, static build and scientific review have not run. No automatic clinical, safety, editorial, media or public content release authority. A separate implementation PR and sole protected controller are required after this admission merges.
+
+
 
 **2026-10-13 control proposal — park external-review-blocked A #6766 without publishing:** Article PR #6774 remains OPEN, held and unmerged, with its complete five manuscripts, cited sources, security and safety fixes and independent review questions intact. The validation/data checks passed at head `e891c255adc70c3b96d5a9dac4b9b4ddcd219edd`, while the remaining release checks, named independent science and plain-language reviews, and verified human owner publication authorization are not complete. A held article PR is not automatically a public article. No content, claim, source grade, existing PR, route, or approval changes in this transaction; no declaration of completion. Normal workstream A is deferred so the unblocked research-only #6769 can seek its own separate current-base scored admission **after** this control PR passes the protected merge controller. Do not reactivate #6766 until reviewer receipts and a new scored admission exist.
 
@@ -132,6 +136,7 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
 | D | #6685 | Activate durable protected identities for citation-leading pages | Active — admitted | P0 | 120.0 | 2026-10-12 |
+| A | #6769 | Semantic Opportunity Compiler: source-bound cross-system review pilot | Active — admitted (research-only, review requests only; no publication) | P1 | 75.0 | 2026-10-13 |
 
 
 
