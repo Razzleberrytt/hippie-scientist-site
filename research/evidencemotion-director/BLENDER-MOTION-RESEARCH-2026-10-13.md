@@ -29,3 +29,16 @@ A green workflow proves **technical feasibility of locally verifiable remote sil
 The next earned step would be one source-reviewed *narration-first* four-act short using the approved authentic original WAV, with a distinct creative opening and meaning-driven transitions. Render low-cost previews and get real owner phone feedback before committing an approved native full-HD film.
 
 Verification evidence: exact-head dedicated motion workflow, source RDKit unit tests, real FFmpeg frame audit, uploaded actual two MP4s and receipts, then repository CI. The configured workflow cannot claim independent reviewer approval.
+
+
+## Owner quality-first renderer decision (2026-10-13 ET)
+
+The owner is **NOT attached to Blender, 2D, 2.5D, or 3D as a fixed style**. The real target is consistently excellent, premium and professional finished science explainers at the lowest practical effort/cost. This research lane must **not** create a requirement to mix technologies. Prove one reliable attractive visual language before adding more.
+
+**Compare complete story treatments fairly:** Same reviewed beginner-friendly narration/source/claim boundaries, same target runtime/resolution and safe zones. Candidate A is a coherent high-end motion-graphics/illustration edit using the already-working SVG/Pillow/FFmpeg compositing paths; candidate B uses meaningful Blender 3D only when its depth/lighting demonstrably adds value. An all-2D winner, or a predominantly 3D winner, is legitimate. It is not necessary to force hybrid style or prefer the 3D render merely because it exists.
+
+**Quality gates:** viewer understands the question and payoff without specialized vocabulary; recognizably premium hero art (not stock-feel or generic floating circles); each visual transition motivated by information; readable in actual Shorts/TikTok UI; exact scientific source, evidence type and uncertainty; exact original voice timed first; no flat static intervals; reviewer craft/veracity judged separately on actual complete MP4. A green preview validator never self-awards a creative pass.
+
+**Economic gates:** Log *end-to-end* effort (asset creation, authoring, revisions, setup/install, rendering, QA), full runner wall time, actual video/failure rate and bills where known. Blender single-frame render time is NOT total film cost. Choose the simplest route that clears craft and scientific boundaries repeatedly, not a convenient technical demo. Treat all unmeasured savings as UNKNOWN.
+
+**Promotion gate:** Do not adopt a new animation stack or production feature from these two silent demos. A durable decision requires at least one real premium source-bound narrated final passing explicit owner quality review, followed by the five different-topic first-render streak. Until then preserve the existing version freeze and select creative style per evidence/story function.
