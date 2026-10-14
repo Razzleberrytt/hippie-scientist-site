@@ -1,102 +1,144 @@
 #!/usr/bin/env python3
-"""EvidenceMotion independent CPU decoded-pixel auto-critic (RESEARCH ONLY).
+"""EvidenceMotion research-only actual-MP4 autonomous visual negative critic.
 
-It can issue autonomous *negative* cinematic findings by examining the actual
-MP4. It cannot certify premium beauty, expert clinical science, nuanced ear
-pronunciation, or posting authority. No owner interaction needed to REJECT.
+This is a deterministic, reproducible *screening* tool, not a learned aesthetic
+model or proof of accessible/beautiful cinematography. It autonomously raises
+actionable visual REVISE signals, with SHA-bound decoded media and time windows,
+without requiring a human to detect repeated frames. No release authority.
 """
 import argparse
 import hashlib
 import json
-import math
 import subprocess
 from pathlib import Path
+
 import numpy as np
 from PIL import Image, ImageFilter
 
-SAMPLE_STEP_SECONDS=2
-FRAME_W, FRAME_H=180,320
-EDGE_MATCH_LIMIT=.95
-HIGH_REPETITION_FRAC=.45
-FULL_REVIEW_MIN_SEC=12
-FULL_REVIEW_MAX_SEC=90
+SAMPLE_STEP_SECONDS = 2
+FRAME_W, FRAME_H = 180, 320
+EDGE_MATCH_LIMIT = 0.95
+HIGH_REPETITION_FRAC = 0.45
+MIN_VISIBLE_SUBJECT_STD = 4.5
+MIN_SEC, MAX_SEC = 12, 90
 
-def _sha(path):
-    h=hashlib.sha256()
-    with open(path,"rb") as f:
-        for data in iter(lambda:f.read(1024*1024),b""):
-            h.update(data)
+
+def sha256(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            h.update(block)
     return h.hexdigest()
 
-def cosine(p,q):
-    d=float(np.linalg.norm(p)*np.linalg.norm(q))
-    return float(np.dot(p,q)/d) if d>0 else 0.
 
-def analyze_grayscale_frames(frames):
-    frames=np.asarray(frames,dtype=np.uint8)
-    if frames.ndim!=3 or frames.shape[1:]!=(FRAME_H,FRAME_W) or len(frames)<4:
-        raise ValueError("INSUFFICIENT_OR_BAD_ACTUAL_FRAME_SAMPLES")
-    vectors=[]
-    edge_strength=[]
+def similarity(p, q):
+    np_norm = float(np.linalg.norm(p) * np.linalg.norm(q))
+    if np_norm <= 1.e-12:
+        return 1.0 if np.array_equal(p, q) else 0.0
+    return float(np.dot(p, q) / np_norm)
+
+
+def review_decoded_samples(samples):
+    """Actual decoded grayscale frame samples; callers may construct test frames.
+
+    Exclude persistent header, lower subtitle/UI region, and outer 5 pixels so
+    repeating brand chrome cannot constitute subject movement/hero progression.
+    A content-static film can be REVISE even with an animated logo or captions.
+    """
+    frames = np.asarray(samples, dtype=np.uint8)
+    if frames.ndim != 3 or frames.shape[1:] != (FRAME_H, FRAME_W) or len(frames) < 4:
+        raise ValueError("ACTUAL_DECODED_SAMPLES_REQUIRED")
+    vectors, visible_stds = [], []
     for arr in frames:
-        # Actual decoded subject-layout features, suppress persistent header,
-        # bottom platform UI and narration captions. This isn't an aesthetic AI.
-        edge=np.asarray(Image.fromarray(arr).filter(ImageFilter.FIND_EDGES)).copy()
-        edge[:30,:]=0
-        edge[230:,:]=0
-        feat=edge.reshape(32,10,18,10).mean(axis=(1,3)).ravel()
-        vectors.append(feat.astype(np.float64))
-        edge_strength.append(float(np.mean(feat)))
-    similarities=[cosine(a,b) for a,b in zip(vectors,vectors[1:])]
-    high=sum(x>EDGE_MATCH_LIMIT for x in similarities)
-    repetition=round(high/len(similarities),4)
-    issues=[]
-    if float(np.median(edge_strength))<1.5:
-        issues.append("EMPTY_OR_UNREADABLE_PRIMARY_VISUAL")
-    if repetition>=HIGH_REPETITION_FRAC:
+        subject = arr[33:226, 6:174]
+        visible_stds.append(float(subject.std()))
+        edge = np.asarray(Image.fromarray(arr).filter(ImageFilter.FIND_EDGES)).copy()
+        edge[:33, :] = 0
+        edge[226:, :] = 0
+        edge[:, :5] = 0
+        edge[:, 175:] = 0
+        vectors.append(edge.reshape(32, 10, 18, 10).mean(axis=(1, 3)).ravel().astype(np.float64))
+    similarities = [similarity(a, b) for a, b in zip(vectors, vectors[1:])]
+    repeated = [i for i, sim in enumerate(similarities) if sim > EDGE_MATCH_LIMIT]
+    repetition_fraction = len(repeated) / len(similarities)
+    empty_subject = float(np.median(visible_stds)) < MIN_VISIBLE_SUBJECT_STD
+    issues = []
+    if empty_subject:
+        issues.append("MISSING_RECOGNIZABLE_SUBJECT_OR_NEAR_BLANK_CENTRAL_STAGE")
+    if repetition_fraction >= HIGH_REPETITION_FRAC:
         issues.append("REPETITIVE_SOURCE_LAYOUT_REQUIRES_ART_DIRECTION_REPAIR")
-    return {"samples":len(frames),"sampleEverySeconds":SAMPLE_STEP_SECONDS,
-        "highEdgeSimilarityFraction":repetition,
-        "medianSubjectLayoutSimilarity":round(float(np.median(similarities)),4),
-        "medianSubjectEdgeStrength":round(float(np.median(edge_strength)),4),
-        "threshold":HIGH_REPETITION_FRAC,
-        "issues":issues,
-        "scope":"DECODED_LAYOUT_NEGATIVE_FILTER_NOT_AESTHETIC_CERTIFICATION"}
+    return {
+        "samples": len(frames),
+        "sampleEverySeconds": SAMPLE_STEP_SECONDS,
+        "repeatedSamplePairsStartSec": [i * SAMPLE_STEP_SECONDS for i in repeated],
+        "highEdgeSimilarityFraction": round(repetition_fraction, 4),
+        "medianSubjectLayoutSimilarity": round(float(np.median(similarities)), 4),
+        "medianSubjectGrayscaleStd": round(float(np.median(visible_stds)), 3),
+        "layoutRepetitionThreshold": HIGH_REPETITION_FRAC,
+        "issues": issues,
+        "critiqueScope": "AUTONOMOUS_ACTUAL_PIXELS_NEGATIVE_SCREENING_NOT_HUMAN_QUALITY",
+    }
 
-def analyze_video(path):
-    path=Path(path)
-    if not path.is_file():
-        raise ValueError("ACTUAL_VIDEO_REQUIRED")
-    info=json.loads(subprocess.check_output(["ffprobe","-v","error","-show_streams",
-      "-show_format","-of","json",str(path)],timeout=30))
-    videos=[s for s in info["streams"] if s.get("codec_type")=="video"]
-    if len(videos)!=1:raise ValueError("EXACTLY_ONE_ACTUAL_VIDEO_STREAM")
-    dur=float(info.get("format",{}).get("duration",0))
-    if not FULL_REVIEW_MIN_SEC<=dur<=FULL_REVIEW_MAX_SEC:
-        raise ValueError("FULL_REVIEW_DURATION_LIMIT")
-    cmd=["ffmpeg","-hide_banner","-loglevel","error","-nostdin",
-         "-i",str(path),"-vf",
-         f"fps=1/{SAMPLE_STEP_SECONDS},scale={FRAME_W}:{FRAME_H},format=gray",
-         "-f","rawvideo","-pix_fmt","gray","pipe:1"]
-    raw=subprocess.check_output(cmd,timeout=90)
-    size=FRAME_W*FRAME_H
-    if not raw or len(raw)%size:raise ValueError("TRUNCATED_RAW_FRAME_DATA")
-    f=np.frombuffer(raw,dtype=np.uint8).reshape(-1,FRAME_H,FRAME_W)
-    result=analyze_grayscale_frames(f)
-    result.update({"actualVideoSha256":_sha(path),
-       "actualDurationSeconds":round(dur,4),
-       "resolution":[int(videos[0]["width"]),int(videos[0]["height"])],
-       "decision":"AUTO_REVISE" if result["issues"] else "CONTINUE_TO_INDEPENDENT_SCIENCE_VOICE_AND_CRAFT_CHECKS",
-       "ownerReviewRequiredForThisNegativeDecision":False,
-       "automaticPositiveCraftApproval":False,
-       "automaticClinicalApproval":False,"publishingAllowed":False})
+
+def analyze_video(path, expected_sha=None):
+    """Measure actual MP4; abort on decoder errors or a wrong pinned file."""
+    path = Path(path)
+    if not path.is_file() or path.is_symlink():
+        raise ValueError("ACTUAL_REGULAR_VIDEO_REQUIRED")
+    source_sha = sha256(path)
+    if expected_sha is not None and source_sha != expected_sha:
+        raise ValueError("VIDEO_IDENTITY_CHANGED")
+    probe = json.loads(subprocess.check_output([
+        "ffprobe", "-v", "error", "-show_streams", "-show_format",
+        "-of", "json", str(path)], timeout=30))
+    videos = [s for s in probe.get("streams", []) if s.get("codec_type") == "video"]
+    if len(videos) != 1:
+        raise ValueError("EXACTLY_ONE_VIDEO_STREAM_REQUIRED")
+    v = videos[0]
+    duration = float(probe.get("format", {}).get("duration", 0))
+    if not MIN_SEC <= duration <= MAX_SEC:
+        raise ValueError("BOUND_VIDEO_DURATION_REQUIRED")
+    if int(v.get("width", 0)) < 180 or int(v.get("height", 0)) < 320:
+        raise ValueError("ACTUAL_VIDEO_TOO_SMALL")
+    # Sampling is a craft negative-screen; this separately decodes the WHOLE
+    # media stream, not just sample points, to reject damaged or incomplete A/V.
+    subprocess.run([
+        "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
+        "-xerror", "-i", str(path), "-f", "null", "-"],
+        check=True, capture_output=True, timeout=90)
+    raw = subprocess.check_output([
+        "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
+        "-xerror", "-i", str(path), "-vf",
+        f"fps=1/{SAMPLE_STEP_SECONDS},scale={FRAME_W}:{FRAME_H},format=gray",
+        "-f", "rawvideo", "-pix_fmt", "gray", "pipe:1"], timeout=90)
+    size = FRAME_W * FRAME_H
+    if not raw or len(raw) % size:
+        raise ValueError("INCOMPLETE_DECODED_SAMPLE_GRID")
+    frames = np.frombuffer(raw, dtype=np.uint8).reshape(-1, FRAME_H, FRAME_W)
+    result = review_decoded_samples(frames)
+    result.update({
+        "schemaVersion": "ths-autonomous-film-critic-research-v1",
+        "actualVideoSha256": source_sha,
+        "actualDurationSeconds": round(duration, 5),
+        "actualSourceResolution": [int(v["width"]), int(v["height"])],
+        "decision": "AUTO_REVISE" if result["issues"] else "AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE",
+        "negativeFindingsDoNotRequireOwnerVerdict": True,
+        "automaticallyApprovedScientificClaims": False,
+        "automaticallyApprovedNaturalVoice": False,
+        "automaticallyApprovedPremiumCraft": False,
+        "mayPublish": False,
+        "excellentFirstRenderCredited": False,
+    })
     return result
 
-if __name__=="__main__":
-    ap=argparse.ArgumentParser()
-    ap.add_argument("video")
-    ap.add_argument("--out")
-    args=ap.parse_args()
-    output=analyze_video(args.video)
-    if args.out:Path(args.out).write_text(json.dumps(output,indent=2)+"\n")
-    print(json.dumps(output,indent=2))
+
+if __name__ == "__main__":
+    p = argparse.ArgumentParser()
+    p.add_argument("video")
+    p.add_argument("--expected-sha")
+    p.add_argument("--out")
+    args = p.parse_args()
+    report = analyze_video(args.video, args.expected_sha)
+    if args.out:
+        Path(args.out).write_text(json.dumps(report, indent=2) + "\n")
+    print(json.dumps(report, indent=2))
