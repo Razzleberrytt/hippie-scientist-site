@@ -11,12 +11,12 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
  const blockers=[],needs=[],fixes=[];
  if(!sha(videoSha256))blockers.push('MISSING_EXACT_FILM_SHA');
  if(!decodedVisual||decodedVisual.actualVideoSha256!==videoSha256
-     ||decodedVisual.samples<4||decodedVisual.scope!=='DECODED_LAYOUT_NEGATIVE_FILTER_NOT_AESTHETIC_CERTIFICATION')
+     ||decodedVisual.samples<4||decodedVisual.schemaVersion!=='ths-autonomous-film-critic-research-v1'||decodedVisual.critiqueScope!=='AUTONOMOUS_ACTUAL_PIXELS_NEGATIVE_SCREENING_NOT_HUMAN_QUALITY')
    blockers.push('ACTUAL_DECODED_VISUAL_PROOF_MISSING');
  else{
    if(decodedVisual.decision==='AUTO_REVISE'||decodedVisual.issues?.length)
       fixes.push(...(decodedVisual.issues||['ACTUAL_VIDEO_NEGATIVE_QA_REJECTED']));
-   else if(decodedVisual.decision!=='CONTINUE_TO_INDEPENDENT_SCIENCE_VOICE_AND_CRAFT_CHECKS')
+   else if(decodedVisual.decision!=='AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE')
       blockers.push('VISUAL_DECISION_UNRECOGNIZED');
  }
  if(!science||science.filmSha256!==videoSha256||science.origin!=='INDEPENDENT_SOURCE_GRAPH_AUDIT'
