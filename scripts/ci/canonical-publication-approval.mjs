@@ -55,22 +55,15 @@ function trustedApprovalEvents({ comments, reviews, owner, number, headSha }) {
     const revoke = token.match(REVOKE);
     const match = approve || revoke;
     if (!match || Number(match[1]) !== number || match[2] !== headSha) continue;
-    // GitHub app delegation can write as the repository owner with
-    // user.type="User". Only a first-party GitHub user comment explicitly
-    // marked as *not* performed by an app may GRANT publication approval.
-    // Missing app provenance is UNKNOWN, never proof of a manual action.
-    // Revocation remains fail-closed even if issued by a delegated app.
-    if (approve && comment.performed_via_github_app !== null) continue;
-    // GitHub comments can be edited by other users while retaining the
-    // original author's identity. An edited comment is not evidence that the
-    // original owner wrote the current exact-head approval token. Require
-    // stable creation/update timestamps; missing values fail closed.
-    if (approve &&
-        (!comment.created_at || !comment.updated_at ||
-         !Number.isFinite(Date.parse(comment.created_at)) ||
-         Date.parse(comment.created_at) !== Date.parse(comment.updated_at))) continue;
+    // Editable issue comments cannot be a trusted publication approval:
+    // collaborators can modify an owner-authored comment while retaining
+    // its apparent author and edit within GitHub's one-second timestamp
+    // resolution. No positive comment token is accepted until an immutable
+    // server-authenticated creation-event receipt exists. Negative
+    // revocation signals remain active as conservative holds.
+    if (approve) continue;
     events.push({
-      approved: Boolean(approve),
+      approved: false,
       at: Date.parse(comment.updated_at || comment.created_at || '') || 0,
       id: Number(comment.id || 0),
     });
