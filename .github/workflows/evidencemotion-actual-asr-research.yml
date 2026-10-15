@@ -196,15 +196,15 @@ jobs:
           v=json.loads(p.read_text())
           assert v['overallChecklistCompleted']==26
           assert v['baseEvidencePercent']==80
-          assert 80 <= v['currentStepObjectiveProgressPercent'] <= 90
-          assert v['microChecksTotal']==10
-          assert v['automaticScoreCeilingPercent']==90
+          assert 80 <= v['currentStepObjectiveProgressPercent'] <= 92
+          assert v['microChecksTotal']==12
+          assert v['automaticScoreCeilingPercent']==92
           assert not v['actualUnfamiliarViewerComprehensionVerified']
           assert v['humanAudienceResponsesObserved']==0
           assert not v['mayPublish']
           print('Evidence-scored working milestone:',
                 v['currentStepObjectiveProgressPercent'],'percent,',
-                v['microChecksPassed'],'of 10 objective mute proxies; no audience result claimed')
+                v['microChecksPassed'],'of 12 objective mute proxies; no audience result claimed')
           PY
       - name: Preserve actual timing evidence without source audio or model copies
         if: always()
