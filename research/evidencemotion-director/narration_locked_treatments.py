@@ -468,12 +468,12 @@ def render(root, destination, font_dir, treatment, native=False, *, experimental
     proposal_path=out/'timed-caption-windows-RESEARCH.json'
     proposal_path.write_text(json.dumps({
         'schema':CAPTION_WINDOW_SCHEMA,
-        'status':'CANDIDATE_ONLY_NOT_RENDERED',
+        'status':'TIMED_RESEARCH_FILM_REQUIRES_FRAME_REVIEW' if experimental_timed_captions else 'CANDIDATE_ONLY_NOT_RENDERED',
         'sourceWavSha256':WAV_SHA,
         'alignmentRevisionSha256':alignment['revisionSha256'],
         'maxWordsPerGroup':3,
         'scenes':caption_proposal,
-        'rendererUsesProposal':False,
+        'rendererUsesProposal':experimental_timed_captions,
         'actualEncodedCaptionPixelsRechecked':False,
         'independentMutedComprehensionApproved':False,
         'mayPublish':False
