@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-12 (P0 AI citation/evidence expansion program appended as unadmitted candidates; existing D/R/A work unchanged)
+**Updated:** 2026-10-15 (Algorithm Observatory future candidate appended; P0 AI citation/evidence expansion and existing D/R/A work unchanged)
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
