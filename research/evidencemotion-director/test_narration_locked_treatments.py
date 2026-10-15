@@ -117,13 +117,17 @@ class NarrationTreatments(unittest.TestCase):
         pivot=next(w['startSec'] for w in scenes[0]['captionWords'] if w['text']=='different')
         self.assertEqual(first[0]['endSec'],pivot)
         self.assertEqual(first[1]['startSec'],pivot)
-        self.assertIn('MITRAGYNINE • CID 3034396',
-            [a['text'] for a in first[0]['annotations']])
-        self.assertIn('7-OH • CID 44301524',
-            [a['text'] for a in first[1]['annotations']])
+        self.assertIn('MITRAGYNINE', [a['text'] for a in first[0]['annotations']])
+        self.assertIn('7-OH', [a['text'] for a in first[1]['annotations']])
         for opening in first:
-            self.assertIn('CID = compound record number',
-                          [a['text'] for a in opening['annotations']])
+            labels=[a['text'] for a in opening['annotations'] if a['role']!='caption']
+            self.assertIn('7-OH vs\\nmitragynine',labels)
+            self.assertIn('Separate structures • no reaction',labels)
+            self.assertFalse(any('CID' in label for label in labels))
+        source=next(s for s in m['shots'] if s['id']=='source_hold')
+        self.assertIn('Mitragynine • CID 3034396',[a['text'] for a in source['annotations']])
+        self.assertIn('CID 44301524',[a['text'] for a in source['annotations']])
+        self.assertIn('CID = compound record number',[a['text'] for a in source['annotations']])
 
         self.assertEqual(len(m['shots']),9)
         three_d=next(s for s in m['shots'] if s['id']=='sentence_4')
