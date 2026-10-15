@@ -18,6 +18,7 @@ from autonomous_script_asr_research import LINES, WAV_SHA, tokens, source_check
 from exact_wav_alignment import inspect_alignment
 from timed_caption_windows import schedule as caption_schedule, shown_at as timed_caption_shown_at, SCHEMA as CAPTION_WINDOW_SCHEMA
 from editorial_2d_cpu_research import smooth
+from source_locked_visual_direction import draw_verified_oxygen_locus
 
 FPS = 30
 TREATMENTS = {'atlas', 'specimen'}
@@ -279,6 +280,12 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
         source=assets['7_hydroxymitragynine'] if is_h else assets['mitragynine']
         diagram=source['diagram'].resize((round(800*scale),round(600*scale)))
         image.alpha_composite(diagram,pos(35,545))
+        # Timed research only: identify the sole source-verified added hydroxyl
+        # oxygen after the genuine spoken comparison cut; never morph atoms.
+        if is_h and caption_mode == 'timed_research':
+            draw_verified_oxygen_locus(
+                image,assets['7_hydroxymitragynine'],t=t,
+                spoken_boundary=boundary)
         draw=ImageDraw.Draw(image)
         text(pos(72,1150),'7-OH' if is_h else 'MITRAGYNINE',
              font=f(42,True),fill=accent,role='hook')
@@ -435,7 +442,7 @@ def render(root, destination, font_dir, treatment, native=False, *, experimental
         'narration_locked_treatments.py','verified_molecular_comparison.py',
         'editorial_2d_cpu_research.py','exact_wav_alignment.py','autonomous_script_asr_research.py',
         'phone_ui_audit.py','native_master_audit.py','timed_caption_windows.py',
-        'temporal_caption_audit.py')]
+        'temporal_caption_audit.py','source_locked_visual_direction.py')]
     renderer_sources = {p.name:sha(p) for p in source_files}
     if treatment not in TREATMENTS:
         raise ValueError('TREATMENT_HOLD:UNKNOWN_TREATMENT')
@@ -560,6 +567,8 @@ def render(root, destination, font_dir, treatment, native=False, *, experimental
                'preEncodeFrameLedgerSha256':sha(temporal_ledger) if temporal_ledger else None,
                'allFrameCaptionAuditApproved':False,
                'experimentCaptionMode':'TIMED_RESEARCH' if experimental_timed_captions else 'LEGACY',
+               'sourceLockedOxygenSpotlightResearch':experimental_timed_captions,
+               'researchSpotlightIsNotReactionOrEffectEvidence':True,
                'audioProcessing':AUDIO_FILTER+' then AAC; no stretch, trimming or resynthesis',
                'alignmentRevisionSha256':alignment['revisionSha256'], 'scenes':scenes,
                'fonts':font_hashes,'chemistry':sources,'wallSeconds':round(time.monotonic()-start,3),
