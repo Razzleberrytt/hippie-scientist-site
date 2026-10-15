@@ -96,7 +96,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-| #6810 | Read-only verified publication → R8.10 immutable flywheel observation | R / L3 | Active — scoped R admission proposed, effective on protected merge | P2 | 3/4/3/5/0.75/3 | 45.0 | 2026-10-15 code/Metricool coverage audit; independent field link Unknown | No publisher duplicate, scientific claims or posting; T0/T1 negative tests and T2 exact-head checks; verified PUBLISHED post and accurate matching media hash |
+| #6810 | Read-only verified publication → R8.10 immutable flywheel observation | R | Active — scoped R admission proposed, effective on protected merge | P2 | 3/4/3/5/0.75/3 | 45.0 | 2026-10-15 code/Metricool coverage audit; independent field link Unknown | No publisher duplicate, scientific claims or posting; T0/T1 negative tests and T2 exact-head checks; verified PUBLISHED post and accurate matching media hash |
 
 **2026-10-15 bounded R #6810 admission proposal:** Scope is the exact read-only Publisher PUBLISHED → existing R8.10 flywheel join from [Phase 0](algorithm-observatory-phase0-audit-2026-10-15.md) and [issue #6810](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6810). Score remains **45.0** under the only approved formula; actual revenue and retention results Unknown. No independent EvidenceMotion 46 quality task is completed, no publishing/clinical authority granted. Active D #6685 and A #6769 unchanged. This must merge through the protected controller before implementation starts; future owner retirement must follow proof.
 
