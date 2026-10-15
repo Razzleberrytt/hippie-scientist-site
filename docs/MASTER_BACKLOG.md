@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-15 (Algorithm Observatory future candidate appended; P0 AI citation/evidence expansion and existing D/R/A work unchanged)
+**Updated:** 2026-10-15 (bounded #6810 R admission proposed, preserving D #6685 and A #6769; other P0 work unchanged)
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -38,13 +38,13 @@
 
 ### Scoped implementation candidate #6810 — Publisher-to-flywheel identity bridge (2026-10-15)
 
-**Status:** Ready-next proposal, **not yet active**. Research proof: [Phase 0 audit](algorithm-observatory-phase0-audit-2026-10-15.md); open [issue #6810](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6810). **Workstream R / L3 observation identity**; existing score **45.0 = 3 × 4 × 3 × 5 × 0.75 ÷ 3** (Business Impact 3, User Value 4, Traffic Potential 3, Strategic Leverage 5, Confidence 0.75, Effort 3). This is an **estimated relative priority**, not field-measured ROI. `last_verified`: 2026-10-15, repo source implementation and manually inspected connected provider metric coverage; zero verified cross-system field joins.
+**Status:** Proposed active R admission on this PR head; effective only upon protected controller merge. Other AO stages remain unadmitted. Research proof: [Phase 0 audit](algorithm-observatory-phase0-audit-2026-10-15.md); open [issue #6810](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6810). **Workstream R / L3 observation identity**; existing score **45.0 = 3 × 4 × 3 × 5 × 0.75 ÷ 3** (Business Impact 3, User Value 4, Traffic Potential 3, Strategic Leverage 5, Confidence 0.75, Effort 3). This is an **estimated relative priority**, not field-measured ROI. `last_verified`: 2026-10-15, repo source implementation and manually inspected connected provider metric coverage; zero verified cross-system field joins.
 
 **Smallest admitted slice:** Consume one exact and verifiably `PUBLISHED` THS Publisher state/receipt and the exact approved media hash, attach to **existing** R8.10 immutable video record and one genuine timestamped metric observation (or return blocked/Unknown when receipts missing). Reuse R8.11 for later experiments. Negative tests must reject draft/ambiguous status, hash/platform/post-ID mismatch, duplicate/conflicting records and synthetic field proof. No new experiment ledger, metric conflation, scientific editing, mass publishing, private-account export or platform algorithm claims. Admit separately via `CURRENT_SPRINT` under normal R WIP, preserving EvidenceMotion's 46-item priority.
 
 ## Additive candidate — THS Algorithm Observatory 1.0 (owner-approved spec, 2026-10-15)
 
-**Status:** Approved direction / **unadmitted future capability**; no claimed code, field lift, additional EvidenceMotion checklist credit or new workstream. [Acceptance and implementation specification](THS_ALGORITHM_OBSERVATORY_V1_SPEC.md).
+**Status:** Approved Observatory direction; narrow #6810 bridge alone has an active R admission proposal on this PR head (effective only after protected merge). The rest remains unadmitted; no claimed code, field lift, additional EvidenceMotion checklist credit or new workstream. [Acceptance and implementation specification](THS_ALGORITHM_OBSERVATORY_V1_SPEC.md).
 
 **Opportunity:** Identify and test platform-specific creative performance relationships using legitimate, timestamped, published-video observations and source-linked Creative DNA; produce statistically restrained, auditable, future-only production suggestions for EvidenceMotion. This is black-box system identification, **not** disclosure of proprietary TikTok/YouTube algorithms.
 
@@ -96,7 +96,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-| #6810 | Read-only verified publication → R8.10 immutable flywheel observation | R | Active — scoped R admission proposed, effective on protected merge | P2 | 3/4/3/5/0.75/3 | 45.0 | 2026-10-15 code/Metricool coverage audit; independent field link Unknown | No publisher duplicate, scientific claims or posting; T0/T1 negative tests and T2 exact-head checks; verified PUBLISHED post and accurate matching media hash |
+| #6810 | Read-only Publisher-verified published-video → R8.10 Flywheel integration | R | Active — scoped R admission proposed, effective on protected merge | P2 | 3/4/3/5/0.75/3 | 45.0 | 2026-10-15 code/Metricool coverage audit; independent field link Unknown | No publisher duplicate, scientific claims or posting; T0/T1 negative tests and T2 exact-head checks; verified PUBLISHED post and accurate matching media hash |
 
 **2026-10-15 bounded R #6810 admission proposal:** Scope is the exact read-only Publisher PUBLISHED → existing R8.10 flywheel join from [Phase 0](algorithm-observatory-phase0-audit-2026-10-15.md) and [issue #6810](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6810). Score remains **45.0** under the only approved formula; actual revenue and retention results Unknown. No independent EvidenceMotion 46 quality task is completed, no publishing/clinical authority granted. Active D #6685 and A #6769 unchanged. This must merge through the protected controller before implementation starts; future owner retirement must follow proof.
 
