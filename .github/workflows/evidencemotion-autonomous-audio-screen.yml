@@ -5,6 +5,11 @@ on:
       - 'research/evidencemotion-director/autonomous_voice_signal_audit.py'
       - 'research/evidencemotion-director/test_autonomous_voice_signal_audit.py'
       - 'research/evidencemotion-director/AUTONOMOUS-AUDIO-REVIEW-2026-10-13.md'
+      - 'research/evidencemotion-director/exact_wav_alignment.py'
+      - 'research/evidencemotion-director/test_exact_wav_alignment.py'
+      - 'research/evidencemotion-director/audio-word-cuts.mjs'
+      - 'research/evidencemotion-director/audio-word-cuts.test.mjs'
+      - 'research/evidencemotion-director/EXACT-WAV-ALIGNMENT-2026-10-14.md'
       - '.github/workflows/evidencemotion-autonomous-audio-screen.yml'
 permissions:
   contents: read
@@ -17,6 +22,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Install free CPU-only audio signal tools
         run: |
           sudo apt-get update -qq
@@ -26,9 +34,13 @@ jobs:
         run: |
           python -m unittest discover -s research/evidencemotion-director -p 'test_autonomous_voice_signal_audit.py' -v
           python -m py_compile research/evidencemotion-director/autonomous_voice_signal_audit.py
+      - name: Verify byte-bound word/phone imports and stale narration cut invalidation
+        run: |
+          python -m unittest discover -s research/evidencemotion-director -p 'test_exact_wav_alignment.py' -v
+          node --test research/evidencemotion-director/audio-word-cuts.test.mjs
       - name: Preserve research and speech-recognition boundaries
         if: always()
         run: |
           echo 'Actual AAC bytes decoded; measured signal/source integrity only. Synthetic speech-like samples are not real voices or real pronunciation judgements.' >> "$GITHUB_STEP_SUMMARY"
           echo 'No ASR, specialist phoneme judge, naturalness proof, expert scientific review, or publication approvals were provided.' >> "$GITHUB_STEP_SUMMARY"
-          echo 'Production freeze/24-of-46 checklist remain unchanged; no owner laptop or paid model required.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Version freeze was lifted by the owner. Checklist remains 25/46; word timing is uncalibrated and no pronunciation or publishing approval is granted.' >> "$GITHUB_STEP_SUMMARY"
