@@ -406,7 +406,7 @@ jobs:
           result=json.loads(path.read_text())
           assert result['duringCueWordsRecovered']==8
           assert result['preRevealWordAbsencesVerified']==3
-          assert result['sampledDecodedEncodedFrames']==11
+          assert result['sampledDecodedEncodedFrames']==12
           assert result['allFrameEncodedOCR'] is False
           assert not result['independentAudienceComprehensionVerified']
           assert result['mayPublish'] is False
