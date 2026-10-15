@@ -296,6 +296,35 @@ class NarrationTreatments(unittest.TestCase):
             render_frame(t,scenes,assets,'specimen',(1080,1920),font,
                          caption_mode='unsupported')
 
+    def test_native_oxygen_spotlight_is_source_locked_and_not_early(self):
+        """Actual native pixels must change only after original 'different' cue."""
+        from pathlib import Path
+        import os
+        from PIL import ImageChops
+        from narration_locked_treatments import fonts,render_frame
+        from source_locked_visual_direction import hydroxyl_ring_location
+        path=Path(os.environ.get('THS_TEST_FONT_DIR','/usr/share/fonts/truetype/dejavu'))
+        if not path.is_dir():
+            self.skipTest('Pinned DejaVu fonts unavailable')
+        font,_=fonts(path)
+        assets=chemistry_assets()
+        assets['dark_diagram']=assets['7_hydroxymitragynine']['diagram']
+        scenes=timeline(self.alignment())
+        boundary=next(w['startSec'] for w in scenes[0]['captionWords']
+                      if w['text'].casefold().strip('?!.,')=='different')
+        x,y,r=hydroxyl_ring_location(assets['7_hydroxymitragynine'])
+        box=(x-r-22,y-r-22,x+r+22,y+r+22)
+        for t,expect_change in ((boundary-.05,False),(boundary+.05,True)):
+            with self.subTest(seconds=t):
+                original=render_frame(t,scenes,assets,'specimen',(1080,1920),font,
+                                      caption_mode='legacy')
+                experiment=render_frame(t,scenes,assets,'specimen',(1080,1920),font,
+                                        caption_mode='timed_research')
+                difference=ImageChops.difference(original.crop(box),experiment.crop(box))
+                self.assertEqual(difference.getbbox() is not None,expect_change)
+        self.assertEqual(assets['mitragynine']['oh'],[])
+        self.assertFalse(any('drug effects' in line for line in LINES))
+
     def test_actual_payoff_frames_use_sourced_graph_and_spoken_not_visual_reveal(self):
         # Render *real native RGB pixels*, not just synthetic annotation plans.
         import os
