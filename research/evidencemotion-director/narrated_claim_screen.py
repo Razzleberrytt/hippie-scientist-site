@@ -1,0 +1,167 @@
+#!/usr/bin/env python3
+"""Research-only, byte-bound screen of an actually rendered 7-OH teaching film.
+
+Matches emitted captions, frozen sentences, source labels and source identity.
+This detects objective inconsistencies, never independently certifies clinical
+claims, audible pronunciation, comprehension or artistic excellence.
+"""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+
+from autonomous_script_asr_research import LINES, WAV_SHA
+from verified_molecular_comparison import MITRAGYNINE, HYDROXYMITRAGYNINE
+
+SOURCES = (MITRAGYNINE, HYDROXYMITRAGYNINE)
+SCENES = tuple(f"sentence_{i}" for i in range(1, 6)) + ("source_hold", "sentence_6")
+REVIEW_TOPICS = (
+    "chemical_identity_and_structural_comparison",
+    "hydroxyl_site_and_name",
+    "record_backed_connectivity_not_measured_pose",
+    "computed_conformer_not_observed_binding",
+    "structure_cannot_establish_human_effects",
+    "source_record_label_accuracy",
+    "editorial_ending",
+)
+FORBIDDEN_VISUAL_ASSERTIONS = (
+    "proven to treat", "clinically proven", "cures ",
+    "safe for everyone", "measured receptor binding", "verified kratom leaf 7-oh",
+)
+
+
+def hold(code):
+    raise ValueError("CLAIM_SCREEN_HOLD:" + code)
+
+
+def sha256_file(path):
+    h = hashlib.sha256()
+    with Path(path).open("rb") as f:
+        for part in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(part)
+    return h.hexdigest()
+
+
+def inspect(movie, wav, receipt_path, phone_plan_path):
+    movie, wav = Path(movie), Path(wav)
+    if any(not f.is_file() or f.is_symlink() for f in (movie, wav, Path(receipt_path), Path(phone_plan_path))):
+        hold("REGULAR_IMMUTABLE_INPUT_FILES_REQUIRED")
+    receipt = json.loads(Path(receipt_path).read_text(encoding="utf-8"))
+    plan = json.loads(Path(phone_plan_path).read_text(encoding="utf-8"))
+    video_sha = sha256_file(movie)
+    wav_sha = sha256_file(wav)
+    if (receipt.get("videoSha256") != video_sha or plan.get("expectedVideoSha256") != video_sha
+            or receipt.get("sourceWavSha256") != WAV_SHA or wav_sha != WAV_SHA):
+        hold("REAL_VIDEO_OR_SOURCE_AUDIO_IDENTITY_DRIFT")
+    if (receipt.get("status") != "NEW_RENDERED_RESEARCH_CANDIDATE_REQUIRES_INDEPENDENT_REVIEW"
+            or receipt.get("isOriginalV5") is not False or receipt.get("treatment") != "specimen"
+            or receipt.get("resolution") != [1080, 1920]
+            or receipt.get("nativePixelsDrawnAtOutputResolution") is not True
+            or receipt.get("scienceApproved") is not False or receipt.get("mayPublish") is not False):
+        hold("NATIVE_RESEARCH_RELEASE_BOUNDARY_REQUIRED")
+    if plan.get("status") != "RESEARCH_ONLY" or plan.get("releaseApproved") is not False:
+        hold("PHONE_PLAN_NOT_RESEARCH_ONLY")
+    chemistry = receipt.get("chemistry")
+    if not isinstance(chemistry, list) or len(chemistry) != 2:
+        hold("EXACT_TWO_SOURCE_CHEMISTRY_REQUIRED")
+    identities = {(v.get("cid"), v.get("inchiKey"), v.get("url")) for v in chemistry if isinstance(v, dict)}
+    expected = {(s.pubchem_cid, s.inchi_key, s.source_url) for s in SOURCES}
+    if identities != expected:
+        hold("COMPOUND_SOURCE_IDENTITY_DRIFT")
+    scenes = receipt.get("scenes")
+    if not isinstance(scenes, list) or tuple(s.get("id") for s in scenes if isinstance(s, dict)) != SCENES:
+        hold("EXACT_NARRATION_SCENES_REQUIRED")
+    lines = list(LINES[:5]) + [""] + [LINES[5]]
+    for scene, line in zip(scenes, lines):
+        if scene.get("line") != line:
+            hold("FROZEN_SPOKEN_SCRIPT_DRIFT")
+        cues = scene.get("captionWords", [])
+        if [c.get("text") for c in cues] != line.split():
+            hold("AUDIO_LOCKED_WORD_CAPTION_DRIFT")
+        if not (isinstance(scene.get("startSec"), (float, int))
+                and isinstance(scene.get("endSec"), (float, int))
+                and scene["endSec"] > scene["startSec"]):
+            hold("INVALID_NARRATION_TIME_BOUNDS")
+    shots = plan.get("shots")
+    if not isinstance(shots, list) or not shots:
+        hold("SOURCE_BOUND_FRAME_ANNOTATIONS_REQUIRED")
+    grouped = {name: [] for name in SCENES}
+    for shot in shots:
+        name = shot.get("id", "")
+        base = name.rsplit("_part", 1)[0] if "_part" in name else name
+        if base not in grouped:
+            hold("UNEXPECTED_FILM_SHOT_OR_CLAIM")
+        matching = scenes[SCENES.index(base)]
+        if not (matching["startSec"] - .001 <= shot.get("startSec", -1)
+                < shot.get("endSec", -1) <= matching["endSec"] + .001):
+            hold("SHOTS_NOT_BOUND_TO_NARRATION")
+        annotations = shot.get("annotations")
+        if not isinstance(annotations, list) or any(not isinstance(a, dict) or not isinstance(a.get("text"), str) for a in annotations):
+            hold("EMITTED_FRAME_TEXT_MISSING")
+        strings = [a["text"] for a in annotations]
+        joined = " ".join(strings).lower()
+        if any(term in joined for term in FORBIDDEN_VISUAL_ASSERTIONS):
+            hold("VISUAL_CLAIM_UNSUPPORTED_OR_CONTRADICTORY")
+        captions = " ".join(a["text"] for a in annotations if a.get("role") == "caption")
+        if captions != matching["line"]:
+            hold("VISIBLE_CAPTIONS_MISMATCH_FROZEN_NARRATION")
+        if shot.get("assetKind") == "nonfactual_illustration" and not any(
+                a.get("role") == "disclosure" and "illustration" in a.get("text", "").lower()
+                and "not proof" in a.get("text", "").lower() for a in annotations):
+            hold("BOTANICAL_ILLUSTRATION_LACKS_DISCLOSURE")
+        grouped[base].append((shot, annotations))
+    if any(not entries for entries in grouped.values()):
+        hold("MISSING_NARRATED_SCENE")
+    # Real emitter marks spatial models as computed and says hydrogen was omitted.
+    for base in ("sentence_1", "sentence_2", "sentence_4", "sentence_6"):
+        for shot, annotations in grouped[base]:
+            disclosures = " ".join(a["text"] for a in annotations if a.get("role") == "disclosure").lower()
+            if "computed" not in disclosures or "hydrogen atoms omitted" not in disclosures:
+                hold("COMPUTED_MODEL_UNDISCLOSED")
+    source_labels = {a["text"] for _, ann in grouped["source_hold"] for a in ann if a.get("role") == "source"}
+    if not {"PubChem", "CID 44301524", "C23H30N2O5", "pubchem.ncbi.nlm.nih.gov"} <= source_labels:
+        hold("VISIBLE_PRIMARY_SOURCE_LABEL_DRIFT")
+    payoff = grouped["sentence_5"]
+    not_word = next((c for c in scenes[4]["captionWords"] if c["text"].casefold() == "not"), None)
+    if not not_word or len(payoff) != 2:
+        hold("SPOKEN_NEGATION_PAYOFF_TIMING_REQUIRED")
+    earlier, later = sorted(payoff, key=lambda v: v[0]["startSec"])
+    if abs(later[0]["startSec"] - not_word["startSec"]) > .001:
+        hold("PAYOFF_MUST_START_AT_SPOKEN_NOT")
+    if (any(a["text"] == "≠" for a in earlier[1])
+            or not any(a["text"] == "≠" for a in later[1])):
+        hold("STRUCTURE_EFFECTS_NEGATION_INVERTED")
+    reviews = []
+    for scene, topic in zip(scenes, REVIEW_TOPICS):
+        reviews.append({"scene": scene["id"], "timeStartSec": scene["startSec"],
+                        "timeEndSec": scene["endSec"], "topic": topic,
+                        "exactSpokenScript": scene["line"],
+                        "sourceUrls": [s.source_url for s in SOURCES] if topic != "editorial_ending" else [],
+                        "independentlyVerifiedPrimarySourceSemantics": False,
+                        "reviewDecision": "INDEPENDENT_SCIENCE_AND_LISTENING_REVIEW_REQUIRED"})
+    return {"schema": "ths-narrated-claims-actual-media-screen-v1",
+            "status": "MECHANICAL_SOURCE_CAPTION_SCREEN_PASS_INDEPENDENT_REVIEW_REQUIRED",
+            "actualVideoSha256": video_sha, "actualWavSha256": wav_sha,
+            "receiptSha256": sha256_file(receipt_path), "phonePlanSha256": sha256_file(phone_plan_path),
+            "narratedScenesInspected": len(scenes), "emittedShotIntervalsInspected": len(shots),
+            "reviewRows": reviews, "independentScientificReviewApproved": False,
+            "emittedWordsProvenAudible": False, "naturalPronunciationApproved": False,
+            "mutedComprehensionApproved": False, "craftApproved": False,
+            "realHandsetPlaybackVerified": False, "mayPublish": False,
+            "excellentFirstRenderCredited": False}
+
+
+def main():
+    p = argparse.ArgumentParser()
+    for name in ("movie", "wav", "receipt", "phone-plan", "out"):
+        p.add_argument("--" + name, required=True)
+    args = p.parse_args()
+    destination = Path(args.out)
+    destination.unlink(missing_ok=True)
+    result = inspect(args.movie, args.wav, args.receipt, args.phone_plan)
+    destination.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps({k: v for k, v in result.items() if k != "reviewRows"}, indent=2))
+
+
+if __name__ == "__main__":
+    main()
