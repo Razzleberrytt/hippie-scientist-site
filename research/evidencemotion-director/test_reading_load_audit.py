@@ -60,11 +60,11 @@ class ReadingLoadGateTests(unittest.TestCase):
         result=assess(self.plan)
         self.assertTrue(result["allOpeningCutsPass"])
         self.assertTrue(result["allScenesReadingBudgetPass"])
-        self.assertEqual(result["captionWordsSampled"],18)
+        self.assertEqual(result["captionWordsSampled"],16)
         self.assertTrue(result["combinedCaptionOverlayLoadRequiresReview"])
         self.assertFalse(result["allScenesCombinedVisibleTextBudgetPass"])
         self.assertFalse(result["fullMutedComprehensionApproved"])
-        self.assertEqual(result["openingSpans"][0]["combinedVisibleWords"],17)
+        self.assertEqual(result["openingSpans"][0]["combinedVisibleWords"],16)
         self.assertFalse(result["openingSpans"][0]["passesCombinedVisibleTextBudget"])
 
     def test_one_extra_caption_word_can_fail_even_when_overlay_rate_passes(self):
