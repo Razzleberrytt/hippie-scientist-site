@@ -54,6 +54,16 @@
 
 **Admission constraint:** Existing EvidenceMotion 46-item completion and first-render craft remain priority. New implementation requires existing priority formula, fresh overlap assessment, evidence/permissions, a scoped ticket listed in CURRENT_SPRINT, available D/R/A WIP capacity, exact-head checks and protected merge. This backlog candidate does **not** start work.
 
+## Additive candidate — THS Asset Intelligence & Commercialization 1.0 (owner-approved, 2026-10-15)
+
+**Status:** Source-linked portfolio audit / **unadmitted future operating-and-licensing candidate**. [Initial seven-family inventory, measurement and commercialization gates](THS_ASSET_INTELLIGENCE_V1.md) · [owner tracking #6811](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6811). No code runtime, release, valuation, revenue or measured cost-saving claim.
+
+**Purpose:** Reuse existing THS research, EvidenceMotion, SocialOS and publishing infrastructure to prove (1) reduced cost per scientifically/creatively qualified output and (2) legally transferable, reproducible stand-alone product opportunities if independent rights, quality and customer demand are validated. Shared services must not be double-counted.
+
+**First possible future implementation:** One accepted workflow's before/after operating-cost receipt with exact source/runtime/quality proof; missing time, expenses, revenue, rights and customer demand remain **Unknown**. Do not build a new asset database or price calculator before observing benefit. Owner deferred any license change, which is out of scope.
+
+**Admission constraint:** No new D/R/A ticket, extra workstream or priority formula is introduced. Preserve #6431, current sprint owners, scientific and media release gates, protected CI/controller and EvidenceMotion first-render quality priority. Any implementation needs fresh nonoverlap review, ranked score, scoped CURRENT_SPRINT admission and independent validation.
+
 ## Scoring and gates
 
 `Score = (Business Impact × User Value × Traffic Potential × Strategic Leverage × Confidence) / Effort`

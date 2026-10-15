@@ -454,3 +454,14 @@ Coverage: 9 routes × 2 themes × 3 breakpoints = 54 combinations, 7,998 element
 **Still unchanged:** CI/security/privacy/evidence-source integrity, repo WIP/sprint admission, scientific publishing boundaries, truthful conflict/source disclosures, platform account permissions, and explicit authorized publishing remain separate from permission to ship improvements. Never auto-post solely because the creative/version freeze was lifted.
 
 **Implementation:** Research issue #6743; exact-WAV source and microphone-independent ASR experiment tracked by PR #6788; prior real decoded-film critic PR #6782 and source-preserving audio reviewer PR #6783 merged. The canonical EvidenceMotion tracker has 24/46 verified until independent outcomes earn more.
+
+
+## 2026-10-15 — THS Asset Intelligence & Commercialization 1.0 adopted; licensing deferred
+
+**Owner direction:** Pursue both a revenue-generating THS operating business and a separately documented portfolio of potentially reusable/licensable technology. Inventory evidence-grounded existing systems before adding a new platform. [Initial portfolio/source-path baseline](THS_ASSET_INTELLIGENCE_V1.md); candidate tracked under [#6811](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6811).
+
+**Near-term scope:** A seven-family source-linked inventory, non-additive component relationships, verified-vs-Unknown economics and a measurement-first internal time/cost pilot candidate. These are capabilities/potential business assets, **not** independent appraisals, recognized balance-sheet entries, verified customer demand or deployable SaaS offerings.
+
+**Explicit deferral:** Do not change `LICENSE` or `ASSETS_LICENSE.md` now. Any future rights assessment is separate, requires owner approval and must consider prior grants, contributions, upstream/software/model/media/source rights and transferability.
+
+**Execution authority:** This is approved **strategic direction**, not automatic current-sprint admission, standalone monetization rights, auto-publishing, clinical claims approval or additional EvidenceMotion checklist credit. Follow `AGENTS.md`, the single backlog formula, current D/R/A cap, existing technical/scientific/video gates, full exact-head CI and the sole merge controller. Cost savings, audience growth, IP exclusivity, independent product maturity and monetary valuation stay **Unknown** pending proof.
