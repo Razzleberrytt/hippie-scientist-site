@@ -26,7 +26,7 @@ class ObjectiveMutedScoreTests(unittest.TestCase):
             ["A possible\n3D shape.", "Computed 3D illustration • not filmed"],
             ["What the shape\nshows."],
             ["What it cannot\ntell us.", "HUMAN EXPERIENCE"],
-            ["PubChem", "CID 44301524", "CID = compound record number",
+            ["PubChem", "7-OH • CID 44301524", "CID = compound record number",
              "Mitragynine • CID 3034396"],
             ["Look closer."]
         )
