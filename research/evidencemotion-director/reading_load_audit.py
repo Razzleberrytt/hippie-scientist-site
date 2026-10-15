@@ -78,12 +78,32 @@ def assess(plan):
                           for a in shot["annotations"] if a.get("role")=="caption")
         rate=words/secs if secs>0 else float("inf")
         combined_rate=(words+caption_words)/secs if secs>0 else float("inf")
+        # Count the words that must NOT all appear in one sampled frame at
+        # this scene duration. Defer them to genuine speech-timed caption
+        # windows in a future edit; never silently delete spoken science,
+        # citations or safety qualifiers. This is a planning diagnostic,
+        # NOT evidence that such a revised film was rendered or understood.
+        allowance=max(0,int(secs*MAX_OPENING_VISUAL_WORDS_PER_SEC+1e-9))
+        remaining=max(0,allowance-words)
+        defer=max(0,caption_words-remaining)
+        if secs<1.50:
+            fix="RESCHEDULE_OR_REEDIT_TOO_SHORT_SCENE"
+        elif words>allowance:
+            fix="REDESIGN_NONCAPTION_OVERLAYS_PRESERVE_SCIENCE"
+        elif defer:
+            fix="TIME_WINDOW_CAPTIONS_KEEP_COMPLETE_SPOKEN_TRANSCRIPT"
+        else:
+            fix="NO_MECHANICAL_READING_LOAD_REPAIR_NEEDED"
         all_spans.append({
             "scene":shot["id"],"seconds":round(secs,3),
             "visualWords":words,"visualWordsPerSecond":round(rate,3),
             "captionWords":caption_words,
             "combinedVisibleWords":words+caption_words,
             "combinedVisibleWordsPerSecond":round(combined_rate,3),
+            "sampleFrameWordAllowance":allowance,
+            "maxSampleFrameCaptionWordsAfterOverlays":remaining,
+            "minimumSampleCaptionWordsToTimeWindow":defer,
+            "readingLoadRepairAction":fix,
             "passesCombinedVisibleTextBudget":bool(
                 secs>=1.50 and combined_rate<=MAX_OPENING_VISUAL_WORDS_PER_SEC),
             "passesFullFilmReadingBudget":bool(secs>=1.50 and
@@ -92,9 +112,16 @@ def assess(plan):
     full_film_pass=all(x["passesFullFilmReadingBudget"] for x in all_spans)
     combined_pass=all(x["passesCombinedVisibleTextBudget"] for x in all_spans)
     caption_count=sum(x["captionWords"] for x in all_spans)
+    repairs=[{"scene":x["scene"],
+              "minimumSampleCaptionWordsToTimeWindow":x["minimumSampleCaptionWordsToTimeWindow"],
+              "recommendedAction":x["readingLoadRepairAction"]}
+             for x in all_spans if not x["passesCombinedVisibleTextBudget"]]
     return {
         "schema":SCHEMA, "criterion":"Source-faithful overlay and caption load, separately checked",
         "allSceneSpans":all_spans,
+        "readingLoadRepairCandidates":repairs,
+        "readingLoadRepairCandidateCount":len(repairs),
+        "readingLoadRepairPlanIsRenderedEvidence":False,
         "allScenesReadingBudgetPass":full_film_pass,
         "legacyOverlayOnlyGate":True,
         "allScenesCombinedVisibleTextBudgetPass":combined_pass,
