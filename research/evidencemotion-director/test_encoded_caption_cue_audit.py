@@ -2,7 +2,7 @@
 import unittest
 from encoded_caption_cue_audit import (
     TARGETS,REVEALS,recognized,evaluate_ocr_rows,
-    exact_frame_timestamp,ensure_frozen_scenes,cue_lookup)
+    exact_frame_timestamp,ensure_frozen_scenes,cue_lookup,verify_source_record_pixels)
 from autonomous_script_asr_research import LINES
 
 
@@ -45,6 +45,17 @@ class ActualEncodedCaptionTests(unittest.TestCase):
         spoiled[-1]["ocrText"]="not what its effects"
         with self.assertRaisesRegex(ValueError,"PREMATURE_PROTECTED_WORD"):
             evaluate_ocr_rows(spoiled,TARGETS,REVEALS)
+
+    def test_source_cid_mapping_requires_correct_encoded_ocr_lines(self):
+        good=("SOURCE\nMitragynine * CID 3034396\nPubChem\n"
+              "7-OH * CID 44301524\nCID = compound record number")
+        wrong=good.replace("3034396","other")
+        unpaired=good.replace("7-OH * CID 44301524","CID 44301524")
+        swapped=good.replace("3034396","TEMP").replace("44301524","3034396").replace("TEMP","44301524")
+        self.assertTrue(verify_source_record_pixels(good))
+        for bad in (wrong,unpaired,swapped,good.replace("compound record number","")):
+            with self.assertRaisesRegex(ValueError,"CID_JOIN"):
+                verify_source_record_pixels(bad)
 
     def test_token_boundaries_refuse_partial_false_positives(self):
         self.assertTrue(recognized("Not what its effects","not"))
