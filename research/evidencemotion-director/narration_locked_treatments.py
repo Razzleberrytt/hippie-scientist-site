@@ -217,6 +217,10 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
     f = lambda n,b=False:font(max(1,round(n*scale)),b)
     def pos(x,y): return (round(x*scale),round(y*scale))
     scene = next(s for s in scenes if s['startSec']<=t<s['endSec'])
+    # Validate spoken cues before any hook, label, phase-cut or caption uses
+    # them; the genuine silent source-reading hold remains cue-free.
+    if scene['line'] and not scene.get('captionWords'):
+        raise ValueError('TREATMENT_HOLD:MISSING_SPOKEN_WORD_CUES')
     idx = scenes.index(scene)
     p = smooth((t-scene['startSec'])/max(.1,scene['endSec']-scene['startSec']))
     light = treatment=='atlas'
