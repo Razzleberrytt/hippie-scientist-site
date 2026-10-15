@@ -7,7 +7,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from autonomous_script_asr_research import LINES, WAV_SHA
-from narrated_claim_screen import inspect, sha256_file
+from narrated_claim_screen import inspect, sha256_file, EXPECTED_NON_CAPTION_ANNOTATIONS
 from verified_molecular_comparison import MITRAGYNINE, HYDROXYMITRAGYNINE
 
 
@@ -31,17 +31,17 @@ class RealFilmClaimScreenTests(unittest.TestCase):
                 for c in cues:
                     if c["text"] == "not": c["startSec"] = start + 2.
             self.scenes.append({"id": sid, "startSec": start, "endSec": end, "line": line, "captionWords": cues})
-            ann = [{"role": "caption", "text": w} for w in words]
-            if sid in ("sentence_1", "sentence_2", "sentence_4", "sentence_6"):
-                ann += [{"role": "disclosure", "text": "Computed 3D illustration"},
-                        {"role": "disclosure", "text": "Hydrogen atoms omitted"}]
-            if sid == "source_hold":
-                ann += [{"role": "source", "text": t} for t in ("PubChem", "CID 44301524", "C23H30N2O5", "pubchem.ncbi.nlm.nih.gov")]
+            ann = [{"role": role, "text": text}
+                   for role, text in EXPECTED_NON_CAPTION_ANNOTATIONS[sid]]
+            ann += [{"role": "caption", "text": w} for w in words]
             if sid == "sentence_5":
                 self.shots.extend([{"id": sid + "_part0", "startSec": start, "endSec": start+2.,
                                     "annotations": copy.deepcopy(ann), "assetKind": "deterministic_science"},
                                    {"id": sid + "_part1", "startSec": start+2., "endSec": end,
-                                    "annotations": copy.deepcopy(ann) + [{"role": "science", "text": "≠"}],
+                                    "annotations": copy.deepcopy(ann[:2]) + [
+                                        {"role": "science", "text": "≠"},
+                                        {"role": "science", "text": "HUMAN EXPERIENCE"}] +
+                                        copy.deepcopy(ann[2:]),
                                     "assetKind": "deterministic_science"}])
             else:
                 self.shots.append({"id": sid, "startSec": start, "endSec": end,
@@ -74,7 +74,7 @@ class RealFilmClaimScreenTests(unittest.TestCase):
         self.assertFalse(r["independentScientificReviewApproved"])
 
     def test_mutated_caption_word_refused(self):
-        self.shots[0]["annotations"][0]["text"] = "Mitragynine"
+        next(a for a in self.shots[0]["annotations"] if a["role"] == "caption")["text"] = "Mitragynine"
         with self.assertRaisesRegex(ValueError, "VISIBLE_CAPTIONS_MISMATCH"):
             self.screen()
 
@@ -101,6 +101,35 @@ class RealFilmClaimScreenTests(unittest.TestCase):
         self.shots[2]["annotations"].append({"role": "science", "text": "Clinically proven to treat withdrawal"})
         with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
             self.screen()
+
+    def test_unlisted_health_claim_is_always_refused(self):
+        self.shots[2]["annotations"].append({"role": "science", "text": "Relieves withdrawal symptoms"})
+        with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
+            self.screen()
+
+    def test_incorrect_chemical_identity_in_science_title_is_refused(self):
+        self.shots[2]["annotations"][0]["text"] = "A record of\nMitragynine."
+        with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
+            self.screen()
+
+    def test_wrong_scene_even_for_whitelisted_text_refused(self):
+        self.shots[2]["annotations"].insert(1, {"role": "science", "text": "Look closer."})
+        with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
+            self.screen()
+
+    def test_duplicate_source_label_is_refused(self):
+        self.shots[6]["annotations"].append({"role": "source", "text": "CID 44301524"})
+        with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
+            self.screen()
+
+    def test_source_label_role_swap_is_refused(self):
+        self.shots[6]["annotations"][2]["role"] = "science"
+        with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
+            self.screen()
+
+    def test_original_labels_preserve_exact_order(self):
+        result = self.screen()
+        self.assertEqual(result["status"], "MECHANICAL_SOURCE_CAPTION_SCREEN_PASS_INDEPENDENT_REVIEW_REQUIRED")
 
     def test_source_wav_and_video_byte_change_refused(self):
         self.movie.write_bytes(b"other bytes")
