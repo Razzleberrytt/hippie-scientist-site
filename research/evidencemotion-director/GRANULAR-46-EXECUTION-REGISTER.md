@@ -179,7 +179,7 @@
 - [ ] **EM-012.02** Regenerate only with pinned original Kokoro voice/model — **Pass/receipt:** new WAV/source SHA
 - [ ] **EM-012.03** Cut low-resolution narrator-first hybrid based on real measured beats — **Pass/receipt:** previz video/hash
 - [ ] **EM-012.04** Full-decode and compare audio length/loudness/timing in rendered video — **Pass/receipt:** receipt
-- [ ] **EM-012.05** Leave pronunciation, final film and release statuses HOLD without verified ear evidence
+- [ ] **EM-012.05** Leave pronunciation, final film and release statuses HOLD without verified ear evidence — **Pass/receipt:** three explicit release-gate HOLDs bound to exact voice and film hashes
 
 ### EM-013 — Owner provisional voice feedback
 
@@ -199,7 +199,7 @@
 - [ ] **EM-014.03** Run an actual acoustic/phonetic evaluator rather than text-only ASR — **Pass/receipt:** term-level observations
 - [ ] **EM-014.04** Calibrate against real listening ground truth and negative pronunciations — **Pass/receipt:** measured error/confusion table
 - [ ] **EM-014.05** Inspect pace, clipped endings, natural pauses and cadence — **Pass/receipt:** separate timestamped results
-- [ ] **EM-014.06** Record every term PASS/HOLD with exact WAV SHA; unresolved terms block voice approval
+- [ ] **EM-014.06** Record every term PASS/HOLD with exact WAV SHA; unresolved terms block voice approval — **Pass/receipt:** term-level verdict ledger and enforced nonapproval on any HOLD
 
 ### EM-015 — Selective voice regeneration with full invalidation
 
