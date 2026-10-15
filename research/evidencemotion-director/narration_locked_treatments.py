@@ -250,6 +250,11 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
         effect_boundary = next(w['startSec'] for w in scene['captionWords']
                                if w['text'].casefold() == 'not')
         title = 'What the shape\nshows.' if t < effect_boundary else 'What it cannot\ntell us.'
+    elif not light and idx == 0:
+        # Narration names both compounds. Keep the two rapid opening cuts
+        # beginner-readable; full PubChem record IDs are explained on the
+        # silent source card instead of cramming 17 words into 1.61 seconds.
+        title = '7-OH vs\nmitragynine'
     else:
         title = titles[idx]
     text(pos(70,292),title,font=f(70 if idx==5 else 74,True),fill=fg,
@@ -270,13 +275,9 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
         diagram=source['diagram'].resize((round(800*scale),round(600*scale)))
         image.alpha_composite(diagram,pos(35,545))
         draw=ImageDraw.Draw(image)
-        text(pos(72,1150),'7-OH • CID 44301524' if is_h else 'MITRAGYNINE • CID 3034396',
+        text(pos(72,1150),'7-OH' if is_h else 'MITRAGYNINE',
              font=f(42,True),fill=accent)
-        text(pos(72,1198),'2D source structure • no reaction shown',
-             font=f(36),fill=muted,role='disclosure')
-        # The opening shows CID identifiers from its first frame. Teach that
-        # abbreviation right where it first appears, not 27 seconds later.
-        text(pos(72,1242),'CID = compound record number',
+        text(pos(72,1200),'Separate structures • no reaction',
              font=f(36),fill=muted,role='disclosure')
     elif idx==4 and not light:
         # The original ending was essentially an empty typographic slide. Put
@@ -303,7 +304,7 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
             text(pos(212,1170),'HUMAN EXPERIENCE',font=f(46,True),fill=fg)
     elif idx==5:
         text(pos(72,760),'PubChem',font=f(86,True),fill=fg,role='source')
-        text(pos(72,710),'Chemical structure database',font=f(36),fill=muted,role='source')
+        text(pos(72,710),'Mitragynine • CID 3034396',font=f(36),fill=muted,role='source')
         text(pos(72,880),'CID 44301524',font=f(51,True),fill=accent,role='source')
         text(pos(72,940),'CID = compound record number',font=f(36),fill=muted,role='source')
         text(pos(72,1010),'C23H30N2O5',font=f(48),fill=fg,role='source')
