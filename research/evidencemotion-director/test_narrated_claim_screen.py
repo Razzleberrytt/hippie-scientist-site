@@ -103,7 +103,7 @@ class RealFilmClaimScreenTests(unittest.TestCase):
             self.screen()
         self.receipt["chemistry"][1]["cid"] = HYDROXYMITRAGYNINE.pubchem_cid
         self.shot("source_hold")["annotations"] = [
-            a for a in self.shot("source_hold")["annotations"] if a["text"] != "CID 44301524"]
+            a for a in self.shot("source_hold")["annotations"] if a["text"] != "7-OH • CID 44301524"]
         with self.assertRaisesRegex(ValueError, "VISIBLE_PRIMARY_SOURCE_LABEL"):
             self.screen()
 
@@ -183,7 +183,7 @@ class RealFilmClaimScreenTests(unittest.TestCase):
             self.screen()
 
     def test_duplicate_source_label_is_refused(self):
-        self.shot("source_hold")["annotations"].append({"role": "source", "text": "CID 44301524"})
+        self.shot("source_hold")["annotations"].append({"role": "source", "text": "7-OH • CID 44301524"})
         with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
             self.screen()
 
