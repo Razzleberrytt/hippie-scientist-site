@@ -53,6 +53,8 @@ When documents conflict, current code/configuration/tests/deployment evidence es
 - [P0 AI Citation Leadership & Evidence Expansion](AI_CITATION_P0_EXPANSION_BACKLOG.md) — owner-prioritized 18-item **candidate** register tracked under [#6695](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6695). Reuse #6690, #6685, #6670 and #6431; the Master Backlog and Current Sprint retain all actual work-selection/admission authority.
 - [THS Algorithm Observatory 1.0](THS_ALGORITHM_OBSERVATORY_V1_SPEC.md) — owner-approved additive **future** performance-learning and creative-experiment specification; unadmitted; extends the R8.10 flywheel, Publisher/Observer **publication receipts**, and the separate #4414 **experiment-history ledger**, without altering publishing/science authority.
 
+- [THS Asset Intelligence & Commercialization 1.0](THS_ASSET_INTELLIGENCE_V1.md) — owner-approved strategic asset portfolio baseline; seven source-evidenced families, rights/valuation Unknowns, operating-savings proof and unadmitted future commercialization gates. Supporting reference only, not a sprint queue or implementation/release claim.
+
 ## Supporting documents
 
 These remain valuable but cannot override the control system.
