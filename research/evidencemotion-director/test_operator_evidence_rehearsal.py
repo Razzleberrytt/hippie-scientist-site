@@ -35,8 +35,26 @@ class ResearchOperatorHandoffTests(unittest.TestCase):
        craftApproved=False,scienceApproved=False,pronunciationVerified=False,deviceVerified=False)),
    'actual-pixel-text-evidence.json':enc(dict(mayPublish=False,exactMovieSha256=film,
        exactPhonePlanSha256=phone,exactClaimReportSha256=claim,answersRecovered=5,
-       negativeControlsRejected=8,humanAudienceParticipants=0,
-       humanUnderstandingDemonstrated=False,humanComprehensionCalibrated=False)),
+       negativeControlsRejected=10,humanAudienceParticipants=0,
+       humanUnderstandingDemonstrated=False,humanComprehensionCalibrated=False,
+       annotationTextUsedAsAnswer=False,automationAdditionalResearchPoints=1,
+       answerEvidenceFromPixelsOnly={f'q{i}':True for i in range(1,6)},
+       frameProofs={name:{'timeSec':t,'frameSha256':hashlib.sha256(name.encode()).hexdigest()}
+                    for name,t in [('compound_a',0.8),('compound_b',2.4),
+                    ('hydroxyl',6),('computed_shape',19.5),
+                    ('human_effect_limit',26.2),('source_hold',28.8)]},
+       negativeControls=[{'fault':key,'target':value,'rejected':True} for key,value in (
+           ('delete_physical_frame:compound_a','q1'),
+           ('delete_physical_frame:compound_b','q1'),
+           ('delete_physical_frame:hydroxyl','q2'),
+           ('delete_physical_frame:computed_shape','q3'),
+           ('delete_physical_frame:human_effect_limit','q4'),
+           ('delete_physical_frame:source_hold','q5'),
+           ('swap_first_two_chemical_frames','q1'),
+           ('show_molecule_instead_of_source_card','q5'),
+           ('swap_both_valid_cid_number_assignments','q5'),
+           ('remove_7oh_to_cid_join_keep_cid_number','q5'),
+       )])),
    'opening-reading-budget.json':enc(dict(mayPublish=False,allScenesReadingBudgetPass=True,
        allSceneSpans=[{'passesFullFilmReadingBudget':True} for _ in range(9)])),
    'objective-score.json':enc(dict(mayPublish=False,actualVideoSha256=film,
@@ -89,8 +107,41 @@ class ResearchOperatorHandoffTests(unittest.TestCase):
   self.change('actual-pixel-text-evidence.json',humanUnderstandingDemonstrated=True)
   with self.assertRaisesRegex(ValueError,'PIXEL_ONLY_RESEARCH'):
    self.check()
- def test_all_eight_negative_controls_are_required(self):
-  self.change('actual-pixel-text-evidence.json',negativeControlsRejected=7)
+ def test_all_ten_negative_controls_are_required(self):
+  self.change('actual-pixel-text-evidence.json',negativeControlsRejected=8)
+  with self.assertRaisesRegex(ValueError,'PIXEL_ONLY_RESEARCH'):
+   self.check()
+ def test_counterfactual_summary_cannot_lie_about_incomplete_rows(self):
+  self.change('actual-pixel-text-evidence.json',negativeControls=[{'fault':'fake','target':'q5','rejected':True}])
+  with self.assertRaisesRegex(ValueError,'PIXEL_NEGATIVE_EVIDENCE'):
+   self.check()
+ def test_swapped_source_molecule_assignments_must_be_rejected(self):
+  data=json.loads(self.files['actual-pixel-text-evidence.json'])
+  data['negativeControls'][-2]['rejected']=False
+  self.change('actual-pixel-text-evidence.json',negativeControls=data['negativeControls'])
+  with self.assertRaisesRegex(ValueError,'PIXEL_NEGATIVE_EVIDENCE'):
+   self.check()
+ def test_forged_two_cid_numbers_with_no_mapping_test_fails(self):
+  data=json.loads(self.files['actual-pixel-text-evidence.json'])
+  data['negativeControls']=data['negativeControls'][:-1]
+  data['negativeControls'].append({'fault':'mere_two_numbers_present','target':'q5','rejected':True})
+  self.change('actual-pixel-text-evidence.json',negativeControls=data['negativeControls'])
+  with self.assertRaisesRegex(ValueError,'PIXEL_NEGATIVE_EVIDENCE'):
+   self.check()
+ def test_nonexistent_ocr_frame_hash_is_not_evidence(self):
+  data=json.loads(self.files['actual-pixel-text-evidence.json'])
+  del data['frameProofs']['source_hold']
+  self.change('actual-pixel-text-evidence.json',frameProofs=data['frameProofs'])
+  with self.assertRaisesRegex(ValueError,'PIXEL_FRAME_HASH_EVIDENCE'):
+   self.check()
+ def test_missing_real_visual_answer_rejected_even_with_count_five(self):
+  data=json.loads(self.files['actual-pixel-text-evidence.json'])
+  data['answerEvidenceFromPixelsOnly']['q5']=False
+  self.change('actual-pixel-text-evidence.json',answerEvidenceFromPixelsOnly=data['answerEvidenceFromPixelsOnly'])
+  with self.assertRaisesRegex(ValueError,'PIXEL_SCIENCE_ANSWER_EVIDENCE'):
+   self.check()
+ def test_storyboard_answer_substitution_refused(self):
+  self.change('actual-pixel-text-evidence.json',annotationTextUsedAsAnswer=True)
   with self.assertRaisesRegex(ValueError,'PIXEL_ONLY_RESEARCH'):
    self.check()
  def test_nine_silent_scene_checks_mandatory(self):
