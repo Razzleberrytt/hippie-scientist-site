@@ -32,6 +32,7 @@ EXPECTED_NON_CAPTION_ANNOTATIONS = {
         ("hook", "What makes\n7-OH different?"),
         ("science", "MITRAGYNINE • CID 3034396"),
         ("disclosure", "2D source structure • no reaction shown"),
+        ("disclosure", "CID = compound record number"),
     ),
     "sentence_2": (
         ("science", "Look at the\nhydroxyl group."),
@@ -203,8 +204,8 @@ def inspect(movie, wav, receipt_path, phone_plan_path):
             # science text, and is allowed strictly after the spoken "not".
             if base == "sentence_1" and shot is second[0]:
                 expected_shot = (
-                    expected[0], ("science", "7-OH • CID 44301524"), expected[2],
-                )
+                    expected[0], ("science", "7-OH • CID 44301524"),
+                ) + expected[2:]
             elif base == "sentence_5" and shot is later[0]:
                 expected_shot = (
                     ("science", "What it cannot\ntell us."),
