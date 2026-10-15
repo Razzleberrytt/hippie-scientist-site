@@ -57,8 +57,25 @@ def assess(plan):
             "hasNoPrematureCitationJargon":no_early_cid,
             "passesOpeningReadingBudget":pass_this,
         })
+    all_spans=[]
+    for shot in shots:
+        secs=float(shot["endSec"]-shot["startSec"])
+        texts=[str(a["text"]) for a in shot["annotations"]
+               if a.get("role")!="caption"]
+        words=sum(len(_units(text)) for text in texts)
+        rate=words/secs if secs>0 else float("inf")
+        all_spans.append({
+            "scene":shot["id"],"seconds":round(secs,3),
+            "visualWords":words,"visualWordsPerSecond":round(rate,3),
+            "passesFullFilmReadingBudget":bool(secs>=1.50 and
+                                               rate<=MAX_OPENING_VISUAL_WORDS_PER_SEC)
+        })
+    full_film_pass=all(x["passesFullFilmReadingBudget"] for x in all_spans)
     return {
-        "schema":SCHEMA, "criterion":"Rapid source-faithful opening text load",
+        "schema":SCHEMA, "criterion":"Source-faithful full-film silent reading load",
+        "allSceneSpans":all_spans,
+        "allScenesReadingBudgetPass":full_film_pass,
+        "maxObservedSceneWordsPerSecond":max(x["visualWordsPerSecond"] for x in all_spans),
         "limits":{"maxVisibleWordsPerSecond":MAX_OPENING_VISUAL_WORDS_PER_SEC,
                   "minSceneSeconds":1.5},
         "openingSpans":outcomes,
@@ -80,6 +97,8 @@ def check_file(plan_path,out_path):
     output.write_text(json.dumps(result,indent=2)+"\n",encoding="utf-8")
     if not result["allOpeningCutsPass"]:
         raise ValueError("OPENING_READING_HOLD:OVERLOADED_SHORT_SHOT")
+    if not result["allScenesReadingBudgetPass"]:
+        raise ValueError("OPENING_READING_HOLD:OTHER_SCENE_EXCEEDS_SILENT_READING_BUDGET")
     return result
 
 
