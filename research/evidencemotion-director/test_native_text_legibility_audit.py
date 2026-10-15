@@ -39,7 +39,7 @@ class RealEncodedTextInkTests(unittest.TestCase):
     def test_exact_13_visible_labels_meet_both_one_point_criteria(self):
         result=score_samples(self.plan,self.samples)
         self.assertEqual(result["schema"],SCHEMA)
-        self.assertEqual(result["testedCriticalVisibleLabels"],15)
+        self.assertEqual(result["testedCriticalVisibleLabels"],16)
         self.assertEqual(result["additionalObjectivePoints"],2)
         self.assertTrue(all(x["passed"] for x in result["criteria"]))
         self.assertFalse(result["viewerComprehensionApproved"])
