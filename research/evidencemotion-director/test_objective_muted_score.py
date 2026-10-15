@@ -55,12 +55,12 @@ class ObjectiveMutedScoreTests(unittest.TestCase):
         self.assertFalse(x["mayPublish"])
         self.assertEqual(x["automaticScoreCeilingPercent"],92)
 
-    def test_first_use_cid_not_defined_is_one_percentage_point_loss(self):
+    def test_missing_first_cid_definition_fails_two_independent_guards(self):
         self.plan["shots"][7]["annotations"] = [
             a for a in self.plan["shots"][7]["annotations"]
             if "CID =" not in a["text"]]
         x=self.score()
-        self.assertEqual(x["currentStepObjectiveProgressPercent"],91)
+        self.assertEqual(x["currentStepObjectiveProgressPercent"],90)
         self.assertFalse(next(c["passed"] for c in x["measured"]
                               if c["code"]=="first_use_cid_defined"))
 
