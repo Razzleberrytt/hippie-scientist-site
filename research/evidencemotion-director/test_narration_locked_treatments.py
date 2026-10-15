@@ -121,7 +121,7 @@ class NarrationTreatments(unittest.TestCase):
         self.assertIn('7-OH', [a['text'] for a in first[1]['annotations']])
         for opening in first:
             labels=[a['text'] for a in opening['annotations'] if a['role']!='caption']
-            self.assertIn('7-OH vs\\nmitragynine',labels)
+            self.assertIn('7-OH vs\nmitragynine',labels)
             self.assertIn('Separate structures • no reaction',labels)
             self.assertFalse(any('CID' in label for label in labels))
         source=next(s for s in m['shots'] if s['id']=='source_hold')
