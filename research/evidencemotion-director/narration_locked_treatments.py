@@ -242,7 +242,7 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
             annotations.append({'role':role,'text':wording,'fontPx':font.size,'boxPx':list(box)})
 
     text(pos(72,220),'THE HIPPIE SCIENTIST',font=f(27,True),fill=accent,role=None)
-    titles = ['What makes\n7-OH different?', 'Look at the\nhydroxyl group.', 'A record of\nconnected atoms.', 'A possible\n3D shape.', 'Structure\nis not an effect.', 'CHECK THE SOURCE', 'Look closer.']
+    titles = ['What makes\n7-OH different?', 'Look at the\nhydroxyl group.', 'A record of\nconnected atoms.', 'A possible\n3D shape.', 'Structure\nis not an effect.', 'SOURCE', 'Look closer.']
     # A semantic reveal must not be spoiled by the header before the narrator
     # says the negation. Keep the original WAV and acoustic cue untouched.
     effect_boundary = None
@@ -305,7 +305,7 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
     elif idx==5:
         text(pos(72,760),'PubChem',font=f(86,True),fill=fg,role='source')
         text(pos(72,710),'Mitragynine • CID 3034396',font=f(36),fill=muted,role='source')
-        text(pos(72,880),'CID 44301524',font=f(51,True),fill=accent,role='source')
+        text(pos(72,880),'7-OH • CID 44301524',font=f(51,True),fill=accent,role='source')
         text(pos(72,940),'CID = compound record number',font=f(36),fill=muted,role='source')
         text(pos(72,1010),'C23H30N2O5',font=f(48),fill=fg,role='source')
         text(pos(72,1120),'pubchem.ncbi.nlm.nih.gov',font=f(38),fill=muted,role='source')
