@@ -125,7 +125,8 @@ class RealFilmClaimScreenTests(unittest.TestCase):
             self.screen()
 
     def test_early_title_cannot_spoil_limitation(self):
-        self.shot("sentence_5_part0")["annotations"][0]["text"] = "What it cannot\\ntell us."
+        self.shot("sentence_5_part0")["annotations"][0]["text"] = (
+            self.shot("sentence_5_part1")["annotations"][0]["text"])
         with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
             self.screen()
 
