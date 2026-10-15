@@ -52,7 +52,6 @@ EXPECTED_NON_CAPTION_ANNOTATIONS = {
     "sentence_5": (
         ("science", "What the shape\nshows."),
         ("science", "STRUCTURE"),
-        ("science", "7-HYDROXYMITRAGYNINE"),
     ),
     "source_hold": (
         ("science", "CHECK THE SOURCE"),
