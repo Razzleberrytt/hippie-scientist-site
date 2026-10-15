@@ -307,14 +307,14 @@ jobs:
           p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-native/actual-pixel-text-evidence.json'
           v=json.loads(p.read_text())
           assert v['answersRecovered']==5
-          assert v['negativeControlsRejected']==8
+          assert v['negativeControlsRejected']==10
           assert v['automationAdditionalResearchPoints']==1
           assert v['annotationTextUsedAsAnswer'] is False
           assert len(v['frameProofs'])==6
           assert all(v['answerEvidenceFromPixelsOnly'].values())
           assert v['humanAudienceParticipants']==0
           assert not v['humanUnderstandingDemonstrated'] and not v['mayPublish']
-          print('6 exact H264 frames independently OCR-read; five science answers and 8 counterfactuals pass, no participant fabricated')
+          print('6 exact H264 frames independently OCR-read; five science answers and 10 counterfactuals pass, no participant fabricated')
           PY
       - name: Preserve actual timing evidence without source audio or model copies
         if: always()
