@@ -92,7 +92,7 @@ class RealEncodedTextInkTests(unittest.TestCase):
             score_samples(self.plan,self.samples)
 
     def test_missing_frame_samples_hold_not_neutral(self):
-        del self.samples[("source_hold","CID 44301524")]
+        del self.samples[("source_hold","7-OH • CID 44301524")]
         with self.assertRaisesRegex(ValueError,"EARLY_LATE_NATIVE_FRAME_SAMPLES_REQUIRED"):
             score_samples(self.plan,self.samples)
 
