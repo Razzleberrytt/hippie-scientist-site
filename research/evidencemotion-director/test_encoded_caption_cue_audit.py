@@ -17,7 +17,15 @@ class ActualEncodedCaptionTests(unittest.TestCase):
                    "endSec":idx*5+.14+i*.11}
                   for i,w in enumerate(line.split())]
             scenes.append({"id":sid,"line":line,"captionWords":cues})
+        # Exercise real renderer convention: the silent PubChem card has no
+        # captionWords property at all, while every spoken scene is locked.
+        scenes[5].pop("captionWords")
         exact=ensure_frozen_scenes({"scenes":scenes})
+        self.assertEqual(exact["source_hold"]["line"],"")
+        invalid=[dict(item) for item in scenes]
+        invalid[0].pop("captionWords")
+        with self.assertRaisesRegex(ValueError,"ORIGINAL_WORD_CUE_DRIFT"):
+            ensure_frozen_scenes({"scenes":invalid})
         for scene,term in set(TARGETS)|set(REVEALS):
             cue=cue_lookup(exact,scene,term)
             self.assertEqual(cue["text"].casefold().strip(".,!?"),term)
