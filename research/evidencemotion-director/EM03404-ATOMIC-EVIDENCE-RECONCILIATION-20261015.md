@@ -50,7 +50,32 @@ This table measures both narrated captions **and** non-caption overlays in the n
 | `EM-034.04.N` | Reject a real negative case | VERIFIED_MACHINE_RESEARCH | Explicit high-density fake-science overlay rejected, film-identity tamper rejected; existing synthetic reading-load test suite also fail-closed |
 | `EM-034.04.R` | Record source-bound decision receipt | VERIFIED_MACHINE_RESEARCH | This linked, date-stamped source/run/artifact/measurements record, with limitations and release HOLD |
 
-**Promotion/accounting:** The above **7 template workcards were independently machine-reconciled under an *open* research milestone**. They were not among the 707 grandfathered template cards under previously accepted foundations. At current provisional accounting, `707 mapped-to-accepted + 7 newly audited (unmerged research) = 714 / 1,590 = 44.91%`. This is a *provisional coverage* number, not a guarantee that 714 individual cards have passed calibrated final review. Do not count real-unit instances twice, or add other EM-034 cards simply because this one is audited.
+**Promotion/accounting:** The `EM-034.04` **7 template workcards were independently machine-reconciled under an *open* research milestone**. They were not among the 707 grandfathered template cards under previously accepted foundations. At current provisional accounting, `707 mapped-to-accepted + 14 newly audited (unmerged research) = 721 / 1,590 = 45.35%`. This is a *provisional coverage* number, not a guarantee that 714 individual cards have passed calibrated final review. Do not count real-unit instances twice, or add other EM-034 cards simply because this one is audited.
+
+
+## Second verified workcard batch — EM-034.02 (seven machine-only cards)
+
+**Target:** exact rendered research-master identity. The phrase *master MP4* here denotes this **frozen reference video**, **not** a published, artistically approved or owner-device-verified final deliverable.
+
+This section was verified independently from **the same successful immutable GitHub run and artifact** before addition to the register:
+
+- Exact source video: `27ff38d6422f883a70c3910b5147392c93465e7ffa3507dddff700fa90017ad9`, **same bytes** as the `specimen-timed-native/specimen_NEW_RESEARCH_CANDIDATE.mp4` and the film ID in the rendered receipt, phone annotations, actual technical decode, temporal ledger and 11-sample encoded-pixel OCR report.
+- Decoded **AAC/ADTS elementary audio** was extracted independently from those exact MP4 bytes using `ffmpeg -i <exact-film> -map 0:a:0 -c:a copy -f adts -`. Calculated audio SHA-256 `f0057c19c9d06b8a2f3c6d8fec948ca4555966114579fd1a48b0bcfccc84aa98` **exactly matched** the separately generated native technical report. **The original WAV was not remixed, modified, replaced, or mistaken for the processed AAC.** Its source SHA is listed above.
+- Frozen source/claim revision in the render receipt contains the exact seven-scene original spoken-script cues; separate PubChem source associations for **mitragynine / CID 3034396** and **7-hydroxymitragynine / CID 44301524**, with source URLs and conformer identities. Independent Tesseract OCR of the actual **encoded film at 28.8s** recovered two correctly paired CID lines and the definition *CID = compound record number* (OCR harmlessly mistranscribed bullet glyphs). This checks screen **identity**, not complete medical meaning.
+- Exactly nine contiguous phone-plan shot intervals, declared exact source/film hashes, source/annotation file SHA `156a6f3de2715ff01d97b641e8013d4341574aa2cb54539d5945ccbf574f33be`, and seven-scene render receipt SHA `a0ac8a155a4a367c9f57c89ba5f97e4cc29ba5bee94512cc1c198b3432a1290b`.
+- Negative controls: replacing the film SHA in a cloned receipt is rejected by the identity cross-join; an incorrect source-ID/CID pair fails the native science/OCR expected-contract checks. No permissive fallback, invented author/reviewer, unpinned source claim or silent citation swap may pass.
+
+| Card ID | Evidence-gated action | Reconciled state | Proof |
+|---|---|---|---|
+| `EM-034.02.U` | Register exact video unit | VERIFIED_MACHINE_RESEARCH | Named 1080x1920 / 1,031-frame original-WAV film, seven source scenes and nine declared shots |
+| `EM-034.02.S` | Pin all source identities | VERIFIED_MACHINE_RESEARCH | Exact H.264, original WAV, extracted encoded AAC, PubChem CID pairs, render and phone-plan SHAs |
+| `EM-034.02.O` | Define falsifiable SHA equality | VERIFIED_MACHINE_RESEARCH | Pre-existing strict renderer/technical/claim audit gates require immutable input, film and audio identities |
+| `EM-034.02.X` | Produce hash-bound source/scene/annotation crosswalk | VERIFIED_MACHINE_RESEARCH | Full render receipt + scene/source/chemistry manifest joined to phone-plan and audio bytes |
+| `EM-034.02.T` | Recompute from actual encoded media | VERIFIED_MACHINE_RESEARCH | Independent MP4 byte SHA, actual ffmpeg-extracted AAC SHA, source-card encoded-pixel OCR and full technical-decoded receipt |
+| `EM-034.02.N` | Reject mismatched identities | VERIFIED_MACHINE_RESEARCH | Stale film-SHA and wrong source↔CID association cases must fail; source-screen OCR independently checked correct two-line association |
+| `EM-034.02.R` | Store durable audited receipt | VERIFIED_MACHINE_RESEARCH | This dated record includes the run, immutable artifact, hashes, limits and the explicit independent review HOLD |
+
+**Counting convention:** These 14 new research workcards are all in a previously **unaccepted** parent and thus do not overlap the 707 provisional cards mapped to accepted work. Each of the 14 IDs is counted exactly once, regardless of how many underlying frame/claim/shot instances share a source manifest. The 721 estimate is **provisional coverage**, not 721 released, approved or human-reviewed steps. These 14 workcards also remain **unmerged** until the repository's sole protected controller accepts the PR.
 
 **Still HOLD:** Independent verified scientific meaning beyond source/machine proxies; actual real-human/comparably calibrated muted understanding; premium first-render creative coherence, spoken chemical-term naturalness, full-decoded-frame visual reading at all timestamps, real handset playback, approved publication, and single-controller protected merge. Owner cannot be auto-assigned from a successful CI run. Any revised original WAV, scene, text, renderer, film or source receipt **requires revalidation against a newly pinned identity** before reusing this card decision.
 
