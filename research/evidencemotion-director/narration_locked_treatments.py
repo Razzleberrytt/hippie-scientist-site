@@ -272,7 +272,11 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
         draw=ImageDraw.Draw(image)
         text(pos(72,1150),'7-OH • CID 44301524' if is_h else 'MITRAGYNINE • CID 3034396',
              font=f(42,True),fill=accent)
-        text(pos(72,1200),'2D source structure • no reaction shown',
+        text(pos(72,1198),'2D source structure • no reaction shown',
+             font=f(36),fill=muted,role='disclosure')
+        # The opening shows CID identifiers from its first frame. Teach that
+        # abbreviation right where it first appears, not 27 seconds later.
+        text(pos(72,1242),'CID = compound record number',
              font=f(36),fill=muted,role='disclosure')
     elif idx==4 and not light:
         # The original ending was essentially an empty typographic slide. Put
