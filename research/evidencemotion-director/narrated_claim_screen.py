@@ -24,10 +24,51 @@ REVIEW_TOPICS = (
     "source_record_label_accuracy",
     "editorial_ending",
 )
-FORBIDDEN_VISUAL_ASSERTIONS = (
-    "proven to treat", "clinically proven", "cures ",
-    "safe for everyone", "measured receptor binding", "verified kratom leaf 7-oh",
-)
+# Locked reference text is independent of the caller-provided phone manifest.
+# This is an exact emitted-annotation CONTRACT, not OCR or clinical approval.
+# Any new rendered science/source text must first receive its own source review.
+EXPECTED_NON_CAPTION_ANNOTATIONS = {
+    "sentence_1": (
+        ("hook", "What makes\\n7-OH different?"),
+        ("disclosure", "Computed 3D illustration • not filmed"),
+        ("disclosure", "Hydrogen atoms omitted"),
+    ),
+    "sentence_2": (
+        ("science", "Look at the\\nhydroxyl group."),
+        ("science", "–OH group: oxygen + hydrogen"),
+        ("disclosure", "DETAIL REVEAL • computed model"),
+        ("disclosure", "Hydrogen atoms omitted"),
+    ),
+    "sentence_3": (
+        ("science", "A record of\\nconnected atoms."),
+        ("science", "Dots mark atoms. Lines mark bonds."),
+        ("science", "7-HYDROXYMITRAGYNINE"),
+    ),
+    "sentence_4": (
+        ("science", "The pose\\nis computed."),
+        ("disclosure", "Computed 3D illustration • not filmed"),
+        ("disclosure", "Hydrogen atoms omitted"),
+    ),
+    "sentence_5": (
+        ("science", "Structure\\nis not an effect."),
+        ("science", "STRUCTURE"),
+        ("science", "7-HYDROXYMITRAGYNINE"),
+    ),
+    "source_hold": (
+        ("science", "CHECK THE SOURCE"),
+        ("source", "PubChem"),
+        ("source", "Chemical structure database"),
+        ("source", "CID 44301524"),
+        ("source", "CID = compound record number"),
+        ("source", "C23H30N2O5"),
+        ("source", "pubchem.ncbi.nlm.nih.gov"),
+    ),
+    "sentence_6": (
+        ("science", "Look closer."),
+        ("disclosure", "DETAIL REVEAL • computed model"),
+        ("disclosure", "Hydrogen atoms omitted"),
+    ),
+}
 
 
 def hold(code):
@@ -98,10 +139,6 @@ def inspect(movie, wav, receipt_path, phone_plan_path):
         annotations = shot.get("annotations")
         if not isinstance(annotations, list) or any(not isinstance(a, dict) or not isinstance(a.get("text"), str) for a in annotations):
             hold("EMITTED_FRAME_TEXT_MISSING")
-        strings = [a["text"] for a in annotations]
-        joined = " ".join(strings).lower()
-        if any(term in joined for term in FORBIDDEN_VISUAL_ASSERTIONS):
-            hold("VISUAL_CLAIM_UNSUPPORTED_OR_CONTRADICTORY")
         captions = " ".join(a["text"] for a in annotations if a.get("role") == "caption")
         if captions != matching["line"]:
             hold("VISIBLE_CAPTIONS_MISMATCH_FROZEN_NARRATION")
@@ -131,6 +168,25 @@ def inspect(movie, wav, receipt_path, phone_plan_path):
     if (any(a["text"] == "≠" for a in earlier[1])
             or not any(a["text"] == "≠" for a in later[1])):
         hold("STRUCTURE_EFFECTS_NEGATION_INVERTED")
+    # Explicit scene-specific allowlist rejects ANY unknown science/source/hook
+    # wording, including harmless-sounding synonyms, added claims, duplicated
+    # source labels, reordered labels and role swaps. The manifest is still a
+    # renderer declaration; real decoded pixel/OCR checks remain separate.
+    for base, entries in grouped.items():
+        expected = EXPECTED_NON_CAPTION_ANNOTATIONS[base]
+        for shot, annotations in entries:
+            observed = tuple((a.get("role"), a["text"]) for a in annotations
+                             if a.get("role") != "caption")
+            # The negative visual payoff is the only intentionally variable
+            # science text, and is allowed strictly after the spoken "not".
+            if base == "sentence_5" and shot is later[0]:
+                expected_shot = expected[:2] + (
+                    ("science", "≠"), ("science", "HUMAN EXPERIENCE"),
+                ) + expected[2:]
+            else:
+                expected_shot = expected
+            if observed != expected_shot:
+                hold("VISUAL_CLAIM_UNSUPPORTED_OR_CONTRADICTORY")
     reviews = []
     for scene, topic in zip(scenes, REVIEW_TOPICS):
         reviews.append({"scene": scene["id"], "timeStartSec": scene["startSec"],
