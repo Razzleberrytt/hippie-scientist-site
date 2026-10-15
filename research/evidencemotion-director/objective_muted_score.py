@@ -151,7 +151,7 @@ def evaluate(plan, *, image_variation=None, safe_zone_pass=False,
            contains(a["id"], "MITRAGYNINE")
            and contains(b["id"], "7-OH")
            and contains("source_hold", "Mitragynine • CID 3034396")
-           and contains("source_hold", "CID 44301524")
+           and contains("source_hold", "7-OH • CID 44301524")
            and a["endSec"] - a["startSec"] >= 1.3
            and b["endSec"] - b["startSec"] >= 1.3,
            "Two different primary record identities have individually visible intervals >=1.3 s")
