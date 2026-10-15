@@ -56,31 +56,6 @@ def timeline(alignment):
     return scenes
 
 
-def caption_window(cues, t, *, max_words=3):
-    """Three-word timed caption groups; never alter the locked spoken script.
-
-    Source cues stay immutable. The word being spoken is always included and
-    highlighted by its true time, with up to two neighbor words as context.
-    Call this AFTER splitting at any semantic reveal boundary, so the word
-    'not' cannot appear before the actual spoken negation.
-    """
-    if not cues:
-        return []
-    if max_words < 1:
-        raise ValueError('TREATMENT_HOLD:INVALID_CAPTION_WINDOW')
-    for cue in cues:
-        if cue['endSec'] <= cue['startSec']:
-            raise ValueError('TREATMENT_HOLD:INVALID_WORD_CUE')
-    active = 0
-    for i, cue in enumerate(cues):
-        if cue['startSec'] <= t:
-            active = i
-        else:
-            break
-    start = (active // max_words) * max_words
-    return cues[start:start + max_words]
-
-
 def fonts(root):
     from PIL import ImageFont
     base = Path(root)
@@ -271,23 +246,19 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
     # A semantic reveal must not be spoiled by the header before the narrator
     # says the negation. Keep the original WAV and acoustic cue untouched.
     effect_boundary = None
-    opening_boundary = None
     if not light and idx == 4:
         effect_boundary = next(w['startSec'] for w in scene['captionWords']
                                if w['text'].casefold() == 'not')
-        title = None  # Source graph and timed negation carry the explanation.
+        title = 'What the shape\nshows.' if t < effect_boundary else 'What it cannot\ntell us.'
     elif not light and idx == 0:
         # Narration names both compounds. Keep the two rapid opening cuts
         # beginner-readable; full PubChem record IDs are explained on the
         # silent source card instead of cramming 17 words into 1.61 seconds.
-        title = None  # The source identity and exact spoken question are the hook.
-        opening_boundary = next(w['startSec'] for w in scene['captionWords']
-                                if w['text'].casefold().strip('?!.,') == 'different')
+        title = '7-OH vs\nmitragynine'
     else:
         title = titles[idx]
-    if title is not None:
-        text(pos(70,292),title,font=f(70 if idx==5 else 74,True),fill=fg,
-             role='hook' if idx==0 else 'science')
+    text(pos(70,292),title,font=f(70 if idx==5 else 74,True),fill=fg,
+         role='hook' if idx==0 else 'science')
     is_spatial = not light and idx not in (0,2,4,5)
     if idx==1 and is_spatial:
         text(pos(72,500),'–OH group: oxygen + hydrogen',font=f(36,True),fill=accent)
@@ -305,8 +276,8 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
         image.alpha_composite(diagram,pos(35,545))
         draw=ImageDraw.Draw(image)
         text(pos(72,1150),'7-OH' if is_h else 'MITRAGYNINE',
-             font=f(42,True),fill=accent,role='hook')
-        text(pos(72,1200),'No reaction',
+             font=f(42,True),fill=accent)
+        text(pos(72,1200),'Separate structures • no reaction',
              font=f(36),fill=muted,role='disclosure')
     elif idx==4 and not light:
         # The original ending was essentially an empty typographic slide. Put
@@ -325,8 +296,7 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
         draw=ImageDraw.Draw(image)
         # The line is an inference boundary, not an invented process arrow.
         draw.line((pos(74,1118),pos(838,1118)),fill=accent,width=max(2,round(3*scale)))
-        if t < boundary:
-            text(pos(108,525),'STRUCTURE',font=f(52,True),fill=accent)
+        text(pos(108,525),'STRUCTURE',font=f(52,True),fill=accent)
         if t>=boundary:
             # Large distinct payoff precisely on the original narrator's
             # 'not'. Preserve the intact source graph above the boundary.
@@ -377,11 +347,8 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
         image.alpha_composite(model,pos(20,540))
         draw = ImageDraw.Draw(image)
         disclosure = 'DETAIL REVEAL • computed model' if idx in (1,6) else 'Computed 3D illustration • not filmed'
-        if idx == 6:
-            disclosure = 'Computed detail'
         text(pos(72,1190),disclosure,font=f(38),fill=accent,role='disclosure')
-        text(pos(72,1235),'Hydrogens omitted' if idx==6 else 'Hydrogen atoms omitted',
-             font=f(36),fill=muted,role='disclosure')
+        text(pos(72,1235),'Hydrogen atoms omitted',font=f(36),fill=muted,role='disclosure')
     draw = ImageDraw.Draw(image)
     if idx not in (0,4,5) and not is_spatial:
         text(pos(72,1260),hero_label,font=f(30,True),fill=muted)
@@ -396,14 +363,6 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
     if effect_boundary is not None:
         visible_words = [word for word in visible_words
                          if (word['startSec'] < effect_boundary) == (t < effect_boundary)]
-    if opening_boundary is not None:
-        visible_words = [word for word in visible_words
-                         if (word['startSec'] < opening_boundary) == (t < opening_boundary)]
-    # The prior full-sentence caption was readable as text but overloaded the
-    # *combined* subtitle+scientific-overlay rate in fast scenes. Group captions
-    # in at most three original acoustic cues, without hiding any spoken word.
-    # Never rewrite the phrase, change the source WAV, or pre-reveal negation.
-    visible_words = caption_window(visible_words, t)
     caption = wrapped(' '.join(w['text'] for w in visible_words),f(42,True),770*scale)
     if len(caption)>5:
         raise ValueError('TREATMENT_HOLD:CAPTION_TOO_DENSE')
