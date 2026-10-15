@@ -63,8 +63,24 @@ def plain(text):
     return s.casefold().replace("–","-").replace("—","-").replace("•"," ")
 
 
-def _whole_line(text,word):
-    return re.search(r"(?m)^\s*"+word+r"\s*$",plain(text)) is not None
+def _shot_identity_nearest_caveat(text):
+    """Read source label nearest the on-screen no-reaction warning.
+
+    The shared title "7-OH vs mitragynine" names BOTH chemicals: a keyword
+    anywhere in a full frame does NOT distinguish a swapped structure.
+    Independently OCR-derived line order must show the actual shot's
+    individual label immediately above the safety disclosure, ignoring
+    nonword OCR noise but not substituting mutable storyboard assertions.
+    """
+    lines=[line.strip(" \t*•.:-") for line in plain(text).splitlines()]
+    end=next((i for i,line in enumerate(lines)
+              if "separate structures" in line and "no reaction" in line),None)
+    if end is None:
+        return None
+    for line in reversed(lines[:end]):
+        if line in ("mitragynine","7-oh"):
+            return line
+    return None
 
 
 def recover(raw):
@@ -75,9 +91,8 @@ def recover(raw):
     contaminated=any(p in " ".join(plain(t) for t in raw.values())
                      for p in BANNED)
     results={
-        "q1":_whole_line(a,"mitragynine")
-              and _whole_line(b,r"7[- ]?oh")
-              and "separate structures" in a and "no reaction" in b,
+        "q1":_shot_identity_nearest_caveat(a)=="mitragynine"
+              and _shot_identity_nearest_caveat(b)=="7-oh",
         "q2":"hydroxyl group" in h and
               re.search(r"oxygen\s*\+\s*hydrogen",h) is not None,
         "q3":"computed 3d illustration" in shape
