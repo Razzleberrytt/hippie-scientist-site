@@ -20,6 +20,8 @@ on:
       - 'research/evidencemotion-director/narrated_claim_screen.py'
       - 'research/evidencemotion-director/muted_review_research.py'
       - 'research/evidencemotion-director/test_muted_review_research.py'
+      - 'research/evidencemotion-director/muted_answer_recovery.py'
+      - 'research/evidencemotion-director/test_muted_answer_recovery.py'
       - 'research/evidencemotion-director/test_narrated_claim_screen.py'
       - 'research/evidencemotion-director/ASR-SOURCE-LOCK-2026-10-13.md'
       - 'research/evidencemotion-director/COMPLETION-CHECKLIST.md'
@@ -75,6 +77,7 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director -p test_native_autocritic.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_narrated_claim_screen.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_muted_review_research.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_muted_answer_recovery.py -v
           for treatment in atlas specimen; do
             python research/evidencemotion-director/narration_locked_treatments.py \
               --alignment-root "$RUNNER_TEMP/ths-mfa/result" \
@@ -149,6 +152,31 @@ jobs:
                   assert critic['mayPublish'] is False and critic['automaticallyApprovedPremiumCraft'] is False
                   print('Actual native negative screening:',critic['decision'],critic['issues'])
               print(treatment,'1031 decoded frames, fixed timestamps, unchanged AAC reference, original voice retained')
+          PY
+      - name: Evaluate five answerable mute-video questions and ten adverse counterfactuals
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/muted_answer_recovery.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --phone "$RUNNER_TEMP/ths-mfa/specimen-native/phone-ui-plan.json" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-native/render-receipt.json" \
+            --claim "$RUNNER_TEMP/ths-mfa/specimen-native/claim-screen.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-native/muted-answer-evidence.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-native/muted-answer-evidence.json'
+          x=json.loads(p.read_text())
+          assert x['currentRequirementWorkingPercent']==96
+          assert x['additionalMeasuredPoints']==2
+          assert all(x['semanticEvidence'].values())
+          assert all(t['allRequiredAnswersInkVisible'] for t in x['actualEncodedPixels'])
+          assert len(x['counterfactualResults'])==5
+          assert all(t['erasingKeyFactDropsAnswer'] and t['addingContradictionDropsAnswer']
+                     for t in x['counterfactualResults'])
+          assert x['humanAudienceRespondents']==0 and not x['mayPublish']
+          print('Five real-frame-grounded questions and ten adverse counterfactuals PASS; no audience verdict.')
           PY
       - name: Generate actual muted teaching review packet without inventing audience scores
         shell: micromamba-shell {0}
