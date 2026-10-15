@@ -264,6 +264,7 @@
 - [ ] **EM-014.01.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **timed target list**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-014.01.X** — For that **one specialized spoken occurrence**, perform or independently replay this bounded operation: **Isolate all 7-OH/hydroxyl/mitragynine instances in the exact WAV**. **Receipt:** a single output artifact corresponding to **timed target list**.
 - [ ] **EM-014.01.T** — Check the actual output against the predeclared assertion using actual decoded waveform/phoneme/timing measurement and no-unauthorized-substitution checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-014.01.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-014.01.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-014.02 — Construct phoneme and stress reference dictionary with sourced or listen-confirmed anchors
@@ -275,6 +276,7 @@
 - [ ] **EM-014.02.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **lexicon**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-014.02.X** — For that **one specialized spoken occurrence**, perform or independently replay this bounded operation: **Construct phoneme and stress reference dictionary with sourced or listen-confirmed anchors**. **Receipt:** a single output artifact corresponding to **lexicon**.
 - [ ] **EM-014.02.T** — Check the actual output against the predeclared assertion using actual decoded waveform/phoneme/timing measurement and no-unauthorized-substitution checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-014.02.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-014.02.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-014.03 — Run an actual acoustic/phonetic evaluator rather than text-only ASR
@@ -286,6 +288,7 @@
 - [ ] **EM-014.03.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **term-level observations**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-014.03.X** — For that **one specialized spoken occurrence**, perform or independently replay this bounded operation: **Run an actual acoustic/phonetic evaluator rather than text-only ASR**. **Receipt:** a single output artifact corresponding to **term-level observations**.
 - [ ] **EM-014.03.T** — Check the actual output against the predeclared assertion using actual decoded waveform/phoneme/timing measurement and no-unauthorized-substitution checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-014.03.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-014.03.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-014.04 — Calibrate against real listening ground truth and negative pronunciations
@@ -309,6 +312,7 @@
 - [ ] **EM-014.05.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **separate timestamped results**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-014.05.X** — For that **one specialized spoken occurrence**, perform or independently replay this bounded operation: **Inspect pace, clipped endings, natural pauses and cadence**. **Receipt:** a single output artifact corresponding to **separate timestamped results**.
 - [ ] **EM-014.05.T** — Check the actual output against the predeclared assertion using actual decoded waveform/phoneme/timing measurement and no-unauthorized-substitution checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-014.05.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-014.05.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-014.06 — Record every term PASS/HOLD with exact WAV SHA; unresolved terms block voice approval
@@ -320,6 +324,7 @@
 - [ ] **EM-014.06.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **term-level verdict ledger and enforced nonapproval on any HOLD**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-014.06.X** — For that **one specialized spoken occurrence**, perform or independently replay this bounded operation: **Record every term PASS/HOLD with exact WAV SHA; unresolved terms block voice approval**. **Receipt:** a single output artifact corresponding to **term-level verdict ledger and enforced nonapproval on any HOLD**.
 - [ ] **EM-014.06.T** — Check the actual output against the predeclared assertion using actual decoded waveform/phoneme/timing measurement and no-unauthorized-substitution checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-014.06.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-014.06.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-015.01 — Record a justified failure on an identified spoken sentence/word
@@ -343,6 +348,7 @@
 - [ ] **EM-015.02.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **candidate WAV**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-015.02.X** — For that **one rejected spoken sentence**, perform or independently replay this bounded operation: **Regenerate the smallest full natural sentence chunk in the original pinned voice**. **Receipt:** a single output artifact corresponding to **candidate WAV**.
 - [ ] **EM-015.02.T** — Check the actual output against the predeclared assertion using actual decoded waveform/phoneme/timing measurement and no-unauthorized-substitution checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-015.02.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-015.02.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-015.03 — Join chunks without time stretching and test audible seams
@@ -354,6 +360,7 @@
 - [ ] **EM-015.03.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **waveform/ear QA**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-015.03.X** — For that **one rejected spoken sentence**, perform or independently replay this bounded operation: **Join chunks without time stretching and test audible seams**. **Receipt:** a single output artifact corresponding to **waveform/ear QA**.
 - [ ] **EM-015.03.T** — Check the actual output against the predeclared assertion using actual decoded waveform/phoneme/timing measurement and no-unauthorized-substitution checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-015.03.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-015.03.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-015.04 — Invalidate all old word timings, caption cuts, hash approvals and render assets
@@ -389,6 +396,7 @@
 - [ ] **EM-016.01.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **input manifest**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-016.01.X** — For that **one acoustically aligned word**, perform or independently replay this bounded operation: **Freeze original WAV/hash, transcript, pronunciation dictionary and MFA model**. **Receipt:** a single output artifact corresponding to **input manifest**.
 - [ ] **EM-016.01.T** — Check the actual output against the predeclared assertion using actual decoded waveform/phoneme/timing measurement and no-unauthorized-substitution checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-016.01.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-016.01.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-016.02 — Run genuine original-speech forced alignment for every emitted word
@@ -400,6 +408,7 @@
 - [ ] **EM-016.02.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **word-boundary TextGrid**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-016.02.X** — For that **one acoustically aligned word**, perform or independently replay this bounded operation: **Run genuine original-speech forced alignment for every emitted word**. **Receipt:** a single output artifact corresponding to **word-boundary TextGrid**.
 - [ ] **EM-016.02.T** — Check the actual output against the predeclared assertion using actual decoded waveform/phoneme/timing measurement and no-unauthorized-substitution checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-016.02.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-016.02.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-016.03 — Independently validate boundary tolerances on real acoustics/annotated words
@@ -411,6 +420,7 @@
 - [ ] **EM-016.03.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **calibration report**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-016.03.X** — For that **one acoustically aligned word**, perform or independently replay this bounded operation: **Independently validate boundary tolerances on real acoustics/annotated words**. **Receipt:** a single output artifact corresponding to **calibration report**.
 - [ ] **EM-016.03.T** — Check the actual output against the predeclared assertion using actual decoded waveform/phoneme/timing measurement and no-unauthorized-substitution checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-016.03.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-016.03.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-016.04 — Match word highlights, 7-OH cue and captions to accepted boundaries
@@ -422,6 +432,7 @@
 - [ ] **EM-016.04.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **sampled frame-times**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-016.04.X** — For that **one acoustically aligned word**, perform or independently replay this bounded operation: **Match word highlights, 7-OH cue and captions to accepted boundaries**. **Receipt:** a single output artifact corresponding to **sampled frame-times**.
 - [ ] **EM-016.04.T** — Check the actual output against the predeclared assertion using actual decoded waveform/phoneme/timing measurement and no-unauthorized-substitution checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-016.04.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-016.04.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-016.05 — Reject altered WAV, incorrect lexicon, missing words and offset drift
@@ -445,6 +456,7 @@
 - [ ] **EM-016.06.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **no cross-voice reuse**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-016.06.X** — For that **one acoustically aligned word**, perform or independently replay this bounded operation: **Bind approved alignment to the exact final narration and visual plan**. **Receipt:** a single output artifact corresponding to **no cross-voice reuse**.
 - [ ] **EM-016.06.T** — Check the actual output against the predeclared assertion using actual decoded waveform/phoneme/timing measurement and no-unauthorized-substitution checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-016.06.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-016.06.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-017.01 — Generate exact transcript from locked authored narration and align to encoded speech
@@ -456,6 +468,7 @@
 - [ ] **EM-017.01.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **two-source comparison**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-017.01.X** — For that **one caption/voice/source claim**, perform or independently replay this bounded operation: **Generate exact transcript from locked authored narration and align to encoded speech**. **Receipt:** a single output artifact corresponding to **two-source comparison**.
 - [ ] **EM-017.01.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-017.01.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-017.01.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-017.02 — Extract every final on-screen scientific caption/highlight
@@ -467,6 +480,7 @@
 - [ ] **EM-017.02.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **pixel/OCR plus authored ledger**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-017.02.X** — For that **one caption/voice/source claim**, perform or independently replay this bounded operation: **Extract every final on-screen scientific caption/highlight**. **Receipt:** a single output artifact corresponding to **pixel/OCR plus authored ledger**.
 - [ ] **EM-017.02.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-017.02.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-017.02.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-017.03 — Compare substance name, chemistry, negation and uncertainty across narration/source/visual
@@ -478,6 +492,7 @@
 - [ ] **EM-017.03.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **row-level findings**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-017.03.X** — For that **one caption/voice/source claim**, perform or independently replay this bounded operation: **Compare substance name, chemistry, negation and uncertainty across narration/source/visual**. **Receipt:** a single output artifact corresponding to **row-level findings**.
 - [ ] **EM-017.03.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-017.03.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-017.03.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-017.04 — Audit muted timing and comprehension on the actual sequence, not isolated text boxes
@@ -489,6 +504,7 @@
 - [ ] **EM-017.04.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **trial and questions**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-017.04.X** — For that **one caption/voice/source claim**, perform or independently replay this bounded operation: **Audit muted timing and comprehension on the actual sequence, not isolated text boxes**. **Receipt:** a single output artifact corresponding to **trial and questions**.
 - [ ] **EM-017.04.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-017.04.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-017.04.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-017.05 — Reject a silent removed disclaimer or mistimed OH highlight
