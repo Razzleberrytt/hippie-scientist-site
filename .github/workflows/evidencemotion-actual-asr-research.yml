@@ -175,11 +175,16 @@ jobs:
           p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-native/opening-reading-budget.json'
           x=json.loads(p.read_text())
           assert x['allOpeningCutsPass']
+          assert x['allScenesReadingBudgetPass']
+          assert len(x['allSceneSpans'])==9
+          assert next(x for x in x['allSceneSpans']
+                      if x['scene']=='sentence_5_part1')['visualWords']==8
+          assert all(x['passesFullFilmReadingBudget'] for x in x['allSceneSpans'])
           assert [s['visualWords'] for s in x['openingSpans']]==[8,8]
           assert all(s['visualWordsPerSecond']<=5 for s in x['openingSpans'])
           assert x['sourceRecordIdentitiesStillOnSilentHold']
           assert not x['audienceComprehensionVerified']
-          print('Native hook science load stays below 5 words/sec; both PubChem identities preserved at silent hold.')
+          print('All nine scenes stay below 5 words/sec; both source identities and effects limit preserved.')
           PY
       - name: Inspect actual decoded critical scientific text contrast and persistent legibility
         shell: micromamba-shell {0}
