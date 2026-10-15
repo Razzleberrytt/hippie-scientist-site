@@ -48,6 +48,10 @@ Primary user-value outcome is **measured comprehension/trust-safe attention** to
 
 ## 5. Dependencies and phased implementation (candidate only)
 
+**Phase 0 audit (2026-10-15):** [Repository source-owner mapping and authorized Metricool/API metric-coverage investigation](algorithm-observatory-phase0-audit-2026-10-15.md). This is an **inspection/research artifact**, not evidence that a Publisher-to-flywheel bridge exists, the full code/test suite passed, or real performance lift was validated. Proposed first gated implementation owner: [#6810](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6810).
+
+
+
 **Phase 0 — Audit/reuse:** Reconcile live GitHub/production state of R8.10 flywheel, SocialOS Publisher/Observer, #4414 experiment history, #4407 outcomes, EvidenceMotion creative manifests and availability of authorized platform metrics. Enumerate overlap and source ownership; record missing coverage.
 
 **Phase 1 — Minimal instrumented vertical slice:** For **one verified published video**, reconcile canonical ID/hash with a timestamped source-proven performance snapshot and extracted creative features; produce a local inspectable report. A fixture alone is test coverage, not completion or real metrics.
