@@ -66,6 +66,40 @@ class NarrationTreatments(unittest.TestCase):
                     parent=asset['mol'].GetAtomWithIdx(oh).GetNeighbors()[0].GetIdx()
                     self.assertGreater(asset['xyz'][oh,2],asset['xyz'][parent,2])
 
+    def test_silent_source_pause_has_no_caption_cues(self):
+        # The exact original source-reading hold is intentionally silent;
+        # it must have a real scene/graphic but no manufactured words.
+        import os
+        from pathlib import Path
+        from narration_locked_treatments import fonts, render_frame
+        font_path=Path(os.environ.get('THS_TEST_FONT_DIR','/usr/share/fonts/truetype/dejavu'))
+        if not font_path.is_dir():
+            self.skipTest('Pinned DejaVu font unavailable on this runner')
+        font,_=fonts(font_path)
+        scenes=timeline(self.alignment())
+        assets=chemistry_assets()
+        ads=[]
+        card=next(s for s in scenes if s['id']=='source_hold')
+        frame=render_frame((card['startSec']+card['endSec'])/2,
+                           scenes,assets,'specimen',(1080,1920),font,annotations=ads)
+        self.assertEqual(frame.size,(1080,1920))
+        self.assertEqual([a for a in ads if a['role']=='caption'],[])
+        self.assertIn('CID 44301524',[a['text'] for a in ads])
+
+    def test_spoken_scene_missing_word_cues_holds(self):
+        import os
+        from pathlib import Path
+        from narration_locked_treatments import fonts, render_frame
+        font_path=Path(os.environ.get('THS_TEST_FONT_DIR','/usr/share/fonts/truetype/dejavu'))
+        if not font_path.is_dir():
+            self.skipTest('Pinned DejaVu font unavailable on this runner')
+        font,_=fonts(font_path)
+        scenes=timeline(self.alignment())
+        assets=chemistry_assets()
+        scenes[0].pop('captionWords')
+        with self.assertRaisesRegex(ValueError,'MISSING_SPOKEN_WORD_CUES'):
+            render_frame(.5,scenes,assets,'specimen',(1080,1920),font)
+
     def test_native_emitted_text_fits_existing_phone_ui_rules(self):
         import os
         from pathlib import Path
