@@ -1,5 +1,7 @@
 # EvidenceMotion — granular execution register for all 46 canonical milestones
 
+**Next level (atomic):** [1,590 independently checkable workcards across these 243 tasks](ATOMIC-EXECUTION-INDEX.md), indexed by parent and subtask with exact evidence and unit-instance rules. This is a planning expansion, **not** 1,590 accepted executions.
+
 > **Planning overlay / not a second completion authority.** Owner direction: 2026-10-15. This file decomposes the original 46 in [`COMPLETION-CHECKLIST.md`](COMPLETION-CHECKLIST.md) into testable actions. The canonical checked/open states, exact accepted media, signed approvals, CI and release gates still control completion.
 
 ## How to use this register
