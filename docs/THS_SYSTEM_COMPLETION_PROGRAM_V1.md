@@ -14,22 +14,22 @@ This is a **navigation and acceptance overlay, not a competing source of truth**
 
 | Domain | System | Goal/acceptance view | Current verifiable boundary |
 | --- | --- | --- | --- |
-| Trust | TR-01 Enrichment & Canonical Evidence Intake | [8 gates](checklists/trust-research.md#tr-01--enrichment  canonical evidence intake) | Not individually audited in this new crosswalk |
-| Trust | TR-02 Scientific Review, Safety & Harm Reduction | [8 gates](checklists/trust-research.md#tr-02--scientific review safety  harm reduction) | Not individually audited in this new crosswalk |
-| Trust | TR-03 Research Atlas & Explain-the-Evidence | [8 gates](checklists/trust-research.md#tr-03--research atlas  explaintheevidence) | Not individually audited in this new crosswalk |
-| Trust | TR-04 Semantic Opportunity Compiler & Cross-System Intelligence | [8 gates](checklists/trust-research.md#tr-04--semantic opportunity compiler  crosssystem intelligence) | Not individually audited in this new crosswalk |
-| Consumer Product | PC-01 Website UX, Design & Accessibility | [8 gates](checklists/consumer-content.md#pc-01--website ux design  accessibility) | Not individually audited in this new crosswalk |
-| Consumer Product | PC-02 Evidence-Based Editorial & Content Lifecycle | [8 gates](checklists/consumer-content.md#pc-02--evidencebased editorial  content lifecycle) | Not individually audited in this new crosswalk |
-| Consumer Product | PC-03 SEO, AI Citation & Evidence Discoverability | [8 gates](checklists/consumer-content.md#pc-03--seo ai citation  evidence discoverability) | Not individually audited in this new crosswalk |
-| Consumer Product | PC-04 Retention, Reader Tools & Consumer Decisions | [8 gates](checklists/consumer-content.md#pc-04--retention reader tools  consumer decisions) | Not individually audited in this new crosswalk |
-| Creative Systems | MD-01 EvidenceMotion Production | [8 gates](checklists/creative-distribution.md#md-01--evidencemotion production) | Not individually audited in this new crosswalk |
-| Creative Systems | MD-02 THS Voice Engine & Reusable Art | [8 gates](checklists/creative-distribution.md#md-02--ths voice engine  reusable art) | Not individually audited in this new crosswalk |
-| Creative Systems | MD-03 THS SocialOS, Publisher & Observer | [8 gates](checklists/creative-distribution.md#md-03--ths socialos publisher  observer) | Not individually audited in this new crosswalk |
-| Creative Systems | MD-04 Algorithm Observatory & Creative Performance Learning | [8 gates](checklists/creative-distribution.md#md-04--algorithm observatory  creative performance learning) | Not individually audited in this new crosswalk |
-| Operations | BV-01 Privacy-Safe Analytics & Experimentation | [8 gates](checklists/operations-business.md#bv-01--privacysafe analytics  experimentation) | Not individually audited in this new crosswalk |
-| Operations | BV-02 Revenue, Conversion & Sustainable Business | [8 gates](checklists/operations-business.md#bv-02--revenue conversion  sustainable business) | Not individually audited in this new crosswalk |
-| Operations | BV-03 Asset Intelligence & Licensing | [8 gates](checklists/operations-business.md#bv-03--asset intelligence  licensing) | Not individually audited in this new crosswalk |
-| Operations | BV-04 Autonomous Operations, CI/CD & Scheduler Reliability | [8 gates](checklists/operations-business.md#bv-04--autonomous operations cicd  scheduler reliability) | Not individually audited in this new crosswalk |
+| Trust | TR-01 Enrichment & Canonical Evidence Intake | [8 gates](checklists/trust-research.md) | Not individually audited in this new crosswalk |
+| Trust | TR-02 Scientific Review, Safety & Harm Reduction | [8 gates](checklists/trust-research.md) | Not individually audited in this new crosswalk |
+| Trust | TR-03 Research Atlas & Explain-the-Evidence | [8 gates](checklists/trust-research.md) | Not individually audited in this new crosswalk |
+| Trust | TR-04 Semantic Opportunity Compiler & Cross-System Intelligence | [8 gates](checklists/trust-research.md) | Not individually audited in this new crosswalk |
+| Consumer Product | PC-01 Website UX, Design & Accessibility | [8 gates](checklists/consumer-content.md) | Not individually audited in this new crosswalk |
+| Consumer Product | PC-02 Evidence-Based Editorial & Content Lifecycle | [8 gates](checklists/consumer-content.md) | Not individually audited in this new crosswalk |
+| Consumer Product | PC-03 SEO, AI Citation & Evidence Discoverability | [8 gates](checklists/consumer-content.md) | Not individually audited in this new crosswalk |
+| Consumer Product | PC-04 Retention, Reader Tools & Consumer Decisions | [8 gates](checklists/consumer-content.md) | Not individually audited in this new crosswalk |
+| Creative Systems | MD-01 EvidenceMotion Production | [8 gates](checklists/creative-distribution.md) | Not individually audited in this new crosswalk |
+| Creative Systems | MD-02 THS Voice Engine & Reusable Art | [8 gates](checklists/creative-distribution.md) | Not individually audited in this new crosswalk |
+| Creative Systems | MD-03 THS SocialOS, Publisher & Observer | [8 gates](checklists/creative-distribution.md) | Not individually audited in this new crosswalk |
+| Creative Systems | MD-04 Algorithm Observatory & Creative Performance Learning | [8 gates](checklists/creative-distribution.md) | Not individually audited in this new crosswalk |
+| Operations | BV-01 Privacy-Safe Analytics & Experimentation | [8 gates](checklists/operations-business.md) | Not individually audited in this new crosswalk |
+| Operations | BV-02 Revenue, Conversion & Sustainable Business | [8 gates](checklists/operations-business.md) | Not individually audited in this new crosswalk |
+| Operations | BV-03 Asset Intelligence & Licensing | [8 gates](checklists/operations-business.md) | Not individually audited in this new crosswalk |
+| Operations | BV-04 Autonomous Operations, CI/CD & Scheduler Reliability | [8 gates](checklists/operations-business.md) | Not individually audited in this new crosswalk |
  
 **Native-authority crosswalk (do not add these totals together):**
 
