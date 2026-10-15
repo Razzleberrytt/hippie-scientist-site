@@ -65,18 +65,56 @@ function verifiedPublisherJob(bytes) {
     throw Error('AO canonical Publisher publicationId or identity mismatch')
   }
   const receipt = job.providerReceipt
-  if (!receipt || receipt.provider !== identity.platform || !String(receipt.externalId || '').trim()) {
+  const officialProvider = receipt?.provider === identity.platform
+  const manualProvider = ['manual', 'manual-reconciliation'].includes(receipt?.provider)
+  if (!receipt || (!officialProvider && !manualProvider) || !String(receipt.externalId || '').trim()) {
     throw Error('AO missing Publisher verified external public video ID')
   }
+  const external = String(receipt.externalId).trim()
+  const externalIsUrl = /^https:\/\//.test(external)
+  let externalPostId
+  if (externalIsUrl) externalPostId = videoIdFromPublicUrl(identity.platform, external)
+  else if (officialProvider && (
+    (identity.platform === 'tiktok' && /^\d+$/.test(external)) ||
+    (identity.platform === 'youtube' && /^[A-Za-z0-9_-]{11}$/.test(external))
+  )) externalPostId = external
+  else throw Error('AO Publisher external video ID must be a valid platform ID or public URL')
   const verifiedMs = utc(receipt.verifiedPublishedAt, 'verifiedPublishedAt')
+  if (receipt.publicationId && receipt.publicationId !== job.publicationId) {
+    throw Error('AO Publisher verification receipt publicationId mismatch')
+  }
   if (!Array.isArray(job.providerReceipts) || !job.providerReceipts.some((r) =>
     r.provider === receipt.provider && r.externalId === receipt.externalId &&
     r.verifiedPublishedAt === receipt.verifiedPublishedAt)) {
     throw Error('AO missing Publisher publication verification history')
   }
-  if (!Array.isArray(job.attempts) || !job.attempts.length) throw Error('AO missing Publisher dispatch attempt history')
+  for (const publicUrl of [receipt.publicUrl, job.publicUrl].filter(Boolean)) {
+    if (videoIdFromPublicUrl(identity.platform, publicUrl) !== externalPostId) {
+      throw Error('AO Publisher stored public URL does not match verified video identity')
+    }
+  }
+  if (!Array.isArray(job.attempts)) throw Error('AO missing Publisher attempt history')
+  if (manualProvider) {
+    // The canonical /api/publisher/manual route can publish a QUEUED job
+    // without any provider dispatch attempt. Its receipt is URL-based.
+    if (!externalIsUrl || !receipt.publicUrl || !job.publicUrl ||
+        !receipt.providerOperationId || !job.publishedAt ||
+        receipt.publicationId !== job.publicationId ||
+        videoIdFromPublicUrl(identity.platform, receipt.publicUrl) !== externalPostId ||
+        videoIdFromPublicUrl(identity.platform, job.publicUrl) !== externalPostId ||
+        utc(job.publishedAt, 'manual publishedAt') !== verifiedMs) {
+      throw Error('AO incomplete canonical manual publication receipt')
+    }
+    if (receipt.provider === 'manual-reconciliation' && !job.reconciliationReceipts?.some((r) =>
+      r.outcome === 'published' && r.publicUrl &&
+      videoIdFromPublicUrl(identity.platform, r.publicUrl) === externalPostId)) {
+      throw Error('AO missing published reconciliation evidence')
+    }
+  } else if (!job.attempts.length) {
+    throw Error('AO missing Publisher dispatch attempt history')
+  }
   utc(identity.intendedTime, 'intendedTime')
-  return { job, identity, receipt, verifiedMs }
+  return { job, identity, receipt, verifiedMs, externalPostId }
 }
 
 // Link is an evidence projection, NOT a new Publisher state or permission.
@@ -87,7 +125,7 @@ export function linkPublishedFlywheelVideo(root, {
 } = {}) {
   const id = safeVideoId(videoId)
   const publisherBytes = fileBytes(publisherJobFile, 'Publisher receipt')
-  const { job, identity, receipt, verifiedMs } = verifiedPublisherJob(publisherBytes)
+  const { job, identity, receipt, verifiedMs, externalPostId } = verifiedPublisherJob(publisherBytes)
   if (!['tiktok', 'youtube'].includes(identity.platform)) throw Error('AO pilot supports TikTok or YouTube only')
   const video = getFlywheelVideo(root, id)
   if (video.platform !== identity.platform) throw Error('AO platform mismatch with Flywheel')
@@ -99,7 +137,7 @@ export function linkPublishedFlywheelVideo(root, {
     throw Error('AO original production manifest hash mismatch')
   }
   const postId = videoIdFromPublicUrl(identity.platform, video.publishedUrl)
-  if (postId !== receipt.externalId) throw Error('AO Publisher external video ID does not match Flywheel URL')
+  if (postId !== externalPostId) throw Error('AO Publisher external video ID does not match Flywheel URL')
   if (utc(video.publishedAt, 'publishedAt') > verifiedMs) {
     throw Error('AO observed publication time is after Publisher verification')
   }
@@ -109,7 +147,7 @@ export function linkPublishedFlywheelVideo(root, {
     publicationId: job.publicationId,
     experimentId: identity.experimentId,
     platform: identity.platform,
-    platformPostId: receipt.externalId,
+    platformPostId: externalPostId,
     publishedAt: video.publishedAt,
     verifiedPublishedAt: receipt.verifiedPublishedAt,
     publisherJobSnapshotSha256: sha(publisherBytes),
