@@ -36,6 +36,12 @@
 
 **Admission status:** **1/18 program candidate tasks admitted**: P0-AIC-03 via existing D #6685 only; the other 17 candidates remain unadmitted. This is not a replacement for the existing generational engineering P0 or the unrecovered original 150-item directive. Do not add these as active Now/Next ownership merely for being P0. Each candidate requires fresh scored admission, nonoverlap, exact-source safety/editorial checks, D/R/A WIP space and sole-controller merge; the program and its score are not an additional governance lane. Actual cross-engine leadership, growth ROI, clicks and revenue remain **Unknown**.
 
+### Scoped implementation candidate #6810 — Publisher-to-flywheel identity bridge (2026-10-15)
+
+**Status:** Ready-next proposal, **not yet active**. Research proof: [Phase 0 audit](algorithm-observatory-phase0-audit-2026-10-15.md); open [issue #6810](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6810). **Workstream R / L3 observation identity**; existing score **45.0 = 3 × 4 × 3 × 5 × 0.75 ÷ 3** (Business Impact 3, User Value 4, Traffic Potential 3, Strategic Leverage 5, Confidence 0.75, Effort 3). This is an **estimated relative priority**, not field-measured ROI. `last_verified`: 2026-10-15, repo source implementation and manually inspected connected provider metric coverage; zero verified cross-system field joins.
+
+**Smallest admitted slice:** Consume one exact and verifiably `PUBLISHED` THS Publisher state/receipt and the exact approved media hash, attach to **existing** R8.10 immutable video record and one genuine timestamped metric observation (or return blocked/Unknown when receipts missing). Reuse R8.11 for later experiments. Negative tests must reject draft/ambiguous status, hash/platform/post-ID mismatch, duplicate/conflicting records and synthetic field proof. No new experiment ledger, metric conflation, scientific editing, mass publishing, private-account export or platform algorithm claims. Admit separately via `CURRENT_SPRINT` under normal R WIP, preserving EvidenceMotion's 46-item priority.
+
 ## Additive candidate — THS Algorithm Observatory 1.0 (owner-approved spec, 2026-10-15)
 
 **Status:** Approved direction / **unadmitted future capability**; no claimed code, field lift, additional EvidenceMotion checklist credit or new workstream. [Acceptance and implementation specification](THS_ALGORITHM_OBSERVATORY_V1_SPEC.md).
