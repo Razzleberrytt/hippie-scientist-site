@@ -84,7 +84,7 @@ class NarrationTreatments(unittest.TestCase):
                            scenes,assets,'specimen',(1080,1920),font,annotations=ads)
         self.assertEqual(frame.size,(1080,1920))
         self.assertEqual([a for a in ads if a['role']=='caption'],[])
-        self.assertIn('CID 44301524',[a['text'] for a in ads])
+        self.assertIn('7-OH • CID 44301524',[a['text'] for a in ads])
 
     def test_spoken_scene_missing_word_cues_holds(self):
         import os
@@ -126,7 +126,7 @@ class NarrationTreatments(unittest.TestCase):
             self.assertFalse(any('CID' in label for label in labels))
         source=next(s for s in m['shots'] if s['id']=='source_hold')
         self.assertIn('Mitragynine • CID 3034396',[a['text'] for a in source['annotations']])
-        self.assertIn('CID 44301524',[a['text'] for a in source['annotations']])
+        self.assertIn('7-OH • CID 44301524',[a['text'] for a in source['annotations']])
         self.assertIn('CID = compound record number',[a['text'] for a in source['annotations']])
 
         self.assertEqual(len(m['shots']),9)
