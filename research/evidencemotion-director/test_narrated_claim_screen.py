@@ -48,7 +48,7 @@ class RealFilmClaimScreenTests(unittest.TestCase):
                 pivot = words.index("not")
                 pre = copy.deepcopy(ann[:2]) + [
                     {"role": "caption", "text": w} for w in words[:pivot]]
-                post = copy.deepcopy(ann[:3])
+                post = copy.deepcopy(ann[:2])
                 post[0]["text"] = "What it cannot\ntell us."
                 post = post[:2] + [
                     {"role": "science", "text": "≠"},
