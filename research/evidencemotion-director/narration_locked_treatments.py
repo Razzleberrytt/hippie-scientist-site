@@ -16,7 +16,7 @@ import time
 
 from autonomous_script_asr_research import LINES, WAV_SHA, tokens, source_check
 from exact_wav_alignment import inspect_alignment
-from timed_caption_windows import schedule as caption_schedule, SCHEMA as CAPTION_WINDOW_SCHEMA
+from timed_caption_windows import schedule as caption_schedule, shown_at as timed_caption_shown_at, SCHEMA as CAPTION_WINDOW_SCHEMA
 from editorial_2d_cpu_research import smooth
 
 FPS = 30
@@ -211,7 +211,7 @@ def wrapped(text, font, width):
     return lines+[line] if line else lines
 
 
-def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
+def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, caption_mode='legacy'):
     from PIL import Image,ImageDraw
     w,h = size
     scale = w/1080
@@ -375,6 +375,21 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
     if opening_boundary is not None:
         visible_words = [word for word in visible_words
                          if (word['startSec'] < opening_boundary) == (t < opening_boundary)]
+    # Opt-in experimental caption rendering preserves original source WAV and
+    # all science overlays. Existing production/claim review keeps legacy mode.
+    if caption_mode not in ('legacy','timed_research'):
+        raise ValueError('TREATMENT_HOLD:UNKNOWN_CAPTION_MODE')
+    if caption_mode == 'timed_research':
+        # Schedule only already-safe pre/post reveal phrases: even future
+        # words in a caption group cannot expose the spoken "not" early.
+        groups=caption_schedule(visible_words,max_words=3)
+        now=timed_caption_shown_at(groups,t)
+        used=set(id(c) for c in visible_words)
+        visible_words=[c for c in visible_words if c['text'] in now and id(c) in used]
+        # Match the actual contiguous timed group by its immutable cue offset,
+        # rather than accepting a same-word match from elsewhere in a sentence.
+        active=next((g for g in groups if g['startSec']<=t<g['endSec']),None)
+        visible_words=visible_words[active['firstCue']:active['afterLastCue']] if active else []
     caption = wrapped(' '.join(w['text'] for w in visible_words),f(42,True),770*scale)
     if len(caption)>5:
         raise ValueError('TREATMENT_HOLD:CAPTION_TOO_DENSE')
@@ -390,7 +405,7 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
     return image.convert('RGB')
 
 
-def native_phone_plan(video_sha,scenes,assets,treatment,font):
+def native_phone_plan(video_sha,scenes,assets,treatment,font,*,caption_mode='legacy'):
     from phone_ui_audit import validate_manifest
     shots=[]
     for scene in scenes:
@@ -402,16 +417,18 @@ def native_phone_plan(video_sha,scenes,assets,treatment,font):
             boundaries.insert(1,next(w['startSec'] for w in scene['captionWords'] if w['text'].casefold()=='not'))
         for i,(start,end) in enumerate(zip(boundaries,boundaries[1:])):
             annotations=[]
-            render_frame((start+end)/2,scenes,assets,treatment,(1080,1920),font,annotations=annotations)
+            render_frame((start+end)/2,scenes,assets,treatment,(1080,1920),font,annotations=annotations,caption_mode=caption_mode)
             shots.append({'id':scene['id']+(f'_part{i}' if len(boundaries)>2 else ''),'startSec':start,'endSec':end,
                           'assetKind':'deterministic_science','annotations':annotations})
     plan={'status':'RESEARCH_ONLY','releaseApproved':False,'expectedVideoSha256':video_sha,
           'platforms':['tiktok','shorts'],'hook':{'textVisibleAtSec':0,'spokenOpeningAtSec':.16,'heroVisualStartsAtSec':0},'shots':shots}
+    if caption_mode != 'legacy':
+        plan['captionMode']='TIMED_RESEARCH_NOT_FULL_FRAME_VERIFIED'
     validate_manifest(plan,width=1080,height=1920,duration=scenes[-1]['endSec'],actual_sha=video_sha)
     return plan
 
 
-def render(root, destination, font_dir, treatment, native=False):
+def render(root, destination, font_dir, treatment, native=False, *, experimental_timed_captions=False):
     import PIL
     import rdkit
     source_files = [Path(__file__).with_name(name) for name in (
@@ -475,7 +492,7 @@ def render(root, destination, font_dir, treatment, native=False):
         process = subprocess.Popen(command,stdin=subprocess.PIPE,stderr=log)
         try:
             for i in range(count):
-                image = render_frame(i/FPS,scenes,assets,treatment,size,font)
+                image = render_frame(i/FPS,scenes,assets,treatment,size,font,caption_mode='timed_research' if experimental_timed_captions else 'legacy')
                 if i in snapshots:
                     image.save(out/f'source_frame_{i:04d}.png')
                 process.stdin.write(image.tobytes())
@@ -505,7 +522,7 @@ def render(root, destination, font_dir, treatment, native=False):
     phone_status='NOT_RUN_PREVIEW_ONLY'
     if native:
         from phone_ui_audit import audit
-        plan=native_phone_plan(sha(video),scenes,assets,treatment,font)
+        plan=native_phone_plan(sha(video),scenes,assets,treatment,font,caption_mode='timed_research' if experimental_timed_captions else 'legacy')
         plan_path=out/'phone-ui-plan.json'
         plan_path.write_text(json.dumps(plan,indent=2)+'\n',encoding='utf-8')
         phone_status=audit(video,plan_path,out/'phone-ui')['status']
@@ -514,7 +531,8 @@ def render(root, destination, font_dir, treatment, native=False):
                'resolution':list(size),'nativePixelsDrawnAtOutputResolution':True,
                'fps':FPS,'frames':count,'sourceWavSha256':WAV_SHA,
                'candidateCaptionWindowManifestSha256':sha(proposal_path),
-               'candidateCaptionWindowsAppliedToFilm':False,
+               'candidateCaptionWindowsAppliedToFilm':experimental_timed_captions,
+               'experimentCaptionMode':'TIMED_RESEARCH' if experimental_timed_captions else 'LEGACY',
                'audioProcessing':AUDIO_FILTER+' then AAC; no stretch, trimming or resynthesis',
                'alignmentRevisionSha256':alignment['revisionSha256'], 'scenes':scenes,
                'fonts':font_hashes,'chemistry':sources,'wallSeconds':round(time.monotonic()-start,3),
@@ -534,5 +552,6 @@ if __name__=='__main__':
     parser.add_argument('--font-dir',required=True)
     parser.add_argument('--treatment',choices=sorted(TREATMENTS),required=True)
     parser.add_argument('--native',action='store_true')
+    parser.add_argument('--experimental-timed-captions',action='store_true')
     args=parser.parse_args()
-    print(json.dumps(render(args.alignment_root,args.out,args.font_dir,args.treatment,args.native),indent=2))
+    print(json.dumps(render(args.alignment_root,args.out,args.font_dir,args.treatment,args.native,experimental_timed_captions=args.experimental_timed_captions),indent=2))
