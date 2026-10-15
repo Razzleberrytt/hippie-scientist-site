@@ -92,9 +92,9 @@ class NarrationTreatments(unittest.TestCase):
         self.assertEqual(len(payoff),2)
         self.assertFalse(any(a['text']=='≠' for a in payoff[0]['annotations']))
         self.assertTrue(any(a['text']=='≠' for a in payoff[1]['annotations']))
-        self.assertIn('What the shape\\nshows.',
+        self.assertIn('What the shape\nshows.',
                       [a['text'] for a in payoff[0]['annotations']])
-        self.assertIn('What it cannot\\ntell us.',
+        self.assertIn('What it cannot\ntell us.',
                       [a['text'] for a in payoff[1]['annotations']])
         self.assertNotIn('not',[a['text'] for a in payoff[0]['annotations']])
         self.assertIn('not',[a['text'] for a in payoff[1]['annotations']])
@@ -128,12 +128,12 @@ class NarrationTreatments(unittest.TestCase):
         graph=np.asarray(before.crop((115,610,780,1050))).astype(np.float32)
         self.assertGreater(float(graph.std()),12)
         self.assertIn('STRUCTURE',[a['text'] for a in before_ann])
-        self.assertIn('What the shape\\nshows.',[a['text'] for a in before_ann])
+        self.assertIn('What the shape\nshows.',[a['text'] for a in before_ann])
         self.assertNotIn('not',[a['text'] for a in before_ann if a['role']=='caption'])
         self.assertNotIn('≠',[a['text'] for a in before_ann])
         self.assertIn('≠',[a['text'] for a in after_ann])
         self.assertIn('HUMAN EXPERIENCE',[a['text'] for a in after_ann])
-        self.assertIn('What it cannot\\ntell us.',[a['text'] for a in after_ann])
+        self.assertIn('What it cannot\ntell us.',[a['text'] for a in after_ann])
         self.assertIn('not',[a['text'] for a in after_ann if a['role']=='caption'])
         # On the spoken negation, the actual displayed pixels below the
         # bounded chemistry card must make a substantial, visible change.
