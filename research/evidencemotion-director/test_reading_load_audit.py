@@ -24,7 +24,11 @@ class ReadingLoadGateTests(unittest.TestCase):
                 ("sentence_2",3.47,10.85,[]),("sentence_3",10.85,16.58,[]),
                 ("sentence_4",16.58,23.38,[]),
                 ("sentence_5_part0",23.38,25.71,[]),
-                ("sentence_5_part1",25.71,27.35,[]),
+                ("sentence_5_part1",25.71,27.35,[
+                    ("science","What it cannot\ntell us."),
+                    ("science","STRUCTURE"),
+                    ("science","≠"),
+                    ("science","HUMAN EXPERIENCE")]),
                 ("source_hold",27.35,31.25,[
                     ("source","PubChem"),("source","Mitragynine • CID 3034396"),
                     ("source","CID 44301524"),
@@ -36,6 +40,10 @@ class ReadingLoadGateTests(unittest.TestCase):
     def test_exact_compact_two_shot_lesson_passes_with_record_provenance(self):
         result=assess(self.plan)
         self.assertTrue(result["allOpeningCutsPass"])
+        self.assertTrue(result["allScenesReadingBudgetPass"])
+        self.assertEqual(len(result["allSceneSpans"]),9)
+        self.assertEqual(next(x for x in result["allSceneSpans"]
+                              if x["scene"]=="sentence_5_part1")["visualWords"],8)
         self.assertEqual([x["visualWords"] for x in result["openingSpans"]],[8,8])
         self.assertEqual([round(x["visualWordsPerSecond"],2)
                           for x in result["openingSpans"]],[4.97,4.3])
@@ -48,6 +56,24 @@ class ReadingLoadGateTests(unittest.TestCase):
         orig[2]["text"]="2D source structure • no reaction shown"
         orig.append({"role":"disclosure","text":"CID = compound record number"})
         self.assertFalse(assess(self.plan)["openingSpans"][0]["passesOpeningReadingBudget"])
+
+    def test_nine_word_negation_payoff_is_objectively_overloaded(self):
+        scene=next(x for x in self.plan["shots"] if x["id"]=="sentence_5_part1")
+        scene["annotations"].append({"role":"science","text":"7-HYDROXYMITRAGYNINE"})
+        result=assess(self.plan)
+        self.assertTrue(result["allOpeningCutsPass"])
+        self.assertFalse(result["allScenesReadingBudgetPass"])
+        other=next(x for x in result["allSceneSpans"]
+                   if x["scene"]=="sentence_5_part1")
+        self.assertEqual(other["visualWords"],9)
+        self.assertGreater(other["visualWordsPerSecond"],5)
+
+    def test_first_use_source_card_cannot_be_made_too_fast(self):
+        scene=next(x for x in self.plan["shots"] if x["id"]=="source_hold")
+        scene["endSec"]=scene["startSec"]+1.8
+        result=assess(self.plan)
+        self.assertFalse(result["allScenesReadingBudgetPass"])
+        self.assertTrue(result["sourceRecordIdentitiesStillOnSilentHold"])
 
     def test_cid_in_first_scene_fails_even_at_low_word_count(self):
         self.plan["shots"][0]["annotations"][1]["text"]="MITRAGYNINE CID"
