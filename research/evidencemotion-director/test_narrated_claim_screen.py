@@ -108,7 +108,7 @@ class RealFilmClaimScreenTests(unittest.TestCase):
             self.screen()
 
     def test_3d_scene_cannot_fall_back_to_unexplained_technical_title(self):
-        self.shot("sentence_4")["annotations"][0]["text"] = "The pose\\nis computed."
+        self.shot("sentence_4")["annotations"][0]["text"] = "The pose\nis computed."
         with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
             self.screen()
 
