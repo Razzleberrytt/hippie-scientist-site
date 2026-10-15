@@ -185,6 +185,46 @@ class NarrationTreatments(unittest.TestCase):
         result=validate_manifest(m,width=1080,height=1920,duration=824336/24000,actual_sha='a'*64)
         self.assertFalse(result['realHandsetPlaybackVerified'])
 
+    def test_real_emitter_contract_covers_all_spoken_words_and_exact_split(self):
+        # This independently catches stale renderer/test pairs that both drop
+        # the acoustic opening split while unit fixtures continue to pass.
+        from pathlib import Path
+        import os
+        from narration_locked_treatments import fonts,native_phone_plan
+        root=Path(os.environ.get('THS_TEST_FONT_DIR','/usr/share/fonts/truetype/dejavu'))
+        if not root.is_dir():
+            self.skipTest('Pinned font directory unavailable')
+        font,_=fonts(root)
+        assets=chemistry_assets()
+        assets['dark_diagram']=assets['7_hydroxymitragynine']['diagram']
+        scenes=timeline(self.alignment())
+        plan=native_phone_plan('a'*64,scenes,assets,'specimen',font)
+        lookup={shot['id']:shot for shot in plan['shots']}
+        self.assertEqual(len(lookup),9)
+        self.assertEqual(len(plan['shots']),9)
+        for name,scene in ((f'sentence_{i}',scenes[i-1]) for i in range(1,7)):
+            cues=[w['text'] for w in scene['captionWords']]
+            related=[shot for shot in plan['shots'] if shot['id']==name
+                     or shot['id'].startswith(name+'_part')]
+            captions=[a['text'] for shot in related for a in shot['annotations']
+                      if a.get('role')=='caption']
+            self.assertEqual(captions,cues,f'{name} dropped or duplicated frozen narration')
+        self.assertFalse(any(a.get('role')=='caption' for a in
+                             lookup['source_hold']['annotations']))
+        self.assertNotIn('different',[
+            a['text'] for a in lookup['sentence_1_part0']['annotations']
+            if a.get('role')=='caption'])
+        self.assertIn('different',[
+            a['text'] for a in lookup['sentence_1_part1']['annotations']
+            if a.get('role')=='caption'])
+        self.assertNotIn('not',[
+            a['text'] for a in lookup['sentence_5_part0']['annotations']
+            if a.get('role')=='caption'])
+        self.assertIn('not',[
+            a['text'] for a in lookup['sentence_5_part1']['annotations']
+            if a.get('role')=='caption'])
+        self.assertFalse(plan['releaseApproved'])
+
     def test_actual_payoff_frames_use_sourced_graph_and_spoken_not_visual_reveal(self):
         # Render *real native RGB pixels*, not just synthetic annotation plans.
         import os
