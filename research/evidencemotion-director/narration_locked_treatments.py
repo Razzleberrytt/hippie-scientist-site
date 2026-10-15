@@ -346,7 +346,11 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
     # In the limitation beat, present each exact, source-aligned phrase only
     # when its meaning is spoken. Whole-sentence previews gave away "not"
     # almost 2.3 seconds before the narrator did. No ASR text replacement.
-    visible_words = scene['captionWords']
+    # The silent source-reading hold carries an empty narration line and no
+    # word-cue array; render it as a source card with no caption, never raise.
+    visible_words = scene.get('captionWords', [])
+    if not visible_words and scene['line']:
+        raise ValueError('TREATMENT_HOLD:MISSING_SPOKEN_WORD_CUES')
     if effect_boundary is not None:
         visible_words = [word for word in visible_words
                          if (word['startSec'] < effect_boundary) == (t < effect_boundary)]
