@@ -16,6 +16,7 @@ import time
 
 from autonomous_script_asr_research import LINES, WAV_SHA, tokens, source_check
 from exact_wav_alignment import inspect_alignment
+from timed_caption_windows import schedule as caption_schedule, SCHEMA as CAPTION_WINDOW_SCHEMA
 from editorial_2d_cpu_research import smooth
 
 FPS = 30
@@ -416,7 +417,7 @@ def render(root, destination, font_dir, treatment, native=False):
     source_files = [Path(__file__).with_name(name) for name in (
         'narration_locked_treatments.py','verified_molecular_comparison.py',
         'editorial_2d_cpu_research.py','exact_wav_alignment.py','autonomous_script_asr_research.py',
-        'phone_ui_audit.py','native_master_audit.py')]
+        'phone_ui_audit.py','native_master_audit.py','timed_caption_windows.py')]
     renderer_sources = {p.name:sha(p) for p in source_files}
     if treatment not in TREATMENTS:
         raise ValueError('TREATMENT_HOLD:UNKNOWN_TREATMENT')
@@ -430,6 +431,16 @@ def render(root, destination, font_dir, treatment, native=False):
     if alignment['inputSha256']['wav']!=WAV_SHA:
         raise ValueError('TREATMENT_HOLD:ORIGINAL_WAV_REQUIRED')
     scenes = timeline(alignment)
+    # Candidate only; rendered captions remain unchanged until all independent
+    # scientific, muted-answer and native-frame reviewers support the change.
+    caption_proposal=[]
+    for scene in scenes:
+        cues=scene.get('captionWords',[])
+        groups=caption_schedule(cues,max_words=3)
+        if [word for group in groups for word in group['words']] != [cue['text'] for cue in cues]:
+            raise ValueError('TREATMENT_HOLD:CAPTION_WINDOW_WORD_DRIFT')
+        caption_proposal.append({'scene':scene['id'],'groups':groups,
+                                 'spokenWords':len(cues)})
     size = (1080,1920) if native else (540,960)
     # Both previews are the same full timeline; no silent/different-audio proxy.
     count = math.ceil(duration*FPS)
@@ -437,6 +448,19 @@ def render(root, destination, font_dir, treatment, native=False):
     assets = chemistry_assets(light=treatment=='atlas')
     assets['dark_diagram'] = chemistry_assets(light=False)['7_hydroxymitragynine']['diagram']
     out.mkdir(parents=True)
+    proposal_path=out/'timed-caption-windows-RESEARCH.json'
+    proposal_path.write_text(json.dumps({
+        'schema':CAPTION_WINDOW_SCHEMA,
+        'status':'CANDIDATE_ONLY_NOT_RENDERED',
+        'sourceWavSha256':WAV_SHA,
+        'alignmentRevisionSha256':alignment['revisionSha256'],
+        'maxWordsPerGroup':3,
+        'scenes':caption_proposal,
+        'rendererUsesProposal':False,
+        'actualEncodedCaptionPixelsRechecked':False,
+        'independentMutedComprehensionApproved':False,
+        'mayPublish':False
+    },indent=2)+'\n',encoding='utf-8')
     start = time.monotonic()
     video = out/(treatment+'_NEW_RESEARCH_CANDIDATE.mp4')
     # Gain plus latency-compensated peak limiting preserves performance timing.
@@ -489,6 +513,8 @@ def render(root, destination, font_dir, treatment, native=False):
                'isOriginalV5':False,'treatment':treatment,'videoSha256':sha(video),
                'resolution':list(size),'nativePixelsDrawnAtOutputResolution':True,
                'fps':FPS,'frames':count,'sourceWavSha256':WAV_SHA,
+               'candidateCaptionWindowManifestSha256':sha(proposal_path),
+               'candidateCaptionWindowsAppliedToFilm':False,
                'audioProcessing':AUDIO_FILTER+' then AAC; no stretch, trimming or resynthesis',
                'alignmentRevisionSha256':alignment['revisionSha256'], 'scenes':scenes,
                'fonts':font_hashes,'chemistry':sources,'wallSeconds':round(time.monotonic()-start,3),
