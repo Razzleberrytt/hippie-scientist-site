@@ -439,6 +439,30 @@ jobs:
           assert r['mayPublish'] is False
           print('9 actual encoded H264 science/ID overlay frames independently OCR checked, source/claim/viewer release gates remain HOLD')
           PY
+      - name: Independently prove source-locked oxygen focus occurs only after the spoken reveal
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p 'test_encoded_spotlight_difference_audit.py' -v
+          python research/evidencemotion-director/encoded_spotlight_difference_audit.py \
+            --experimental "$RUNNER_TEMP/ths-mfa/specimen-timed-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --baseline "$RUNNER_TEMP/ths-mfa/specimen-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --experimental-receipt "$RUNNER_TEMP/ths-mfa/specimen-timed-native/render-receipt.json" \
+            --baseline-receipt "$RUNNER_TEMP/ths-mfa/specimen-native/render-receipt.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/encoded-oxygen-focus-proof.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          target=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-timed-native/encoded-oxygen-focus-proof.json'
+          result=json.loads(target.read_text())
+          assert result['sourcePubChemCid']==44301524
+          assert result['spotlightOnlyAfterOriginalSpeech'] is True
+          assert result['preRevealOriginalScienceDiagramUnchanged'] is True
+          assert result['sourceGraphOutsideOxygenLocusPreserved'] is True
+          assert result['premiumStoryQualityApproved'] is False
+          assert result['mayPublish'] is False
+          print('Encoded 7-OH source-locked oxygen animated after original spoken cue with science stage intact; research HOLD')
+          PY
       - name: Preserve actual timing evidence without source audio or model copies
         if: always()
         uses: actions/upload-artifact@v4
