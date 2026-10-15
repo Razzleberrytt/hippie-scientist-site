@@ -75,6 +75,65 @@ describe('AO #6810 Publisher PUBLISHED → existing immutable flywheel bridge', 
     expect(getFlywheelVideo(dir, f.videoId).publicationEvidence).toBe('manual-owner-attested')
     expect(fs.existsSync(path.join(dir, 'videos', f.videoId, 'PUBLISHER_LINK.json'))).toBe(true)
   })
+  it('accepts canonical manual PUBLISHED URL receipts without dispatch attempts', () => {
+    const dir = root(); const f = fixture(dir)
+    const url = 'https://www.tiktok.com/@hippiescientist/video/7691823286157708557'
+    const receipt = {
+      provider: 'manual', providerOperationId: url, externalId: url, publicUrl: url,
+      verifiedPublishedAt: '2026-10-01T12:00:00Z', publicationId: f.job.publicationId,
+    }
+    f.save({
+      ...f.job, state: 'PUBLISHED', attempts: [], providerReceipt: receipt,
+      providerReceipts: [receipt], publicUrl: url, publishedAt: '2026-10-01T12:00:00Z',
+    })
+    const result = linkPublishedFlywheelVideo(dir, f.args)
+    expect(result.platformPostId).toBe('7691823286157708557')
+    expect(result.idempotent).toBe(false)
+    expect(linkPublishedFlywheelVideo(dir, f.args).idempotent).toBe(true)
+  })
+  it('accepts canonical manual reconciliation with published evidence and no new dispatch', () => {
+    const dir = root(); const f = fixture(dir)
+    const url = 'https://www.tiktok.com/@hippiescientist/video/7691823286157708557'
+    const receipt = {
+      provider: 'manual-reconciliation', providerOperationId: url, externalId: url, publicUrl: url,
+      verifiedPublishedAt: '2026-10-01T12:00:00Z', publicationId: f.job.publicationId,
+    }
+    const base = {
+      ...f.job, state: 'PUBLISHED', attempts: [], providerReceipt: receipt,
+      providerReceipts: [receipt], publicUrl: url, publishedAt: '2026-10-01T12:00:00Z',
+      reconciliationReceipts: [{ outcome: 'published', publicUrl: url, evidence: 'independently observed public post' }],
+    }
+    f.save(base)
+    expect(linkPublishedFlywheelVideo(dir, f.args).platformPostId).toBe('7691823286157708557')
+  })
+  it('rejects a fabricated or contradictory canonical manual publication URL receipt', () => {
+    const dir = root(); const f = fixture(dir)
+    const url = 'https://www.tiktok.com/@hippiescientist/video/7691823286157708557'
+    const receipt = {
+      provider: 'manual', providerOperationId: url, externalId: url, publicUrl: url,
+      verifiedPublishedAt: '2026-10-01T12:00:00Z', publicationId: f.job.publicationId,
+    }
+    const base = { ...f.job, state: 'PUBLISHED', attempts: [], providerReceipt: receipt,
+      providerReceipts: [receipt], publicUrl: url, publishedAt: '2026-10-01T12:00:00Z' }
+    f.save({ ...base, publicUrl: 'https://www.tiktok.com/@hippiescientist/video/7691823286157708558' })
+    expect(() => linkPublishedFlywheelVideo(dir, f.args)).toThrow(/public URL/)
+    f.save({ ...base, publishedAt: '2026-10-01T13:00:00Z' })
+    expect(() => linkPublishedFlywheelVideo(dir, f.args)).toThrow(/manual publication receipt/)
+    f.save({ ...base, providerReceipt: { ...receipt, publicationId: 'wrong' },
+      providerReceipts: [{ ...receipt, publicationId: 'wrong' }] })
+    expect(() => linkPublishedFlywheelVideo(dir, f.args)).toThrow(/publicationId mismatch/)
+  })
+  it('accepts a reconciled provider receipt whose external ID is a canonical public URL', () => {
+    const dir = root(); const f = fixture(dir)
+    const url = 'https://www.tiktok.com/@hippiescientist/video/7691823286157708557'
+    const receipt = {
+      provider: 'tiktok', providerOperationId: 'remote-operation', externalId: url, publicUrl: url,
+      verifiedPublishedAt: '2026-10-01T12:00:00Z', publicationId: f.job.publicationId,
+    }
+    f.save({ ...f.job, providerReceipt: receipt, providerReceipts: [receipt],
+      publicUrl: url, publishedAt: '2026-10-01T12:00:00Z' })
+    expect(linkPublishedFlywheelVideo(dir, f.args).platformPostId).toBe('7691823286157708557')
+  })
   it('rejects every draft/ambiguous/non-published Publisher state', () => {
     for (const state of ['QUEUED', 'DISPATCHING', 'PROVIDER_ACCEPTED',
       'AWAITING_USER_POST', 'FAILED', 'NEEDS_RECONCILIATION', 'CANCELLED']) {
