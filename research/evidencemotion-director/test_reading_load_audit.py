@@ -67,6 +67,46 @@ class ReadingLoadGateTests(unittest.TestCase):
         self.assertEqual(result["openingSpans"][0]["combinedVisibleWords"],16)
         self.assertFalse(result["openingSpans"][0]["passesCombinedVisibleTextBudget"])
 
+    def test_overloaded_caption_scene_has_exact_sized_action_not_approval(self):
+        self.plan["shots"][0]["annotations"].append({
+            "role":"caption","text":"What makes seven O H different from mitragynine?"})
+        result=assess(self.plan)
+        first=result["allSceneSpans"][0]
+        self.assertEqual(first["visualWords"],8)
+        self.assertEqual(first["captionWords"],8)
+        self.assertEqual(first["sampleFrameWordAllowance"],8)
+        self.assertEqual(first["maxSampleFrameCaptionWordsAfterOverlays"],0)
+        self.assertEqual(first["minimumSampleCaptionWordsToTimeWindow"],8)
+        self.assertEqual(first["readingLoadRepairAction"],
+                         "TIME_WINDOW_CAPTIONS_KEEP_COMPLETE_SPOKEN_TRANSCRIPT")
+        self.assertEqual(result["readingLoadRepairCandidates"][0]["scene"],
+                         "sentence_1_part0")
+        self.assertEqual(result["readingLoadRepairCandidateCount"],1)
+        self.assertFalse(result["readingLoadRepairPlanIsRenderedEvidence"])
+        self.assertFalse(result["fullMutedComprehensionApproved"])
+        self.assertFalse(result["mayPublish"])
+
+    def test_overlay_only_overload_cannot_be_excused_by_subtitle_windows(self):
+        self.plan["shots"][0]["annotations"].append({
+            "role":"science","text":"Extra unsafe distracting label"})
+        r=assess(self.plan)
+        first=r["allSceneSpans"][0]
+        self.assertEqual(first["maxSampleFrameCaptionWordsAfterOverlays"],0)
+        self.assertEqual(first["minimumSampleCaptionWordsToTimeWindow"],0)
+        self.assertEqual(first["readingLoadRepairAction"],
+                         "REDESIGN_NONCAPTION_OVERLAYS_PRESERVE_SCIENCE")
+        self.assertFalse(first["passesCombinedVisibleTextBudget"])
+        self.assertFalse(r["audienceComprehensionVerified"])
+
+    def test_exactly_fitting_source_faithful_scene_needs_no_repair(self):
+        r=assess(self.plan)
+        self.assertEqual(r["readingLoadRepairCandidateCount"],0)
+        self.assertEqual(r["readingLoadRepairCandidates"],[])
+        self.assertTrue(all(x["readingLoadRepairAction"]==
+                            "NO_MECHANICAL_READING_LOAD_REPAIR_NEEDED"
+                            for x in r["allSceneSpans"]))
+        self.assertFalse(r["humanReadabilityCalibrated"])
+
     def test_one_extra_caption_word_can_fail_even_when_overlay_rate_passes(self):
         self.plan["shots"][0]["annotations"].append({"role":"caption","text":"Look"})
         result=assess(self.plan)
