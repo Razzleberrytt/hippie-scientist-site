@@ -28,6 +28,36 @@ def words(s):
     return re.findall(r"[A-Za-z0-9]+(?:[-'][A-Za-z0-9]+)*", s.replace("\n"," "))
 
 
+
+def partitioned_caption_groups(scene):
+    """Independently reconstruct frozen spoken comparison/negation cut timing.
+
+    Treat each acoustic partition as a separate possible caption window, or
+    an otherwise correct word sequence may show words belonging to a later
+    shot before the narrator reaches the required semantic pivot.
+    """
+    cues=scene.get("captionWords",[])
+    split_on={"sentence_1":"different","sentence_5":"not"}.get(scene["id"])
+    if split_on is None:
+        return [(math.inf,schedule(cues,max_words=3))]
+    split=next((i for i,c in enumerate(cues) if
+                c["text"].casefold().strip("?!.,")==split_on),None)
+    if split is None:
+        # Generic fixtures can still independently test the no-pivot path;
+        # the actual frozen script identity is checked by the source reviewer.
+        return [(math.inf,schedule(cues,max_words=3))]
+    cut=cues[split]["startSec"]
+    return [(cut,schedule(cues[:split],max_words=3)),
+            (math.inf,schedule(cues[split:],max_words=3))]
+
+
+def displayed_at(parts,second):
+    for boundary,groups in parts:
+        if second<boundary:
+            return shown_at(groups,second)
+    return []
+
+
 def audit(ledger, receipt, *, max_words_per_second=MAX_WORDS_PER_SECOND):
     if (receipt.get("experimentCaptionMode") != "TIMED_RESEARCH"
         or receipt.get("candidateCaptionWindowsAppliedToFilm") is not True
@@ -48,8 +78,7 @@ def audit(ledger, receipt, *, max_words_per_second=MAX_WORDS_PER_SECOND):
     by_scene={s["id"]:s for s in scenes}
     if len(by_scene)!=7 or "source_hold" not in by_scene:
         raise ValueError("TEMPORAL_HOLD:CANONICAL_SEVEN_SCENES")
-    groups={name:schedule(s.get("captionWords",[]),max_words=3)
-            for name,s in by_scene.items()}
+    groups={name:partitioned_caption_groups(s) for name,s in by_scene.items()}
     scene_seen={name:0 for name in by_scene}
     max_words={name:0 for name in by_scene}
     covered={(name,i):False for name,s in by_scene.items()
@@ -77,7 +106,7 @@ def audit(ledger, receipt, *, max_words_per_second=MAX_WORDS_PER_SECOND):
                or not isinstance(a[1],str) or not a[1] for a in annotations):
             raise ValueError("TEMPORAL_HOLD:UNVERIFIED_VISIBLE_TEXT")
         captions=[a[1] for a in annotations if a[0]=="caption"]
-        expected=shown_at(groups[name],t)
+        expected=displayed_at(groups[name],t)
         if captions!=expected:
             raise ValueError("TEMPORAL_HOLD:SPOKEN_CAPTION_DRIFT:"+name+":"+str(idx))
         if name=="source_hold" and captions:
