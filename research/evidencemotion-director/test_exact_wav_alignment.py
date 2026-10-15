@@ -136,6 +136,18 @@ class AlignmentTests(unittest.TestCase):
                 self.assertEqual(path.read_bytes(), before)
                 self.assertIn('REPORT_PATH_COLLIDES_WITH_INPUT_OR_LINK', r.stdout)
 
+    def test_rehashed_truncated_wav_invalidates_old_cli_candidate(self):
+        import sys
+        (self.root/'report.json').write_text(json.dumps(inspect_alignment(self.root, self.manifest)), encoding='utf-8')
+        (self.root/'original.wav').write_bytes(b'RIFF')
+        self.manifest['wav']['sha256'] = hashlib.sha256(b'RIFF').hexdigest()
+        (self.root/'manifest.json').write_text(json.dumps(self.manifest), encoding='utf-8')
+        r = subprocess.run([sys.executable, str(Path(__file__).parent/'exact_wav_alignment.py'), '--root', str(self.root), '--manifest', str(self.root/'manifest.json'), '--out', str(self.root/'report.json')], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 2)
+        receipt = json.loads((self.root/'report.json').read_text())
+        self.assertEqual(receipt['status'], 'HOLD')
+        self.assertEqual(receipt['wordAlignment'], [])
+
     def test_real_file_import_to_existing_javascript_edl_and_stale_refusal(self):
         report = inspect_alignment(self.root, self.manifest)
         raw = (json.dumps(report, indent=2)+'\n').encode()

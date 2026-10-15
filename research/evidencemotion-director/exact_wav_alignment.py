@@ -232,7 +232,7 @@ if __name__ == "__main__":
         raise SystemExit(2)
     try:
         verdict = inspect_alignment(args.root, manifest)
-    except (ValueError, OSError, wave.Error, UnicodeError) as exc:
+    except (ValueError, OSError, EOFError, wave.Error, UnicodeError) as exc:
         # Overwrite a previous candidate on failure: never leave stale PASS-like
         # timing available for accidental reuse. No raw file content in errors.
         code = str(exc) if isinstance(exc, ValueError) and str(exc).startswith("EXACT_WAV_ALIGNMENT_HOLD:") else type(exc).__name__
