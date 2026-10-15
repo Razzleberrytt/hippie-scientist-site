@@ -50,6 +50,31 @@ class ReadingLoadGateTests(unittest.TestCase):
         self.assertTrue(result["sourceRecordIdentitiesStillOnSilentHold"])
         self.assertFalse(result["audienceComprehensionVerified"])
 
+    def test_actual_captions_count_as_visible_words_and_reject_false_readability(self):
+        # Existing overlay-only test passes, but rendered narration captions
+        # consume real visual attention. A green legacy gate cannot mean mute-ready.
+        self.plan["shots"][0]["annotations"].append(
+            {"role":"caption","text":"What makes seven O H different from mitragynine?"})
+        self.plan["shots"][1]["annotations"].append(
+            {"role":"caption","text":"What makes seven O H different from mitragynine?"})
+        result=assess(self.plan)
+        self.assertTrue(result["allOpeningCutsPass"])
+        self.assertTrue(result["allScenesReadingBudgetPass"])
+        self.assertEqual(result["captionWordsSampled"],18)
+        self.assertTrue(result["combinedCaptionOverlayLoadRequiresReview"])
+        self.assertFalse(result["allScenesCombinedVisibleTextBudgetPass"])
+        self.assertFalse(result["fullMutedComprehensionApproved"])
+        self.assertEqual(result["openingSpans"][0]["combinedVisibleWords"],17)
+        self.assertFalse(result["openingSpans"][0]["passesCombinedVisibleTextBudget"])
+
+    def test_one_extra_caption_word_can_fail_even_when_overlay_rate_passes(self):
+        self.plan["shots"][0]["annotations"].append({"role":"caption","text":"Look"})
+        result=assess(self.plan)
+        self.assertTrue(result["openingSpans"][0]["passesOpeningReadingBudget"])
+        self.assertEqual(result["openingSpans"][0]["visualWords"],8)
+        self.assertEqual(result["openingSpans"][0]["combinedVisibleWords"],9)
+        self.assertFalse(result["openingSpans"][0]["passesCombinedVisibleTextBudget"])
+
     def test_old_17_word_first_shot_is_rejected(self):
         orig=self.plan["shots"][0]["annotations"]
         orig[1]["text"]="MITRAGYNINE • CID 3034396"
