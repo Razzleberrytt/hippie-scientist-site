@@ -51,6 +51,8 @@ When documents conflict, current code/configuration/tests/deployment evidence es
 - [Generational Engineering P0](GENERATIONAL_ENGINEERING_P0.md) — accepted methodology, interoperability constraints, verification tiers and October 12–16 plan for [#6431](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6431).
 - [Generational Engineering Readiness](GENERATIONAL_ENGINEERING_READINESS.md) — dependency graph, 25 candidate capabilities, producer/consumer contracts, adversarial tests and release evidence. Candidate status never overrides current code, GitHub PR/deployment truth, CURRENT_SPRINT admission or MASTER_BACKLOG prioritization.
 - [P0 AI Citation Leadership & Evidence Expansion](AI_CITATION_P0_EXPANSION_BACKLOG.md) — owner-prioritized 18-item **candidate** register tracked under [#6695](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6695). Reuse #6690, #6685, #6670 and #6431; the Master Backlog and Current Sprint retain all actual work-selection/admission authority.
+- [THS Algorithm Observatory 1.0](THS_ALGORITHM_OBSERVATORY_V1_SPEC.md) — owner-approved additive **future** performance-learning and creative-experiment specification; unadmitted; extends the R8.10 flywheel and existing Publisher/Observer experiment ledger without altering publishing/science authority.
+
 ## Supporting documents
 
 These remain valuable but cannot override the control system.

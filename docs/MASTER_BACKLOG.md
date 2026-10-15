@@ -36,6 +36,18 @@
 
 **Admission status:** **1/18 program candidate tasks admitted**: P0-AIC-03 via existing D #6685 only; the other 17 candidates remain unadmitted. This is not a replacement for the existing generational engineering P0 or the unrecovered original 150-item directive. Do not add these as active Now/Next ownership merely for being P0. Each candidate requires fresh scored admission, nonoverlap, exact-source safety/editorial checks, D/R/A WIP space and sole-controller merge; the program and its score are not an additional governance lane. Actual cross-engine leadership, growth ROI, clicks and revenue remain **Unknown**.
 
+## Additive candidate — THS Algorithm Observatory 1.0 (owner-approved spec, 2026-10-15)
+
+**Status:** Approved direction / **unadmitted future capability**; no claimed code, field lift, additional EvidenceMotion checklist credit or new workstream. [Acceptance and implementation specification](THS_ALGORITHM_OBSERVATORY_V1_SPEC.md).
+
+**Opportunity:** Identify and test platform-specific creative performance relationships using legitimate, timestamped, published-video observations and source-linked Creative DNA; produce statistically restrained, auditable, future-only production suggestions for EvidenceMotion. This is black-box system identification, **not** disclosure of proprietary TikTok/YouTube algorithms.
+
+**Must reuse:** R8.10 first-class learning flywheel (issue #6654), existing SocialOS Publisher/Observer publication receipts, #4414 durable experiment history, #4407 governed outcome ingestion, canonical creative manifests and existing trust/quality controls. No duplicate ledger, recommendation engine with separate priority scoring, paid critical-path dependency, bypass of publisher permissions, or synthetic engagement.
+
+**Potential execution sequence (not tickets):** (0) audit overlapping systems and authorized provider metric coverage, (1) one verified publication+manifest+metric report, (2) TikTok/YouTube separate metric adapters and negative tests, (3) pre-registered and adequately exposed matched hook/format pilot, (4) transparent confidence-scored predictor and future-only suggestions, (5) repeated measured quality/safety-preserving improvement. Missing metrics and business impact are **Unknown**; do not claim algorithm discovery, causality, ROI or first-render excellence without real proof.
+
+**Admission constraint:** Existing EvidenceMotion 46-item completion and first-render craft remain priority. New implementation requires existing priority formula, fresh overlap assessment, evidence/permissions, a scoped ticket listed in CURRENT_SPRINT, available D/R/A WIP capacity, exact-head checks and protected merge. This backlog candidate does **not** start work.
+
 ## Scoring and gates
 
 `Score = (Business Impact × User Value × Traffic Potential × Strategic Leverage × Confidence) / Effort`
