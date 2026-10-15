@@ -249,6 +249,53 @@ class NarrationTreatments(unittest.TestCase):
         self.assertIn('not',shown_at(groups,neg+.01))
         self.assertEqual(schedule(scenes[5].get('captionWords',[])),[])
 
+    def test_opt_in_timed_caption_frame_matches_exact_original_word_cue(self):
+        # Preview-level pixel+annotation contract only, never audience review.
+        from pathlib import Path
+        import os
+        from narration_locked_treatments import fonts,render_frame,native_phone_plan
+        font_path=Path(os.environ.get('THS_TEST_FONT_DIR','/usr/share/fonts/truetype/dejavu'))
+        if not font_path.is_dir():
+            self.skipTest('Pinned fonts unavailable')
+        font,_=fonts(font_path)
+        assets=chemistry_assets()
+        assets['dark_diagram']=assets['7_hydroxymitragynine']['diagram']
+        scenes=timeline(self.alignment())
+        opening=scenes[0]['captionWords']
+        cue=opening[3]
+        t=(cue['startSec']+cue['endSec'])/2
+        annotations=[]
+        frame=render_frame(t,scenes,assets,'specimen',(1080,1920),font,
+                           annotations=annotations,caption_mode='timed_research')
+        rendered_words=[a['text'] for a in annotations if a['role']=='caption']
+        self.assertIn(cue['text'],rendered_words)
+        self.assertLessEqual(len(rendered_words),3)
+        self.assertEqual(frame.size,(1080,1920))
+        self.assertIn('MITRAGYNINE',[a['text'] for a in annotations])
+        self.assertIn('No reaction',[a['text'] for a in annotations])
+        self.assertFalse(any('CID' in a['text'] for a in annotations))
+        legacy=native_phone_plan('a'*64,scenes,assets,'specimen',font)
+        candidate=native_phone_plan('a'*64,scenes,assets,'specimen',font,
+                                    caption_mode='timed_research')
+        self.assertEqual(len(candidate['shots']),9)
+        self.assertEqual(candidate['status'],'RESEARCH_ONLY')
+        self.assertFalse(candidate['releaseApproved'])
+        self.assertEqual(candidate['captionMode'],'TIMED_RESEARCH_NOT_FULL_FRAME_VERIFIED')
+        # Text and source labels must not silently change in the experiment.
+        for original,updated in zip(legacy['shots'],candidate['shots']):
+            self.assertEqual([(a['role'],a['text']) for a in original['annotations']
+                              if a['role']!='caption'],
+                             [(a['role'],a['text']) for a in updated['annotations']
+                              if a['role']!='caption'])
+            self.assertLessEqual(len([a for a in updated['annotations']
+                                      if a['role']=='caption']),3)
+        self.assertFalse(any(a['role']=='caption' for a in
+                             next(x for x in candidate['shots'] if
+                                  x['id']=='source_hold')['annotations']))
+        with self.assertRaisesRegex(ValueError,'UNKNOWN_CAPTION_MODE'):
+            render_frame(t,scenes,assets,'specimen',(1080,1920),font,
+                         caption_mode='unsupported')
+
     def test_actual_payoff_frames_use_sourced_graph_and_spoken_not_visual_reveal(self):
         # Render *real native RGB pixels*, not just synthetic annotation plans.
         import os
