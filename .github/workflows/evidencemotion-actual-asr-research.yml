@@ -357,7 +357,7 @@ jobs:
           assert receipt['experimentCaptionMode']=='TIMED_RESEARCH'
           assert receipt['candidateCaptionWindowsAppliedToFilm'] is True
           assert receipt['candidateCaptionWindowManifestSha256']==sha(target/'timed-caption-windows-RESEARCH.json')
-          assert windows['rendererUsesProposal'] is False  # planning receipt is distinct from actual film
+          assert windows['rendererUsesProposal'] is True
           assert windows['mayPublish'] is False
           assert plan['captionMode']=='TIMED_RESEARCH_NOT_FULL_FRAME_VERIFIED'
           assert len(plan['shots'])==9
