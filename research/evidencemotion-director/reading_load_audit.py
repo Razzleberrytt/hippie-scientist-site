@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Exact native silent-visual reading budget: source and first-use identity safe.
 
-This counts *visible non-caption text*, not narrational words or measured
-participant reading speed. A generous five visible lexical units per second
-is an objective operational risk ceiling for the two rapid opening cuts.
-It is NOT a clinically calibrated or actual audience comprehension score.
+This separately counts BOTH actually rendered narration captions and
+non-caption scientific overlays. The legacy five-word/s overlay threshold is
+NOT a full muted comprehension verdict; combined load is exposed as a strict
+release HOLD when captions add more concurrent visible text than the ceiling.
+No participant comprehension or calibrated eye-tracking is claimed.
 """
 import argparse
 import hashlib
@@ -12,7 +13,7 @@ import json
 import re
 from pathlib import Path
 
-SCHEMA="ths-evidencemotion-native-rapid-cut-reading-budget-v1"
+SCHEMA="ths-evidencemotion-native-rapid-cut-reading-budget-v2"
 MAX_OPENING_VISUAL_WORDS_PER_SEC=5.0
 OPENINGS=("sentence_1_part0","sentence_1_part1")
 SOURCE_NAME="source_hold"
@@ -43,7 +44,12 @@ def assess(plan):
         visible=[a["text"] for a in shot["annotations"]
                  if a.get("role")!="caption"]
         units=sum(len(_units(text)) for text in visible)
+        captions=[a["text"] for a in shot["annotations"]
+                  if a.get("role")=="caption"]
+        caption_units=sum(len(_units(text)) for text in captions)
+        combined=units+caption_units
         wps=units/secs if secs>0 else float("inf")
+        combined_wps=combined/secs if secs>0 else float("inf")
         identity_ok=(identity in visible and
                      "7-OH vs\nmitragynine" in visible and
                      "Separate structures • no reaction" in visible)
@@ -53,6 +59,10 @@ def assess(plan):
         outcomes.append({
             "scene":scene,"seconds":round(secs,3),"visualWords":units,
             "visualWordsPerSecond":round(wps,3),
+            "captionWords":caption_units,"combinedVisibleWords":combined,
+            "combinedVisibleWordsPerSecond":round(combined_wps,3),
+            "passesCombinedVisibleTextBudget":bool(
+                secs>=1.50 and combined_wps<=MAX_OPENING_VISUAL_WORDS_PER_SEC),
             "hasCorrectComparisonAndNoReactionDisclosure":identity_ok,
             "hasNoPrematureCitationJargon":no_early_cid,
             "passesOpeningReadingBudget":pass_this,
@@ -63,18 +73,33 @@ def assess(plan):
         texts=[str(a["text"]) for a in shot["annotations"]
                if a.get("role")!="caption"]
         words=sum(len(_units(text)) for text in texts)
+        caption_words=sum(len(_units(str(a["text"])))
+                          for a in shot["annotations"] if a.get("role")=="caption")
         rate=words/secs if secs>0 else float("inf")
+        combined_rate=(words+caption_words)/secs if secs>0 else float("inf")
         all_spans.append({
             "scene":shot["id"],"seconds":round(secs,3),
             "visualWords":words,"visualWordsPerSecond":round(rate,3),
+            "captionWords":caption_words,
+            "combinedVisibleWords":words+caption_words,
+            "combinedVisibleWordsPerSecond":round(combined_rate,3),
+            "passesCombinedVisibleTextBudget":bool(
+                secs>=1.50 and combined_rate<=MAX_OPENING_VISUAL_WORDS_PER_SEC),
             "passesFullFilmReadingBudget":bool(secs>=1.50 and
                                                rate<=MAX_OPENING_VISUAL_WORDS_PER_SEC)
         })
     full_film_pass=all(x["passesFullFilmReadingBudget"] for x in all_spans)
+    combined_pass=all(x["passesCombinedVisibleTextBudget"] for x in all_spans)
+    caption_count=sum(x["captionWords"] for x in all_spans)
     return {
-        "schema":SCHEMA, "criterion":"Source-faithful full-film silent reading load",
+        "schema":SCHEMA, "criterion":"Source-faithful overlay and caption load, separately checked",
         "allSceneSpans":all_spans,
         "allScenesReadingBudgetPass":full_film_pass,
+        "legacyOverlayOnlyGate":True,
+        "allScenesCombinedVisibleTextBudgetPass":combined_pass,
+        "captionWordsSampled":caption_count,
+        "fullMutedComprehensionApproved":False,
+        "combinedCaptionOverlayLoadRequiresReview":not combined_pass,
         "maxObservedSceneWordsPerSecond":max(x["visualWordsPerSecond"] for x in all_spans),
         "limits":{"maxVisibleWordsPerSecond":MAX_OPENING_VISUAL_WORDS_PER_SEC,
                   "minSceneSeconds":1.5},
@@ -83,7 +108,7 @@ def assess(plan):
         "sourceRecordIdentitiesStillOnSilentHold":True,
         "changedOriginalNarration":False,"humanReadabilityCalibrated":False,
         "audienceComprehensionVerified":False,"mayPublish":False,
-        "basis":"Visible non-caption words in original 1.61/1.86 second cuts, not eye-tracking",
+        "basis":"Measured emitted overlays and captions separately in nine authored shots; overlay-only legacy pass cannot certify total visible reading load or comprehension",
     }
 
 
