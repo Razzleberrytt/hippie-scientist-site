@@ -1,0 +1,109 @@
+"""EvidenceMotion objective muted teaching score cannot mint fabricated 100%."""
+import copy
+import unittest
+
+from objective_muted_score import BASE_PERCENT, AUTOMATED_CAP_PERCENT, evaluate
+
+
+class ObjectiveMutedScoreTests(unittest.TestCase):
+    def setUp(self):
+        ids = (
+            "sentence_1_part0", "sentence_1_part1", "sentence_2", "sentence_3",
+            "sentence_4", "sentence_5_part0", "sentence_5_part1",
+            "source_hold", "sentence_6"
+        )
+        bounds = (0, 1.61, 3.47, 10.85, 16.58, 23.379999,
+                  25.709999, 27.35, 31.25, 34.347333)
+        words = (
+            ["MITRAGYNINE • CID 3034396", "CID = compound record number",
+             "2D source structure • no reaction shown"],
+            ["7-OH • CID 44301524", "CID = compound record number",
+             "2D source structure • no reaction shown"],
+            ["Look at the\nhydroxyl group.", "–OH group: oxygen + hydrogen"],
+            ["Dots mark atoms. Lines mark bonds."],
+            ["A possible\n3D shape.", "Computed 3D illustration • not filmed"],
+            ["What the shape\nshows."],
+            ["What it cannot\ntell us.", "HUMAN EXPERIENCE"],
+            ["PubChem", "CID 44301524", "CID = compound record number",
+             "Chemical structure database"],
+            ["Look closer."]
+        )
+        self.plan={"shots":[
+            {"id": id, "startSec": bounds[i], "endSec": bounds[i+1],
+             "annotations":[{"role":"science","text":text} for text in annotations]}
+            for i,(id,annotations) in enumerate(zip(ids,words))
+        ]}
+        self.variance = {k:22. for k in
+                         ("opening","chemical_detail","computed_model","source_card")}
+
+    def score(self, **kwargs):
+        return evaluate(self.plan, image_variation=kwargs.get("pixel",self.variance),
+                        safe_zone_pass=kwargs.get("safe",True),
+                        identical_soundoff_stream=kwargs.get("silent",True))
+
+    def test_all_ten_proxies_still_withhold_viewer_approval(self):
+        x=self.score()
+        self.assertEqual(x["currentStepObjectiveProgressPercent"],90)
+        self.assertEqual(x["microChecksPassed"],10)
+        self.assertEqual(x["baseEvidencePercent"],80)
+        self.assertFalse(x["actualUnfamiliarViewerComprehensionVerified"])
+        self.assertFalse(x["mayPublish"])
+        self.assertEqual(x["automaticScoreCeilingPercent"],90)
+
+    def test_first_use_cid_not_defined_is_one_percentage_point_loss(self):
+        self.plan["shots"][0]["annotations"] = [
+            a for a in self.plan["shots"][0]["annotations"]
+            if "CID =" not in a["text"]]
+        x=self.score()
+        self.assertEqual(x["currentStepObjectiveProgressPercent"],89)
+        self.assertFalse(next(c["passed"] for c in x["measured"]
+                              if c["code"]=="first_use_cid_defined"))
+
+    def test_jargon_3d_without_plain_language_fails(self):
+        self.plan["shots"][4]["annotations"][0]["text"]="The pose\nis computed."
+        x=self.score()
+        self.assertEqual(x["microChecksPassed"],9)
+        self.assertFalse(next(c["passed"] for c in x["measured"]
+                              if c["code"]=="computed_shape_no_real_binding_claim"))
+
+    def test_early_claim_spoiler_not_accepted(self):
+        self.plan["shots"][5]["annotations"].append(
+            {"role":"science","text":"HUMAN EXPERIENCE"})
+        self.assertEqual(self.score()["microChecksPassed"],9)
+
+    def test_deleted_mute_track_proof_is_not_faked(self):
+        x=self.score(silent=False)
+        self.assertEqual(x["currentStepObjectiveProgressPercent"],89)
+        self.assertFalse(x["mayPublish"])
+
+    def test_blanked_encoded_frames_not_counted(self):
+        x=self.score(pixel={})
+        self.assertEqual(x["currentStepObjectiveProgressPercent"],89)
+
+    def test_platform_unsafe_content_not_counted(self):
+        x=self.score(safe=False)
+        self.assertEqual(x["microChecksPassed"],9)
+
+    def test_source_card_too_fast_to_read_not_counted(self):
+        self.plan["shots"][7]["endSec"]=self.plan["shots"][7]["startSec"]+1.5
+        x=self.score()
+        self.assertFalse(next(c["passed"] for c in x["measured"]
+                              if c["code"]=="source_card_held_and_defined"))
+
+    def test_unknown_duplicate_shots_fail_closed(self):
+        self.plan["shots"][8]["id"]="sentence_5_part1"
+        with self.assertRaisesRegex(ValueError,"UNKNOWN_OR_REORDERED"):
+            self.score()
+
+    def test_cannot_make_any_invented_viewer_comprehension_pass(self):
+        for remove in range(10):
+            fixture=copy.deepcopy(self.plan)
+            self.plan["shots"][1]["annotations"]=[]
+            score=self.score()
+            self.assertFalse(score["actualUnfamiliarViewerComprehensionVerified"])
+            self.assertLessEqual(score["currentStepObjectiveProgressPercent"],90)
+            self.plan=fixture
+
+
+if __name__ == "__main__":
+    unittest.main()
