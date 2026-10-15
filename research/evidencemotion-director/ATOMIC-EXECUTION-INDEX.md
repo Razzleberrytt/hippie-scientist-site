@@ -89,6 +89,19 @@ For a multiple-input step, instantiate `.S@source-ID`; for a multiple-test step,
 | EM-045 | 7 | 49 | [Details](atomic/05-canonical-promotion.md) |
 | EM-046 | 7 | 44 | [Details](atomic/05-canonical-promotion.md) |
 
+## Optimal granularity — execution policy
+
+**Stop subdividing by default.** The ideal smallest *execution* task changes or verifies exactly **one observable fact or artifact**. Smaller clerical actions that do not change independent evidence should not become tickets or progress credit. An explicit blocker means we decompose *only the blocked item*, not every unrelated item again.
+
+- **Use the 243 concrete task IDs as the active planning queue** and the 1,590 workcards as an optional checklist for proving them. Do not issue 1,590 PRs, CI runs, reviewer requests, or notifications.
+- **Share immutable prerequisites** across a scoped work batch: one canonical source/WAV/film manifest, one declared acceptance oracle, and one evidence storage receipt may satisfy multiple stage cards only when their exact scope is identical. Preserve per-instance IDs and separate measured decisions; avoid redundant downloads, repetitive approvals, duplicate render calls and repeated identical checks.
+- **Batch related changes** that have one coherent source revision and rollback (for example caption timing + caption test + exact film receipt). Avoid unrelated science/UX changes in the same merge.
+- **Make the next task executable in a single context:** it must say *which file/scene/unit*, *what concrete action*, *what unchanged evidence*, *what acceptance test*, *what output receipt*, *what blocks it*, and *which authorized owner/PR*. If any field is Unknown, inventory only that missing field rather than creating additional speculative subtasks.
+- **Break further only on evidence:** a step is too large if it has two unrelated independent PASS conditions, cannot be reproduced in isolation, or fails without naming a specific repair. Split along the smallest observed failing unit; retain stable parent links.
+- **Do not score task-list size as progress.** Completion is one accepted concrete output, with genuine full media and science quality separately verified. Rejected experiments and failed validations are useful recorded work but never new completion marks.
+- **Prioritize unblocking #6817:** the original captions still exceed the nine-shot combined text budget in four measured intervals. Current scoped work adds exact per-scene remediation counts; next change must edit actual timed caption presentation **and** update exact-film word/source reviewers together, rerender the real MP4, then retest decoded media. A plan alone cannot close EM-034.
+- **Formal milestone names win:** original EM-027 is the completed source-card hold; the open research alias “27/99%” maps to EM-034 (with EM-017/036 dependencies).
+
 ## Status and work sequencing
 
 1. `NOT_AUDITED` means its previous implementation/evidence has not been mapped to this new card; it does **not** mean 0% engineering progress. Search prior merged PR/CI/encoded assets and mark **VERIFIED** only after validating original proof on exact applicable source/film identity.
