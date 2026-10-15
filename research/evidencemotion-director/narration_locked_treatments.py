@@ -350,7 +350,7 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
         text(pos(72,1190),disclosure,font=f(38),fill=accent,role='disclosure')
         text(pos(72,1235),'Hydrogen atoms omitted',font=f(36),fill=muted,role='disclosure')
     draw = ImageDraw.Draw(image)
-    if idx not in (0,5) and not is_spatial:
+    if idx not in (0,4,5) and not is_spatial:
         text(pos(72,1260),hero_label,font=f(30,True),fill=muted)
     # In the limitation beat, present each exact, source-aligned phrase only
     # when its meaning is spoken. Whole-sentence previews gave away "not"
