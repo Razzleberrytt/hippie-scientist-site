@@ -240,12 +240,27 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
     text(pos(72,220),'THE HIPPIE SCIENTIST',font=f(27,True),fill=accent,role=None)
     titles = ['What makes\n7-OH different?', 'Look at the\nhydroxyl group.', 'A record of\nconnected atoms.', 'The pose\nis computed.', 'Structure\nis not an effect.', 'CHECK THE SOURCE', 'Look closer.']
     text(pos(70,292),titles[idx],font=f(70 if idx==5 else 74,True),fill=fg,role='hook' if idx==0 else 'science')
-    is_spatial = not light and idx not in (2,4,5)
+    is_spatial = not light and idx not in (0,2,4,5)
     if idx==1 and is_spatial:
         text(pos(72,500),'–OH group: oxygen + hydrogen',font=f(36,True),fill=accent)
     hero = assets['7_hydroxymitragynine']
     hero_label = '7-HYDROXYMITRAGYNINE'
-    if idx==4 and not light:
+    if idx==0 and not light:
+        # Answer the *spoken* comparison question with both real, distinct
+        # PubChem-identity-locked 2D structures. Two hard-cut identities, never
+        # a morph or alleged chemical reaction. Cut precisely on "different".
+        boundary=next(w['startSec'] for w in scene['captionWords']
+                      if w['text'].casefold().strip('?!.,')=='different')
+        is_h=t>=boundary
+        source=assets['7_hydroxymitragynine'] if is_h else assets['mitragynine']
+        diagram=source['diagram'].resize((round(800*scale),round(600*scale)))
+        image.alpha_composite(diagram,pos(35,545))
+        draw=ImageDraw.Draw(image)
+        text(pos(72,1150),'7-OH • CID 44301524' if is_h else 'MITRAGYNINE • CID 3034396',
+             font=f(42,True),fill=accent)
+        text(pos(72,1200),'2D source structure • no reaction shown',
+             font=f(36),fill=muted,role='disclosure')
+    elif idx==4 and not light:
         # A distinct teaching payoff, timed to the actual spoken "not". Never
         # invent a brain/receptor/effect scene to illustrate absent evidence.
         boundary=next(w['startSec'] for w in scene['captionWords'] if w['text'].casefold()=='not')
@@ -301,7 +316,7 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
         text(pos(72,1190),disclosure,font=f(38),fill=accent,role='disclosure')
         text(pos(72,1235),'Hydrogen atoms omitted',font=f(36),fill=muted,role='disclosure')
     draw = ImageDraw.Draw(image)
-    if idx!=5 and not (light and idx==0) and not is_spatial:
+    if idx not in (0,5) and not is_spatial:
         text(pos(72,1260),hero_label,font=f(30,True),fill=muted)
     # Exact original sentence captions, never an ASR spelling substitution.
     caption = wrapped(scene['line'],f(42,True),770*scale)
@@ -324,7 +339,10 @@ def native_phone_plan(video_sha,scenes,assets,treatment,font):
     shots=[]
     for scene in scenes:
         boundaries=[scene['startSec'],scene['endSec']]
-        if scene['id']=='sentence_5' and treatment=='specimen':
+        if treatment=='specimen' and scene['id']=='sentence_1':
+            boundaries.insert(1,next(w['startSec'] for w in scene['captionWords']
+                if w['text'].casefold().strip('?!.,')=='different'))
+        if treatment=='specimen' and scene['id']=='sentence_5':
             boundaries.insert(1,next(w['startSec'] for w in scene['captionWords'] if w['text'].casefold()=='not'))
         for i,(start,end) in enumerate(zip(boundaries,boundaries[1:])):
             annotations=[]
