@@ -1,4 +1,4 @@
-# EvidenceMotion: all 21 remaining gates reconciled
+# EvidenceMotion: 20 remaining gates and completed previz comparison
 
 Existing issue [#6743](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6743), inspected main `0ed64d45a22be6e6e505d4d144bf1758ddb7edb4`. Original 46 requirements and their acceptance standards are unchanged. **25 previously merged research foundations; one actual two-treatment reference-comparison requirement evidenced in this batch, giving 26/46 and 20 open after exact-head checks/protected merge**. The selected batch is research-only exact-WAV alignment evidence ingestion and stale-cut invalidation; [implementation and measured evidence](EXACT-WAV-ALIGNMENT-2026-10-14.md). This record is an audit, not approval.
 
