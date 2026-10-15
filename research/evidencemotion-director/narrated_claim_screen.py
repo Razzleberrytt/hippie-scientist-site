@@ -54,10 +54,10 @@ EXPECTED_NON_CAPTION_ANNOTATIONS = {
         ("science", "STRUCTURE"),
     ),
     "source_hold": (
-        ("science", "CHECK THE SOURCE"),
+        ("science", "SOURCE"),
         ("source", "PubChem"),
         ("source", "Mitragynine • CID 3034396"),
-        ("source", "CID 44301524"),
+        ("source", "7-OH • CID 44301524"),
         ("source", "CID = compound record number"),
         ("source", "C23H30N2O5"),
         ("source", "pubchem.ncbi.nlm.nih.gov"),
