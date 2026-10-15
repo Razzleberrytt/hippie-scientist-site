@@ -8,7 +8,7 @@ import {resolve, relative, isAbsolute, sep} from 'node:path';
 import {createHash} from 'node:crypto';
 import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
-import {fileURLToPath} from 'node:url';
+import {fileURLToPath, URL} from 'node:url';
 const hash=x=>typeof x==='string'&&/^[a-f\d]{64}$/i.test(x);
 const finite=x=>Number.isFinite(x)&&typeof x==='number';
 const ID=x=>typeof x==='string'&&/^[a-z][a-z0-9_-]{1,60}$/i.test(x);
