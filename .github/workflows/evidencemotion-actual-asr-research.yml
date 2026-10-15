@@ -10,6 +10,8 @@ on:
       - 'research/evidencemotion-director/narration_locked_treatments.py'
       - 'research/evidencemotion-director/source_bond_trace_direction.py'
       - 'research/evidencemotion-director/test_source_bond_trace_direction.py'
+      - 'research/evidencemotion-director/narration_first_story_map.py'
+      - 'research/evidencemotion-director/test_narration_first_story_map.py'
       - 'research/evidencemotion-director/test_narration_locked_treatments.py'
       - 'research/evidencemotion-director/timed_caption_windows.py'
       - 'research/evidencemotion-director/test_timed_caption_windows.py'
@@ -92,6 +94,7 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director -p test_narration_locked_treatments.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_source_locked_visual_direction.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_source_bond_trace_direction.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_narration_first_story_map.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_temporal_caption_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_encoded_caption_cue_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_native_autocritic.py -v
@@ -465,6 +468,29 @@ jobs:
           assert result['premiumStoryQualityApproved'] is False
           assert result['mayPublish'] is False
           print('Encoded 7-OH source-locked oxygen animated after original spoken cue with science stage intact; research HOLD')
+          PY
+      - name: Verify original-narration four-act teaching story and nine real shot boundaries
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/narration_first_story_map.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-timed-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-timed-native/render-receipt.json" \
+            --phone "$RUNNER_TEMP/ths-mfa/specimen-timed-native/phone-ui-plan.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/four-act-source-bound-story.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-timed-native/four-act-source-bound-story.json'
+          r=json.loads(p.read_text())
+          assert r['nineShotsMapped']==9
+          assert r['fourActs']==['QUESTION','EVIDENCE','LIMITS','TAKEAWAY']
+          assert r['sourceWordCutBoundariesVerified'] is True
+          assert r['allOriginalFramesMappedWithoutGaps'] is True
+          assert r['independentCraftCalibrationPassed'] is False
+          assert r['actualHumanUnderstandingMeasured'] is False
+          assert r['mayPublish'] is False
+          print('Narration-first 4-act 9-shot SOURCE-BOUND map verified, human/premium checks remain on HOLD')
           PY
       - name: Preserve actual timing evidence without source audio or model copies
         if: always()
