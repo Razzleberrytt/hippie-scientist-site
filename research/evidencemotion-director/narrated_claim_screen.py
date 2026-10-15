@@ -45,7 +45,7 @@ EXPECTED_NON_CAPTION_ANNOTATIONS = {
         ("science", "7-HYDROXYMITRAGYNINE"),
     ),
     "sentence_4": (
-        ("science", "The pose\nis computed."),
+        ("science", "A possible\n3D shape."),
         ("disclosure", "Computed 3D illustration • not filmed"),
         ("disclosure", "Hydrogen atoms omitted"),
     ),
