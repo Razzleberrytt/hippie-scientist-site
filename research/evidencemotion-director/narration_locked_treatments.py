@@ -242,7 +242,7 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
             annotations.append({'role':role,'text':wording,'fontPx':font.size,'boxPx':list(box)})
 
     text(pos(72,220),'THE HIPPIE SCIENTIST',font=f(27,True),fill=accent,role=None)
-    titles = ['What makes\n7-OH different?', 'Look at the\nhydroxyl group.', 'A record of\nconnected atoms.', 'The pose\nis computed.', 'Structure\nis not an effect.', 'CHECK THE SOURCE', 'Look closer.']
+    titles = ['What makes\n7-OH different?', 'Look at the\nhydroxyl group.', 'A record of\nconnected atoms.', 'A possible\n3D shape.', 'Structure\nis not an effect.', 'CHECK THE SOURCE', 'Look closer.']
     # A semantic reveal must not be spoiled by the header before the narrator
     # says the negation. Keep the original WAV and acoustic cue untouched.
     effect_boundary = None
