@@ -34,7 +34,7 @@ This table measures both narrated captions **and** non-caption overlays in the n
 | sentence_5_part0 | 2.330 | 3 | 1 | 4 | 1.717 | PASS |
 | sentence_5_part1 | 1.640 | 3 | 2 | 5 | 3.049 | PASS |
 | source_hold | 3.900 | 0 | 18 | 18 | 4.615 | PASS |
-| sentence_6 | 3.097 | 3 | 3 | 6 | 1.937 | PASS |
+| sentence_6 | 3.097 | 0 | 6 | 6 | 1.937 | PASS |
 
 **Predeclared rule:** at least 1.50 seconds per scene and combined caption+overlay <=5.0 displayed words/s, no missing or duplicate shots, accurate source identity; full exact-head decoder and anti-tamper checks. These are necessary machine guardrails, not sufficient premium-video judgments.
 
