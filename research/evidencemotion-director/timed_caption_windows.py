@@ -69,6 +69,6 @@ def shown_at(groups, second):
             active=group
         else:
             break
-    if active is None or second >= groups[-1]['endSec']:
+    if active is None or second >= active['endSec']:
         return []
     return list(active['words'])
