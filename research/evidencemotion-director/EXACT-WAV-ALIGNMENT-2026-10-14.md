@@ -8,7 +8,7 @@ Existing owner: [#6743](https://github.com/Razzleberrytt/hippie-scientist-site/i
 
 Every candidate carries a revision bound to all five inputs, parser schema and word windows. Passing a previous revision after a source/model/dictionary/timing edit returns `STALE_CUTS_REALIGNMENT_REQUIRED` with no shots. A failed CLI invocation with a readable, noncolliding manifest replaces its old candidate report with HOLD and an empty alignment. The integration retains narration pauses; it does not stretch, regenerate, overwrite or shorten the voice. Negative word anchors now fail closed explicitly.
 
-**Not implemented or verified:** running MFA; authenticating the submitted aligner execution; real-speech boundary accuracy; independent phonetic/stress/cadence calibration; final word cue acceptance; targeted sentence regeneration; production approval revocation. This importer cannot tell whether a TextGrid was manually fabricated. Even silent synthetic audio with structurally valid timing returns only `BYTE_BOUND_WORD_TIMING_CANDIDATE_REVIEW_REQUIRED`. A matched dictionary phoneme sequence is not evidence that those phonemes were audibly produced correctly. No pronunciation or checklist PASS is emitted.
+**Earlier importer-only boundary (PR #6791):** it did not run MFA. The execution below now does; the importer alone still cannot authenticate a submitted TextGrid. **Still unverified:** real-speech boundary accuracy; independent phonetic/stress/cadence calibration; final word cue acceptance; targeted sentence regeneration; production approval revocation. This importer cannot tell whether a TextGrid was manually fabricated. Even silent synthetic audio with structurally valid timing returns only `BYTE_BOUND_WORD_TIMING_CANDIDATE_REVIEW_REQUIRED`. A matched dictionary phoneme sequence is not evidence that those phonemes were audibly produced correctly. No pronunciation or checklist PASS is emitted.
 
 The [official MFA data-format documentation](https://montreal-forced-aligner.readthedocs.io/en/v1.0/data_format.html) describes word/phone tiers and unknown-word behavior; its [current alignment API](https://montreal-forced-aligner.readthedocs.io/en/v3.3.1/reference/alignment/generated/montreal_forced_aligner.alignment.CorpusAligner.html) supports long TextGrid export. This bounded importer accepts only that documented subset, no probability-column dictionary, multi-speaker tier, short TextGrid or silent alias/spelling repair. Scientific lexicon entries and the actual alignment require separately validated evidence.
 
@@ -32,7 +32,7 @@ The original audio is recoverable from [successful narration run 38417454106](ht
 
 The existing [successful ASR run 38506807636](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/38506807636) has a recoverable receipt artifact `11868256156` expiring October 19, 2026. Downloaded report SHA `ccdc1cbaca624d97b0d8754b4a9aa840f2bf8483469d98b96bdd1db93c46e8f1` refers to the same WAV. Its existing ASR estimates include “Mitrogenine” at **2.24–2.98s / 9.54–10.50s**, “hydroxyl” at **3.84–4.62s**, “hydroxometrogenine” at **7.68–9.18s**, and “poles” at **17.80–18.34s**. These are archived recognition uncertainties, not confirmed pronunciation failures or freshly executed ASR in this batch. Do not feed those estimates into certified cues or regenerate the voice solely because ASR misspelled a name.
 
-The exact V5 MP4 and portable ZIP were not attached or found locally in the searched Downloads/Codex directories. The GitHub issue records them as prior-conversation artifacts, not repository binaries. No V5 frames, AAC sync, phone playback, native-render quality or clean replay was inspected anew. The importer has not run on a genuine MFA result for this WAV; a calibrated scientific lexicon and independently checked real alignment remain missing. Checklist stays **25/46**, quality milestones **0/1 and 0/5**.
+The exact V5 MP4 and portable ZIP were not attached or found locally in the searched Downloads/Codex directories. The GitHub issue records them as prior-conversation artifacts, not repository binaries. No V5 frames, AAC sync, phone playback, native-render quality or clean replay was inspected anew. The importer has now consumed a genuine MFA result for this WAV in the continuation below; a calibrated scientific lexicon and independently checked boundary accuracy remain missing. Checklist stays **25/46**, quality milestones **0/1 and 0/5**.
 
 ## Validation and privacy inventory
 
@@ -51,3 +51,62 @@ This field/store map uses code/schema metadata and synthetic test records. It do
 | Existing ASR receipt | Prior-run recognition uncertainty provenance | Existing GitHub artifact; local copy | Existing GitHub 5-day retention | Existing artifact deletion/expiry; delete local copy separately |
 
 No new remote data store, listener/device identity field, retention scheduler or source-audio upload is introduced. The scoped CI runs synthetic records without uploading candidate reports. Local staging is an operator-managed store, not an enforced privacy-retention system.
+
+## Actual CPU alignment and two full-narration treatments (2026-10-15 UTC)
+
+The continuation executes MFA **3.3.8** `g2p` and `align_one`, using the recovered original WAV and exact creative-brief SHA `db95adc5dce3eb6e19c81719fec9222e3511856e85dbf862351ce231c8661ea8`. It verifies that all six brief sentences match the existing frozen script. No narration is regenerated. All input hashes are checked again after execution. The source WAV remains `9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435`.
+
+Pinned official MFA assets (CC BY 4.0 model attribution: Montreal Corpus Tools; [model documentation](https://mfa-models.readthedocs.io/en/latest/acoustic/English/index.html)):
+
+| Input | Release | Actual SHA-256 |
+|---|---|---|
+| English US ARPA dictionary | v3.0.0 | `e8c6c7b036ae2b7c78d2768b8dc6b1f9359175b842956d00b48c53c9c332e6b0` |
+| English US ARPA acoustic model | v3.0.0 | `d35ce271ded357d833d2f4b8d1041dc3748b9538567ba13f2c697f4e4126711b` |
+| English US ARPA G2P model | v2.0.0 | `f079ae88f792458fa7c123b256e5b86cc55c29ac2ffc457c673e6c60c36cd143` |
+
+The base dictionary lacks `hydroxyl`, `hydroxymitragynine`, and `mitragynine`. G2P generated phone **candidates** for precisely those terms; these are not validated pronunciations. Local fresh run 003 completed both real model invocations with exit 0 (G2P 15.828s; align_one 12.016s), yielding **73/73 script words**, TextGrid SHA `fa65964b44635ff2300065ce34bc6ba86e0069bd9c360393eefd88366b28f373`, and alignment revision `a5b44de4c4b8a2386f5e8071f012d93bc45a3b07faec9c7767c0944afd1c4ad0`. The prior successful model run 002 produced the same TextGrid hash. Failed run 001 (incorrect G2P positional arguments) and the importer rejection from run 002 remain separate local failures, not successful receipts.
+
+Real MFA word-tier `<eps>` pauses initially failed the importer. A regression reproduced that failure before repair. It now permits only those epsilon word intervals fully covered by empty/silence phones; unknown/speech phones in such an interval still HOLD. `<eps>` in the phone tier remains rejected. The natural 27.35–31.25s source-reading pause is retained.
+
+| Term occurrence | Acoustic window (seconds) | Pronunciation verdict |
+|---|---|---|
+| seven O H | 0.56–1.62 | Uncalibrated; no audible confidence assigned |
+| mitragynine | 2.11–2.92 | Uncalibrated |
+| hydroxyl | 3.67–4.54 | Uncalibrated |
+| seven-hydroxymitragynine | 7.19–9.13 | Uncalibrated |
+| mitragynine | 9.46–10.27 | Uncalibrated |
+
+`narration_locked_treatments.py` reuses the existing graph validator, editorial easing and byte-bound importer to render two genuinely different **new research candidates**, never claimed as recovered V5: light bond-diagram `atlas` and dark shaded computed-pose `specimen`. Six exact sentence captions and word highlights follow the actual alignment, preserving hyphenated scientific spellings and contractions. Source-reading hold remains in the real voice pause; all computed spatial views carry a computed-illustration disclosure, and cropped views say DETAIL VIEW. No botanical, receptor interaction or human-effect footage is introduced. Both full 34.347s previews draw at 540×960/30fps; `--native` is available for later 1080×1920 output, but no premium native final is awarded here.
+
+Fresh local word-cued encoded previews:
+
+- Atlas SHA `55c961cf7e04b4210b8ffd99db776baa99004eee88ab873c721dcf757114818b`, 26.203s render wall time.
+- Specimen SHA `0722c7c4e88a8b055aae61918056c8de4b2af0ccfe3c4ac0a361d97996a7e7a5`, 18.203s render wall time.
+- Existing native auditor, configured for these preview dimensions: **both PASS**, all **1,031** frames decoded, constant 30fps presentation timestamps, and both AAC elementary streams equal an independently encoded reference (SHA `1e12192a442f8d54650f76623b285e5759b15539b7fc9567e4556ab532cd5b5a`).
+- Existing source-waveform audit: **both PASS**, 0ms relative lag, 100% active source-window retention, zero clipped samples, 0.99594 source-matched waveform correlation. Gain/latency-compensated limiting is explicitly declared; original bytes never change. Actual mastered output measured **−18.05 LUFS / −1.75 dBTP / 2.80 LU LRA**. These are signal checks, not listening approval.
+
+The existing actual-ASR workflow is extended, not replaced: pinned CPU MFA, source-artifact restore, model hash checks, both actual preview renders, full decoding and signal checks, then 14-day research artifacts. Hosted execution and protected exact-head gates must pass before merge. Local tests: importer **15 cases, 14 pass / one Windows symlink capability skip**; acoustic preparation **7/7**; treatment scheduling/real chemistry **4/4**; existing JS cut regressions **8/8**. Linux must exercise the symlink case.
+
+Research status stays **25/46**, 0/1 excellent master, 0/5 streak: real execution is a substantive advance, but independently validated scientific lexicon/boundary accuracy and accepted final cue integration remain open. Two rendered directions alone do not close the external-reference comparison or craft gate. The first visual inspection led to repairs for overlapping comparison labels, insufficient subject scale and near-full-scale audio peaks. Neither treatment has calibrated premium acceptance.
+
+Additional store/privacy inventory: generated script/TextGrid/dictionary/receipts and full TTS-narrated previews go to the existing GitHub research artifact store for **14 days**; source WAV/model copies are excluded from that upload. Artifact deletion/expiry does not remove Actions logs or this task history. Local `.local` source/model/runtime/reference/candidate files have operator-managed retention and can be deleted separately after evidence escrow; no cleanup scheduler or listener/device data collection is added. External reference clips are private review inputs and are not uploaded or redistributed. Production imports, publishing, new normal WIP and reviewer impersonation remain absent.
+
+## Actual reference comparison: one narrow previz requirement
+
+Three public, creator-attributed excerpts (0–35s) were accessed for private research comparison, decoded with FFmpeg, and sampled at **1, 8, 16, 24 and 32 seconds**. These are frame/sequence samples, not a full audiovisual, scientific or calibrated aesthetic review. YouTube metadata confirmed channels and distinct video IDs. No reference footage is included in our videos or uploaded to GitHub.
+
+| Reference | Creator / original URL | Private excerpt SHA-256 |
+|---|---|---|
+| How do Electron Microscopes Work? Taking Pictures of Atoms | Branch Education, [9DnnxvS6BBQ](https://www.youtube.com/watch?v=9DnnxvS6BBQ) | `4cd5b0be99bcd47cc6357a32254c3435e295d0ac7ac3579cca807f3e9776df1a` |
+| What is a Protein? Learn about the 3D shape and function of macromolecules | RCSBProteinDataBank, [qBRFIMcxZNM](https://www.youtube.com/watch?v=qBRFIMcxZNM) | `7a0d464ce0581012bcd10cfdc866c2ababb17a837c0845dbda31091144314026` |
+| What is a Protein? (from PDB-101) | RCSBProteinDataBank, [wvTv8TqWC48](https://www.youtube.com/watch?v=wvTv8TqWC48) | `8a6e6aa85590c32172229f48080e40d603384b4f0b56b67879020d64eccbf666` |
+
+The reference shelf is three science explainers, including two distinct editions of one institution's protein lesson; it is not a representative Shorts/TikTok performance dataset. The official [PDB-101 lesson](https://pdb101.rcsb.org/learn/videos/what-is-a-protein-video) links the later video and [Branch Education](https://www.branch.education/videos) identifies its science/engineering video library.
+
+Both actual candidate videos were fully decoded; candidate frames at **1, 4, 12, 18, 24, 29 and 32s** were extracted for the same private comparison. Findings from the inspected pixels:
+
+- **Atlas:** a genuinely different light, flat bond-diagram treatment, with two distinct chemical records shown separately in the hook; stronger explicit structural comparison than Specimen. However, the stacked diagrams are small at preview scale and most later shots return to a repeated headline/diagram/caption arrangement. **Reject as premium final; retain as an explanatory diagram component.**
+- **Specimen:** shaded computed spatial geometry, a slow camera change, declared detail crop and source-to-computed-view changes. However, the near-edge-on conformation weakens the OH teaching moment, the hero occupies too little of the canvas in whole views, and the same text scaffold repeats. **Reject as premium final; needs a better teaching angle and stronger scene progression.**
+- **External anchors:** the Branch samples progress from atomic lattice to instrument to specimen/observed image; the PDB samples progress from varied recognizable protein examples to constituent atoms and an explicit element-color key. Those visible changes teach scale/representation and give context. Our candidates lack that range and payoff. No pixel similarity, invented audience score or solo-model positive verdict is used.
+
+This establishes only the original **two distinct low-resolution previz candidates evaluated against a real reference shelf before a final native render** requirement. It includes actual video artifacts and a negative comparison verdict; it is not documentation-only credit and does not certify excellence, full-motion smoothness, calibrated reviewers, premium materials or independent correctness. No final native film was rendered from these rejected concepts. The merged research baseline advances **25→26/46 only after this batch passes exact-head checks and protected merge**; all other 20 gates and the 0/1, 0/5 milestones remain open. Reproduce previews with the recorded exact WAV, model/lexicon/alignment revision and renderer/font/runtime hashes; external reference clips stay private and may be re-encoded differently on later downloads.

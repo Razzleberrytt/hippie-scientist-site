@@ -166,7 +166,16 @@ def inspect_alignment(root, manifest):
     if abs(end-duration) > .001:
         hold("TEXTGRID_WAV_DURATION_MISMATCH")
     expected = normalized_words(files["transcript"][1].decode("utf-8-sig"))
-    words = [(a, b, text) for a, b, text in tiers["words"] if text.strip()]
+    # Real MFA align_one uses <eps> for word-tier silence. Accept that exact
+    # representation only when the entire interval is covered by silence/empty
+    # phones. An epsilon phone remains UNKNOWN; it cannot hide unaligned speech.
+    for a, b, text in tiers["words"]:
+        if text == "<eps>":
+            pause = [(x, y, label) for x, y, label in tiers["phones"] if x >= a-1e-6 and y <= b+1e-6]
+            if (not pause or abs(pause[0][0]-a) > 1e-6 or abs(pause[-1][1]-b) > 1e-6
+                    or any(label.casefold() not in {"", "sil", "sp"} for _, _, label in pause)):
+                hold("EPSILON_INTERVAL_CONTAINS_NON_SILENCE")
+    words = [(a, b, text) for a, b, text in tiers["words"] if text.strip() and text != "<eps>"]
     if len(words) > 2000:
         hold("WORD_COUNT_EXCEEDS_BOUNDED_RESEARCH")
     actual = [normalized_words(text) for _, _, text in words]
