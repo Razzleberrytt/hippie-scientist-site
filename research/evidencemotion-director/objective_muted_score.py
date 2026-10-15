@@ -174,9 +174,8 @@ def evaluate(plan, *, image_variation=None, safe_zone_pass=False,
     before,after = byid["sentence_5_part0"],byid["sentence_5_part1"]
     record("limit_of_inference_timed",
            abs(before["endSec"]-after["startSec"]) < .002
-           and contains(before["id"], "What the shape\nshows.")
+           and contains(before["id"], "STRUCTURE")
            and not contains(before["id"], "HUMAN EXPERIENCE")
-           and contains(after["id"], "What it cannot\ntell us.")
            and contains(after["id"], "HUMAN EXPERIENCE"),
            "Human-effect caveat is not disclosed in the pre-negation shot")
     hold=byid["source_hold"]

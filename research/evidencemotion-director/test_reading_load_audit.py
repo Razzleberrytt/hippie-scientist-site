@@ -75,6 +75,17 @@ class ReadingLoadGateTests(unittest.TestCase):
         self.assertEqual(result["openingSpans"][0]["combinedVisibleWords"],9)
         self.assertFalse(result["openingSpans"][0]["passesCombinedVisibleTextBudget"])
 
+    def test_file_command_rejects_combined_overload_with_diagnostic_receipt(self):
+        self.plan['shots'][0]['annotations'].append({'role':'caption','text':'Look'})
+        with tempfile.TemporaryDirectory() as td:
+            plan=Path(td)/'plan.json';out=Path(td)/'reading.json'
+            plan.write_text(json.dumps(self.plan))
+            with self.assertRaisesRegex(ValueError,'COMBINED_CAPTION_OVERLAY_OVERLOAD'):
+                check_file(plan,out)
+            diagnostic=json.loads(out.read_text())
+            self.assertFalse(diagnostic['allScenesCombinedVisibleTextBudgetPass'])
+            self.assertFalse(diagnostic['mayPublish'])
+
     def test_old_17_word_first_shot_is_rejected(self):
         orig=self.plan["shots"][0]["annotations"]
         orig[1]["text"]="MITRAGYNINE • CID 3034396"

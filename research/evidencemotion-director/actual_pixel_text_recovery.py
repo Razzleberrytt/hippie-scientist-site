@@ -74,7 +74,8 @@ def _shot_identity_nearest_caveat(text):
     """
     lines=[line.strip(" \t*•.:-") for line in plain(text).splitlines()]
     end=next((i for i,line in enumerate(lines)
-              if "separate structures" in line and "no reaction" in line),None)
+              if line == "no reaction" or
+              "separate structures" in line and "no reaction" in line),None)
     if end is None:
         return None
     for line in reversed(lines[:end]):

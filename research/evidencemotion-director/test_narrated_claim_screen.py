@@ -37,22 +37,23 @@ class RealFilmClaimScreenTests(unittest.TestCase):
             if sid == "sentence_1":
                 diff = next(c["startSec"] for c in cues if c["text"] == "different")
                 second = copy.deepcopy(ann)
-                next(a for a in second if a.get("role") == "science")["text"] = "7-OH"
+                next(a for a in second if a.get("role") == "hook")["text"] = "7-OH"
+                pivot = words.index("different")
+                first = ann[:2] + [{"role":"caption","text":w} for w in words[:pivot]]
+                second = second[:2] + [{"role":"caption","text":w} for w in words[pivot:]]
                 self.shots.extend([
                     {"id": "sentence_1_part0", "startSec": start, "endSec": diff,
-                     "annotations": copy.deepcopy(ann), "assetKind": "deterministic_science"},
+                     "annotations": first, "assetKind": "deterministic_science"},
                     {"id": "sentence_1_part1", "startSec": diff, "endSec": end,
                      "annotations": second, "assetKind": "deterministic_science"},
                 ])
             elif sid == "sentence_5":
                 pivot = words.index("not")
-                pre = copy.deepcopy(ann[:2]) + [
+                pre = copy.deepcopy(ann[:1]) + [
                     {"role": "caption", "text": w} for w in words[:pivot]]
-                post = copy.deepcopy(ann[:2])
-                post[0]["text"] = "What it cannot\ntell us."
-                post = post[:2] + [
+                post = [
                     {"role": "science", "text": "≠"},
-                    {"role": "science", "text": "HUMAN EXPERIENCE"}] + post[2:] + [
+                    {"role": "science", "text": "HUMAN EXPERIENCE"}] + [
                     {"role": "caption", "text": w} for w in words[pivot:]]
                 self.shots.extend([
                     {"id": sid + "_part0", "startSec": start, "endSec": start+2.,
@@ -148,12 +149,12 @@ class RealFilmClaimScreenTests(unittest.TestCase):
 
     def test_early_title_cannot_spoil_limitation(self):
         self.shot("sentence_5_part0")["annotations"][0]["text"] = (
-            self.shot("sentence_5_part1")["annotations"][0]["text"])
+            self.shot("sentence_5_part1")["annotations"][1]["text"])
         with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
             self.screen()
 
     def test_late_title_must_match_the_approved_limit(self):
-        self.shot("sentence_5_part1")["annotations"][0]["text"] = "Scientifically proven effects"
+        self.shot("sentence_5_part1")["annotations"][1]["text"] = "Scientifically proven effects"
         with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
             self.screen()
 

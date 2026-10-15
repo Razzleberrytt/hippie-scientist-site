@@ -50,9 +50,10 @@ def assess(plan):
         combined=units+caption_units
         wps=units/secs if secs>0 else float("inf")
         combined_wps=combined/secs if secs>0 else float("inf")
-        identity_ok=(identity in visible and
-                     "7-OH vs\nmitragynine" in visible and
-                     "Separate structures • no reaction" in visible)
+        identity_ok=(identity in visible and (
+                     ("7-OH vs\nmitragynine" in visible and
+                      "Separate structures • no reaction" in visible)
+                     or visible==[identity,"No reaction"]))
         no_early_cid=all("CID" not in text for text in visible)
         pass_this=bool(secs>=1.50 and wps<=MAX_OPENING_VISUAL_WORDS_PER_SEC
                        and identity_ok and no_early_cid)
@@ -124,6 +125,8 @@ def check_file(plan_path,out_path):
         raise ValueError("OPENING_READING_HOLD:OVERLOADED_SHORT_SHOT")
     if not result["allScenesReadingBudgetPass"]:
         raise ValueError("OPENING_READING_HOLD:OTHER_SCENE_EXCEEDS_SILENT_READING_BUDGET")
+    if not result["allScenesCombinedVisibleTextBudgetPass"]:
+        raise ValueError("OPENING_READING_HOLD:COMBINED_CAPTION_OVERLAY_OVERLOAD")
     return result
 
 
