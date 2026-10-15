@@ -130,7 +130,7 @@ class ResearchOperatorHandoffTests(unittest.TestCase):
    rehearse(self.path,'0'*64,probe=lambda _:None)
  def test_edited_movie_rehashed_outer_archive_still_fails(self):
   self.files['film.mp4']+=b'bad'
-  with self.assertRaisesRegex(ValueError,'PINNED_MASTER_MEDIA_DRIFT'):
+  with self.assertRaisesRegex(ValueError,'CROSS_DOCUMENT_PROVENANCE_MISMATCH'):
    self.check()
  def test_modified_phone_plan_violates_exact_source(self):
   self.files['phone-ui-plan.json']+=b'\n'
