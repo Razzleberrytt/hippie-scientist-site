@@ -59,7 +59,10 @@ def ensure_frozen_scenes(receipt):
     for s,line in zip(scenes,(*LINES[:5],"",LINES[5])):
         if s.get("line")!=line:
             hold("FROZEN_SPOKEN_SOURCE_DRIFT")
-        cues=s.get("captionWords")
+        # The genuine silent PubChem source card intentionally omits
+        # captionWords entirely. Spoken scenes must retain every original
+        # acoustic cue; only this source-only pause may omit the field.
+        cues=s.get("captionWords",[] if s["id"]=="source_hold" else None)
         if not isinstance(cues,list) or [c.get("text") for c in cues]!=line.split():
             hold("ORIGINAL_WORD_CUE_DRIFT")
         # Validate the entire atomic acoustic timeline.
