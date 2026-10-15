@@ -2,7 +2,9 @@
 import copy
 import unittest
 
-from objective_muted_score import BASE_PERCENT, AUTOMATED_CAP_PERCENT, evaluate
+import numpy as np
+from objective_muted_score import (BASE_PERCENT, AUTOMATED_CAP_PERCENT,
+                                   evaluate, compare_transfer_frames)
 
 
 class ObjectiveMutedScoreTests(unittest.TestCase):
@@ -35,34 +37,37 @@ class ObjectiveMutedScoreTests(unittest.TestCase):
         ]}
         self.variance = {k:22. for k in
                          ("opening","chemical_detail","computed_model","source_card")}
+        self.transfer={"structureComparisonVisiblyDifferent":True,
+                       "negationPayoffVisibleWithStableScience":True}
 
     def score(self, **kwargs):
         return evaluate(self.plan, image_variation=kwargs.get("pixel",self.variance),
                         safe_zone_pass=kwargs.get("safe",True),
-                        identical_soundoff_stream=kwargs.get("silent",True))
+                        identical_soundoff_stream=kwargs.get("silent",True),
+                        transfer_evidence=kwargs.get("transfer",self.transfer))
 
     def test_all_ten_proxies_still_withhold_viewer_approval(self):
         x=self.score()
-        self.assertEqual(x["currentStepObjectiveProgressPercent"],90)
-        self.assertEqual(x["microChecksPassed"],10)
+        self.assertEqual(x["currentStepObjectiveProgressPercent"],92)
+        self.assertEqual(x["microChecksPassed"],12)
         self.assertEqual(x["baseEvidencePercent"],80)
         self.assertFalse(x["actualUnfamiliarViewerComprehensionVerified"])
         self.assertFalse(x["mayPublish"])
-        self.assertEqual(x["automaticScoreCeilingPercent"],90)
+        self.assertEqual(x["automaticScoreCeilingPercent"],92)
 
     def test_first_use_cid_not_defined_is_one_percentage_point_loss(self):
         self.plan["shots"][0]["annotations"] = [
             a for a in self.plan["shots"][0]["annotations"]
             if "CID =" not in a["text"]]
         x=self.score()
-        self.assertEqual(x["currentStepObjectiveProgressPercent"],89)
+        self.assertEqual(x["currentStepObjectiveProgressPercent"],91)
         self.assertFalse(next(c["passed"] for c in x["measured"]
                               if c["code"]=="first_use_cid_defined"))
 
     def test_jargon_3d_without_plain_language_fails(self):
         self.plan["shots"][4]["annotations"][0]["text"]="The pose\nis computed."
         x=self.score()
-        self.assertEqual(x["microChecksPassed"],9)
+        self.assertEqual(x["microChecksPassed"],11)
         self.assertFalse(next(c["passed"] for c in x["measured"]
                               if c["code"]=="computed_shape_no_real_binding_claim"))
 
@@ -73,16 +78,16 @@ class ObjectiveMutedScoreTests(unittest.TestCase):
 
     def test_deleted_mute_track_proof_is_not_faked(self):
         x=self.score(silent=False)
-        self.assertEqual(x["currentStepObjectiveProgressPercent"],89)
+        self.assertEqual(x["currentStepObjectiveProgressPercent"],91)
         self.assertFalse(x["mayPublish"])
 
     def test_blanked_encoded_frames_not_counted(self):
         x=self.score(pixel={})
-        self.assertEqual(x["currentStepObjectiveProgressPercent"],89)
+        self.assertEqual(x["currentStepObjectiveProgressPercent"],91)
 
     def test_platform_unsafe_content_not_counted(self):
         x=self.score(safe=False)
-        self.assertEqual(x["microChecksPassed"],9)
+        self.assertEqual(x["microChecksPassed"],11)
 
     def test_source_card_too_fast_to_read_not_counted(self):
         self.plan["shots"][7]["endSec"]=self.plan["shots"][7]["startSec"]+1.5
@@ -101,8 +106,55 @@ class ObjectiveMutedScoreTests(unittest.TestCase):
             self.plan["shots"][1]["annotations"]=[]
             score=self.score()
             self.assertFalse(score["actualUnfamiliarViewerComprehensionVerified"])
-            self.assertLessEqual(score["currentStepObjectiveProgressPercent"],90)
+            self.assertLessEqual(score["currentStepObjectiveProgressPercent"],92)
             self.plan=fixture
+
+
+    def test_transfer_challenges_require_actual_source_differences(self):
+        frames=[np.zeros((1920,1080,3),dtype=np.uint8) for _ in range(4)]
+        frames[1][620:1060,155:765,:]=100
+        frames[3][1132:1290,70:840,:]=110
+        obs=compare_transfer_frames(*frames)
+        self.assertTrue(obs["structureComparisonVisiblyDifferent"])
+        self.assertTrue(obs["negationPayoffVisibleWithStableScience"])
+        self.assertEqual(obs["sourceGraphStabilityAtNegationPixelMad"],0)
+        scored=self.score(transfer=obs)
+        self.assertEqual(scored["currentStepObjectiveProgressPercent"],92)
+        self.assertFalse(scored["actualUnfamiliarViewerComprehensionVerified"])
+
+    def test_static_opening_identical_graph_fails_comparison(self):
+        frames=[np.zeros((1920,1080,3),dtype=np.uint8) for _ in range(4)]
+        frames[3][1132:1290,70:840,:]=100
+        obs=compare_transfer_frames(*frames)
+        self.assertFalse(obs["structureComparisonVisiblyDifferent"])
+        self.assertTrue(obs["negationPayoffVisibleWithStableScience"])
+        self.assertEqual(self.score(transfer=obs)["currentStepObjectiveProgressPercent"],91)
+
+    def test_negative_payoff_not_visible_fails(self):
+        frames=[np.zeros((1920,1080,3),dtype=np.uint8) for _ in range(4)]
+        frames[1][620:1060,155:765,:]=100
+        obs=compare_transfer_frames(*frames)
+        self.assertTrue(obs["structureComparisonVisiblyDifferent"])
+        self.assertFalse(obs["negationPayoffVisibleWithStableScience"])
+        self.assertEqual(self.score(transfer=obs)["currentStepObjectiveProgressPercent"],91)
+
+    def test_fabricated_chemical_reaction_at_negation_fails_stability(self):
+        frames=[np.zeros((1920,1080,3),dtype=np.uint8) for _ in range(4)]
+        frames[1][620:1060,155:765,:]=100
+        frames[3][1132:1290,70:840,:]=100
+        frames[3][620:1060,155:765,:]=100
+        obs=compare_transfer_frames(*frames)
+        self.assertGreater(obs["sourceGraphStabilityAtNegationPixelMad"],1)
+        self.assertFalse(obs["negationPayoffVisibleWithStableScience"])
+
+    def test_wrong_frame_shape_refused(self):
+        bad=np.zeros((320,180,3),dtype=np.uint8)
+        with self.assertRaisesRegex(ValueError,"EXACT_UNALTERED_NATIVE_RGB"):
+            compare_transfer_frames(*([bad]*4))
+
+    def test_unproven_pixel_transfer_not_credited(self):
+        self.assertEqual(self.score(transfer={})["currentStepObjectiveProgressPercent"],90)
+        self.assertFalse(self.score(transfer={})["mayPublish"])
 
 
 if __name__ == "__main__":
