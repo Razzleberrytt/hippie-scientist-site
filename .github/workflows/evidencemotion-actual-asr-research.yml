@@ -13,6 +13,8 @@ on:
       - 'research/evidencemotion-director/test_verified_molecular_comparison.py'
       - 'research/evidencemotion-director/editorial_2d_cpu_research.py'
       - 'research/evidencemotion-director/validated_7oh_chemistry.py'
+      - 'research/evidencemotion-director/phone_ui_audit.py'
+      - 'research/evidencemotion-director/native_master_audit.py'
       - 'research/evidencemotion-director/ASR-SOURCE-LOCK-2026-10-13.md'
       - 'research/evidencemotion-director/COMPLETION-CHECKLIST.md'
       - '.github/workflows/evidencemotion-actual-asr-research.yml'
@@ -56,7 +58,7 @@ jobs:
             --acoustic-model "$RUNNER_TEMP/ths-mfa/models/acoustic.zip" \
             --g2p-model "$RUNNER_TEMP/ths-mfa/models/g2p.zip" \
             --out "$RUNNER_TEMP/ths-mfa/result"
-      - name: Render two actual full-narration CPU visual treatments
+      - name: Render two previews and repaired native research candidate on CPU
         shell: micromamba-shell {0}
         run: |
           set -euo pipefail
@@ -70,7 +72,11 @@ jobs:
               --font-dir /usr/share/fonts/truetype/dejavu --treatment "$treatment" \
               --out "$RUNNER_TEMP/ths-mfa/$treatment"
           done
-      - name: Fully decode both actual treatment videos and verify narration integrity
+          python research/evidencemotion-director/narration_locked_treatments.py \
+            --alignment-root "$RUNNER_TEMP/ths-mfa/result" \
+            --font-dir /usr/share/fonts/truetype/dejavu --treatment specimen --native \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-native"
+      - name: Fully decode previews and native candidate, verify narration integrity
         shell: micromamba-shell {0}
         run: |
           set -euo pipefail
@@ -85,11 +91,13 @@ jobs:
           reference=root/'reference.m4a'
           subprocess.run(['ffmpeg','-v','error','-i',str(root/'result/original.wav'),'-af',AUDIO_FILTER,'-c:a','aac','-b:a','192k',str(reference)],check=True)
           expected_audio=audio_hash(reference)
-          for treatment in ('atlas','specimen'):
+          for treatment in ('atlas','specimen','specimen-native'):
               target=root/treatment
-              video=target/(treatment+'_NEW_RESEARCH_CANDIDATE.mp4')
+              receipt=json.loads((target/'render-receipt.json').read_text())
+              video=target/(receipt['treatment']+'_NEW_RESEARCH_CANDIDATE.mp4')
               digest=sha(video)
-              technical=verify(video,reference,digest,expected_audio,1031,width=540,height=960)
+              width,height=receipt['resolution']
+              technical=verify(video,reference,digest,expected_audio,1031,width=width,height=height)
               signal=analyze(root/'result/original.wav',video,WAV_SHA,digest)
               (target/'decoded-technical.json').write_text(json.dumps(technical,indent=2)+'\n')
               (target/'decoded-signal.json').write_text(json.dumps(signal,indent=2)+'\n')
@@ -113,6 +121,7 @@ jobs:
             ${{ runner.temp }}/ths-mfa/result/*.log
             ${{ runner.temp }}/ths-mfa/atlas/*
             ${{ runner.temp }}/ths-mfa/specimen/*
+            ${{ runner.temp }}/ths-mfa/specimen-native/**
           retention-days: 14
           if-no-files-found: error
       - name: Keep acoustic execution separate from pronunciation and quality approval

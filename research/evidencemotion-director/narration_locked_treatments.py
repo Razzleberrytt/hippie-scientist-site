@@ -96,7 +96,22 @@ def chemistry_assets(light=False):
             raise ValueError('TREATMENT_HOLD:CONFORMER_NOT_CONVERGED')
         coords = np.array(model.GetConformer().GetPositions())[:mol.GetNumAtoms()]
         coords -= coords.mean(axis=0)
-        assets[name] = {'mol':mol, 'xyz':coords, 'diagram':diagram,
+        # Camera basis only: face the broad molecular plane without reflecting
+        # stereochemistry or changing a bond length. Stable signs aid replay.
+        _,_,basis = np.linalg.svd(coords,full_matrices=False)
+        for axis in (0,1):
+            if basis[axis,np.argmax(np.abs(basis[axis]))]<0:
+                basis[axis]*=-1
+        basis[2]=np.cross(basis[0],basis[1])
+        if entry['free_oh_indices']:
+            oh=entry['free_oh_indices'][0]
+            parent=mol.GetAtomWithIdx(oh).GetNeighbors()[0].GetIdx()
+            if np.dot(coords[oh]-coords[parent],basis[2])<0:
+                # View the actual OH bond from its exposed side. Flip two
+                # camera axes together, preserving chirality (determinant +1).
+                basis[1]*=-1
+                basis[2]*=-1
+        assets[name] = {'mol':mol, 'xyz':coords@basis.T, 'viewBasis':basis.tolist(), 'diagram':diagram,
                         'oh': entry['free_oh_indices'], 'source':source,
                         'conformerMolBlock': Chem.MolToMolBlock(model)}
     return assets
@@ -188,7 +203,7 @@ def wrapped(text, font, width):
     return lines+[line] if line else lines
 
 
-def render_frame(t, scenes, assets, treatment, size, font):
+def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
     from PIL import Image,ImageDraw
     w,h = size
     scale = w/1080
@@ -201,22 +216,39 @@ def render_frame(t, scenes, assets, treatment, size, font):
     bg,fg,muted,accent = ((243,239,226),(18,40,49),(65,86,88),(29,117,114)) if light else ((6,17,27),(236,241,233),(151,177,185),(96,216,199))
     image = Image.new('RGB',size,bg).convert('RGBA') if light else background(size).copy()
     draw = ImageDraw.Draw(image)
-    draw.text(pos(72,220),'THE HIPPIE SCIENTIST',font=f(27,True),fill=accent)
+
+    def text(xy,wording,*,font,fill,role='science'):
+        # Record the very same emitted text/font/bounds, not a separate hand-
+        # authored rectangle. This still is not OCR or a comprehension verdict.
+        if '\n' in wording:
+            spacing=round(8*scale)
+            draw.multiline_text(xy,wording,font=font,fill=fill,spacing=spacing)
+            box=draw.multiline_textbbox(xy,wording,font=font,spacing=spacing)
+        else:
+            draw.text(xy,wording,font=font,fill=fill)
+            box=draw.textbbox(xy,wording,font=font)
+        if annotations is not None and role:
+            annotations.append({'role':role,'text':wording,'fontPx':font.size,'boxPx':list(box)})
+
+    text(pos(72,220),'THE HIPPIE SCIENTIST',font=f(27,True),fill=accent,role=None)
     titles = ['What makes\n7-OH different?', 'Look at the\nhydroxyl group.', 'A record of\nconnected atoms.', 'The pose\nis computed.', 'Structure\nis not an effect.', 'CHECK THE SOURCE', 'Look closer.']
-    draw.multiline_text(pos(70,292),titles[idx],font=f(74,True),fill=fg,spacing=round(8*scale))
+    text(pos(70,292),titles[idx],font=f(70 if idx==5 else 74,True),fill=fg,role='hook' if idx==0 else 'science')
+    is_spatial = not light and idx not in (2,4,5)
+    if idx==1 and is_spatial:
+        text(pos(72,500),'–OH group: oxygen + hydrogen',font=f(36,True),fill=accent)
     hero = assets['7_hydroxymitragynine']
     hero_label = '7-HYDROXYMITRAGYNINE'
     if idx==5:
-        draw.text(pos(72,760),'PubChem',font=f(86,True),fill=fg)
-        draw.text(pos(72,880),'CID 44301524',font=f(51,True),fill=accent)
-        draw.text(pos(72,967),'C23H30N2O5',font=f(48),fill=fg)
-        draw.text(pos(72,1060),'pubchem.ncbi.nlm.nih.gov',font=f(38),fill=muted)
+        text(pos(72,760),'PubChem',font=f(86,True),fill=fg,role='source')
+        text(pos(72,880),'CID 44301524',font=f(51,True),fill=accent,role='source')
+        text(pos(72,967),'C23H30N2O5',font=f(48),fill=fg,role='source')
+        text(pos(72,1060),'pubchem.ncbi.nlm.nih.gov',font=f(38),fill=muted,role='source')
     elif light and idx==0:
         for name,y,label in [('mitragynine',585,'MITRAGYNINE'),('7_hydroxymitragynine',935,'7-HYDROXYMITRAGYNINE')]:
             diagram=assets[name]['diagram'].resize((round(510*scale),round(383*scale)))
             image.alpha_composite(diagram,pos(105,y-15))
             draw=ImageDraw.Draw(image)
-            draw.text(pos(72,y-25),label,font=f(29,True),fill=accent)
+            text(pos(72,y-25),label,font=f(30,True),fill=accent)
     elif light or idx in (2,4):
         # Visible bond order/stereo comes from authoritative RDKit drawing.
         diagram = hero['diagram'].copy()
@@ -227,20 +259,21 @@ def render_frame(t, scenes, assets, treatment, size, font):
         image.alpha_composite(diagram,pos(45+20*p,620+15*p))
         if idx==1:
             draw = ImageDraw.Draw(image)
-            draw.text(pos(72,1150),'–OH = oxygen + hydrogen',font=f(40,True),fill=accent)
+            text(pos(72,1150),'–OH = oxygen + hydrogen',font=f(40,True),fill=accent)
         if idx==0:
             # Distinct structures are compared by cut, never morphed as reaction.
             draw = ImageDraw.Draw(image)
-            draw.text(pos(72,1160),'Distinct structures. A visible difference.',font=f(33),fill=muted)
+            text(pos(72,1160),'Distinct structures. A visible difference.',font=f(33),fill=muted)
     else:
         model = spatial(hero, -.32+.26*p+(idx*.11), (round(830*scale),round(730*scale)), detail=idx==1)
         image.alpha_composite(model,pos(20,540))
         draw = ImageDraw.Draw(image)
         disclosure = 'DETAIL VIEW • computed illustration' if idx==1 else 'Computed 3D illustration • not filmed'
-        draw.text(pos(72,1190),disclosure,font=f(34),fill=accent)
+        text(pos(72,1190),disclosure,font=f(38),fill=accent,role='disclosure')
+        text(pos(72,1235),'Hydrogen atoms omitted',font=f(36),fill=muted,role='disclosure')
     draw = ImageDraw.Draw(image)
-    if idx!=5 and not (light and idx==0):
-        draw.text(pos(72,1260),hero_label,font=f(27,True),fill=muted)
+    if idx!=5 and not (light and idx==0) and not is_spatial:
+        text(pos(72,1260),hero_label,font=f(30,True),fill=muted)
     # Exact original sentence captions, never an ASR spelling substitution.
     caption = wrapped(scene['line'],f(42,True),770*scale)
     if len(caption)>5:
@@ -250,11 +283,25 @@ def render_frame(t, scenes, assets, treatment, size, font):
         x,y=pos(72,1310+50*n)
         for word in line.split():
             cue=scene['captionWords'][word_index]
-            draw.text((x,y),word,font=f(42,True),fill=accent if cue['startSec']<=t<cue['endSec'] else fg)
+            text((x,y),word,font=f(42,True),fill=accent if cue['startSec']<=t<cue['endSec'] else fg,role='caption')
             x += f(42,True).getlength(word+' ')
             word_index+=1
     draw.line((pos(72,1640),pos(840,1640)),fill=accent,width=max(1,round(scale*2)))
     return image.convert('RGB')
+
+
+def native_phone_plan(video_sha,scenes,assets,treatment,font):
+    from phone_ui_audit import validate_manifest
+    shots=[]
+    for scene in scenes:
+        annotations=[]
+        render_frame((scene['startSec']+scene['endSec'])/2,scenes,assets,treatment,(1080,1920),font,annotations=annotations)
+        shots.append({'id':scene['id'],'startSec':scene['startSec'],'endSec':scene['endSec'],
+                      'assetKind':'deterministic_science','annotations':annotations})
+    plan={'status':'RESEARCH_ONLY','releaseApproved':False,'expectedVideoSha256':video_sha,
+          'platforms':['tiktok','shorts'],'hook':{'textVisibleAtSec':0,'spokenOpeningAtSec':.16,'heroVisualStartsAtSec':0},'shots':shots}
+    validate_manifest(plan,width=1080,height=1920,duration=scenes[-1]['endSec'],actual_sha=video_sha)
+    return plan
 
 
 def render(root, destination, font_dir, treatment, native=False):
@@ -262,7 +309,8 @@ def render(root, destination, font_dir, treatment, native=False):
     import rdkit
     source_files = [Path(__file__).with_name(name) for name in (
         'narration_locked_treatments.py','verified_molecular_comparison.py',
-        'editorial_2d_cpu_research.py','exact_wav_alignment.py','autonomous_script_asr_research.py')]
+        'editorial_2d_cpu_research.py','exact_wav_alignment.py','autonomous_script_asr_research.py',
+        'phone_ui_audit.py','native_master_audit.py')]
     renderer_sources = {p.name:sha(p) for p in source_files}
     if treatment not in TREATMENTS:
         raise ValueError('TREATMENT_HOLD:UNKNOWN_TREATMENT')
@@ -322,7 +370,15 @@ def render(root, destination, font_dir, treatment, native=False):
         path.write_text(entry['conformerMolBlock'],encoding='utf-8')
         sources.append({'name':entry['source'].name,'cid':entry['source'].pubchem_cid,
                         'inchiKey':entry['source'].inchi_key,'url':entry['source'].source_url,
+                        'cameraBasis':entry['viewBasis'],'cameraTransform':'right-handed principal axes; rigid, no reflection',
                         'computedConformerSha256':sha(path)})
+    phone_status='NOT_RUN_PREVIEW_ONLY'
+    if native:
+        from phone_ui_audit import audit
+        plan=native_phone_plan(sha(video),scenes,assets,treatment,font)
+        plan_path=out/'phone-ui-plan.json'
+        plan_path.write_text(json.dumps(plan,indent=2)+'\n',encoding='utf-8')
+        phone_status=audit(video,plan_path,out/'phone-ui')['status']
     receipt = {'status':'NEW_RENDERED_RESEARCH_CANDIDATE_REQUIRES_INDEPENDENT_REVIEW',
                'isOriginalV5':False,'treatment':treatment,'videoSha256':sha(video),
                'resolution':list(size),'nativePixelsDrawnAtOutputResolution':True,
@@ -332,6 +388,7 @@ def render(root, destination, font_dir, treatment, native=False):
                'fonts':font_hashes,'chemistry':sources,'wallSeconds':round(time.monotonic()-start,3),
                'rendererSourcesSha256':renderer_sources,'rdkitVersion':rdkit.__version__,
                'pillowVersion':PIL.__version__,'craftApproved':False,'scienceApproved':False,
+               'phoneOverlayStatus':phone_status,
                'pronunciationVerified':False,'deviceVerified':False,'mayPublish':False}
     (out/'render-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
     return receipt
