@@ -82,6 +82,7 @@ jobs:
           sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core
           python -m pip install 'rdkit==2025.9.4' 'pillow==12.0.0'
           python -m unittest discover -s research/evidencemotion-director -p test_narration_locked_treatments.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_temporal_caption_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_native_autocritic.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_narrated_claim_screen.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_muted_review_research.py -v
@@ -336,6 +337,10 @@ jobs:
           python research/evidencemotion-director/reading_load_audit.py \
             --plan "$RUNNER_TEMP/ths-mfa/specimen-timed-native/phone-ui-plan.json" \
             --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/timed-caption-reading-budget.json"
+          python research/evidencemotion-director/temporal_caption_audit.py \
+            --ledger "$RUNNER_TEMP/ths-mfa/specimen-timed-native/timed-caption-all-RGB-frames-RESEARCH.json" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-timed-native/render-receipt.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/temporal-caption-emission-audit.json"
           python - <<'PY'
           import json,os,sys
           from pathlib import Path
@@ -349,6 +354,7 @@ jobs:
           plan=json.loads((target/'phone-ui-plan.json').read_text())
           windows=json.loads((target/'timed-caption-windows-RESEARCH.json').read_text())
           reading=json.loads((target/'timed-caption-reading-budget.json').read_text())
+          temporal=json.loads((target/'temporal-caption-emission-audit.json').read_text())
           reference=root/'reference.m4a'
           proof=verify(film,reference,sha(film),audio_hash(reference),1031,width=1080,height=1920)
           (target/'timed-decoded-technical.json').write_text(json.dumps(proof,indent=2)+'\n')
@@ -363,9 +369,14 @@ jobs:
           assert len(plan['shots'])==9
           assert reading['allScenesCombinedVisibleTextBudgetPass'] is True, reading['readingLoadRepairCandidates']
           assert reading['readingLoadRepairCandidateCount']==0
+          assert receipt['preEncodeFrameLedgerSha256']==sha(target/'timed-caption-all-RGB-frames-RESEARCH.json')
+          assert temporal['preEncodedRgbFrameShaReceipts']==1031
+          assert temporal['allOriginalWordCuesVisibleAtLeastOnce'] is True
+          assert temporal['notActualEncodedFrameOCR'] is True
+          assert temporal['mayPublish'] is False
           assert not reading['audienceComprehensionVerified'] and not reading['mayPublish']
           assert not receipt['scienceApproved'] and not receipt['craftApproved'] and not receipt['mayPublish']
-          print('New exact-voice full-HD timed-caption alternative: decoded technical and nine sampled text loads PASS. Science, craft, all-timestamp/OCR, real viewer and publication remain HOLD.')
+          print('New exact-voice full-HD timed-caption alternative: native video decoded, nine mid-scene budgets and 1031 pre-encode RGB-frame text/cue checks PASS; independent encoded-pixel OCR, real viewer and publication remain HOLD.')
           with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as summary:
               summary.write('Alternative original-WAV native MP4 and 9-interval sampled caption+overlay budget verified; this is NOT complete temporal readability or viewer understanding.\n')
           PY
