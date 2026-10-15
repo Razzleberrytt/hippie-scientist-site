@@ -1,0 +1,172 @@
+{
+  "release": "R8.05",
+  "sourceIdentity": {
+    "id": "PMID:23179965",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/23179965/"
+  },
+  "premise": {
+    "interestScore": 4.7,
+    "coldViewerWhyCare": "A familiar but puzzling change in the sense of passing time, explained with human evidence.",
+    "viewerQuestion": "Why can THC make time feel slower?",
+    "earlyPayoff": "The clock keeps ticking normally while our estimates of elapsed time may change.",
+    "methodologyBeforePayoff": false,
+    "paperSummaryOpening": false,
+    "hookMode": "human-experience"
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "role": "hook",
+      "narration": "Why can five minutes feel like forever after THC?",
+      "onScreenText": "WHEN FIVE MINUTES FEEL FOREVER",
+      "visualPurpose": "Show perceived slowness without claiming actual clocks change.",
+      "spokenAnchor": "forever",
+      "visualAction": "A large rendered clock resolves into two diverging rings within first three seconds.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "experience-framing",
+      "primaryEntities": [
+        "perceived time"
+      ],
+      "pauseAfterSeconds": 0.19
+    },
+    {
+      "id": "first-payoff",
+      "role": "finding",
+      "narration": "The clock doesn't change. But your sense of time sometimes does.",
+      "onScreenText": "REAL TIME vs FELT TIME",
+      "visualPurpose": "Answer immediately: perception is distinct from actual elapsed time.",
+      "spokenAnchor": "sense of time",
+      "visualAction": "Keep the outer ring constant while inner markers diverge; illustrative, not measured values.",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "PMID:23179965",
+      "primaryEntities": [
+        "time estimate"
+      ],
+      "pauseAfterSeconds": 0.15
+    },
+    {
+      "id": "brain-context",
+      "role": "context",
+      "narration": "Your brain estimates passing seconds even when you're not watching a clock.",
+      "onScreenText": "YOUR BRAIN ESTIMATES SECONDS",
+      "visualPurpose": "Explain everyday interval timing without asserting a single anatomical clock.",
+      "spokenAnchor": "estimates",
+      "visualAction": "Visualize evenly spaced pulses feeding an abstract neural silhouette.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "general-background",
+      "primaryEntities": [
+        "interval timing"
+      ],
+      "pauseAfterSeconds": 0.15
+    },
+    {
+      "id": "experiment",
+      "role": "evidence",
+      "narration": "In controlled experiments with forty-four people, THC changed estimates of short time intervals.",
+      "onScreenText": "44 PEOPLE • CONTROLLED STUDIES",
+      "visualPurpose": "Explain verified sample size and experimental seconds-range task.",
+      "spokenAnchor": "forty-four",
+      "visualAction": "Show anonymous THC and placebo columns without invented numeric outcome bars.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "PMID:23179965",
+      "primaryEntities": [
+        "THC",
+        "placebo"
+      ],
+      "comparisonRequired": true,
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "observed-result",
+      "role": "finding",
+      "narration": "People who rarely used cannabis sometimes judged those intervals as longer than they were.",
+      "onScreenText": "SHORT INTERVALS CAN FEEL LONGER",
+      "visualPurpose": "Describe the key response among infrequent users without claiming universal effects.",
+      "spokenAnchor": "longer",
+      "visualAction": "Extend a conceptual felt-time arc beyond the real-time arc, without fabricated scales.",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "PMID:23179965",
+      "primaryEntities": [
+        "infrequent users"
+      ],
+      "pauseAfterSeconds": 0.17
+    },
+    {
+      "id": "nuance",
+      "role": "limitation",
+      "narration": "Frequent users in that study did not show the same changes. Other studies have mixed results.",
+      "onScreenText": "RESULTS VARY • STUDIES DIFFER",
+      "visualPurpose": "Avoid a single universal mechanism; acknowledge mixed study methods and findings.",
+      "spokenAnchor": "mixed results",
+      "visualAction": "Split cohorts and dissolve an overconfident certainty arrow into variable estimates.",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "PMID:23179965;PMID:22716134",
+      "primaryEntities": [
+        "frequent users"
+      ],
+      "pauseAfterSeconds": 0.2
+    },
+    {
+      "id": "closer",
+      "role": "cta",
+      "narration": "So that slow-motion feeling? It's perception, not a broken clock. Follow for evidence, not hype.",
+      "onScreenText": "EVIDENCE, NOT HYPE",
+      "visualPurpose": "Resolve the opening question and close with THS identity.",
+      "spokenAnchor": "perception",
+      "visualAction": "Reconcile the two rings and form a custom dark-organic THS cellular identity lockup.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "end",
+      "factualAuthority": "synthesis",
+      "primaryEntities": [
+        "time perception"
+      ],
+      "pauseAfterSeconds": 0.24
+    },
+    {
+      "id": "source",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/23179965/",
+      "visualPurpose": "Provide visible primary source after the explanation.",
+      "spokenAnchor": "",
+      "visualAction": "Quiet, high-contrast PMID source card; no spoken captions.",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "end",
+      "factualAuthority": "PMID:23179965",
+      "primaryEntities": [
+        "study source"
+      ],
+      "holdSeconds": 3.4
+    }
+  ]
+}
