@@ -266,23 +266,23 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
         # then use one spoken-word-anchored limit-of-inference reveal. A 2D
         # molecular source record is NOT video of a physiological effect.
         boundary=next(w['startSec'] for w in scene['captionWords'] if w['text'].casefold()=='not')
-        card=(pos(74,520),pos(838,1100))
+        card=(pos(74,500),pos(838,1095))
         draw.rounded_rectangle((*card[0],*card[1]),radius=round(32*scale),
                                fill=(12,31,43,255),outline=(42,92,101,255),
                                width=max(2,round(3*scale)))
         # Immutable, chemically verified RDKit source, not a guessed brain,
         # receptor, metabolic conversion or generated factual illustration.
-        diagram=assets['dark_diagram'].resize((round(688*scale),round(516*scale)))
-        image.alpha_composite(diagram,pos(105,552))
+        diagram=assets['dark_diagram'].resize((round(688*scale),round(505*scale)))
+        image.alpha_composite(diagram,pos(105,567))
         draw=ImageDraw.Draw(image)
         # The line is an inference boundary, not an invented process arrow.
         draw.line((pos(74,1118),pos(838,1118)),fill=accent,width=max(2,round(3*scale)))
-        text(pos(75,1140),'STRUCTURE',font=f(76,True),fill=accent)
+        text(pos(108,525),'STRUCTURE',font=f(52,True),fill=accent)
         if t>=boundary:
             # Large distinct payoff precisely on the original narrator's
             # 'not'. Preserve the intact source graph above the boundary.
-            text(pos(76,1215),'≠',font=f(68,True),fill=(255,195,126))
-            text(pos(168,1228),'HUMAN EXPERIENCE',font=f(44,True),fill=fg)
+            text(pos(76,1135),'≠',font=f(98,True),fill=(255,195,126))
+            text(pos(212,1170),'HUMAN EXPERIENCE',font=f(46,True),fill=fg)
     elif idx==5:
         text(pos(72,760),'PubChem',font=f(86,True),fill=fg,role='source')
         text(pos(72,710),'Chemical structure database',font=f(36),fill=muted,role='source')
