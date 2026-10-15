@@ -434,7 +434,8 @@ def render(root, destination, font_dir, treatment, native=False, *, experimental
     source_files = [Path(__file__).with_name(name) for name in (
         'narration_locked_treatments.py','verified_molecular_comparison.py',
         'editorial_2d_cpu_research.py','exact_wav_alignment.py','autonomous_script_asr_research.py',
-        'phone_ui_audit.py','native_master_audit.py','timed_caption_windows.py')]
+        'phone_ui_audit.py','native_master_audit.py','timed_caption_windows.py',
+        'temporal_caption_audit.py')]
     renderer_sources = {p.name:sha(p) for p in source_files}
     if treatment not in TREATMENTS:
         raise ValueError('TREATMENT_HOLD:UNKNOWN_TREATMENT')
@@ -488,14 +489,26 @@ def render(root, destination, font_dir, treatment, native=False, *, experimental
                '-crf','18','-pix_fmt','yuv420p','-af',AUDIO_FILTER,'-c:a','aac','-b:a','192k',
                '-frames:v',str(count),'-movflags','+faststart',str(video)]
     snapshots = {0,60,120,360,540,750,870,1000}
+    emitted_frames=[]  # only the separately rendered experimental original-WAV movie
     with (out/'encoder.log').open('wb') as log:
         process = subprocess.Popen(command,stdin=subprocess.PIPE,stderr=log)
         try:
             for i in range(count):
-                image = render_frame(i/FPS,scenes,assets,treatment,size,font,caption_mode='timed_research' if experimental_timed_captions else 'legacy')
+                emitted=[] if native and experimental_timed_captions else None
+                image = render_frame(i/FPS,scenes,assets,treatment,size,font,
+                                     caption_mode='timed_research' if experimental_timed_captions else 'legacy',
+                                     annotations=emitted)
                 if i in snapshots:
                     image.save(out/f'source_frame_{i:04d}.png')
-                process.stdin.write(image.tobytes())
+                raw_frame=image.tobytes()
+                if emitted is not None:
+                    scene_name=next(sc['id'] for sc in scenes
+                                    if sc['startSec']<=i/FPS<sc['endSec'])
+                    emitted_frames.append({
+                        'index':i,'second':round(i/FPS,6),'scene':scene_name,
+                        'rgbSha256':hashlib.sha256(raw_frame).hexdigest(),
+                        'annotations':[[ann['role'],ann['text']] for ann in emitted]})
+                process.stdin.write(raw_frame)
             process.stdin.close()
             if process.wait(timeout=90):
                 raise ValueError('TREATMENT_HOLD:ENCODER_FAILED')
@@ -526,12 +539,26 @@ def render(root, destination, font_dir, treatment, native=False, *, experimental
         plan_path=out/'phone-ui-plan.json'
         plan_path.write_text(json.dumps(plan,indent=2)+'\n',encoding='utf-8')
         phone_status=audit(video,plan_path,out/'phone-ui')['status']
+    temporal_ledger=None
+    if emitted_frames:
+        from temporal_caption_audit import SCHEMA as TEMPORAL_SCHEMA
+        temporal_ledger=out/'timed-caption-all-RGB-frames-RESEARCH.json'
+        temporal_ledger.write_text(json.dumps({
+            'schema':TEMPORAL_SCHEMA,'sourceWavSha256':WAV_SHA,
+            'videoSha256':sha(video),'width':1080,'height':1920,
+            'fps':FPS,'frames':emitted_frames,
+            'encodedFilmOCRIndependentlyChecked':False,
+            'humanComprehensionObserved':False,
+            'mayPublish':False
+        },separators=(',',':'))+'\n',encoding='utf-8')
     receipt = {'status':'NEW_RENDERED_RESEARCH_CANDIDATE_REQUIRES_INDEPENDENT_REVIEW',
                'isOriginalV5':False,'treatment':treatment,'videoSha256':sha(video),
                'resolution':list(size),'nativePixelsDrawnAtOutputResolution':True,
                'fps':FPS,'frames':count,'sourceWavSha256':WAV_SHA,
                'candidateCaptionWindowManifestSha256':sha(proposal_path),
                'candidateCaptionWindowsAppliedToFilm':experimental_timed_captions,
+               'preEncodeFrameLedgerSha256':sha(temporal_ledger) if temporal_ledger else None,
+               'allFrameCaptionAuditApproved':False,
                'experimentCaptionMode':'TIMED_RESEARCH' if experimental_timed_captions else 'LEGACY',
                'audioProcessing':AUDIO_FILTER+' then AAC; no stretch, trimming or resynthesis',
                'alignmentRevisionSha256':alignment['revisionSha256'], 'scenes':scenes,
