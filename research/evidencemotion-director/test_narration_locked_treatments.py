@@ -226,6 +226,29 @@ class NarrationTreatments(unittest.TestCase):
             if a.get('role')=='caption'])
         self.assertFalse(plan['releaseApproved'])
 
+    def test_actual_source_words_can_be_scheduled_into_negation_safe_windows(self):
+        # The proposed windowing method remains research-only until renderer,
+        # encoded pixels, source reviewer and mute reviewer accept the same
+        # immutable film. Exercise it against the real frozen six-line script.
+        from timed_caption_windows import schedule,shown_at
+        scenes=timeline(self.alignment())
+        for scene in scenes:
+            cues=scene.get('captionWords',[])
+            groups=schedule(cues,max_words=3)
+            self.assertEqual([w for group in groups for w in group['words']],
+                             [cue['text'] for cue in cues])
+            for cue in cues:
+                mid=(cue['startSec']+cue['endSec'])/2
+                self.assertIn(cue['text'],shown_at(groups,mid))
+            self.assertTrue(all(len(group['words'])<=3 for group in groups))
+        limitation=next(s for s in scenes if s['id']=='sentence_5')
+        groups=schedule(limitation['captionWords'])
+        neg=next(c['startSec'] for c in limitation['captionWords']
+                 if c['text'].casefold()=='not')
+        self.assertNotIn('not',shown_at(groups,neg-.01))
+        self.assertIn('not',shown_at(groups,neg+.01))
+        self.assertEqual(schedule(scenes[5].get('captionWords',[])),[])
+
     def test_actual_payoff_frames_use_sourced_graph_and_spoken_not_visual_reveal(self):
         # Render *real native RGB pixels*, not just synthetic annotation plans.
         import os
