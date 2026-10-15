@@ -124,8 +124,8 @@ class NarrationTreatments(unittest.TestCase):
         self.assertEqual(len(m['shots']),9)
         three_d=next(s for s in m['shots'] if s['id']=='sentence_4')
         science=[a['text'] for a in three_d['annotations'] if a['role']=='science']
-        self.assertIn('A possible\\n3D shape.',science)
-        self.assertNotIn('The pose\\nis computed.',science)
+        self.assertIn('A possible\n3D shape.',science)
+        self.assertNotIn('The pose\nis computed.',science)
         self.assertIn('Computed 3D illustration • not filmed',
                       [a['text'] for a in three_d['annotations']])
         self.assertEqual(
