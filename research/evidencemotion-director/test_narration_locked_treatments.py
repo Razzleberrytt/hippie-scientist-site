@@ -37,12 +37,53 @@ class NarrationTreatments(unittest.TestCase):
             wrapped('hydroxymitragynine',Font(),100)
 
     def test_real_graphs_have_distinct_identities_and_one_verified_free_hydroxyl(self):
+        import numpy as np
         assets=chemistry_assets()
         self.assertEqual(assets['mitragynine']['oh'],[])
         self.assertEqual(len(assets['7_hydroxymitragynine']['oh']),1)
         self.assertNotEqual(assets['mitragynine']['source'].inchi_key,
                             assets['7_hydroxymitragynine']['source'].inchi_key)
         self.assertEqual(assets['7_hydroxymitragynine']['xyz'].shape,(30,3))
+        diagram=np.array(assets['7_hydroxymitragynine']['diagram'])
+        # Catch the actual invisible black H glyph added during RDKit drawing.
+        self.assertEqual(int(((diagram[:,:,3]>200)&(diagram[:,:,:3].max(axis=2)<60)).sum()),0)
+
+    def test_teaching_view_is_rigid_right_handed_and_avoids_edge_on_plane(self):
+        import numpy as np
+        from rdkit import Chem
+        assets=chemistry_assets()
+        for name,asset in assets.items():
+            with self.subTest(compound=name):
+                original=np.array(Chem.MolFromMolBlock(asset['conformerMolBlock'],removeHs=False).GetConformer().GetPositions())[:len(asset['xyz'])]
+                a=np.linalg.norm(original[:,None]-original[None,:],axis=2)
+                b=np.linalg.norm(asset['xyz'][:,None]-asset['xyz'][None,:],axis=2)
+                np.testing.assert_allclose(a,b,atol=.0002)
+                self.assertAlmostEqual(np.linalg.det(asset['viewBasis']),1.0)
+                variances=np.var(asset['xyz'],axis=0)
+                self.assertLessEqual(variances[2],min(variances[:2]))
+                if asset['oh']:
+                    oh=asset['oh'][0]
+                    parent=asset['mol'].GetAtomWithIdx(oh).GetNeighbors()[0].GetIdx()
+                    self.assertGreater(asset['xyz'][oh,2],asset['xyz'][parent,2])
+
+    def test_native_emitted_text_fits_existing_phone_ui_rules(self):
+        import os
+        from pathlib import Path
+        from narration_locked_treatments import fonts,native_phone_plan
+        from phone_ui_audit import validate_manifest
+        path=Path(os.environ.get('THS_TEST_FONT_DIR','/usr/share/fonts/truetype/dejavu'))
+        if not path.is_dir():
+            self.skipTest('Set THS_TEST_FONT_DIR to the actual DejaVu directory')
+        font,_=fonts(path)
+        assets=chemistry_assets();assets['dark_diagram']=assets['7_hydroxymitragynine']['diagram']
+        scenes=timeline(self.alignment())
+        m=native_phone_plan('a'*64,scenes,assets,'specimen',font)
+        payoff=[s for s in m['shots'] if s['id'].startswith('sentence_5_')]
+        self.assertEqual(len(payoff),2)
+        self.assertFalse(any(a['text']=='≠' for a in payoff[0]['annotations']))
+        self.assertTrue(any(a['text']=='≠' for a in payoff[1]['annotations']))
+        result=validate_manifest(m,width=1080,height=1920,duration=824336/24000,actual_sha='a'*64)
+        self.assertFalse(result['realHandsetPlaybackVerified'])
 
 
 if __name__=='__main__': unittest.main()
