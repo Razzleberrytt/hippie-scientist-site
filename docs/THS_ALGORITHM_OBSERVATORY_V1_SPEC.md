@@ -1,6 +1,6 @@
 # THS Algorithm Observatory 1.0 — Evidence-Based Platform Learning
 
-**Status:** Owner-approved additive product/spec direction (2026-10-15); **NOT implemented, admitted, merged, deployed, or outcome-validated by this specification.**
+**Specification status:** Owner-approved additive direction (2026-10-15), recorded in repository documentation. **Capability status:** NOT admitted for implementation, implemented, released/deployed, or outcome-validated by this specification. A merged documentation PR does not imply merged implementation.
 **Parent:** [THS-MASTER-P0 source-recovery directive](THS_MASTER_P0_DIRECTIVE_RECOVERY.md), especially §§32–33 (measurement), §36 (retention experiments), §§49–51 (distribution / attribution), §§53–62 (implementation governance).
 **Existing foundations:** [EvidenceMotion R8.10 learning flywheel](evidencemotion-r810-flywheel.md), [THS Publisher v0.1](ths-publisher-v0.1.md), SocialOS / THS Observer, durable experiment learning (#4414), and governed outcome ingestion (#4407).
 **Authority:** [AGENTS.md](../AGENTS.md), [CURRENT_SPRINT.md](CURRENT_SPRINT.md), [MASTER_BACKLOG.md](MASTER_BACKLOG.md), [DECISIONS.md](DECISIONS.md), claim/source/editorial approval, required CI, protected merge controller and verified deployment. This extension does **not** amend the historical verbatim owner directive or renumber its original/reconstructed 150 tasks.
