@@ -83,6 +83,25 @@ def _shot_identity_nearest_caveat(text):
     return None
 
 
+def _both_source_record_mappings_visible(text):
+    """Require per-line source → CID joins FROM OCR PIXELS, not a set of IDs.
+
+    A screenshot listing both valid CID numbers without pairing each number
+    to the right molecule is NOT sufficient evidence for science question 5.
+    OCR may insert simple separators, but cannot put the molecule and CID on
+    different lines and still earn a mapping.
+    """
+    rows=[line.strip() for line in plain(text).splitlines() if line.strip()]
+    mit=any(re.search(r"^mitragynine\b.*\bcid\s*3034396\b",line) for line in rows)
+    oh=any(re.search(r"^7[- ]?oh\b.*\bcid\s*44301524\b",line) for line in rows)
+    cross=any(
+        re.search(r"^mitragynine\b.*\bcid\s*44301524\b",line)
+        or re.search(r"^7[- ]?oh\b.*\bcid\s*3034396\b",line)
+        for line in rows
+    )
+    return mit and oh and not cross
+
+
 def recover(raw):
     """Only independent pixel-decoder text enters this deterministic assessor."""
     if set(raw)!=set(SECONDS):
@@ -100,8 +119,8 @@ def recover(raw):
               and "not footage" in shape,
         "q4":"human experience" in effect
               and "not what its effects feel like" in effect,
-        "q5":"pubchem" in source and "cid 3034396" in source
-              and "cid 44301524" in source
+        "q5":"pubchem" in source
+              and _both_source_record_mappings_visible(source)
               and "compound record number" in source,
     }
     if contaminated:
@@ -152,6 +171,21 @@ def critical_negatives(raw,blank):
     for label,dest,src,q in swaps:
         mutated=dict(raw);mutated[dest]=raw[src]
         rows.append({"fault":label,"target":q,"rejected":not recover(mutated)[q]})
+    # Two additional science-relevant controls keep both numerical CIDs
+    # visible while destroying their *identity association*.
+    swapped=dict(raw)
+    orig=swapped["source_hold"]
+    swapped["source_hold"]=(orig.replace("3034396","__TEMP_CID__")
+                            .replace("44301524","3034396")
+                            .replace("__TEMP_CID__","44301524"))
+    rows.append({"fault":"swap_both_valid_cid_number_assignments",
+                 "target":"q5","rejected":not recover(swapped)["q5"]})
+    unpaired=dict(raw)
+    unpaired["source_hold"]=re.sub(
+        r"(?im)^\s*7[- ]?oh\s*[^\w\n]*(?=cid\s*44301524)",
+        "",orig)
+    rows.append({"fault":"remove_7oh_to_cid_join_keep_cid_number",
+                 "target":"q5","rejected":not recover(unpaired)["q5"]})
     if not all(r["rejected"] for r in rows):
         hold("NEGATIVE_CONTROL_DID_NOT_REJECT_AN_UNANSWERABLE_FRAME")
     if not all(reference.values()):
