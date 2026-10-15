@@ -7,6 +7,8 @@ on:
       - 'research/evidencemotion-director/AUTONOMOUS-AUDIO-REVIEW-2026-10-13.md'
       - 'research/evidencemotion-director/exact_wav_alignment.py'
       - 'research/evidencemotion-director/test_exact_wav_alignment.py'
+      - 'research/evidencemotion-director/mfa_acoustic_alignment.py'
+      - 'research/evidencemotion-director/test_mfa_acoustic_alignment.py'
       - 'research/evidencemotion-director/audio-word-cuts.mjs'
       - 'research/evidencemotion-director/audio-word-cuts.test.mjs'
       - 'research/evidencemotion-director/EXACT-WAV-ALIGNMENT-2026-10-14.md'
@@ -37,6 +39,7 @@ jobs:
       - name: Verify byte-bound word/phone imports and stale narration cut invalidation
         run: |
           python -m unittest discover -s research/evidencemotion-director -p 'test_exact_wav_alignment.py' -v
+          python -m unittest discover -s research/evidencemotion-director -p 'test_mfa_acoustic_alignment.py' -v
           node --test research/evidencemotion-director/audio-word-cuts.test.mjs
       - name: Preserve research and speech-recognition boundaries
         if: always()

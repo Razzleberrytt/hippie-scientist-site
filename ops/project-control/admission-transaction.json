@@ -1,19 +1,18 @@
 {
   "version": 1,
   "mode": "fresh-admission",
-  "base_revision": "9172f04d105b0c4183d6cb675167a4e33a4d7704",
-  "last_verified": "2026-10-13",
-  "ticket": 6769,
-  "lane": "A",
-  "title": "Semantic Opportunity Compiler: source-bound cross-system review pilot",
-  "priority": "P1",
+  "base_revision": "4f220b8223e6b1e1392c7f3f770cc5cbe3b3c9f8",
+  "last_verified": "2026-10-15",
+  "ticket": 6810,
+  "lane": "R",
+  "priority": "P2",
   "score_inputs": {
-    "businessImpact": 4,
-    "userValue": 5,
+    "businessImpact": 3,
+    "userValue": 4,
     "trafficPotential": 3,
     "strategicLeverage": 5,
     "confidence": 0.75,
     "effort": 3
   },
-  "score": 75
+  "score": 45
 }
