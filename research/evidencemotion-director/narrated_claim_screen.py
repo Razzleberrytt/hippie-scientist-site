@@ -29,28 +29,28 @@ REVIEW_TOPICS = (
 # Any new rendered science/source text must first receive its own source review.
 EXPECTED_NON_CAPTION_ANNOTATIONS = {
     "sentence_1": (
-        ("hook", "What makes\\n7-OH different?"),
+        ("hook", "What makes\n7-OH different?"),
         ("disclosure", "Computed 3D illustration • not filmed"),
         ("disclosure", "Hydrogen atoms omitted"),
     ),
     "sentence_2": (
-        ("science", "Look at the\\nhydroxyl group."),
+        ("science", "Look at the\nhydroxyl group."),
         ("science", "–OH group: oxygen + hydrogen"),
         ("disclosure", "DETAIL REVEAL • computed model"),
         ("disclosure", "Hydrogen atoms omitted"),
     ),
     "sentence_3": (
-        ("science", "A record of\\nconnected atoms."),
+        ("science", "A record of\nconnected atoms."),
         ("science", "Dots mark atoms. Lines mark bonds."),
         ("science", "7-HYDROXYMITRAGYNINE"),
     ),
     "sentence_4": (
-        ("science", "The pose\\nis computed."),
+        ("science", "The pose\nis computed."),
         ("disclosure", "Computed 3D illustration • not filmed"),
         ("disclosure", "Hydrogen atoms omitted"),
     ),
     "sentence_5": (
-        ("science", "Structure\\nis not an effect."),
+        ("science", "Structure\nis not an effect."),
         ("science", "STRUCTURE"),
         ("science", "7-HYDROXYMITRAGYNINE"),
     ),
