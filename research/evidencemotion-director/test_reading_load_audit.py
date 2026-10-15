@@ -31,7 +31,7 @@ class ReadingLoadGateTests(unittest.TestCase):
                     ("science","HUMAN EXPERIENCE")]),
                 ("source_hold",27.35,31.25,[
                     ("source","PubChem"),("source","Mitragynine • CID 3034396"),
-                    ("source","CID 44301524"),
+                    ("source","7-OH • CID 44301524"),
                     ("source","CID = compound record number"),
                     ("source","pubchem.ncbi.nlm.nih.gov")]),
                 ("sentence_6",31.25,34.347,[]),
