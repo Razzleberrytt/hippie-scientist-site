@@ -107,6 +107,16 @@ class RealFilmClaimScreenTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "VISIBLE_PRIMARY_SOURCE_LABEL"):
             self.screen()
 
+    def test_3d_scene_cannot_fall_back_to_unexplained_technical_title(self):
+        self.shot("sentence_4")["annotations"][0]["text"] = "The pose\\nis computed."
+        with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
+            self.screen()
+
+    def test_3d_scene_cannot_claim_observed_binding(self):
+        self.shot("sentence_4")["annotations"][0]["text"] = "Observed binding event"
+        with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
+            self.screen()
+
     def test_computed_3d_without_caveat_refused(self):
         self.shot("sentence_2")["annotations"] = [
             a for a in self.shot("sentence_2")["annotations"] if a.get("role") != "disclosure"]
