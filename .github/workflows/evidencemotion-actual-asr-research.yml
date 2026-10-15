@@ -196,7 +196,7 @@ jobs:
           from pathlib import Path
           p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-native/native-text-legibility.json'
           x=json.loads(p.read_text())
-          assert x['testedCriticalVisibleLabels']==13
+          assert x['testedCriticalVisibleLabels']==16
           assert x['additionalObjectivePoints']==2
           assert len(x['criteria'])==2
           assert all(item['passed'] for item in x['criteria'])
