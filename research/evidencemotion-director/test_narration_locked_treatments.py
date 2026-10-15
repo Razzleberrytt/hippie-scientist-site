@@ -122,6 +122,15 @@ class NarrationTreatments(unittest.TestCase):
         self.assertIn('7-OH • CID 44301524',
             [a['text'] for a in first[1]['annotations']])
         self.assertEqual(len(m['shots']),9)
+        three_d=next(s for s in m['shots'] if s['id']=='sentence_4')
+        science=[a['text'] for a in three_d['annotations'] if a['role']=='science']
+        self.assertIn('A possible\\n3D shape.',science)
+        self.assertNotIn('The pose\\nis computed.',science)
+        self.assertIn('Computed 3D illustration • not filmed',
+                      [a['text'] for a in three_d['annotations']])
+        self.assertEqual(
+            ' '.join(a['text'] for a in three_d['annotations'] if a['role']=='caption'),
+            LINES[3])
         payoff=[s for s in m['shots'] if s['id'].startswith('sentence_5_')]
         self.assertEqual(len(payoff),2)
         self.assertFalse(any(a['text']=='≠' for a in payoff[0]['annotations']))
