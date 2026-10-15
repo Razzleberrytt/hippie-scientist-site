@@ -324,6 +324,51 @@ jobs:
           assert not v['humanUnderstandingDemonstrated'] and not v['mayPublish']
           print('6 exact H264 frames independently OCR-read; five science answers and 10 counterfactuals pass, no participant fabricated')
           PY
+      - name: Render full-HD timed-caption research alternative and independently measure actual output
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/narration_locked_treatments.py \
+            --alignment-root "$RUNNER_TEMP/ths-mfa/result" \
+            --font-dir /usr/share/fonts/truetype/dejavu --treatment specimen --native \
+            --experimental-timed-captions \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native"
+          python research/evidencemotion-director/reading_load_audit.py \
+            --plan "$RUNNER_TEMP/ths-mfa/specimen-timed-native/phone-ui-plan.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/timed-caption-reading-budget.json"
+          python - <<'PY'
+          import json,os,sys
+          from pathlib import Path
+          sys.path.insert(0,'research/evidencemotion-director')
+          from native_master_audit import verify,audio_hash
+          from narration_locked_treatments import sha,WAV_SHA
+          root=Path(os.environ['RUNNER_TEMP'])/'ths-mfa'
+          target=root/'specimen-timed-native'
+          receipt=json.loads((target/'render-receipt.json').read_text())
+          film=target/'specimen_NEW_RESEARCH_CANDIDATE.mp4'
+          plan=json.loads((target/'phone-ui-plan.json').read_text())
+          windows=json.loads((target/'timed-caption-windows-RESEARCH.json').read_text())
+          reading=json.loads((target/'timed-caption-reading-budget.json').read_text())
+          reference=root/'reference.m4a'
+          proof=verify(film,reference,sha(film),audio_hash(reference),1031,width=1080,height=1920)
+          (target/'timed-decoded-technical.json').write_text(json.dumps(proof,indent=2)+'\n')
+          assert proof['technical']=='PASS'
+          assert receipt['sourceWavSha256']==WAV_SHA
+          assert receipt['experimentCaptionMode']=='TIMED_RESEARCH'
+          assert receipt['candidateCaptionWindowsAppliedToFilm'] is True
+          assert receipt['candidateCaptionWindowManifestSha256']==sha(target/'timed-caption-windows-RESEARCH.json')
+          assert windows['rendererUsesProposal'] is False  # planning receipt is distinct from actual film
+          assert windows['mayPublish'] is False
+          assert plan['captionMode']=='TIMED_RESEARCH_NOT_FULL_FRAME_VERIFIED'
+          assert len(plan['shots'])==9
+          assert reading['allScenesCombinedVisibleTextBudgetPass'] is True, reading['readingLoadRepairCandidates']
+          assert reading['readingLoadRepairCandidateCount']==0
+          assert not reading['audienceComprehensionVerified'] and not reading['mayPublish']
+          assert not receipt['scienceApproved'] and not receipt['craftApproved'] and not receipt['mayPublish']
+          print('New exact-voice full-HD timed-caption alternative: decoded technical and nine sampled text loads PASS. Science, craft, all-timestamp/OCR, real viewer and publication remain HOLD.')
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as summary:
+              summary.write('Alternative original-WAV native MP4 and 9-interval sampled caption+overlay budget verified; this is NOT complete temporal readability or viewer understanding.\n')
+          PY
       - name: Preserve actual timing evidence without source audio or model copies
         if: always()
         uses: actions/upload-artifact@v4
@@ -339,6 +384,7 @@ jobs:
             ${{ runner.temp }}/ths-mfa/atlas/*
             ${{ runner.temp }}/ths-mfa/specimen/*
             ${{ runner.temp }}/ths-mfa/specimen-native/**
+            ${{ runner.temp }}/ths-mfa/specimen-timed-native/**
           retention-days: 14
           if-no-files-found: error
       - name: Keep acoustic execution separate from pronunciation and quality approval
