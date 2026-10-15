@@ -30,7 +30,7 @@ class RealMutedReviewPacketTests(unittest.TestCase):
                 for i, (name, source) in enumerate(zip(names, (
                     "MITRAGYNINE", "7-OH",
                     "Look at hydroxyl –OH", "Connected atoms", "Computed 3D illustration",
-                    "Structure", "HUMAN EXPERIENCE", "PubChem CID 44301524 Mitragynine • CID 3034396 CID = compound record number",
+                    "Structure", "HUMAN EXPERIENCE", "PubChem 7-OH • CID 44301524 Mitragynine • CID 3034396 CID = compound record number",
                     "Look closer")))
             ]
         }
