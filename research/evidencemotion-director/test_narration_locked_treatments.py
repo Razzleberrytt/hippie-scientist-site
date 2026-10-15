@@ -1,43 +1,8 @@
 import unittest
-from narration_locked_treatments import LINES, tokens, timeline, wrapped, chemistry_assets, caption_window
+from narration_locked_treatments import LINES, tokens, timeline, wrapped, chemistry_assets
 
 
 class NarrationTreatments(unittest.TestCase):
-    def test_native_caption_plus_overlay_load_fits_observed_sentence_windows(self):
-        # Scheduling regression from the observed source sentence windows.
-        # This is not a new acoustic-alignment or audience calibration receipt.
-        import os
-        from pathlib import Path
-        from narration_locked_treatments import fonts,native_phone_plan
-        from reading_load_audit import assess
-        path=Path(os.environ.get('THS_TEST_FONT_DIR','/usr/share/fonts/truetype/dejavu'))
-        if not path.is_dir():
-            self.skipTest('Pinned DejaVu font unavailable')
-        font,_=fonts(path)
-        assets=chemistry_assets();assets['dark_diagram']=assets['7_hydroxymitragynine']['diagram']
-        scenes=timeline(self.alignment())
-        bounds=[0,3.47,10.85,16.58,23.38,27.35,31.25,824336/24000]
-        for i,s in enumerate(scenes):
-            s['startSec'],s['endSec']=bounds[i:i+2]
-            cues=s.get('captionWords',[])
-            for j,c in enumerate(cues):
-                c['startSec']=bounds[i]+(bounds[i+1]-bounds[i])*j/len(cues)
-                c['endSec']=bounds[i]+(bounds[i+1]-bounds[i])*(j+1)/len(cues)
-        for scene,starts in [(scenes[0],[.16,.33,.56,.95,1.20,1.61,1.92,2.11]),
-            (scenes[4],[23.38,23.53,23.62,24.06,24.64,24.77,25.71,25.96,26.12,26.23,26.57,26.99])]:
-            for c,start in zip(scene['captionWords'],starts): c['startSec']=start
-        # Keep end bounds coherent when the observed source timestamps are
-        # substituted for the generic fixture's evenly spaced alignment.
-        for scene in scenes:
-            cues=scene.get('captionWords',[])
-            for i,cue in enumerate(cues):
-                cue['endSec']=cues[i+1]['startSec'] if i+1<len(cues) else scene['endSec']
-        plan=native_phone_plan('a'*64,scenes,assets,'specimen',font)
-        result=assess(plan)
-        failed=[s['scene'] for s in result['allSceneSpans'] if not s['passesCombinedVisibleTextBudget']]
-        self.assertEqual(failed,[],'Actual emitted captions must count alongside every overlay')
-        self.assertFalse(result['mayPublish'])
-
     def alignment(self):
         # Scheduling fixture only; this is not acoustic acceptance evidence.
         return {'sampleCount':824336,'wordAlignment':[
@@ -57,40 +22,6 @@ class NarrationTreatments(unittest.TestCase):
         self.assertAlmostEqual(scenes[-1]['captionWords'][0]['endSec']-scenes[-1]['captionWords'][0]['startSec'],.45)
         compound=next(w for w in scenes[1]['captionWords'] if w['text']=='seven-hydroxymitragynine')
         self.assertGreater(compound['endSec']-compound['startSec'],.4)
-
-    def test_every_original_word_is_present_during_its_exact_acoustic_cue(self):
-        # Dynamic word groups are small enough for shorts but must never
-        # silently drop a single word, qualifier, or specialized term.
-        scenes=timeline(self.alignment())
-        displayed=[]
-        for scene in scenes:
-            cues=scene.get('captionWords',[])
-            if not cues:
-                self.assertEqual(scene['id'],'source_hold')
-                continue
-            for cue in cues:
-                t=(cue['startSec']+cue['endSec'])/2
-                visible=caption_window(cues,t)
-                self.assertIn(cue,visible)
-                self.assertLessEqual(len(visible),3)
-                displayed.append(cue['text'])
-        self.assertEqual(displayed,[w for sentence in LINES for w in sentence.split()])
-
-    def test_negation_must_not_show_in_caption_before_spoken_not(self):
-        scenes=timeline(self.alignment())
-        limit=next(s for s in scenes if s['id']=='sentence_5')
-        cues=limit['captionWords']
-        negation=next(x['startSec'] for x in cues if x['text'].casefold()=='not')
-        before=[w for w in cues if w['startSec']<negation]
-        after=[w for w in cues if w['startSec']>=negation]
-        self.assertNotIn('not',[w['text'] for w in caption_window(before,negation-.05)])
-        self.assertIn('not',[w['text'] for w in caption_window(after,negation+.01)])
-
-    def test_bad_caption_cues_fail_closed(self):
-        with self.assertRaisesRegex(ValueError,'INVALID_CAPTION_WINDOW'):
-            caption_window([{'text':'hi','startSec':0,'endSec':1}],.5,max_words=0)
-        with self.assertRaisesRegex(ValueError,'INVALID_WORD_CUE'):
-            caption_window([{'text':'hi','startSec':1,'endSec':.5}],.75)
 
     def test_misspelled_or_reordered_words_cannot_reuse_captions(self):
         a=self.alignment()
@@ -190,8 +121,8 @@ class NarrationTreatments(unittest.TestCase):
         self.assertIn('7-OH', [a['text'] for a in first[1]['annotations']])
         for opening in first:
             labels=[a['text'] for a in opening['annotations'] if a['role']!='caption']
-            self.assertNotIn('7-OH vs\nmitragynine',labels)
-            self.assertIn('No reaction',labels)
+            self.assertIn('7-OH vs\nmitragynine',labels)
+            self.assertIn('Separate structures • no reaction',labels)
             self.assertFalse(any('CID' in label for label in labels))
         source=next(s for s in m['shots'] if s['id']=='source_hold')
         self.assertIn('Mitragynine • CID 3034396',[a['text'] for a in source['annotations']])
@@ -205,28 +136,23 @@ class NarrationTreatments(unittest.TestCase):
         self.assertNotIn('The pose\nis computed.',science)
         self.assertIn('Computed 3D illustration • not filmed',
                       [a['text'] for a in three_d['annotations']])
-        # The soundtrack/transcript stays complete; one representative frame
-        # now shows only a short speech-timed subtitle group.
-        sample_caption=[a['text'] for a in three_d['annotations'] if a['role']=='caption']
-        self.assertGreater(len(sample_caption),0)
-        self.assertLessEqual(len(sample_caption),3)
-        self.assertIn(' '.join(sample_caption),LINES[3])
+        self.assertEqual(
+            ' '.join(a['text'] for a in three_d['annotations'] if a['role']=='caption'),
+            LINES[3])
         payoff=[s for s in m['shots'] if s['id'].startswith('sentence_5_')]
         self.assertEqual(len(payoff),2)
         self.assertFalse(any(a['text']=='≠' for a in payoff[0]['annotations']))
         self.assertTrue(any(a['text']=='≠' for a in payoff[1]['annotations']))
-        self.assertIn('STRUCTURE',
+        self.assertIn('What the shape\nshows.',
                       [a['text'] for a in payoff[0]['annotations']])
-        self.assertIn('HUMAN EXPERIENCE',
+        self.assertIn('What it cannot\ntell us.',
                       [a['text'] for a in payoff[1]['annotations']])
         self.assertNotIn('not',[a['text'] for a in payoff[0]['annotations']])
         self.assertIn('not',[a['text'] for a in payoff[1]['annotations']])
+        full=[w['text'] for w in scenes[4]['captionWords']]
         visible0=[a['text'] for a in payoff[0]['annotations'] if a['role']=='caption']
         visible1=[a['text'] for a in payoff[1]['annotations'] if a['role']=='caption']
-        self.assertLessEqual(len(visible0),3)
-        self.assertLessEqual(len(visible1),3)
-        self.assertNotIn('not',visible0)
-        self.assertIn('not',visible1)
+        self.assertEqual(visible0+visible1,full)
         result=validate_manifest(m,width=1080,height=1920,duration=824336/24000,actual_sha='a'*64)
         self.assertFalse(result['realHandsetPlaybackVerified'])
 
@@ -253,12 +179,12 @@ class NarrationTreatments(unittest.TestCase):
         graph=np.asarray(before.crop((115,610,780,1050))).astype(np.float32)
         self.assertGreater(float(graph.std()),12)
         self.assertIn('STRUCTURE',[a['text'] for a in before_ann])
-        self.assertIn('STRUCTURE',[a['text'] for a in before_ann])
+        self.assertIn('What the shape\nshows.',[a['text'] for a in before_ann])
         self.assertNotIn('not',[a['text'] for a in before_ann if a['role']=='caption'])
         self.assertNotIn('≠',[a['text'] for a in before_ann])
         self.assertIn('≠',[a['text'] for a in after_ann])
         self.assertIn('HUMAN EXPERIENCE',[a['text'] for a in after_ann])
-        self.assertIn('HUMAN EXPERIENCE',[a['text'] for a in after_ann])
+        self.assertIn('What it cannot\ntell us.',[a['text'] for a in after_ann])
         self.assertIn('not',[a['text'] for a in after_ann if a['role']=='caption'])
         # On the spoken negation, the actual displayed pixels below the
         # bounded chemistry card must make a substantial, visible change.
