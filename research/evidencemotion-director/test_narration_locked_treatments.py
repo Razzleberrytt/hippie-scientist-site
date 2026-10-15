@@ -78,6 +78,16 @@ class NarrationTreatments(unittest.TestCase):
         assets=chemistry_assets();assets['dark_diagram']=assets['7_hydroxymitragynine']['diagram']
         scenes=timeline(self.alignment())
         m=native_phone_plan('a'*64,scenes,assets,'specimen',font)
+        first=[s for s in m['shots'] if s['id'].startswith('sentence_1_')]
+        self.assertEqual([s['id'] for s in first],['sentence_1_part0','sentence_1_part1'])
+        pivot=next(w['startSec'] for w in scenes[0]['captionWords'] if w['text']=='different')
+        self.assertEqual(first[0]['endSec'],pivot)
+        self.assertEqual(first[1]['startSec'],pivot)
+        self.assertIn('MITRAGYNINE • CID 3034396',
+            [a['text'] for a in first[0]['annotations']])
+        self.assertIn('7-OH • CID 44301524',
+            [a['text'] for a in first[1]['annotations']])
+        self.assertEqual(len(m['shots']),9)
         payoff=[s for s in m['shots'] if s['id'].startswith('sentence_5_')]
         self.assertEqual(len(payoff),2)
         self.assertFalse(any(a['text']=='≠' for a in payoff[0]['annotations']))
