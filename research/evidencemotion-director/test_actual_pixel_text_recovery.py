@@ -87,6 +87,25 @@ class ActualPixelReadingTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"EXACT_SIX_ACTUAL_FRAME_SLOTS"):
             recover(altered)
 
+    def test_both_real_cids_swapped_between_compound_names_fail_closed(self):
+        card=self.frames["source_hold"]
+        swapped=(card.replace("3034396","__TEMP_CID__")
+                      .replace("44301524","3034396")
+                      .replace("__TEMP_CID__","44301524"))
+        altered=dict(self.frames,source_hold=swapped)
+        self.assertIn("3034396",swapped)
+        self.assertIn("44301524",swapped)
+        self.assertFalse(recover(altered)["q5"])
+
+    def test_both_valid_cids_without_pairwise_name_labels_fail_closed(self):
+        card=self.frames["source_hold"]
+        altered=dict(self.frames)
+        altered["source_hold"]=card.replace("7-OH * CID 44301524",
+                                             "CID 44301524")
+        self.assertIn("3034396",altered["source_hold"])
+        self.assertIn("44301524",altered["source_hold"])
+        self.assertFalse(recover(altered)["q5"])
+
     def test_ocr_can_be_messy_but_comprehension_is_not_claimed(self):
         self.assertTrue(all(recover(self.frames).values()))
         # Human comprehension is categorically not inferred by this
