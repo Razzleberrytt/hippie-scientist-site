@@ -32,7 +32,7 @@ def assess(plan):
         raise ValueError("OPENING_READING_HOLD:SHOTS_OR_SOURCE_REQUIRED")
     source=[a["text"] for a in byid[SOURCE_NAME]["annotations"]
             if a.get("role")=="source"]
-    required=("PubChem", "Mitragynine • CID 3034396", "CID 44301524",
+    required=("PubChem", "Mitragynine • CID 3034396", "7-OH • CID 44301524",
               "CID = compound record number", "pubchem.ncbi.nlm.nih.gov")
     if not all(x in source for x in required):
         raise ValueError("OPENING_READING_HOLD:BOTH_CID_SOURCES_AND_FIRST_USE_GLOSSARY_REQUIRED")
