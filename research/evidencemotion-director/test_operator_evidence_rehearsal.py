@@ -60,7 +60,13 @@ class ResearchOperatorHandoffTests(unittest.TestCase):
            ('swap_both_valid_cid_number_assignments','q5'),
            ('remove_7oh_to_cid_join_keep_cid_number','q5'),
        )])),
-   'opening-reading-budget.json':enc(dict(mayPublish=False,allScenesReadingBudgetPass=True,
+   'opening-reading-budget.json':enc(dict(mayPublish=False,
+       schema='ths-evidencemotion-native-rapid-cut-reading-budget-v2',
+       allScenesReadingBudgetPass=True,
+       legacyOverlayOnlyGate=True,captionWordsSampled=40,
+       allScenesCombinedVisibleTextBudgetPass=False,
+       combinedCaptionOverlayLoadRequiresReview=True,
+       fullMutedComprehensionApproved=False,
        allSceneSpans=[{'passesFullFilmReadingBudget':True} for _ in range(9)])),
    'objective-score.json':enc(dict(mayPublish=False,actualVideoSha256=film,
        actualMutedVideoSha256=mute,exactPhonePlanSha256=phone,
@@ -184,6 +190,17 @@ class ResearchOperatorHandoffTests(unittest.TestCase):
  def test_nine_silent_scene_checks_mandatory(self):
   self.change('opening-reading-budget.json',allScenesReadingBudgetPass=False)
   with self.assertRaisesRegex(ValueError,'MISSING_REAL_NINE_SCENE_CHECKS'):
+   self.check()
+ def test_caption_invisible_to_legacy_audit_cannot_get_full_mute_pass(self):
+  self.change('opening-reading-budget.json',
+     captionWordsSampled=0,allScenesCombinedVisibleTextBudgetPass=True,
+     combinedCaptionOverlayLoadRequiresReview=False,fullMutedComprehensionApproved=True)
+  with self.assertRaisesRegex(ValueError,'COMBINED_CAPTION_READING_LOAD'):
+   self.check()
+ def test_missing_or_stale_caption_load_schema_holds(self):
+  self.change('opening-reading-budget.json',
+     schema='ths-evidencemotion-native-rapid-cut-reading-budget-v1')
+  with self.assertRaisesRegex(ValueError,'COMBINED_CAPTION_READING_LOAD'):
    self.check()
  def test_missing_source_receipt_is_hard_hold(self):
   del self.files['render-receipt.json']
