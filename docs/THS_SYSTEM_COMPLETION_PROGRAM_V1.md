@@ -10,7 +10,7 @@ This is a **navigation and acceptance overlay, not a competing source of truth**
 
 ## Living portfolio
 
-**16 systems mapped.** There are **128 high-level end-state questions (8 per system)**, *not 128 approved jobs*, new features, or additive engineering checklist credit. The new outcome map has **not had a systematic PASS/FAIL audit**, so no misleading completion percentages are assigned. Existing native trackers retain their own proven counts.
+**16 systems mapped.** There are **128 high-level end-state questions (8 per system)**, *not 128 approved jobs*, new features, or additive engineering checklist credit. An initial [five-outcome source audit](checklists/CROSSWALK_AUDIT_001_2026-10-15.md) accepted **one documentation-only crosswalk requirement (MD-01-01)** and retained four incomplete/blocked; **123 are not yet audited**. This is *not* an overall completion percentage or an EvidenceMotion film achievement. Existing native trackers retain their own proven counts.
 
 | Domain | System | Goal/acceptance view | Current verifiable boundary |
 | --- | --- | --- | --- |
@@ -22,7 +22,7 @@ This is a **navigation and acceptance overlay, not a competing source of truth**
 | Consumer Product | PC-02 Evidence-Based Editorial & Content Lifecycle | [8 gates](checklists/consumer-content.md) | Not individually audited in this new crosswalk |
 | Consumer Product | PC-03 SEO, AI Citation & Evidence Discoverability | [8 gates](checklists/consumer-content.md) | Not individually audited in this new crosswalk |
 | Consumer Product | PC-04 Retention, Reader Tools & Consumer Decisions | [8 gates](checklists/consumer-content.md) | Not individually audited in this new crosswalk |
-| Creative Systems | MD-01 EvidenceMotion Production | [8 gates](checklists/creative-distribution.md) | Not individually audited in this new crosswalk |
+| Creative Systems | MD-01 EvidenceMotion Production | [8 gates](checklists/creative-distribution.md) | MD-01-01 crosswalk proof accepted in [audit 001](checklists/CROSSWALK_AUDIT_001_2026-10-15.md); actual 26/46 native tracker unchanged |
 | Creative Systems | MD-02 THS Voice Engine & Reusable Art | [8 gates](checklists/creative-distribution.md) | Not individually audited in this new crosswalk |
 | Creative Systems | MD-03 THS SocialOS, Publisher & Observer | [8 gates](checklists/creative-distribution.md) | Not individually audited in this new crosswalk |
 | Creative Systems | MD-04 Algorithm Observatory & Creative Performance Learning | [8 gates](checklists/creative-distribution.md) | Not individually audited in this new crosswalk |

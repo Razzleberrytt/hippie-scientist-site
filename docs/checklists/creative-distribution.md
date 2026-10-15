@@ -3,7 +3,7 @@
 **Snapshot:** 2026-10-15 · **Status:** initial goal/acceptance *map*, not a completion audit or execution queue.
 **Owner direction:** [Unified Program](../THS_SYSTEM_COMPLETION_PROGRAM_V1.md) · [Tracking issue #6818](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6818)
 
-**Check state rule:** Every item starts unchecked because its **full acceptance criteria** have not been systematically audited under this new view. An unchecked box is **not** a claim that no code exists. An `[x]` requires dated reproducible source/CI/production/field evidence and the original owning checklist update. Unknowns must remain Unknown.
+**Check state rule:** Every outcome initially started unchecked pending evidence. An unchecked box is **not** a claim that no code exists. A checked outcome must link dated reproducible acceptance proof and preserve its original owning tracker; documentation crosswalk verification earns no EvidenceMotion film/quality checklist credit. Unknowns remain Unknown. [Scoped audit 001](CROSSWALK_AUDIT_001_2026-10-15.md).
 
 ## MD-01 — EvidenceMotion Production
 
@@ -11,7 +11,7 @@
 
 **Existing authority:** [Authoritative EvidenceMotion 46](../../research/evidencemotion-director/COMPLETION-CHECKLIST.md), [Open gates](../../research/evidencemotion-director/OPEN-REQUIREMENTS-2026-10-14.md). **Crosswalk:** Canonical 46 ONLY; P0 section 10.
 
-- [ ] **MD-01-01** — Reconcile this dashboard with the exact canonical 46-item tracker, not an independently counted replacement.
+- [x] **MD-01-01** — Reconcile this dashboard with the exact canonical 46-item tracker, not an independently counted replacement. **Proof:** [Audit 001 — exact canonical checklist count and crosswalk](CROSSWALK_AUDIT_001_2026-10-15.md#crosswalk-proof-for-md-01-01). *Documentation reconciliation only; no new film or quality acceptance.*
 - [ ] **MD-01-02** — Verify primary-source science and implied on-screen assertions against exact locked source and narration.
 - [ ] **MD-01-03** — Lock authentic natural voice, exact word timing and visual plan before any final scene pacing/cuts.
 - [ ] **MD-01-04** — Demonstrate intentional visual story, strong distinctive art direction and coherent varying shot compositions.
@@ -20,7 +20,7 @@
 - [ ] **MD-01-07** — Deliver one genuinely excellent first-render native 1080×1920 film plus five varied excellent first renders.
 - [ ] **MD-01-08** — Promote only through real CI/quality/release evidence and explicit platform upload authorization; prove throughput/cost separately.
 
-**Baseline audit:** Not completed for these eight end-state outcomes. **Progress:** Not assessed / 8 criteria (do not display `0%` as implementation status). **Next measurable step:** verify MD-01-01 with exact current-main source/owner references, record evidence, and determine whether it truly meets the stated end-state; do not check it from code presence alone.
+**Audit 001 (2026-10-15):** MD-01-01 documentation crosswalk **ACCEPTED (3/3 source subproofs)**; MD-01-02 through MD-01-08 remain unassessed here. **System completion and premium-video readiness: NOT ASSESSED by this eight-gate overlay.** Native EvidenceMotion remains **26/46**, 20 open, **0/1** first excellent master and **0/5** varied excellence streak at the source snapshot. [Receipt](CROSSWALK_AUDIT_001_2026-10-15.md). **Next measurable step:** source-linked exact-claim and visual-verification evidence for MD-01-02, not an assumed quality verdict.
 
 ## MD-02 — THS Voice Engine & Reusable Art
 
