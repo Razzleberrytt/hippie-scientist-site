@@ -384,12 +384,12 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
         # words in a caption group cannot expose the spoken "not" early.
         groups=caption_schedule(visible_words,max_words=3)
         now=timed_caption_shown_at(groups,t)
-        used=set(id(c) for c in visible_words)
-        visible_words=[c for c in visible_words if c['text'] in now and id(c) in used]
-        # Match the actual contiguous timed group by its immutable cue offset,
-        # rather than accepting a same-word match from elsewhere in a sentence.
+        # Use the exact source-cue range, not text equality: repeated words
+        # must never be mistaken for the same acoustic occurrence.
         active=next((g for g in groups if g['startSec']<=t<g['endSec']),None)
         visible_words=visible_words[active['firstCue']:active['afterLastCue']] if active else []
+        if [cue['text'] for cue in visible_words]!=now:
+            raise ValueError('TREATMENT_HOLD:TIMED_CAPTION_SOURCE_DRIFT')
     caption = wrapped(' '.join(w['text'] for w in visible_words),f(42,True),770*scale)
     if len(caption)>5:
         raise ValueError('TREATMENT_HOLD:CAPTION_TOO_DENSE')
