@@ -2,6 +2,13 @@
 
 **Owner direction:** October 15, 2026 · **Tracking:** [#6818](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6818) · **State:** owner-approved checklist design in a documentation PR, not a new execution lane. **Audit snapshot:** 2026-10-15. This is a crosswalk **over** existing active and historical systems, not permission to implement any unadmitted ticket.
 
+## Granular task workmaps (planning only)
+
+- [EvidenceMotion — 46 original milestones broken into 258 proof-based subtasks](../research/evidencemotion-director/GRANULAR-46-EXECUTION-MAP.md). The canonical 46 and its verified 26/46 snapshot remain authoritative.
+- [All 16 systems — 128 original outcomes broken into 512 proof-based subtasks](checklists/GRANULAR-128-EXECUTION-MAP.md). The original 128-goal parent program remains authoritative.
+
+These maps are implementation **decomposition**, not 770 preapproved tickets or newly completed work. Each accepted step needs an independently inspectable source/test/actual-field receipt; full end-state requirements, admitted WIP and approval gates are unchanged. See [operating status rules](#how-to-make-a-checkmark-real).
+
 ## Why this exists
 
 Each of our systems should have an observable meaning of `finished`, an accurate progress report and a connection to the bigger business goal: **trusted science → superb product/content → reliable production/distribution → measurable user benefit → sustainable revenue → optional transferable technology**. Avoid 100 disconnected small engineering wins that do not deliver a real finished user experience.
