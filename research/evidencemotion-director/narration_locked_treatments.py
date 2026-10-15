@@ -56,6 +56,31 @@ def timeline(alignment):
     return scenes
 
 
+def caption_window(cues, t, *, max_words=3):
+    """Three-word timed caption groups; never alter the locked spoken script.
+
+    Source cues stay immutable. The word being spoken is always included and
+    highlighted by its true time, with up to two neighbor words as context.
+    Call this AFTER splitting at any semantic reveal boundary, so the word
+    'not' cannot appear before the actual spoken negation.
+    """
+    if not cues:
+        return []
+    if max_words < 1:
+        raise ValueError('TREATMENT_HOLD:INVALID_CAPTION_WINDOW')
+    for cue in cues:
+        if cue['endSec'] <= cue['startSec']:
+            raise ValueError('TREATMENT_HOLD:INVALID_WORD_CUE')
+    active = 0
+    for i, cue in enumerate(cues):
+        if cue['startSec'] <= t:
+            active = i
+        else:
+            break
+    start = (active // max_words) * max_words
+    return cues[start:start + max_words]
+
+
 def fonts(root):
     from PIL import ImageFont
     base = Path(root)
@@ -374,6 +399,11 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
     if opening_boundary is not None:
         visible_words = [word for word in visible_words
                          if (word['startSec'] < opening_boundary) == (t < opening_boundary)]
+    # The prior full-sentence caption was readable as text but overloaded the
+    # *combined* subtitle+scientific-overlay rate in fast scenes. Group captions
+    # in at most three original acoustic cues, without hiding any spoken word.
+    # Never rewrite the phrase, change the source WAV, or pre-reveal negation.
+    visible_words = caption_window(visible_words, t)
     caption = wrapped(' '.join(w['text'] for w in visible_words),f(42,True),770*scale)
     if len(caption)>5:
         raise ValueError('TREATMENT_HOLD:CAPTION_TOO_DENSE')
