@@ -121,6 +121,10 @@ class NarrationTreatments(unittest.TestCase):
             [a['text'] for a in first[0]['annotations']])
         self.assertIn('7-OH • CID 44301524',
             [a['text'] for a in first[1]['annotations']])
+        for opening in first:
+            self.assertIn('CID = compound record number',
+                          [a['text'] for a in opening['annotations']])
+
         self.assertEqual(len(m['shots']),9)
         three_d=next(s for s in m['shots'] if s['id']=='sentence_4')
         science=[a['text'] for a in three_d['annotations'] if a['role']=='science']
