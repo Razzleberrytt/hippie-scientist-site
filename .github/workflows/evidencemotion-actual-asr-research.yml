@@ -8,6 +8,8 @@ on:
       - 'research/evidencemotion-director/test_mfa_acoustic_alignment.py'
       - 'research/evidencemotion-director/exact_wav_alignment.py'
       - 'research/evidencemotion-director/narration_locked_treatments.py'
+      - 'research/evidencemotion-director/source_bond_trace_direction.py'
+      - 'research/evidencemotion-director/test_source_bond_trace_direction.py'
       - 'research/evidencemotion-director/test_narration_locked_treatments.py'
       - 'research/evidencemotion-director/timed_caption_windows.py'
       - 'research/evidencemotion-director/test_timed_caption_windows.py'
@@ -89,6 +91,7 @@ jobs:
           python -m pip install 'rdkit==2025.9.4' 'pillow==12.0.0'
           python -m unittest discover -s research/evidencemotion-director -p test_narration_locked_treatments.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_source_locked_visual_direction.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_source_bond_trace_direction.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_temporal_caption_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_encoded_caption_cue_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_native_autocritic.py -v
