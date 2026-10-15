@@ -434,6 +434,7 @@
 - [ ] **EM-026.01.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **immutable identities**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-026.01.X** — For that **one source-fidelity test case**, perform or independently replay this bounded operation: **Pin every intermediate source frame and final encoded video to a manifest**. **Receipt:** a single output artifact corresponding to **immutable identities**.
 - [ ] **EM-026.01.T** — Check the actual output against the predeclared assertion using decoded image/sequence inspection against source fidelity and declared external craft anchors. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-026.01.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-026.01.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-026.02 — Sample critical decoded timestamps spanning every scene
@@ -445,6 +446,7 @@
 - [ ] **EM-026.02.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **source-to-output pixel comparisons**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-026.02.X** — For that **one source-fidelity test case**, perform or independently replay this bounded operation: **Sample critical decoded timestamps spanning every scene**. **Receipt:** a single output artifact corresponding to **source-to-output pixel comparisons**.
 - [ ] **EM-026.02.T** — Check the actual output against the predeclared assertion using decoded image/sequence inspection against source fidelity and declared external craft anchors. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-026.02.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-026.02.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-026.03 — Exercise missing OH, wrong molecule, crop, tampered frame and false annotation variants
@@ -468,6 +470,7 @@
 - [ ] **EM-026.04.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **craft HOLD preserved**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-026.04.X** — For that **one source-fidelity test case**, perform or independently replay this bounded operation: **Record any remaining static or cheap-cinematography warning separately**. **Receipt:** a single output artifact corresponding to **craft HOLD preserved**.
 - [ ] **EM-026.04.T** — Check the actual output against the predeclared assertion using decoded image/sequence inspection against source fidelity and declared external craft anchors. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-026.04.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-026.04.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-027.01 — Pin source-reading card time range and authoritative PubChem provenance
@@ -524,6 +527,7 @@
 - [ ] **EM-028.01.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **rubric**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-028.01.X** — For that **one full-film reviewer/anchor**, perform or independently replay this bounded operation: **Define independent reference-clip scoring criteria for composition, payoff, rhythm and coherence**. **Receipt:** a single output artifact corresponding to **rubric**.
 - [ ] **EM-028.01.T** — Check the actual output against the predeclared assertion using decoded image/sequence inspection against source fidelity and declared external craft anchors. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-028.01.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-028.01.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-028.02 — Assemble representative real external science clips with timestamps, permission notes and scores
@@ -535,6 +539,7 @@
 - [ ] **EM-028.02.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **anchors**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-028.02.X** — For that **one full-film reviewer/anchor**, perform or independently replay this bounded operation: **Assemble representative real external science clips with timestamps, permission notes and scores**. **Receipt:** a single output artifact corresponding to **anchors**.
 - [ ] **EM-028.02.T** — Check the actual output against the predeclared assertion using decoded image/sequence inspection against source fidelity and declared external craft anchors. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-028.02.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-028.02.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-028.03 — Calibrate reviewers against labeled accepted/rejected cases and measure agreement
@@ -558,6 +563,7 @@
 - [ ] **EM-028.04.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **outcomes**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-028.04.X** — For that **one full-film reviewer/anchor**, perform or independently replay this bounded operation: **Evaluate *entire exact MP4* rather than thumbnails with at least two independent verdicts or calibrated substitute**. **Receipt:** a single output artifact corresponding to **outcomes**.
 - [ ] **EM-028.04.T** — Check the actual output against the predeclared assertion using decoded image/sequence inspection against source fidelity and declared external craft anchors. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-028.04.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-028.04.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-028.05 — Require disagreement adjudication, with no invented V_VERIFIED/human verdict
@@ -569,6 +575,7 @@
 - [ ] **EM-028.05.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **held review record**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-028.05.X** — For that **one full-film reviewer/anchor**, perform or independently replay this bounded operation: **Require disagreement adjudication, with no invented V_VERIFIED/human verdict**. **Receipt:** a single output artifact corresponding to **held review record**.
 - [ ] **EM-028.05.T** — Check the actual output against the predeclared assertion using decoded image/sequence inspection against source fidelity and declared external craft anchors. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-028.05.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-028.05.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-028.06 — Reject static, repetitive and scientifically misleading negative exemplars
@@ -592,4 +599,5 @@
 - [ ] **EM-028.07.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **audit trail**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-028.07.X** — For that **one full-film reviewer/anchor**, perform or independently replay this bounded operation: **Attach authenticated reviewer/execution versions and output hashes**. **Receipt:** a single output artifact corresponding to **audit trail**.
 - [ ] **EM-028.07.T** — Check the actual output against the predeclared assertion using decoded image/sequence inspection against source fidelity and declared external craft anchors. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-028.07.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-028.07.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
