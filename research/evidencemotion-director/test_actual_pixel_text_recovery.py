@@ -32,6 +32,17 @@ class ActualPixelReadingTests(unittest.TestCase):
         self.assertEqual(recover(self.frames),{
             "q1":True,"q2":True,"q3":True,"q4":True,"q5":True})
 
+    def test_compact_opening_keeps_individual_identity_and_no_reaction(self):
+        self.frames['compound_a']='MITRAGYNINE\nNo reaction\nWhat makes seven O H'
+        self.frames['compound_b']='7-OH\nNo reaction\ndifferent from mitragynine?'
+        self.assertTrue(recover(self.frames)['q1'])
+        self.frames['compound_b']=self.frames['compound_a']
+        self.assertFalse(recover(self.frames)['q1'])
+
+    def test_compact_opening_cannot_drop_no_reaction_disclosure(self):
+        self.frames['compound_a']='MITRAGYNINE\nWhat makes seven O H'
+        self.assertFalse(recover(self.frames)['q1'])
+
     def test_six_blank_single_frame_dropouts_each_invalidate_relevant_answer(self):
         rows=critical_negatives(self.frames,"")
         self.assertEqual(len(rows),10)
