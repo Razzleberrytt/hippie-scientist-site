@@ -100,6 +100,7 @@
 - [ ] **EM-030.04.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **repeatable run evidence**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-030.04.X** — For that **one known failure fixture**, perform or independently replay this bounded operation: **Keep regression suite in bounded offline/CI automation**. **Receipt:** a single output artifact corresponding to **repeatable run evidence**.
 - [ ] **EM-030.04.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-030.04.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-030.04.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-031.01 — Create manifest enumerating intermediate images, scripts, source IDs, voice, captions and exact MP4
@@ -111,6 +112,7 @@
 - [ ] **EM-031.01.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **file list**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-031.01.X** — For that **one source/intermediate file**, perform or independently replay this bounded operation: **Create manifest enumerating intermediate images, scripts, source IDs, voice, captions and exact MP4**. **Receipt:** a single output artifact corresponding to **file list**.
 - [ ] **EM-031.01.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-031.01.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-031.01.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-031.02 — Rebuild sources twice in clean directories with pinned tools
@@ -122,6 +124,7 @@
 - [ ] **EM-031.02.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **per-file SHA comparison**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-031.02.X** — For that **one source/intermediate file**, perform or independently replay this bounded operation: **Rebuild sources twice in clean directories with pinned tools**. **Receipt:** a single output artifact corresponding to **per-file SHA comparison**.
 - [ ] **EM-031.02.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-031.02.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-031.02.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-031.03 — Perform safe path, symlink and injected byte corruption tests
@@ -145,6 +148,7 @@
 - [ ] **EM-031.04.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **qualified proof**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-031.04.X** — For that **one source/intermediate file**, perform or independently replay this bounded operation: **Check final stream and frames; record encoder nondeterminism if observed**. **Receipt:** a single output artifact corresponding to **qualified proof**.
 - [ ] **EM-031.04.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-031.04.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-031.04.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-031.05 — Never infer scientific correctness or art quality from successful hash replay
@@ -156,6 +160,7 @@
 - [ ] **EM-031.05.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **separate gate**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-031.05.X** — For that **one source/intermediate file**, perform or independently replay this bounded operation: **Never infer scientific correctness or art quality from successful hash replay**. **Receipt:** a single output artifact corresponding to **separate gate**.
 - [ ] **EM-031.05.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-031.05.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-031.05.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-032.01 — Freeze approved claim ledger, exact voice and source revision; abort when any approval missing
@@ -278,6 +283,7 @@
 - [ ] **EM-034.01.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **two platform templates with URLs and date**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-034.01.X** — For that **one native short-form scene**, perform or independently replay this bounded operation: **Retrieve dated real TikTok and YouTube Shorts portrait-player overlay examples from permitted sources**. **Receipt:** a single output artifact corresponding to **two platform templates with URLs and date**.
 - [ ] **EM-034.01.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-034.01.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-034.01.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-034.02 — Pin the exact current master MP4, encoded audio, source claim ledger and annotation revision
@@ -289,6 +295,7 @@
 - [ ] **EM-034.02.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **hash-bound audit manifest**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-034.02.X** — For that **one native short-form scene**, perform or independently replay this bounded operation: **Pin the exact current master MP4, encoded audio, source claim ledger and annotation revision**. **Receipt:** a single output artifact corresponding to **hash-bound audit manifest**.
 - [ ] **EM-034.02.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-034.02.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-034.02.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-034.03 — Extract *all* emitted captions plus separate non-caption text from each decoded shot
@@ -300,6 +307,7 @@
 - [ ] **EM-034.03.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **merged per-frame/on-screen text inventory**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-034.03.X** — For that **one native short-form scene**, perform or independently replay this bounded operation: **Extract *all* emitted captions plus separate non-caption text from each decoded shot**. **Receipt:** a single output artifact corresponding to **merged per-frame/on-screen text inventory**.
 - [ ] **EM-034.03.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-034.03.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-034.03.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-034.04 — Calculate combined visible-text count, duration and words-per-second for every scene
@@ -311,6 +319,7 @@
 - [ ] **EM-034.04.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **reproducible full-film load table**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-034.04.X** — For that **one native short-form scene**, perform or independently replay this bounded operation: **Calculate combined visible-text count, duration and words-per-second for every scene**. **Receipt:** a single output artifact corresponding to **reproducible full-film load table**.
 - [ ] **EM-034.04.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-034.04.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-034.04.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-034.05 — Identify precisely which original shots exceed the predeclared combined reading-load ceiling
@@ -322,6 +331,7 @@
 - [ ] **EM-034.05.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **failing scene IDs and measurements**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-034.05.X** — For that **one native short-form scene**, perform or independently replay this bounded operation: **Identify precisely which original shots exceed the predeclared combined reading-load ceiling**. **Receipt:** a single output artifact corresponding to **failing scene IDs and measurements**.
 - [ ] **EM-034.05.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-034.05.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-034.05.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-034.06 — Rewrite or relocate only overloaded overlays without erasing source IDs, science qualifiers or exact voice
@@ -333,6 +343,7 @@
 - [ ] **EM-034.06.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **before/after frame plan**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-034.06.X** — For that **one native short-form scene**, perform or independently replay this bounded operation: **Rewrite or relocate only overloaded overlays without erasing source IDs, science qualifiers or exact voice**. **Receipt:** a single output artifact corresponding to **before/after frame plan**.
 - [ ] **EM-034.06.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-034.06.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-034.06.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-034.07 — Regenerate native film and muted cut after text repairs, retaining locked narration and source hashes
@@ -344,6 +355,7 @@
 - [ ] **EM-034.07.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **new full H.264/AAC and mute MP4 SHAs**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-034.07.X** — For that **one native short-form scene**, perform or independently replay this bounded operation: **Regenerate native film and muted cut after text repairs, retaining locked narration and source hashes**. **Receipt:** a single output artifact corresponding to **new full H.264/AAC and mute MP4 SHAs**.
 - [ ] **EM-034.07.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-034.07.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-034.07.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-034.08 — Recompute combined text budget from *actual new decoded frames*, not storyboard annotation
@@ -367,6 +379,7 @@
 - [ ] **EM-034.09.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **shot-by-shot screenshot/contrast audit**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-034.09.X** — For that **one native short-form scene**, perform or independently replay this bounded operation: **Compare platform UI occlusion, text contrast, font size and timing on real output at screen resolution**. **Receipt:** a single output artifact corresponding to **shot-by-shot screenshot/contrast audit**.
 - [ ] **EM-034.09.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-034.09.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-034.09.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-034.10 — Prove first two seconds supply a meaningful understandable hook, not just unexplained chemical labels
@@ -390,6 +403,7 @@
 - [ ] **EM-034.11.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **source/voice/caption semantic diff**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-034.11.X** — For that **one native short-form scene**, perform or independently replay this bounded operation: **Verify onscreen compound labels, CID associations, visual disclaimers and spoken timing still agree**. **Receipt:** a single output artifact corresponding to **source/voice/caption semantic diff**.
 - [ ] **EM-034.11.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-034.11.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-034.11.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-034.12 — Pre-register silent-viewer comprehension questions covering 7-OH versus mitragynine, what visuals do/do not show, uncertainty and source provenance
@@ -401,6 +415,7 @@
 - [ ] **EM-034.12.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **dated scored quiz and rubric**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-034.12.X** — For that **one native short-form scene**, perform or independently replay this bounded operation: **Pre-register silent-viewer comprehension questions covering 7-OH versus mitragynine, what visuals do/do not show, uncertainty and source provenance**. **Receipt:** a single output artifact corresponding to **dated scored quiz and rubric**.
 - [ ] **EM-034.12.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-034.12.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-034.12.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-034.13 — Calibrate evaluator or obtain genuine independent muted-viewer answers on the exact full film
@@ -412,6 +427,7 @@
 - [ ] **EM-034.13.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **reviewer/participant method plus observed answer-level results**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-034.13.X** — For that **one native short-form scene**, perform or independently replay this bounded operation: **Calibrate evaluator or obtain genuine independent muted-viewer answers on the exact full film**. **Receipt:** a single output artifact corresponding to **reviewer/participant method plus observed answer-level results**.
 - [ ] **EM-034.13.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-034.13.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-034.13.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-034.14 — Test the same quiz against misleading swapped-label, missing-caveat and off-timing counterfactual clips
@@ -447,6 +463,7 @@
 - [ ] **EM-034.16.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **per-gate ACCEPTED/HOLD and canonical-source update only on earned proof**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-034.16.X** — For that **one native short-form scene**, perform or independently replay this bounded operation: **Record final criterion verdict without conflating layout, machine QA, real viewer comprehension, handset, science or publishing approval**. **Receipt:** a single output artifact corresponding to **per-gate ACCEPTED/HOLD and canonical-source update only on earned proof**.
 - [ ] **EM-034.16.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-034.16.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-034.16.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-035.01 — Obtain actual authorized handset/session or legitimate remote-device test execution
@@ -458,6 +475,7 @@
 - [ ] **EM-035.01.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **environment receipt**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-035.01.X** — For that **one real handset session/action**, perform or independently replay this bounded operation: **Obtain actual authorized handset/session or legitimate remote-device test execution**. **Receipt:** a single output artifact corresponding to **environment receipt**.
 - [ ] **EM-035.01.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-035.01.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-035.01.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-035.02 — Verify exact MP4 SHA transferred to handset and app/display conditions
@@ -469,6 +487,7 @@
 - [ ] **EM-035.02.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **provenance**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-035.02.X** — For that **one real handset session/action**, perform or independently replay this bounded operation: **Verify exact MP4 SHA transferred to handset and app/display conditions**. **Receipt:** a single output artifact corresponding to **provenance**.
 - [ ] **EM-035.02.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-035.02.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-035.02.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-035.03 — Play at 1×, pause, seek/scrub and test both speaker and earphone audibility
@@ -480,6 +499,7 @@
 - [ ] **EM-035.03.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **timed observations**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-035.03.X** — For that **one real handset session/action**, perform or independently replay this bounded operation: **Play at 1×, pause, seek/scrub and test both speaker and earphone audibility**. **Receipt:** a single output artifact corresponding to **timed observations**.
 - [ ] **EM-035.03.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-035.03.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-035.03.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-035.04 — Inspect native TikTok/Shorts overlays, dynamic caption safe zones and readability
@@ -491,6 +511,7 @@
 - [ ] **EM-035.04.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **captured device artifacts**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-035.04.X** — For that **one real handset session/action**, perform or independently replay this bounded operation: **Inspect native TikTok/Shorts overlays, dynamic caption safe zones and readability**. **Receipt:** a single output artifact corresponding to **captured device artifacts**.
 - [ ] **EM-035.04.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-035.04.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-035.04.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-035.05 — Verify no crash, desync, blank frame, clipping or hidden qualifier
@@ -502,6 +523,7 @@
 - [ ] **EM-035.05.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **documented pass/fail**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-035.05.X** — For that **one real handset session/action**, perform or independently replay this bounded operation: **Verify no crash, desync, blank frame, clipping or hidden qualifier**. **Receipt:** a single output artifact corresponding to **documented pass/fail**.
 - [ ] **EM-035.05.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-035.05.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-035.05.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-035.06 — Invalidate handset result after any audio/video SHA change
@@ -525,6 +547,7 @@
 - [ ] **EM-036.01.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **review request**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-036.01.X** — For that **one independent review domain**, perform or independently replay this bounded operation: **Freeze exact master/source/voice/script hashes and reviewer model/workflow versions**. **Receipt:** a single output artifact corresponding to **review request**.
 - [ ] **EM-036.01.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-036.01.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-036.01.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-036.02 — Run independent science claim checks with calibrated sources, keeping separate disagreements
@@ -536,6 +559,7 @@
 - [ ] **EM-036.02.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **science receipt**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-036.02.X** — For that **one independent review domain**, perform or independently replay this bounded operation: **Run independent science claim checks with calibrated sources, keeping separate disagreements**. **Receipt:** a single output artifact corresponding to **science receipt**.
 - [ ] **EM-036.02.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-036.02.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-036.02.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-036.03 — Run calibrated acoustic/pronunciation checks on decoded final audio
@@ -547,6 +571,7 @@
 - [ ] **EM-036.03.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **voice receipt**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-036.03.X** — For that **one independent review domain**, perform or independently replay this bounded operation: **Run calibrated acoustic/pronunciation checks on decoded final audio**. **Receipt:** a single output artifact corresponding to **voice receipt**.
 - [ ] **EM-036.03.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-036.03.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-036.03.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-036.04 — Run calibrated full-film craft/teaching scoring against real niche reference clips
@@ -558,6 +583,7 @@
 - [ ] **EM-036.04.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **film receipt**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-036.04.X** — For that **one independent review domain**, perform or independently replay this bounded operation: **Run calibrated full-film craft/teaching scoring against real niche reference clips**. **Receipt:** a single output artifact corresponding to **film receipt**.
 - [ ] **EM-036.04.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-036.04.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-036.04.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-036.05 — Reject forged reviewer identity, changed assets, uncalibrated model and contradictory reviews
@@ -581,6 +607,7 @@
 - [ ] **EM-036.06.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **final decision**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-036.06.X** — For that **one independent review domain**, perform or independently replay this bounded operation: **Require reconciled signed-by-process PASS across all three categories; otherwise HOLD**. **Receipt:** a single output artifact corresponding to **final decision**.
 - [ ] **EM-036.06.T** — Check the actual output against the predeclared assertion using real encoded frame/audio measurements, UI-safe and stale-artifact rejection criteria. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-036.06.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-036.06.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-037.01 — Document owner-account/platform scope and exact media SHA being authorized
@@ -592,6 +619,7 @@
 - [ ] **EM-037.01.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **posting request**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-037.01.X** — For that **one specific platform authorization**, perform or independently replay this bounded operation: **Document owner-account/platform scope and exact media SHA being authorized**. **Receipt:** a single output artifact corresponding to **posting request**.
 - [ ] **EM-037.01.T** — Check the actual output against the predeclared assertion using governed state/permissions, actual test logs, exact-head CI or authorized execution receipts. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-037.01.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-037.01.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-037.02 — Confirm owner approved platform, caption and selected original MP4 explicitly
@@ -603,6 +631,7 @@
 - [ ] **EM-037.02.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **dated record**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-037.02.X** — For that **one specific platform authorization**, perform or independently replay this bounded operation: **Confirm owner approved platform, caption and selected original MP4 explicitly**. **Receipt:** a single output artifact corresponding to **dated record**.
 - [ ] **EM-037.02.T** — Check the actual output against the predeclared assertion using governed state/permissions, actual test logs, exact-head CI or authorized execution receipts. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-037.02.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-037.02.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-037.03 — Verify no automatic post or integration change occurs before authorization
@@ -614,6 +643,7 @@
 - [ ] **EM-037.03.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **permission test**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-037.03.X** — For that **one specific platform authorization**, perform or independently replay this bounded operation: **Verify no automatic post or integration change occurs before authorization**. **Receipt:** a single output artifact corresponding to **permission test**.
 - [ ] **EM-037.03.T** — Check the actual output against the predeclared assertion using governed state/permissions, actual test logs, exact-head CI or authorized execution receipts. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-037.03.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-037.03.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-037.04 — Record posting/publication job and receipt only after permitted execution
@@ -625,4 +655,5 @@
 - [ ] **EM-037.04.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **public-ID evidence**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-037.04.X** — For that **one specific platform authorization**, perform or independently replay this bounded operation: **Record posting/publication job and receipt only after permitted execution**. **Receipt:** a single output artifact corresponding to **public-ID evidence**.
 - [ ] **EM-037.04.T** — Check the actual output against the predeclared assertion using governed state/permissions, actual test logs, exact-head CI or authorized execution receipts. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-037.04.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-037.04.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
