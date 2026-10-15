@@ -3,6 +3,35 @@ from narration_locked_treatments import LINES, tokens, timeline, wrapped, chemis
 
 
 class NarrationTreatments(unittest.TestCase):
+    def test_native_caption_plus_overlay_load_fits_observed_sentence_windows(self):
+        # Scheduling regression from the observed source sentence windows.
+        # This is not a new acoustic-alignment or audience calibration receipt.
+        import os
+        from pathlib import Path
+        from narration_locked_treatments import fonts,native_phone_plan
+        from reading_load_audit import assess
+        path=Path(os.environ.get('THS_TEST_FONT_DIR','/usr/share/fonts/truetype/dejavu'))
+        if not path.is_dir():
+            self.skipTest('Pinned DejaVu font unavailable')
+        font,_=fonts(path)
+        assets=chemistry_assets();assets['dark_diagram']=assets['7_hydroxymitragynine']['diagram']
+        scenes=timeline(self.alignment())
+        bounds=[0,3.47,10.85,16.58,23.38,27.35,31.25,824336/24000]
+        for i,s in enumerate(scenes):
+            s['startSec'],s['endSec']=bounds[i:i+2]
+            cues=s.get('captionWords',[])
+            for j,c in enumerate(cues):
+                c['startSec']=bounds[i]+(bounds[i+1]-bounds[i])*j/len(cues)
+                c['endSec']=bounds[i]+(bounds[i+1]-bounds[i])*(j+1)/len(cues)
+        for scene,starts in [(scenes[0],[.16,.33,.56,.95,1.20,1.61,1.92,2.11]),
+            (scenes[4],[23.38,23.53,23.62,24.06,24.64,24.77,25.71,25.96,26.12,26.23,26.57,26.99])]:
+            for c,start in zip(scene['captionWords'],starts): c['startSec']=start
+        plan=native_phone_plan('a'*64,scenes,assets,'specimen',font)
+        result=assess(plan)
+        failed=[s['scene'] for s in result['allSceneSpans'] if not s['passesCombinedVisibleTextBudget']]
+        self.assertEqual(failed,[],'Actual emitted captions must count alongside every overlay')
+        self.assertFalse(result['mayPublish'])
+
     def alignment(self):
         # Scheduling fixture only; this is not acoustic acceptance evidence.
         return {'sampleCount':824336,'wordAlignment':[
@@ -121,8 +150,8 @@ class NarrationTreatments(unittest.TestCase):
         self.assertIn('7-OH', [a['text'] for a in first[1]['annotations']])
         for opening in first:
             labels=[a['text'] for a in opening['annotations'] if a['role']!='caption']
-            self.assertIn('7-OH vs\nmitragynine',labels)
-            self.assertIn('Separate structures • no reaction',labels)
+            self.assertNotIn('7-OH vs\nmitragynine',labels)
+            self.assertIn('No reaction',labels)
             self.assertFalse(any('CID' in label for label in labels))
         source=next(s for s in m['shots'] if s['id']=='source_hold')
         self.assertIn('Mitragynine • CID 3034396',[a['text'] for a in source['annotations']])
@@ -143,9 +172,9 @@ class NarrationTreatments(unittest.TestCase):
         self.assertEqual(len(payoff),2)
         self.assertFalse(any(a['text']=='≠' for a in payoff[0]['annotations']))
         self.assertTrue(any(a['text']=='≠' for a in payoff[1]['annotations']))
-        self.assertIn('What the shape\nshows.',
+        self.assertIn('STRUCTURE',
                       [a['text'] for a in payoff[0]['annotations']])
-        self.assertIn('What it cannot\ntell us.',
+        self.assertIn('HUMAN EXPERIENCE',
                       [a['text'] for a in payoff[1]['annotations']])
         self.assertNotIn('not',[a['text'] for a in payoff[0]['annotations']])
         self.assertIn('not',[a['text'] for a in payoff[1]['annotations']])
@@ -179,12 +208,12 @@ class NarrationTreatments(unittest.TestCase):
         graph=np.asarray(before.crop((115,610,780,1050))).astype(np.float32)
         self.assertGreater(float(graph.std()),12)
         self.assertIn('STRUCTURE',[a['text'] for a in before_ann])
-        self.assertIn('What the shape\nshows.',[a['text'] for a in before_ann])
+        self.assertIn('STRUCTURE',[a['text'] for a in before_ann])
         self.assertNotIn('not',[a['text'] for a in before_ann if a['role']=='caption'])
         self.assertNotIn('≠',[a['text'] for a in before_ann])
         self.assertIn('≠',[a['text'] for a in after_ann])
         self.assertIn('HUMAN EXPERIENCE',[a['text'] for a in after_ann])
-        self.assertIn('What it cannot\ntell us.',[a['text'] for a in after_ann])
+        self.assertIn('HUMAN EXPERIENCE',[a['text'] for a in after_ann])
         self.assertIn('not',[a['text'] for a in after_ann if a['role']=='caption'])
         # On the spoken negation, the actual displayed pixels below the
         # bounded chemistry card must make a substantial, visible change.
