@@ -165,7 +165,7 @@ def inspect(movie, wav, receipt_path, phone_plan_path):
             if "computed" not in disclosures or "hydrogen atoms omitted" not in disclosures:
                 hold("COMPUTED_MODEL_UNDISCLOSED")
     source_labels = {a["text"] for _, ann in grouped["source_hold"] for a in ann if a.get("role") == "source"}
-    if not {"PubChem", "CID 44301524", "C23H30N2O5", "pubchem.ncbi.nlm.nih.gov"} <= source_labels:
+    if not {"PubChem", "Mitragynine • CID 3034396", "7-OH • CID 44301524", "C23H30N2O5", "pubchem.ncbi.nlm.nih.gov"} <= source_labels:
         hold("VISIBLE_PRIMARY_SOURCE_LABEL_DRIFT")
     comparison = grouped["sentence_1"]
     diff_word = next((c for c in scenes[0]["captionWords"]
