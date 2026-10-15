@@ -24,7 +24,7 @@ REQUIRED={
     "sentence_4": ("A possible\n3D shape.","Computed 3D illustration • not filmed"),
     "sentence_5_part0": ("What the shape\nshows.",),
     "sentence_5_part1": ("What it cannot\ntell us.","HUMAN EXPERIENCE"),
-    "source_hold": ("CID 44301524","Mitragynine • CID 3034396","CID = compound record number"),
+    "source_hold": ("7-OH • CID 44301524","Mitragynine • CID 3034396","CID = compound record number"),
 }
 MIN_INK_DYNAMIC_RANGE=130.0
 MAX_INK_DRIFT=16.0
