@@ -28,6 +28,8 @@ on:
       - 'research/evidencemotion-director/test_muted_answer_recovery.py'
       - 'research/evidencemotion-director/reading_load_audit.py'
       - 'research/evidencemotion-director/test_reading_load_audit.py'
+      - 'research/evidencemotion-director/actual_pixel_text_recovery.py'
+      - 'research/evidencemotion-director/test_actual_pixel_text_recovery.py'
       - 'research/evidencemotion-director/test_narrated_claim_screen.py'
       - 'research/evidencemotion-director/ASR-SOURCE-LOCK-2026-10-13.md'
       - 'research/evidencemotion-director/COMPLETION-CHECKLIST.md'
@@ -87,6 +89,7 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director -p test_objective_muted_score.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_muted_answer_recovery.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_reading_load_audit.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_actual_pixel_text_recovery.py -v
           for treatment in atlas specimen; do
             python research/evidencemotion-director/narration_locked_treatments.py \
               --alignment-root "$RUNNER_TEMP/ths-mfa/result" \
@@ -283,6 +286,35 @@ jobs:
                      for q in x['counterfactualResults'])
           assert x['humanAudienceRespondents']==0 and not x['mayPublish']
           print('Five answer-coverage items, ten negative controls PASS; no audience claim.')
+          PY
+      - name: Independently read real encoded science words from six native frames
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          if ! command -v tesseract >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends tesseract-ocr
+          fi
+          python research/evidencemotion-director/actual_pixel_text_recovery.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --phone "$RUNNER_TEMP/ths-mfa/specimen-native/phone-ui-plan.json" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-native/render-receipt.json" \
+            --claim "$RUNNER_TEMP/ths-mfa/specimen-native/claim-screen.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-native/actual-pixel-text-evidence.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-native/actual-pixel-text-evidence.json'
+          v=json.loads(p.read_text())
+          assert v['answersRecovered']==5
+          assert v['negativeControlsRejected']==8
+          assert v['automationAdditionalResearchPoints']==1
+          assert v['annotationTextUsedAsAnswer'] is False
+          assert len(v['frameProofs'])==6
+          assert all(v['answerEvidenceFromPixelsOnly'].values())
+          assert v['humanAudienceParticipants']==0
+          assert not v['humanUnderstandingDemonstrated'] and not v['mayPublish']
+          print('6 exact H264 frames independently OCR-read; five science answers and 8 counterfactuals pass, no participant fabricated')
           PY
       - name: Preserve actual timing evidence without source audio or model copies
         if: always()
