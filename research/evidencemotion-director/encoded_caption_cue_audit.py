@@ -18,7 +18,7 @@ from pathlib import Path
 from autonomous_script_asr_research import LINES, WAV_SHA
 from timed_caption_windows import schedule
 from temporal_caption_audit import partitioned_caption_groups, displayed_at
-from actual_pixel_text_recovery import ocr_image
+from actual_pixel_text_recovery import ocr_image, extract_png, _both_source_record_mappings_visible, plain
 
 SCHEMA="ths-encoded-critical-caption-ocr-v1"
 TARGETS=(("sentence_1","different"),("sentence_2","hydroxyl"),
@@ -104,6 +104,19 @@ def decode_caption_crop(movie,when,path):
         hold("MISSING_ACTUAL_ENCODED_CROP")
 
 
+def verify_source_record_pixels(ocr_text):
+    """Source identity is accepted only from decoded encoded pixels, not metadata.
+
+    Both compound names and CIDs must occur together on their respective
+    OCR lines. Source card legibility cannot establish therapeutic effects.
+    """
+    cleaned=plain(ocr_text)
+    if ("pubchem" not in cleaned or "compound record number" not in cleaned
+            or not _both_source_record_mappings_visible(ocr_text)):
+        hold("ENCODED_SOURCE_IDENTITY_CID_JOIN_UNREADABLE_OR_SWAPPED")
+    return True
+
+
 def evaluate_ocr_rows(rows,expected,negative):
     if len(rows)!=len(expected)+len(negative):
         hold("CRITICAL_SAMPLE_COUNT")
@@ -159,10 +172,26 @@ def inspect(movie,receipt_file,out):
                          "croppedImageSha256":digest(frame),
                          "ocrText":ocr_image(frame)})
     evaluate_ocr_rows(rows,TARGETS,REVEALS)
+    # Independent source-card pixels, not a phone-plan annotation, must
+    # demonstrate both exact compound->PubChem CID joins on this *new* MP4.
+    with tempfile.TemporaryDirectory(prefix="ths-encoded-source-") as td:
+        source_scene=scenes["source_hold"]
+        midpoint=(source_scene["startSec"]+source_scene["endSec"])/2
+        source_frame=Path(td)/"source_hold_encoded.png"
+        extract_png(movie,midpoint,source_frame)
+        source_ocr=ocr_image(source_frame)
+        verify_source_record_pixels(source_ocr)
+        source_row={"scene":"source_hold","term":"cid_pair","phase":"source",
+                    "t":round(midpoint,5),
+                    "frameIndex":round(midpoint*30),
+                    "croppedImageSha256":digest(source_frame),
+                    "ocrText":source_ocr}
+        rows.append(source_row)
     result={"schema":SCHEMA,"status":"CRITICAL_ENCODED_CAPTION_OCR_PASS_REVIEW_REQUIRED",
             "exactH264Sha256":digest(movie),"exactReceiptSha256":digest(receipt_file),
             "duringCueWordsRecovered":len(TARGETS),
             "preRevealWordAbsencesVerified":len(REVEALS),
+            "encodedSourceCardPairingRecovered":True,
             "sampledDecodedEncodedFrames":len(rows),
             "rows":rows,"allFrameEncodedOCR":False,
             "independentAudienceComprehensionVerified":False,
