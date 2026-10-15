@@ -34,6 +34,36 @@ The paths below have been inspected or found in current default-branch GitHub co
 - `THS-05`, `THS-06`, and `THS-07` share video/package IDs, experiments, media rights, publication receipts and outcomes; an improvement in one video's economics belongs to the end-to-end chain, not to every component independently.
 - Unverified candidates (e.g., the Algorithm Observatory) are **opportunities**, not sellable software or completed implementations. Preserve the existing EvidenceMotion 46-item tracker as the sole authority for its completion percentage.
 
+## Initial operational evidence — real measurements, not monetized value
+
+The existing [October 13, 2026 bounded CPU repeatability benchmark](../research/evidencemotion-director/7OH-CPU-REPEATABILITY-BENCHMARK-2026-10-13.md) provides **one real, source-hash-bound THS-05 technical resource baseline**. This register *reuses* that documented experiment; it did **not** independently rerun the private source ZIP or audit a hosting bill.
+
+| Benchmark item | Observed value | Evidence boundary |
+| --- | --- | --- |
+| Test input and output | One pinned 7-OH silent chemical source renderer; 1080×1920 at 30 fps, 1,031 frames | Not a mastered final video, publication, or a new-video creative demonstration |
+| Completed cold renders | 3/3; all full-decode/geometry PASS and byte-identical output SHA | Small same-machine/same-source sample; not a production-fleet reliability rate |
+| Wall time (seconds) | 58.57, 63.27, 61.30; median **61.30** | Local CPU benchmark, not current provider latency/SLA |
+| Peak resident memory | **658.45 MiB** across runs | Exact experimental platform, not a system-wide memory budget |
+| Consumed CPU | **5.1059 CPU-minutes** total across three attempts | Compute resource usage, not billed dollars |
+| Third-party creative-generation API calls | No paid creative-model API invoked; recorded API bill **$0** for this experiment | Hosting/CI and real electricity cost **Unknown** |
+| Accepted, scientifically/craft-reviewed, delivered video outputs | **Unknown**; this experiment supplied only silent source-picture technical evidence | Must not turn technically decodable research renders into commercially qualified final videos |
+| Manual editing time saved, per-approved-video cost, video revenue | **Unknown** | No comparable manual baseline, bill, qualified output series, or attributed revenue receipt |
+
+**Accounting boundary:** The median CPU render time is measured *technical performance*, not savings or video-market value. The apparent output count of three repeats is a determinism test of **one source**, not three distinct sellable videos. In any later per-video unit economics, include narration, preproduction, scientific fact checks, revisions, actual MP4 playback/quality approval, publishing, and amortized engineering work. As soon as one approved end-to-end workflow has a real invoice and comparable manual process, this initial partial proof can be extended without moving the current Unknown fields.
+
+## Pilot measurement receipt contract (future candidate, not an authorized run)
+
+Use one existing governed workflow, one fully scoped topic and a reproducible comparison. For both its manual baseline and automated run, record: `sample_id`, immutable input/source/approval version identities, method and actual executor, `start_at`, `end_at`, human touch minutes, machine wall/CPU minutes, known unit pricing/invoices and resource quantity, rejected/reworked outputs, **qualified approved outputs**, scientific/media/publish proof URLs, actual final output SHA, final quality decision, and a falsifiable limitation note. Missing price or manual comparison remains null; negative cases remain in the denominator. For video use an end-to-end final-film acceptance, not the silent technical test above.
+
+Illustrative equations for a *future evidenced cohort* (do not calculate when fields are null):
+
+- `total_cost = billed_compute + licensed_asset_fees + human_touch_hours * declared_labor_rate + allocated_maintenance`
+- `cost_per_qualified_output = total_cost / count_of_accepted_outputs` only when the count is positive and costs are adequately covered
+- `time_saved_per_qualified_output = manual_touch_minutes_per_accepted_output - automated_touch_minutes_per_accepted_output`, comparing matched topic/standard cohorts, reporting manual/automated success and rework rates
+- `net_incremental_income = observed_attributable_revenue - related_observed_incremental_expenses`, only with complete attribution and relevant incremental expense scope
+
+Do not call avoided labor a cash saving without observed capacity redeployment or cost displacement, apply unobserved market wages, or infer customer willingness to pay from technical speed. Use the existing [Growth Scoreboard](SCOREBOARD.md) for real revenue/source identities rather than inventing a competing financial ledger.
+
 ## What an evidence-bearing asset register must record
 
 For each family record stable `asset_id`, `name`, `family/dependencies`, `repo_ref`, `source_paths`, `owner_of_record` (if known), `rights_status` (`unknown|review_required|verified`), `implementation_state` (`concept|code_present|tested|merged|deployed|verified_in_use`), `proof_urls_and_sha`, `source_licenses`, `data_use_limits`, `external_dependencies`, `productization_blockers`, `date_verified`, and `next_test`.
