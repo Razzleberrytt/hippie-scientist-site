@@ -261,13 +261,28 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
         text(pos(72,1200),'2D source structure • no reaction shown',
              font=f(36),fill=muted,role='disclosure')
     elif idx==4 and not light:
-        # A distinct teaching payoff, timed to the actual spoken "not". Never
-        # invent a brain/receptor/effect scene to illustrate absent evidence.
+        # The original ending was essentially an empty typographic slide. Put
+        # the *actual* source-verified connectivity drawing back on screen,
+        # then use one spoken-word-anchored limit-of-inference reveal. A 2D
+        # molecular source record is NOT video of a physiological effect.
         boundary=next(w['startSec'] for w in scene['captionWords'] if w['text'].casefold()=='not')
-        text(pos(72,700),'STRUCTURE',font=f(80,True),fill=accent)
+        card=(pos(74,520),pos(838,1100))
+        draw.rounded_rectangle((*card[0],*card[1]),radius=round(32*scale),
+                               fill=(12,31,43,255),outline=(42,92,101,255),
+                               width=max(2,round(3*scale)))
+        # Immutable, chemically verified RDKit source, not a guessed brain,
+        # receptor, metabolic conversion or generated factual illustration.
+        diagram=assets['dark_diagram'].resize((round(688*scale),round(516*scale)))
+        image.alpha_composite(diagram,pos(105,552))
+        draw=ImageDraw.Draw(image)
+        # The line is an inference boundary, not an invented process arrow.
+        draw.line((pos(74,1118),pos(838,1118)),fill=accent,width=max(2,round(3*scale)))
+        text(pos(75,1140),'STRUCTURE',font=f(76,True),fill=accent)
         if t>=boundary:
-            text(pos(300,830),'≠',font=f(150,True),fill=fg)
-            text(pos(72,1050),'HUMAN EXPERIENCE',font=f(62,True),fill=fg)
+            # Large distinct payoff precisely on the original narrator's
+            # 'not'. Preserve the intact source graph above the boundary.
+            text(pos(76,1215),'≠',font=f(68,True),fill=(255,195,126))
+            text(pos(168,1228),'HUMAN EXPERIENCE',font=f(44,True),fill=fg)
     elif idx==5:
         text(pos(72,760),'PubChem',font=f(86,True),fill=fg,role='source')
         text(pos(72,710),'Chemical structure database',font=f(36),fill=muted,role='source')
