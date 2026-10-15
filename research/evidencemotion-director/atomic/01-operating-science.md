@@ -298,6 +298,7 @@
 - [ ] **EM-007.01.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **frozen claim ledger**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-007.01.X** — For that **one spoken or depicted claim**, perform or independently replay this bounded operation: **Enumerate every spoken assertion and qualifier, word by word**. **Receipt:** a single output artifact corresponding to **frozen claim ledger**.
 - [ ] **EM-007.01.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-007.01.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-007.01.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-007.02 — Extract text, implied effects, labels and diagrams from each exact scene
@@ -309,6 +310,7 @@
 - [ ] **EM-007.02.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **visual-claim ledger**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-007.02.X** — For that **one spoken or depicted claim**, perform or independently replay this bounded operation: **Extract text, implied effects, labels and diagrams from each exact scene**. **Receipt:** a single output artifact corresponding to **visual-claim ledger**.
 - [ ] **EM-007.02.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-007.02.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-007.02.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-007.03 — Attach retrievable primary-source and study-context IDs to every material claim
@@ -320,6 +322,7 @@
 - [ ] **EM-007.03.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **no orphan claim**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-007.03.X** — For that **one spoken or depicted claim**, perform or independently replay this bounded operation: **Attach retrievable primary-source and study-context IDs to every material claim**. **Receipt:** a single output artifact corresponding to **no orphan claim**.
 - [ ] **EM-007.03.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-007.03.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-007.03.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-007.04 — Record null, conflicting and absent-human evidence separately from mechanism/speculation
@@ -331,6 +334,7 @@
 - [ ] **EM-007.04.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **uncertainty ledger**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-007.04.X** — For that **one spoken or depicted claim**, perform or independently replay this bounded operation: **Record null, conflicting and absent-human evidence separately from mechanism/speculation**. **Receipt:** a single output artifact corresponding to **uncertainty ledger**.
 - [ ] **EM-007.04.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-007.04.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-007.04.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-007.05 — Compare claim strength with source population/outcome/dose/timing without extrapolation
@@ -342,6 +346,7 @@
 - [ ] **EM-007.05.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **per-claim pass/fail**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-007.05.X** — For that **one spoken or depicted claim**, perform or independently replay this bounded operation: **Compare claim strength with source population/outcome/dose/timing without extrapolation**. **Receipt:** a single output artifact corresponding to **per-claim pass/fail**.
 - [ ] **EM-007.05.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-007.05.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-007.05.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-007.06 — Run deliberate wrong-source, fabricated-effect and missing-qualifier controls
@@ -365,6 +370,7 @@
 - [ ] **EM-007.07.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **no self-certified verdict**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-007.07.X** — For that **one spoken or depicted claim**, perform or independently replay this bounded operation: **Obtain genuinely independent calibrated reviewer evidence or a qualified reviewer receipt for exact assets**. **Receipt:** a single output artifact corresponding to **no self-certified verdict**.
 - [ ] **EM-007.07.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-007.07.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-007.07.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-007.08 — Publish a signed-by-process hash-bound science gate report with unresolved HOLDs
@@ -376,6 +382,7 @@
 - [ ] **EM-007.08.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **all claims reconciled before acceptance**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-007.08.X** — For that **one spoken or depicted claim**, perform or independently replay this bounded operation: **Publish a signed-by-process hash-bound science gate report with unresolved HOLDs**. **Receipt:** a single output artifact corresponding to **all claims reconciled before acceptance**.
 - [ ] **EM-007.08.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-007.08.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-007.08.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-008.01 — Inventory exact botanical art frames in the selected native film
@@ -387,6 +394,7 @@
 - [ ] **EM-008.01.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **frame timestamps and hashes**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-008.01.X** — For that **one botanical video frame**, perform or independently replay this bounded operation: **Inventory exact botanical art frames in the selected native film**. **Receipt:** a single output artifact corresponding to **frame timestamps and hashes**.
 - [ ] **EM-008.01.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-008.01.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-008.01.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-008.02 — Remove or rewrite anything implying actual measured 7-OH plant content
@@ -398,6 +406,7 @@
 - [ ] **EM-008.02.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **frame before/after evidence**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-008.02.X** — For that **one botanical video frame**, perform or independently replay this bounded operation: **Remove or rewrite anything implying actual measured 7-OH plant content**. **Receipt:** a single output artifact corresponding to **frame before/after evidence**.
 - [ ] **EM-008.02.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-008.02.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-008.02.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-008.03 — Render a clear ‘illustrative’ disclosure with conservative mobile contrast/size
@@ -409,6 +418,7 @@
 - [ ] **EM-008.03.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **pixel audit**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-008.03.X** — For that **one botanical video frame**, perform or independently replay this bounded operation: **Render a clear ‘illustrative’ disclosure with conservative mobile contrast/size**. **Receipt:** a single output artifact corresponding to **pixel audit**.
 - [ ] **EM-008.03.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-008.03.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-008.03.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-008.04 — Test at phone display scale with a real device or validated readability method
@@ -420,6 +430,7 @@
 - [ ] **EM-008.04.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **receipt**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-008.04.X** — For that **one botanical video frame**, perform or independently replay this bounded operation: **Test at phone display scale with a real device or validated readability method**. **Receipt:** a single output artifact corresponding to **receipt**.
 - [ ] **EM-008.04.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-008.04.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-008.04.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-008.05 — Inject disclosure removal and ambiguous chemistry depiction
