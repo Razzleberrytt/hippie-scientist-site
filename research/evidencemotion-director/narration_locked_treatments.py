@@ -1,0 +1,348 @@
+#!/usr/bin/env python3
+"""New research candidates from recovered WAV and existing verified graphs.
+
+Two CPU treatments share narration-first timing, not a claim of V5 recovery or
+premium acceptance. Native pixels are drawn at output size, never upscaled.
+"""
+import argparse
+from functools import lru_cache
+import hashlib
+import io
+import json
+import math
+from pathlib import Path
+import subprocess
+import time
+
+from autonomous_script_asr_research import LINES, WAV_SHA, tokens, source_check
+from exact_wav_alignment import inspect_alignment
+from editorial_2d_cpu_research import smooth
+
+FPS = 30
+TREATMENTS = {'atlas', 'specimen'}
+AUDIO_FILTER = 'volume=10dB,alimiter=limit=0.80:attack=5:release=50:level=false:latency=true'
+
+
+def sha(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def timeline(alignment):
+    words = alignment['wordAlignment']
+    if [w['word'] for w in words] != tokens(' '.join(LINES)):
+        raise ValueError('TREATMENT_HOLD:SCRIPT_DRIFT')
+    scenes, cursor = [], 0
+    for i, line in enumerate(LINES):
+        count = len(tokens(line))
+        caption_words, token_cursor = [], cursor
+        for word in line.split():
+            n = len(tokens(word))
+            caption_words.append({'text':word,'startSec':words[token_cursor]['startMs']/1000,
+                                  'endSec':words[token_cursor+n-1]['endMs']/1000})
+            token_cursor += n
+        scenes.append({'id': f'sentence_{i+1}', 'line': line,
+                       'startSec': words[cursor]['startMs']/1000,
+                       'speechEndSec': words[cursor+count-1]['endMs']/1000,
+                       'wordStart': cursor, 'wordEnd': cursor+count-1,
+                       'captionWords':caption_words})
+        cursor += count
+    # Preserve the real long source-reading pause; do not move sentence six.
+    scenes.insert(5, {'id': 'source_hold', 'line': '',
+                     'startSec': scenes[4]['speechEndSec'],
+                     'speechEndSec': scenes[5]['startSec']})
+    scenes[0]['startSec'] = 0
+    for i, scene in enumerate(scenes):
+        scene['endSec'] = scenes[i+1]['startSec'] if i+1 < len(scenes) else alignment['sampleCount']/24000
+    return scenes
+
+
+def fonts(root):
+    from PIL import ImageFont
+    base = Path(root)
+    paths = [base/'DejaVuSans.ttf', base/'DejaVuSans-Bold.ttf']
+    if not all(p.is_file() for p in paths):
+        raise ValueError('TREATMENT_HOLD:PINNABLE_FONTS_REQUIRED')
+    return lambda size, bold=False: ImageFont.truetype(str(paths[int(bold)]), size), {p.name: sha(p) for p in paths}
+
+
+def chemistry_assets(light=False):
+    from rdkit import Chem
+    from rdkit.Chem import AllChem
+    from rdkit.Chem.Draw import rdMolDraw2D
+    from PIL import Image
+    import numpy as np
+    from verified_molecular_comparison import approved_comparison
+    assets = {}
+    for name, entry in approved_comparison().items():
+        if not isinstance(entry, dict) or 'mol' not in entry:
+            continue
+        mol = entry['mol']
+        source = entry['source']
+        canvas = rdMolDraw2D.MolDraw2DCairo(1200, 900)
+        opts = canvas.drawOptions()
+        opts.clearBackground = False
+        opts.bondLineWidth = 5
+        opts.setAtomPalette({6:(.1,.17,.2) if light else (.8,.87,.89), 7:(.08,.47,.78),8:(.92,.33,.12)})
+        rdMolDraw2D.PrepareAndDrawMolecule(canvas, mol, highlightAtoms=entry['free_oh_indices'],
+            highlightAtomColors={i:(.98,.63,.27,.6) for i in entry['free_oh_indices']})
+        canvas.FinishDrawing()
+        diagram = Image.open(io.BytesIO(canvas.GetDrawingText())).convert('RGBA')
+        model = Chem.AddHs(mol)
+        params = AllChem.ETKDGv3()
+        params.randomSeed = 6743
+        if AllChem.EmbedMolecule(model, params) != 0:
+            raise ValueError('TREATMENT_HOLD:COMPUTED_CONFORMER_FAILED')
+        if AllChem.MMFFOptimizeMolecule(model, maxIters=1000) != 0:
+            raise ValueError('TREATMENT_HOLD:CONFORMER_NOT_CONVERGED')
+        coords = np.array(model.GetConformer().GetPositions())[:mol.GetNumAtoms()]
+        coords -= coords.mean(axis=0)
+        assets[name] = {'mol':mol, 'xyz':coords, 'diagram':diagram,
+                        'oh': entry['free_oh_indices'], 'source':source,
+                        'conformerMolBlock': Chem.MolToMolBlock(model)}
+    return assets
+
+
+@lru_cache(maxsize=384)
+def sphere(radius, element):
+    """Diffuse key + broad specular lobe on a sphere; no fake free particles."""
+    import numpy as np
+    from PIL import Image
+    r = radius
+    y,x = np.mgrid[-r:r+1,-r:r+1]/r
+    z = np.sqrt(np.maximum(0,1-x*x-y*y))
+    diffuse = np.maximum(0, -.45*x-.55*y+.70*z)
+    specular = np.maximum(0, -.25*x-.35*y+.90*z)**28
+    colors = {'C':(82,113,130), 'N':(43,155,219), 'O':(240,108,66)}
+    base = np.array(colors[element])
+    rgb = np.clip(base[None,None,:]*(.18+.77*diffuse[:,:,None])+110*specular[:,:,None],0,255)
+    alpha = np.clip((1-x*x-y*y)*r*2,0,1)*255
+    return Image.fromarray(np.dstack((rgb,alpha)).astype('uint8'),'RGBA')
+
+
+def spatial(asset, angle, size, detail=False):
+    import numpy as np
+    from PIL import Image,ImageDraw
+    w,h = size
+    c,s = math.cos(angle),math.sin(angle)
+    rot = np.array([[c,0,s],[0,1,0],[-s,0,c]])
+    xyz = asset['xyz'] @ rot
+    # Fit the projected complete heavy-atom graph, including atom radii. Detail
+    # views deliberately crop and carry the explicit detail disclosure.
+    perspective = 18/(18-xyz[:,2])
+    projected = xyz[:,:2]*perspective[:,None]
+    extent = np.ptp(projected,axis=0)+1.2
+    scale = min((w-40)/extent[0],(h-40)/extent[1]) * (.90 if not detail else 1.15)
+    if detail:
+        xyz = xyz - xyz[asset['oh'][0]]*.65
+    points = np.column_stack((w/2+xyz[:,0]*scale*perspective,
+                              h/2-xyz[:,1]*scale*perspective))
+    image = Image.new('RGBA',(w,h),(0,0,0,0))
+    draw = ImageDraw.Draw(image)
+    objects = []
+    for b in asset['mol'].GetBonds():
+        a,z = b.GetBeginAtomIdx(),b.GetEndAtomIdx()
+        objects.append(((xyz[a,2]+xyz[z,2])/2,'bond',a,z))
+    for i in range(len(xyz)):
+        objects.append((xyz[i,2],'atom',i,i))
+    for _,kind,a,b in sorted(objects):
+        if kind=='bond':
+            p,q = tuple(points[a]),tuple(points[b])
+            width = max(3,round(scale*.13))
+            draw.line((p,q), fill=(35,61,76,255),width=width+4)
+            draw.line((p,q), fill=(139,164,172,255),width=width)
+        else:
+            element = asset['mol'].GetAtomWithIdx(a).GetSymbol()
+            r = max(4,round(scale*(.30 if element=='C' else .34)*perspective[a]))
+            tile = sphere(r,element)
+            x,y = points[a]
+            image.alpha_composite(tile,(round(x)-r,round(y)-r))
+    if detail:
+        x,y = points[asset['oh'][0]]
+        r = max(10,round(scale*.55))
+        draw.ellipse((x-r,y-r,x+r,y+r),outline=(255,189,101,255),width=max(2,round(w/300)))
+    return image
+
+
+@lru_cache(maxsize=4)
+def background(size):
+    import numpy as np
+    from PIL import Image
+    w,h=size
+    y,x=np.mgrid[0:h,0:w]
+    illumination=np.exp(-((x-w*.43)/(w*.6))**2-((y-h*.45)/(h*.23))**2)
+    rgb=np.stack([6+illumination*9,17+illumination*19,27+illumination*26],axis=-1)
+    return Image.fromarray(rgb.astype('uint8'),'RGB').convert('RGBA')
+
+
+def wrapped(text, font, width):
+    lines, line = [], ''
+    for word in text.split():
+        candidate = (line+' '+word).strip()
+        if font.getlength(candidate)>width:
+            if not line or font.getlength(word)>width:
+                raise ValueError('TREATMENT_HOLD:CAPTION_WORD_TOO_WIDE')
+            lines.append(line)
+            line=word
+        else:
+            line=candidate
+    return lines+[line] if line else lines
+
+
+def render_frame(t, scenes, assets, treatment, size, font):
+    from PIL import Image,ImageDraw
+    w,h = size
+    scale = w/1080
+    f = lambda n,b=False:font(max(1,round(n*scale)),b)
+    def pos(x,y): return (round(x*scale),round(y*scale))
+    scene = next(s for s in scenes if s['startSec']<=t<s['endSec'])
+    idx = scenes.index(scene)
+    p = smooth((t-scene['startSec'])/max(.1,scene['endSec']-scene['startSec']))
+    light = treatment=='atlas'
+    bg,fg,muted,accent = ((243,239,226),(18,40,49),(65,86,88),(29,117,114)) if light else ((6,17,27),(236,241,233),(151,177,185),(96,216,199))
+    image = Image.new('RGB',size,bg).convert('RGBA') if light else background(size).copy()
+    draw = ImageDraw.Draw(image)
+    draw.text(pos(72,220),'THE HIPPIE SCIENTIST',font=f(27,True),fill=accent)
+    titles = ['What makes\n7-OH different?', 'Look at the\nhydroxyl group.', 'A record of\nconnected atoms.', 'The pose\nis computed.', 'Structure\nis not an effect.', 'CHECK THE SOURCE', 'Look closer.']
+    draw.multiline_text(pos(70,292),titles[idx],font=f(74,True),fill=fg,spacing=round(8*scale))
+    hero = assets['7_hydroxymitragynine']
+    hero_label = '7-HYDROXYMITRAGYNINE'
+    if idx==5:
+        draw.text(pos(72,760),'PubChem',font=f(86,True),fill=fg)
+        draw.text(pos(72,880),'CID 44301524',font=f(51,True),fill=accent)
+        draw.text(pos(72,967),'C23H30N2O5',font=f(48),fill=fg)
+        draw.text(pos(72,1060),'pubchem.ncbi.nlm.nih.gov',font=f(38),fill=muted)
+    elif light and idx==0:
+        for name,y,label in [('mitragynine',585,'MITRAGYNINE'),('7_hydroxymitragynine',935,'7-HYDROXYMITRAGYNINE')]:
+            diagram=assets[name]['diagram'].resize((round(510*scale),round(383*scale)))
+            image.alpha_composite(diagram,pos(105,y-15))
+            draw=ImageDraw.Draw(image)
+            draw.text(pos(72,y-25),label,font=f(29,True),fill=accent)
+    elif light or idx in (2,4):
+        # Visible bond order/stereo comes from authoritative RDKit drawing.
+        diagram = hero['diagram'].copy()
+        # Both treatments require a palette matching the current background.
+        if not light:
+            diagram = assets['dark_diagram']
+        diagram = diagram.resize((round((790-40*p)*scale),round((593-30*p)*scale)))
+        image.alpha_composite(diagram,pos(45+20*p,620+15*p))
+        if idx==1:
+            draw = ImageDraw.Draw(image)
+            draw.text(pos(72,1150),'–OH = oxygen + hydrogen',font=f(40,True),fill=accent)
+        if idx==0:
+            # Distinct structures are compared by cut, never morphed as reaction.
+            draw = ImageDraw.Draw(image)
+            draw.text(pos(72,1160),'Distinct structures. A visible difference.',font=f(33),fill=muted)
+    else:
+        model = spatial(hero, -.32+.26*p+(idx*.11), (round(830*scale),round(730*scale)), detail=idx==1)
+        image.alpha_composite(model,pos(20,540))
+        draw = ImageDraw.Draw(image)
+        disclosure = 'DETAIL VIEW • computed illustration' if idx==1 else 'Computed 3D illustration • not filmed'
+        draw.text(pos(72,1190),disclosure,font=f(34),fill=accent)
+    draw = ImageDraw.Draw(image)
+    if idx!=5 and not (light and idx==0):
+        draw.text(pos(72,1260),hero_label,font=f(27,True),fill=muted)
+    # Exact original sentence captions, never an ASR spelling substitution.
+    caption = wrapped(scene['line'],f(42,True),770*scale)
+    if len(caption)>5:
+        raise ValueError('TREATMENT_HOLD:CAPTION_TOO_DENSE')
+    word_index=0
+    for n,line in enumerate(caption):
+        x,y=pos(72,1310+50*n)
+        for word in line.split():
+            cue=scene['captionWords'][word_index]
+            draw.text((x,y),word,font=f(42,True),fill=accent if cue['startSec']<=t<cue['endSec'] else fg)
+            x += f(42,True).getlength(word+' ')
+            word_index+=1
+    draw.line((pos(72,1640),pos(840,1640)),fill=accent,width=max(1,round(scale*2)))
+    return image.convert('RGB')
+
+
+def render(root, destination, font_dir, treatment, native=False):
+    import PIL
+    import rdkit
+    source_files = [Path(__file__).with_name(name) for name in (
+        'narration_locked_treatments.py','verified_molecular_comparison.py',
+        'editorial_2d_cpu_research.py','exact_wav_alignment.py','autonomous_script_asr_research.py')]
+    renderer_sources = {p.name:sha(p) for p in source_files}
+    if treatment not in TREATMENTS:
+        raise ValueError('TREATMENT_HOLD:UNKNOWN_TREATMENT')
+    root, out = Path(root).resolve(),Path(destination).resolve()
+    if out.exists():
+        raise ValueError('TREATMENT_HOLD:FRESH_OUTPUT_REQUIRED')
+    manifest = json.loads((root/'alignment-manifest.json').read_text())
+    alignment = inspect_alignment(root,manifest)
+    wav = root/manifest['wav']['path']
+    duration = source_check(wav)
+    if alignment['inputSha256']['wav']!=WAV_SHA:
+        raise ValueError('TREATMENT_HOLD:ORIGINAL_WAV_REQUIRED')
+    scenes = timeline(alignment)
+    size = (1080,1920) if native else (540,960)
+    # Both previews are the same full timeline; no silent/different-audio proxy.
+    count = math.ceil(duration*FPS)
+    font, font_hashes = fonts(font_dir)
+    assets = chemistry_assets(light=treatment=='atlas')
+    assets['dark_diagram'] = chemistry_assets(light=False)['7_hydroxymitragynine']['diagram']
+    out.mkdir(parents=True)
+    start = time.monotonic()
+    video = out/(treatment+'_NEW_RESEARCH_CANDIDATE.mp4')
+    # Gain plus latency-compensated peak limiting preserves performance timing.
+    # The original remains immutable; processed AAC has a declared new identity.
+    command = ['ffmpeg','-v','error','-nostdin','-y','-f','rawvideo','-pixel_format','rgb24',
+               '-video_size',f'{size[0]}x{size[1]}','-framerate',str(FPS),'-i','pipe:0',
+               '-i',str(wav),'-map','0:v','-map','1:a','-c:v','libx264','-preset','fast',
+               '-crf','18','-pix_fmt','yuv420p','-af',AUDIO_FILTER,'-c:a','aac','-b:a','192k',
+               '-frames:v',str(count),'-movflags','+faststart',str(video)]
+    snapshots = {0,60,120,360,540,750,870,1000}
+    with (out/'encoder.log').open('wb') as log:
+        process = subprocess.Popen(command,stdin=subprocess.PIPE,stderr=log)
+        try:
+            for i in range(count):
+                image = render_frame(i/FPS,scenes,assets,treatment,size,font)
+                if i in snapshots:
+                    image.save(out/f'source_frame_{i:04d}.png')
+                process.stdin.write(image.tobytes())
+            process.stdin.close()
+            if process.wait(timeout=90):
+                raise ValueError('TREATMENT_HOLD:ENCODER_FAILED')
+        except BaseException:
+            process.kill()
+            process.wait()
+            raise
+    # Identity revalidation after actual render, not merely before it.
+    if inspect_alignment(root,manifest)['revisionSha256']!=alignment['revisionSha256']:
+        raise ValueError('TREATMENT_HOLD:SOURCE_CHANGED_DURING_RENDER')
+    source_check(wav)
+    if {p.name:sha(p) for p in source_files}!=renderer_sources or fonts(font_dir)[1]!=font_hashes:
+        raise ValueError('TREATMENT_HOLD:RENDERER_OR_FONTS_CHANGED_DURING_RENDER')
+    sources = []
+    for name,entry in assets.items():
+        if not isinstance(entry,dict):
+            continue
+        path = out/(name+'_computed.mol')
+        path.write_text(entry['conformerMolBlock'],encoding='utf-8')
+        sources.append({'name':entry['source'].name,'cid':entry['source'].pubchem_cid,
+                        'inchiKey':entry['source'].inchi_key,'url':entry['source'].source_url,
+                        'computedConformerSha256':sha(path)})
+    receipt = {'status':'NEW_RENDERED_RESEARCH_CANDIDATE_REQUIRES_INDEPENDENT_REVIEW',
+               'isOriginalV5':False,'treatment':treatment,'videoSha256':sha(video),
+               'resolution':list(size),'nativePixelsDrawnAtOutputResolution':True,
+               'fps':FPS,'frames':count,'sourceWavSha256':WAV_SHA,
+               'audioProcessing':AUDIO_FILTER+' then AAC; no stretch, trimming or resynthesis',
+               'alignmentRevisionSha256':alignment['revisionSha256'], 'scenes':scenes,
+               'fonts':font_hashes,'chemistry':sources,'wallSeconds':round(time.monotonic()-start,3),
+               'rendererSourcesSha256':renderer_sources,'rdkitVersion':rdkit.__version__,
+               'pillowVersion':PIL.__version__,'craftApproved':False,'scienceApproved':False,
+               'pronunciationVerified':False,'deviceVerified':False,'mayPublish':False}
+    (out/'render-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+    return receipt
+
+
+if __name__=='__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--alignment-root',required=True)
+    parser.add_argument('--out',required=True)
+    parser.add_argument('--font-dir',required=True)
+    parser.add_argument('--treatment',choices=sorted(TREATMENTS),required=True)
+    parser.add_argument('--native',action='store_true')
+    args=parser.parse_args()
+    print(json.dumps(render(args.alignment_root,args.out,args.font_dir,args.treatment,args.native),indent=2))

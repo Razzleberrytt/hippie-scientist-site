@@ -4,6 +4,15 @@ on:
     paths:
       - 'research/evidencemotion-director/autonomous_script_asr_research.py'
       - 'research/evidencemotion-director/test_autonomous_script_asr_research.py'
+      - 'research/evidencemotion-director/mfa_acoustic_alignment.py'
+      - 'research/evidencemotion-director/test_mfa_acoustic_alignment.py'
+      - 'research/evidencemotion-director/exact_wav_alignment.py'
+      - 'research/evidencemotion-director/narration_locked_treatments.py'
+      - 'research/evidencemotion-director/test_narration_locked_treatments.py'
+      - 'research/evidencemotion-director/verified_molecular_comparison.py'
+      - 'research/evidencemotion-director/test_verified_molecular_comparison.py'
+      - 'research/evidencemotion-director/editorial_2d_cpu_research.py'
+      - 'research/evidencemotion-director/validated_7oh_chemistry.py'
       - 'research/evidencemotion-director/ASR-SOURCE-LOCK-2026-10-13.md'
       - 'research/evidencemotion-director/COMPLETION-CHECKLIST.md'
       - '.github/workflows/evidencemotion-actual-asr-research.yml'
@@ -11,6 +20,106 @@ permissions:
   contents: read
   actions: read
 jobs:
+  actual-original-wav-acoustic-alignment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-name: ths-mfa-cpu
+          create-args: >-
+            python=3.11 montreal-forced-aligner=3.3.8
+            kaldi=*=cpu* pytorch=*=cpu*
+          cache-environment: true
+      - name: Restore original WAV, brief and immutable official MFA model bytes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/ths-mfa/source" "$RUNNER_TEMP/ths-mfa/models"
+          gh run download 38417454106 --repo "$GITHUB_REPOSITORY" --name ths-kokoro-narration --dir "$RUNNER_TEMP/ths-mfa/source"
+          cd "$RUNNER_TEMP/ths-mfa/models"
+          curl --fail --location --retry 2 -o english_us_arpa.dict https://github.com/MontrealCorpusTools/mfa-models/releases/download/dictionary-english_us_arpa-v3.0.0/english_us_arpa.dict
+          curl --fail --location --retry 2 -o acoustic.zip https://github.com/MontrealCorpusTools/mfa-models/releases/download/acoustic-english_us_arpa-v3.0.0/english_us_arpa.zip
+          curl --fail --location --retry 2 -o g2p.zip https://github.com/MontrealCorpusTools/mfa-models/releases/download/g2p-english_us_arpa-v2.0.0/english_us_arpa.zip
+      - name: Execute actual CPU acoustic alignment and preserve all 73 original words
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          WAV=$(find "$RUNNER_TEMP/ths-mfa/source" -name narration.wav -type f)
+          BRIEF=$(find "$RUNNER_TEMP/ths-mfa/source" -name r805-creative-brief.json -type f)
+          python research/evidencemotion-director/mfa_acoustic_alignment.py \
+            --wav "$WAV" --brief "$BRIEF" \
+            --dictionary "$RUNNER_TEMP/ths-mfa/models/english_us_arpa.dict" \
+            --acoustic-model "$RUNNER_TEMP/ths-mfa/models/acoustic.zip" \
+            --g2p-model "$RUNNER_TEMP/ths-mfa/models/g2p.zip" \
+            --out "$RUNNER_TEMP/ths-mfa/result"
+      - name: Render two actual full-narration CPU visual treatments
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core
+          python -m pip install 'rdkit==2025.9.4' 'pillow==12.0.0'
+          python -m unittest discover -s research/evidencemotion-director -p test_narration_locked_treatments.py -v
+          for treatment in atlas specimen; do
+            python research/evidencemotion-director/narration_locked_treatments.py \
+              --alignment-root "$RUNNER_TEMP/ths-mfa/result" \
+              --font-dir /usr/share/fonts/truetype/dejavu --treatment "$treatment" \
+              --out "$RUNNER_TEMP/ths-mfa/$treatment"
+          done
+      - name: Fully decode both actual treatment videos and verify narration integrity
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os,sys,json,subprocess
+          from pathlib import Path
+          sys.path.insert(0,'research/evidencemotion-director')
+          from native_master_audit import verify,audio_hash
+          from autonomous_voice_signal_audit import analyze
+          from narration_locked_treatments import AUDIO_FILTER,sha,WAV_SHA
+          root=Path(os.environ['RUNNER_TEMP'])/'ths-mfa'
+          reference=root/'reference.m4a'
+          subprocess.run(['ffmpeg','-v','error','-i',str(root/'result/original.wav'),'-af',AUDIO_FILTER,'-c:a','aac','-b:a','192k',str(reference)],check=True)
+          expected_audio=audio_hash(reference)
+          for treatment in ('atlas','specimen'):
+              target=root/treatment
+              video=target/(treatment+'_NEW_RESEARCH_CANDIDATE.mp4')
+              digest=sha(video)
+              technical=verify(video,reference,digest,expected_audio,1031,width=540,height=960)
+              signal=analyze(root/'result/original.wav',video,WAV_SHA,digest)
+              (target/'decoded-technical.json').write_text(json.dumps(technical,indent=2)+'\n')
+              (target/'decoded-signal.json').write_text(json.dumps(signal,indent=2)+'\n')
+              assert technical['technical']=='PASS',technical
+              assert not signal['issues'],signal
+              assert signal['bestRelativeLagMs']==0,signal
+              assert signal['masteredClippedSampleFraction']==0,signal
+              print(treatment,'1031 decoded frames, fixed timestamps, unchanged AAC reference, original voice retained')
+          PY
+      - name: Preserve actual timing evidence without source audio or model copies
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencemotion-original-wav-mfa-acoustic-candidate
+          path: |
+            ${{ runner.temp }}/ths-mfa/result/aligned.TextGrid
+            ${{ runner.temp }}/ths-mfa/result/alignment*.json
+            ${{ runner.temp }}/ths-mfa/result/alignment.dict
+            ${{ runner.temp }}/ths-mfa/result/script.txt
+            ${{ runner.temp }}/ths-mfa/result/mfa-run-receipt.json
+            ${{ runner.temp }}/ths-mfa/result/*.log
+            ${{ runner.temp }}/ths-mfa/atlas/*
+            ${{ runner.temp }}/ths-mfa/specimen/*
+          retention-days: 14
+          if-no-files-found: error
+      - name: Keep acoustic execution separate from pronunciation and quality approval
+        if: always()
+        run: |
+          echo 'MFA aligns the pinned original WAV on CPU. G2P chemical-term phones are unverified candidates.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No calibrated pronunciation, scientific/craft/device or publication approval follows from this job.' >> "$GITHUB_STEP_SUMMARY"
   strict-script-compare:
     runs-on: ubuntu-latest
     timeout-minutes: 4
