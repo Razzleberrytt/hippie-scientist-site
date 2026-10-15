@@ -5,7 +5,7 @@ the real 7-OH film, actual decoded OCR or viewer understanding.
 """
 import copy
 import unittest
-from temporal_caption_audit import audit, SCHEMA
+from temporal_caption_audit import audit, SCHEMA, partitioned_caption_groups, displayed_at
 from timed_caption_windows import schedule,shown_at
 
 
@@ -43,6 +43,22 @@ class TemporalEmissionTests(unittest.TestCase):
         self.assertTrue(result['allOriginalWordCuesVisibleAtLeastOnce'])
         self.assertFalse(result['mayPublish'])
         self.assertTrue(result['notActualEncodedFrameOCR'])
+
+    def test_opening_comparison_restarts_caption_groups_at_spoken_different(self):
+        cues=[{'text':w,'startSec':i*.25,'endSec':i*.25+.2}
+              for i,w in enumerate('What makes seven different from mitragynine'.split())]
+        groups=partitioned_caption_groups({'id':'sentence_1','captionWords':cues})
+        self.assertEqual(len(groups),2)
+        self.assertNotIn('different',displayed_at(groups,.62))
+        self.assertIn('different',displayed_at(groups,.77))
+        self.assertNotIn('What',displayed_at(groups,.77))
+
+    def test_spoken_negation_restarts_caption_groups_without_early_not(self):
+        cues=[{'text':w,'startSec':i*.25,'endSec':i*.25+.2}
+              for i,w in enumerate('It is not proven'.split())]
+        parts=partitioned_caption_groups({'id':'sentence_5','captionWords':cues})
+        self.assertNotIn('not',displayed_at(parts,.26))
+        self.assertIn('not',displayed_at(parts,.51))
 
     def test_missing_or_reordered_frame_never_passes(self):
         del self.ledger['frames'][42]
