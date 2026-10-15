@@ -30,8 +30,8 @@ REVIEW_TOPICS = (
 EXPECTED_NON_CAPTION_ANNOTATIONS = {
     "sentence_1": (
         ("hook", "What makes\n7-OH different?"),
-        ("disclosure", "Computed 3D illustration • not filmed"),
-        ("disclosure", "Hydrogen atoms omitted"),
+        ("science", "MITRAGYNINE • CID 3034396"),
+        ("disclosure", "2D source structure • no reaction shown"),
     ),
     "sentence_2": (
         ("science", "Look at the\nhydroxyl group."),
@@ -150,7 +150,8 @@ def inspect(movie, wav, receipt_path, phone_plan_path):
     if any(not entries for entries in grouped.values()):
         hold("MISSING_NARRATED_SCENE")
     # Real emitter marks spatial models as computed and says hydrogen was omitted.
-    for base in ("sentence_1", "sentence_2", "sentence_4", "sentence_6"):
+    # The opening now uses sourced 2D diagrams, not an inferred 3D model.
+    for base in ("sentence_2", "sentence_4", "sentence_6"):
         for shot, annotations in grouped[base]:
             disclosures = " ".join(a["text"] for a in annotations if a.get("role") == "disclosure").lower()
             if "computed" not in disclosures or "hydrogen atoms omitted" not in disclosures:
@@ -158,6 +159,15 @@ def inspect(movie, wav, receipt_path, phone_plan_path):
     source_labels = {a["text"] for _, ann in grouped["source_hold"] for a in ann if a.get("role") == "source"}
     if not {"PubChem", "CID 44301524", "C23H30N2O5", "pubchem.ncbi.nlm.nih.gov"} <= source_labels:
         hold("VISIBLE_PRIMARY_SOURCE_LABEL_DRIFT")
+    comparison = grouped["sentence_1"]
+    diff_word = next((c for c in scenes[0]["captionWords"]
+                      if c["text"].casefold().strip("?!.,") == "different"), None)
+    if diff_word is None or len(comparison) != 2:
+        hold("TWO_SOURCE_HOOK_HARD_CUT_REQUIRED")
+    first, second = sorted(comparison, key=lambda pair: pair[0]["startSec"])
+    if (first[0]["id"] != "sentence_1_part0" or second[0]["id"] != "sentence_1_part1"
+            or abs(second[0]["startSec"] - diff_word["startSec"]) > .001):
+        hold("COMPARISON_MUST_CUT_AT_SPOKEN_DIFFERENT")
     payoff = grouped["sentence_5"]
     not_word = next((c for c in scenes[4]["captionWords"] if c["text"].casefold() == "not"), None)
     if not not_word or len(payoff) != 2:
@@ -179,7 +189,11 @@ def inspect(movie, wav, receipt_path, phone_plan_path):
                              if a.get("role") != "caption")
             # The negative visual payoff is the only intentionally variable
             # science text, and is allowed strictly after the spoken "not".
-            if base == "sentence_5" and shot is later[0]:
+            if base == "sentence_1" and shot is second[0]:
+                expected_shot = (
+                    expected[0], ("science", "7-OH • CID 44301524"), expected[2],
+                )
+            elif base == "sentence_5" and shot is later[0]:
                 expected_shot = expected[:2] + (
                     ("science", "≠"), ("science", "HUMAN EXPERIENCE"),
                 ) + expected[2:]
