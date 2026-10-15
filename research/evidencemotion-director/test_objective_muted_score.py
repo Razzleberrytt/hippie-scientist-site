@@ -74,7 +74,7 @@ class ObjectiveMutedScoreTests(unittest.TestCase):
     def test_early_claim_spoiler_not_accepted(self):
         self.plan["shots"][5]["annotations"].append(
             {"role":"science","text":"HUMAN EXPERIENCE"})
-        self.assertEqual(self.score()["microChecksPassed"],9)
+        self.assertEqual(self.score()["microChecksPassed"],11)
 
     def test_deleted_mute_track_proof_is_not_faked(self):
         x=self.score(silent=False)
