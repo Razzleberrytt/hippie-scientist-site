@@ -24,7 +24,7 @@ class ActualPixelReadingTests(unittest.TestCase):
                                   "STRUCTURE\nHUMAN EXPERIENCE\n"
                                   "not what its effects feel like.\n"),
             "source_hold":("Mitragynine * CID 3034396\nPubChem\n"
-                           "CID 44301524\nCID = compound record number\n"
+                           "7-OH * CID 44301524\nCID = compound record number\n"
                            "pubchem.ncbi.nim.nih.gov\n")
         }
 
@@ -34,7 +34,7 @@ class ActualPixelReadingTests(unittest.TestCase):
 
     def test_six_blank_single_frame_dropouts_each_invalidate_relevant_answer(self):
         rows=critical_negatives(self.frames,"")
-        self.assertEqual(len(rows),8)
+        self.assertEqual(len(rows),10)
         self.assertTrue(all(r["rejected"] for r in rows))
         self.assertEqual({r["target"] for r in rows},
                          {"q1","q2","q3","q4","q5"})
