@@ -2,7 +2,7 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-10-12 (retire verified GitHub-closed owner/candidate references; admission remains separate)
+**Updated:** 2026-10-15 (proposed scored R #6810 admission; effective only after protected merge)
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
 **Verified completion 2026-10-12:** D #6683 / PR #6684 merged as `f5d2e98762786b558e64d968db158c3ba38e18e7`; Cloudflare deployment run `38251809776` verified exact production receipt. The two additive hub links shipped, with no scientific content/canonical change. Historical admission score **108.0** is not measured ROI. Normal WIP **0/3**, D/R/A free; external citation, traffic and revenue impact remain Unknown.
@@ -106,7 +106,9 @@ Live GitHub #6259 is CLOSED and PR #6260 MERGED as `bba24cd536f7f75e95f86c0a8ec9
 
 Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0/3. Candidate #6149 is OPEN and `ready-next` with direct code reproduction and scored 4×4×3×5×1/1 = **240.0**. This separate control-plane PR admits only one R owner and does not implement consent logic or activate GA4/Ahrefs transport; exact-head checks, privacy and release proof remain required.
 
-## Active / in review — implementation WIP 2/3
+## Active / in review — implementation WIP 3/3
+
+**2026-10-15 exact-base R #6810 scored admission:** Owner-authorized continuation proposes admitting only the smallest read-only Publisher PUBLISHED job → existing Flywheel receipt integration in [#6810](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6810), grounded by merged Phase 0 audit. Existing score **45.0 = 3×4×3×5×0.75÷3**, estimated priority only; D #6685 and A #6769 remain owned independently. This control change itself is **not** a working bridge: a separate implementation PR with negative fixtures and exact-head CI/build must pass the sole controller, and a real published/metric observation remains Unknown pending real canonical receipts. No new publisher, future experiment winner automation, medical-claim rewriting, private data ingestion, EvidenceMotion checklist credit or sacrifice of the 46-item craft priority. (This R admission becomes effective only on protected merge.)
 
 **2026-10-13 exact-main A #6769 admission proposal:** PR #6784 deferred human-review-blocked article release #6766 (publication PR #6774 remains OPEN and unmerged). This distinct A research-only compiler admission retains D #6685; score **75.0** = 4×5×3×5×0.75/3, ordinal priority only. Existing isolated prototype passed 69 native tests locally, but the real repository integration smoke, full CI, static build and scientific review have not run. No automatic clinical, safety, editorial, media or public content release authority. A separate implementation PR and sole protected controller are required after this admission merges.
 
@@ -139,6 +141,7 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 |---|---|---|---|---|---:|---|
 | D | #6685 | Activate durable protected identities for citation-leading pages | Active — admitted | P0 | 120.0 | 2026-10-12 |
 | A | #6769 | Semantic Opportunity Compiler: source-bound cross-system review pilot | Active — admitted (research-only, review requests only; no publication) | P1 | 75.0 | 2026-10-13 |
+| R | #6810 | Read-only Publisher-verified published-video → R8.10 Flywheel integration | Active — narrowly admitted; no provider API, uploader or claims | P2 | 45.0 | 2026-10-15 |
 
 
 
@@ -222,7 +225,7 @@ Research-only enrichment staging is not canonical implementation admission. #633
 
 ## Ready next — strict dependency order
 
-**Current admission candidate state:** D #6685 and research-only A #6769 are the two active normal implementation owners (2/3 WIP; R free). D #6685 retains its distinct source/identity-protection scope and historical **120.0** score; A #6769 has a separate exact-base score of **75.0** and is limited to inspected research opportunity review requests, not publishing or clinical evidence admission. The five-article #6766 remains deferred with its publication PR #6774 open and unmerged. Any further implementation requires a separately scored available lane. Scientific, accessibility, canonical, privacy, governance and release gates remain unchanged.
+**Current admission candidate state:** D #6685, R #6810 (read-only AO bridge), and research-only A #6769 are the three proposed active normal implementation owners (3/3 WIP; no free normal lane after this admission merges). D #6685 retains its distinct source/identity-protection scope and historical **120.0** score; A #6769 has a separate exact-base score of **75.0** and is limited to inspected research opportunity review requests, not publishing or clinical evidence admission. The five-article #6766 remains deferred with its publication PR #6774 open and unmerged. No further implementation may be admitted until an existing D/R/A owner is retired with proof and a lane is free. Scientific, accessibility, canonical, privacy, governance and release gates remain unchanged.
 
 ### Blocked or deferred candidates
 

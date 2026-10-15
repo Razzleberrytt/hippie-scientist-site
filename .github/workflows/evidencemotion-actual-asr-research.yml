@@ -20,6 +20,12 @@ on:
       - 'research/evidencemotion-director/narrated_claim_screen.py'
       - 'research/evidencemotion-director/muted_review_research.py'
       - 'research/evidencemotion-director/test_muted_review_research.py'
+      - 'research/evidencemotion-director/native_text_legibility_audit.py'
+      - 'research/evidencemotion-director/test_native_text_legibility_audit.py'
+      - 'research/evidencemotion-director/objective_muted_score.py'
+      - 'research/evidencemotion-director/test_objective_muted_score.py'
+      - 'research/evidencemotion-director/muted_answer_recovery.py'
+      - 'research/evidencemotion-director/test_muted_answer_recovery.py'
       - 'research/evidencemotion-director/test_narrated_claim_screen.py'
       - 'research/evidencemotion-director/ASR-SOURCE-LOCK-2026-10-13.md'
       - 'research/evidencemotion-director/COMPLETION-CHECKLIST.md'
@@ -75,6 +81,9 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director -p test_native_autocritic.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_narrated_claim_screen.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_muted_review_research.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_native_text_legibility_audit.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_objective_muted_score.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_muted_answer_recovery.py -v
           for treatment in atlas specimen; do
             python research/evidencemotion-director/narration_locked_treatments.py \
               --alignment-root "$RUNNER_TEMP/ths-mfa/result" \
@@ -150,6 +159,29 @@ jobs:
                   print('Actual native negative screening:',critic['decision'],critic['issues'])
               print(treatment,'1031 decoded frames, fixed timestamps, unchanged AAC reference, original voice retained')
           PY
+      - name: Inspect actual decoded critical scientific text contrast and persistent legibility
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/native_text_legibility_audit.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --phone "$RUNNER_TEMP/ths-mfa/specimen-native/phone-ui-plan.json" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-native/render-receipt.json" \
+            --claim "$RUNNER_TEMP/ths-mfa/specimen-native/claim-screen.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-native/native-text-legibility.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-native/native-text-legibility.json'
+          x=json.loads(p.read_text())
+          assert x['testedCriticalVisibleLabels']==13
+          assert x['additionalObjectivePoints']==2
+          assert len(x['criteria'])==2
+          assert all(item['passed'] for item in x['criteria'])
+          assert not x['viewerComprehensionApproved']
+          assert not x['mayPublish']
+          print('Native text accessibility evidence: 2/2 actual-pixel checks passed; no viewer acceptance claimed.')
+          PY
       - name: Generate actual muted teaching review packet without inventing audience scores
         shell: micromamba-shell {0}
         run: |
@@ -174,6 +206,56 @@ jobs:
           assert r['independentlyCalibratedViewerComprehensionVerified'] is False
           assert r['mayPublish'] is False
           print('Review packet made from exact muted actual MP4; audience test remains HOLD.')
+          PY
+      - name: Score twelve actual muted-film teaching proxies without fake audience verdicts
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/objective_muted_score.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --manifest "$RUNNER_TEMP/ths-mfa/specimen-native/phone-ui-plan.json" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-native/render-receipt.json" \
+            --claim "$RUNNER_TEMP/ths-mfa/specimen-native/claim-screen.json" \
+            --silent-movie "$RUNNER_TEMP/ths-mfa/specimen-native/muted-review/film-sound-off.mp4" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-native/muted-review/objective-score.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-native/muted-review/objective-score.json'
+          x=json.loads(p.read_text())
+          assert x['microChecksPassed']==12 and x['microChecksTotal']==12
+          assert x['currentStepObjectiveProgressPercent']==92
+          assert x['allNewAutomatedChecksPassed'] is True
+          assert x['automaticScoreCeilingPercent']==92
+          assert x['humanAudienceResponsesObserved']==0
+          assert not x['actualUnfamiliarViewerComprehensionVerified']
+          assert not x['mayPublish']
+          print('12/12 physical film proxies pass; no viewers or publish approval claimed.')
+          PY
+      - name: Recover five questions from real mute-video evidence with ten adversarial controls
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/muted_answer_recovery.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --phone "$RUNNER_TEMP/ths-mfa/specimen-native/phone-ui-plan.json" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-native/render-receipt.json" \
+            --claim "$RUNNER_TEMP/ths-mfa/specimen-native/claim-screen.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-native/muted-answer-evidence.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-native/muted-answer-evidence.json'
+          x=json.loads(p.read_text())
+          assert x['currentRequirementWorkingPercent']==96
+          assert x['additionalMeasuredPoints']==2
+          assert all(x['semanticEvidence'].values())
+          assert len(x['actualEncodedPixels'])==5
+          assert all(q['allRequiredAnswersInkVisible'] for q in x['actualEncodedPixels'])
+          assert all(q['erasingKeyFactDropsAnswer'] and q['addingContradictionDropsAnswer']
+                     for q in x['counterfactualResults'])
+          assert x['humanAudienceRespondents']==0 and not x['mayPublish']
+          print('Five answer-coverage items, ten negative controls PASS; no audience claim.')
           PY
       - name: Preserve actual timing evidence without source audio or model copies
         if: always()
