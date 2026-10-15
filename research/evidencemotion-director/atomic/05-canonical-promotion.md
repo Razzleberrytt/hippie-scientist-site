@@ -209,6 +209,7 @@
 - [ ] **EM-041.01.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **ownership decision**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-041.01.X** — For that **one feature-flag/rollback case**, perform or independently replay this bounded operation: **Identify approved director subset and existing production entrypoint; file exact scoped admission**. **Receipt:** a single output artifact corresponding to **ownership decision**.
 - [ ] **EM-041.01.T** — Check the actual output against the predeclared assertion using governed state/permissions, actual test logs, exact-head CI or authorized execution receipts. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-041.01.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-041.01.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-041.02 — Add a default-off feature flag with documented supported mode and rollback
@@ -220,6 +221,7 @@
 - [ ] **EM-041.02.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **code**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-041.02.X** — For that **one feature-flag/rollback case**, perform or independently replay this bounded operation: **Add a default-off feature flag with documented supported mode and rollback**. **Receipt:** a single output artifact corresponding to **code**.
 - [ ] **EM-041.02.T** — Check the actual output against the predeclared assertion using governed state/permissions, actual test logs, exact-head CI or authorized execution receipts. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-041.02.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-041.02.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-041.03 — Compare old system outputs before and after flag-off on exact golden fixtures
@@ -231,6 +233,7 @@
 - [ ] **EM-041.03.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **unchanged regression proof**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-041.03.X** — For that **one feature-flag/rollback case**, perform or independently replay this bounded operation: **Compare old system outputs before and after flag-off on exact golden fixtures**. **Receipt:** a single output artifact corresponding to **unchanged regression proof**.
 - [ ] **EM-041.03.T** — Check the actual output against the predeclared assertion using governed state/permissions, actual test logs, exact-head CI or authorized execution receipts. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-041.03.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-041.03.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-041.04 — Perform flag-on controlled source-bound render, negative science test and CI
@@ -254,6 +257,7 @@
 - [ ] **EM-041.05.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **recorded feature-switch proof**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-041.05.X** — For that **one feature-flag/rollback case**, perform or independently replay this bounded operation: **Rehearse rollback without altering publishing permissions**. **Receipt:** a single output artifact corresponding to **recorded feature-switch proof**.
 - [ ] **EM-041.05.T** — Check the actual output against the predeclared assertion using governed state/permissions, actual test logs, exact-head CI or authorized execution receipts. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-041.05.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-041.05.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-041.06 — Merge only via required controller/CI after accepted science/craft dependencies
@@ -265,6 +269,7 @@
 - [ ] **EM-041.06.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **merge receipt**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-041.06.X** — For that **one feature-flag/rollback case**, perform or independently replay this bounded operation: **Merge only via required controller/CI after accepted science/craft dependencies**. **Receipt:** a single output artifact corresponding to **merge receipt**.
 - [ ] **EM-041.06.T** — Check the actual output against the predeclared assertion using governed state/permissions, actual test logs, exact-head CI or authorized execution receipts. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-041.06.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-041.06.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-042.01 — Pin actual CPU hardware/runner/versions and source bundle
@@ -369,6 +374,7 @@
 - [ ] **EM-043.04.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **CI receipt**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-043.04.X** — For that **one rejected regression case**, perform or independently replay this bounded operation: **Run all tests in hosted CI and preserve exact commit/run references**. **Receipt:** a single output artifact corresponding to **CI receipt**.
 - [ ] **EM-043.04.T** — Check the actual output against the predeclared assertion using governed state/permissions, actual test logs, exact-head CI or authorized execution receipts. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-043.04.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-043.04.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-043.05 — Track newly encountered craft/quality failures as new nonduplicated tests
@@ -471,6 +477,7 @@
 - [ ] **EM-045.01.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **ticket proof**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-045.01.X** — For that **one production admission or release gate**, perform or independently replay this bounded operation: **Check existing production ownership/WIP and approval dependencies; score for admission**. **Receipt:** a single output artifact corresponding to **ticket proof**.
 - [ ] **EM-045.01.T** — Check the actual output against the predeclared assertion using governed state/permissions, actual test logs, exact-head CI or authorized execution receipts. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-045.01.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-045.01.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-045.02 — Choose tested architecture and performance budget from excellent approved films
@@ -482,6 +489,7 @@
 - [ ] **EM-045.02.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **design decision**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-045.02.X** — For that **one production admission or release gate**, perform or independently replay this bounded operation: **Choose tested architecture and performance budget from excellent approved films**. **Receipt:** a single output artifact corresponding to **design decision**.
 - [ ] **EM-045.02.T** — Check the actual output against the predeclared assertion using governed state/permissions, actual test logs, exact-head CI or authorized execution receipts. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-045.02.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-045.02.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-045.03 — Create controlled production integration with default-off rollback and no science bypass
@@ -505,6 +513,7 @@
 - [ ] **EM-045.04.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **CI references**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-045.04.X** — For that **one production admission or release gate**, perform or independently replay this bounded operation: **Pass source/voice/craft/security regressions, full build and protected checks**. **Receipt:** a single output artifact corresponding to **CI references**.
 - [ ] **EM-045.04.T** — Check the actual output against the predeclared assertion using governed state/permissions, actual test logs, exact-head CI or authorized execution receipts. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-045.04.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-045.04.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-045.05 — Prove actual production deployment revision and rollback rehearsal in authorized environment
@@ -516,6 +525,7 @@
 - [ ] **EM-045.05.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **receipts**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-045.05.X** — For that **one production admission or release gate**, perform or independently replay this bounded operation: **Prove actual production deployment revision and rollback rehearsal in authorized environment**. **Receipt:** a single output artifact corresponding to **receipts**.
 - [ ] **EM-045.05.T** — Check the actual output against the predeclared assertion using governed state/permissions, actual test logs, exact-head CI or authorized execution receipts. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-045.05.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-045.05.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-045.06 — Record explicit approval to promote (separate from lifted version freeze)
@@ -527,6 +537,7 @@
 - [ ] **EM-045.06.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **decision**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
 - [ ] **EM-045.06.X** — For that **one production admission or release gate**, perform or independently replay this bounded operation: **Record explicit approval to promote (separate from lifted version freeze)**. **Receipt:** a single output artifact corresponding to **decision**.
 - [ ] **EM-045.06.T** — Check the actual output against the predeclared assertion using governed state/permissions, actual test logs, exact-head CI or authorized execution receipts. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [ ] **EM-045.06.N** — Construct one independent negative case that violates this exact release/quality/permission acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
 - [ ] **EM-045.06.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-045.07 — Reject claim of production-ready until 1+5 evidence and all release requirements met
