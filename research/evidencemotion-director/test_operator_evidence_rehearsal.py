@@ -6,7 +6,7 @@ import tempfile
 import unittest
 import zipfile
 from pathlib import Path
-from operator_evidence_rehearsal import REQUIRED,rehearse
+from operator_evidence_rehearsal import REQUIRED,rehearse,PINNED_SOURCE_WAV_SHA
 
 class ResearchOperatorHandoffTests(unittest.TestCase):
  def setUp(self):
@@ -26,12 +26,17 @@ class ResearchOperatorHandoffTests(unittest.TestCase):
   mute=hashlib.sha256(files['sound-off.mp4']).hexdigest()
   phone=hashlib.sha256(files['phone-ui-plan.json']).hexdigest()
   enc=lambda x:json.dumps(x).encode()
+  files['decoded-technical.json']=enc(dict(releaseApproved=False,technical='PASS',
+      masterSha256=film,audioAdtsSha256='a'*64,fullDecodePerformed=True,
+      frameTimingVerified=True))
   files['claim-screen.json']=enc(dict(mayPublish=False,actualVideoSha256=film,
       independentScientificReviewApproved=False,craftApproved=False,
+      actualWavSha256=PINNED_SOURCE_WAV_SHA,
       realHandsetPlaybackVerified=False))
   claim=hashlib.sha256(files['claim-screen.json']).hexdigest()
   files.update({
    'render-receipt.json':enc(dict(mayPublish=False,videoSha256=film,
+       sourceWavSha256=PINNED_SOURCE_WAV_SHA,
        craftApproved=False,scienceApproved=False,pronunciationVerified=False,deviceVerified=False)),
    'actual-pixel-text-evidence.json':enc(dict(mayPublish=False,exactMovieSha256=film,
        exactPhonePlanSha256=phone,exactClaimReportSha256=claim,answersRecovered=5,
@@ -77,7 +82,10 @@ class ResearchOperatorHandoffTests(unittest.TestCase):
  def check(self,extra=()):
   sha=self.write(extra)
   # Synthetic probes validate only contracts, not actual encoded media.
-  return rehearse(self.path,sha,probe=lambda _: {'syntheticFixtureOnly':True})
+  return rehearse(self.path,sha,
+      probe=lambda p: {'syntheticFixtureOnly':True,
+                       'audioAdtsSha256':'a'*64 if p.name=='film.mp4' else None},
+      expected_film_sha=hashlib.sha256(self.files['film.mp4']).hexdigest())
  def change(self,file,**changes):
   j=json.loads(self.files[file]);j.update(changes)
   self.files[file]=json.dumps(j).encode()
@@ -87,6 +95,35 @@ class ResearchOperatorHandoffTests(unittest.TestCase):
   self.assertTrue(x['simulatedResearchRollbackProtected'])
   self.assertFalse(x['mayPublish'])
   self.assertFalse(x['realProductionRollbackExecuted'])
+ def test_refuses_noncanonical_film_even_when_all_receipts_are_rehashed(self):
+  original=hashlib.sha256(self.files['film.mp4']).hexdigest()
+  self.files['film.mp4']=b'substituted-AAC-narration'
+  changed=hashlib.sha256(self.files['film.mp4']).hexdigest()
+  self.change('render-receipt.json',videoSha256=changed)
+  self.change('decoded-technical.json',masterSha256=changed)
+  for name,key in (
+   ('actual-pixel-text-evidence.json','exactMovieSha256'),
+   ('native-text-legibility.json','actualFilmSha256'),
+   ('answer-recovery.json','actualFilmSha256'),
+   ('objective-score.json','actualVideoSha256'),
+   ('negative-critic.json','actualVideoSha256'),
+   ('claim-screen.json','actualVideoSha256')):
+   self.change(name,**{key:changed})
+  sha=self.write()
+  with self.assertRaisesRegex(ValueError,'PINNED_MASTER_MEDIA_DRIFT'):
+   rehearse(self.path,sha,probe=lambda _:None,expected_film_sha=original)
+ def test_rejects_missing_pinned_wav_identity(self):
+  self.change('render-receipt.json',sourceWavSha256='0'*64)
+  with self.assertRaisesRegex(ValueError,'PINNED_SOURCE_WAV_IDENTITY_DRIFT'):
+   self.check()
+ def test_rejects_misleading_decoded_aac_receipt(self):
+  self.change('decoded-technical.json',audioAdtsSha256='b'*64)
+  with self.assertRaisesRegex(ValueError,'ACTUAL_AAC_NARRATION_NOT_PINNED'):
+   self.check()
+ def test_missing_decoded_full_integrity_receipt_holds(self):
+  self.change('decoded-technical.json',fullDecodePerformed=False)
+  with self.assertRaisesRegex(ValueError,'DECODED_AUDIO_VIDEO_IDENTITY_NOT_VERIFIED'):
+   self.check()
  def test_external_archive_hash_drift_fails(self):
   self.write()
   with self.assertRaisesRegex(ValueError,'ARCHIVE_HASH_DRIFT'):
