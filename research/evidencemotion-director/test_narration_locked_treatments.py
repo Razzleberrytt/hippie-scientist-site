@@ -100,7 +100,7 @@ class NarrationTreatments(unittest.TestCase):
         import os
         import numpy as np
         from pathlib import Path
-        from narration_locked_treatments import fonts, render_frame
+        from narration_locked_treatments import fonts, render_frame, native_phone_plan
         font_path=Path(os.environ.get('THS_TEST_FONT_DIR','/usr/share/fonts/truetype/dejavu'))
         if not font_path.is_dir():
             self.skipTest('Pinned DejaVu fonts unavailable on this runner')
