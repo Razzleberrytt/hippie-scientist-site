@@ -83,6 +83,7 @@ jobs:
           python -m pip install 'rdkit==2025.9.4' 'pillow==12.0.0'
           python -m unittest discover -s research/evidencemotion-director -p test_narration_locked_treatments.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_temporal_caption_audit.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_encoded_caption_cue_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_native_autocritic.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_narrated_claim_screen.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_muted_review_research.py -v
@@ -379,6 +380,31 @@ jobs:
           print('New exact-voice full-HD timed-caption alternative: native video decoded, nine mid-scene budgets and 1031 pre-encode RGB-frame text/cue checks PASS; independent encoded-pixel OCR, real viewer and publication remain HOLD.')
           with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as summary:
               summary.write('Alternative original-WAV native MP4 and 9-interval sampled caption+overlay budget verified; this is NOT complete temporal readability or viewer understanding.\n')
+          PY
+      - name: Independently OCR encoded H264 caption cues and pre-reveal negative controls
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          if ! command -v tesseract >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends tesseract-ocr
+          fi
+          python research/evidencemotion-director/encoded_caption_cue_audit.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-timed-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-timed-native/render-receipt.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/encoded-caption-ocr.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-timed-native/encoded-caption-ocr.json'
+          result=json.loads(path.read_text())
+          assert result['duringCueWordsRecovered']==8
+          assert result['preRevealWordAbsencesVerified']==3
+          assert result['sampledDecodedEncodedFrames']==11
+          assert result['allFrameEncodedOCR'] is False
+          assert not result['independentAudienceComprehensionVerified']
+          assert result['mayPublish'] is False
+          print('11 H264 caption crops independently OCR-checked (8 source words + 3 anti-early-reveal controls); no film release claimed')
           PY
       - name: Preserve actual timing evidence without source audio or model copies
         if: always()
