@@ -92,6 +92,16 @@ class NarrationTreatments(unittest.TestCase):
         self.assertEqual(len(payoff),2)
         self.assertFalse(any(a['text']=='≠' for a in payoff[0]['annotations']))
         self.assertTrue(any(a['text']=='≠' for a in payoff[1]['annotations']))
+        self.assertIn('What the shape\\nshows.',
+                      [a['text'] for a in payoff[0]['annotations']])
+        self.assertIn('What it cannot\\ntell us.',
+                      [a['text'] for a in payoff[1]['annotations']])
+        self.assertNotIn('not',[a['text'] for a in payoff[0]['annotations']])
+        self.assertIn('not',[a['text'] for a in payoff[1]['annotations']])
+        full=[w['text'] for w in scenes[4]['captionWords']]
+        visible0=[a['text'] for a in payoff[0]['annotations'] if a['role']=='caption']
+        visible1=[a['text'] for a in payoff[1]['annotations'] if a['role']=='caption']
+        self.assertEqual(visible0+visible1,full)
         result=validate_manifest(m,width=1080,height=1920,duration=824336/24000,actual_sha='a'*64)
         self.assertFalse(result['realHandsetPlaybackVerified'])
 
@@ -118,9 +128,13 @@ class NarrationTreatments(unittest.TestCase):
         graph=np.asarray(before.crop((115,610,780,1050))).astype(np.float32)
         self.assertGreater(float(graph.std()),12)
         self.assertIn('STRUCTURE',[a['text'] for a in before_ann])
+        self.assertIn('What the shape\\nshows.',[a['text'] for a in before_ann])
+        self.assertNotIn('not',[a['text'] for a in before_ann if a['role']=='caption'])
         self.assertNotIn('≠',[a['text'] for a in before_ann])
         self.assertIn('≠',[a['text'] for a in after_ann])
         self.assertIn('HUMAN EXPERIENCE',[a['text'] for a in after_ann])
+        self.assertIn('What it cannot\\ntell us.',[a['text'] for a in after_ann])
+        self.assertIn('not',[a['text'] for a in after_ann if a['role']=='caption'])
         # On the spoken negation, the actual displayed pixels below the
         # bounded chemistry card must make a substantial, visible change.
         low_a=np.asarray(before.crop((72,1135,838,1250))).astype(np.int16)
