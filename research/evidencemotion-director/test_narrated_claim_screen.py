@@ -189,7 +189,10 @@ class RealFilmClaimScreenTests(unittest.TestCase):
 
     def test_source_label_role_swap_is_refused(self):
         self.shot("source_hold")["annotations"][2]["role"] = "science"
-        with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
+        # The stronger primary-CID identity screen now rejects this before
+        # the later generic annotation allowlist. Either way, source role
+        # corruption must never become publication-eligible.
+        with self.assertRaisesRegex(ValueError, "VISIBLE_PRIMARY_SOURCE_LABEL_DRIFT"):
             self.screen()
 
     def test_original_labels_preserve_exact_order(self):
