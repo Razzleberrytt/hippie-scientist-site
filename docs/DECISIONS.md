@@ -4,6 +4,14 @@
 **Updated:** 2026-10-15 (Algorithm Observatory additive decision; earlier EvidenceMotion version/autonomous-review direction retained)
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
+## 2026-10-15 — Unify THS system end-state checklists without duplicating execution authority
+
+**Owner direction:** Track each major research, media, UX, publishing, learning, operations, business and asset-system ambition with a measurable completion checklist and straightforward progress reporting, similar to EvidenceMotion's existing 46-item living checklist.
+
+**Scope:** Supporting [16-system owner dashboard](THS_SYSTEM_COMPLETION_PROGRAM_V1.md) and four linked domain checklists (128 *high-level goal acceptance questions*, not new project admissions), tracked under [#6818](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6818). The existing EvidenceMotion 46, reconstructed P0 150, 14 integration packages, AI-citation candidate set, Algorithm Observatory criteria and Asset Intelligence tracker remain the canonical details for their domains; these counts are nonadditive and their proof may not be inferred from the new dashboard. Every checkbox requires real acceptance evidence, not mere code existence or a progress estimate.
+
+**Execution:** Respect `CURRENT_SPRINT`, `MASTER_BACKLOG` scoring and D/R/A WIP cap, sole protected merge controller and scientific, security, creative/phone and publication approvals. This is documentation-only initial design and does **not** start a scheduler, new lane, refactor, subscription, third-party license work, marketing experiment, or runtime feature. Unknown progress remains Unknown until audited; proof-bearing subcriteria may then supply specific per-current-step fractions without invented percentage increases.
+
 ## 2026-10-15 — Adopt THS Algorithm Observatory 1.0 as additive learning specification
 
 **Decision:** Owner adopts [THS Algorithm Observatory 1.0](THS_ALGORITHM_OBSERVATORY_V1_SPEC.md): black-box, platform-specific video-performance observation, creative-DNA features, pre-registered experiments, calibrated predictions, and future-only EvidenceMotion creative recommendations. This is **not** a claim of access to proprietary platform algorithms, implemented capability, validated performance lift or publication authorization.
