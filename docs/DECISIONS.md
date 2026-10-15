@@ -1,7 +1,7 @@
 # Decision Log
 
 **Status:** Authoritative
-**Updated:** 2026-10-13 (EvidenceMotion version policy and calibrated autonomous-review direction)
+**Updated:** 2026-10-15 (Algorithm Observatory additive decision; earlier EvidenceMotion version/autonomous-review direction retained)
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
 ## 2026-10-15 — Adopt THS Algorithm Observatory 1.0 as additive learning specification
