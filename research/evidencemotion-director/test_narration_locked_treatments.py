@@ -37,12 +37,16 @@ class NarrationTreatments(unittest.TestCase):
             wrapped('hydroxymitragynine',Font(),100)
 
     def test_real_graphs_have_distinct_identities_and_one_verified_free_hydroxyl(self):
+        import numpy as np
         assets=chemistry_assets()
         self.assertEqual(assets['mitragynine']['oh'],[])
         self.assertEqual(len(assets['7_hydroxymitragynine']['oh']),1)
         self.assertNotEqual(assets['mitragynine']['source'].inchi_key,
                             assets['7_hydroxymitragynine']['source'].inchi_key)
         self.assertEqual(assets['7_hydroxymitragynine']['xyz'].shape,(30,3))
+        diagram=np.array(assets['7_hydroxymitragynine']['diagram'])
+        # Catch the actual invisible black H glyph added during RDKit drawing.
+        self.assertEqual(int(((diagram[:,:,3]>200)&(diagram[:,:,:3].max(axis=2)<60)).sum()),0)
 
     def test_teaching_view_is_rigid_right_handed_and_avoids_edge_on_plane(self):
         import numpy as np
@@ -65,7 +69,7 @@ class NarrationTreatments(unittest.TestCase):
     def test_native_emitted_text_fits_existing_phone_ui_rules(self):
         import os
         from pathlib import Path
-        from narration_locked_treatments import fonts,render_frame
+        from narration_locked_treatments import fonts,native_phone_plan
         from phone_ui_audit import validate_manifest
         path=Path(os.environ.get('THS_TEST_FONT_DIR','/usr/share/fonts/truetype/dejavu'))
         if not path.is_dir():
@@ -73,16 +77,11 @@ class NarrationTreatments(unittest.TestCase):
         font,_=fonts(path)
         assets=chemistry_assets();assets['dark_diagram']=assets['7_hydroxymitragynine']['diagram']
         scenes=timeline(self.alignment())
-        shots=[]
-        for scene in scenes:
-            annotations=[]
-            t=(scene['startSec']+scene['endSec'])/2
-            render_frame(t,scenes,assets,'specimen',(1080,1920),font,annotations=annotations)
-            self.assertTrue(annotations)
-            shots.append({'id':scene['id'],'startSec':scene['startSec'],'endSec':scene['endSec'],
-                          'assetKind':'deterministic_science','annotations':annotations})
-        m={'status':'RESEARCH_ONLY','releaseApproved':False,'expectedVideoSha256':'a'*64,
-           'platforms':['tiktok','shorts'],'hook':{'textVisibleAtSec':0,'spokenOpeningAtSec':.1,'heroVisualStartsAtSec':0},'shots':shots}
+        m=native_phone_plan('a'*64,scenes,assets,'specimen',font)
+        payoff=[s for s in m['shots'] if s['id'].startswith('sentence_5_')]
+        self.assertEqual(len(payoff),2)
+        self.assertFalse(any(a['text']=='≠' for a in payoff[0]['annotations']))
+        self.assertTrue(any(a['text']=='≠' for a in payoff[1]['annotations']))
         result=validate_manifest(m,width=1080,height=1920,duration=824336/24000,actual_sha='a'*64)
         self.assertFalse(result['realHandsetPlaybackVerified'])
 

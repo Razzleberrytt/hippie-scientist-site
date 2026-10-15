@@ -82,11 +82,15 @@ def chemistry_assets(light=False):
         opts = canvas.drawOptions()
         opts.clearBackground = False
         opts.bondLineWidth = 5
-        opts.setAtomPalette({6:(.1,.17,.2) if light else (.8,.87,.89), 7:(.08,.47,.78),8:(.92,.33,.12)})
+        opts.minFontSize = 48
+        opts.maxFontSize = 64
+        foreground=(.1,.17,.2) if light else (.8,.87,.89)
+        opts.setAtomPalette({1:foreground,6:foreground,7:(.08,.47,.78),8:(.92,.33,.12)})
         rdMolDraw2D.PrepareAndDrawMolecule(canvas, mol, highlightAtoms=entry['free_oh_indices'],
             highlightAtomColors={i:(.98,.63,.27,.6) for i in entry['free_oh_indices']})
         canvas.FinishDrawing()
         diagram = Image.open(io.BytesIO(canvas.GetDrawingText())).convert('RGBA')
+        diagram_points = [[canvas.GetDrawCoords(i).x,canvas.GetDrawCoords(i).y] for i in range(mol.GetNumAtoms())]
         model = Chem.AddHs(mol)
         params = AllChem.ETKDGv3()
         params.randomSeed = 6743
@@ -112,7 +116,7 @@ def chemistry_assets(light=False):
                 basis[1]*=-1
                 basis[2]*=-1
         assets[name] = {'mol':mol, 'xyz':coords@basis.T, 'viewBasis':basis.tolist(), 'diagram':diagram,
-                        'oh': entry['free_oh_indices'], 'source':source,
+                        'oh': entry['free_oh_indices'], 'source':source, 'diagramAtomXY':diagram_points,
                         'conformerMolBlock': Chem.MolToMolBlock(model)}
     return assets
 
@@ -146,9 +150,12 @@ def spatial(asset, angle, size, detail=False):
     perspective = 18/(18-xyz[:,2])
     projected = xyz[:,:2]*perspective[:,None]
     extent = np.ptp(projected,axis=0)+1.2
-    scale = min((w-40)/extent[0],(h-40)/extent[1]) * (.90 if not detail else 1.15)
+    detail=float(detail)
+    if not 0<=detail<=1:
+        raise ValueError('TREATMENT_HOLD:INVALID_CAMERA_DETAIL')
+    scale = min((w-40)/extent[0],(h-40)/extent[1]) * (.90+.65*detail)
     if detail:
-        xyz = xyz - xyz[asset['oh'][0]]*.65
+        xyz = xyz - xyz[asset['oh'][0]]*.65*detail
     points = np.column_stack((w/2+xyz[:,0]*scale*perspective,
                               h/2-xyz[:,1]*scale*perspective))
     image = Image.new('RGBA',(w,h),(0,0,0,0))
@@ -238,11 +245,21 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
         text(pos(72,500),'–OH group: oxygen + hydrogen',font=f(36,True),fill=accent)
     hero = assets['7_hydroxymitragynine']
     hero_label = '7-HYDROXYMITRAGYNINE'
-    if idx==5:
+    if idx==4 and not light:
+        # A distinct teaching payoff, timed to the actual spoken "not". Never
+        # invent a brain/receptor/effect scene to illustrate absent evidence.
+        boundary=next(w['startSec'] for w in scene['captionWords'] if w['text'].casefold()=='not')
+        text(pos(72,700),'STRUCTURE',font=f(80,True),fill=accent)
+        if t>=boundary:
+            text(pos(300,830),'≠',font=f(150,True),fill=fg)
+            text(pos(72,1050),'HUMAN EXPERIENCE',font=f(62,True),fill=fg)
+    elif idx==5:
         text(pos(72,760),'PubChem',font=f(86,True),fill=fg,role='source')
+        text(pos(72,710),'Chemical structure database',font=f(36),fill=muted,role='source')
         text(pos(72,880),'CID 44301524',font=f(51,True),fill=accent,role='source')
-        text(pos(72,967),'C23H30N2O5',font=f(48),fill=fg,role='source')
-        text(pos(72,1060),'pubchem.ncbi.nlm.nih.gov',font=f(38),fill=muted,role='source')
+        text(pos(72,940),'CID = compound record number',font=f(36),fill=muted,role='source')
+        text(pos(72,1010),'C23H30N2O5',font=f(48),fill=fg,role='source')
+        text(pos(72,1120),'pubchem.ncbi.nlm.nih.gov',font=f(38),fill=muted,role='source')
     elif light and idx==0:
         for name,y,label in [('mitragynine',585,'MITRAGYNINE'),('7_hydroxymitragynine',935,'7-HYDROXYMITRAGYNINE')]:
             diagram=assets[name]['diagram'].resize((round(510*scale),round(383*scale)))
@@ -257,6 +274,14 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
             diagram = assets['dark_diagram']
         diagram = diagram.resize((round((790-40*p)*scale),round((593-30*p)*scale)))
         image.alpha_composite(diagram,pos(45+20*p,620+15*p))
+        if idx==2:
+            draw=ImageDraw.Draw(image)
+            text(pos(72,520),'Dots mark atoms. Lines mark bonds.',font=f(36,True),fill=accent)
+            for x,y in hero['diagramAtomXY'][:round(p*len(hero['diagramAtomXY']))]:
+                x=(45+20*p)*scale+x*diagram.width/1200
+                y=(620+15*p)*scale+y*diagram.height/900
+                radius=10*scale
+                draw.ellipse((x-radius,y-radius,x+radius,y+radius),outline=accent,width=max(1,round(2*scale)))
         if idx==1:
             draw = ImageDraw.Draw(image)
             text(pos(72,1150),'–OH = oxygen + hydrogen',font=f(40,True),fill=accent)
@@ -265,10 +290,14 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
             draw = ImageDraw.Draw(image)
             text(pos(72,1160),'Distinct structures. A visible difference.',font=f(33),fill=muted)
     else:
-        model = spatial(hero, -.32+.26*p+(idx*.11), (round(830*scale),round(730*scale)), detail=idx==1)
+        # One motivated camera action per shot: OH detail -> whole context,
+        # computed depth orbit, then "look closer" returning to the real OH.
+        detail=1-p if idx==1 else p*.65 if idx==6 else 0
+        angle=(-.40+.85*p) if idx==3 else -.10
+        model = spatial(hero, angle, (round(830*scale),round(730*scale)), detail=detail)
         image.alpha_composite(model,pos(20,540))
         draw = ImageDraw.Draw(image)
-        disclosure = 'DETAIL VIEW • computed illustration' if idx==1 else 'Computed 3D illustration • not filmed'
+        disclosure = 'DETAIL REVEAL • computed model' if idx in (1,6) else 'Computed 3D illustration • not filmed'
         text(pos(72,1190),disclosure,font=f(38),fill=accent,role='disclosure')
         text(pos(72,1235),'Hydrogen atoms omitted',font=f(36),fill=muted,role='disclosure')
     draw = ImageDraw.Draw(image)
@@ -294,10 +323,14 @@ def native_phone_plan(video_sha,scenes,assets,treatment,font):
     from phone_ui_audit import validate_manifest
     shots=[]
     for scene in scenes:
-        annotations=[]
-        render_frame((scene['startSec']+scene['endSec'])/2,scenes,assets,treatment,(1080,1920),font,annotations=annotations)
-        shots.append({'id':scene['id'],'startSec':scene['startSec'],'endSec':scene['endSec'],
-                      'assetKind':'deterministic_science','annotations':annotations})
+        boundaries=[scene['startSec'],scene['endSec']]
+        if scene['id']=='sentence_5' and treatment=='specimen':
+            boundaries.insert(1,next(w['startSec'] for w in scene['captionWords'] if w['text'].casefold()=='not'))
+        for i,(start,end) in enumerate(zip(boundaries,boundaries[1:])):
+            annotations=[]
+            render_frame((start+end)/2,scenes,assets,treatment,(1080,1920),font,annotations=annotations)
+            shots.append({'id':scene['id']+(f'_part{i}' if len(boundaries)>2 else ''),'startSec':start,'endSec':end,
+                          'assetKind':'deterministic_science','annotations':annotations})
     plan={'status':'RESEARCH_ONLY','releaseApproved':False,'expectedVideoSha256':video_sha,
           'platforms':['tiktok','shorts'],'hook':{'textVisibleAtSec':0,'spokenOpeningAtSec':.16,'heroVisualStartsAtSec':0},'shots':shots}
     validate_manifest(plan,width=1080,height=1920,duration=scenes[-1]['endSec'],actual_sha=video_sha)
@@ -389,6 +422,7 @@ def render(root, destination, font_dir, treatment, native=False):
                'rendererSourcesSha256':renderer_sources,'rdkitVersion':rdkit.__version__,
                'pillowVersion':PIL.__version__,'craftApproved':False,'scienceApproved':False,
                'phoneOverlayStatus':phone_status,
+               'boundedStoryRepairCount':1,'maxMacroStoryRepairs':1,
                'pronunciationVerified':False,'deviceVerified':False,'mayPublish':False}
     (out/'render-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
     return receipt
