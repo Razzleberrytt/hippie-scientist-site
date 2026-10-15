@@ -17,17 +17,17 @@ class ObjectiveMutedScoreTests(unittest.TestCase):
         bounds = (0, 1.61, 3.47, 10.85, 16.58, 23.379999,
                   25.709999, 27.35, 31.25, 34.347333)
         words = (
-            ["MITRAGYNINE • CID 3034396", "CID = compound record number",
-             "2D source structure • no reaction shown"],
-            ["7-OH • CID 44301524", "CID = compound record number",
-             "2D source structure • no reaction shown"],
+            ["7-OH vs\nmitragynine", "MITRAGYNINE",
+             "Separate structures • no reaction"],
+            ["7-OH vs\nmitragynine", "7-OH",
+             "Separate structures • no reaction"],
             ["Look at the\nhydroxyl group.", "–OH group: oxygen + hydrogen"],
             ["Dots mark atoms. Lines mark bonds."],
             ["A possible\n3D shape.", "Computed 3D illustration • not filmed"],
             ["What the shape\nshows."],
             ["What it cannot\ntell us.", "HUMAN EXPERIENCE"],
             ["PubChem", "CID 44301524", "CID = compound record number",
-             "Chemical structure database"],
+             "Mitragynine • CID 3034396"],
             ["Look closer."]
         )
         self.plan={"shots":[
@@ -55,12 +55,12 @@ class ObjectiveMutedScoreTests(unittest.TestCase):
         self.assertFalse(x["mayPublish"])
         self.assertEqual(x["automaticScoreCeilingPercent"],92)
 
-    def test_first_use_cid_not_defined_is_one_percentage_point_loss(self):
-        self.plan["shots"][0]["annotations"] = [
-            a for a in self.plan["shots"][0]["annotations"]
+    def test_missing_first_cid_definition_fails_two_independent_guards(self):
+        self.plan["shots"][7]["annotations"] = [
+            a for a in self.plan["shots"][7]["annotations"]
             if "CID =" not in a["text"]]
         x=self.score()
-        self.assertEqual(x["currentStepObjectiveProgressPercent"],91)
+        self.assertEqual(x["currentStepObjectiveProgressPercent"],90)
         self.assertFalse(next(c["passed"] for c in x["measured"]
                               if c["code"]=="first_use_cid_defined"))
 

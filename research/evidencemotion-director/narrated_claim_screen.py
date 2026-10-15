@@ -29,10 +29,9 @@ REVIEW_TOPICS = (
 # Any new rendered science/source text must first receive its own source review.
 EXPECTED_NON_CAPTION_ANNOTATIONS = {
     "sentence_1": (
-        ("hook", "What makes\n7-OH different?"),
-        ("science", "MITRAGYNINE • CID 3034396"),
-        ("disclosure", "2D source structure • no reaction shown"),
-        ("disclosure", "CID = compound record number"),
+        ("hook", "7-OH vs\nmitragynine"),
+        ("science", "MITRAGYNINE"),
+        ("disclosure", "Separate structures • no reaction"),
     ),
     "sentence_2": (
         ("science", "Look at the\nhydroxyl group."),
@@ -53,12 +52,11 @@ EXPECTED_NON_CAPTION_ANNOTATIONS = {
     "sentence_5": (
         ("science", "What the shape\nshows."),
         ("science", "STRUCTURE"),
-        ("science", "7-HYDROXYMITRAGYNINE"),
     ),
     "source_hold": (
         ("science", "CHECK THE SOURCE"),
         ("source", "PubChem"),
-        ("source", "Chemical structure database"),
+        ("source", "Mitragynine • CID 3034396"),
         ("source", "CID 44301524"),
         ("source", "CID = compound record number"),
         ("source", "C23H30N2O5"),
@@ -204,7 +202,7 @@ def inspect(movie, wav, receipt_path, phone_plan_path):
             # science text, and is allowed strictly after the spoken "not".
             if base == "sentence_1" and shot is second[0]:
                 expected_shot = (
-                    expected[0], ("science", "7-OH • CID 44301524"),
+                    expected[0], ("science", "7-OH"),
                 ) + expected[2:]
             elif base == "sentence_5" and shot is later[0]:
                 expected_shot = (
