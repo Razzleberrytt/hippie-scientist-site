@@ -49,7 +49,7 @@
 | [EM-031](#em-031) | All-intermediate and final-byte provenance | Accepted canonical | 5 |
 | [EM-032](#em-032) | Approved-source native portrait full render | Open canonical | 5 |
 | [EM-033](#em-033) | Decoded final video and caption-safe mechanical checks | Accepted canonical | 5 |
-| [EM-034](#em-034) | Actual platform-safe captions, opening hook, muted comprehension | Open canonical | 7 |
+| [EM-034](#em-034) | Actual platform-safe captions, opening hook, muted comprehension | Open canonical | 16 |
 | [EM-035](#em-035) | Real-handset exact-master playback | Open canonical | 6 |
 | [EM-036](#em-036) | Calibrated independent audio/craft/science receipts | Open canonical | 6 |
 | [EM-037](#em-037) | Explicit posting and integration authorization | Open canonical | 4 |
@@ -389,15 +389,24 @@
 
 ### EM-034 — Actual platform-safe captions, opening hook, muted comprehension
 
-**Canonical state (2026-10-15):** OPEN. **Child evidence audit:** NOT_AUDITED (7 subtasks). **Owning source:** [canonical #34](COMPLETION-CHECKLIST.md).
+**Canonical state (2026-10-15):** OPEN. **Child evidence audit:** NOT_AUDITED (16 subtasks). **Owning source:** [canonical #34](COMPLETION-CHECKLIST.md). **Informal alias:** PR #6817's “research #27 at 99%”—do not confuse with already-accepted canonical EM-027.
 
-- [ ] **EM-034.01** Capture current TikTok and Shorts real UI overlays and cite acquisition date — **Pass/receipt:** platform templates
-- [ ] **EM-034.02** Extract actual final rendered text including captions and scene overlays — **Pass/receipt:** visual text ledger
-- [ ] **EM-034.03** Fix any shot exceeding combined caption+overlay dwell/reading budget — **Pass/receipt:** new shot + proof
-- [ ] **EM-034.04** Verify full video first-two-second hook communicates an understandable question — **Pass/receipt:** testable script/frame rubric
-- [ ] **EM-034.05** Audit tiny text, clipping, emoji/UI occlusion and color contrast on exact decoded frames — **Pass/receipt:** failure report
-- [ ] **EM-034.06** Run a calibrated muted-viewer quiz on whole exact film for what changed/what is known/unknown — **Pass/receipt:** measured receipt
-- [ ] **EM-034.07** Reject missing caveat, swapped label, misleading quiz answer, and stale film identity — **Pass/receipt:** negative tests
+- [ ] **EM-034.01** Retrieve dated real TikTok and YouTube Shorts portrait-player overlay examples from permitted sources — **Pass/receipt:** two platform templates with URLs and date
+- [ ] **EM-034.02** Pin the exact current master MP4, encoded audio, source claim ledger and annotation revision — **Pass/receipt:** hash-bound audit manifest
+- [ ] **EM-034.03** Extract *all* emitted captions plus separate non-caption text from each decoded shot — **Pass/receipt:** merged per-frame/on-screen text inventory
+- [ ] **EM-034.04** Calculate combined visible-text count, duration and words-per-second for every scene — **Pass/receipt:** reproducible full-film load table
+- [ ] **EM-034.05** Identify precisely which original shots exceed the predeclared combined reading-load ceiling — **Pass/receipt:** failing scene IDs and measurements
+- [ ] **EM-034.06** Rewrite or relocate only overloaded overlays without erasing source IDs, science qualifiers or exact voice — **Pass/receipt:** before/after frame plan
+- [ ] **EM-034.07** Regenerate native film and muted cut after text repairs, retaining locked narration and source hashes — **Pass/receipt:** new full H.264/AAC and mute MP4 SHAs
+- [ ] **EM-034.08** Recompute combined text budget from *actual new decoded frames*, not storyboard annotation — **Pass/receipt:** full-scene PASS or explicit remaining failures
+- [ ] **EM-034.09** Compare platform UI occlusion, text contrast, font size and timing on real output at screen resolution — **Pass/receipt:** shot-by-shot screenshot/contrast audit
+- [ ] **EM-034.10** Prove first two seconds supply a meaningful understandable hook, not just unexplained chemical labels — **Pass/receipt:** timestamped rubric and negative counterexample
+- [ ] **EM-034.11** Verify onscreen compound labels, CID associations, visual disclaimers and spoken timing still agree — **Pass/receipt:** source/voice/caption semantic diff
+- [ ] **EM-034.12** Pre-register silent-viewer comprehension questions covering 7-OH versus mitragynine, what visuals do/do not show, uncertainty and source provenance — **Pass/receipt:** dated scored quiz and rubric
+- [ ] **EM-034.13** Calibrate evaluator or obtain genuine independent muted-viewer answers on the exact full film — **Pass/receipt:** reviewer/participant method plus observed answer-level results
+- [ ] **EM-034.14** Test the same quiz against misleading swapped-label, missing-caveat and off-timing counterfactual clips — **Pass/receipt:** correct negative verdicts without false PASS
+- [ ] **EM-034.15** Invalidate old V1/V2 research receipts after any film/audio/caption hash change and rerun exact-head native, science, OCR, audio and full build checks — **Pass/receipt:** new reproducible execution/run links
+- [ ] **EM-034.16** Record final criterion verdict without conflating layout, machine QA, real viewer comprehension, handset, science or publishing approval — **Pass/receipt:** per-gate ACCEPTED/HOLD and canonical-source update only on earned proof
 
 ### EM-035 — Real-handset exact-master playback
 
@@ -531,7 +540,7 @@
 
 ## Immediate execution order (not new admission)
 
-1. **Existing open readibility/comprehension blocker:** EM-034.03–07, plus EM-017.03–05 and EM-036.04–06. Review currently open PR #6817 and its actual new exact-head CI; repair the combined captions+overlay budget before claiming a muted-viewer PASS.
+1. **Existing open readibility/comprehension blocker:** EM-034.03–16, plus EM-017.03–05 and EM-036.04–06. Review currently open PR #6817 and its actual new exact-head CI; repair the combined captions+overlay budget before claiming a muted-viewer PASS.
 2. **Source and voice validity:** EM-007.01–08, EM-014.01–06, EM-016.01–06; keep uncalibrated or missing listening ground truth HOLD.
 3. **Creative quality:** EM-022/023/028—real full-film reference-based acceptance rather than scores assigned from pixel consistency.
 4. **Real full film/device:** EM-032/034/035/036, then EM-038 (first genuinely excellent first run).
