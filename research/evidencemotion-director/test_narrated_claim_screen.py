@@ -46,7 +46,7 @@ class RealFilmClaimScreenTests(unittest.TestCase):
                 ])
             elif sid == "sentence_5":
                 pivot = words.index("not")
-                pre = copy.deepcopy(ann[:3]) + [
+                pre = copy.deepcopy(ann[:2]) + [
                     {"role": "caption", "text": w} for w in words[:pivot]]
                 post = copy.deepcopy(ann[:3])
                 post[0]["text"] = "What it cannot\ntell us."
