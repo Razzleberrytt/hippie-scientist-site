@@ -61,3 +61,13 @@ test('reject absent and malformed scientific asset lineage on every shot',()=>{
   assert.equal(r.shots.length,0);
  }
 });
+
+test('negative word index fails closed without indexing outside alignment',()=>{
+ const x=sample();x.beats[0].startWordIndex=-1;
+ assert.ok(plan(x).errors.includes('SHOT_WORD_ANCHORS_INVALID'));
+});
+
+test('non-text alignment token fails closed rather than throwing',()=>{
+ const x=sample();x.wordAlignment[0].word=42;
+ assert.ok(plan(x).errors.includes('WORD_TIMING_INVALID'));
+});

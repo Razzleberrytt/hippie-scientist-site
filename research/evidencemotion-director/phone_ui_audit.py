@@ -1,0 +1,234 @@
+#!/usr/bin/env python3
+"""Research-only decoded-frame TikTok/Shorts UI exclusion audit.
+
+Never certifies handset playback, source truth, scientific accuracy, comprehension or craft.
+Annotation rectangles are supplied by the caller, not detected by OCR.
+"""
+import argparse
+import hashlib
+import json
+import math
+import re
+import os
+import tempfile
+from decimal import Decimal, InvalidOperation
+from pathlib import Path
+import subprocess
+from native_master_audit import frame_timestamps
+
+TOP, RIGHT, BOTTOM = .10, .20, .18
+MAX_SHOTS = 24
+ROLES = {"hook", "caption", "source", "science", "disclosure"}
+
+def sha256_file(path):
+    digest = hashlib.sha256()
+    with open(path, "rb") as source:
+        for block in iter(lambda: source.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+def hold(code):
+    raise ValueError("PHONE_UI_HOLD:" + code)
+
+def is_hash(value):
+    return isinstance(value, str) and re.fullmatch(r"[0-9a-f]{64}", value) is not None
+
+def number(value):
+    return type(value) in (int, float) and math.isfinite(value)
+
+def valid_box(b, w, h):
+    return (isinstance(b, list) and len(b) == 4 and all(number(v) for v in b)
+            and 0 <= b[0] < b[2] <= w and 0 <= b[1] < b[3] <= h)
+
+def verify_shots(shots, duration):
+    if not isinstance(shots, list) or not 1 <= len(shots) <= MAX_SHOTS:
+        hold("SHOT_COUNT_REQUIRED")
+    cursor, seen = 0.0, set()
+    for shot in shots:
+        if not isinstance(shot, dict) or not isinstance(shot.get("id"), str) or not re.fullmatch(r"[a-z][a-z0-9_-]{0,49}", shot["id"]) or shot["id"] in seen:
+            hold("INVALID_OR_DUPLICATE_SHOT_ID")
+        seen.add(shot["id"])
+        begin, end = shot.get("startSec"), shot.get("endSec")
+        if not number(begin) or not number(end) or abs(begin - cursor) > .05 or end <= begin or end > duration + .05:
+            hold("NONCONTIGUOUS_SHOT_TIMELINE")
+        cursor = end
+    if abs(cursor - duration) > .10:
+        hold("INCOMPLETE_FILM_COVERAGE")
+
+def validate_manifest(m, *, width, height, duration, actual_sha):
+    if not isinstance(m, dict) or m.get("status") != "RESEARCH_ONLY" or m.get("releaseApproved") is not False:
+        hold("RESEARCH_ONLY_AND_EXPLICIT_RELEASE_HOLD_REQUIRED")
+    if not is_hash(m.get("expectedVideoSha256")) or actual_sha != m["expectedVideoSha256"]:
+        hold("EXACT_VIDEO_SHA_MISMATCH")
+    if not isinstance(m.get("platforms"), list) or set(m["platforms"]) != {"tiktok", "shorts"}:
+        hold("BOTH_PLATFORM_OVERLAYS_REQUIRED")
+    if (width, height) != (1080, 1920):
+        hold("NATIVE_PORTRAIT_FRAME_REQUIRED")
+    if not number(duration) or duration <= 2:
+        hold("FULL_FILM_DURATION_REQUIRED")
+    hook = m.get("hook")
+    if not isinstance(hook, dict) or any(not number(hook.get(k)) or not 0 <= hook[k] <= 2
+        for k in ("textVisibleAtSec", "spokenOpeningAtSec", "heroVisualStartsAtSec")):
+        hold("FIRST_TWO_SECOND_HOOK_TIMING_REQUIRED")
+    shots = m.get("shots")
+    verify_shots(shots, duration)
+    for shot in shots:
+        if shot.get("assetKind") not in ("deterministic_science", "nonfactual_illustration", "source_document", "editorial"):
+            hold("SOURCE_ASSET_KIND_REQUIRED")
+        anns = shot.get("annotations")
+        if not isinstance(anns, list) or not anns:
+            hold("SHOT_ANNOTATIONS_REQUIRED")
+        roles = set()
+        for a in anns:
+            if not isinstance(a, dict) or a.get("role") not in ROLES or not valid_box(a.get("boxPx"), width, height):
+                hold("INVALID_ANNOTATION_GEOMETRY")
+            if not isinstance(a.get("text"), str) or not a["text"].strip():
+                hold("VISIBLE_WORDING_NOT_DOCUMENTED")
+            role, px = a["role"], a.get("fontPx")
+            if not number(px) or px < (36 if role in ("hook", "caption", "disclosure") else 28):
+                hold("TINY_CRITICAL_TYPE")
+            x1, y1, x2, y2 = a["boxPx"]
+            if y1 < TOP * height or x2 > (1 - RIGHT) * width or y2 > (1 - BOTTOM) * height:
+                hold("CRITICAL_CONTENT_TOUCHES_PLATFORM_UI_ZONE")
+            roles.add(role)
+        if shot["assetKind"] == "nonfactual_illustration" and not any(
+            a["role"] == "disclosure" and "illustration" in a["text"].lower() and "not proof" in a["text"].lower()
+            for a in anns):
+            hold("NONFACTUAL_BOTANICAL_DISCLOSURE_REQUIRED")
+    # A declared text appearance must land inside a shot that actually carries
+    # its hook annotation, not merely within the film's first two seconds.
+    hook_time = hook["textVisibleAtSec"]
+    if not any(s["startSec"] <= hook_time < s["endSec"] and
+               any(a["role"] == "hook" for a in s["annotations"]) for s in shots):
+        hold("HOOK_TIMESTAMP_NOT_IN_ANNOTATED_SHOT")
+    if not any(a["role"] == "hook" for a in shots[0]["annotations"]):
+        hold("MISSING_OPENING_HOOK_ANNOTATION")
+    return {
+        "status": "OVERLAY_PREFLIGHT_PASS_REVIEW_REQUIRED",
+        "mayPublish": False,
+        "realHandsetPlaybackVerified": False,
+        "actualDecodedFramesInspectedByIndependentReviewer": False,
+        "mutedComprehensionVerified": False,
+        "sourceClaimsApproved": False,
+        "nativeSourceResolutionVerified": False,
+        "visualCraftApproved": False,
+        "note": "Caller annotations do not prove visible pixels or actual app UI layouts."
+    }
+
+def probe_movie(movie):
+    cmd = ["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
+           "stream=width,height,avg_frame_rate", "-show_entries", "format=duration",
+           "-of", "json", str(movie)]
+    data = json.loads(subprocess.run(cmd, capture_output=True, text=True, timeout=20, check=True).stdout)
+    track = data["streams"][0]
+    numerator, denominator = map(int, track["avg_frame_rate"].split("/"))
+    if denominator == 0 or abs(numerator / denominator - 30) > .6:
+        hold("AVERAGE_RATE_NOT_30FPS")
+    duration = float(data["format"]["duration"])
+    # Reuse the already-tested native audit's *actual per-frame timestamps*:
+    # avg_frame_rate alone can falsely certify a variable-frame-rate movie.
+    try:
+        stamps = frame_timestamps(movie)
+        nominal_step = Decimal(1) / Decimal(30)
+        tolerance = Decimal("0.001")
+        if not stamps or len(stamps) > 18000 or any(not t.is_finite() for t in stamps):
+            hold("DECODED_FRAME_TIMESTAMPS_MISSING")
+        origin = stamps[0]
+        if (origin < -tolerance or origin > nominal_step + tolerance or
+            any(abs((stamp - origin) - nominal_step * index) > tolerance
+                for index, stamp in enumerate(stamps))):
+            hold("NONCONSTANT_DECODED_FRAME_TIMING")
+        if abs(len(stamps) / 30 - duration) > .12:
+            hold("VIDEO_FRAME_COUNT_DURATION_MISMATCH")
+    except (subprocess.CalledProcessError, OSError, ValueError, InvalidOperation,
+            UnicodeError, KeyError, IndexError) as exc:
+        if isinstance(exc, ValueError) and str(exc).startswith("PHONE_UI_HOLD:"):
+            raise
+        hold("FRAME_TIMESTAMP_EXTRACTION_FAILED")
+    return int(track["width"]), int(track["height"]), duration, len(stamps)
+
+def decoded_overlay(movie, time_sec, shot, destination, width, height):
+    x = int((1 - RIGHT) * width)
+    y = int((1 - BOTTOM) * height)
+    top = int(TOP * height)
+    overlays = [
+        f"drawbox=x=0:y=0:w={width}:h={top}:color=red@0.42:t=fill",
+        f"drawbox=x={x}:y=0:w={width-x}:h={height}:color=red@0.42:t=fill",
+        f"drawbox=x=0:y={y}:w={width}:h={height-y}:color=red@0.42:t=fill",
+    ]
+    for a in shot["annotations"]:
+        x1, y1, x2, y2 = (int(v) for v in a["boxPx"])
+        overlays.append(f"drawbox=x={x1}:y={y1}:w={x2-x1}:h={y2-y1}:color=green@0.9:t=3")
+    cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+           "-ss", f"{time_sec:.5f}", "-i", str(movie), "-vf", ",".join(overlays),
+           "-frames:v", "1", str(destination)]
+    subprocess.run(cmd, capture_output=True, timeout=30, check=True)
+    if not destination.is_file() or destination.stat().st_size == 0:
+        hold("REAL_FRAME_EXTRACTION_FAILED")
+
+def audit(movie, manifest, output):
+    movie, manifest, output = Path(movie), Path(manifest), Path(output)
+    output.mkdir(parents=True, exist_ok=True)
+    report_path = output / "research-report.json"
+    # Fail closed BEFORE probing / validation: a prior successful report must
+    # never survive a new failed attempt against changed inputs.
+    report_path.unlink(missing_ok=True)
+    plan = json.loads(manifest.read_text(encoding="utf-8"))
+    movie_hash = sha256_file(movie)
+    width, height, duration, decoded_count = probe_movie(movie)
+    receipt = validate_manifest(plan, width=width, height=height,
+                                duration=duration, actual_sha=movie_hash)
+    frame_receipts = []
+    # Emit all decoded artifacts into an isolated staging folder, not into the
+    # previous run's public review directory. Publish receipt *last*.
+    with tempfile.TemporaryDirectory(prefix=".phone-ui-stage-", dir=output) as stage:
+        stage = Path(stage)
+        for index, shot in enumerate(plan["shots"]):
+            t = (shot["startSec"] + shot["endSec"]) / 2
+            name = f"{index:02d}-{shot['id']}.png"
+            destination = stage / name
+            decoded_overlay(movie, t, shot, destination, width, height)
+            frame_receipts.append({"shotId": shot["id"], "timeSec": t,
+                                   "file": name, "frameSha256": sha256_file(destination)})
+        # The opening deserves two additional *actual* pixel samples.
+        for t in (.25, 1.50):
+            opening_shot = next((s for s in plan["shots"]
+                                 if s["startSec"] <= t < s["endSec"]), None)
+            if opening_shot is None:
+                hold("NO_SHOT_FOR_OPENING_SAMPLE")
+            name = f"opening-{str(t).replace('.', '_')}.png"
+            destination = stage / name
+            decoded_overlay(movie, t, opening_shot, destination, width, height)
+            frame_receipts.append({"shotId": opening_shot["id"], "timeSec": t,
+                                   "openingHookProbe": True, "file": name,
+                                   "frameSha256": sha256_file(destination)})
+        receipt.update({"videoSha256": movie_hash, "manifestSha256": sha256_file(manifest),
+                        "videoResolution": [width, height], "durationSec": duration,
+                        "decodedFrameCount": decoded_count,
+                        "exact30FpsTimestampGridVerified": True,
+                        "platformExclusions": {"top": TOP, "right": RIGHT, "bottom": BOTTOM},
+                        "decodedOverlayFrames": frame_receipts, "publicationVerdict": "HOLD"})
+        # Only generated filenames are ever cleaned up; unrelated files remain
+        # untouched. A failed next run leaves no authoritative success report.
+        generated = re.compile(r"(?:[0-9]{2}-[a-z][a-z0-9_-]{0,49}|opening-(?:0_25|1_5))\.png")
+        for old in output.iterdir():
+            if old.is_file() and generated.fullmatch(old.name):
+                old.unlink()
+        for entry in frame_receipts:
+            os.replace(stage / entry["file"], output / entry["file"])
+        staged_report = stage / "research-report.json"
+        staged_report.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+        os.replace(staged_report, report_path)
+    return receipt
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--movie", required=True)
+    parser.add_argument("--manifest", required=True)
+    parser.add_argument("--output", required=True)
+    args = parser.parse_args()
+    try:
+        print(json.dumps(audit(args.movie, args.manifest, args.output), indent=2))
+    except (ValueError, OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired,
+            KeyError, IndexError, TypeError) as error:
+        raise SystemExit("PHONE_UI_HOLD:" + str(error)) from error
