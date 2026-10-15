@@ -413,6 +413,31 @@ jobs:
           assert result['mayPublish'] is False
           print('12 decoded frame OCR samples: 8 words, 3 early-reveal controls and paired source record labels; research only')
           PY
+      - name: Independently read nine encoded science and PubChem overlay frames
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p 'test_encoded_science_pixel_audit.py' -v
+          python research/evidencemotion-director/encoded_science_pixel_audit.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-timed-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-timed-native/render-receipt.json" \
+            --phone "$RUNNER_TEMP/ths-mfa/specimen-timed-native/phone-ui-plan.json" \
+            --caption-ocr "$RUNNER_TEMP/ths-mfa/specimen-timed-native/encoded-caption-ocr.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/encoded-science-overlay-pixels.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-timed-native/encoded-science-overlay-pixels.json'
+          r=json.loads(p.read_text())
+          assert r['decodedShotCount']==9
+          assert r['allNineShotInksIndependentlyRecovered'] is True
+          assert len(r['rows'])==9
+          assert r['fullMotionFrameByFrameOcr'] is False
+          assert r['viewerComprehensionVerified'] is False
+          assert r['medicalExpertReviewed'] is False
+          assert r['mayPublish'] is False
+          print('9 actual encoded H264 science/ID overlay frames independently OCR checked, source/claim/viewer release gates remain HOLD')
+          PY
       - name: Preserve actual timing evidence without source audio or model copies
         if: always()
         uses: actions/upload-artifact@v4
