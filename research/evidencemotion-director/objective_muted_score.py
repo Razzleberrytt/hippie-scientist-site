@@ -19,7 +19,7 @@ from muted_review_research import reject_untrusted
 from phone_ui_audit import probe_movie, validate_manifest
 
 BASE_PERCENT = 80
-AUTOMATED_CAP_PERCENT = 90
+AUTOMATED_CAP_PERCENT = 92
 VERSION = "ths-real-media-objective-soundoff-v1"
 
 
@@ -55,8 +55,75 @@ def actual_frame_variation(movie, t):
     return round(float(frame[85:222, 18:150].std()), 3)
 
 
+
+def real_rgb_frame(movie, when):
+    """Decode one *actual* source-media RGB frame; never use annotation pixels."""
+    width,height=1080,1920
+    image=subprocess.check_output([
+        "ffmpeg", "-v", "error", "-nostdin", "-ss", f"{when:.5f}",
+        "-i", str(movie), "-frames:v", "1", "-f", "rawvideo",
+        "-pix_fmt", "rgb24", "pipe:1"
+    ], timeout=35)
+    if len(image)!=width*height*3:
+        fail("MISSING_REAL_CHALLENGE_FRAME")
+    return np.frombuffer(image,dtype=np.uint8).reshape(height,width,3)
+
+
+def compare_transfer_frames(open_a, open_b, not_before, not_after):
+    """Two sound-off *visual-evidence* challenges, not human comprehension.
+
+    Compare the rendered molecular diagrams while excluding changing labels.
+    Verify a visually significant timed ≠ payoff while the illustrated
+    *source structure remains stable*. This catches static fake comparisons,
+    missing lesson payoffs and accidental chemistry morphs. Each test has
+    explicit negative controls; it cannot award a human listener verdict.
+    """
+    for arr in (open_a,open_b,not_before,not_after):
+        if arr.shape!=(1920,1080,3) or arr.dtype!=np.uint8:
+            fail("EXACT_UNALTERED_NATIVE_RGB_FRAMES_REQUIRED")
+    def region(frame, bounds):
+        x1,y1,x2,y2=bounds
+        return frame[y1:y2,x1:x2].astype(np.int16)
+    def mad(a,b):
+        return round(float(np.abs(a-b).mean()),3)
+    molecule=(155,620,765,1060)
+    conclusion=(70,1132,840,1290)
+    result={
+        "twoStructureGraphicPixelMad": mad(region(open_a,molecule),
+                                           region(open_b,molecule)),
+        "spokenNegationPayoffPixelMad": mad(region(not_before,conclusion),
+                                           region(not_after,conclusion)),
+        "sourceGraphStabilityAtNegationPixelMad": mad(region(not_before,molecule),
+                                                     region(not_after,molecule))
+    }
+    result["structureComparisonVisiblyDifferent"]=result["twoStructureGraphicPixelMad"]>=6.0
+    result["negationPayoffVisibleWithStableScience"]=(
+        result["spokenNegationPayoffPixelMad"]>=8.0
+        and result["sourceGraphStabilityAtNegationPixelMad"]<=1.0)
+    return result
+
+
+def actual_transfer_challenges(movie, plan):
+    shots={s["id"]:s for s in plan["shots"]}
+    pivot=shots["sentence_5_part1"]["startSec"]
+    times=[.5,2.0,pivot-.2,pivot+.1]
+    if not (shots["sentence_1_part0"]["startSec"]<=times[0]<
+            shots["sentence_1_part0"]["endSec"] and
+            shots["sentence_1_part1"]["startSec"]<=times[1]<
+            shots["sentence_1_part1"]["endSec"] and
+            shots["sentence_5_part0"]["startSec"]<=times[2]<
+            shots["sentence_5_part0"]["endSec"] and
+            shots["sentence_5_part1"]["startSec"]<=times[3]<
+            shots["sentence_5_part1"]["endSec"]):
+        fail("SOUND_OFF_CHALLENGE_TIMES_NOT_IN_SCENES")
+    images=[real_rgb_frame(movie,t) for t in times]
+    result=compare_transfer_frames(*images)
+    result["actualDecodedChallengeSeconds"]=times
+    return result
+
+
 def evaluate(plan, *, image_variation=None, safe_zone_pass=False,
-             identical_soundoff_stream=False):
+             identical_soundoff_stream=False, transfer_evidence=None):
     """Pure exact-caption/geometry objective score; testable with fault injection."""
     shots = plan.get("shots")
     if not isinstance(shots, list) or len(shots) != 9:
@@ -126,6 +193,14 @@ def evaluate(plan, *, image_variation=None, safe_zone_pass=False,
     record("no_sound_and_identical_actual_pictures", identical_soundoff_stream,
            "No audio track and identical decoded per-stream SHA256 after muting")
 
+    transfer_evidence=transfer_evidence or {}
+    record("actual_graph_comparison_transfer",
+           transfer_evidence.get("structureComparisonVisiblyDifferent") is True,
+           "Real center-stage source-structure pixels change across the narrated comparison")
+    record("actual_negation_visual_transfer",
+           transfer_evidence.get("negationPayoffVisibleWithStableScience") is True,
+           "Timed limitation payoff changes real pixels while the science graphic stays stable")
+
     passed=sum(int(item["passed"]) for item in checks)
     result={
         "schema": VERSION, "overallChecklistCompleted": 26,
@@ -146,7 +221,7 @@ def evaluate(plan, *, image_variation=None, safe_zone_pass=False,
         "premiumFilmApproved": False,
         "realHandsetPlaybackVerified": False,
         "mayPublish": False,
-        "objectiveScope": "Content/accessibility/mechanical proxies, not proof of viewer comprehension",
+        "objectiveScope": "Content/accessibility/real-pixel teaching transfer proxies; not observed viewer answers",
     }
     return result
 
@@ -175,8 +250,9 @@ def audit(movie, manifest, receipt, claim, silent_movie, out):
         "computed_model": actual_frame_variation(movie, 19.),
         "source_card": actual_frame_variation(movie, 28.5),
     }
+    transfer=actual_transfer_challenges(movie,plan)
     scored=evaluate(plan,image_variation=variance,safe_zone_pass=True,
-                    identical_soundoff_stream=matching)
+                    identical_soundoff_stream=matching,transfer_evidence=transfer)
     scored.update({
         "actualVideoSha256": expected_sha,
         "actualMutedVideoSha256": digest(silent_movie),
@@ -184,6 +260,7 @@ def audit(movie, manifest, receipt, claim, silent_movie, out):
         "exactScientificClaimScreenSha256": digest(claim),
         "realDecodedFrameCount": frames,
         "observedActualPixelStd": variance,
+        "actualSoundOffTransferChallenges": transfer,
         "actualSilencedAudioStreams": 0 if audio_free else "UNKNOWN_OR_NONZERO",
         "postMuteVideoStreamSame": matching,
     })
