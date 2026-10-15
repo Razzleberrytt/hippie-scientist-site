@@ -19,6 +19,7 @@ from exact_wav_alignment import inspect_alignment
 from timed_caption_windows import schedule as caption_schedule, shown_at as timed_caption_shown_at, SCHEMA as CAPTION_WINDOW_SCHEMA
 from editorial_2d_cpu_research import smooth
 from source_locked_visual_direction import draw_verified_oxygen_locus
+from source_bond_trace_direction import draw_existing_bond_connections
 
 FPS = 30
 TREATMENTS = {'atlas', 'specimen'}
@@ -344,6 +345,12 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
                 y=(620+15*p)*scale+y*diagram.height/900
                 radius=10*scale
                 draw.ellipse((x-radius,y-radius,x+radius,y+radius),outline=accent,width=max(1,round(2*scale)))
+            # Teaching progression: light up only *existing verified bonds*
+            # while the narrator describes the connected-atom source record.
+            # The primary RDKit drawing and its stereo/bond-order remain intact.
+            if caption_mode == 'timed_research':
+                draw_existing_bond_connections(
+                    image,hero,seconds=t,scene=scene,scene_progress=p)
         if idx==1:
             draw = ImageDraw.Draw(image)
             text(pos(72,1150),'–OH = oxygen + hydrogen',font=f(40,True),fill=accent)
@@ -442,7 +449,8 @@ def render(root, destination, font_dir, treatment, native=False, *, experimental
         'narration_locked_treatments.py','verified_molecular_comparison.py',
         'editorial_2d_cpu_research.py','exact_wav_alignment.py','autonomous_script_asr_research.py',
         'phone_ui_audit.py','native_master_audit.py','timed_caption_windows.py',
-        'temporal_caption_audit.py','source_locked_visual_direction.py')]
+        'temporal_caption_audit.py','source_locked_visual_direction.py',
+        'source_bond_trace_direction.py')]
     renderer_sources = {p.name:sha(p) for p in source_files}
     if treatment not in TREATMENTS:
         raise ValueError('TREATMENT_HOLD:UNKNOWN_TREATMENT')
@@ -569,6 +577,8 @@ def render(root, destination, font_dir, treatment, native=False, *, experimental
                'experimentCaptionMode':'TIMED_RESEARCH' if experimental_timed_captions else 'LEGACY',
                'sourceLockedOxygenSpotlightResearch':experimental_timed_captions,
                'researchSpotlightIsNotReactionOrEffectEvidence':True,
+               'sourceGraphConnectionTeachingResearch':experimental_timed_captions,
+               'bondTraceNeverReplacesVerifiedSourceGraph':True,
                'audioProcessing':AUDIO_FILTER+' then AAC; no stretch, trimming or resynthesis',
                'alignmentRevisionSha256':alignment['revisionSha256'], 'scenes':scenes,
                'fonts':font_hashes,'chemistry':sources,'wallSeconds':round(time.monotonic()-start,3),
