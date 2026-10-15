@@ -1,0 +1,93 @@
+"""Source-rejection controls for speech-locked six-bond teaching direction.
+
+Real graph assay and graphics are intentionally research-only: test PASS
+cannot certify whole-film craft, medical effectiveness or viewer literacy.
+"""
+import unittest
+from dataclasses import dataclass
+from PIL import Image
+from source_bond_trace_direction import (
+    MAX_BONDS,verified_bond_path,selected_bond_count,
+    mapped_atom_point,draw_existing_bond_connections
+)
+
+@dataclass
+class WrongSource:
+    pubchem_cid:int=3034396
+
+
+class SourceBondDirectionTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        from narration_locked_treatments import chemistry_assets
+        cls.asset=chemistry_assets()["7_hydroxymitragynine"]
+        cls.scene={"id":"sentence_3","startSec":8.75,"endSec":14.5,
+                   "captionWords":[{"text":"This","startSec":8.75,"endSec":9.1},
+                                   {"text":"molecular","startSec":9.1,"endSec":9.6}]}
+
+    def test_path_has_six_real_source_bonds_and_one_free_oh_root(self):
+        graph=self.asset["mol"]
+        path=verified_bond_path(self.asset)
+        self.assertEqual(len(path),MAX_BONDS)
+        self.assertEqual(path[0][0],self.asset["oh"][0])
+        self.assertEqual(len(set(path)),len(path))
+        for (a,b),(n,c) in zip(path,path[1:]):
+            self.assertIsNotNone(graph.GetBondBetweenAtoms(a,b))
+            self.assertEqual(b,n)
+        self.assertIsNotNone(graph.GetBondBetweenAtoms(*path[-1]))
+
+    def test_exact_spoken_onset_and_monotone_increment(self):
+        start,end=9.1,14.5
+        self.assertEqual(selected_bond_count(9.0,start,end),0)
+        self.assertEqual(selected_bond_count(9.1,start,end),0)
+        self.assertEqual(selected_bond_count(9.6,start,end),1)
+        self.assertEqual(selected_bond_count(14.5,start,end),MAX_BONDS)
+        self.assertEqual([selected_bond_count(t,start,end)
+                          for t in (9.,9.1,10.,11.,12.,13.,14.5)],
+                         sorted(selected_bond_count(t,start,end)
+                                for t in (9.,9.1,10.,11.,12.,13.,14.5)))
+
+    def test_only_verified_bonds_are_marked_and_opening_is_unchanged(self):
+        base=Image.new("RGBA",(1080,1920),(2,13,23,255))
+        original=base.tobytes()
+        count=draw_existing_bond_connections(
+            base,self.asset,seconds=9.0,scene=self.scene,scene_progress=.12)
+        self.assertEqual(count,0)
+        self.assertEqual(base.tobytes(),original)
+        count=draw_existing_bond_connections(
+            base,self.asset,seconds=11.4,scene=self.scene,scene_progress=.55)
+        self.assertGreater(count,0)
+        self.assertNotEqual(base.tobytes(),original)
+        self.assertEqual(base.getpixel((800,1500)),(2,13,23,255))
+        self.assertEqual(base.getpixel((250,150)),(2,13,23,255))
+
+    def test_wrong_source_cannot_hijack_molecule_story(self):
+        wrong={**self.asset,"source":WrongSource()}
+        with self.assertRaisesRegex(ValueError,"WRONG_SOURCE_ID"):
+            verified_bond_path(wrong)
+        for mutation,code in [
+            ({"oh":[]},"FREE_OH_NOT_VERIFIED"),
+            ({"oh":[0,1]},"FREE_OH_NOT_VERIFIED"),
+            ({"diagramAtomXY":[[0,0]]},"MISSING_VERIFIED_DIAGRAM"),
+        ]:
+            with self.assertRaisesRegex(ValueError,code):
+                verified_bond_path({**self.asset,**mutation})
+
+    def test_bad_scene_timings_and_geometry_fail_closed(self):
+        frame=Image.new("RGBA",(1080,1920),(0,0,0,255))
+        with self.assertRaisesRegex(ValueError,"WRONG_NARRATION_SCENE"):
+            draw_existing_bond_connections(
+                frame,self.asset,seconds=10.,scene={**self.scene,"id":"sentence_2"},scene_progress=.5)
+        with self.assertRaisesRegex(ValueError,"MISSING_UNIQUE_SPOKEN_GRAPH_CUE"):
+            draw_existing_bond_connections(
+                frame,self.asset,seconds=10.,scene={**self.scene,"captionWords":[]},scene_progress=.5)
+        with self.assertRaisesRegex(ValueError,"INVALID_ACOUSTIC_TIMELINE"):
+            selected_bond_count(10,11,9)
+        with self.assertRaisesRegex(ValueError,"UNSUPPORTED_FILM_GEOMETRY"):
+            mapped_atom_point([620,320],.5,(900,1600))
+        with self.assertRaisesRegex(ValueError,"INVALID_SHOT_PROGRESS"):
+            mapped_atom_point([620,320],float("nan"),(1080,1920))
+
+
+if __name__=="__main__":
+    unittest.main()
