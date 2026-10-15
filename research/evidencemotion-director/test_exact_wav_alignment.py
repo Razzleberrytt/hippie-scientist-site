@@ -63,6 +63,20 @@ class AlignmentTests(unittest.TestCase):
                 self.check_hold('STALE_OR_CHANGED_INPUT')
                 path.write_bytes(data)
 
+    def test_mfa_epsilon_word_is_only_a_fully_covered_silence_interval(self):
+        grid = textgrid().replace('text = ""', 'text = "<eps>"', 1)
+        # MFA align_one emits <eps> in words and sil in phones for pauses.
+        index = grid.index('name = "phones"')
+        grid = grid[:index] + grid[index:].replace('text = ""', 'text = "sil"', 1)
+        self.change('textgrid', grid)
+        result = inspect_alignment(self.root, self.manifest)
+        self.assertEqual(len(result['wordAlignment']), 3)
+        self.assertEqual(result['wordAlignment'][0]['startMs'], 200)
+        self.assertFalse(result['pronunciationVerified'])
+        for label in ('HH', 'spn', '<eps>'):
+            self.change('textgrid', grid.replace('text = "sil"', f'text = "{label}"', 1))
+            self.check_hold('EPSILON_INTERVAL_CONTAINS_NON_SILENCE')
+
     def test_revised_dictionary_changes_revision_even_with_same_words(self):
         before = inspect_alignment(self.root, self.manifest)
         self.change("dictionary", "hydroxyl HH AY\ngroup G\ncomputed K\n# revised lexicon\n")
