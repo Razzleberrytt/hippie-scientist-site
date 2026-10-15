@@ -20,6 +20,8 @@ on:
       - 'research/evidencemotion-director/narrated_claim_screen.py'
       - 'research/evidencemotion-director/muted_review_research.py'
       - 'research/evidencemotion-director/test_muted_review_research.py'
+      - 'research/evidencemotion-director/native_text_legibility_audit.py'
+      - 'research/evidencemotion-director/test_native_text_legibility_audit.py'
       - 'research/evidencemotion-director/test_narrated_claim_screen.py'
       - 'research/evidencemotion-director/ASR-SOURCE-LOCK-2026-10-13.md'
       - 'research/evidencemotion-director/COMPLETION-CHECKLIST.md'
@@ -75,6 +77,7 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director -p test_native_autocritic.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_narrated_claim_screen.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_muted_review_research.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_native_text_legibility_audit.py -v
           for treatment in atlas specimen; do
             python research/evidencemotion-director/narration_locked_treatments.py \
               --alignment-root "$RUNNER_TEMP/ths-mfa/result" \
@@ -149,6 +152,29 @@ jobs:
                   assert critic['mayPublish'] is False and critic['automaticallyApprovedPremiumCraft'] is False
                   print('Actual native negative screening:',critic['decision'],critic['issues'])
               print(treatment,'1031 decoded frames, fixed timestamps, unchanged AAC reference, original voice retained')
+          PY
+      - name: Inspect actual decoded critical scientific text contrast and persistent legibility
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/native_text_legibility_audit.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --phone "$RUNNER_TEMP/ths-mfa/specimen-native/phone-ui-plan.json" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-native/render-receipt.json" \
+            --claim "$RUNNER_TEMP/ths-mfa/specimen-native/claim-screen.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-native/native-text-legibility.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-native/native-text-legibility.json'
+          x=json.loads(p.read_text())
+          assert x['testedCriticalVisibleLabels']==13
+          assert x['additionalObjectivePoints']==2
+          assert len(x['criteria'])==2
+          assert all(item['passed'] for item in x['criteria'])
+          assert not x['viewerComprehensionApproved']
+          assert not x['mayPublish']
+          print('Native text accessibility evidence: 2/2 actual-pixel checks passed; no viewer acceptance claimed.')
           PY
       - name: Generate actual muted teaching review packet without inventing audience scores
         shell: micromamba-shell {0}
