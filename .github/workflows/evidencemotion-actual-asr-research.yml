@@ -20,6 +20,8 @@ on:
       - 'research/evidencemotion-director/narrated_claim_screen.py'
       - 'research/evidencemotion-director/muted_review_research.py'
       - 'research/evidencemotion-director/test_muted_review_research.py'
+      - 'research/evidencemotion-director/objective_muted_score.py'
+      - 'research/evidencemotion-director/test_objective_muted_score.py'
       - 'research/evidencemotion-director/test_narrated_claim_screen.py'
       - 'research/evidencemotion-director/ASR-SOURCE-LOCK-2026-10-13.md'
       - 'research/evidencemotion-director/COMPLETION-CHECKLIST.md'
@@ -75,6 +77,7 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director -p test_native_autocritic.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_narrated_claim_screen.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_muted_review_research.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_objective_muted_score.py -v
           for treatment in atlas specimen; do
             python research/evidencemotion-director/narration_locked_treatments.py \
               --alignment-root "$RUNNER_TEMP/ths-mfa/result" \
@@ -174,6 +177,34 @@ jobs:
           assert r['independentlyCalibratedViewerComprehensionVerified'] is False
           assert r['mayPublish'] is False
           print('Review packet made from exact muted actual MP4; audience test remains HOLD.')
+          PY
+      - name: Independently score exact sound-off teaching evidence with a fail-closed cap
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/objective_muted_score.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --manifest "$RUNNER_TEMP/ths-mfa/specimen-native/phone-ui-plan.json" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-native/render-receipt.json" \
+            --claim "$RUNNER_TEMP/ths-mfa/specimen-native/claim-screen.json" \
+            --silent-movie "$RUNNER_TEMP/ths-mfa/specimen-native/muted-review/film-sound-off.mp4" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-native/muted-review/objective-score.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-native/muted-review/objective-score.json'
+          v=json.loads(p.read_text())
+          assert v['overallChecklistCompleted']==26
+          assert v['baseEvidencePercent']==80
+          assert 80 <= v['currentStepObjectiveProgressPercent'] <= 90
+          assert v['microChecksTotal']==10
+          assert v['automaticScoreCeilingPercent']==90
+          assert not v['actualUnfamiliarViewerComprehensionVerified']
+          assert v['humanAudienceResponsesObserved']==0
+          assert not v['mayPublish']
+          print('Evidence-scored working milestone:',
+                v['currentStepObjectiveProgressPercent'],'percent,',
+                v['microChecksPassed'],'of 10 objective mute proxies; no audience result claimed')
           PY
       - name: Preserve actual timing evidence without source audio or model copies
         if: always()
