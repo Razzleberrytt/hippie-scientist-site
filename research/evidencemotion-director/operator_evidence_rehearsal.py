@@ -21,7 +21,19 @@ REQUIRED=(
  'opening-reading-budget.json','objective-score.json','answer-recovery.json',
  'native-text-legibility.json','claim-screen.json','phone-ui-plan.json',
  'render-receipt.json','negative-critic.json','decoded-technical.json')
-SHA=re.compile(r'^[0-9a-f]{64}
+SHA=re.compile(r'^[0-9a-f]{64}$')
+REQUIRED_PIXEL_NEGATIVES={
+ 'delete_physical_frame:compound_a':'q1',
+ 'delete_physical_frame:compound_b':'q1',
+ 'delete_physical_frame:hydroxyl':'q2',
+ 'delete_physical_frame:computed_shape':'q3',
+ 'delete_physical_frame:human_effect_limit':'q4',
+ 'delete_physical_frame:source_hold':'q5',
+ 'swap_first_two_chemical_frames':'q1',
+ 'show_molecule_instead_of_source_card':'q5',
+ 'swap_both_valid_cid_number_assignments':'q5',
+ 'remove_7oh_to_cid_join_keep_cid_number':'q5',
+}
 
 def hold(reason):raise ValueError('RESEARCH_HANDOFF_HOLD:'+reason)
 def sha_bytes(data):return hashlib.sha256(data).hexdigest()
