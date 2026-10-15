@@ -176,6 +176,16 @@ def rehearse(archive,expected_archive_sha,*,probe=probe_movie,
      or load.get('allScenesReadingBudgetPass') is not True
      or any(not x.get('passesFullFilmReadingBudget') for x in load['allSceneSpans'])):
   hold('MISSING_REAL_NINE_SCENE_CHECKS')
+ # The legacy overlay-only 5-word/s pass is not a full visible-text pass:
+ # real rendered captions add words to the same rapid cuts.
+ if (load.get('schema')!='ths-evidencemotion-native-rapid-cut-reading-budget-v2'
+     or load.get('legacyOverlayOnlyGate') is not True
+     or not isinstance(load.get('captionWordsSampled'),int)
+     or load['captionWordsSampled']<=0
+     or load.get('allScenesCombinedVisibleTextBudgetPass') is not False
+     or load.get('combinedCaptionOverlayLoadRequiresReview') is not True
+     or load.get('fullMutedComprehensionApproved') is not False):
+  hold('COMBINED_CAPTION_READING_LOAD_NOT_AUDITED_OR_FALSIFIED')
  contrast=docs['native-text-legibility.json']
  if (contrast.get('testedCriticalVisibleLabels')!=16
      or contrast.get('additionalObjectivePoints')!=2):
