@@ -95,5 +95,44 @@ class NarrationTreatments(unittest.TestCase):
         result=validate_manifest(m,width=1080,height=1920,duration=824336/24000,actual_sha='a'*64)
         self.assertFalse(result['realHandsetPlaybackVerified'])
 
+    def test_actual_payoff_frames_use_sourced_graph_and_spoken_not_visual_reveal(self):
+        # Render *real native RGB pixels*, not just synthetic annotation plans.
+        import os
+        import numpy as np
+        from pathlib import Path
+        from narration_locked_treatments import fonts, render_frame, native_phone_plan
+        font_path=Path(os.environ.get('THS_TEST_FONT_DIR','/usr/share/fonts/truetype/dejavu'))
+        if not font_path.is_dir():
+            self.skipTest('Pinned DejaVu fonts unavailable on this runner')
+        font,_=fonts(font_path)
+        scenes=timeline(self.alignment())
+        assets=chemistry_assets();assets['dark_diagram']=assets['7_hydroxymitragynine']['diagram']
+        negation=next(w['startSec'] for w in scenes[4]['captionWords'] if w['text']=='not')
+        before_ann,after_ann=[],[]
+        before=render_frame(negation-.05,scenes,assets,'specimen',(1080,1920),font,
+                            annotations=before_ann)
+        after=render_frame(negation+.05,scenes,assets,'specimen',(1080,1920),font,
+                           annotations=after_ann)
+        # The explanatory graph is genuinely painted in the central science
+        # field; empty dark slides fail regardless of passing text manifests.
+        graph=np.asarray(before.crop((115,610,780,1050))).astype(np.float32)
+        self.assertGreater(float(graph.std()),12)
+        self.assertIn('STRUCTURE',[a['text'] for a in before_ann])
+        self.assertNotIn('≠',[a['text'] for a in before_ann])
+        self.assertIn('≠',[a['text'] for a in after_ann])
+        self.assertIn('HUMAN EXPERIENCE',[a['text'] for a in after_ann])
+        # On the spoken negation, the actual displayed pixels below the
+        # bounded chemistry card must make a substantial, visible change.
+        low_a=np.asarray(before.crop((72,1135,838,1250))).astype(np.int16)
+        low_b=np.asarray(after.crop((72,1135,838,1250))).astype(np.int16)
+        self.assertGreater(float(np.abs(low_a-low_b).mean()),6.0)
+        # Native panels still must obey top/right/bottom platform safe zones.
+        from phone_ui_audit import validate_manifest
+        m=native_phone_plan('a'*64,scenes,assets,'specimen',font)
+        result=validate_manifest(m,width=1080,height=1920,
+                                 duration=824336/24000,actual_sha='a'*64)
+        self.assertFalse(result['mayPublish'])
+
+
 
 if __name__=='__main__': unittest.main()
