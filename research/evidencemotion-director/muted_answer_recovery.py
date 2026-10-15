@@ -43,7 +43,7 @@ QUESTIONS=(
      "The explicit negation and effect boundary must emerge only at its spoken cue"),
     ("Q5","Where and by which CID is the 7-OH structure verified?",
      (("source_hold","PubChem"),
-      ("source_hold","CID 44301524"),
+      ("source_hold","7-OH • CID 44301524"),
       ("source_hold","pubchem.ncbi.nlm.nih.gov")),
      "The primary database, exact record and actual domain must be jointly shown"),
 )
