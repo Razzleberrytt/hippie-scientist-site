@@ -1,6 +1,6 @@
 # EvidenceMotion: system completion checklist (living tracker)
 
-**Granular execution view:** [243 evidence-gated subtasks across these same canonical 46 milestones](GRANULAR-46-EXECUTION-REGISTER.md). This decomposition is *not* a second accepted-count tracker; existing proof and quality gates below remain authoritative.
+**Granular execution view:** [243 evidence-gated subtasks across these same canonical 46 milestones](GRANULAR-46-EXECUTION-REGISTER.md). [Atomic workcard index: 1,590 scoped proof actions](ATOMIC-EXECUTION-INDEX.md). This decomposition is *not* a second accepted-count tracker; existing proof and quality gates below remain authoritative.
 
 **Updated:** 2026-10-15 | **Verified research foundations: 26/46 after PR #6792 protected merge; 20 open.** The actual two-treatment reference comparison earns one process requirement; importer/G2P labels, synthetic tests and the native repair earn no further credit. Version freeze remains lifted; normal science/publication gates remain. **Quality milestone: 0/1 excellent native final, 0/5 consecutive varied excellent first renders.**
 
