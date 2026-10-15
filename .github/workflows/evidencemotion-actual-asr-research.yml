@@ -411,7 +411,7 @@ jobs:
           assert result['allFrameEncodedOCR'] is False
           assert not result['independentAudienceComprehensionVerified']
           assert result['mayPublish'] is False
-          print('11 H264 caption crops independently OCR-checked (8 source words + 3 anti-early-reveal controls); no film release claimed')
+          print('12 decoded frame OCR samples: 8 words, 3 early-reveal controls and paired source record labels; research only')
           PY
       - name: Preserve actual timing evidence without source audio or model copies
         if: always()
