@@ -26,6 +26,8 @@ on:
       - 'research/evidencemotion-director/test_objective_muted_score.py'
       - 'research/evidencemotion-director/muted_answer_recovery.py'
       - 'research/evidencemotion-director/test_muted_answer_recovery.py'
+      - 'research/evidencemotion-director/reading_load_audit.py'
+      - 'research/evidencemotion-director/test_reading_load_audit.py'
       - 'research/evidencemotion-director/test_narrated_claim_screen.py'
       - 'research/evidencemotion-director/ASR-SOURCE-LOCK-2026-10-13.md'
       - 'research/evidencemotion-director/COMPLETION-CHECKLIST.md'
@@ -84,6 +86,7 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director -p test_native_text_legibility_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_objective_muted_score.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_muted_answer_recovery.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_reading_load_audit.py -v
           for treatment in atlas specimen; do
             python research/evidencemotion-director/narration_locked_treatments.py \
               --alignment-root "$RUNNER_TEMP/ths-mfa/result" \
@@ -158,6 +161,25 @@ jobs:
                   assert critic['mayPublish'] is False and critic['automaticallyApprovedPremiumCraft'] is False
                   print('Actual native negative screening:',critic['decision'],critic['issues'])
               print(treatment,'1031 decoded frames, fixed timestamps, unchanged AAC reference, original voice retained')
+          PY
+      - name: Enforce real original-timing opening shot reading budget
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/reading_load_audit.py \
+            --plan "$RUNNER_TEMP/ths-mfa/specimen-native/phone-ui-plan.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-native/opening-reading-budget.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-native/opening-reading-budget.json'
+          x=json.loads(p.read_text())
+          assert x['allOpeningCutsPass']
+          assert [s['visualWords'] for s in x['openingSpans']]==[8,8]
+          assert all(s['visualWordsPerSecond']<=5 for s in x['openingSpans'])
+          assert x['sourceRecordIdentitiesStillOnSilentHold']
+          assert not x['audienceComprehensionVerified']
+          print('Native hook science load stays below 5 words/sec; both PubChem identities preserved at silent hold.')
           PY
       - name: Inspect actual decoded critical scientific text contrast and persistent legibility
         shell: micromamba-shell {0}
