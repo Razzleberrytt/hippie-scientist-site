@@ -217,6 +217,10 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
     f = lambda n,b=False:font(max(1,round(n*scale)),b)
     def pos(x,y): return (round(x*scale),round(y*scale))
     scene = next(s for s in scenes if s['startSec']<=t<s['endSec'])
+    # Validate spoken cues before any hook, label, phase-cut or caption uses
+    # them; the genuine silent source-reading hold remains cue-free.
+    if scene['line'] and not scene.get('captionWords'):
+        raise ValueError('TREATMENT_HOLD:MISSING_SPOKEN_WORD_CUES')
     idx = scenes.index(scene)
     p = smooth((t-scene['startSec'])/max(.1,scene['endSec']-scene['startSec']))
     light = treatment=='atlas'
@@ -239,7 +243,17 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
 
     text(pos(72,220),'THE HIPPIE SCIENTIST',font=f(27,True),fill=accent,role=None)
     titles = ['What makes\n7-OH different?', 'Look at the\nhydroxyl group.', 'A record of\nconnected atoms.', 'The pose\nis computed.', 'Structure\nis not an effect.', 'CHECK THE SOURCE', 'Look closer.']
-    text(pos(70,292),titles[idx],font=f(70 if idx==5 else 74,True),fill=fg,role='hook' if idx==0 else 'science')
+    # A semantic reveal must not be spoiled by the header before the narrator
+    # says the negation. Keep the original WAV and acoustic cue untouched.
+    effect_boundary = None
+    if not light and idx == 4:
+        effect_boundary = next(w['startSec'] for w in scene['captionWords']
+                               if w['text'].casefold() == 'not')
+        title = 'What the shape\nshows.' if t < effect_boundary else 'What it cannot\ntell us.'
+    else:
+        title = titles[idx]
+    text(pos(70,292),title,font=f(70 if idx==5 else 74,True),fill=fg,
+         role='hook' if idx==0 else 'science')
     is_spatial = not light and idx not in (0,2,4,5)
     if idx==1 and is_spatial:
         text(pos(72,500),'–OH group: oxygen + hydrogen',font=f(36,True),fill=accent)
@@ -333,15 +347,25 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
     draw = ImageDraw.Draw(image)
     if idx not in (0,5) and not is_spatial:
         text(pos(72,1260),hero_label,font=f(30,True),fill=muted)
-    # Exact original sentence captions, never an ASR spelling substitution.
-    caption = wrapped(scene['line'],f(42,True),770*scale)
+    # In the limitation beat, present each exact, source-aligned phrase only
+    # when its meaning is spoken. Whole-sentence previews gave away "not"
+    # almost 2.3 seconds before the narrator did. No ASR text replacement.
+    # The silent source-reading hold carries an empty narration line and no
+    # word-cue array; render it as a source card with no caption, never raise.
+    visible_words = scene.get('captionWords', [])
+    if not visible_words and scene['line']:
+        raise ValueError('TREATMENT_HOLD:MISSING_SPOKEN_WORD_CUES')
+    if effect_boundary is not None:
+        visible_words = [word for word in visible_words
+                         if (word['startSec'] < effect_boundary) == (t < effect_boundary)]
+    caption = wrapped(' '.join(w['text'] for w in visible_words),f(42,True),770*scale)
     if len(caption)>5:
         raise ValueError('TREATMENT_HOLD:CAPTION_TOO_DENSE')
     word_index=0
     for n,line in enumerate(caption):
         x,y=pos(72,1310+50*n)
         for word in line.split():
-            cue=scene['captionWords'][word_index]
+            cue=visible_words[word_index]
             text((x,y),word,font=f(42,True),fill=accent if cue['startSec']<=t<cue['endSec'] else fg,role='caption')
             x += f(42,True).getlength(word+' ')
             word_index+=1

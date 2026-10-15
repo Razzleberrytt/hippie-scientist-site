@@ -45,14 +45,20 @@ class RealFilmClaimScreenTests(unittest.TestCase):
                      "annotations": second, "assetKind": "deterministic_science"},
                 ])
             elif sid == "sentence_5":
-                self.shots.extend([{"id": sid + "_part0", "startSec": start, "endSec": start+2.,
-                                    "annotations": copy.deepcopy(ann), "assetKind": "deterministic_science"},
-                                   {"id": sid + "_part1", "startSec": start+2., "endSec": end,
-                                    "annotations": copy.deepcopy(ann[:2]) + [
-                                        {"role": "science", "text": "≠"},
-                                        {"role": "science", "text": "HUMAN EXPERIENCE"}] +
-                                        copy.deepcopy(ann[2:]),
-                                    "assetKind": "deterministic_science"}])
+                pivot = words.index("not")
+                pre = copy.deepcopy(ann[:3]) + [
+                    {"role": "caption", "text": w} for w in words[:pivot]]
+                post = copy.deepcopy(ann[:3])
+                post[0]["text"] = "What it cannot\ntell us."
+                post = post[:2] + [
+                    {"role": "science", "text": "≠"},
+                    {"role": "science", "text": "HUMAN EXPERIENCE"}] + post[2:] + [
+                    {"role": "caption", "text": w} for w in words[pivot:]]
+                self.shots.extend([
+                    {"id": sid + "_part0", "startSec": start, "endSec": start+2.,
+                     "annotations": pre, "assetKind": "deterministic_science"},
+                    {"id": sid + "_part1", "startSec": start+2., "endSec": end,
+                     "annotations": post, "assetKind": "deterministic_science"}])
             else:
                 self.shots.append({"id": sid, "startSec": start, "endSec": end,
                                    "annotations": ann, "assetKind": "deterministic_science"})
@@ -105,6 +111,28 @@ class RealFilmClaimScreenTests(unittest.TestCase):
         self.shot("sentence_2")["annotations"] = [
             a for a in self.shot("sentence_2")["annotations"] if a.get("role") != "disclosure"]
         with self.assertRaisesRegex(ValueError, "COMPUTED_MODEL_UNDISCLOSED"):
+            self.screen()
+
+    def test_early_caption_cannot_spoil_negation(self):
+        self.shot("sentence_5_part0")["annotations"].append(
+            {"role": "caption", "text": "not"})
+        with self.assertRaisesRegex(ValueError, "VISIBLE_CAPTIONS_MISMATCH"):
+            self.screen()
+
+    def test_late_caption_preserves_exact_original_words(self):
+        self.shot("sentence_5_part1")["annotations"][-1]["text"] = "really."
+        with self.assertRaisesRegex(ValueError, "VISIBLE_CAPTIONS_MISMATCH"):
+            self.screen()
+
+    def test_early_title_cannot_spoil_limitation(self):
+        self.shot("sentence_5_part0")["annotations"][0]["text"] = (
+            self.shot("sentence_5_part1")["annotations"][0]["text"])
+        with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
+            self.screen()
+
+    def test_late_title_must_match_the_approved_limit(self):
+        self.shot("sentence_5_part1")["annotations"][0]["text"] = "Scientifically proven effects"
+        with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
             self.screen()
 
     def test_negation_not_claimed_before_narrator_says_not(self):

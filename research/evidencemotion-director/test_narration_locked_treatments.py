@@ -66,6 +66,40 @@ class NarrationTreatments(unittest.TestCase):
                     parent=asset['mol'].GetAtomWithIdx(oh).GetNeighbors()[0].GetIdx()
                     self.assertGreater(asset['xyz'][oh,2],asset['xyz'][parent,2])
 
+    def test_silent_source_pause_has_no_caption_cues(self):
+        # The exact original source-reading hold is intentionally silent;
+        # it must have a real scene/graphic but no manufactured words.
+        import os
+        from pathlib import Path
+        from narration_locked_treatments import fonts, render_frame
+        font_path=Path(os.environ.get('THS_TEST_FONT_DIR','/usr/share/fonts/truetype/dejavu'))
+        if not font_path.is_dir():
+            self.skipTest('Pinned DejaVu font unavailable on this runner')
+        font,_=fonts(font_path)
+        scenes=timeline(self.alignment())
+        assets=chemistry_assets()
+        ads=[]
+        card=next(s for s in scenes if s['id']=='source_hold')
+        frame=render_frame((card['startSec']+card['endSec'])/2,
+                           scenes,assets,'specimen',(1080,1920),font,annotations=ads)
+        self.assertEqual(frame.size,(1080,1920))
+        self.assertEqual([a for a in ads if a['role']=='caption'],[])
+        self.assertIn('CID 44301524',[a['text'] for a in ads])
+
+    def test_spoken_scene_missing_word_cues_holds(self):
+        import os
+        from pathlib import Path
+        from narration_locked_treatments import fonts, render_frame
+        font_path=Path(os.environ.get('THS_TEST_FONT_DIR','/usr/share/fonts/truetype/dejavu'))
+        if not font_path.is_dir():
+            self.skipTest('Pinned DejaVu font unavailable on this runner')
+        font,_=fonts(font_path)
+        scenes=timeline(self.alignment())
+        assets=chemistry_assets()
+        scenes[0].pop('captionWords')
+        with self.assertRaisesRegex(ValueError,'MISSING_SPOKEN_WORD_CUES'):
+            render_frame(.5,scenes,assets,'specimen',(1080,1920),font)
+
     def test_native_emitted_text_fits_existing_phone_ui_rules(self):
         import os
         from pathlib import Path
@@ -92,6 +126,16 @@ class NarrationTreatments(unittest.TestCase):
         self.assertEqual(len(payoff),2)
         self.assertFalse(any(a['text']=='≠' for a in payoff[0]['annotations']))
         self.assertTrue(any(a['text']=='≠' for a in payoff[1]['annotations']))
+        self.assertIn('What the shape\nshows.',
+                      [a['text'] for a in payoff[0]['annotations']])
+        self.assertIn('What it cannot\ntell us.',
+                      [a['text'] for a in payoff[1]['annotations']])
+        self.assertNotIn('not',[a['text'] for a in payoff[0]['annotations']])
+        self.assertIn('not',[a['text'] for a in payoff[1]['annotations']])
+        full=[w['text'] for w in scenes[4]['captionWords']]
+        visible0=[a['text'] for a in payoff[0]['annotations'] if a['role']=='caption']
+        visible1=[a['text'] for a in payoff[1]['annotations'] if a['role']=='caption']
+        self.assertEqual(visible0+visible1,full)
         result=validate_manifest(m,width=1080,height=1920,duration=824336/24000,actual_sha='a'*64)
         self.assertFalse(result['realHandsetPlaybackVerified'])
 
@@ -118,9 +162,13 @@ class NarrationTreatments(unittest.TestCase):
         graph=np.asarray(before.crop((115,610,780,1050))).astype(np.float32)
         self.assertGreater(float(graph.std()),12)
         self.assertIn('STRUCTURE',[a['text'] for a in before_ann])
+        self.assertIn('What the shape\nshows.',[a['text'] for a in before_ann])
+        self.assertNotIn('not',[a['text'] for a in before_ann if a['role']=='caption'])
         self.assertNotIn('≠',[a['text'] for a in before_ann])
         self.assertIn('≠',[a['text'] for a in after_ann])
         self.assertIn('HUMAN EXPERIENCE',[a['text'] for a in after_ann])
+        self.assertIn('What it cannot\ntell us.',[a['text'] for a in after_ann])
+        self.assertIn('not',[a['text'] for a in after_ann if a['role']=='caption'])
         # On the spoken negation, the actual displayed pixels below the
         # bounded chemistry card must make a substantial, visible change.
         low_a=np.asarray(before.crop((72,1135,838,1250))).astype(np.int16)

@@ -50,7 +50,7 @@ EXPECTED_NON_CAPTION_ANNOTATIONS = {
         ("disclosure", "Hydrogen atoms omitted"),
     ),
     "sentence_5": (
-        ("science", "Structure\nis not an effect."),
+        ("science", "What the shape\nshows."),
         ("science", "STRUCTURE"),
         ("science", "7-HYDROXYMITRAGYNINE"),
     ),
@@ -140,7 +140,16 @@ def inspect(movie, wav, receipt_path, phone_plan_path):
         if not isinstance(annotations, list) or any(not isinstance(a, dict) or not isinstance(a.get("text"), str) for a in annotations):
             hold("EMITTED_FRAME_TEXT_MISSING")
         captions = " ".join(a["text"] for a in annotations if a.get("role") == "caption")
-        if captions != matching["line"]:
+        expected_captions = matching["line"]
+        if base == "sentence_5" and name in ("sentence_5_part0", "sentence_5_part1"):
+            # Exact acoustic negation divides *one immutable sentence* into
+            # two non-overlapping caption phrases. Do not let the first shot
+            # display the not-yet-spoken effect claim or any rewritten words.
+            original_words = matching["line"].split()
+            pivot = original_words.index("not")
+            expected_captions = " ".join(original_words[:pivot] if name.endswith("part0")
+                                         else original_words[pivot:])
+        if captions != expected_captions:
             hold("VISIBLE_CAPTIONS_MISMATCH_FROZEN_NARRATION")
         if shot.get("assetKind") == "nonfactual_illustration" and not any(
                 a.get("role") == "disclosure" and "illustration" in a.get("text", "").lower()
@@ -173,7 +182,10 @@ def inspect(movie, wav, receipt_path, phone_plan_path):
     if not not_word or len(payoff) != 2:
         hold("SPOKEN_NEGATION_PAYOFF_TIMING_REQUIRED")
     earlier, later = sorted(payoff, key=lambda v: v[0]["startSec"])
-    if abs(later[0]["startSec"] - not_word["startSec"]) > .001:
+    if (earlier[0].get("id") != "sentence_5_part0"
+            or later[0].get("id") != "sentence_5_part1"
+            or abs(later[0]["startSec"] - not_word["startSec"]) > .001
+            or abs(earlier[0]["endSec"] - not_word["startSec"]) > .001):
         hold("PAYOFF_MUST_START_AT_SPOKEN_NOT")
     if (any(a["text"] == "≠" for a in earlier[1])
             or not any(a["text"] == "≠" for a in later[1])):
@@ -194,7 +206,9 @@ def inspect(movie, wav, receipt_path, phone_plan_path):
                     expected[0], ("science", "7-OH • CID 44301524"), expected[2],
                 )
             elif base == "sentence_5" and shot is later[0]:
-                expected_shot = expected[:2] + (
+                expected_shot = (
+                    ("science", "What it cannot\ntell us."),
+                    expected[1],
                     ("science", "≠"), ("science", "HUMAN EXPERIENCE"),
                 ) + expected[2:]
             else:
