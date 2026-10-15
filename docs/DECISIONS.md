@@ -4,6 +4,14 @@
 **Updated:** 2026-10-13 (EvidenceMotion version policy and calibrated autonomous-review direction)
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
+## 2026-10-15 — Adopt THS Algorithm Observatory 1.0 as additive learning specification
+
+**Decision:** Owner adopts [THS Algorithm Observatory 1.0](THS_ALGORITHM_OBSERVATORY_V1_SPEC.md): black-box, platform-specific video-performance observation, creative-DNA features, pre-registered experiments, calibrated predictions, and future-only EvidenceMotion creative recommendations. This is **not** a claim of access to proprietary platform algorithms, implemented capability, validated performance lift or publication authorization.
+
+**Integration:** Extend the existing EvidenceMotion R8.10 flywheel, SocialOS/THS Publisher/Observer canonical post identity and verified state, durable experiment-learning #4414, outcome-ingestion #4407, and governed approved creative manifests. No parallel metrics registry, second priority score, auto-posting, unapproved scientific claims or paid critical-path service. Retain truthfully labeled `Unknown`, platform-native metrics, sample-size/confounder controls, authorized-only access, privacy, and exact source/quality/provenance reviews.
+
+**Sequencing and gates:** Specification is accepted; actual work is **unadmitted candidate** in MASTER_BACKLOG, not a change to CURRENT_SPRINT or the 46-item EvidenceMotion count. Prioritize completion of EvidenceMotion quality gates. Any later implementation needs existing scored admission/WIP, CI, sole-controller merge, deployment and real field receipts. No historical THS-MASTER-P0 §§1–73 or original 150-item checklist is silently amended.
+
 ## 2026-10-09 — Add build/CI optimization to existing P0 without displacing it
 
 **Decision:** Retain the accepted Generational Engineering P0 (#6431) and its scientific intelligence, semantic integration, reviewed-evidence, content/distribution and business objectives **in full**. Add build, CI and engineering-throughput optimization as a highest-priority **cross-cutting accelerator**, not a successor strategy, fourth workstream, new scoring formula, or automatically admitted implementation ticket.
