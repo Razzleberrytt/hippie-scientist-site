@@ -20,7 +20,7 @@ export function proposeAudioLockedCuts({approvedWavSha256,actualWavSha256,
  if(!hash(approvedWavSha256)||approvedWavSha256!==actualWavSha256)
    errors.push('WRONG_OR_UNAPPROVED_ORIGINAL_WAV');
  if(!hash(scienceManifestSha256))errors.push('SCIENCE_MANIFEST_UNVERIFIED');
- if(alignmentOrigin!=='independent-original-wav-mfa')errors.push('INDEPENDENT_REAL_WAV_ALIGNMENT_REQUIRED');
+ if(!['independent-original-wav-mfa','byte-bound-textgrid-candidate'].includes(alignmentOrigin))errors.push('INDEPENDENT_REAL_WAV_ALIGNMENT_REQUIRED');
  if(!Number.isInteger(durationMs)||durationMs<=0)errors.push('UNKNOWN_AUDIO_DURATION');
  if(!Array.isArray(wordAlignment)||wordAlignment.length<3||
     wordAlignment.some((w,i)=>!w||typeof w.word!=='string'||!w.word.trim()||!finite(w.startMs)||
@@ -116,7 +116,7 @@ export async function proposeFileBoundAudioLockedCuts({root,reportPath,
    return refusal('STALE_CUTS_REALIGNMENT_REQUIRED');
   const planned=proposeAudioLockedCuts({approvedWavSha256:expectedInputSha256.wav,
    actualWavSha256:report.inputSha256.wav,durationMs:report.durationMs,
-   wordAlignment:report.wordAlignment,alignmentOrigin:'independent-original-wav-mfa',
+   wordAlignment:report.wordAlignment,alignmentOrigin:'byte-bound-textgrid-candidate',
    beats,scienceManifestSha256});
   return {...planned,alignmentRevisionSha256:report.revisionSha256,
    alignmentReportSha256:expectedReportSha256,timingAccuracyCalibrated:false,
