@@ -224,6 +224,10 @@ Research-only enrichment staging is not canonical implementation admission. #633
 
 **Current admission candidate state:** D #6685 and research-only A #6769 are the two active normal implementation owners (2/3 WIP; R free). D #6685 retains its distinct source/identity-protection scope and historical **120.0** score; A #6769 has a separate exact-base score of **75.0** and is limited to inspected research opportunity review requests, not publishing or clinical evidence admission. The five-article #6766 remains deferred with its publication PR #6774 open and unmerged. Any further implementation requires a separately scored available lane. Scientific, accessibility, canonical, privacy, governance and release gates remain unchanged.
 
+### Revenue/Conversion (R) ready-next — #6810, pending exact-base admission
+
+**Proposed candidate only (2026-10-15):** [#6810](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6810) — read-only Publisher `PUBLISHED` identity → existing EvidenceMotion R8.10 flywheel observation bridge. [Phase 0 merged research audit](algorithm-observatory-phase0-audit-2026-10-15.md) established nonoverlap with R8.10/R8.11 and the existing #4414 experiment ledger. **Ordinal estimated score 45.0 = (BI 3 × UV 4 × TP 3 × SL 5 × Confidence .75) / Effort 3**. The business/traffic benefit is hypothetical; real field effect and reproduction are Unknown. R appears free under the 2/3 active roster, but GitHub/live admission and security checks still govern. **No additional ticket, workstream, provider permission, deployment, or EvidenceMotion checklist credit is authorized by this ready-next row.** Its first implementation PR may begin only after a new exact-base scored control admission confirms this slot, then passes required tests and controller merge. Do not displace D #6685, A #6769, or the EvidenceMotion 46-item quality priority. No new provider/scheduler or autopublishing work.
+
 ### Blocked or deferred candidates
 
 | Candidate | Workstream | Admission state | Proof required before implementation |
