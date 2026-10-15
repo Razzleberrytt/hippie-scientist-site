@@ -202,7 +202,8 @@ class NarrationTreatments(unittest.TestCase):
         lookup={shot['id']:shot for shot in plan['shots']}
         self.assertEqual(len(lookup),9)
         self.assertEqual(len(plan['shots']),9)
-        for name,scene in ((f'sentence_{i}',scenes[i-1]) for i in range(1,7)):
+        for scene in (part for part in scenes if part['id']!='source_hold'):
+            name=scene['id']
             cues=[w['text'] for w in scene['captionWords']]
             related=[shot for shot in plan['shots'] if shot['id']==name
                      or shot['id'].startswith(name+'_part')]
