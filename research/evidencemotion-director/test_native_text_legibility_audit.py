@@ -39,7 +39,7 @@ class RealEncodedTextInkTests(unittest.TestCase):
     def test_exact_13_visible_labels_meet_both_one_point_criteria(self):
         result=score_samples(self.plan,self.samples)
         self.assertEqual(result["schema"],SCHEMA)
-        self.assertEqual(result["testedCriticalVisibleLabels"],13)
+        self.assertEqual(result["testedCriticalVisibleLabels"],15)
         self.assertEqual(result["additionalObjectivePoints"],2)
         self.assertTrue(all(x["passed"] for x in result["criteria"]))
         self.assertFalse(result["viewerComprehensionApproved"])
@@ -57,7 +57,7 @@ class RealEncodedTextInkTests(unittest.TestCase):
         self.assertLess(r["additionalObjectivePoints"],2)
 
     def test_disappearing_late_text_rejected(self):
-        self.samples[("sentence_1_part0","CID = compound record number")]=(self.good,self.dark)
+        self.samples[("sentence_1_part0","Separate structures • no reaction")]=(self.good,self.dark)
         r=score_samples(self.plan,self.samples)
         self.assertFalse(r["criteria"][0]["passed"])
         self.assertFalse(r["criteria"][1]["passed"])
@@ -69,7 +69,7 @@ class RealEncodedTextInkTests(unittest.TestCase):
         box=[80,480,680,540]
         x1,y1,x2,y2=box
         late[y1:y2,x1+20:x2-20:2]=170
-        self.samples[("sentence_1_part0","MITRAGYNINE • CID 3034396")]=(self.good,late)
+        self.samples[("sentence_1_part0","7-OH vs\nmitragynine")]=(self.good,late)
         r=score_samples(self.plan,self.samples)
         self.assertTrue(r["criteria"][0]["passed"])
         self.assertFalse(r["criteria"][1]["passed"])
@@ -80,7 +80,7 @@ class RealEncodedTextInkTests(unittest.TestCase):
         self.assertFalse(r["criteria"][1]["passed"])
 
     def test_missing_first_use_definition_rejected(self):
-        shot=self.plan["shots"][0]
+        shot=next(s for s in self.plan["shots"] if s["id"]=="source_hold")
         shot["annotations"]=[a for a in shot["annotations"]
                              if a["text"]!="CID = compound record number"]
         with self.assertRaisesRegex(ValueError,"MISSING_OR_DUPLICATE_CRITICAL_LABEL"):
