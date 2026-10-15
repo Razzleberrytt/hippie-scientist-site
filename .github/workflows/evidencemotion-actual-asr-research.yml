@@ -186,8 +186,15 @@ jobs:
           assert [s['visualWords'] for s in x['openingSpans']]==[8,8]
           assert all(s['visualWordsPerSecond']<=5 for s in x['openingSpans'])
           assert x['sourceRecordIdentitiesStillOnSilentHold']
+          assert x['legacyOverlayOnlyGate'] is True
+          assert x['captionWordsSampled'] > 0
+          assert x['combinedCaptionOverlayLoadRequiresReview'] is True
+          assert x['allScenesCombinedVisibleTextBudgetPass'] is False
+          assert x['fullMutedComprehensionApproved'] is False
           assert not x['audienceComprehensionVerified']
-          print('All nine scenes stay below 5 words/sec; both source identities and effects limit preserved.')
+          print('All nine NON-CAPTION overlay scenes under 5 words/sec, but the actual combined caption load is OVER BUDGET: #27 stays on HOLD.')
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as summary:
+              summary.write('Actual caption+overlay reading load exceeds 5 words/sec in some scenes. Overlay-only success is NOT full muted comprehension or #27 acceptance.\\n')
           PY
       - name: Inspect actual decoded critical scientific text contrast and persistent legibility
         shell: micromamba-shell {0}
