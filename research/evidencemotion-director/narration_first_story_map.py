@@ -12,6 +12,7 @@ import json
 from pathlib import Path
 
 from autonomous_script_asr_research import LINES,WAV_SHA
+from phone_ui_audit import probe_movie
 
 SCHEMA="ths-four-act-actual-video-story-map-v1"
 # Each shot has a distinct, falsifiable teaching/visual function.
@@ -57,6 +58,15 @@ def audit_story(movie,receipt_file,plan_file,out):
     receipt=json.loads(receipt_file.read_text())
     plan=json.loads(plan_file.read_text())
     filmsha=sha(movie)
+    # Never accept a collection of matching JSON hashes as proof of a real
+    # decoded-native movie; use the same codec/frame-count inspector as the
+    # rest of the research pipeline before examining its semantic storyboard.
+    try:
+        width,height,duration,count=probe_movie(movie)
+    except Exception as e:
+        fail("ACTUAL_ENCODED_VIDEO_NOT_DECODABLE")
+    if (width,height)!=(1080,1920) or count!=1031 or not 34.3<=duration<=34.5:
+        fail("ACTUAL_H264_GEOMETRY_AND_DURATION_MISMATCH")
     if (receipt.get("sourceWavSha256")!=WAV_SHA
         or receipt.get("videoSha256")!=filmsha
         or plan.get("expectedVideoSha256")!=filmsha
