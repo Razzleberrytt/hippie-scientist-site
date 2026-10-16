@@ -149,6 +149,59 @@ class NarrationTreatments(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'MISSING_SPOKEN_WORD_CUES'):
             render_frame(.5,scenes,assets,'specimen',(1080,1920),font)
 
+    def test_exact_visual_reflow_never_changes_source_claim(self):
+        from narration_locked_treatments import exact_visual_reflow
+        original='Computed 3D illustration • not filmed'
+        lines=['Computed 3D illustration','• not filmed']
+        self.assertEqual(exact_visual_reflow(original,lines),
+                         'Computed 3D illustration\n• not filmed')
+        for candidate in (['Computed illustration','• not filmed'],
+                          ['• not filmed','Computed 3D illustration'],
+                          ['Computed 3D illustration','• filming'],
+                          ['Computed 3D illustration','']):
+            with self.subTest(lines=candidate):
+                with self.assertRaisesRegex(ValueError,'VISUAL_REFLOW'):
+                    exact_visual_reflow(original,candidate)
+        with self.assertRaisesRegex(ValueError,'INVALID_VISUAL_REFLOW'):
+            exact_visual_reflow(original,['one line'])
+
+    def test_specimen_native_labels_meet_phone_type_and_reflow_geometry(self):
+        # Checks actual native draw-generated label bounds. They are still
+        # authored geometry, NOT film OCR, handset or comprehension acceptance.
+        import os
+        from pathlib import Path
+        from narration_locked_treatments import fonts,native_phone_plan
+        from phone_ui_audit import projected_type_review
+        directory=Path(os.environ.get('THS_TEST_FONT_DIR',
+                          '/usr/share/fonts/truetype/dejavu'))
+        if not directory.is_dir():
+            self.skipTest('Pinned font directory unavailable')
+        font,_=fonts(directory)
+        assets=chemistry_assets()
+        assets['dark_diagram']=assets['7_hydroxymitragynine']['diagram']
+        plan=native_phone_plan('a'*64,timeline(self.alignment()),assets,'specimen',font)
+        small=projected_type_review(plan['shots'],1080)
+        self.assertEqual(small['smallDeclaredTextCount'],0,small['smallDeclaredText'])
+        self.assertFalse(small['realHandsetReadabilityVerified'])
+        labels={(shot['id'],a['text']):a for shot in plan['shots']
+                for a in shot['annotations'] if a['role']!='caption'}
+        checks={'sentence_3':'Dots mark atoms. Lines mark bonds.',
+                'sentence_4':'Computed 3D illustration • not filmed'}
+        for shot_id,label in checks.items():
+            a=labels[shot_id,label]
+            self.assertEqual(a['fontPx'],42)
+            self.assertEqual(' '.join(a['renderedLineBreaks']),label)
+            self.assertLessEqual(a['boxPx'][2],864)
+            self.assertLessEqual(a['boxPx'][3],1574)
+        disclosure=labels['sentence_4','Computed 3D illustration • not filmed']
+        hydrogen=labels['sentence_4','Hydrogen atoms omitted']
+        self.assertLess(disclosure['boxPx'][3],hydrogen['boxPx'][1])
+        self.assertLess(hydrogen['boxPx'][3],1318)
+        # The opening, nine scientific teaching/source shots, and ALL source
+        # narration words remain source-locked; no new release permissions.
+        self.assertEqual(len(plan['shots']),9)
+        self.assertIs(plan['releaseApproved'],False)
+
     def test_native_emitted_text_fits_existing_phone_ui_rules(self):
         import os
         from pathlib import Path
