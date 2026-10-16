@@ -227,5 +227,27 @@ from test_repeated_term_acoustic_guard import (  # noqa: F401
     PhysicallyRecoveredOriginalPcmBlacklistTests,
 )
 
+
+class Lane2GuardRegistrationTests(unittest.TestCase):
+    def test_all_later_acoustic_test_classes_are_in_actual_hosted_suite(self):
+        # The audio workflow discovers this entrypoint, NOT test_repeated_term_*
+        # directly. A green workflow previously omitted an entire new class.
+        # Fail whenever a future local TestCase class is not imported above.
+        import test_repeated_term_acoustic_guard as source_tests
+        defined = {
+            name: cls for name, cls in vars(source_tests).items()
+            if isinstance(cls, type)
+            and issubclass(cls, unittest.TestCase)
+            and cls.__module__ == source_tests.__name__
+        }
+        missing = sorted(
+            name for name, cls in defined.items()
+            if globals().get(name) is not cls
+        )
+        self.assertTrue(defined, "Acoustic research suite unexpectedly empty")
+        self.assertFalse(missing, "Acoustic classes omitted from hosted CI: "
+                         + ", ".join(missing))
+
+
 if __name__ == '__main__':
     unittest.main()
