@@ -12,7 +12,7 @@ import numpy as np
 
 from repeated_term_acoustic_guard import (
     SOURCE_ARCHIVE_SHA, audit, compare, decode_pcm, digest, distance, trajectory,
-    source_clip_sample_offsets,
+    source_clip_sample_offsets, audit_original_source,
 )
 
 ARCHIVE=Path(os.getenv("EM_LANE2_PREVIOUS_PACKET",
@@ -131,6 +131,85 @@ class SyntheticMasterLinkTests(unittest.TestCase):
         stereo = self.wav(samples, channels=2)
         with self.assertRaisesRegex(ValueError, "ORIGINAL_MASTER_WAV_FORMAT_INVALID"):
             source_clip_sample_offsets(stereo, clips, digest(stereo))
+
+
+
+class OriginalMfaCliContractTests(unittest.TestCase):
+    def test_new_mode_missing_files_returns_hold_with_no_publication(self):
+        with tempfile.TemporaryDirectory() as td:
+            unknown = Path(td) / "nonexistent.wav"
+            out = audit_original_source(unknown, unknown, unknown)
+            self.assertEqual(out["status"], "HOLD")
+            self.assertFalse(out["mayPublish"])
+            self.assertFalse(out["pronunciationVerified"])
+            self.assertFalse(out["sourceWavIndependentlyRehashed"])
+
+    def test_rehashed_non_original_wav_cannot_claim_original_source(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            master = root / "source.wav"
+            receipt = root / "mfa.json"
+            alignment = root / "alignment.json"
+            master.write_bytes(b"not the 34.35-second original")
+            receipt.write_text("{}")
+            alignment.write_text("{}")
+            out = audit_original_source(master, receipt, alignment)
+            self.assertEqual(out["status"], "HOLD")
+            self.assertIn("ORIGINAL_MASTER_WAV_SHA_CHANGED", out["errors"])
+            self.assertFalse(out["mayPublish"])
+
+    def test_cli_incomplete_source_triplet_refuses_false_green(self):
+        script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
+        for flags in ([], ["--mfa-receipt", "/nonexistent/mfa.json"],
+                      ["--original-wav", "/nonexistent/source.wav",
+                       "--mfa-receipt", "/nonexistent/mfa.json"]):
+            with self.subTest(flags=flags):
+                done = subprocess.run([sys.executable, script, *flags],
+                                      capture_output=True, text=True, timeout=20)
+                self.assertEqual(done.returncode, 2, done.stderr)
+                self.assertIn('"mayPublish": false', done.stdout)
+                self.assertIn('"status": "HOLD"', done.stdout)
+
+
+MASTER = Path(os.getenv("EM_LANE2_ORIGINAL_WAV", "/nonexistent/original-lane2.wav"))
+MFA_RECEIPT = Path(os.getenv("EM_LANE2_MFA_RECEIPT", "/nonexistent/mfa-receipt.json"))
+MFA_ALIGNMENT = Path(os.getenv("EM_LANE2_MFA_ALIGNMENT", "/nonexistent/mfa-alignment.json"))
+
+
+@unittest.skipUnless(all(p.is_file() for p in (MASTER, MFA_RECEIPT, MFA_ALIGNMENT)),
+    "Original SHA-pinned WAV + MFA inputs absent in CI; original-media proof NOT faked")
+class OriginalMasterMfaTests(unittest.TestCase):
+    def test_four_real_excerpts_bit_identical_and_repeat_controls_source_verified(self):
+        result = audit_original_source(MASTER, MFA_RECEIPT, MFA_ALIGNMENT)
+        self.assertEqual(result["status"], "RESEARCH_REPEATED_TERM_PATTERN_ONLY", result)
+        self.assertEqual(result["sourceClipSampleOffsetsInOriginalWav"],
+                         {1: 13440, 2: 50640, 3: 172560, 4: 227040})
+        self.assertAlmostEqual(result["repeatNormalizedSpectralDistance"], .203533, places=5)
+        self.assertAlmostEqual(result["closestOtherOriginalTermDistance"], .605658, places=5)
+        self.assertTrue(result["sourceWavIndependentlyRehashed"])
+        self.assertFalse(result["mayPublish"])
+        self.assertFalse(result["pronunciationVerified"])
+        self.assertFalse(result["phonemeIdentityVerified"])
+        self.assertFalse(result["wordTimingCalibrated"])
+
+    def test_real_master_one_byte_mutation_fails_even_without_changed_mfa(self):
+        with tempfile.TemporaryDirectory() as td:
+            changed = Path(td) / "altered.wav"
+            raw = bytearray(MASTER.read_bytes())
+            raw[-100] ^= 1
+            changed.write_bytes(raw)
+            report = audit_original_source(changed, MFA_RECEIPT, MFA_ALIGNMENT)
+            self.assertEqual(report["status"], "HOLD")
+            self.assertIn("ORIGINAL_MASTER_WAV_SHA_CHANGED", report["errors"])
+
+    def test_real_alignment_modified_word_boundary_fails_before_clip_comparison(self):
+        with tempfile.TemporaryDirectory() as td:
+            altered = Path(td) / "changed-alignment.json"
+            raw = MFA_ALIGNMENT.read_bytes()
+            altered.write_bytes(raw + b" ")
+            report = audit_original_source(MASTER, MFA_RECEIPT, altered)
+            self.assertEqual(report["status"], "HOLD")
+            self.assertIn("ORIGINAL_MFA_ALIGNMENT_SHA_CHANGED", report["errors"])
 
 
 @unittest.skipUnless(ARCHIVE.is_file(),
