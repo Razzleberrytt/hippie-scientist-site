@@ -19,12 +19,12 @@ Acceptance oracle: **absence of a human-outcome study in these four chemical/med
 ## Seven atomic checkpoints — nonoverlapping research proofs
 | Card | Bounded observed evidence |
 |---|---|
-| EM-007.04.U | One eight-claim frozen original asset ledger with six scientifically material spans |
-| EM-007.04.S | Linked SHA identities for source WAV, computed H264, exact source join, uncertainty JSON and archive |
-| EM-007.04.O | Falsifiable typed-null, typed-conflict, missing-within-source-pack, and mechanism distinction |
-| EM-007.04.X | Hosted original-WAV pipeline generated the actual source-join-linked uncertainty JSON |
-| EM-007.04.T | Exact-head hosted EM-007.04 step and tests PASS; independent ZIP/report/MP4 SHA and 8-row validation |
-| EM-007.04.N | Adversarial wrong/source, fake PMID/clinical outcome, altered words/word spans, injected scope and release rejected by the same oracle |
-| EM-007.04.R | This documented hash-bound machine-only receipt plus immutable hosted run and artifact link; publishing HOLD |
+| `EM-007.04.U` | **VERIFIED_MACHINE_RESEARCH** —  One eight-claim frozen original asset ledger with six scientifically material spans |
+| `EM-007.04.S` | **VERIFIED_MACHINE_RESEARCH** —  Linked SHA identities for source WAV, computed H264, exact source join, uncertainty JSON and archive |
+| `EM-007.04.O` | **VERIFIED_MACHINE_RESEARCH** —  Falsifiable typed-null, typed-conflict, missing-within-source-pack, and mechanism distinction |
+| `EM-007.04.X` | **VERIFIED_MACHINE_RESEARCH** —  Hosted original-WAV pipeline generated the actual source-join-linked uncertainty JSON |
+| `EM-007.04.T` | **VERIFIED_MACHINE_RESEARCH** —  Exact-head hosted EM-007.04 step and tests PASS; independent ZIP/report/MP4 SHA and 8-row validation |
+| `EM-007.04.N` | **VERIFIED_MACHINE_RESEARCH** —  Adversarial wrong/source, fake PMID/clinical outcome, altered words/word spans, injected scope and release rejected by the same oracle |
+| `EM-007.04.R` | **VERIFIED_MACHINE_RESEARCH** —  This documented hash-bound machine-only receipt plus immutable hosted run and artifact link; publishing HOLD |
 
 **Accounting:** uniquely +7 new machine-verified research cards only after exact-host execution and independent source/archive rehash. Relative to the previously documented 61 individual +707 inherited provisional =768: **68 individually machine-verified +707 inherited provisional =775/1590 (48.7421%)**, if no concurrent ledger promotion has happened. These are research cards, not the canonical 46 milestone or render-streak acceptance. Parent EM-007, children 007.05–.08, all independent scientific/creative/device/release gates remain open. `mayPublish=false`.
