@@ -110,11 +110,24 @@
         "EM-007.02.N",
         "EM-007.02.R"
       ]
+    },
+    {
+      "group": "EM-007.03",
+      "source": "EM00703-PRIMARY-SOURCE-CONTEXT-20261016.md",
+      "cards": [
+        "EM-007.03.U",
+        "EM-007.03.S",
+        "EM-007.03.O",
+        "EM-007.03.X",
+        "EM-007.03.T",
+        "EM-007.03.N",
+        "EM-007.03.R"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 54,
-  "provisionalCoverageCardCount": 761,
-  "provisionalCoveragePercent": 47.8616,
+  "individualMachineVerifiedResearchCardCount": 61,
+  "provisionalCoverageCardCount": 768,
+  "provisionalCoveragePercent": 48.3019,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }
