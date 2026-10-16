@@ -12,7 +12,7 @@ import math
 import re
 from pathlib import Path
 
-from autonomous_script_asr_research import WAV_SHA
+from autonomous_script_asr_research import WAV_SHA, LINES
 from encoded_science_pixel_audit import CRITICAL, EXACT_SHOTS, pixel_criterion
 from narration_first_story_map import STORY
 
@@ -101,6 +101,22 @@ def inventory(movie, receipt_path, phone_path, science_path, story_path,
         or [x.get("shot") for x in mapped]!=list(EXACT_SHOTS)
         or [x[0] for x in STORY]!=list(EXACT_SHOTS)):
         hold("EXACT_NINE_SHOT_ORDER_OR_ROWS_CHANGED")
+    scenes=receipt.get("scenes")
+    expected_scene_ids=[f"sentence_{i}" for i in range(1,6)]+["source_hold","sentence_6"]
+    expected_lines=list(LINES[:5])+["",LINES[5]]
+    if (not isinstance(scenes,list) or len(scenes)!=7
+        or [v.get("id") for v in scenes]!=expected_scene_ids
+        or [v.get("line") for v in scenes]!=expected_lines):
+        hold("FROZEN_NARRATION_SCENES_MISSING_OR_CHANGED")
+    full_cues=[]
+    for sc in scenes:
+        cues=sc.get("captionWords",[])
+        if (not isinstance(cues,list)
+            or [v.get("text") for v in cues]!=sc["line"].split()):
+            hold("CAPTION_CUE_INVENTORY_NOT_EXHAUSTIVE")
+        full_cues.extend(cues)
+    if len(full_cues)!=71:
+        hold("EXPECTED_71_FULL_SPOKEN_CAPTION_CUES")
     previous_end=0
     rows=[]
     for shot,observed,act,template in zip(shots,pixel_rows,mapped,STORY):
@@ -142,7 +158,16 @@ def inventory(movie, receipt_path, phone_path, science_path, story_path,
             hold("UNDOCUMENTED_VISUAL_ROLE:" + sid)
         roles={k: [a["text"] for a in annotations if a["role"]==k]
                for k in ("hook","science","source","disclosure","caption")}
+        all_caption_cues=[{"text":c["text"],"startSec":c["startSec"],
+                            "endSec":c["endSec"]} for c in full_cues
+                           if start<=c.get("startSec",-1)<end]
+        if any(not (isinstance(c["endSec"],(int,float))
+                     and c["endSec"]>c["startSec"]
+                     and c["endSec"]<=end+0.05)
+               for c in all_caption_cues):
+            hold("TIMED_FULL_CAPTION_CUES_OFF_SHOT")
         rows.append({
+            "all71SourceCaptionCuesForThisShot":all_caption_cues,
             "shot":sid,"startSec":start,"endSec":end,"act":act["act"],
             "diagramOrComposition":act["directedComposition"],
             "learningObjective":act["learningObjective"],
@@ -155,6 +180,8 @@ def inventory(movie, receipt_path, phone_path, science_path, story_path,
             "impliedEffectOrMisreadingToReview":INTERPRETATION_RISKS[sid],
             "clinicalEffectSupportedByThisVisual":False,
             "humanInterpretationReviewed":False})
+    if sum(len(r["all71SourceCaptionCuesForThisShot"]) for r in rows)!=71:
+        hold("SPOKEN_CAPTIONS_NOT_FULLY_ASSIGNED_TO_SHOTS")
     if not 34.3<=previous_end<=34.5:
         hold("FULL_ORIGINAL_TIMELINE_REQUIRED")
     if any(len(row["emittedSourceAnnotations"]["source"]) for row in rows
@@ -166,8 +193,8 @@ def inventory(movie, receipt_path, phone_path, science_path, story_path,
             "sourceWavSha256":WAV_SHA,"receiptSha256":receipt_hash,
             "phonePlanSha256":phone_hash,"encodedScienceOcrSha256":sha(science_path),
             "encodedCaptionOcrSha256":caption_hash,"storyMapSha256":sha(story_path),
-            "shotsInspected":len(rows),"rows":rows,
-            "captionCoverage":"SOURCE_EMISSION_SAMPLES_AND_CRITICAL_OCR_NOT_ALL_FRAMES",
+            "shotsInspected":len(rows),"sourceCaptionCuesAssigned":71,"rows":rows,
+            "captionCoverage":"ALL_71_SOURCE_EMISSION_CUES_PLUS_12_ENCODED_SAMPLES_NOT_ALL_FRAMES",
             "allFrameIndependentOCR":False,
             "scienceClaimsApproved":False,"impliedEffectRisksHumanReviewed":False,
             "audienceUnderstood":False,"mayPublish":False}
