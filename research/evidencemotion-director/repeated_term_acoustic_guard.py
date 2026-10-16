@@ -224,14 +224,92 @@ def audit_pose_poles_conflict(source_raw, alignment_raw, asr_raw):
         return fail("POSE_INPUT_PARSING_FAILED")
 
 
-def audit_pose_files(source_path, alignment_path, asr_path):
+
+# Each example is the exact source-aligned candidate audio of the SAME narrator.
+# Spelling/forced phone labels are NOT acoustically confirmed phoneme labels.
+POSE_INTERNAL_CONTRAST_WINDOWS = {
+    "disputed_pose_poles": (37, "pose",
+        "43c010d2d0cc1a400e05423abebfb917562b2cd51ed70eb02b73b84f3493e149"),
+    "neighboring_is": (38, "is",
+        "57ea78582b1bfb51e5ed1485a638754e2b2223be9d81cf9549aa8a588d3990a6"),
+    "authored_feel": (61, "feel",
+        "1820255c4478b99277eb1961de9771af7f363a4acb30c6c0e2b811af969292d8"),
+    "authored_detail": (68, "detail",
+        "0031be9ccdf1b067cb8d4b2d3c3526871dd53cedf569dd0e08c67f978f473fab"),
+    "authored_closer": (71, "closer",
+        "1f2696dc9493a0bc8eb3257d50475c3aecbfd355bdb7a6ae5d281d6481ae927b"),
+}
+
+
+def audit_pose_internal_reference_set(source_raw, alignment_raw, asr_raw):
+    """Exact source-linked auditory comparators; no inferred /l/ classification."""
+    prior = audit_pose_poles_conflict(source_raw, alignment_raw, asr_raw)
+    if prior["status"] != "RESEARCH_LEXICAL_DISAGREEMENT_REVIEW_HOLD":
+        return prior
+    try:
+        alignment = json.loads(alignment_raw)
+        words = alignment["wordAlignment"]
+        with wave.open(io.BytesIO(source_raw), "rb") as source:
+            full_pcm = source.readframes(source.getnframes())
+        reviews = []
+        for role, (index, authored_word, expected_digest) in POSE_INTERNAL_CONTRAST_WINDOWS.items():
+            row = words[index]
+            if row["word"] != authored_word:
+                return hold("POSE_INTERNAL_AUTHORED_EXAMPLE_CHANGED")
+            start_ms, end_ms = row["startMs"], row["endMs"]
+            if (not all(isinstance(v, (int, float)) and not isinstance(v, bool)
+                        and np.isfinite(v) for v in (start_ms, end_ms))
+                    or not 0 <= start_ms < end_ms <= 34348):
+                return hold("POSE_INTERNAL_REFERENCE_BOUNDS_INVALID")
+            a, b = round(start_ms*24), round(end_ms*24)
+            if b > len(full_pcm)//2:
+                return hold("POSE_INTERNAL_REFERENCE_OUTSIDE_MASTER")
+            segment = full_pcm[a*2:b*2]
+            stream = io.BytesIO()
+            with wave.open(stream, "wb") as out:
+                out.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+                out.writeframes(segment)
+            if digest(stream.getvalue()) != expected_digest:
+                return hold("POSE_INTERNAL_REFERENCE_EXACT_PCM_CHANGED")
+            reviews.append({
+                "role": role, "mfaAuthoredWordOnly": authored_word,
+                "mfaWordIndex": index,
+                "sourceStartSample": a, "sourceEndSample": b,
+                "clipWavSha256": expected_digest,
+                "physicalSameNarrationSourceVerified": True,
+                "authoredLabelIsCalibratedPhoneticTruth": False,
+            })
+        return {
+            **prior,
+            "status": "RESEARCH_POSE_INTERNAL_CONTRAST_REVIEW_ONLY",
+            "sameNarratorSourceBoundControls": reviews,
+            "comparisonCount": len(reviews),
+            "speakerMatchedRecordingVerified": True,
+            "phonemeReferenceCalibrated": False,
+            "lateralPresenceClassified": False,
+            "lexicalWinner": None,
+            "mayPublish": False,
+            "pronunciationVerified": False,
+            "phonemeIdentityVerified": False,
+            "wordTimingCalibrated": False,
+            "caution": "Same-original-WAV comparison words are authored-text hypotheses; "
+                       "the data do not verify an /l/ or calibrate phones.",
+        }
+    except (KeyError, IndexError, TypeError, ValueError, OSError, wave.Error):
+        return hold("POSE_INTERNAL_REFERENCE_EXTRACTION_FAILED")
+
+
+def audit_pose_files(source_path, alignment_path, asr_path, include_internal_controls=False):
     try:
         files = [(Path(source_path), 3000000), (Path(alignment_path), 100000),
                  (Path(asr_path), 20000)]
         if any(p.is_symlink() or not p.is_file() or not 0 < p.stat().st_size <= cap
                for p, cap in files):
             return hold("POSE_FILES_MISSING_OR_UNSAFE")
-        return audit_pose_poles_conflict(*(p.read_bytes() for p, _ in files))
+        source_input = [p.read_bytes() for p, _ in files]
+        if include_internal_controls:
+            return audit_pose_internal_reference_set(*source_input)
+        return audit_pose_poles_conflict(*source_input)
     except (OSError, TypeError, ValueError):
         return hold("POSE_FILES_UNREADABLE")
 
@@ -407,12 +485,17 @@ def main(argv=None):
     p.add_argument("--mfa-receipt", help="Pinned first-party original MFA run receipt")
     p.add_argument("--mfa-alignment", help="Pinned original MFA word alignment candidate")
     p.add_argument("--pose-asr-receipt", help="Research-only frozen original ASR receipt, pose/poles contrast")
+    p.add_argument("--pose-internal-contrasts", action="store_true",
+                   help="Produce source-pinned same-narrator comparisons; NEVER a phoneme verdict")
     a=p.parse_args(argv)
-    if a.pose_asr_receipt is not None:
+    if a.pose_internal_contrasts and a.pose_asr_receipt is None:
+        result=hold("POSE_INTERNAL_CONTRAST_REQUIRES_ASR_SOURCE")
+    elif a.pose_asr_receipt is not None:
         if not (a.original_wav and a.mfa_alignment) or a.mfa_receipt or a.source_archive:
             result=hold("POSE_MODE_REQUIRES_EXACTLY_SOURCE_ALIGNMENT_ASR")
         else:
-            result=audit_pose_files(a.original_wav, a.mfa_alignment, a.pose_asr_receipt)
+            result=audit_pose_files(a.original_wav, a.mfa_alignment, a.pose_asr_receipt,
+                                    include_internal_controls=a.pose_internal_contrasts)
     elif a.mfa_receipt is not None or a.mfa_alignment is not None:
         if not (a.original_wav and a.mfa_receipt and a.mfa_alignment) or a.source_archive:
             result=hold("ORIGINAL_MFA_MODE_REQUIRES_EXACTLY_THREE_SOURCE_INPUTS")
