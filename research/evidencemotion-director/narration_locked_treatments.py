@@ -409,14 +409,15 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
     if caption_mode not in ('legacy','timed_research'):
         raise ValueError('TREATMENT_HOLD:UNKNOWN_CAPTION_MODE')
     if caption_mode == 'timed_research':
-        # Schedule only already-safe pre/post reveal phrases: even future
-        # words in a caption group cannot expose the spoken "not" early.
+        # Independently reveal each word only at its own acoustic onset;
+        # negation / comparison still start separate semantic windows.
         groups=caption_schedule(visible_words,max_words=3)
         now=timed_caption_shown_at(groups,t)
         # Use the exact source-cue range, not text equality: repeated words
         # must never be mistaken for the same acoustic occurrence.
         active=next((g for g in groups if g['startSec']<=t<g['endSec']),None)
         visible_words=visible_words[active['firstCue']:active['afterLastCue']] if active else []
+        visible_words=[cue for cue in visible_words if cue['startSec']<=t]
         if [cue['text'] for cue in visible_words]!=now:
             raise ValueError('TREATMENT_HOLD:TIMED_CAPTION_SOURCE_DRIFT')
     caption = wrapped(' '.join(w['text'] for w in visible_words),f(42,True),770*scale)
