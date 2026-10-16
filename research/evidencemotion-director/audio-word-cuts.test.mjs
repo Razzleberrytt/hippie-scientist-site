@@ -92,3 +92,13 @@ test('sparse shot/beat entries fail closed instead of throwing during shot compo
  assert.deepEqual(r.shots,[]);
  assert.equal(r.finalRenderEligible,false);
 });
+
+test('sparse scientific-asset lineage fails closed, not silently emitting an undefined asset',()=>{
+ const x=sample();
+ x.beats[1].scientificAssetIDs.length=2;
+ const r=plan(x);
+ assert.equal(r.status,'HOLD');
+ assert.ok(r.errors.includes('SHOT_ASSET_LINEAGE_MISSING'));
+ assert.deepEqual(r.shots,[]);
+ assert.equal(r.finalRenderEligible,false);
+});
