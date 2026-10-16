@@ -2,6 +2,7 @@
 import copy
 import hashlib
 import json
+from decimal import Decimal
 from pathlib import Path
 import subprocess
 import sys
@@ -9,7 +10,7 @@ import tempfile
 import unittest
 
 sys.path.insert(0, str(Path(__file__).parent))
-from phone_ui_audit import audit, validate_manifest
+from phone_ui_audit import audit, validate_manifest, verify_decoded_shot_coverage
 
 H = "a" * 64
 
@@ -29,6 +30,11 @@ def fixture():
 class MobileAuditContract(unittest.TestCase):
     def check(self, plan, *, sha=H, size=(1080, 1920), duration=3.):
         return validate_manifest(plan, width=size[0], height=size[1], duration=duration, actual_sha=sha)
+
+    def test_single_actual_frame_can_cover_a_short_shot(self):
+        stamps = [Decimal("0"), Decimal("1.0"), Decimal("1.033333")]
+        shots = [{"id": "short", "startSec": 1.0, "endSec": 1.008}]
+        self.assertIsNone(verify_decoded_shot_coverage(stamps, shots))
 
     def test_good_research_metadata_does_not_publish(self):
         receipt = self.check(fixture())
@@ -235,6 +241,26 @@ class ActualFilmSmoke(unittest.TestCase):
             self.assertGreater(png.stat().st_size, 1000)
             self.assertEqual(receipt["decodedOverlayFrames"][0]["frameSha256"], hashlib.sha256(png.read_bytes()).hexdigest())
             self.assertFalse(json.loads((root / "frames" / "research-report.json").read_text())["mayPublish"])
+            # The full 30fps PTS grid can be valid while an authored micro-shot
+            # (1.001–1.003s) contains ZERO actual presented video frames.
+            # Previous metadata-only validation falsely accepted this scene.
+            opening = m["shots"][0]
+            opening["endSec"] = 1.001
+            m["shots"] += [
+                {"id": "phantom", "startSec": 1.001, "endSec": 1.003,
+                 "assetKind": "editorial",
+                 "annotations": [{"role": "caption", "text": "Unshown scientific claim",
+                                  "fontPx": 40, "boxPx": [100, 250, 700, 350]}]},
+                {"id": "ending", "startSec": 1.003, "endSec": 3.0,
+                 "assetKind": "editorial",
+                 "annotations": [{"role": "caption", "text": "Closing explanation",
+                                  "fontPx": 40, "boxPx": [100, 250, 700, 350]}]},
+            ]
+            plan.write_text(json.dumps(m))
+            with self.assertRaisesRegex(ValueError, "SHOT_WITHOUT_PRESENTED_FRAME:phantom"):
+                audit(movie, plan, root / "frames")
+            self.assertFalse((root / "frames" / "research-report.json").exists(),
+                             "No stale PASS receipt may survive a phantom-shot rejection")
 
 if __name__ == "__main__":
     unittest.main()
