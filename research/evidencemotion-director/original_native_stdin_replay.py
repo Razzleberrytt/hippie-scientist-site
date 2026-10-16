@@ -252,6 +252,24 @@ def inspect_both(first, second, environment_first, environment_second):
     }
 
 
+def verify_uploaded_movie(artifact_dir, report):
+    """Hash downloaded physical film bytes instead of trusting report metadata."""
+    movie = Path(artifact_dir) / ORIGINAL_NAME
+    if not movie.is_file() or movie.is_symlink() or movie.stat().st_size == 0:
+        raise ValueError("NATIVE_ORIGINAL_HOLD:UPLOADED_MOVIE_MISSING_EMPTY_OR_SYMLINK")
+    receipt = report.get("sourceToEncoderStdinReceipt")
+    if not isinstance(receipt, dict):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:MISSING_MOVIE_SHA_RECEIPT")
+    expected = receipt.get("filmSha256")
+    if (not isinstance(expected, str) or len(expected) != 64
+            or any(char not in "0123456789abcdef" for char in expected)):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:INVALID_MOVIE_SHA_RECEIPT")
+    observed = sha_file(movie)
+    if observed != expected:
+        raise ValueError("NATIVE_ORIGINAL_HOLD:UPLOADED_MOVIE_BYTES_DIFFER_FROM_ENCODER_RECEIPT")
+    return observed
+
+
 def sha(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -282,9 +300,11 @@ if __name__ == "__main__":
             env = json.loads((p / "environment.json").read_text())
             if report.get("sha256EnvironmentJson") != sha_file(p / "environment.json"):
                 raise ValueError("NATIVE_ORIGINAL_HOLD:PHYSICAL_ENV_FILE_SHA_MISMATCH")
+            verify_uploaded_movie(p, report)
             return report, env
         a, ae = read_pair(args.first)
         b, be = read_pair(args.second)
         report = inspect_both(a, b, ae, be)
+        report["downloadedMovieBytesRehashedAgainstBothEncoderReceipts"] = True
         Path(args.out).write_text(json.dumps(report, indent=2) + "\n")
         print(json.dumps(report, indent=2))
