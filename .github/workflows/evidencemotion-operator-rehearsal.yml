@@ -160,7 +160,7 @@ jobs:
             cp "$RUNNER_TEMP/em-archive/source/specimen-timed-native/$frame" "$dest/source/specimen-timed-native/"
           done
           cp "$RUNNER_TEMP/em-archive/voice/narration.wav" "$dest/voice/"
-          printf '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435  %s\\n' "$dest/voice/narration.wav" | sha256sum -c -
+          printf '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435  %s\n' "$dest/voice/narration.wav" | sha256sum -c -
           ( cd "$dest" && find source voice -type f -print0 | sort -z | xargs -0 sha256sum > PINNED-FILE-SHA256SUMS )
           test "$(find "$dest/source/specimen-timed-native" -type f | wc -l)" -eq 9
           test "$(find "$dest" -type f | wc -l)" -eq 12
@@ -221,7 +221,7 @@ jobs:
           set -euo pipefail
           cd "$RUNNER_TEMP/em-archive"
           sha256sum -c PINNED-FILE-SHA256SUMS
-          printf '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435  %s\\n' "$RUNNER_TEMP/em-archive/voice/narration.wav" | sha256sum -c -
+          printf '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435  %s\n' "$RUNNER_TEMP/em-archive/voice/narration.wav" | sha256sum -c -
           test "$(find source/specimen-timed-native -type f | wc -l)" -eq 9
           test "$(find . -type f | wc -l)" -eq 12
           echo 'Original archive bytes staged from successful 8-frame probe; no substituted voice.'
