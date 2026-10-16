@@ -31,7 +31,7 @@ SAMPLE_INDEX_SET = frozenset(ARCHIVED_PNG_SHA)
 ORIGINAL_NAME = "specimen_NEW_RESEARCH_CANDIDATE.mp4"
 
 
-def physical_environment(*, sources, fonts, wav, candidate):
+def physical_environment(*, sources, fonts, wav, candidate, encoder_mode):
     """Stable cross-run fingerprint of actual runtime file bytes, not runner ID."""
     import PIL
     import rdkit
@@ -55,6 +55,7 @@ def physical_environment(*, sources, fonts, wav, candidate):
         "pythonVersion": platform.python_version(),
         "ffmpegExecutableSha256": sha_file(exe),
         "ffmpegVersion": subprocess.check_output(["ffmpeg", "-version"], text=True).splitlines()[0],
+        "encoderMode": encoder_mode,
     }
     environment_sha = hashlib.sha256(
         json.dumps(environment, sort_keys=True, separators=(",", ":")).encode("utf-8")
@@ -90,8 +91,12 @@ def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
             or alignment.get("sampleCount") != 824336
             or math.ceil(alignment["sampleCount"] / 24000 * 30) != EXPECTED_FRAME_COUNT):
         raise ValueError("NATIVE_ORIGINAL_HOLD:ARCHIVED_TIMING_DRIFT")
+    # Research A/B: force one x264 worker and disable parallel lookahead.
+    # The earlier default-thread two-run CI remains immutably recorded.
+    encoder_mode = "SINGLE_THREAD_NO_SYNC_LOOKAHEAD_RESEARCH"
     environment = physical_environment(
-        sources=source_dir, fonts=font_dir, wav=wav_path, candidate=align_path)
+        sources=source_dir, fonts=font_dir, wav=wav_path, candidate=align_path,
+        encoder_mode=encoder_mode)
     out_dir.mkdir(parents=False)
     (out_dir / "environment.json").write_text(json.dumps(environment, indent=2) + "\n")
     # Never import the current main or candidate reimplementation in place of the
@@ -116,7 +121,9 @@ def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
             "-video_size", "1080x1920", "-framerate", "30",
             "-i", "pipe:0", "-i", str(wav_path),
             "-map", "0:v", "-map", "1:a",
-            "-c:v", "libx264", "-preset", "fast", "-crf", "18",
+            "-c:v", "libx264", "-threads:v", "1",
+            "-x264-params", "sync-lookahead=0",
+            "-preset", "fast", "-crf", "18",
             "-pix_fmt", "yuv420p", "-af", r.AUDIO_FILTER,
             "-c:a", "aac", "-b:a", "192k",
             "-frames:v", "1031", "-movflags", "+faststart", str(movie),
@@ -166,6 +173,7 @@ def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
         proof = {
             "schema": "ths-em-original-stdin-full-native-replay-job-v1",
             "status": "ONE_ORIGINAL_SOURCE_RENDER_RESEARCH_ONLY",
+            "encoderMode": encoder_mode,
             "runId": run_id, "runnerJobId": os.environ.get("GITHUB_JOB", "LOCAL_UNATTESTED"),
             "runnerName": os.environ.get("RUNNER_NAME", "LOCAL_UNATTESTED"),
             "githubRunId": os.environ.get("GITHUB_RUN_ID", "LOCAL_UNATTESTED"),
@@ -208,6 +216,14 @@ def inspect_both(first, second, environment_first, environment_second):
             raise ValueError("NATIVE_ORIGINAL_HOLD:FORGED_CREATIVE_APPROVAL")
         if d.get("sha256EnvironmentJson") != sha((json.dumps(e,indent=2)+"\n").encode()):
             raise ValueError("NATIVE_ORIGINAL_HOLD:ENV_REPORT_BYTES_DIFFER")
+    if (first.get("encoderMode") != "SINGLE_THREAD_NO_SYNC_LOOKAHEAD_RESEARCH"
+            or second.get("encoderMode") != first["encoderMode"]
+            or environment_first.get("encoderMode") != first["encoderMode"]
+            or environment_second.get("encoderMode") != second["encoderMode"]):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:ENCODER_MODE_DRIFT")
+    if (first["sourceToEncoderStdinReceipt"]["filmSha256"]
+            != second["sourceToEncoderStdinReceipt"]["filmSha256"]):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:SINGLE_THREAD_ENCODED_FILMS_DIFFER")
     sha1 = environment_first.get("environmentSha256")
     sha2 = environment_second.get("environmentSha256")
     if sha1 != sha2 or not isinstance(sha1, str):
@@ -227,11 +243,12 @@ def inspect_both(first, second, environment_first, environment_second):
         "twoNativeDecodedMoviesVerified": True,
         "sourceFrameBitwiseMatch": True,
         "actualOriginalHistoricalFFmpegBinaryPinned": False,
+        "twoResearchSingleThreadEncodedMoviesBitwiseIdentical": True,
         "originalFullStdinExternallyCapturedAndReplayed": True,
         "twoActualIndependentJobExecutionsAuthenticated": False,
         "nativeFullMediaDecodeAndCraftApproved": False,
         "mayPublish": False,
-        "status": "SOURCE_RGB_STDIN_REPRODUCED_TWO_HOSTED_RUNS_RESEARCH_HOLD",
+        "status": "SINGLE_THREAD_ORIGINAL_SOURCE_H264_BITWISE_REPLAY_RESEARCH_HOLD",
     }
 
 
