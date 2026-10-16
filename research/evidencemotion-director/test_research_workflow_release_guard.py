@@ -25,6 +25,17 @@ class ResearchReleaseGuardTests(unittest.TestCase):
                 self.assertFalse(report["humanApprovalGranted"])
                 self.assertEqual(len(report["sha256"]), 64)
 
+    def test_version_label_bump_cannot_override_read_only_policy(self):
+        p = WORKFLOWS[0]
+        original = self.originals[p]
+        old = "name: EvidenceMotion actual 7-OH word-ASR research"
+        self.assertIn(old, original)
+        modified = original.replace(old, old + " v9", 1)
+        result = inspect(p, modified)
+        self.assertFalse(result["mayPublish"])
+        self.assertFalse(result["releaseAuthorized"])
+        self.assertEqual(result["permissions"]["contents"], "read")
+
     def test_untrusted_workflow_filename_or_empty_document_holds(self):
         for path, content in [
             ("unrelated.yml", self.originals[WORKFLOWS[0]]),
