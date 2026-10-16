@@ -68,6 +68,24 @@ class ClaimStrengthSourceLimitsTests(unittest.TestCase):
                     ValueError,"INJECTED_HUMAN_STUDY_METADATA"):
                 self.inspect()
 
+    def test_nonclinical_source_record_schema_refuses_unknown_efficacy_fields(self):
+        # Keyword denylist alone previously missed these plausible payloads.
+        for source, key, value in (
+            ("pubchem:44301524", "effectiveDoseMg", 20),
+            ("media:render", "reportedEfficacy", 0.95),
+            ("media:story", "clinicalConfidence", "high"),
+        ):
+            self.setUp()
+            self.join["sources"][source][key] = value
+            with self.subTest(source=source, key=key), self.assertRaisesRegex(
+                    ValueError, "NONCLINICAL_SOURCE_SCHEMA_DRIFT|INJECTED_HUMAN_STUDY_METADATA"):
+                self.inspect()
+        self.setUp()
+        # Lost scope metadata must not be mistaken for a source-backed PASS.
+        self.join["sources"]["pubchem:3034396"].pop("permittedMeaning")
+        with self.assertRaisesRegex(ValueError, "NONCLINICAL_SOURCE_SCHEMA_DRIFT"):
+            self.inspect()
+
     def test_fake_clinical_fields_in_internal_film_are_blocked(self):
         self.join["sources"]["media:render"]["sampleSize"]=31
         with self.assertRaisesRegex(ValueError,"INJECTED_HUMAN_STUDY_METADATA"):
