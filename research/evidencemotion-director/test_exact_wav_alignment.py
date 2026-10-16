@@ -213,6 +213,9 @@ from test_voice_revision_invalidation import RevisionInvalidationTests  # noqa: 
 from test_asr_mfa_disagreement_gate import CrossModelResearchTests  # noqa: F401
 from test_caption_word_cue_integrity import CaptionWordCueTests  # noqa: F401
 from test_encoded_caption_transition_gate import EncodedCaptionBandTests  # noqa: F401
+# Lane 2 source-specific repeated-terminology acoustic research controls.
+# Hosted synthetic negatives run; source clips are SKIPPED unless SHA-pinned and supplied.
+from test_repeated_term_acoustic_guard import SpectralNegativeTests, ActualArchivedSourceTests  # noqa: F401
 
 if __name__ == '__main__':
     unittest.main()
