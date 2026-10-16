@@ -317,7 +317,12 @@ def audit(movie, manifest, output):
     # Fail closed BEFORE probing / validation: a prior successful report must
     # never survive a new failed attempt against changed inputs.
     report_path.unlink(missing_ok=True)
-    plan = json.loads(manifest.read_text(encoding="utf-8"))
+    # Bind both input identities to the exact bytes actually parsed/decoded.
+    # Recheck them after FFmpeg completes so mid-audit edits cannot yield a
+    # successful receipt for media or annotations that were never reviewed.
+    manifest_bytes = manifest.read_bytes()
+    plan = json.loads(manifest_bytes.decode("utf-8"))
+    manifest_hash = hashlib.sha256(manifest_bytes).hexdigest()
     movie_hash = sha256_file(movie)
     width, height, duration, decoded_count = probe_movie(movie)
     receipt = validate_manifest(plan, width=width, height=height,
@@ -357,7 +362,11 @@ def audit(movie, manifest, output):
                                    "actualFramePtsSec": float(actual_pts),
                                    "openingHookProbe": True, "file": name,
                                    "frameSha256": sha256_file(destination)})
-        receipt.update({"videoSha256": movie_hash, "manifestSha256": sha256_file(manifest),
+        if sha256_file(movie) != movie_hash:
+            hold("SOURCE_VIDEO_CHANGED_DURING_AUDIT")
+        if sha256_file(manifest) != manifest_hash:
+            hold("SOURCE_MANIFEST_CHANGED_DURING_AUDIT")
+        receipt.update({"videoSha256": movie_hash, "manifestSha256": manifest_hash,
                         "videoResolution": [width, height], "durationSec": duration,
                         "decodedFrameCount": decoded_count,
                         "frameToShotCoverage": coverage,
