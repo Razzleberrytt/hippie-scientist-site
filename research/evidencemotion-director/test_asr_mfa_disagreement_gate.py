@@ -12,7 +12,7 @@ def make_wav():
     output = io.BytesIO()
     with wave.open(output, 'wb') as w:
         w.setparams((1, 2, 24000, 0, 'NONE', 'not compressed'))
-        w.writeframes(struct.pack('<' + 'h'*24000, *([0]*24000)))
+        w.writeframes(struct.pack('<' + 'h'*24000, *([512]*24000)))
     return output.getvalue()
 
 
@@ -106,6 +106,27 @@ class CrossModelResearchTests(unittest.TestCase):
     def test_fabricated_publish_pass_refused(self):
         self.asr['mayPublish']=True
         self.assertIn('RESEARCH_ONLY_RELEASE_BOUNDARY_REQUIRED',self.result()['errors'])
+
+
+    def test_asr_word_onset_inside_literal_pcm_silence_is_physically_impossible(self):
+        # Source has 350ms of exact zero PCM from .25s through .60s.
+        # ASR estimates 'is' at .4s: 200ms before the first nonzero sample.
+        corrupted = bytearray(self.wav)
+        for i in range(6000, 14400):
+            corrupted[44+2*i:44+2*i+2] = b'\x00\x00'
+        self.wav = bytes(corrupted)
+        self.sha = hashlib.sha256(self.wav).hexdigest()
+        self.asr['sourceWavSha256'] = self.sha
+        self.mfa['originalWavSha256'] = self.sha
+        self.alignment['inputSha256']['wav'] = self.sha
+        report = self.result()
+        self.assertEqual(report['status'], 'RESEARCH_REVIEW_HOLD')
+        self.assertEqual(report['counts']['asrOnsetsInsideProvenDigitalSilence'], 1)
+        issue = report['digitalSilenceOnsetContradictions'][0]
+        self.assertEqual(issue['hypothesis'], 'is')
+        self.assertAlmostEqual(issue['onsetPrecedesAnyNonzeroSourceSampleMs'], 200, delta=1)
+        self.assertFalse(report['wordTimingCalibrated'])
+
 
 
 if __name__ == '__main__':
