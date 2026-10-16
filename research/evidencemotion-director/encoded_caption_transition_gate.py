@@ -19,6 +19,7 @@ WIDTH, HEIGHT, FPS, FRAMES = 1080, 1920, 30, 1031
 ROI = (40, 1260, 1000, 130)
 BAND_WIDTH, BAND_HEIGHT = 500, 65
 MIN_EVENT_MAE = 1.0  # original-source candidate only; not a legibility threshold
+MIN_FOREGROUND_MASK_CHANGED_PIXELS = 180  # source-bound color triage, not OCR
 MAX_MOVIE_BYTES = 50_000_000
 
 
@@ -85,13 +86,24 @@ def evaluate_decoded_band(decoded_frames, transitions):
     if (not isinstance(decoded_frames, np.ndarray) or decoded_frames.dtype != np.uint8 or
         decoded_frames.shape != (FRAMES, BAND_HEIGHT, BAND_WIDTH, 3)):
         raise ValueError('EXACT_DECODED_CAPTION_BAND_REQUIRED')
+    # Background motion alone cannot stand in for the source's white/teal
+    # caption foreground. Thresholds belong ONLY to this archived film.
+    green = decoded_frames[..., 1].astype(np.int16)
+    red = decoded_frames[..., 0].astype(np.int16)
+    blue = decoded_frames[..., 2].astype(np.int16)
+    foreground = (green > 150) & (
+        ((green - red) > 10) | ((red > 175) & (green > 175) & (blue > 170)))
     rows = []
     for tr in transitions:
         index = tr['frame']
         diff = np.abs(decoded_frames[index].astype(np.int16) - decoded_frames[index-1].astype(np.int16))
         mae = float(diff.mean())
+        foreground_changed = int(np.count_nonzero(foreground[index] ^ foreground[index-1]))
+        foreground_signal = foreground_changed >= MIN_FOREGROUND_MASK_CHANGED_PIXELS
         rows.append({**tr, 'decodedBandMeanAbsoluteRGB': round(mae, 4),
-                     'pixelChangeDetected': mae >= MIN_EVENT_MAE})
+                     'foregroundColorMaskChangedPixels': foreground_changed,
+                     'foregroundColorChangeDetected': foreground_signal,
+                     'pixelChangeDetected': mae >= MIN_EVENT_MAE and foreground_signal})
     return rows
 
 
@@ -139,12 +151,14 @@ def audit(movie, frozen_movie_sha, frame_ledger, frozen_ledger_sha, frozen_wav_s
             'frameLedgerSha256': frozen_ledger_sha, 'fps': FPS, 'decodedFrames': FRAMES,
             'captionTransitionCount': len(measured), 'undetectedTransitions': failures,
             'minimumEventBandMae': round(min(x['decodedBandMeanAbsoluteRGB'] for x in measured), 4),
+            'minimumEventForegroundColorChangedPixels': min(x['foregroundColorMaskChangedPixels'] for x in measured),
+            'minimumRequiredForegroundColorChangedPixels': MIN_FOREGROUND_MASK_CHANGED_PIXELS,
             'sampledDecodedFrameTransitions': measured,
             'roi': {'x': ROI[0], 'y': ROI[1], 'width': ROI[2], 'height': ROI[3],
                     'downsampledWidth': BAND_WIDTH, 'downsampledHeight': BAND_HEIGHT},
             'mayPublish': False, 'encodedCaptionTextVerified': False,
             'acousticWordBoundariesCalibrated': False, 'humanPhoneComprehensionApproved': False,
-            'caution': 'Pixel-band changes are not text OCR, word onset calibration, legibility, or release QA.'}
+            'caution': 'White/teal foreground-mask changes reject dark background-only animation, but are not text OCR, word identity, acoustic alignment, legibility or release QA.'}
 
 
 def main(argv=None):

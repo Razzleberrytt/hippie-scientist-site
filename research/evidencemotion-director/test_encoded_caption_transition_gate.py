@@ -44,20 +44,43 @@ class EncodedCaptionBandTests(unittest.TestCase):
     def test_actual_decoded_band_changes_at_every_ledger_event(self):
         events = validate_ledger(self.ledger, self.movie_sha, self.voice_sha)
         decoded = np.zeros((FRAMES,BAND_HEIGHT,BAND_WIDTH,3),dtype=np.uint8)
-        decoded[5:29] = 45
-        decoded[29:50] = 95
+        decoded[5:29, 15:35, 10:45] = [15, 230, 200]  # teal text-like patch
+        decoded[29:50, 15:35, 60:95] = [230, 230, 220]  # white patch
         verdicts = evaluate_decoded_band(decoded, events)
-        self.assertEqual(len(verdicts),3)
+        self.assertEqual(len(verdicts), 3)
         self.assertTrue(all(v['pixelChangeDetected'] for v in verdicts))
-        self.assertEqual([v['decodedBandMeanAbsoluteRGB'] for v in verdicts], [45.,50.,95.])
+        self.assertEqual([v['foregroundColorMaskChangedPixels'] for v in verdicts], [700, 1400, 700])
 
     def test_missing_actual_caption_transition_is_not_accepted_as_ledger_event(self):
         events = validate_ledger(self.ledger, self.movie_sha, self.voice_sha)
         decoded = np.zeros((FRAMES,BAND_HEIGHT,BAND_WIDTH,3),dtype=np.uint8)
-        decoded[5:50] = 45  # previous caption persists where new caption was promised
+        decoded[5:50, 15:35, 10:45] = [15, 230, 200]  # previous caption stays
         vals = evaluate_decoded_band(decoded, events)
         self.assertEqual([v['frame'] for v in vals if not v['pixelChangeDetected']], [29])
         self.assertFalse(vals[1]['pixelChangeDetected'])
+
+    def test_background_motion_without_caption_foreground_is_not_a_pass(self):
+        # Pre-fix MAE alone would count three scene/background color changes
+        # as if actual caption words had changed.
+        events = validate_ledger(self.ledger, self.movie_sha, self.voice_sha)
+        decoded = np.zeros((FRAMES, BAND_HEIGHT, BAND_WIDTH, 3), dtype=np.uint8)
+        decoded[5:29] = [25, 45, 65]
+        decoded[29:50] = [80, 100, 105]
+        result = evaluate_decoded_band(decoded, events)
+        self.assertEqual([v['decodedBandMeanAbsoluteRGB'] for v in result], [45., 50., 95.])
+        self.assertTrue(all(v['foregroundColorMaskChangedPixels'] == 0 for v in result))
+        self.assertTrue(all(not v['pixelChangeDetected'] for v in result))
+
+    def test_foreground_color_patch_may_change_without_proving_text(self):
+        # Deliberate spoof: colored rectangles mimic the palette. Screening
+        # must NEVER set text/OCR/voice/publish certification from this signal.
+        events = validate_ledger(self.ledger, self.movie_sha, self.voice_sha)
+        decoded = np.zeros((FRAMES, BAND_HEIGHT, BAND_WIDTH, 3), dtype=np.uint8)
+        decoded[5:29, 15:35, 10:45] = [15, 230, 200]
+        decoded[29:50, 15:35, 60:95] = [230, 230, 220]
+        vals = evaluate_decoded_band(decoded, events)
+        self.assertTrue(all(v['pixelChangeDetected'] for v in vals))
+        self.assertFalse(any('ocrText' in v or 'actualCaptionTextVerified' in v for v in vals))
 
     def test_forged_pixel_source_identity_or_publish_authority_refused(self):
         for field,val in [('videoSha256','f'*64),('sourceWavSha256','f'*64),
