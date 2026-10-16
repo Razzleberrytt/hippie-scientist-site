@@ -12,6 +12,8 @@ on:
       - 'research/evidencemotion-director/test_source_bond_trace_direction.py'
       - 'research/evidencemotion-director/narration_first_story_map.py'
       - 'research/evidencemotion-director/test_narration_first_story_map.py'
+      - 'research/evidencemotion-director/encoded_science_motion_audit.py'
+      - 'research/evidencemotion-director/test_encoded_science_motion_audit.py'
       - 'research/evidencemotion-director/test_narration_locked_treatments.py'
       - 'research/evidencemotion-director/timed_caption_windows.py'
       - 'research/evidencemotion-director/test_timed_caption_windows.py'
@@ -95,6 +97,7 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director -p test_source_locked_visual_direction.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_source_bond_trace_direction.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_narration_first_story_map.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_encoded_science_motion_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_temporal_caption_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_encoded_caption_cue_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_native_autocritic.py -v
@@ -491,6 +494,29 @@ jobs:
           assert r['actualHumanUnderstandingMeasured'] is False
           assert r['mayPublish'] is False
           print('Narration-first 4-act 9-shot SOURCE-BOUND map verified, human/premium checks remain on HOLD')
+          PY
+      - name: Independently measure actual encoded science camera movement and reject static or strobing visuals
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/encoded_science_motion_audit.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-timed-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-timed-native/render-receipt.json" \
+            --story "$RUNNER_TEMP/ths-mfa/specimen-timed-native/four-act-source-bound-story.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/encoded-science-motion-proof.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          path=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-timed-native/encoded-science-motion-proof.json'
+          r=json.loads(path.read_text())
+          assert r['inspectedOriginalWavShot']=='sentence_3'
+          assert r['sourceGraphRegionMotion']['movingHalfSecondIntervals']>=8
+          assert r['sourceGraphRegionMotion']['meanScienceMotionPercent']>=4.5
+          assert r['allNativeFramesInspected'] is False
+          assert r['premiumVisualQualityApproved'] is False
+          assert r['viewerComprehensionVerified'] is False
+          assert r['mayPublish'] is False
+          print('Actual encoded science visual progression passes frozen/flicker guard, craft and publishing still require separate gates')
           PY
       - name: Preserve actual timing evidence without source audio or model copies
         if: always()
