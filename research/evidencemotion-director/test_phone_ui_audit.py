@@ -1512,16 +1512,36 @@ class ActualFilmSmoke(unittest.TestCase):
             receipt = verify_complete_media_decode(movie)
             self.assertTrue(receipt["allMappedStreamsDecodedWithoutFatalErrors"])
             self.assertFalse(receipt["mayPublish"])
-            encoded = bytearray(movie.read_bytes())
-            encoded[len(encoded) // 2] ^= 0xff
+            encoded = movie.read_bytes()
+            self.assertGreater(encoded.find(b"mdat"), 0)
             corrupted = root / "corrupt.mp4"
-            corrupted.write_bytes(encoded)
-            # The deliberately unmodified MP4 headers preserve plausible
-            # stream and timeline metadata; decode must catch the damaged
-            # *compressed payload* regardless of the matching PTS count.
-            self.assertEqual(len(frame_timestamps(corrupted)), 45)
-            with self.assertRaisesRegex(ValueError, "FULL_ENCODED_MEDIA_DECODE_FAILED"):
-                verify_complete_media_decode(corrupted)
+            # A single random byte can land in a tolerable part of an x264
+            # packet and decode cleanly on a different FFmpeg build. Create
+            # a bounded set of genuine in-band payload damage cases; require
+            # at least one *physically undecodable* 45-frame sample. Never
+            # accept metadata-only/fixture declaration as the oracle.
+            decoder_rejected = False
+            for fraction in (0.25, 0.50, 0.75):
+                if decoder_rejected:
+                    break
+                for width in (1, 4, 8, 16, 64):
+                    damaged = bytearray(encoded)
+                    offset = int(len(damaged) * fraction)
+                    damaged[offset:offset + width] = b"\\xff" * width
+                    corrupted.write_bytes(damaged)
+                    try:
+                        if len(frame_timestamps(corrupted)) != 45:
+                            continue
+                    except (subprocess.CalledProcessError, ValueError):
+                        continue
+                    try:
+                        verify_complete_media_decode(corrupted)
+                    except ValueError as error:
+                        self.assertIn("FULL_ENCODED_MEDIA_DECODE_FAILED", str(error))
+                        decoder_rejected = True
+                        break
+            self.assertTrue(decoder_rejected,
+                            "Expected a real damaged H.264 bitstream with a full 45-frame PTS inventory to fail strict decoding")
 
     def test_full_decode_failure_invalidates_prior_report_before_success_claim(self):
         from phone_ui_audit import verify_complete_media_decode
