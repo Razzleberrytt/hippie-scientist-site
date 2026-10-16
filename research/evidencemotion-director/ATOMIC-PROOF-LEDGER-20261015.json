@@ -149,11 +149,24 @@
         "EM-007.06.N",
         "EM-007.06.R"
       ]
+    },
+    {
+      "group": "EM-007.05",
+      "source": "EM00705-REAL-ARCHIVE-SOURCE-STRENGTH-20261016.md",
+      "cards": [
+        "EM-007.05.U",
+        "EM-007.05.S",
+        "EM-007.05.O",
+        "EM-007.05.X",
+        "EM-007.05.T",
+        "EM-007.05.N",
+        "EM-007.05.R"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 75,
-  "provisionalCoverageCardCount": 782,
-  "provisionalCoveragePercent": 49.1824,
+  "individualMachineVerifiedResearchCardCount": 82,
+  "provisionalCoverageCardCount": 789,
+  "provisionalCoveragePercent": 49.6226,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }
