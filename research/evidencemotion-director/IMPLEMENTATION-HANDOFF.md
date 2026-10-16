@@ -129,3 +129,7 @@ Next executable task: inspect latest remote head and exact-head hosted packet/na
 ### Next executable task
 
 Fetch this branch and current main, inspect latest replacement PR head and exact-head hosted runs. Repair actual failures without changing science, narration, rubric or permission thresholds. If main drifts again, inspect controller policy; never bypass sole-controller main writes. After all protected exact-head gates and merge are actually verified, reconcile/close superseded PR #6817 with the real merge receipt, then update this file and authoritative records. Independent real viewers, craft/science/voice/handset approval, final accepted master, production rollback and publication remain HOLD. `mayPublish=false`.
+
+## Exact restage implementation checkpoint
+
+Restage implementation commit: `3681c287093e5330d1ef19e2fabd47dbd2164588`, on `research/evidencemotion-current-main-restage-6743-20261016`. This handoff-only successor pins that implementation SHA. All 54 provenance-listed blobs remain exact matches; 210 targeted tests and doc-link/diff checks passed as above. Full current-head hosted production/native acceptance remains pending. Resolve replacement PR by current branch name and inspect current remote tip before further changes.
