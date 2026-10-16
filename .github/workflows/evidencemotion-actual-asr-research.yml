@@ -4,6 +4,29 @@ on:
     paths:
       - 'research/evidencemotion-director/autonomous_script_asr_research.py'
       - 'research/evidencemotion-director/test_autonomous_script_asr_research.py'
+      - 'research/evidencemotion-director/mfa_acoustic_alignment.py'
+      - 'research/evidencemotion-director/test_mfa_acoustic_alignment.py'
+      - 'research/evidencemotion-director/exact_wav_alignment.py'
+      - 'research/evidencemotion-director/narration_locked_treatments.py'
+      - 'research/evidencemotion-director/test_narration_locked_treatments.py'
+      - 'research/evidencemotion-director/verified_molecular_comparison.py'
+      - 'research/evidencemotion-director/test_verified_molecular_comparison.py'
+      - 'research/evidencemotion-director/editorial_2d_cpu_research.py'
+      - 'research/evidencemotion-director/validated_7oh_chemistry.py'
+      - 'research/evidencemotion-director/phone_ui_audit.py'
+      - 'research/evidencemotion-director/native_master_audit.py'
+      - 'research/evidencemotion-director/native_autocritic.py'
+      - 'research/evidencemotion-director/test_native_autocritic.py'
+      - 'research/evidencemotion-director/narrated_claim_screen.py'
+      - 'research/evidencemotion-director/muted_review_research.py'
+      - 'research/evidencemotion-director/test_muted_review_research.py'
+      - 'research/evidencemotion-director/native_text_legibility_audit.py'
+      - 'research/evidencemotion-director/test_native_text_legibility_audit.py'
+      - 'research/evidencemotion-director/objective_muted_score.py'
+      - 'research/evidencemotion-director/test_objective_muted_score.py'
+      - 'research/evidencemotion-director/muted_answer_recovery.py'
+      - 'research/evidencemotion-director/test_muted_answer_recovery.py'
+      - 'research/evidencemotion-director/test_narrated_claim_screen.py'
       - 'research/evidencemotion-director/ASR-SOURCE-LOCK-2026-10-13.md'
       - 'research/evidencemotion-director/COMPLETION-CHECKLIST.md'
       - '.github/workflows/evidencemotion-actual-asr-research.yml'
@@ -11,6 +34,251 @@ permissions:
   contents: read
   actions: read
 jobs:
+  actual-original-wav-acoustic-alignment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-name: ths-mfa-cpu
+          create-args: >-
+            python=3.11 montreal-forced-aligner=3.3.8
+            kaldi=*=cpu* pytorch=*=cpu*
+          cache-environment: true
+      - name: Restore original WAV, brief and immutable official MFA model bytes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/ths-mfa/source" "$RUNNER_TEMP/ths-mfa/models"
+          gh run download 38417454106 --repo "$GITHUB_REPOSITORY" --name ths-kokoro-narration --dir "$RUNNER_TEMP/ths-mfa/source"
+          cd "$RUNNER_TEMP/ths-mfa/models"
+          curl --fail --location --retry 2 -o english_us_arpa.dict https://github.com/MontrealCorpusTools/mfa-models/releases/download/dictionary-english_us_arpa-v3.0.0/english_us_arpa.dict
+          curl --fail --location --retry 2 -o acoustic.zip https://github.com/MontrealCorpusTools/mfa-models/releases/download/acoustic-english_us_arpa-v3.0.0/english_us_arpa.zip
+          curl --fail --location --retry 2 -o g2p.zip https://github.com/MontrealCorpusTools/mfa-models/releases/download/g2p-english_us_arpa-v2.0.0/english_us_arpa.zip
+      - name: Execute actual CPU acoustic alignment and preserve all 73 original words
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          WAV=$(find "$RUNNER_TEMP/ths-mfa/source" -name narration.wav -type f)
+          BRIEF=$(find "$RUNNER_TEMP/ths-mfa/source" -name r805-creative-brief.json -type f)
+          python research/evidencemotion-director/mfa_acoustic_alignment.py \
+            --wav "$WAV" --brief "$BRIEF" \
+            --dictionary "$RUNNER_TEMP/ths-mfa/models/english_us_arpa.dict" \
+            --acoustic-model "$RUNNER_TEMP/ths-mfa/models/acoustic.zip" \
+            --g2p-model "$RUNNER_TEMP/ths-mfa/models/g2p.zip" \
+            --out "$RUNNER_TEMP/ths-mfa/result"
+      - name: Render two previews and repaired native research candidate on CPU
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core
+          python -m pip install 'rdkit==2025.9.4' 'pillow==12.0.0'
+          python -m unittest discover -s research/evidencemotion-director -p test_narration_locked_treatments.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_native_autocritic.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_narrated_claim_screen.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_muted_review_research.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_native_text_legibility_audit.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_objective_muted_score.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_muted_answer_recovery.py -v
+          for treatment in atlas specimen; do
+            python research/evidencemotion-director/narration_locked_treatments.py \
+              --alignment-root "$RUNNER_TEMP/ths-mfa/result" \
+              --font-dir /usr/share/fonts/truetype/dejavu --treatment "$treatment" \
+              --out "$RUNNER_TEMP/ths-mfa/$treatment"
+          done
+          python research/evidencemotion-director/narration_locked_treatments.py \
+            --alignment-root "$RUNNER_TEMP/ths-mfa/result" \
+            --font-dir /usr/share/fonts/truetype/dejavu --treatment specimen --native \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-native"
+      - name: Screen actual native movie against frozen spoken script and emitted scientific text
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/narrated_claim_screen.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --wav "$RUNNER_TEMP/ths-mfa/result/original.wav" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-native/render-receipt.json" \
+            --phone-plan "$RUNNER_TEMP/ths-mfa/specimen-native/phone-ui-plan.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-native/claim-screen.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-native/claim-screen.json'
+          result=json.loads(p.read_text())
+          assert result['status']=='MECHANICAL_SOURCE_CAPTION_SCREEN_PASS_INDEPENDENT_REVIEW_REQUIRED'
+          assert result['narratedScenesInspected']==7
+          assert result['emittedShotIntervalsInspected']>=8
+          assert len(result['reviewRows'])==7
+          assert not result['independentScientificReviewApproved']
+          assert not result['emittedWordsProvenAudible']
+          assert not result['mayPublish']
+          print('Emitted text/source identities checked on exact native media; independent reviews remain HOLD')
+          PY
+      - name: Fully decode previews and native candidate, verify narration integrity
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os,sys,json,subprocess
+          from pathlib import Path
+          sys.path.insert(0,'research/evidencemotion-director')
+          from native_master_audit import verify,audio_hash
+          from autonomous_voice_signal_audit import analyze
+          from narration_locked_treatments import AUDIO_FILTER,sha,WAV_SHA
+          from native_autocritic import analyze_video
+          root=Path(os.environ['RUNNER_TEMP'])/'ths-mfa'
+          reference=root/'reference.m4a'
+          subprocess.run(['ffmpeg','-v','error','-i',str(root/'result/original.wav'),'-af',AUDIO_FILTER,'-c:a','aac','-b:a','192k',str(reference)],check=True)
+          expected_audio=audio_hash(reference)
+          for treatment in ('atlas','specimen','specimen-native'):
+              target=root/treatment
+              receipt=json.loads((target/'render-receipt.json').read_text())
+              video=target/(receipt['treatment']+'_NEW_RESEARCH_CANDIDATE.mp4')
+              digest=sha(video)
+              width,height=receipt['resolution']
+              technical=verify(video,reference,digest,expected_audio,1031,width=width,height=height)
+              signal=analyze(root/'result/original.wav',video,WAV_SHA,digest)
+              (target/'decoded-technical.json').write_text(json.dumps(technical,indent=2)+'\n')
+              (target/'decoded-signal.json').write_text(json.dumps(signal,indent=2)+'\n')
+              assert technical['technical']=='PASS',technical
+              assert not signal['issues'],signal
+              assert signal['bestRelativeLagMs']==0,signal
+              assert signal['masteredClippedSampleFraction']==0,signal
+              if treatment=='specimen-native':
+                  critic=analyze_video(video,digest)
+                  (target/'negative-critic.json').write_text(json.dumps(critic,indent=2)+'\n')
+                  assert critic['actualVideoSha256']==digest and critic['samples']>=4,critic
+                  assert critic['schemaVersion']=='ths-autonomous-film-critic-research-v1',critic
+                  expected='AUTO_REVISE' if critic['issues'] else 'AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE'
+                  assert critic['decision']==expected,critic
+                  assert critic['mayPublish'] is False and critic['automaticallyApprovedPremiumCraft'] is False
+                  print('Actual native negative screening:',critic['decision'],critic['issues'])
+              print(treatment,'1031 decoded frames, fixed timestamps, unchanged AAC reference, original voice retained')
+          PY
+      - name: Inspect actual decoded critical scientific text contrast and persistent legibility
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/native_text_legibility_audit.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --phone "$RUNNER_TEMP/ths-mfa/specimen-native/phone-ui-plan.json" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-native/render-receipt.json" \
+            --claim "$RUNNER_TEMP/ths-mfa/specimen-native/claim-screen.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-native/native-text-legibility.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-native/native-text-legibility.json'
+          x=json.loads(p.read_text())
+          assert x['testedCriticalVisibleLabels']==13
+          assert x['additionalObjectivePoints']==2
+          assert len(x['criteria'])==2
+          assert all(item['passed'] for item in x['criteria'])
+          assert not x['viewerComprehensionApproved']
+          assert not x['mayPublish']
+          print('Native text accessibility evidence: 2/2 actual-pixel checks passed; no viewer acceptance claimed.')
+          PY
+      - name: Generate actual muted teaching review packet without inventing audience scores
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/muted_review_research.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --manifest "$RUNNER_TEMP/ths-mfa/specimen-native/phone-ui-plan.json" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-native/render-receipt.json" \
+            --claim "$RUNNER_TEMP/ths-mfa/specimen-native/claim-screen.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-native/muted-review"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-native/muted-review/packet-receipt.json'
+          r=json.loads(p.read_text())
+          assert r['result']=='REVIEW_PACK_GENERATED_NO_AUDIENCE_COMPREHENSION_PASS'
+          assert r['imageBitstreamUnchangedByMuting'] is True
+          assert r['soundOffHasZeroAudioTracks'] is True
+          assert r['questions']==5
+          assert len(r['actualMuteFrames'])==12
+          assert r['actualAudienceResponsesReceived']==0
+          assert r['independentlyCalibratedViewerComprehensionVerified'] is False
+          assert r['mayPublish'] is False
+          print('Review packet made from exact muted actual MP4; audience test remains HOLD.')
+          PY
+      - name: Score twelve actual muted-film teaching proxies without fake audience verdicts
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/objective_muted_score.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --manifest "$RUNNER_TEMP/ths-mfa/specimen-native/phone-ui-plan.json" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-native/render-receipt.json" \
+            --claim "$RUNNER_TEMP/ths-mfa/specimen-native/claim-screen.json" \
+            --silent-movie "$RUNNER_TEMP/ths-mfa/specimen-native/muted-review/film-sound-off.mp4" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-native/muted-review/objective-score.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-native/muted-review/objective-score.json'
+          x=json.loads(p.read_text())
+          assert x['microChecksPassed']==12 and x['microChecksTotal']==12
+          assert x['currentStepObjectiveProgressPercent']==92
+          assert x['allNewAutomatedChecksPassed'] is True
+          assert x['automaticScoreCeilingPercent']==92
+          assert x['humanAudienceResponsesObserved']==0
+          assert not x['actualUnfamiliarViewerComprehensionVerified']
+          assert not x['mayPublish']
+          print('12/12 physical film proxies pass; no viewers or publish approval claimed.')
+          PY
+      - name: Recover five questions from real mute-video evidence with ten adversarial controls
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/muted_answer_recovery.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --phone "$RUNNER_TEMP/ths-mfa/specimen-native/phone-ui-plan.json" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-native/render-receipt.json" \
+            --claim "$RUNNER_TEMP/ths-mfa/specimen-native/claim-screen.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-native/muted-answer-evidence.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-native/muted-answer-evidence.json'
+          x=json.loads(p.read_text())
+          assert x['currentRequirementWorkingPercent']==96
+          assert x['additionalMeasuredPoints']==2
+          assert all(x['semanticEvidence'].values())
+          assert len(x['actualEncodedPixels'])==5
+          assert all(q['allRequiredAnswersInkVisible'] for q in x['actualEncodedPixels'])
+          assert all(q['erasingKeyFactDropsAnswer'] and q['addingContradictionDropsAnswer']
+                     for q in x['counterfactualResults'])
+          assert x['humanAudienceRespondents']==0 and not x['mayPublish']
+          print('Five answer-coverage items, ten negative controls PASS; no audience claim.')
+          PY
+      - name: Preserve actual timing evidence without source audio or model copies
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencemotion-original-wav-mfa-acoustic-candidate
+          path: |
+            ${{ runner.temp }}/ths-mfa/result/aligned.TextGrid
+            ${{ runner.temp }}/ths-mfa/result/alignment*.json
+            ${{ runner.temp }}/ths-mfa/result/alignment.dict
+            ${{ runner.temp }}/ths-mfa/result/script.txt
+            ${{ runner.temp }}/ths-mfa/result/mfa-run-receipt.json
+            ${{ runner.temp }}/ths-mfa/result/*.log
+            ${{ runner.temp }}/ths-mfa/atlas/*
+            ${{ runner.temp }}/ths-mfa/specimen/*
+            ${{ runner.temp }}/ths-mfa/specimen-native/**
+          retention-days: 14
+          if-no-files-found: error
+      - name: Keep acoustic execution separate from pronunciation and quality approval
+        if: always()
+        run: |
+          echo 'MFA aligns the pinned original WAV on CPU. G2P chemical-term phones are unverified candidates.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No calibrated pronunciation, scientific/craft/device or publication approval follows from this job.' >> "$GITHUB_STEP_SUMMARY"
   strict-script-compare:
     runs-on: ubuntu-latest
     timeout-minutes: 4
