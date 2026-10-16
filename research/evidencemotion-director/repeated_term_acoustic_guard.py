@@ -315,7 +315,9 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes):
         SOURCE_WAV_REFERENCE, POSE_SOURCE_CLIP_SHA,
         *(sha for _, _, sha in POSE_INTERNAL_CONTRAST_WINDOWS.values()),
     }
-    seen_ids, seen_hashes = set(), set()
+    # WAV-container identity is insufficient: the same PCM can be repackaged
+    # with different chunk metadata or trailing bytes and cross the split.
+    seen_ids, seen_hashes, seen_pcm_hashes = set(), set(), set()
     groups = {"train": {}, "test": {}}
     samples = []
     try:
@@ -345,12 +347,16 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes):
                 pcm = audio.readframes(num)
             if not 2400 <= num <= 120000 or len(pcm) != num*2:
                 return refuse("REFERENCE_WAV_DURATION_OR_BYTES_INVALID")
+            pcm_sha = digest(pcm)
+            if pcm_sha in seen_pcm_hashes:
+                return refuse("REFERENCE_PCM_DUPLICATE_DESPITE_DIFFERENT_WAV_SHA")
             spectral = spectral_band_trace(pcm)
             observed = groups[split].setdefault(speaker, set())
             observed.add(label)
             samples.append((split, label, spectral["activeRatioDbMedian"]))
             seen_ids.add(identity)
             seen_hashes.add(claimed_sha)
+            seen_pcm_hashes.add(pcm_sha)
     except (KeyError, TypeError, ValueError, OSError, wave.Error, EOFError) as exc:
         return refuse("REFERENCE_WAV_OR_SCHEMA_PARSE_FAILED:" + str(exc)[:80])
     if set(audio_by_id) != seen_ids:
