@@ -130,18 +130,18 @@ def sample_treatment(base_frame,graph_image,science_bg,frame_no):
             amber=(round(24+228*alpha),round(68+118*alpha),round(76+39*alpha))
             draw.text((753,616),'?',font=bold(180),fill=amber)
             draw.text((735,831),'NOT SHOWN',font=bold(41),fill=(232,242,235))
-            # The original lower-caption zone is source-preserved, but its
-            # "≠ HUMAN EXPERIENCE" omitted the subject within this shot.
-            # Co-locate the COMPLETE assertion in the science-body panel;
-            # do not make viewers carry a subject across the scene cut.
-            proposition=complete_negation_after_spoken_not(frame_no)
-            font=bold(FULL_NEGATION_FONT_SIZE)
-            width=draw.textbbox((0,0),proposition,font=font)[2]
-            if width>874:
-                raise ResearchHold('FULL_NEGATION_EXCEEDS_SAFE_PHONE_WIDTH')
-            draw.rounded_rectangle((92,963,1000,1041),radius=14,
-                                   fill=(12,40,48),outline=(90,184,169),width=2)
-            draw.text((106,978),proposition,font=font,fill=(244,248,246))
+    # The original lower-caption zone is source-preserved, but its
+    # "≠ HUMAN EXPERIENCE" omitted the subject within this shot.
+    # Co-locate the COMPLETE assertion in the science-body panel;
+    # do not make viewers carry a subject across the scene cut.
+    proposition=complete_negation_after_spoken_not(frame_no)
+    font=bold(FULL_NEGATION_FONT_SIZE)
+    width=draw.textbbox((0,0),proposition,font=font)[2]
+    if width>874:
+        raise ResearchHold('FULL_NEGATION_EXCEEDS_SAFE_PHONE_WIDTH')
+    draw.rounded_rectangle((92,963,1000,1041),radius=14,
+                           fill=(12,40,48),outline=(90,184,169),width=2)
+    draw.text((106,978),proposition,font=font,fill=(244,248,246))
             # The original film's frame-synchronous lower "≠ HUMAN
             # EXPERIENCE" remains unchanged, not duplicated on this stage.
     return frame
