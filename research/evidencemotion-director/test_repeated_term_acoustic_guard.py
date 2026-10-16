@@ -369,6 +369,39 @@ class PhysicallyRecoveredOriginalPcmBlacklistTests(unittest.TestCase):
         self.assertFalse(result["mayPublish"])
 
 
+    def test_actual_original_pose_gain_changed_pcm_still_excluded(self):
+        # Optional actual-media regression: the CI checkout does not carry
+        # source narrator bytes. With original source injected and SHA-pinned,
+        # the previously unseen gain-transformed original word still HOLDs.
+        original_full = MASTER.read_bytes()
+        self.assertEqual(digest(original_full), SOURCE_WAV_REFERENCE)
+        source_excerpt = self.source_pcm()[4]
+        with wave.open(io.BytesIO(original_full), "rb") as original:
+            original_pcm = original.readframes(original.getnframes())
+        for factor in (2, -1):
+            with self.subTest(factor=factor):
+                changed_pcm = np.clip(
+                    np.frombuffer(source_excerpt, dtype="<i2").astype(np.int32)
+                    * factor, -32768, 32767).astype("<i2").tobytes()
+                self.assertNotEqual(digest(source_excerpt), digest(changed_pcm))
+                self.assertNotIn(changed_pcm, original_pcm)
+                wave_bytes = io.BytesIO()
+                with wave.open(wave_bytes, "wb") as altered:
+                    altered.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+                    altered.writeframes(changed_pcm)
+                cases, references = BlindReferenceBenchmarkTests.fixture()
+                last = cases[-1]
+                last["wavSha256"] = digest(wave_bytes.getvalue())
+                references[last["sampleId"]] = wave_bytes.getvalue()
+                screened = evaluate_blind_reference_pairs(
+                    cases, references, set(), original_full)
+                self.assertEqual(screened["status"], "HOLD", screened)
+                self.assertIn("REFERENCE_GAIN_OR_POLARITY_EXCERPT_FROM_ORIGINAL_MASTER",
+                              screened["errors"])
+                self.assertTrue(screened["originalMasterSignTrajectoryScreened"])
+                self.assertFalse(screened["mayPublish"])
+
+
 class PoseConflictNegativeTests(unittest.TestCase):
     def test_unavailable_source_fails_closed_without_spelling_winner(self):
         bad = audit_pose_files("/nonexistent/voice.wav",
