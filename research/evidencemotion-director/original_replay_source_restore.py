@@ -33,7 +33,7 @@ PINNED = {
     "source_bond_trace_direction.py": "c9702e6ffab9ea612d7d36d6e7c2f2477fcb6b24adbd05ae48c5bdda682afe20",
 }
 REFS = {name: (PHONE_COMMIT if name == "phone_ui_audit.py" else BASE_COMMIT)
-        for name in PINN}
+        for name in PINNED}
 SAFE_NAME = re.compile(r"^[a-z][a-z0-9_]*\.py$")
 SAFE_REF = re.compile(r"^[0-9a-f]{40}$")
 
