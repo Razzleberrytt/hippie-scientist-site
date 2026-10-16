@@ -446,6 +446,7 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes,
     # WAV-container identity is insufficient: the same PCM can be repackaged
     # with different chunk metadata or trailing bytes and cross the split.
     seen_ids, seen_hashes, seen_pcm_hashes, seen_polarity_signatures = set(), set(), set(), set()
+    seen_sign_trajectories = []
     target_pcm = None
     target_sign_trajectory = None
     if target_original_wav is not None:
@@ -516,6 +517,21 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes,
             ))
             if polarity_identity in seen_polarity_signatures:
                 return refuse("REFERENCE_GAIN_OR_POLARITY_REUSED_ACROSS_RECORDINGS")
+            # Different-duration clips can contain the *same* source speech
+            # after a crop. Whole-file/PCM SHA and same-length fingerprints
+            # do not protect the held-out split from that leakage.
+            # Exact sample-sign containment (both polarities) is a conservative
+            # REVIEW HOLD, not proof of speaker or word identity.
+            signed_trace = np.sign(signed_pcm).astype(np.int8).tobytes()
+            inverted_trace = (-np.sign(signed_pcm)).astype(np.int8).tobytes()
+            if any(
+                (other.find(signed_trace) != -1
+                 or signed_trace.find(other) != -1
+                 or other.find(inverted_trace) != -1
+                 or inverted_trace.find(other) != -1)
+                for other in seen_sign_trajectories
+            ):
+                return refuse("REFERENCE_CROPPED_OR_POLARITY_REUSED_ACROSS_RECORDINGS")
             if target_pcm is not None and target_pcm.find(pcm) != -1:
                 return refuse("REFERENCE_EXCERPT_REUSED_FROM_ORIGINAL_MASTER")
             if target_sign_trajectory is not None:
@@ -531,6 +547,7 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes,
             seen_hashes.add(claimed_sha)
             seen_pcm_hashes.add(pcm_sha)
             seen_polarity_signatures.add(polarity_identity)
+            seen_sign_trajectories.append(signed_trace)
     except (KeyError, TypeError, ValueError, OSError, wave.Error, EOFError) as exc:
         return refuse("REFERENCE_WAV_OR_SCHEMA_PARSE_FAILED:" + str(exc)[:80])
     if set(audio_by_id) != seen_ids:
