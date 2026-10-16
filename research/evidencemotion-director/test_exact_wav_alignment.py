@@ -208,5 +208,11 @@ class AlignmentTests(unittest.TestCase):
 from test_audio_cut_edge_qa import CutEdgeTests  # noqa: F401
 from test_voice_revision_invalidation import RevisionInvalidationTests  # noqa: F401
 
+# Compare byte-pinned original-WAV ASR/MFA evidence in the same hosted audio suite.
+# This triages word disagreements but never gives pronunciation or release approval.
+from test_asr_mfa_disagreement_gate import CrossModelResearchTests  # noqa: F401
+from test_caption_word_cue_integrity import CaptionWordCueTests  # noqa: F401
+from test_encoded_caption_transition_gate import EncodedCaptionBandTests  # noqa: F401
+
 if __name__ == '__main__':
     unittest.main()
