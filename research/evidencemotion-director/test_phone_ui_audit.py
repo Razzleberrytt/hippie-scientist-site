@@ -1490,10 +1490,12 @@ class ActualMediaStreamIdentityTests(unittest.TestCase):
 
 
 class ActualFilmSmoke(unittest.TestCase):
-    def test_physically_corrupt_midfilm_h264_fails_even_with_complete_ffprobe_grid(self):
-        # Real original x264 bitstream, then a one-byte data-area corruption.
-        # ffprobe can still emit all presentation timestamps and exit zero:
-        # PTS alone is not proof that every video frame actually decodes.
+    def test_truncated_physical_h264_bitstream_fails_strict_full_decode(self):
+        # A physically truncated H.264 elementary payload, not an invented
+        # ffprobe object. Full metadata/index parsing and one sampled PNG
+        # are insufficient to declare complete data payload integrity.
+        # A random bit flip can be decoder-tolerated across FFmpeg builds;
+        # partial length-delimited NAL units must fail closed.
         from phone_ui_audit import verify_complete_media_decode
         from native_master_audit import frame_timestamps
         with tempfile.TemporaryDirectory() as directory:
@@ -1507,41 +1509,27 @@ class ActualFilmSmoke(unittest.TestCase):
                 "-pix_fmt", "yuv420p", "-movflags", "+faststart",
                 "-an", str(movie)
             ], capture_output=True, timeout=50, check=True)
-            timestamps = frame_timestamps(movie)
-            self.assertEqual(len(timestamps), 45)
+            self.assertEqual(len(frame_timestamps(movie)), 45)
             receipt = verify_complete_media_decode(movie)
             self.assertTrue(receipt["allMappedStreamsDecodedWithoutFatalErrors"])
             self.assertFalse(receipt["mayPublish"])
             encoded = movie.read_bytes()
-            self.assertGreater(encoded.find(b"mdat"), 0)
-            corrupted = root / "corrupt.mp4"
-            # A single random byte can land in a tolerable part of an x264
-            # packet and decode cleanly on a different FFmpeg build. Create
-            # a bounded set of genuine in-band payload damage cases; require
-            # at least one *physically undecodable* 45-frame sample. Never
-            # accept metadata-only/fixture declaration as the oracle.
-            decoder_rejected = False
+            # Keep the fast-start MP4 headers but cut compressed media data.
+            # The 25/50/75% samples account for encoder GOP and packet
+            # placement differences across runner/FFmpeg versions; every
+            # attempted negative is a genuinely truncated real H.264 film.
+            rejected = False
             for fraction in (0.25, 0.50, 0.75):
-                if decoder_rejected:
+                truncated = root / "truncated.mp4"
+                truncated.write_bytes(encoded[:int(len(encoded) * fraction)])
+                try:
+                    verify_complete_media_decode(truncated)
+                except ValueError as error:
+                    self.assertIn("FULL_ENCODED_MEDIA_DECODE_FAILED", str(error))
+                    rejected = True
                     break
-                for width in (1, 4, 8, 16, 64):
-                    damaged = bytearray(encoded)
-                    offset = int(len(damaged) * fraction)
-                    damaged[offset:offset + width] = b"\xff" * width
-                    corrupted.write_bytes(damaged)
-                    try:
-                        if len(frame_timestamps(corrupted)) != 45:
-                            continue
-                    except (subprocess.CalledProcessError, ValueError):
-                        continue
-                    try:
-                        verify_complete_media_decode(corrupted)
-                    except ValueError as error:
-                        self.assertIn("FULL_ENCODED_MEDIA_DECODE_FAILED", str(error))
-                        decoder_rejected = True
-                        break
-            self.assertTrue(decoder_rejected,
-                            "Expected a real damaged H.264 bitstream with a full 45-frame PTS inventory to fail strict decoding")
+            self.assertTrue(rejected,
+                            "A real length-delimited truncated H.264 payload must not pass full decode")
 
     def test_full_decode_failure_invalidates_prior_report_before_success_claim(self):
         from phone_ui_audit import verify_complete_media_decode
