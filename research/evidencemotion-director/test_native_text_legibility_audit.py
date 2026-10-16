@@ -1,11 +1,17 @@
 """Negative controls: source-backed native text must be legible, not merely annotated."""
 import copy
 import unittest
+import subprocess
+import tempfile
+from decimal import Decimal
+from pathlib import Path
 
 import numpy as np
 
+from native_master_audit import frame_timestamps
 from native_text_legibility_audit import (REQUIRED, SCHEMA, get_boxes,
-                                          score_samples, MIN_INK_DYNAMIC_RANGE)
+                                          score_samples, MIN_INK_DYNAMIC_RANGE,
+                                          exact_gray_samples)
 
 
 class RealEncodedTextInkTests(unittest.TestCase):
@@ -30,16 +36,13 @@ class RealEncodedTextInkTests(unittest.TestCase):
                 "id":scene,"startSec":start,"endSec":start+2.,
                 "annotations":rows})
             start+=2.
-        self.plan["shots"].append({
-            "id":"sentence_6","startSec":start,"endSec":start+2.,
-            "annotations":[{"role":"science","text":"Look closer.","boxPx":[80,400,400,470]}]})
         self.samples={(s,t):(self.good,self.good)
                       for s,terms in REQUIRED.items() for t in terms}
 
     def test_exact_13_visible_labels_meet_both_one_point_criteria(self):
         result=score_samples(self.plan,self.samples)
         self.assertEqual(result["schema"],SCHEMA)
-        self.assertEqual(result["testedCriticalVisibleLabels"],13)
+        self.assertEqual(result["testedCriticalVisibleLabels"],16)
         self.assertEqual(result["additionalObjectivePoints"],2)
         self.assertTrue(all(x["passed"] for x in result["criteria"]))
         self.assertFalse(result["viewerComprehensionApproved"])
@@ -57,7 +60,7 @@ class RealEncodedTextInkTests(unittest.TestCase):
         self.assertLess(r["additionalObjectivePoints"],2)
 
     def test_disappearing_late_text_rejected(self):
-        self.samples[("sentence_1_part0","CID = compound record number")]=(self.good,self.dark)
+        self.samples[("sentence_1_part0","No reaction")]=(self.good,self.dark)
         r=score_samples(self.plan,self.samples)
         self.assertFalse(r["criteria"][0]["passed"])
         self.assertFalse(r["criteria"][1]["passed"])
@@ -69,7 +72,7 @@ class RealEncodedTextInkTests(unittest.TestCase):
         box=[80,480,680,540]
         x1,y1,x2,y2=box
         late[y1:y2,x1+20:x2-20:2]=170
-        self.samples[("sentence_1_part0","MITRAGYNINE • CID 3034396")]=(self.good,late)
+        self.samples[("sentence_1_part0","MITRAGYNINE")]=(self.good,late)
         r=score_samples(self.plan,self.samples)
         self.assertTrue(r["criteria"][0]["passed"])
         self.assertFalse(r["criteria"][1]["passed"])
@@ -80,7 +83,7 @@ class RealEncodedTextInkTests(unittest.TestCase):
         self.assertFalse(r["criteria"][1]["passed"])
 
     def test_missing_first_use_definition_rejected(self):
-        shot=self.plan["shots"][0]
+        shot=next(s for s in self.plan["shots"] if s["id"]=="source_hold")
         shot["annotations"]=[a for a in shot["annotations"]
                              if a["text"]!="CID = compound record number"]
         with self.assertRaisesRegex(ValueError,"MISSING_OR_DUPLICATE_CRITICAL_LABEL"):
@@ -92,7 +95,7 @@ class RealEncodedTextInkTests(unittest.TestCase):
             score_samples(self.plan,self.samples)
 
     def test_missing_frame_samples_hold_not_neutral(self):
-        del self.samples[("source_hold","CID 44301524")]
+        del self.samples[("source_hold","7-OH • CID 44301524")]
         with self.assertRaisesRegex(ValueError,"EARLY_LATE_NATIVE_FRAME_SAMPLES_REQUIRED"):
             score_samples(self.plan,self.samples)
 
@@ -101,6 +104,46 @@ class RealEncodedTextInkTests(unittest.TestCase):
         for k in ("viewerComprehensionApproved","naturalVoiceApproved",
                   "excellentFilmApproved","realHandsetApproved","mayPublish"):
             self.assertIs(r[k],False)
+
+
+class ActualH264FrameIdentityTests(unittest.TestCase):
+    def test_early_late_ink_samples_use_exact_decoded_frames_across_hard_cut(self):
+        # A real 90-frame 1080p H264 changes red to blue at frame 45.
+        # Both gray pixel values and PTS/shot IDs must stay coupled.
+        with tempfile.TemporaryDirectory() as d:
+            movie=Path(d)/"hard-cut.mp4"
+            subprocess.run([
+                "ffmpeg","-hide_banner","-loglevel","error","-nostdin","-y",
+                "-f","lavfi","-i","color=c=red:s=1080x1920:r=30:d=1.5",
+                "-f","lavfi","-i","color=c=blue:s=1080x1920:r=30:d=1.5",
+                "-filter_complex","[0:v][1:v]concat=n=2:v=1:a=0[v]",
+                "-map","[v]","-c:v","libx264","-preset","ultrafast",
+                "-pix_fmt","yuv420p","-an",str(movie)
+            ],capture_output=True,check=True,timeout=60)
+            stamps=frame_timestamps(movie)
+            self.assertEqual(len(stamps),90)
+            first={"id":"red","startSec":0.0,"endSec":1.5}
+            second={"id":"blue","startSec":1.5,"endSec":3.0}
+            requests=[(("blue","early"),second,1.51),
+                      (("red","late"),first,1.49)]
+            frames,proof=exact_gray_samples(movie,requests,stamps)
+            self.assertEqual([p["frameIndex"] for p in proof],[45,44])
+            self.assertEqual([p["shotId"] for p in proof],["blue","red"])
+            self.assertAlmostEqual(proof[0]["actualFramePtsSec"],1.5,places=4)
+            self.assertAlmostEqual(proof[1]["actualFramePtsSec"],44/30,places=4)
+            self.assertLess(int(frames[("blue","early")][960,540]),45)
+            self.assertGreater(int(frames[("red","late")][960,540]),65)
+
+    def test_out_of_shot_sample_fails_before_extracting_pixels(self):
+        with self.assertRaisesRegex(ValueError,"SAMPLE_TIME_OUTSIDE_DECLARED_SHOT"):
+            exact_gray_samples(
+                "/unused/movie.mp4",
+                [(("scene","late"),{"id":"scene","startSec":0.0,"endSec":1.0},1.2)],
+                [Decimal("0.0"),Decimal("0.033333"),Decimal("0.066667")])
+
+    def test_missing_actual_frame_list_fails_closed(self):
+        with self.assertRaisesRegex(ValueError,"EXACT_NATIVE_SAMPLE_REQUESTS_REQUIRED"):
+            exact_gray_samples("/unused/movie.mp4",[],[])
 
 
 if __name__=="__main__":
