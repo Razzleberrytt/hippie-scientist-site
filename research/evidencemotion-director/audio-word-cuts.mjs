@@ -74,7 +74,11 @@ export async function proposeFileBoundAudioLockedCuts({root,reportPath,
  try{
   if(!root||!hash(expectedReportSha256)||fields.some(f=>!hash(expectedInputSha256?.[f])))
    return refusal('FROZEN_ALIGNMENT_IDENTITIES_REQUIRED');
-  // A new aligned WAV cannot silently inherit cuts anchored to an older take.\n  if(previousNarrationSha256!==undefined &&\n     (!hash(previousNarrationSha256)||previousNarrationSha256!==expectedInputSha256.wav))\n   return refusal('STALE_NARRATION_REVISION_REQUIRES_NEW_CUTS');\n  const base=await realpath(root);
+  // A new aligned WAV cannot silently inherit cuts anchored to an older take.
+  if(previousNarrationSha256!==undefined &&
+     (!hash(previousNarrationSha256)||previousNarrationSha256!==expectedInputSha256.wav))
+   return refusal('STALE_NARRATION_REVISION_REQUIRES_NEW_CUTS');
+  const base=await realpath(root);
   const load=async name=>{
    if(typeof name!=='string'||!name||name.includes('\\')||name.includes(':')||isAbsolute(name)||name.split('/').some(p=>p==='.'||p==='..'))
     throw new Error('UNSAFE_ALIGNMENT_PATH');
