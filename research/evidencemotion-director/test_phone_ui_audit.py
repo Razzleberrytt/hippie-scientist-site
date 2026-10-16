@@ -1546,6 +1546,16 @@ class ActualFilmSmoke(unittest.TestCase):
                 audit(movie, plan, output)
             self.assertFalse((output / "research-report.json").exists(),
                              "Failed rerun must invalidate prior PASS metadata")
+            self.assertFalse(list(output.glob("*.png")),
+                             "Failed rerun must not leave orphaned old QA screenshots")
+            # A corrected retry must work without manually deleting old
+            # generated images: only verified prior receipts authorize cleanup.
+            m["expectedVideoSha256"] = hashlib.sha256(movie.read_bytes()).hexdigest()
+            plan.write_text(json.dumps(m))
+            recovered = audit(movie, plan, output)
+            self.assertEqual(recovered["publicationVerdict"], "HOLD")
+            self.assertTrue((output / "research-report.json").exists())
+            self.assertEqual(len(recovered["decodedOverlayFrames"]), 3)
 
     def test_ffmpeg_generated_actual_mp4_frame_and_sha_receipts(self):
         with tempfile.TemporaryDirectory() as root:
