@@ -9,7 +9,9 @@ eligible toward the current EvidenceMotion B-gate research percentage.
 import argparse
 import hashlib
 import json
+import os
 import subprocess
+import tempfile
 from pathlib import Path
 import numpy as np
 from muted_review_research import reject_untrusted
@@ -50,7 +52,7 @@ def exact_gray_samples(movie, requests, stamps):
 
     Time seeking alone can collect a neighboring shot's pixels at a cut. All
     reported contrast measurements must instead be tied to their real PTS
-    and a declared shot, without multiplying full decodes for 18 samples.
+    and a declared shot, without multiplying full decodes for 27 samples.
     This is still a pixel-contrast proxy: no OCR or handset certification.
     """
     if not requests or not stamps:
@@ -96,13 +98,32 @@ def get_boxes(plan):
     byid={s["id"]:s for s in shots}
     if len(byid)!=len(shots) or any(key not in byid for key in REQUIRED):
         hold("EXACT_REQUIRED_SCENE_COVERAGE")
+    # Preserve the exact scientific words and punctuation while accepting
+    # explicit visual line breaks from a phone-safe typography reflow.
+    # No paraphrases, dropped qualifiers or duplicated labels are permitted.
+    canonical=lambda value:" ".join(value.split()) if isinstance(value,str) else None
     boxes={}
     for scene,terms in REQUIRED.items():
         shot=byid[scene]
         if not isinstance(shot.get("annotations"),list):
             hold("ACTUAL_RENDER_ANNOTATIONS_REQUIRED")
+        # A source annotation can retain truthful metadata while its separate
+        # renderer layout omits words. Reconcile actual declared visual lines
+        # before sampling pixels: the computed/not-filmed caveat must survive.
+        # This is metadata integrity, not encoded-pixel OCR.
+        for ann in shot["annotations"]:
+            if not isinstance(ann,dict):
+                hold("INVALID_RENDERED_ANNOTATION")
+            if "renderedLineBreaks" in ann:
+                lines=ann["renderedLineBreaks"]
+                if (not isinstance(lines,list) or len(lines)<2
+                    or any(type(line) is not str or not line.strip()
+                           or "\n" in line or "\r" in line for line in lines)
+                    or canonical(" ".join(lines))!=canonical(ann.get("text"))):
+                    hold("RENDERED_LINES_MISMATCH_DECLARED_TEXT:"+scene)
         for term in terms:
-            found=[a for a in shot["annotations"] if a.get("text")==term
+            found=[a for a in shot["annotations"]
+                   if canonical(a.get("text"))==canonical(term)
                    and a.get("role") in ("hook","science","disclosure","source")]
             if len(found)!=1:
                 hold("MISSING_OR_DUPLICATE_CRITICAL_LABEL_"+scene)
@@ -139,22 +160,23 @@ def score_samples(plan,samples):
     for (scene,term),box in boxes.items():
         key=(scene,term)
         seq=samples.get(key)
-        if not isinstance(seq,(tuple,list)) or len(seq)!=2:
-            hold("EARLY_LATE_NATIVE_FRAME_SAMPLES_REQUIRED")
+        if not isinstance(seq,(tuple,list)) or len(seq)!=3:
+            hold("EARLY_MIDDLE_LATE_NATIVE_FRAME_SAMPLES_REQUIRED")
         measured=[measure_gray_crop(f,box) for f in seq]
         duration=float(byid[scene]["endSec"]-byid[scene]["startSec"])
         observations.append({
             "scene":scene,"label":term,"durationSec":round(duration,4),
-            "actualNativeBoxPx":box,"early":measured[0],"late":measured[1],
+            "actualNativeBoxPx":box,"early":measured[0],
+            "middle":measured[1],"late":measured[2],
             "minVisibleContrast":round(min(m["inkRange"] for m in measured),3),
-            "contrastDrift":round(abs(measured[0]["inkRange"]-
-                                      measured[1]["inkRange"]),3),
+            "contrastDrift":round(max(m["inkRange"] for m in measured)-
+                                  min(m["inkRange"] for m in measured),3),
         })
     contrast=all(item["minVisibleContrast"]>=MIN_INK_DYNAMIC_RANGE
                  for item in observations)
     persistent=all(item["durationSec"]>=MIN_HOLD_SEC
                    and item["contrastDrift"]<=MAX_INK_DRIFT
-                   and item["late"]["inkRange"]>=MIN_INK_DYNAMIC_RANGE
+                   and item["minVisibleContrast"]>=MIN_INK_DYNAMIC_RANGE
                    for item in observations)
     return {
         "schema":SCHEMA,
@@ -165,11 +187,11 @@ def score_samples(plan,samples):
              "threshold":"minimum p95-p05 luminance across both samples >=130/255"},
             {"code":"meaningful_instruction_text_persistence",
              "passed":persistent,"weightPct":1,
-             "threshold":"all scenes >=1.50s; late text contrast >=130; early/late contrast drift <=16"},
+             "threshold":"all scenes >=1.50s; early/middle/late contrast >=130; max three-point drift <=16"},
         ],
         "additionalObjectivePoints":int(contrast)+int(persistent),
         "observations":observations,
-        "scope":"actual frame text-ink/readability proxies, not audience understanding or OCR",
+        "scope":"three decoded instants per shot: luminance proxy only, not verified glyphs, audience comprehension or OCR",
         "viewerComprehensionApproved":False,
         "naturalVoiceApproved":False,
         "excellentFilmApproved":False,
@@ -180,6 +202,11 @@ def score_samples(plan,samples):
 
 def audit(movie,phone,receipt,claim,out):
     movie,phone,receipt,claim,out=map(Path,(movie,phone,receipt,claim,out))
+    if out.resolve() in {p.resolve() for p in (movie,phone,receipt,claim)}:
+        hold("OUTPUT_RECEIPT_MUST_NOT_OVERWRITE_INPUT")
+    # A failed replacement audit must never leave an old positive JSON behind.
+    # Reject input/output aliasing before touching the destination.
+    out.unlink(missing_ok=True)
     width,height,duration,count=probe_movie(movie)
     plan,_,identity=reject_untrusted(movie,phone,receipt,claim,width,height,duration)
     approved=validate_manifest(plan,width=width,height=height,duration=duration,
@@ -196,9 +223,11 @@ def audit(movie,phone,receipt,claim,out):
         if end-start<MIN_HOLD_SEC or offset<=0:
             hold("CRITICAL_TEXT_DISPLAY_INTERVAL_TOO_SHORT")
         requests.extend([((scene,"early"),shot,start+offset),
+                         ((scene,"middle"),shot,(start+end)/2),
                          ((scene,"late"),shot,end-offset)])
     encoded_frames, frame_proof=exact_gray_samples(movie,requests,stamps)
     samples={(scene,term):(encoded_frames[(scene,"early")],
+                           encoded_frames[(scene,"middle")],
                            encoded_frames[(scene,"late")])
              for scene in REQUIRED for term in REQUIRED[scene]}
     result=score_samples(plan,samples)
@@ -215,7 +244,15 @@ def audit(movie,phone,receipt,claim,out):
         "automaticPublicationApproval":False
     })
     out.parent.mkdir(parents=True,exist_ok=True)
-    out.write_text(json.dumps(result,indent=2)+"\n")
+    # Make a completed, exact-media receipt visible only after the whole JSON
+    # is written. A crashed/failed attempt leaves no prior PASS or partial file.
+    fd,tmp=tempfile.mkstemp(prefix="."+out.name+".",suffix=".tmp",dir=out.parent)
+    try:
+        with os.fdopen(fd,"w",encoding="utf-8") as stream:
+            stream.write(json.dumps(result,indent=2)+"\n")
+        os.replace(tmp,out)
+    finally:
+        Path(tmp).unlink(missing_ok=True)
     return result
 
 
