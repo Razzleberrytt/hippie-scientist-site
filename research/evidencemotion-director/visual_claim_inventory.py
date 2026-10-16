@@ -17,10 +17,20 @@ from encoded_science_pixel_audit import CRITICAL, EXACT_SHOTS, pixel_criterion
 from narration_first_story_map import STORY
 
 SCHEMA = "ths-em00702-exact-film-visual-claim-inventory-v1"
+# A PubChem graph or an animated scene is not evidence of human outcome,
+# receptor pharmacology or safety. Include claims that evade the original
+# narrow treatment/euphoria vocabulary via synonyms and receptor language.
 EFFECT_CLAIMS = re.compile(
     r"\b(?:cures?|treats?|relieves?|analgesic|euphoria|high|"
     r"receptor binding (?:observed|proven)|shown to bind|"
-    r"clinically proven|safe to take|withdrawal relief)\b", re.I)
+    r"clinically proven|safe to take|withdrawal relief|"
+    r"(?:reduces?|decreases?|eases?|alleviates?|prevents?|eliminates?)"
+    r"\s+(?:[a-z-]+\s+){0,3}(?:pain|withdrawal|cravings?|anxiety|depression|insomnia|symptoms?)|"
+    r"(?:binds?|activates?|stimulates?)\s+(?:the\s+)?"
+    r"(?:(?:mu|μ|opioid|mor|kappa|delta)\s+){0,3}"
+    r"(?:receptors?|mor)\b|"
+    r"(?:mu[- ]?opioid|opioid|mor)\s+agonis(?:t|m)|"
+    r"(?:non[- ]?addictive|addiction[- ]?free|proven\s+safe))\b", re.I)
 # Question marks are explicit reviewer prompts, NOT a machine approval.
 INTERPRETATION_RISKS = {
     "sentence_1_part0": "Identity comparison may be mistaken for a reaction",

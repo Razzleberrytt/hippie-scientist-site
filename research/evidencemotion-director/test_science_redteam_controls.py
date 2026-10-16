@@ -216,6 +216,33 @@ class ScienceAdversarialMatrix(unittest.TestCase):
         self.assertFalse(receipt["mayPublish"])
         self.assertFalse(receipt["clinicalSourceClaimsApproved"])
 
+    def test_unsourced_human_effect_receptor_and_safety_claims_rejected(self):
+        # Rehashing the visual inventory cannot convert molecular structure
+        # labels into human clinical, receptor assay or safety evidence.
+        for text in (
+            "7-OH reduces withdrawal cravings",
+            "7-OH alleviates pain",
+            "7-OH decreases anxiety symptoms",
+            "7-OH activates mu opioid receptors",
+            "7-OH binds the mu receptor",
+            "7-OH is an opioid agonist",
+            "7-OH is non-addictive",
+            "7-OH is proven safe",
+        ):
+            self.setUp()
+            self.visual["rows"][0]["emittedSourceAnnotations"]["science"]=[text]
+            with self.subTest(text=text), self.assertRaisesRegex(
+                ValueError,"UNSUPPORTED_TREATMENT_OR_EFFECT_TEXT"
+            ):
+                self.source_join()
+
+    def test_neutral_computed_science_disclosure_remains_research_hold(self):
+        self.visual["rows"][0]["emittedSourceAnnotations"]["disclosure"]=[
+            "Computed molecular illustration; not measured human effects"]
+        report=self.source_join()
+        self.assertFalse(report["mayPublish"])
+        self.assertFalse(report["clinicalSourceClaimsApproved"])
+
     def test_swapped_source_join_study_identity_fails_even_with_fresh_sha(self):
         original = self.source_join()
         original["claims"][6]["humanStudyId"] = "PMID:00000000"
