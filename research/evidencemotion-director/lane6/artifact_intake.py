@@ -257,6 +257,17 @@ def intake(source, pin_path, expected_pin_sha, destination=None):
                     with (stage / name).open('rb') as inp, target.open('xb') as out:
                         shutil.copyfileobj(inp, out)
                     require(digest(target) == wanted, 'TRANSFER_HASH_MISMATCH')
+                # A per-file copy check does not establish the final package.
+                # Reconcile the complete destination before exposing a PASS path.
+                delivered = {}
+                for item in destination.rglob('*'):
+                    no_links(item)
+                    if not item.is_dir():
+                        regular(item)
+                        delivered[item.relative_to(destination).as_posix()] = item
+                require(set(delivered) == set(result['files']), 'TRANSFER_FINAL_INVENTORY_MISMATCH')
+                for name, item in delivered.items():
+                    require(digest(item) == result['files'][name], 'TRANSFER_FINAL_HASH_MISMATCH:'+name)
                 result['handoffDirectory'] = str(destination.absolute())
             result['status'] = 'PASS'
     except FileNotFoundError as error:

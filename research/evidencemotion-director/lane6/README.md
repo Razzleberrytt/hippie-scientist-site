@@ -12,7 +12,9 @@ files into private temporary staging, checks externally pinned identities, reuse
 `native_source_provenance.validate`, `native_master_audit.verify` (full A/V decode,
 actual timestamp grid and AAC ADTS fingerprint), and the phone auditor's shot
 coverage checks. It can copy that same verified payload to a fresh directory and
-rehash every copied file. Run intake again at the receiving side with the same
+rehash every copied file. Before reporting PASS or a handoff path, it also
+rechecks the complete destination inventory and every final file hash; changed
+or extra destination bytes reject the transfer. Run intake again at the receiving side with the same
 independently obtained pin SHA. No network or paid service is used.
 
 ## Current missing-film disposition

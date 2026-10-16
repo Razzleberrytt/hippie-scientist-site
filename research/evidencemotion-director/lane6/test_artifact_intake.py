@@ -97,6 +97,45 @@ class IntakeTests(unittest.TestCase):
         self.assertEqual(again['files'], r['files'])
         self.assertEqual(r['newAtomicCards'], 0)
 
+    def test_destination_changed_after_individual_hash_check_is_rejected(self):
+        dest = self.root/'lane4'
+        first = None
+        changed = False
+
+        def hash_then_change_earlier_file(path):
+            nonlocal first, changed
+            actual = digest(path)
+            if path.is_relative_to(dest):
+                if first is None:
+                    first = path
+                elif path != first and not changed:
+                    first.write_bytes(b'changed after its individual copy check')
+                    changed = True
+            return actual
+
+        with patch('artifact_intake.digest', side_effect=hash_then_change_earlier_file):
+            result = self.run_intake(destination=dest)
+        self.assertTrue(changed)
+        self.assertEqual(result['status'], 'FAIL', result)
+        self.assertIn('TRANSFER_FINAL_HASH_MISMATCH', ' '.join(result['errors']))
+        self.assertNotIn('handoffDirectory', result)
+        self.assertTrue(all(result[f] is False for f in FLAGS))
+
+    def test_unexpected_destination_file_before_completion_is_rejected(self):
+        dest = self.root/'lane4'
+
+        def hash_then_add_unlisted_file(path):
+            actual = digest(path)
+            if path.is_relative_to(dest):
+                (dest/'unlisted.txt').write_bytes(b'not in the verified payload')
+            return actual
+
+        with patch('artifact_intake.digest', side_effect=hash_then_add_unlisted_file):
+            result = self.run_intake(destination=dest)
+        self.assertEqual(result['status'], 'FAIL', result)
+        self.assertIn('TRANSFER_FINAL_INVENTORY_MISMATCH', ' '.join(result['errors']))
+        self.assertNotIn('handoffDirectory', result)
+
     def make_zip(self):
         archive = self.root/'delivery.zip'
         with zipfile.ZipFile(archive, 'w') as z:

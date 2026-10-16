@@ -149,3 +149,30 @@ Next action: Lane 3 delivers the actual combined film and source sidecars; separ
 reconcile COMPLETE pin, run sender/receiver intake, then Lane 4 exact-film reviews.
 Do not substitute an older movie or accept an unlisted payload to bypass the blocker.
 No new atomic cards, independent approval, protected merge or publication.
+
+
+## Lane 6 continuation — final destination verification
+
+Starting source `95fa2dd98abf184747733fadb50583fd98947ad0`, existing draft #6847.
+Status: repair implemented, focused tests PASS, fresh production build running.
+No actual revised combined film has become available in latest Lane 3 comments.
+
+Observed defect: destination hashes were checked immediately after each copy;
+a later change to an earlier copied file or an unexpected added file could still
+produce PASS and `handoffDirectory`. Acceptance: reconcile the complete destination
+file inventory and all final hashes before setting that path or reporting PASS.
+Reuse existing portable-path/link guards, digest and transfer; no new protocol or
+dependency. Research-only, Lane 6-owned files only; no added normal WIP slot.
+
+Two new controlled-mutation regression methods failed against the previous code
+(38 discovered, two failures). After the repair **38/38 intake tests PASS**, zero
+errors/skips; existing native-master suite **16/16 PASS**. Tiny real synthetic
+FFmpeg encoding/decoding establishes protocol behavior only; mutation hooks do
+not simulate actual revised-film acceptance. Failed transfers retain no PASS path;
+partial directories still require a fresh destination on retry, as documented.
+
+Previous receipt head `95fa2dd98` hosted atomic contract/controller/quality/release
+checks SUCCESS (one superseded release run cancelled); generic hosted tests,
+production build, content and site-health SKIPPED. Fresh-head results remain
+separate. No new actual-film/voice/science/craft/phone acceptance, atomic credit,
+excellent first render or varied streak. `mayPublish=false`.
