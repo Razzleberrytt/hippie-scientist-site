@@ -252,7 +252,7 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
                 label=("UNVERIFIED_BOTANICAL_7OH_CROSS_SHOT:"
                        if width==2 else
                        "UNVERIFIED_BOTANICAL_7OH_THREE_SHOT:")
-                hold(label+":".join([name for name,_ in window]))
+                hold(label+":".join(name for name,_ in window))
     # EM-007.06: this exact nine-shot film must preserve its visible science
     # limitations. A freshly rehashed visual inventory is not enough if a
     # later picture edit drops "computed" or "not filmed" while source CIDs
