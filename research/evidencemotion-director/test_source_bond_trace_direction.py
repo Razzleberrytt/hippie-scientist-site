@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from PIL import Image
 from source_bond_trace_direction import (
     MAX_BONDS,verified_bond_path,selected_bond_count,
-    mapped_atom_point,draw_existing_bond_connections
+    mapped_atom_point,draw_existing_bond_connections,research_science_camera
 )
 
 @dataclass
@@ -72,6 +72,27 @@ class SourceBondDirectionTests(unittest.TestCase):
         ]:
             with self.assertRaisesRegex(ValueError,code):
                 verified_bond_path({**self.asset,**mutation})
+
+    def test_pinned_chemical_graph_camera_is_a_complete_pullback(self):
+        opening=research_science_camera(0.)
+        halfway=research_science_camera(.5)
+        closing=research_science_camera(1.)
+        self.assertEqual(opening,(25.,590.,880.,660.))
+        self.assertEqual(closing,(105.,630.,720.,540.))
+        self.assertGreater(opening[2],halfway[2])
+        self.assertGreater(halfway[2],closing[2])
+        for p in (0,.25,.5,.75,1):
+            dx,dy,dw,dh=research_science_camera(p)
+            self.assertAlmostEqual(dx+dw/2,465.)
+            self.assertAlmostEqual(dw/dh,4/3)
+            self.assertLessEqual(dy+dh,1260)
+            self.assertGreaterEqual(dy,580)
+            for pt in self.asset["diagramAtomXY"]:
+                x,y=mapped_atom_point(pt,p,(1080,1920))
+                self.assertTrue(dx<=x<=dx+dw)
+                self.assertTrue(dy<=y<=dy+dh)
+        with self.assertRaisesRegex(ValueError,"INVALID_SHOT_PROGRESS"):
+            research_science_camera(float("inf"))
 
     def test_bad_scene_timings_and_geometry_fail_closed(self):
         frame=Image.new("RGBA",(1080,1920),(0,0,0,255))
