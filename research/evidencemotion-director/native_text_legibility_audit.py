@@ -69,8 +69,14 @@ def exact_gray_samples(movie, requests, stamps):
     try:
         raw = subprocess.run(cmd, capture_output=True, timeout=120,
                              check=True).stdout
-    except (subprocess.CalledProcessError, subprocess.TimeoutExpired, OSError):
-        hold("EXACT_PRESENTED_FRAME_EXTRACTION_FAILED")
+    except subprocess.CalledProcessError as exc:
+        # Preserve bounded FFmpeg diagnostics so a true decoder/filter failure
+        # is not misattributed to missing narration or scientific labels.
+        detail = (exc.stderr or b"").decode("utf-8", errors="replace")[-900:]
+        hold("EXACT_PRESENTED_FRAME_EXTRACTION_FAILED:exit=" +
+             str(exc.returncode) + ":" + detail)
+    except (subprocess.TimeoutExpired, OSError):
+        hold("EXACT_PRESENTED_FRAME_EXTRACTION_FAILED:IO_OR_TIMEOUT")
     frame_bytes = 1080 * 1920
     if len(raw) != frame_bytes * len(indices):
         hold("EXACT_PRESENTED_FRAME_COUNT_OR_SIZE_MISMATCH")
