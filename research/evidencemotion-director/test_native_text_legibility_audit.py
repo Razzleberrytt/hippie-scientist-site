@@ -143,18 +143,25 @@ class ActualH264FrameIdentityTests(unittest.TestCase):
             first={"id":"red","startSec":0.0,"endSec":1.5}
             second={"id":"blue","startSec":1.5,"endSec":3.0}
             requests=[(("blue","early"),second,1.51),
-                      (("red","late"),first,1.49)]
+                      (("red","late"),first,1.49),
+                      (("red","middle"),first,0.75),
+                      (("blue","middle"),second,2.25)]
             frames,proof=exact_gray_samples(movie,requests,stamps)
-            self.assertEqual([p["frameIndex"] for p in proof],[45,44])
-            self.assertEqual([p["shotId"] for p in proof],["blue","red"])
+            self.assertEqual([p["frameIndex"] for p in proof[:2]],[45,44])
+            self.assertEqual([p["shotId"] for p in proof],
+                             ["blue","red","red","blue"])
+            self.assertTrue(0.0 <= proof[2]["actualFramePtsSec"] < 1.5)
+            self.assertTrue(1.5 <= proof[3]["actualFramePtsSec"] < 3.0)
             self.assertAlmostEqual(proof[0]["actualFramePtsSec"],1.5,places=4)
             self.assertAlmostEqual(proof[1]["actualFramePtsSec"],44/30,places=4)
             self.assertLess(int(frames[("blue","early")][960,540]),45)
             self.assertGreater(int(frames[("red","late")][960,540]),65)
+            self.assertGreater(int(frames[("red","middle")][960,540]),65)
+            self.assertLess(int(frames[("blue","middle")][960,540]),45)
 
-    def test_three_phase_actual_h264_frame_receipt_is_pts_bound(self):
-        # The existing real hard-cut test protects the decoder itself.
-        # The audit request now has a third, in-shot timestamp by contract.
+    def test_three_phase_missing_movie_fails_closed(self):
+        # In contrast to the real encoded cut test above, this adversarial
+        # control intentionally provides no film and must never earn a receipt.
         shot={"id":"center","startSec":0.0,"endSec":3.0}
         samples=[(("center","early"),shot,0.3),
                  (("center","middle"),shot,1.5),
