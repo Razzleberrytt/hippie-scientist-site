@@ -194,6 +194,7 @@ class AlignmentTests(unittest.TestCase):
 # Existing exact-WAV CI lane runs these source-waveform boundary regressions too.
 # Imported test class stays research-only; no new release/publishing authority.
 from test_audio_cut_edge_qa import CutEdgeTests  # noqa: F401
+from test_voice_revision_invalidation import RevisionInvalidationTests  # noqa: F401
 
 if __name__ == '__main__':
     unittest.main()
