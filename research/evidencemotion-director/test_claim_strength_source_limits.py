@@ -86,6 +86,27 @@ class ClaimStrengthSourceLimitsTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "NONCLINICAL_SOURCE_SCHEMA_DRIFT"):
             self.inspect()
 
+    def test_rehashed_source_record_cannot_inflate_the_meaning_of_evidence(self):
+        # These attacks change no keys, source IDs or output parent SHA shape.
+        # A structure database cannot suddenly justify human-effect claims,
+        # and computed images cannot become direct receptor observations.
+        attacks=(
+            ("pubchem:3034396","human analgesic efficacy proven in trial"),
+            ("pubchem:44301524","human withdrawal outcome verified"),
+            ("media:render","real molecular receptor-binding footage"),
+            ("media:story","all biological effects established"),
+        )
+        for sid, promoted in attacks:
+            self.setUp()
+            self.join["sources"][sid]["permittedMeaning"]=promoted
+            with self.subTest(sid=sid), self.assertRaisesRegex(
+                    ValueError,"SOURCE_MEANING_EXCEEDS_NONCLINICAL_SCOPE"):
+                self.inspect()
+        self.setUp()
+        self.join["sources"]["media:render"]["permittedMeaning"]=""
+        with self.assertRaisesRegex(ValueError,"SOURCE_MEANING_EXCEEDS_NONCLINICAL_SCOPE"):
+            self.inspect()
+
     def test_fake_clinical_fields_in_internal_film_are_blocked(self):
         self.join["sources"]["media:render"]["sampleSize"]=31
         with self.assertRaisesRegex(ValueError,"INJECTED_HUMAN_STUDY_METADATA"):
