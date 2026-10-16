@@ -89,7 +89,8 @@ ANNOTATION_ROLES=("hook","science","source","disclosure","caption")
 # (including split labels in the same scene), not the underlying video pixels.
 BOTANICAL_CONTEXT = re.compile(
     r"\b(?:plant|plants|leaf|leaves|foliage|botanical|botanicals|kratom|"
-    r"mitragyna\s+speciosa|herb|herbs|powder|extract|tea)\b", re.I)
+    r"mitragyna\s+speciosa|herb|herbs|powder|extract|tea|"
+    r"products?|capsules?|tinctures?|resins?|tablets?|gummies)\b", re.I)
 SEVEN_OH_REFERENCE = re.compile(
     # Cover spoken "seven o h", Unicode dash and spaced chemical naming.
     r"(?<!\w)(?:7\s*[-–—‑]?\s*(?:OH|hydroxy\s*mitragynine)|"
@@ -102,7 +103,8 @@ BOTANICAL_CONTENT_ASSERTION = re.compile(
     r"|\d+(?:\.\d+)?\s*(?:%|mg|µg|ug|ppm)\b", re.I)
 POSITIVE_CONTENT_LANGUAGE = re.compile(
     r"\b(?:contains?|has|have|had|produces?|yields?|found|occurs?|"
-    r"detected|measured|quantified|tested|confirmed|verified|"
+    r"detect(?:ed|ion|able)|measur(?:ed|ement|able)|"
+    r"quantified|tested|test\s+result|confirmed|verified|rich|"
     r"concentration|percent|present|absent|none|zero|rich|mg|µg|ppm)\b"
     r"|\d+(?:\.\d+)?\s*(?:%|mg|µg|ug|ppm)\b", re.I)
 
@@ -244,26 +246,27 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
     # "activates mu" / "opioid receptors"). Do not trust individually harmless
     # labels to establish clinical evidence when concatenated. This checks
     # authored source-linked annotations, NOT decoded pixels or perception.
-    for width in (2, 3):
+    for width in (2, 3, 4):
         for offset in range(len(adjacent_ink)-width+1):
             window=adjacent_ink[offset:offset+width]
             joined=" ".join(ink for _,ink in window)
             if EFFECT_CLAIMS.search(joined):
                 hold("UNSUPPORTED_TREATMENT_OR_EFFECT_CROSS_SHOT:"
                      +":".join(name for name,_ in window))
-    # A sequence of three neighboring shots can complete a botanical assay
-    # assertion even when neither adjacent pair contains the whole statement.
-    # Preserve the existing pairwise detector and also inspect complete
-    # contiguous three-shot windows. This is metadata text validation, not
+    # A sequence of three or four neighboring shots can complete a botanical
+    # assay assertion even when shorter adjacent spans cannot detect it.
+    # Preserve pairwise and three-shot detectors and inspect contiguous
+    # four-shot windows as well. This is metadata text validation, not
     # decoded-pixel OCR or audience comprehension certification.
-    for width in (2, 3):
+    for width in (2, 3, 4):
         for offset in range(len(adjacent_ink)-width+1):
             window=adjacent_ink[offset:offset+width]
             if asserts_unverified_botanical_7oh_content(
                     " ".join(ink for _,ink in window)):
                 label=("UNVERIFIED_BOTANICAL_7OH_CROSS_SHOT:"
                        if width==2 else
-                       "UNVERIFIED_BOTANICAL_7OH_THREE_SHOT:")
+                       "UNVERIFIED_BOTANICAL_7OH_THREE_SHOT:" if width==3 else
+                       "UNVERIFIED_BOTANICAL_7OH_FOUR_SHOT:")
                 hold(label+":".join(name for name,_ in window))
     # EM-007.06: this exact nine-shot film must preserve its visible science
     # limitations. A freshly rehashed visual inventory is not enough if a
