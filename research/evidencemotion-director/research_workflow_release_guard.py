@@ -17,7 +17,7 @@ WORKFLOWS = (
     ".github/workflows/evidencemotion-atomic-proof-ledger.yml",
 )
 TOP = re.compile(r"^([A-Za-z][A-Za-z0-9_-]*):(?:[ \t].*)?$")
-EVENT = re.compile(r"^  ([a-z][a-z0-9_-]*):(?:[ \t].*)?$")
+EVENT = re.compile(r"^  ([a-z][a-z0-9_-]*):[ \t]*$")
 PERMISSION = re.compile(r"^  ([a-z-]+):[ \t]*([a-z]+)[ \t]*$")
 JOB = re.compile(r"^  ([a-z][a-z0-9_-]*):[ \t]*$")
 RELEASE_CMD = re.compile(
@@ -56,6 +56,8 @@ def inspect(name, text):
             sections[key] = i
     if set(sections) != {"name", "on", "permissions", "jobs"}:
         hold("UNEXPECTED_OR_MISSING_TOP_LEVEL_KEY")
+    if any(lines[sections[key]] != key + ":" for key in ("on", "permissions", "jobs")):
+        hold("UNREVIEWED_INLINE_WORKFLOW_DECLARATION")
     if not (sections["name"] < sections["on"] < sections["permissions"] < sections["jobs"]):
         hold("UNREVIEWED_TOP_LEVEL_LAYOUT")
 
