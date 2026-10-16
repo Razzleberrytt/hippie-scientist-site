@@ -186,6 +186,60 @@ class NarrationTreatments(unittest.TestCase):
         self.assertEqual(cue['startSec'],next(c['startSec']
             for c in scenes[1]['captionWords'] if c['text']=='hydroxyl'))
 
+    def test_computed_dual_view_is_real_source_and_camera_motion(self):
+        # Craft research on actual rendered RGB, not a synthetic scene name:
+        # verified 2D RDKit connectivity remains fixed while the calculated
+        # 3D stage changes smoothly with original narration-driven time.
+        import os
+        import numpy as np
+        from pathlib import Path
+        from PIL import Image,ImageChops
+        from narration_locked_treatments import fonts,render_frame
+        base=Path(os.environ.get('THS_TEST_FONT_DIR',
+                  '/usr/share/fonts/truetype/dejavu'))
+        if not base.is_dir():
+            self.skipTest('Pinned native font directory unavailable')
+        font,_=fonts(base)
+        scenes=timeline(self.alignment())
+        assets=chemistry_assets()
+        assets['dark_diagram']=assets['7_hydroxymitragynine']['diagram']
+        target=scenes[3]
+        t0=target['startSec']+.4
+        t1=target['endSec']-.4
+        self.assertGreater(t1,t0)
+        before_ann=[]
+        before=render_frame(t0,scenes,assets,'specimen',(1080,1920),font,
+                            annotations=before_ann,caption_mode='timed_research')
+        after=render_frame(t1,scenes,assets,'specimen',(1080,1920),font,
+                           caption_mode='timed_research')
+        # This left inset ends before the model stage begins, so its pixels
+        # must stay still and trace back to the actual approved RDKit drawing.
+        left=(88,540,299,783)
+        self.assertIsNone(ImageChops.difference(before.crop(left),
+                                                after.crop(left)).getbbox())
+        no_source=dict(assets)
+        erased=dict(assets['7_hydroxymitragynine'])
+        erased['diagram']=Image.new('RGBA',(1200,900),(0,0,0,0))
+        no_source['7_hydroxymitragynine']=erased
+        absent=render_frame(t0,scenes,no_source,'specimen',(1080,1920),
+                            font,caption_mode='timed_research')
+        diff=np.abs(np.asarray(before.crop(left),dtype=np.int16)-
+                    np.asarray(absent.crop(left),dtype=np.int16))
+        self.assertGreater(float(diff.mean()),1.0,
+                           'source thumbnail must be physically rendered')
+        # Separately the computed 3D molecular stage should progress; the
+        # frozen source thumbnail must never be mistaken for a reaction.
+        model=(430,690,990,1055)
+        change=np.abs(np.asarray(before.crop(model),dtype=np.int16)-
+                      np.asarray(after.crop(model),dtype=np.int16))
+        self.assertGreater(float(change.mean()),.20)
+        words=[a['text'] for a in before_ann if a['role']!='caption']
+        self.assertIn('A possible\n3D shape.',words)
+        self.assertIn('Computed 3D illustration • not filmed',words)
+        self.assertIn('Hydrogen atoms omitted',words)
+        self.assertNotIn('receptor binding proven',words)
+        self.assertEqual(len([a for a in before_ann if a['role']=='disclosure']),2)
+
     def test_exact_visual_reflow_never_changes_source_claim(self):
         from narration_locked_treatments import exact_visual_reflow
         original='Computed 3D illustration • not filmed'
