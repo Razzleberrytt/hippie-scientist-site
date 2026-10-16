@@ -3,6 +3,7 @@ import io
 import hashlib
 import json
 import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -85,8 +86,8 @@ class Tests(unittest.TestCase):
             stderr = proc.stderr.read()
             proc.stderr.close()
             self.assertEqual(proc.returncode, 0, stderr.decode("utf-8", "replace"))
-            report = writer.receipt(exit_code=proc.returncode,
-                                    film_sha=hashlib.sha256(movie.read_bytes()).hexdigest())
+            report = writer.receipt_from_completed_encoder(proc, movie)
+            self.assertEqual(report["filmSha256"], hashlib.sha256(movie.read_bytes()).hexdigest())
             self.assertEqual(report["capturedBytes"], 36)
             self.assertEqual(report["frameSha256"], [digest(frame) for frame in frames])
             self.assertEqual(report["rawStdinSha256"], digest(b"".join(frames)))
@@ -103,6 +104,92 @@ class Tests(unittest.TestCase):
                             "-f", "null", "-"], check=True, capture_output=True, timeout=20)
             self.assertFalse(report["originalMediaExternallyValidated"])
             self.assertFalse(report["mayPublish"])
+
+    def test_real_completed_encoder_binds_process_and_film_bytes(self):
+        with tempfile.TemporaryDirectory() as directory:
+            movie=Path(directory)/"output.bin"
+            script=("import sys,pathlib;sys.stdin.buffer.read();"
+                    "pathlib.Path(sys.argv[1]).write_bytes(b'ENCODED')") 
+            proc=subprocess.Popen([sys.executable,"-c",script,str(movie)],
+                                  stdin=subprocess.PIPE)
+            writer=Capture(proc.stdin,run_id="run-physical-1",source_sha=SOURCE,
+                           wav_sha=WAV,environment_sha=ENV,width=2,height=1,frames=1)
+            writer.write(FRAME)
+            writer.close()
+            proc.wait(timeout=10)
+            receipt=writer.receipt_from_completed_encoder(proc,movie)
+            self.assertEqual(receipt["filmSha256"],digest(b"ENCODED"))
+            self.assertEqual(receipt["encoderExitCodeDeclared"],0)
+            self.assertFalse(receipt["mayPublish"])
+
+    def test_wrong_real_encoder_process_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            movie=Path(directory)/"output.bin"
+            script=("import sys,pathlib;sys.stdin.buffer.read();"
+                    "pathlib.Path(sys.argv[1]).write_bytes(b'ENCODED')")
+            children=[subprocess.Popen([sys.executable,"-c",script,str(movie)],
+                                       stdin=subprocess.PIPE) for _ in range(2)]
+            for proc in children:
+                proc.stdin.write(FRAME);proc.stdin.close()
+                proc.wait(timeout=10)
+            writer=Capture(io.BytesIO(),run_id="wrong-process",source_sha=SOURCE,
+                           wav_sha=WAV,environment_sha=ENV,width=2,height=1,frames=1)
+            writer.write(FRAME);writer.close()
+            with self.assertRaisesRegex(ValueError,"ENCODER_PROCESS_STDIN_NOT_BOUND"):
+                writer.receipt_from_completed_encoder(children[0],movie)
+
+    def test_encoder_nonzero_exit_rejected_without_supplied_zero(self):
+        with tempfile.TemporaryDirectory() as directory:
+            movie=Path(directory)/"output.bin"
+            proc=subprocess.Popen([sys.executable,"-c",
+                                   "import sys;sys.stdin.buffer.read();sys.exit(7)"],
+                                  stdin=subprocess.PIPE)
+            writer=Capture(proc.stdin,run_id="failed-process",source_sha=SOURCE,
+                           wav_sha=WAV,environment_sha=ENV,width=2,height=1,frames=1)
+            writer.write(FRAME);writer.close()
+            self.assertEqual(proc.wait(timeout=10),7)
+            with self.assertRaisesRegex(ValueError,"ENCODER_PROCESS_FAILED"):
+                writer.receipt_from_completed_encoder(proc,movie)
+
+    def test_missing_output_file_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            movie=Path(directory)/"missing.bin"
+            proc=subprocess.Popen([sys.executable,"-c",
+                                   "import sys;sys.stdin.buffer.read()"],stdin=subprocess.PIPE)
+            writer=Capture(proc.stdin,run_id="missing-film",source_sha=SOURCE,
+                           wav_sha=WAV,environment_sha=ENV,width=2,height=1,frames=1)
+            writer.write(FRAME);writer.close()
+            self.assertEqual(proc.wait(timeout=10),0)
+            with self.assertRaisesRegex(ValueError,"FILM_OUTPUT_NOT_REGULAR_FILE"):
+                writer.receipt_from_completed_encoder(proc,movie)
+
+    def test_empty_encoded_output_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            movie=Path(directory)/"empty.bin"
+            script=("import sys,pathlib;sys.stdin.buffer.read();"
+                    "pathlib.Path(sys.argv[1]).touch()")
+            proc=subprocess.Popen([sys.executable,"-c",script,str(movie)],
+                                  stdin=subprocess.PIPE)
+            writer=Capture(proc.stdin,run_id="empty-film",source_sha=SOURCE,
+                           wav_sha=WAV,environment_sha=ENV,width=2,height=1,frames=1)
+            writer.write(FRAME);writer.close();self.assertEqual(proc.wait(timeout=10),0)
+            with self.assertRaisesRegex(ValueError,"ENCODER_OUTPUT_EMPTY"):
+                writer.receipt_from_completed_encoder(proc,movie)
+
+    def test_symlinked_output_file_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            movie=Path(directory)/"movie.bin"
+            alias=Path(directory)/"alias.bin"
+            script=("import sys,pathlib;sys.stdin.buffer.read();"
+                    "pathlib.Path(sys.argv[1]).write_bytes(b'ENCODED')")
+            proc=subprocess.Popen([sys.executable,"-c",script,str(movie)],
+                                  stdin=subprocess.PIPE)
+            writer=Capture(proc.stdin,run_id="alias-film",source_sha=SOURCE,
+                           wav_sha=WAV,environment_sha=ENV,width=2,height=1,frames=1)
+            writer.write(FRAME);writer.close();self.assertEqual(proc.wait(timeout=10),0)
+            alias.symlink_to(movie)
+            with self.assertRaisesRegex(ValueError,"FILM_OUTPUT_NOT_REGULAR_FILE"):
+                writer.receipt_from_completed_encoder(proc,alias)
 
     def test_partial_writes_are_completed_not_silently_truncated(self):
         s=ShortSink()
