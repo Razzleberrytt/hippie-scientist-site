@@ -219,23 +219,41 @@ class CraftSourceLockedContractTests(unittest.TestCase):
         ffmpeg.assert_not_called()
       self.assertEqual(source.read_bytes(),b'ORIGINAL PINNED SOURCE')
 
-  def test_failed_staged_verification_preserves_prior_film_and_receipt(self):
+  def test_prior_film_and_receipt_cannot_be_replaced_even_before_encoder(self):
     with tempfile.TemporaryDirectory() as td:
       folder=Path(td)
       source=folder/'source.mp4';source.write_bytes(b'SOURCE')
       scene=folder/'scene.mp4';scene.write_bytes(b'SCENE')
       output=folder/'output.mp4';output.write_bytes(b'PRIOR FILM')
       receipt=output.with_suffix('.receipt.json');receipt.write_bytes(b'PRIOR RECEIPT')
-      def fake_ffmpeg(argv,**_):
-        Path(argv[-1]).write_bytes(b'FAILED CANDIDATE')
-      with patch.object(S,'preflight',return_value=True), \
-           patch.object(S,'run',side_effect=fake_ffmpeg), \
-           patch.object(S,'verify_result',side_effect=S.CraftHold('FAILED_VISUAL_NEGATIVE')):
-        with self.assertRaisesRegex(S.CraftHold,'FAILED_VISUAL_NEGATIVE'):
+      with patch.object(S,'preflight',return_value=True),patch.object(S,'run') as encode:
+        with self.assertRaisesRegex(S.CraftHold,'FRESH_OUTPUT_AND_RECEIPT_REQUIRED'):
           S.splice(source,scene,output,{'startFrame':1,'endFrameExclusive':2})
+        encode.assert_not_called()
       self.assertEqual(output.read_bytes(),b'PRIOR FILM')
       self.assertEqual(receipt.read_bytes(),b'PRIOR RECEIPT')
       self.assertEqual(source.read_bytes(),b'SOURCE')
+      self.assertEqual(list(folder.glob('.lane3-splice-*')),[])
+
+  def test_failed_staged_verification_never_exposes_unapproved_fresh_film(self):
+    with tempfile.TemporaryDirectory() as td:
+      folder=Path(td)
+      source=folder/'source.mp4';source.write_bytes(b'SOURCE')
+      scene=folder/'scene.mp4';scene.write_bytes(b'SCENE')
+      output=folder/'fresh.mp4'
+      def fake_ffmpeg(argv,**_):
+        Path(argv[-1]).write_bytes(b'FAILED CANDIDATE')
+      with (
+        patch.object(S,'preflight',return_value=True),
+        patch.object(S,'run',side_effect=fake_ffmpeg),
+        patch.object(S,'verify_result',side_effect=S.CraftHold('FAILED_VISUAL_NEGATIVE')),
+      ):
+        with self.assertRaisesRegex(S.CraftHold,'FAILED_VISUAL_NEGATIVE'):
+          S.splice(source,scene,output,{'startFrame':1,'endFrameExclusive':2})
+      self.assertFalse(output.exists())
+      self.assertFalse(output.with_suffix('.receipt.json').exists())
+      self.assertEqual(source.read_bytes(),b'SOURCE')
+      self.assertEqual(scene.read_bytes(),b'SCENE')
       self.assertEqual(list(folder.glob('.lane3-splice-*')),[])
 
 
