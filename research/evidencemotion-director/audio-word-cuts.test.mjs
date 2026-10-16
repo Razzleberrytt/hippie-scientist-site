@@ -102,3 +102,13 @@ test('sparse scientific-asset lineage fails closed, not silently emitting an und
  assert.deepEqual(r.shots,[]);
  assert.equal(r.finalRenderEligible,false);
 });
+
+test('duplicate shot identifiers are rejected before generating an edit decision list',()=>{
+ const x=sample();
+ x.beats[1].id=x.beats[0].id;
+ const r=plan(x);
+ assert.equal(r.status,'HOLD');
+ assert.ok(r.errors.includes('SHOT_IDENTIFIERS_NOT_UNIQUE'));
+ assert.deepEqual(r.shots,[]);
+ assert.equal(r.finalRenderEligible,false);
+});
