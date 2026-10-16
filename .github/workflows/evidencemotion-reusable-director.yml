@@ -46,9 +46,21 @@ jobs:
           command -v ffmpeg
           command -v ffprobe
           ffmpeg -version | head -n 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned free raster test dependency and verify research fonts
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check Pillow==12.0.0
+          if [ ! -f /usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf ]; then
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends fonts-dejavu-core
+          fi
+          python -c "from PIL import __version__; assert __version__ == '12.0.0'"
       - name: Reproduce source-pinned research-contract tests and genuine encoded-film tamper rejection
         run: |
-          python3 -m unittest discover \
+          python -m unittest discover \
             -s research/evidencemotion-director/lane3 \
             -p 'test_*.py' -v
       - name: State narrow evidence and explicitly retain creative, clinical and release holds
