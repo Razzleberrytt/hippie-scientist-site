@@ -135,10 +135,10 @@ class ScienceGateProcessAttestationTests(unittest.TestCase):
             candidate["processAttestation"]["canonicalPayloadSha256"]=digest(canonical(payload))
             candidate["processAttestation"]["domainSeparatedDigest"]=digest(
                 DOMAIN+canonical(payload))
-            with self.subTest(mutation=change.__code__.co_firstlineno), \\
-                 self.assertRaisesRegex(ValueError,
-                     "CLAIM_ID_SCOPE_OR_HOLDS_REHASHED|SCIENCE_GATE_CANNOT_SELF_AUTHORIZE_RELEASE"):
-                verify_attestation(candidate)
+            with self.subTest(mutation=change.__code__.co_firstlineno):
+                with self.assertRaisesRegex(ValueError,
+                    "CLAIM_ID_SCOPE_OR_HOLDS_REHASHED|SCIENCE_GATE_CANNOT_SELF_AUTHORIZE_RELEASE"):
+                    verify_attestation(candidate)
 
     def test_actual_cli_writes_three_real_parent_sha_receipts_and_holds(self):
         with tempfile.TemporaryDirectory() as tmp:
