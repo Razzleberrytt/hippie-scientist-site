@@ -41,6 +41,10 @@ class SourceBondDirectionTests(unittest.TestCase):
         self.assertEqual(selected_bond_count(9.0,start,end),0)
         self.assertEqual(selected_bond_count(9.1,start,end),0)
         self.assertEqual(selected_bond_count(9.6,start,end),1)
+        # Exact .9-second source-timed boundary must not round 1.0 to
+        # 1.0000000000000002 and expose the next bond prematurely.
+        self.assertEqual(selected_bond_count(10.,start,end),1)
+        self.assertEqual(selected_bond_count(10.0001,start,end),2)
         self.assertEqual(selected_bond_count(14.5,start,end),MAX_BONDS)
         self.assertEqual([selected_bond_count(t,start,end)
                           for t in (9.,9.1,10.,11.,12.,13.,14.5)],
