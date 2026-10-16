@@ -6,6 +6,7 @@ import shutil
 import subprocess
 import tempfile
 import unittest
+from unittest.mock import patch
 import zipfile
 
 from artifact_intake import FLAGS, digest, intake, relative
@@ -106,6 +107,60 @@ class IntakeTests(unittest.TestCase):
     def test_zip_transfer(self):
         r = self.run_intake(source=self.make_zip(), destination=self.root/'lane4')
         self.assertEqual(r['status'], 'PASS', r)
+
+    def test_unpinned_extra_files_block_directory_and_zip_transfer(self):
+        for name in ('older-film.mp4', 'notes.txt'):
+            with self.subTest(name=name):
+                extra = self.bundle/name
+                extra.write_bytes(b'unreviewed extra bytes')
+                for source in (self.bundle, self.make_zip()):
+                    dest = self.root/('lane4-'+name+('-zip' if source.is_file() else '-dir'))
+                    result = self.run_intake(source=source, destination=dest)
+                    self.assertEqual(result['status'], 'FAIL', result)
+                    self.assertIn('UNPINNED_BUNDLE_FILE:'+name, result['errors'])
+                    self.assertFalse(dest.exists())
+                    self.assertTrue(all(result[f] is False for f in FLAGS))
+                extra.unlink()
+
+    def pin_extra_source(self, name):
+        source = json.loads((self.bundle/'sources.json').read_text())
+        source['sourceInputs'][name] = digest(self.bundle/name)
+        write(self.bundle/'sources.json', source)
+        self.pin['roles']['sourceManifest']['sha256'] = digest(self.bundle/'sources.json')
+        write(self.pinfile, self.pin)
+
+    def test_additional_source_is_transferred_when_independently_bound(self):
+        (self.bundle/'notes.txt').write_bytes(b'research source context')
+        self.pin_extra_source('notes.txt')
+        result = self.run_intake(destination=self.root/'lane4')
+        self.assertEqual(result['status'], 'PASS', result)
+        self.assertEqual(result['files']['notes.txt'], digest(self.root/'lane4'/'notes.txt'))
+        again = self.run_intake(source=self.root/'lane4')
+        self.assertEqual(again['status'], 'PASS', again)
+        self.assertEqual(again['files'], result['files'])
+
+    def test_additional_bound_source_tampering_blocks_transfer(self):
+        (self.bundle/'notes.txt').write_bytes(b'research source context')
+        self.pin_extra_source('notes.txt')
+        (self.bundle/'notes.txt').write_bytes(b'swapped bytes')
+        dest = self.root/'lane4'
+        self.rejected('SOURCE_HASH_MISMATCH:notes.txt', destination=dest)
+        self.assertFalse(dest.exists())
+
+    def test_bound_extra_source_changed_during_decode_blocks_transfer(self):
+        (self.bundle/'notes.txt').write_bytes(b'research source context')
+        self.pin_extra_source('notes.txt')
+        from artifact_intake import media_verify
+
+        def decode_then_change(*args, **kwargs):
+            result = media_verify(*args, **kwargs)
+            (args[0].parent/'notes.txt').write_bytes(b'changed after provenance check')
+            return result
+
+        dest = self.root/'lane4'
+        with patch('artifact_intake.media_verify', side_effect=decode_then_change):
+            self.rejected('INPUT_CHANGED_DURING_AUDIT', destination=dest)
+        self.assertFalse(dest.exists())
 
     def test_missing_real_bundle_is_hold(self):
         r = self.run_intake(source=self.root/'unavailable-real-film.zip')

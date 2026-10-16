@@ -87,3 +87,40 @@ Final documentation-only head still needs its own protected controller review
 and current checks; no earlier head is silently relabeled as final-head CI.
 The final update changes validation evidence only; implementation/test sources
 remain byte-identical to the locally tested source commit.
+
+
+## Lane 6 continuation — complete delivered-file identity boundary
+
+Starting head `62511b0e7b78fcac0f2e6745eee7ca7cb711de07`, existing draft
+[#6847](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6847).
+Status: implementation in review; final production build pending in this checkpoint.
+
+Observed defect: intake checked required role identities but copied every payload
+file, allowing an extra unpinned movie or note to accompany a PASS receipt.
+Acceptance: reject every unlisted delivered file before creating the destination;
+continue allowing additional source files bound through the existing externally
+pinned source manifest; verify all those identities again after decoding.
+Reuse: extend the existing provenance validator's checked-file inventory, existing
+intake/transfer implementation and existing adversarial suite. No second manifest
+schema, new dependency, renderer change or other lane-owned edit.
+
+Changed files: `artifact_intake.py`, `test_artifact_intake.py`, this receipt and
+`README.md`, all within Lane 6. Three new test methods cover unlisted movies/notes
+in directories and ZIPs, positive sender/receiver transfer of a bound extra source,
+and rejection of changed extra-source bytes. Before the repair the 35-test suite
+failed on two unpinned-payload subcases with an actual PASS response and copied
+bytes. After repair: **35/35 PASS**, zero errors/skips; native-master auditor
+**16/16 PASS**; doc links **PASS** (395 Markdown files); whitespace **PASS**.
+Fixtures use real tiny FFmpeg encoding/decoding and are synthetic protocol evidence
+only. Revised shot-5 actual media remains **HOLD**, never replaced by a fixture.
+
+Live coordination rechecked: Lane 3 source head
+`5727389a57e09483be7c27dacaae300e7182caf0` explicitly reports the current combined
+source film still unavailable in [its latest coordination update](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6743#issuecomment-6223780507).
+Prior Lane 6 hosted head `62511b0e7` has successful quality/atomic/controller checks,
+with generic validation, production build, content and site health skipped; one
+superseded release-suite run cancelled and another succeeded. None proves hosted
+execution of this continuation. Fresh build result and exact commit follow below.
+No new atomic credit or accepted parent; excellent-first 0/1 and streak 0/5 unchanged.
+Original Kokoro WAV, actual film review, phone, science, craft, voice and publication
+remain outside this repair's proof. `mayPublish=false`. Protected controller only.

@@ -62,7 +62,12 @@ the film with an older archive or the synthetic unit fixture.
    `originalFinalSha256`, `notReleasableWithoutFinalQualityReview: true`, and
    `sourceInputs` mapping **all actual required source files** to their hashes.
    It must include the WAV, captions, phone plan, lineage and pending review
-   record; the master must not be its own source. This manifest and all seven role
+   record; the master must not be its own source. Every delivered file must be
+   either the pinned source manifest, the final movie, or a hash-bound
+   `sourceInputs` entry. Unlisted extra movies, notes and sidecars fail with
+   `UNPINNED_BUNDLE_FILE` before a handoff directory is created. To include an
+   additional source, bind it in the independently reviewed manifest and update
+   the separately trusted manifest pin; do not auto-trust arrival hashes. This manifest and all seven role
    hashes are pinned independently. The plan keeps its native `expectedVideoSha256`
    and `shots` (`id`, `startSec`, `endSec`) from the renderer. No plan regeneration
    or science-text change is performed by intake.

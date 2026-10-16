@@ -195,6 +195,14 @@ def verify(stage, pin):
     for item in stage.rglob('*'):
         if item.is_file() and item.suffix.lower() == '.json':
             reject_approvals(read_json(item))
+    # The externally pinned manifest binds additional sources; never promote
+    # unlisted payloads to verified status merely by hashing them on arrival.
+    bound = {record['path']: record['sha256'] for record in proof['checkedFiles']}
+    bound[roles['sourceManifest']['path']] = hashes['sourceManifest']
+    for item in stage.rglob('*'):
+        if item.is_file():
+            name = item.relative_to(stage).as_posix()
+            require(name in bound, 'UNPINNED_BUNDLE_FILE:'+name)
     plan = read_json(paths['shotPlan'])
     require(isinstance(plan, dict) and plan.get('expectedVideoSha256') == hashes['video'], 'STALE_SHOT_PLAN')
     reject_approvals(plan)
@@ -210,8 +218,9 @@ def verify(stage, pin):
     # Rehash after decode, then after transfer. No claim that pinned AAC proves
     # acoustic equivalence to the WAV: that mapping is separately reviewed trust.
     checked = {p.relative_to(stage).as_posix(): digest(p) for p in stage.rglob('*') if p.is_file()}
-    for role in roles:
-        require(checked[roles[role]['path']] == hashes[role], 'INPUT_CHANGED_DURING_AUDIT')
+    require(set(checked) == set(bound), 'INPUT_CHANGED_DURING_AUDIT')
+    for name, wanted in bound.items():
+        require(checked[name].lower() == wanted.lower(), 'INPUT_CHANGED_DURING_AUDIT')
     return {'roles': roles, 'files': checked, 'media': media,
             'sourceProvenance': proof, 'captionLineage': 'PINNED_BYTES_ONLY',
             'voiceLineage': 'PINNED_WAV_AND_AAC_NOT_NEW_ACOUSTIC_PROOF'}
