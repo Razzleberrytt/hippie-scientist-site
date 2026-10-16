@@ -61,19 +61,27 @@ def verify(register):
         outcome = item.get("declaredDecision")
         if not isinstance(outcome, str) or outcome not in DECISIONS:
             hold("UNKNOWN_DECLARED_DECISION:" + run)
-        # Revision attempts cannot earn a fresh first-render streak credit.
-        # An unauthenticated PASS is never a release or milestone approval.
+        # A streak is *consecutive attempts*, not consecutive eligible rows.
+        # A revised/rerendered film interrupts the streak even if declared PASS:
+        # skipping it would silently bridge first renders on both sides.
+        # Declared PASSes are not authenticated science/craft release approvals.
+        previous_streak = streak
         if ordinal != 1:
             revisions += 1
             eligible = False
+            streak = 0
+            break_reason = "REVISION_NOT_FIRST_RENDER"
         else:
             eligible = outcome == "PASS"
             streak = streak + 1 if eligible else 0
+            break_reason = None if eligible else "DECLARED_" + outcome
             max_streak = max(max_streak, streak)
         evaluated.append({"runId": run, "subjectId": subject,
                           "renderOrdinal": ordinal, "firstFinal": ordinal == 1,
                           "declaredDecision": outcome, "declaredEligible": eligible,
+                          "declaredStreakBeforeEvent": previous_streak,
                           "declaredStreakAfterEvent": streak,
+                          "streakBreakReason": break_reason,
                           "independentlyApproved": False})
     return {"schema": "ths-em-five-render-integrity-report-v1",
             "registeredAttempts": len(evaluated),
