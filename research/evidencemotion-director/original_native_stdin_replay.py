@@ -435,6 +435,65 @@ def verify_uploaded_movie(artifact_dir, report):
     return observed
 
 
+
+def audit_downloaded_original_movie(artifact_dir, *, expected_geometry=NATIVE):
+    """Independently decode the DOWNLOADED file; never trust producer booleans.
+
+    The ordinary CLI always supplies the original 1080x1920x1031 requirement.
+    Synthetic codec fixtures may pass a small geometry from explicit unit
+    calls only. Both streams are decoded, not just probed for container tags.
+    """
+    if (not isinstance(expected_geometry, tuple) or len(expected_geometry) != 3
+            or any(type(n) is not int or n < 1 for n in expected_geometry)):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:INVALID_MEDIA_EXPECTATION")
+    width, height, frames = expected_geometry
+    base = Path(artifact_dir)
+    movie = base / ORIGINAL_NAME
+    if not movie.is_file() or movie.is_symlink():
+        raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_FILM_UNAVAILABLE")
+    validate_disabled_x264_cpu_asm(base / "encoder.log")
+    try:
+        probe = subprocess.run([
+            original_media_executable("ffprobe"), "-v", "error",
+            "-count_frames", "-show_entries",
+            "stream=codec_type,codec_name,width,height,pix_fmt,nb_read_frames,avg_frame_rate,sample_aspect_ratio",
+            "-of", "json", str(movie),
+        ], capture_output=True, check=True, text=True, timeout=80)
+        streams = strict_json(probe.stdout).get("streams")
+    except (OSError, subprocess.SubprocessError, ValueError, UnicodeError) as exc:
+        raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_MEDIA_PROBE_FAILED") from exc
+    if not isinstance(streams, list):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_MEDIA_STREAM_INVENTORY_INVALID")
+    videos = [s for s in streams if s.get("codec_type") == "video"]
+    audios = [s for s in streams if s.get("codec_type") == "audio"]
+    if len(streams) != 2 or len(videos) != 1 or len(audios) != 1:
+        raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_MEDIA_STREAM_INVENTORY_INVALID")
+    v = videos[0]
+    if (v.get("codec_name") != "h264" or v.get("width") != width
+            or v.get("height") != height or v.get("pix_fmt") != "yuv420p"
+            or v.get("avg_frame_rate") != "30/1"
+            or v.get("sample_aspect_ratio", "1:1") != "1:1"
+            or str(v.get("nb_read_frames")) != str(frames)
+            or audios[0].get("codec_name") != "aac"):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_MEDIA_CODEC_OR_FRAME_DRIFT")
+    try:
+        subprocess.run([
+            original_media_executable("ffmpeg"), "-nostdin", "-v", "error",
+            "-xerror", "-i", str(movie), "-map", "0:v:0", "-map", "0:a:0",
+            "-f", "null", "-",
+        ], check=True, capture_output=True, timeout=120)
+    except (OSError, subprocess.SubprocessError) as exc:
+        raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_MEDIA_FULL_DECODE_FAILED") from exc
+    return {
+        "originalNativeFullMediaPhysicalDecode": True,
+        "actualDecodedSourceFrameCount": frames,
+        "actualPhysicalAACStreamConfirmed": True,
+        "physicalEncoderCpuAsmDisabledLogConfirmed": True,
+        "humanCraftOrPhoneApproved": False,
+        "mayPublish": False,
+    }
+
+
 def sha(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -461,7 +520,15 @@ if __name__ == "__main__":
     else:
         a, ae = read_original_pair_dir(args.first)
         b, be = read_original_pair_dir(args.second)
+        verified_a = audit_downloaded_original_movie(args.first)
+        verified_b = audit_downloaded_original_movie(args.second)
         report = inspect_both(a, b, ae, be)
         report["downloadedMovieBytesRehashedAgainstBothEncoderReceipts"] = True
+        report["twoDownloadedNativeMoviesIndependentlyFullyDecoded"] = (
+            verified_a["originalNativeFullMediaPhysicalDecode"]
+            and verified_b["originalNativeFullMediaPhysicalDecode"])
+        report["twoPhysicalX264DisabledCpuAsmLogsIndependentlyValidated"] = (
+            verified_a["physicalEncoderCpuAsmDisabledLogConfirmed"]
+            and verified_b["physicalEncoderCpuAsmDisabledLogConfirmed"])
         Path(args.out).write_text(json.dumps(report, indent=2) + "\n")
         print(json.dumps(report, indent=2))
