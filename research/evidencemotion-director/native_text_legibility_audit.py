@@ -13,7 +13,8 @@ import subprocess
 from pathlib import Path
 import numpy as np
 from muted_review_research import reject_untrusted
-from phone_ui_audit import probe_movie, validate_manifest
+from phone_ui_audit import probe_movie, validate_manifest, choose_decoded_sample
+from native_master_audit import frame_timestamps
 
 SCHEMA="ths-actual-native-teaching-ink-audit-v1"
 REQUIRED={
@@ -44,15 +45,42 @@ def hold(reason):
     raise ValueError("NATIVE_TEXT_LEGIBILITY_HOLD:"+reason)
 
 
-def native_gray_frame(movie,t):
-    raw=subprocess.check_output([
-        "ffmpeg","-v","error","-nostdin","-ss",f"{t:.5f}",
-        "-i",str(movie),"-frames:v","1","-vf","format=gray",
-        "-pix_fmt","gray","-f","rawvideo","pipe:1"
-    ],timeout=35)
-    if len(raw)!=1080*1920:
-        hold("EXACT_NATIVE_FRAME_NOT_DECODED")
-    return np.frombuffer(raw,dtype=np.uint8).reshape(1920,1080)
+def exact_gray_samples(movie, requests, stamps):
+    """Extract all source-locked teaching frames by decoded index in one pass.
+
+    Time seeking alone can collect a neighboring shot's pixels at a cut. All
+    reported contrast measurements must instead be tied to their real PTS
+    and a declared shot, without multiplying full decodes for 18 samples.
+    This is still a pixel-contrast proxy: no OCR or handset certification.
+    """
+    if not requests or not stamps:
+        hold("EXACT_NATIVE_SAMPLE_REQUESTS_REQUIRED")
+    picks = []
+    for key, shot, time in requests:
+        idx, pts = choose_decoded_sample(stamps, shot, time)
+        picks.append((key, shot["id"], idx, pts))
+    indices = sorted({item[2] for item in picks})
+    # A Python source escape becomes one literal FFmpeg filtergraph escape.
+    selection = "select=" + "+".join(f"eq(n\\\\,{index})" for index in indices)
+    cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
+           "-i", str(movie), "-an", "-vf", selection + ",format=gray",
+           "-vsync", "0", "-frames:v", str(len(indices)),
+           "-pix_fmt", "gray", "-f", "rawvideo", "pipe:1"]
+    try:
+        raw = subprocess.run(cmd, capture_output=True, timeout=120,
+                             check=True).stdout
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired, OSError):
+        hold("EXACT_PRESENTED_FRAME_EXTRACTION_FAILED")
+    frame_bytes = 1080 * 1920
+    if len(raw) != frame_bytes * len(indices):
+        hold("EXACT_PRESENTED_FRAME_COUNT_OR_SIZE_MISMATCH")
+    batch = np.frombuffer(raw, dtype=np.uint8).reshape(len(indices), 1920, 1080)
+    by_index = {idx: batch[pos] for pos, idx in enumerate(indices)}
+    frames = {key: by_index[idx] for key, _, idx, _ in picks}
+    proof = [{"sampleKey": list(key), "shotId": scene, "frameIndex": idx,
+              "actualFramePtsSec": float(pts)}
+             for key, scene, idx, pts in picks]
+    return frames, proof
 
 
 def get_boxes(plan):
@@ -153,22 +181,29 @@ def audit(movie,phone,receipt,claim,out):
     if approved["mayPublish"] is not False or count!=1031:
         hold("RESEARCH_ONLY_REAL_VIDEO_REQUIRED")
     byid,boxes=get_boxes(plan)
-    samples={}
+    stamps=frame_timestamps(movie)
+    requests=[]
     for scene in REQUIRED:
         shot=byid[scene]
         start,end=float(shot["startSec"]),float(shot["endSec"])
         offset=min(.30,.20*(end-start))
         if end-start<MIN_HOLD_SEC or offset<=0:
             hold("CRITICAL_TEXT_DISPLAY_INTERVAL_TOO_SHORT")
-        early=native_gray_frame(movie,start+offset)
-        late=native_gray_frame(movie,end-offset)
-        for term in REQUIRED[scene]:
-            samples[(scene,term)]=(early,late)
+        requests.extend([((scene,"early"),shot,start+offset),
+                         ((scene,"late"),shot,end-offset)])
+    encoded_frames, frame_proof=exact_gray_samples(movie,requests,stamps)
+    samples={(scene,term):(encoded_frames[(scene,"early")],
+                           encoded_frames[(scene,"late")])
+             for scene in REQUIRED for term in REQUIRED[scene]}
     result=score_samples(plan,samples)
+    if sha(movie)!=identity:
+        hold("SOURCE_MEDIA_CHANGED_DURING_FRAME_SAMPLING")
     result.update({
         "actualFilmSha256":sha(movie),"actualPhonePlanSha256":sha(phone),
         "actualClaimScreenSha256":sha(claim),
         "actualDecodedVideoFrameCount":count,
+        "exactDecodedSampleFrames":frame_proof,
+        "exactSourceFrameSamplingVerified":True,
         "fullNativeResolution":[width,height],
         "sourceVerifiedResearchScreen":True,
         "automaticPublicationApproval":False
