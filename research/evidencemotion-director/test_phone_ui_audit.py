@@ -311,6 +311,54 @@ class MobileAuditContract(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "NATIVE_PORTRAIT_FRAME_REQUIRED"):
             self.check(fixture(), size=(540, 960))
 
+class ReportOutputAliasSafety(unittest.TestCase):
+    def test_manifest_with_report_filename_is_never_deleted(self):
+        # Before this guard the phone audit erased its own input plan while
+        # trying to clear a stale successful report, then failed on read.
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            movie = root / "original.mp4"
+            movie.write_bytes(b"keep movie")
+            output = root / "review"
+            output.mkdir()
+            plan = output / "research-report.json"
+            source = b'{"status":"RESEARCH_ONLY","releaseApproved":false}'
+            plan.write_bytes(source)
+            with self.assertRaisesRegex(ValueError, "REPORT_OUTPUT_ALIASES_SOURCE_INPUT"):
+                audit(movie, plan, output)
+            self.assertEqual(plan.read_bytes(), source)
+            self.assertEqual(movie.read_bytes(), b"keep movie")
+
+    def test_movie_with_report_filename_is_never_deleted(self):
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            output = root / "review"
+            output.mkdir()
+            movie = output / "research-report.json"
+            original = b"untouched source movie bytes"
+            movie.write_bytes(original)
+            plan = root / "plan.json"
+            plan.write_text("{}")
+            with self.assertRaisesRegex(ValueError, "REPORT_OUTPUT_ALIASES_SOURCE_INPUT"):
+                audit(movie, plan, output)
+            self.assertEqual(movie.read_bytes(), original)
+
+    def test_symlinked_output_directory_cannot_bypass_alias_guard(self):
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            source_dir = root / "original-inputs"
+            source_dir.mkdir()
+            plan = source_dir / "research-report.json"
+            original = b"original scientific source plan"
+            plan.write_bytes(original)
+            (root / "output-alias").symlink_to(source_dir, target_is_directory=True)
+            movie = root / "movie.mp4"
+            movie.write_bytes(b"movie")
+            with self.assertRaisesRegex(ValueError, "REPORT_OUTPUT_ALIASES_SOURCE_INPUT"):
+                audit(movie, plan, root / "output-alias")
+            self.assertEqual(plan.read_bytes(), original)
+
+
 class ActualFilmSmoke(unittest.TestCase):
     def test_first_presented_video_frame_must_start_at_zero(self):
         # Real encoded 30fps clips; setpts advances every decoded PTS by
