@@ -11,15 +11,26 @@ class AtomicProofLedgerTests(unittest.TestCase):
 
     def test_exact_named_research_cards_and_honest_707_inherited_estimate(self):
         result=validate(self.good,LEDGER.parent)
-        self.assertEqual(result["evidenceGroupCount"],9)
-        self.assertEqual(result["individuallyAuditedMachineResearchOnly"],61)
+        self.assertEqual(result["evidenceGroupCount"],10)
+        self.assertEqual(result["individuallyAuditedMachineResearchOnly"],68)
         self.assertEqual(result["inheritedProvisionalCoverageNotIndividuallyAudited"],707)
-        self.assertEqual(result["provisionalCoverage"],768)
+        self.assertEqual(result["provisionalCoverage"],775)
         self.assertEqual(result["totalAtomicTemplates"],1590)
-        self.assertAlmostEqual(result["provisionalCoveragePercent"],48.3019,places=4)
-        self.assertEqual(len(result["individualResearchCardIDs"]),61)
+        self.assertAlmostEqual(result["provisionalCoveragePercent"],48.7421,places=4)
+        self.assertEqual(len(result["individualResearchCardIDs"]),68)
+        self.assertIn("EM-007.04.R",result["individualResearchCardIDs"])
         self.assertFalse(result["mayPublish"])
         self.assertFalse(result["finalCreativeScientificViewerOrDeviceApproved"])
+
+    def test_em00704_receipt_cannot_be_missing_or_misbound(self):
+        fake=copy.deepcopy(self.good)
+        fake["proofGroups"]=[g for g in fake["proofGroups"] if g["group"]!="EM-007.04"]
+        with self.assertRaisesRegex(ValueError,"EXACT_TEN_SOURCE_EVIDENCE_GROUPS_REQUIRED"):
+            validate(fake,LEDGER.parent)
+        fake=copy.deepcopy(self.good)
+        next(g for g in fake["proofGroups"] if g["group"]=="EM-007.04")["source"]="imaginary-review.md"
+        with self.assertRaisesRegex(ValueError,"MISBOUND"):
+            validate(fake,LEDGER.parent)
 
     def test_duplicate_card_does_not_earn_credit(self):
         fake=copy.deepcopy(self.good)
