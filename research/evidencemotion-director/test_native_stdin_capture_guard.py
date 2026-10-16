@@ -10,6 +10,7 @@ import wave
 from pathlib import Path
 
 from original_replay_admission import inspect_replay_inputs, EXPECTED_RENDERER_FILES, EXPECTED_FONTS
+from original_replay_source_restore import restore_pinned_sources
 from native_stdin_capture_guard import (
     Capture, check_one, compare_pair, digest, capture_renderer_encoder_call
 )
@@ -36,6 +37,30 @@ def pair(a=None, b=None):
     return compare_pair(a or capture("run-one"), b or capture("run-two"),
                         expected_source=SOURCE, expected_wav=WAV,
                         expected_environment=ENV, geometry=GEOM)
+
+
+def synthetic_git_history_fixture(folder):
+    repo=Path(folder)/"repo"
+    src=repo/"research"/"evidencemotion-director"
+    src.mkdir(parents=True)
+    def git(*args):
+        proc=subprocess.run(["git","-C",str(repo),*args],
+                            capture_output=True,text=True,check=True)
+        return proc.stdout.strip()
+    git("init","-q")
+    git("config","user.name","EvidenceMotion Fixture")
+    git("config","user.email","evidencemotion@example.invalid")
+    (src/"alpha.py").write_bytes(b"original alpha\n")
+    (src/"beta.py").write_bytes(b"first beta\n")
+    git("add",".");git("commit","-qm","baseline fixture")
+    older=git("rev-parse","HEAD")
+    (src/"beta.py").write_bytes(b"original beta\n")
+    git("add",".");git("commit","-qm","changed beta fixture")
+    newer=git("rev-parse","HEAD")
+    pins={"alpha.py":digest(b"original alpha\n"),
+          "beta.py":digest(b"original beta\n")}
+    refs={"alpha.py":older,"beta.py":newer}
+    return repo,pins,refs
 
 
 def pinned_environment_fixture(folder):
@@ -98,6 +123,44 @@ class Tests(unittest.TestCase):
         self.assertEqual(r["capturedBytes"],18)
         self.assertEqual(r["rawStdinSha256"],digest(FRAME*3))
         self.assertEqual(r["frameSha256"],[digest(FRAME)]*3)
+
+    def test_original_source_restore_two_historical_commits_physically_verified(self):
+        with tempfile.TemporaryDirectory() as d:
+            repo,pins,refs=synthetic_git_history_fixture(d)
+            dest=Path(d)/"separate-recovered-source"
+            result=restore_pinned_sources(repo,dest,pins=pins,refs=refs)
+            self.assertTrue(result["allSha256Verified"])
+            self.assertEqual((dest/"alpha.py").read_bytes(),b"original alpha\n")
+            self.assertEqual((dest/"beta.py").read_bytes(),b"original beta\n")
+            self.assertFalse(result["mayPublish"])
+            self.assertFalse(result["originalFullRenderExecuted"])
+
+    def test_original_source_restore_modified_blob_fails_atomically(self):
+        with tempfile.TemporaryDirectory() as d:
+            repo,pins,refs=synthetic_git_history_fixture(d)
+            pins["alpha.py"]=digest(b"some other alpha")
+            dest=Path(d)/"blocked-sources"
+            with self.assertRaisesRegex(ValueError,"SOURCE_SHA_DRIFT"):
+                restore_pinned_sources(repo,dest,pins=pins,refs=refs)
+            self.assertFalse(dest.exists())
+
+    def test_original_source_restore_existing_directory_not_overwritten(self):
+        with tempfile.TemporaryDirectory() as d:
+            repo,pins,refs=synthetic_git_history_fixture(d)
+            dest=Path(d)/"do-not-touch";dest.mkdir()
+            (dest/"user.txt").write_text("preserve")
+            with self.assertRaisesRegex(ValueError,"FRESH_OUTPUT_PARENT_REQUIRED"):
+                restore_pinned_sources(repo,dest,pins=pins,refs=refs)
+            self.assertEqual((dest/"user.txt").read_text(),"preserve")
+
+    def test_original_source_restore_unavailable_git_commit_fails_atomically(self):
+        with tempfile.TemporaryDirectory() as d:
+            repo,pins,refs=synthetic_git_history_fixture(d)
+            refs["beta.py"]="f"*40
+            dest=Path(d)/"blocked-sources"
+            with self.assertRaisesRegex(ValueError,"GIT_REVISION_UNAVAILABLE"):
+                restore_pinned_sources(repo,dest,pins=pins,refs=refs)
+            self.assertFalse(dest.exists())
 
     def test_original_admission_synthetic_exact_pins_allow_local_only(self):
         with tempfile.TemporaryDirectory() as d:
