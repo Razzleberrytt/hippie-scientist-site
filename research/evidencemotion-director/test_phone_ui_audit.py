@@ -1448,6 +1448,51 @@ class ActualMediaStreamIdentityTests(unittest.TestCase):
             self.assertEqual((w, h, frames), (160, 288, 30))
             self.assertAlmostEqual(duration, 1.0)
 
+    def test_real_h264_yuv444p_cannot_claim_mobile_420_compatibility(self):
+        # H.264 as a codec is not enough: native high-444 chroma fails
+        # common phone delivery constraints even with a clean 30fps grid.
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = root / "yuv444p.mp4"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+                "-f", "lavfi", "-i", "color=c=blue:s=160x288:r=30:d=1",
+                "-c:v", "libx264", "-preset", "ultrafast",
+                "-pix_fmt", "yuv444p", "-an", str(movie)
+            ], capture_output=True, timeout=50, check=True)
+            metadata = json.loads(subprocess.run([
+                "ffprobe", "-v", "error", "-select_streams", "v:0",
+                "-show_entries", "stream=codec_name,pix_fmt", "-of", "json",
+                str(movie)
+            ], capture_output=True, text=True, timeout=20, check=True).stdout)
+            self.assertEqual(metadata["streams"][0]["codec_name"], "h264")
+            self.assertEqual(metadata["streams"][0]["pix_fmt"], "yuv444p")
+            with self.assertRaisesRegex(ValueError, "EXPECTED_MOBILE_YUV420P_PIXEL_FORMAT"):
+                probe_movie(movie)
+
+    def test_actual_non_square_h264_samples_fail_phone_safe_area_assumptions(self):
+        # Even a yuv420p portrait source can display wider or taller
+        # than the authored pixel coordinates when SAR is not 1:1.
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = root / "sar-2-to-1.mp4"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+                "-f", "lavfi", "-i", "color=c=blue:s=160x288:r=30:d=1",
+                "-vf", "setsar=2/1", "-c:v", "libx264",
+                "-preset", "ultrafast", "-pix_fmt", "yuv420p",
+                "-an", str(movie)
+            ], capture_output=True, timeout=50, check=True)
+            metadata = json.loads(subprocess.run([
+                "ffprobe", "-v", "error", "-select_streams", "v:0",
+                "-show_entries", "stream=pix_fmt,sample_aspect_ratio",
+                "-of", "json", str(movie)
+            ], capture_output=True, text=True, timeout=20, check=True).stdout)
+            self.assertEqual(metadata["streams"][0]["pix_fmt"], "yuv420p")
+            self.assertEqual(metadata["streams"][0]["sample_aspect_ratio"], "2:1")
+            with self.assertRaisesRegex(ValueError, "EXPECTED_SQUARE_VIDEO_SAMPLE_PIXELS"):
+                probe_movie(movie)
+
     def test_real_mpeg4_video_cannot_appear_as_h264_by_averaged_frame_rate(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
