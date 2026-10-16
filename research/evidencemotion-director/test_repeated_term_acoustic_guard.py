@@ -14,7 +14,7 @@ from repeated_term_acoustic_guard import (
     SOURCE_ARCHIVE_SHA, audit, compare, decode_pcm, digest, distance, trajectory,
     source_clip_sample_offsets, audit_original_source,
     audit_pose_poles_conflict, audit_pose_files, audit_pose_internal_reference_set,
-    spectral_band_trace,
+    spectral_band_trace, evaluate_blind_reference_pairs,
 )
 
 ARCHIVE=Path(os.getenv("EM_LANE2_PREVIOUS_PACKET",
@@ -335,6 +335,111 @@ class SpectralTraceSignalOnlyTests(unittest.TestCase):
         for step in report["trace"]:
             self.assertTrue(np.isfinite(step["bandRatioDb"]))
             self.assertTrue(np.isfinite(step["relativeRms"]))
+
+
+class BlindReferenceBenchmarkTests(unittest.TestCase):
+    """Synthetic labels test implementation, NOT independent /l/ reference data."""
+
+    @staticmethod
+    def wav(freq, variation):
+        n = 9600
+        t = np.arange(n)/24000
+        signal = .25*np.sin(2*np.pi*(freq + variation)*t)*np.sin(np.pi*t/.4)
+        samples = (signal*32767).astype("<i2").tobytes()
+        stream = io.BytesIO()
+        with wave.open(stream, "wb") as audio:
+            audio.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            audio.writeframes(samples)
+        return stream.getvalue()
+
+    @classmethod
+    def fixture(cls):
+        rows, samples = [], {}
+        for split in ("train", "test"):
+            for index in range(8):
+                for label, hz in (("pose", 700), ("poles", 2600)):
+                    name = f"{split}-{index}-{label}"
+                    variation = index*5 + (45 if split == "test" else 0)
+                    data = cls.wav(hz, variation)
+                    samples[name] = data
+                    rows.append({"sampleId": name, "split": split,
+                                 "speakerId": f"{split}-speaker-{index}",
+                                 "word": label, "wavSha256": digest(data)})
+        return rows, samples
+
+    def test_synthetic_perfect_score_still_blocks_real_pronunciation_approval(self):
+        rows, samples = self.fixture()
+        result = evaluate_blind_reference_pairs(rows, samples, set())
+        self.assertEqual(result["status"],
+                         "RESEARCH_UNATTESTED_REFERENCE_BENCHMARK_ONLY", result)
+        self.assertEqual(result["heldoutBalancedAccuracy"], 1)
+        self.assertEqual(result["declaredTrainSpeakerCount"], 8)
+        self.assertEqual(result["declaredHeldoutSpeakerCount"], 8)
+        for field in ("mayPublish", "pronunciationVerified", "phonemeIdentityVerified",
+                      "wordTimingCalibrated", "calibrationComplete", "originalTargetInferred",
+                      "speakerIdentitiesAuthenticated",
+                      "referenceAnnotationsAuthenticated",
+                      "heldoutPhonemeGroundTruthVerified",
+                      "phonemeConfidenceCalibrated"):
+            self.assertFalse(result[field], field)
+        self.assertIsNone(result["lexicalWinner"])
+
+    def test_banned_target_original_source_or_same_narrator_controls_cannot_enroll(self):
+        rows, samples = self.fixture()
+        row = rows[3]
+        result = evaluate_blind_reference_pairs(
+            rows, samples, {row["wavSha256"]})
+        self.assertEqual(result["status"], "HOLD")
+        self.assertFalse(result["mayPublish"])
+
+    def test_train_test_declared_speaker_leakage_holds(self):
+        rows, samples = self.fixture()
+        for row in rows:
+            if row["speakerId"] == "test-speaker-0":
+                row["speakerId"] = "train-speaker-0"
+        self.assertEqual(evaluate_blind_reference_pairs(
+            rows, samples, set())["status"], "HOLD")
+
+    def test_wrong_label_or_imbalanced_pairs_refused(self):
+        rows, samples = self.fixture()
+        rows[-1]["word"] = "pose"
+        self.assertEqual(evaluate_blind_reference_pairs(
+            rows, samples, set())["status"], "HOLD")
+
+    def test_one_wrong_heldout_pair_triggers_classwise_fail_closed(self):
+        rows, samples = self.fixture()
+        for row in rows:
+            if row["speakerId"] == "test-speaker-0":
+                row["word"] = "poles" if row["word"] == "pose" else "pose"
+        result = evaluate_blind_reference_pairs(rows, samples, set())
+        self.assertEqual(result["status"], "HOLD", result)
+        self.assertEqual(result["heldoutBalancedAccuracy"], .875)
+        self.assertIn("BELOW_90_PERCENT", result["errors"][0])
+
+    def test_audio_sha_edit_is_not_a_valid_reference(self):
+        rows, samples = self.fixture()
+        sample = rows[0]["sampleId"]
+        samples[sample] += b" "
+        self.assertEqual(evaluate_blind_reference_pairs(
+            rows, samples, set())["status"], "HOLD")
+
+    def test_missing_wav_or_undeclared_extra_wav_refused(self):
+        rows, samples = self.fixture()
+        samples.pop(rows[0]["sampleId"])
+        self.assertEqual(evaluate_blind_reference_pairs(
+            rows, samples, set())["status"], "HOLD")
+        rows, samples = self.fixture()
+        samples["extra"] = self.wav(700, 0)
+        self.assertEqual(evaluate_blind_reference_pairs(
+            rows, samples, set())["status"], "HOLD")
+
+    def test_same_exact_audio_disguised_as_separate_reference_rejected(self):
+        rows, samples = self.fixture()
+        first, last = rows[0], rows[-1]
+        last["wavSha256"] = first["wavSha256"]
+        samples[last["sampleId"]] = samples[first["sampleId"]]
+        self.assertEqual(evaluate_blind_reference_pairs(
+            rows, samples, set())["status"], "HOLD")
 
 
 class PoseInternalContrastNegativeTests(unittest.TestCase):
