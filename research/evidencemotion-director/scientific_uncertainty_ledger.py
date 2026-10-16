@@ -10,7 +10,9 @@ import hashlib
 import json
 import re
 from pathlib import Path
-from research_receipt_io import prepare_research_output, emit_research_output
+from research_receipt_io import (
+    prepare_research_output, emit_research_output, strict_research_json,
+)
 
 from autonomous_script_asr_research import WAV_SHA, LINES, tokens
 
@@ -239,7 +241,7 @@ def main():
     if not input_file.is_file() or input_file.is_symlink():
         hold("EXACT_REGULAR_SOURCE_JOIN_REQUIRED")
     data = input_file.read_bytes()
-    output = classify(json.loads(data), source_sha=hashlib.sha256(data).hexdigest())
+    output = classify(strict_research_json(data), source_sha=hashlib.sha256(data).hexdigest())
     emit_research_output(output_path, output)
     print(json.dumps({"status": output["status"], "claims": 8, "material": 6,
                       "externalHumanOutcomeSearchPerformed": False,

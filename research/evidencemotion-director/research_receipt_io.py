@@ -40,3 +40,36 @@ def emit_research_output(target, report):
     finally:
         if pending is not None:
             pending.unlink(missing_ok=True)
+
+def strict_research_json(raw):
+    """Parse exact receipt bytes without silently accepting ambiguous JSON.
+
+    The original file digest is still computed over its original bytes.
+    This is integrity validation, not independent science review.
+    """
+    import math
+
+    def reject(reason):
+        raise ValueError("RESEARCH_JSON_HOLD:" + reason)
+
+    def unique_object(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                reject("DUPLICATE_JSON_KEY:" + key)
+            result[key] = value
+        return result
+
+    def finite_float(token):
+        value = float(token)
+        if not math.isfinite(value):
+            reject("NONFINITE_JSON_NUMBER")
+        return value
+
+    try:
+        return json.loads(
+            raw, object_pairs_hook=unique_object, parse_float=finite_float,
+            parse_constant=lambda _: reject("NONFINITE_JSON_NUMBER"),
+        )
+    except (UnicodeError, json.JSONDecodeError) as exc:
+        reject("MALFORMED_JSON:" + str(exc))

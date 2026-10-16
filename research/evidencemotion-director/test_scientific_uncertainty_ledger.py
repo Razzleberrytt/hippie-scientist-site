@@ -278,5 +278,26 @@ class UncertaintyLedgerContracts(unittest.TestCase):
             self.assertFalse(report["mayPublish"])
             self.assertEqual(report["totalClaims"], 8)
 
+    def test_cli_ambiguous_or_nonfinite_input_is_hold_without_stale_report(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            source,out=root/"source.json",root/"report.json"
+            standard=json.dumps(fixture())
+            attacks=(
+                ('{"mayPublish":false,'+standard[1:],"DUPLICATE_JSON_KEY"),
+                ('{"decoy":NaN,'+standard[1:],"NONFINITE_JSON_NUMBER"),
+                ('{"decoy":1e999,'+standard[1:],"NONFINITE_JSON_NUMBER"),
+            )
+            for payload,reason in attacks:
+                source.write_text(payload,encoding="utf8")
+                out.write_text('{"mayPublish":true}',encoding="utf8")
+                with self.subTest(reason=reason),patch.object(sys,"argv",[
+                    "scientific_uncertainty_ledger","--source-join",str(source),"--out",str(out),
+                ]):
+                    with self.assertRaisesRegex(ValueError,reason):
+                        uncertainty_main()
+                self.assertFalse(out.exists())
+                self.assertEqual(source.read_text(encoding="utf8"),payload)
+
 if __name__ == "__main__":
     unittest.main()

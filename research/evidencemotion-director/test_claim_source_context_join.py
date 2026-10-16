@@ -1,13 +1,16 @@
 """EM-007.03 tested provenance joins, not independent clinical approval."""
 import copy
 import json
+import sys
+import tempfile
+import hashlib
 import unittest
 from pathlib import Path
 from unittest.mock import patch
 
 from autonomous_script_asr_research import WAV_SHA
 from claim_source_context_join import (
-    join,SCHEMA,SUPPORT,BLOCKED_HUMAN_CONTEXT,
+    join,main as join_main,SCHEMA,SUPPORT,BLOCKED_HUMAN_CONTEXT,
     MITRAGYNINE,HYDROXYMITRAGYNINE)
 from visual_claim_inventory import EXACT_SHOTS,SOURCE_CARD_LABELS
 
@@ -187,5 +190,62 @@ class ExactClaimContextTests(unittest.TestCase):
         self.visual["rows"][0]["clinicalEffectSupportedByThisVisual"]=True
         with self.assertRaisesRegex(ValueError,"VISUAL_SCOPE"):
             self.produce()
+
+    def test_cli_output_alias_preserves_both_primary_inputs(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            spoken,visual=root/"spoken.json",root/"visual.json"
+            spoken.write_text(json.dumps(self.spoken),encoding="utf8")
+            visual.write_text(json.dumps(self.visual),encoding="utf8")
+            saved=(spoken.read_bytes(),visual.read_bytes())
+            for target in (spoken,visual):
+                with self.subTest(target=target.name),patch.object(sys,"argv",[
+                    "claim_source_context_join","--spoken",str(spoken),
+                    "--visual",str(visual),"--out",str(target),
+                ]):
+                    with self.assertRaisesRegex(ValueError,"OUTPUT_SYMLINK_OR_INPUT_ALIAS"):
+                        join_main()
+            self.assertEqual((spoken.read_bytes(),visual.read_bytes()),saved)
+
+    def test_cli_ambiguous_json_rejected_and_stale_report_invalidated(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            spoken,visual,out=root/"spoken.json",root/"visual.json",root/"out.json"
+            visual.write_text(json.dumps(self.visual),encoding="utf8")
+            base=json.dumps(self.spoken)
+            attacks=(
+                ('{"mayPublish":false,'+base[1:],"DUPLICATE_JSON_KEY"),
+                ('{"decoy":NaN,'+base[1:],"NONFINITE_JSON_NUMBER"),
+                ('{"decoy":1e999,'+base[1:],"NONFINITE_JSON_NUMBER"),
+                ('{"nested":{"x":1,"x":1},'+base[1:],"DUPLICATE_JSON_KEY"),
+            )
+            for payload,reason in attacks:
+                spoken.write_text(payload,encoding="utf8")
+                out.write_text('{"mayPublish":true}',encoding="utf8")
+                with self.subTest(reason=reason),patch.object(sys,"argv",[
+                    "claim_source_context_join","--spoken",str(spoken),
+                    "--visual",str(visual),"--out",str(out),
+                ]):
+                    with self.assertRaisesRegex(ValueError,reason):
+                        join_main()
+                self.assertFalse(out.exists())
+                self.assertEqual(spoken.read_text(encoding="utf8"),payload)
+
+    def test_cli_source_join_success_keeps_exact_source_digests_and_hold(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            spoken,visual,out=root/"spoken.json",root/"visual.json",root/"out.json"
+            spoken.write_text(json.dumps(self.spoken),encoding="utf8")
+            visual.write_text(json.dumps(self.visual),encoding="utf8")
+            with patch.object(sys,"argv",[
+                "claim_source_context_join","--spoken",str(spoken),
+                "--visual",str(visual),"--out",str(out),
+            ]):
+                join_main()
+            result=json.loads(out.read_text(encoding="utf8"))
+            self.assertEqual(result["spokenLedgerSha256"],hashlib.sha256(spoken.read_bytes()).hexdigest())
+            self.assertEqual(result["visualInventorySha256"],hashlib.sha256(visual.read_bytes()).hexdigest())
+            self.assertEqual(result["materialClaimCount"],6)
+            self.assertFalse(result["mayPublish"])
 
 if __name__=="__main__":unittest.main()

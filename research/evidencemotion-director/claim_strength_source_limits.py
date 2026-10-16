@@ -10,7 +10,9 @@ import hashlib
 import json
 import re
 from pathlib import Path
-from research_receipt_io import prepare_research_output, emit_research_output
+from research_receipt_io import (
+    prepare_research_output, emit_research_output, strict_research_json,
+)
 
 from scientific_uncertainty_ledger import (
     classify as classify_uncertainty, SOURCE_IDS, SOURCE_SCOPES,
@@ -165,11 +167,13 @@ def main():
         if not path.is_file() or path.is_symlink():
             hold("REGULAR_HASH_BOUND_INPUT_REQUIRED:" + name)
     join_file, uncertainty_file = Path(args.source_join), Path(args.uncertainty)
+    join_bytes = join_file.read_bytes()
+    uncertainty_bytes = uncertainty_file.read_bytes()
     output = evaluate(
-        json.loads(join_file.read_text(encoding="utf-8")),
-        json.loads(uncertainty_file.read_text(encoding="utf-8")),
-        source_join_sha=hashlib.sha256(join_file.read_bytes()).hexdigest(),
-        uncertainty_sha=hashlib.sha256(uncertainty_file.read_bytes()).hexdigest(),
+        strict_research_json(join_bytes),
+        strict_research_json(uncertainty_bytes),
+        source_join_sha=hashlib.sha256(join_bytes).hexdigest(),
+        uncertainty_sha=hashlib.sha256(uncertainty_bytes).hexdigest(),
     )
     emit_research_output(output_path, output)
     print(json.dumps({"status":output["status"],"claims":8,"material":6,

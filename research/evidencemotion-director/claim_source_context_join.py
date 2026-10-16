@@ -11,6 +11,9 @@ import hashlib
 import json
 import re
 from pathlib import Path
+from research_receipt_io import (
+    prepare_research_output, emit_research_output, strict_research_json,
+)
 
 from autonomous_script_asr_research import WAV_SHA, LINES, tokens
 from verified_molecular_comparison import (
@@ -134,7 +137,7 @@ def loaded(path):
     f=Path(path)
     if not f.is_file() or f.is_symlink():
         hold("REGULAR_IMMUTABLE_INPUT_REQUIRED")
-    return json.loads(f.read_text(encoding="utf8"))
+    return strict_research_json(f.read_bytes())
 
 def join(spoken,visual,*,spoken_sha,visual_sha):
     if (spoken.get("schema")!="ths-frozen-spoken-claim-ledger-v1"
@@ -316,10 +319,11 @@ def main():
     for arg in ("spoken","visual","out"):
         p.add_argument("--"+arg,required=True)
     a=p.parse_args()
+    output_path=prepare_research_output(a.out,(a.spoken,a.visual))
     s=loaded(a.spoken)
     v=loaded(a.visual)
     data=join(s,v,spoken_sha=digest(a.spoken),visual_sha=digest(a.visual))
-    Path(a.out).write_text(json.dumps(data,indent=2,ensure_ascii=False)+"\n",encoding="utf8")
+    emit_research_output(output_path,data)
     print(json.dumps({"status":"SOURCE_CONTEXT_JOIN_RESEARCH_ONLY",
                       "claims":len(data["claims"]),
                       "material":data["materialClaimsWithTypedSourceContext"],

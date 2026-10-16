@@ -222,5 +222,32 @@ class ClaimStrengthSourceLimitsTests(unittest.TestCase):
             self.assertEqual(report["materialClaimsWithSourceScopeComparison"], 6)
             self.assertFalse(report["mayPublish"])
 
+    def test_cli_rejects_ambiguous_json_in_either_parent_and_clears_old_report(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            join_file,uncertainty_file,out=(
+                root/"source.json",root/"uncertainty.json",root/"report.json"
+            )
+            for badfile,good in ((join_file,self.join),(uncertainty_file,self.uncertainty)):
+                for typ in ("duplicate","nan","overflow"):
+                    join_file.write_text(json.dumps(self.join),encoding="utf8")
+                    uncertainty_file.write_text(json.dumps(self.uncertainty),encoding="utf8")
+                    original=json.dumps(good)
+                    payload=('{"mayPublish":false,'+original[1:]
+                             if typ=="duplicate" else
+                             '{"decoy":'+("NaN" if typ=="nan" else "1e999")+','+original[1:])
+                    badfile.write_text(payload,encoding="utf8")
+                    out.write_text('{"mayPublish":true}',encoding="utf8")
+                    with self.subTest(input=badfile.name,typ=typ),patch.object(sys,"argv",[
+                        "claim_strength_source_limits","--source-join",str(join_file),
+                        "--uncertainty",str(uncertainty_file),"--out",str(out),
+                    ]):
+                        with self.assertRaisesRegex(
+                            ValueError,"DUPLICATE_JSON_KEY" if typ=="duplicate" else "NONFINITE_JSON_NUMBER"
+                        ):
+                            strength_main()
+                    self.assertFalse(out.exists())
+                    self.assertEqual(badfile.read_text(encoding="utf8"),payload)
+
 if __name__ == "__main__":
     unittest.main()
