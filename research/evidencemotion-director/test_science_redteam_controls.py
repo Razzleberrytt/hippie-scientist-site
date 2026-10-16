@@ -113,6 +113,33 @@ class ScienceAdversarialMatrix(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "UNVERIFIED_BOTANICAL_7OH_CONTENT"):
                     self.source_join()
 
+    def test_em008_spoken_spelling_and_unicode_seven_oh_rejected(self):
+        for text in (
+            "Kratom leaves have 7-hydroxymitragynine",
+            "Kratom leaves have seven o h",
+            "Kratom leaves have 7‑OH",
+            "Kratom leaves have 7 hydroxy mitragynine",
+        ):
+            self.setUp()
+            self.visual["rows"][0]["emittedSourceAnnotations"]["science"]=[text]
+            with self.subTest(text=text), self.assertRaisesRegex(
+                    ValueError, "UNVERIFIED_BOTANICAL_7OH_CONTENT"):
+                self.source_join()
+
+    def test_em008_cross_shot_botanical_assay_implied_across_cut_rejected(self):
+        self.visual["rows"][0]["emittedSourceAnnotations"]["science"]=["Kratom leaves"]
+        self.visual["rows"][1]["emittedSourceAnnotations"]["science"]=["have seven o h"]
+        with self.assertRaisesRegex(ValueError,"UNVERIFIED_BOTANICAL_7OH_CROSS_SHOT"):
+            self.source_join()
+
+    def test_em008_neutral_disclosure_across_shots_remains_hold_not_rejected(self):
+        self.visual["rows"][0]["emittedSourceAnnotations"]["disclosure"]=[
+            "Botanical illustration; not proof of 7-OH plant content."]
+        self.visual["rows"][1]["emittedSourceAnnotations"]["science"]=[
+            "7-OH is a chemical diagram label"]
+        result=self.source_join()
+        self.assertFalse(result["mayPublish"])
+
     def test_em008_split_biological_labels_cannot_evade_content_guard(self):
         # Two separately innocent-looking captions form one false visual
         # inference when read together in the same encoded shot.

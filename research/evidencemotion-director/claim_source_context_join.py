@@ -88,14 +88,18 @@ BOTANICAL_CONTEXT = re.compile(
     r"\b(?:plant|plants|leaf|leaves|foliage|botanical|botanicals|kratom|"
     r"mitragyna\s+speciosa|herb|herbs|powder|extract|tea)\b", re.I)
 SEVEN_OH_REFERENCE = re.compile(
-    r"(?<!\w)(?:7\s*[-–]?\s*OH|7\s*[-–]?\s*hydroxymitragynine)(?!\w)", re.I)
+    # Cover spoken "seven o h", Unicode dash and spaced chemical naming.
+    r"(?<!\w)(?:7\s*[-–—‑]?\s*(?:OH|hydroxy\s*mitragynine)|"
+    r"seven\s*[-–—‑]?\s*o\s*[-–—‑]?\s*h)(?!\w)", re.I)
 BOTANICAL_CONTENT_ASSERTION = re.compile(
-    r"\b(?:contains?|content|measur(?:ed|ement|able)|detect(?:ed|ion|able)|"
+    r"\b(?:contains?|content|has|have|had|produces?|yields?|found|occurs?|"
+    r"measur(?:ed|ement|able)|detect(?:ed|ion|able)|"
     r"quantif(?:ied|ication)|tested|test\s+result|confirmed|verified|"
     r"concentration|percent|present|absent|none|zero|rich|mg|µg|ppm)\b"
     r"|\d+(?:\.\d+)?\s*(?:%|mg|µg|ug|ppm)\b", re.I)
 POSITIVE_CONTENT_LANGUAGE = re.compile(
-    r"\b(?:contains?|detected|measured|quantified|tested|confirmed|verified|"
+    r"\b(?:contains?|has|have|had|produces?|yields?|found|occurs?|"
+    r"detected|measured|quantified|tested|confirmed|verified|"
     r"concentration|percent|present|absent|none|zero|rich|mg|µg|ppm)\b"
     r"|\d+(?:\.\d+)?\s*(?:%|mg|µg|ug|ppm)\b", re.I)
 
@@ -184,6 +188,9 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
             or any(not is_sha256(s.get(field)) for field in FRAME_HASH_FIELDS)
             for s in shots)):
         hold("ACTUAL_NINE_SHOT_VISUAL_SCOPE_OR_RISKS_REQUIRED")
+    # Adjacent shot annotations may imply an unsupported botanical assay.
+    # This is authored metadata, not actual encoded pixel classification.
+    adjacent_ink=[]
     for shot in shots:
         roles=shot.get("emittedSourceAnnotations")
         if (not isinstance(roles,dict)
@@ -198,12 +205,18 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
         # science-safe film; inspect its actual inventory content again.
         written_ink = " ".join(t for role in ANNOTATION_ROLES
                                for t in roles[role])
+        adjacent_ink.append((shot["shot"],written_ink))
         if EFFECT_CLAIMS.search(written_ink):
             hold("UNSUPPORTED_TREATMENT_OR_EFFECT_TEXT:"+shot["shot"])
         # Even separately split annotation labels must not present imagined
         # botanical 7-OH concentrations, positive assays or absent content.
         if asserts_unverified_botanical_7oh_content(written_ink):
             hold("UNVERIFIED_BOTANICAL_7OH_CONTENT:"+shot["shot"])
+    for (left_name,left_ink),(right_name,right_ink) in zip(
+            adjacent_ink,adjacent_ink[1:]):
+        if asserts_unverified_botanical_7oh_content(left_ink+" "+right_ink):
+            hold("UNVERIFIED_BOTANICAL_7OH_CROSS_SHOT:"
+                 +left_name+":"+right_name)
     # EM-007.06: this exact nine-shot film must preserve its visible science
     # limitations. A freshly rehashed visual inventory is not enough if a
     # later picture edit drops "computed" or "not filmed" while source CIDs
