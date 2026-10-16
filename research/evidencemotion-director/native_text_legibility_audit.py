@@ -17,14 +17,15 @@ from phone_ui_audit import probe_movie, validate_manifest
 
 SCHEMA="ths-actual-native-teaching-ink-audit-v1"
 REQUIRED={
-    "sentence_1_part0": ("MITRAGYNINE • CID 3034396","CID = compound record number"),
-    "sentence_1_part1": ("7-OH • CID 44301524","CID = compound record number"),
+    "sentence_1_part0": ("MITRAGYNINE","No reaction"),
+    "sentence_1_part1": ("7-OH","No reaction"),
     "sentence_2": ("–OH group: oxygen + hydrogen",),
     "sentence_3": ("Dots mark atoms. Lines mark bonds.",),
     "sentence_4": ("A possible\n3D shape.","Computed 3D illustration • not filmed"),
-    "sentence_5_part0": ("What the shape\nshows.",),
-    "sentence_5_part1": ("What it cannot\ntell us.","HUMAN EXPERIENCE"),
-    "source_hold": ("CID 44301524","Chemical structure database"),
+    "sentence_5_part0": ("STRUCTURE",),
+    "sentence_5_part1": ("HUMAN EXPERIENCE",),
+    "source_hold": ("7-OH • CID 44301524","Mitragynine • CID 3034396","CID = compound record number"),
+    "sentence_6": ("Look closer.","Computed detail","Hydrogens omitted"),
 }
 MIN_INK_DYNAMIC_RANGE=130.0
 MAX_INK_DRIFT=16.0

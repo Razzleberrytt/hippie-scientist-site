@@ -19,7 +19,7 @@ class RealMutedReviewPacketTests(unittest.TestCase):
         self.claim = root / "claim.json"
         self.movie.write_bytes(b"fake film: contract-only test not a real MP4")
         names = SCENE_IDS
-        bounds = (0, 1.5, 3.5, 10.5, 16.5, 23.3, 25.7, 27.35, 31.25, 34.35)
+        bounds = (0, 1.5, 3.5, 10.5, 16.5, 23.3, 25.7, 27.35, 31.25, 34.367)
         self.plan = {
             "status": "RESEARCH_ONLY",
             "releaseApproved": False,
@@ -28,9 +28,9 @@ class RealMutedReviewPacketTests(unittest.TestCase):
                 {"id": name, "startSec": bounds[i], "endSec": bounds[i+1],
                  "annotations": [{"role": "science", "text": source}]}
                 for i, (name, source) in enumerate(zip(names, (
-                    "MITRAGYNINE • CID 3034396", "7-OH • CID 44301524",
+                    "MITRAGYNINE", "7-OH",
                     "Look at hydroxyl –OH", "Connected atoms", "Computed 3D illustration",
-                    "Structure", "HUMAN EXPERIENCE", "PubChem CID 44301524",
+                    "Structure", "HUMAN EXPERIENCE", "PubChem 7-OH • CID 44301524 Mitragynine • CID 3034396 CID = compound record number",
                     "Look closer")))
             ]
         }
@@ -64,6 +64,14 @@ class RealMutedReviewPacketTests(unittest.TestCase):
         self.assertEqual(video_sha, sha(self.movie))
         self.assertFalse(receipt["mayPublish"])
 
+    def test_final_tail_gap_is_rejected_even_with_matching_hashes(self):
+        # Interior gaps still fail at 1 ms; the final tail tolerates only
+        # one 30-fps frame of encoder rounding, NOT a multi-frame hole.
+        # Test a 70-ms tail so this rejects an actual unaccounted video interval.
+        self.plan["shots"][-1]["endSec"] -= 0.070
+        with self.assertRaisesRegex(ValueError, "INCOMPLETE_FILM_COVERAGE"):
+            self.examine()
+
     def test_corrupted_actual_video_cannot_reuse_old_receipts(self):
         self.movie.write_bytes(b"wrong revision")
         with self.assertRaisesRegex(ValueError, "FILM_OR_PROVENANCE"):
@@ -75,7 +83,7 @@ class RealMutedReviewPacketTests(unittest.TestCase):
             self.examine()
 
     def test_wrong_first_compound_identity_is_hold(self):
-        self.plan["shots"][0]["annotations"][0]["text"] = "MITRAGYNINE • CID 44301524"
+        self.plan["shots"][0]["annotations"][0]["text"] = "WRONG MOLECULE"
         with self.assertRaisesRegex(ValueError, "MISSING_SOUND_OFF_TEACHING_EVIDENCE"):
             self.examine()
 
