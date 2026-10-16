@@ -115,6 +115,71 @@ class CraftSourceLockedContractTests(unittest.TestCase):
     self.assertEqual(r['framesComparedOutsideScene'],3)
     self.assertEqual(r['outsideFrameMeanAbsRgb255'],0)
 
+
+  def test_inserted_scene_matches_decoded_output_and_is_visibly_new(self):
+    source=[bytes([0]*12) for _ in range(6)]
+    scene=[bytes([255]*12),bytes([150]*12)]
+    output=[*source[:2],*scene,*source[4:]]
+    manifest={'frames':6,'startFrame':2,'endFrameExclusive':4}
+    def decode(path):
+      return iter({'src':source,'scene':scene,'final':output}[path])
+    r=S.audit_inserted_scene_frames('src','scene','final',manifest,decoder=decode)
+    self.assertEqual(r['insertedFramesCompared'],2)
+    self.assertEqual(r['visiblyChangedEditedFrames'],2)
+    self.assertEqual(r['maxSceneToOutputMeanAbsRgb255'],0)
+    self.assertEqual(r['maxEditedSourceToOutputMeanAbsRgb255'],255)
+
+  def test_missing_or_misordered_craft_scene_is_refused(self):
+    source=[bytes([0]*12) for _ in range(6)]
+    scene=[bytes([255]*12),bytes([150]*12)]
+    manifest={'frames':6,'startFrame':2,'endFrameExclusive':4}
+    candidate_frames={
+      'omitted':source,
+      'wrong_scene':[*source[:2],bytes([40]*12),bytes([90]*12),*source[4:]],
+      'reordered':[*source[:2],scene[1],scene[0],*source[4:]],
+    }
+    for kind,candidate in candidate_frames.items():
+      def decode(path):
+        return iter({'src':source,'scene':scene,'final':candidate}[path])
+      with self.subTest(kind=kind),self.assertRaisesRegex(
+          S.CraftHold,'INSERTED_SCENE_DOES_NOT_MATCH_ENCODED_MOVIE'):
+        S.audit_inserted_scene_frames('src','scene','final',manifest,decoder=decode)
+
+  def test_identical_replacement_cannot_claim_visible_craft_edit(self):
+    source=[bytes([11]*12) for _ in range(6)]
+    scene=[bytes([11]*12) for _ in range(2)]
+    manifest={'frames':6,'startFrame':2,'endFrameExclusive':4}
+    def decode(path):
+      return iter({'src':source,'scene':scene,'final':source}[path])
+    with self.assertRaisesRegex(S.CraftHold,'NO_VISIBLE_CRAFT_EDIT_IN_INSERTION_INTERVAL'):
+      S.audit_inserted_scene_frames('src','scene','final',manifest,decoder=decode)
+
+  def test_inserted_scene_requires_complete_all_streams(self):
+    source=[bytes([0]*12) for _ in range(6)]
+    scene=[bytes([255]*12),bytes([150]*12)]
+    candidate=[*source[:2],*scene,*source[4:]]
+    manifest={'frames':6,'startFrame':2,'endFrameExclusive':4}
+    for kind,streams in {
+      'short scene':{'src':source,'scene':scene[:1],'final':candidate},
+      'extra scene':{'src':source,'scene':scene+[bytes([1]*12)],'final':candidate},
+      'short output':{'src':source,'scene':scene,'final':candidate[:-1]},
+      'extra source':{'src':source+[bytes([0]*12)],'scene':scene,'final':candidate},
+      'bad scene geometry':{'src':source,'scene':[bytes([255]*6),scene[1]],'final':candidate}
+    }.items():
+      def decode(path):
+        return iter(streams[path])
+      with self.subTest(kind=kind),self.assertRaises(S.CraftHold):
+        S.audit_inserted_scene_frames('src','scene','final',manifest,decoder=decode)
+
+  def test_inserted_scene_rejects_untrusted_bounds(self):
+    src=[bytes([0]*12) for _ in range(6)]
+    def decode(path):return iter(src)
+    for bad in ({'frames':6,'startFrame':-1,'endFrameExclusive':4},
+                {'frames':6,'startFrame':2,'endFrameExclusive':7},
+                {'frames':6,'startFrame':4,'endFrameExclusive':4}):
+      with self.subTest(bad=bad),self.assertRaisesRegex(S.CraftHold,'UNTRUSTED_INSERTION_INTERVAL'):
+        S.audit_inserted_scene_frames('src','scene','final',bad,decoder=decode)
+
   def test_subtle_outside_scene_overlay_is_rejected(self):
     manifest={'frames':5,'startFrame':1,'endFrameExclusive':3}
     a=[bytes([10]*12)]*5
@@ -301,6 +366,9 @@ class CraftSourceLockedContractTests(unittest.TestCase):
       self.assertEqual(result['frames'],12)
       self.assertEqual(result['outsideSceneVisualAudit']['framesComparedOutsideScene'],8)
       self.assertEqual(result['outsideSceneVisualAudit']['outsideFrameMaxMeanAbsRgb255'],0)
+      self.assertEqual(result['insertedSceneVisualAudit']['insertedFramesCompared'],4)
+      self.assertGreaterEqual(result['insertedSceneVisualAudit']['visiblyChangedEditedFrames'],3)
+      self.assertLessEqual(result['insertedSceneVisualAudit']['maxSceneToOutputMeanAbsRgb255'],12)
       frames=list(S._decoded_rgb_frames(output,width=96,height=170))
       self.assertEqual(len(frames),12)
       self.assertTrue(all(max(frame)==0 for frame in frames[:4]+frames[8:]))
