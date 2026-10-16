@@ -89,6 +89,50 @@ class CaptionWordCueTests(unittest.TestCase):
         self.captions['scenes'][0]['groups'].pop()
         self.assertEqual(self.audit()['status'], 'HOLD')
 
+    def test_scientific_word_split_across_display_tokens_fails_closed(self):
+        # Previously "po" + "se" passed for the authored single word "pose".
+        # Keep the visible cue inventory coherent: failure must be lexical,
+        # not an unrelated cue-index or word-count mismatch.
+        groups = self.captions['scenes'][0]['groups']
+        groups[0]['words'] = ['po', 'se']
+        groups[0]['afterLastCue'] = 2
+        groups[1]['firstCue'], groups[1]['afterLastCue'] = 2, 3
+        groups[2]['firstCue'], groups[2]['afterLastCue'] = 3, 4
+        self.captions['scenes'][0]['spokenWords'] = 4
+        result = self.audit()
+        self.assertEqual(result['status'], 'HOLD')
+        self.assertEqual(result['errors'], ['CAPTION_LEXICAL_DRIFT_OR_SPLIT_MFA_TOKEN'])
+
+    def test_two_original_words_cannot_be_silently_fused_without_punctuation(self):
+        # Previously "poseis" consumed the source words "pose is" and
+        # appeared source-consistent, despite changing displayed segmentation.
+        self.captions['scenes'][0]['groups'] = [
+            {'firstCue': 0, 'afterLastCue': 1, 'words': ['poseis'],
+             'startSec': .1, 'endSec': .6},
+            {'firstCue': 1, 'afterLastCue': 2, 'words': ['computed'],
+             'startSec': .7, 'endSec': .9},
+        ]
+        self.captions['scenes'][0]['spokenWords'] = 2
+        result = self.audit()
+        self.assertEqual(result['status'], 'HOLD')
+        self.assertEqual(result['errors'], ['CAPTION_LEXICAL_DRIFT_OR_SPLIT_MFA_TOKEN'])
+
+    def test_hyphenated_compound_may_join_two_mfa_tokens_without_release_approval(self):
+        self.alignment['wordAlignment'][0]['word'] = '7'
+        self.alignment['wordAlignment'][1]['word'] = 'OH'
+        self.captions['scenes'][0]['groups'] = [
+            {'firstCue': 0, 'afterLastCue': 1, 'words': ['7-OH'],
+             'startSec': .1, 'endSec': .6},
+            {'firstCue': 1, 'afterLastCue': 2, 'words': ['computed'],
+             'startSec': .7, 'endSec': .9},
+        ]
+        self.captions['scenes'][0]['spokenWords'] = 2
+        result = self.audit()
+        self.assertEqual(result['status'], 'RESEARCH_CAPTION_FRAME_REVIEW_REQUIRED')
+        self.assertEqual(result['counts']['mfaWordsCovered'], 3)
+        self.assertEqual(result['counts']['visibleCaptionWords'], 2)
+        self.assertFalse(result['mayPublish'])
+
     def test_changed_timing_even_if_rehashed_is_refused(self):
         self.captions['scenes'][0]['groups'][1]['startSec'] += .08
         self.assertEqual(self.audit()['errors'], ['CAPTION_TIME_DIFFERS_FROM_EXACT_MFA_WORDS'])
