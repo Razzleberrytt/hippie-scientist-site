@@ -316,8 +316,13 @@ def decoded_overlay(movie, frame_index, shot, destination, width, height):
 
 def audit(movie, manifest, output):
     movie, manifest, output = Path(movie), Path(manifest), Path(output)
-    output.mkdir(parents=True, exist_ok=True)
     report_path = output / "research-report.json"
+    # A caller can put its input manifest/movie at this same path, including
+    # through a symlink or .. alias. Never unlink a source while invalidating
+    # the previous verdict. Check BEFORE creating or mutating output files.
+    if report_path.resolve() in (movie.resolve(), manifest.resolve()):
+        hold("REPORT_OUTPUT_ALIASES_SOURCE_INPUT")
+    output.mkdir(parents=True, exist_ok=True)
     # Fail closed BEFORE probing / validation: a prior successful report must
     # never survive a new failed attempt against changed inputs.
     report_path.unlink(missing_ok=True)
