@@ -18,6 +18,8 @@ on:
       - 'research/evidencemotion-director/test_claim_source_context_join.py'
       - 'research/evidencemotion-director/scientific_uncertainty_ledger.py'
       - 'research/evidencemotion-director/test_scientific_uncertainty_ledger.py'
+      - 'research/evidencemotion-director/claim_strength_source_limits.py'
+      - 'research/evidencemotion-director/test_claim_strength_source_limits.py'
       - 'research/evidencemotion-director/EM00701-FROZEN-SPOKEN-LEDGER-20261016.json'
       - 'research/evidencemotion-director/encoded_science_motion_audit.py'
       - 'research/evidencemotion-director/test_encoded_science_motion_audit.py'
@@ -626,6 +628,29 @@ jobs:
           assert not r['noHumanStudiesExistProven']
           assert not r['independentScientificReviewApproved'] and not r['mayPublish']
           print('Uncertainty ledger derived from exact SHA-bound filmed claims: absence from source pack never becomes a null outcome or proof of no evidence')
+          PY
+      - name: Compare actual narrated claim strength to population, outcome, dose and time (EM-007.05 research)
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_claim_strength_source_limits.py -v
+          python research/evidencemotion-director/claim_strength_source_limits.py \\
+            --source-join "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-source-context-join.json" \\
+            --uncertainty "$RUNNER_TEMP/ths-mfa/specimen-timed-native/scientific-uncertainty-RESEARCH.json" \\
+            --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-strength-RESEARCH.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-timed-native/claim-strength-RESEARCH.json'
+          result=json.loads(p.read_text())
+          assert result['spokenClaimsAssessed']==8
+          assert result['materialClaimsWithSourceScopeComparison']==6
+          assert not result['humanStudyComparisonPossible']
+          assert not result['externalPopulationOutcomeDoseTimingSearchPerformed']
+          assert all(not row['sourceSupportsEffectsOrAbsence'] and
+                     not row['independentScienceApproval'] for row in result['claims'])
+          assert not result['clinicalStrengthClaimsApproved'] and not result['mayPublish']
+          print('Eight original source-bound claims checked against five population/outcome/dose/time/follow-up axes; clinical comparisons remain HOLD')
           PY
       - name: Independently measure actual encoded science camera movement and reject static or strobing visuals
         shell: micromamba-shell {0}
