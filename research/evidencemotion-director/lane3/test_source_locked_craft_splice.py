@@ -244,7 +244,7 @@ class CraftSourceLockedContractTests(unittest.TestCase):
       folder=Path(td)
       stage=folder/'stage.mp4';stage.write_bytes(b'VERIFIED VIDEO')
       staged_receipt=folder/'stage.receipt.json'
-      staged_receipt.write_text(json.dumps({'mayPublish':False})+'\\n')
+      staged_receipt.write_text(json.dumps({'mayPublish':False})+'\n')
       movie=folder/'movie.mp4';sidecar=folder/'movie.receipt.json'
       movie.write_bytes(b'OWNER MOVIE');sidecar.write_bytes(b'OWNER RECEIPT')
       with self.assertRaisesRegex(S.CraftHold,'FRESH_OUTPUT_AND_RECEIPT_REQUIRED'):
@@ -347,8 +347,8 @@ class CraftSourceLockedContractTests(unittest.TestCase):
         Path(argv[-1]).write_bytes(b'ENCODED CANDIDATE')
         src.write_bytes(b'MUTATED SOURCE')
         return ''
-      with patch.object(S,'preflight',return_value=True), \\
-           patch.object(S,'run',side_effect=render_then_mutate), \\
+      with patch.object(S,'preflight',return_value=True), \
+           patch.object(S,'run',side_effect=render_then_mutate), \
            patch.object(S,'verify_result',return_value=verdict):
         with self.assertRaisesRegex(S.CraftHold,'PINNED_SOURCE_CHANGED_DURING_SPLICE'):
           S.splice(src,scene,dst,manifest)
