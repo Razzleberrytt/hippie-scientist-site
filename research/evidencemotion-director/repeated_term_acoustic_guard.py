@@ -433,7 +433,7 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes,
     }
     # WAV-container identity is insufficient: the same PCM can be repackaged
     # with different chunk metadata or trailing bytes and cross the split.
-    seen_ids, seen_hashes, seen_pcm_hashes = set(), set(), set()
+    seen_ids, seen_hashes, seen_pcm_hashes, seen_polarity_signatures = set(), set(), set(), set()
     target_pcm = None
     if target_original_wav is not None:
         if (not isinstance(target_original_wav, bytes)
@@ -485,6 +485,17 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes,
                 return refuse("REFERENCE_ORIGINAL_TARGET_PCM_REUSE")
             if pcm_sha in seen_pcm_hashes:
                 return refuse("REFERENCE_PCM_DUPLICATE_DESPITE_DIFFERENT_WAV_SHA")
+            # Different PCM hashes can still contain the SAME recorded waveform
+            # after gain/polarity changes. Reject exact same-length sample-sign
+            # trajectories as conservative leakage screening; this is not voice
+            # identity, speaker authentication or general near-duplicate detection.
+            signed_pcm = np.frombuffer(pcm, dtype="<i2")
+            polarity_identity = (num, min(
+                digest(np.packbits(signed_pcm > 0).tobytes()),
+                digest(np.packbits(signed_pcm < 0).tobytes()),
+            ))
+            if polarity_identity in seen_polarity_signatures:
+                return refuse("REFERENCE_GAIN_OR_POLARITY_REUSED_ACROSS_RECORDINGS")
             if target_pcm is not None and target_pcm.find(pcm) != -1:
                 return refuse("REFERENCE_EXCERPT_REUSED_FROM_ORIGINAL_MASTER")
             spectral = spectral_band_trace(pcm)
@@ -494,6 +505,7 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes,
             seen_ids.add(identity)
             seen_hashes.add(claimed_sha)
             seen_pcm_hashes.add(pcm_sha)
+            seen_polarity_signatures.add(polarity_identity)
     except (KeyError, TypeError, ValueError, OSError, wave.Error, EOFError) as exc:
         return refuse("REFERENCE_WAV_OR_SCHEMA_PARSE_FAILED:" + str(exc)[:80])
     if set(audio_by_id) != seen_ids:
