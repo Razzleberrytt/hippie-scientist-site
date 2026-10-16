@@ -81,7 +81,8 @@ class Tests(unittest.TestCase):
             for frame in frames:
                 writer.write(frame)
             writer.close()
-            _, stderr = proc.communicate(timeout=20)
+            proc.wait(timeout=20)
+            stderr = proc.stderr.read()
             self.assertEqual(proc.returncode, 0, stderr.decode("utf-8", "replace"))
             report = writer.receipt(exit_code=proc.returncode,
                                     film_sha=hashlib.sha256(movie.read_bytes()).hexdigest())
