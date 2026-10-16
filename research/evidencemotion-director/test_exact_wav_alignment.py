@@ -220,6 +220,7 @@ from test_repeated_term_acoustic_guard import (  # noqa: F401
     OriginalMfaCliContractTests, OriginalMasterMfaTests,
     PoseConflictNegativeTests, ActualPoseConflictTests,
     PoseInternalContrastNegativeTests, ActualPoseInternalContrastTests,
+    SpectralTraceSignalOnlyTests,
 )
 
 if __name__ == '__main__':
