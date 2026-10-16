@@ -163,15 +163,18 @@ def verify_decoded_presentation_grid(decoded, time_base, *, fps, expected_frames
         raise ResearchHold('ENCODED_SCENE_TIME_BASE_INVALID')
     tolerance=tick/2  # exact rational nearest-tick quantization bound
     previous=None
-    for index, frame in enumerate(decoded):
+    stamps=[]
+    for frame in decoded:
         stamp=frame.get('best_effort_timestamp') if isinstance(frame,dict) else None
         if type(stamp) is not int:
             raise ResearchHold('ENCODED_SCENE_TIMESTAMP_MISSING_OR_INVALID')
         if previous is not None and stamp<=previous:
             raise ResearchHold('ENCODED_SCENE_TIMESTAMP_NOT_STRICTLY_INCREASING')
+        stamps.append(stamp)
+        previous=stamp
+    for index, stamp in enumerate(stamps):
         if abs(Fraction(stamp)*tick-Fraction(index,fps))>tolerance:
             raise ResearchHold('ENCODED_SCENE_PRESENTATION_GRID_CHANGED')
-        previous=stamp
     return True
 
 
