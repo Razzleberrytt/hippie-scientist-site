@@ -443,6 +443,27 @@ class BlindReferenceBenchmarkTests(unittest.TestCase):
         self.assertEqual(evaluate_blind_reference_pairs(
             rows, samples, set())["status"], "HOLD")
 
+    def test_same_pcm_rewrapped_to_new_file_sha_rejected_within_and_across_splits(self):
+        for changed_index in (1, -1):
+            with self.subTest(changed_index=changed_index):
+                rows, samples = self.fixture()
+                origin, disguised = rows[0], rows[changed_index]
+                original = samples[origin["sampleId"]]
+                rewrapped = original + b"JUNK"  # Decoder ignores trailing wrapper bytes.
+                self.assertNotEqual(digest(original), digest(rewrapped))
+                with wave.open(io.BytesIO(rewrapped), "rb") as audio:
+                    self.assertEqual(audio.getnframes(), 9600)
+                    self.assertEqual(audio.readframes(9600),
+                                     original[44:])  # same decoded PCM as canonical WAV
+                samples[disguised["sampleId"]] = rewrapped
+                disguised["wavSha256"] = digest(rewrapped)
+                result = evaluate_blind_reference_pairs(rows, samples, set())
+                self.assertEqual(result["status"], "HOLD", result)
+                self.assertIn("REFERENCE_PCM_DUPLICATE_DESPITE_DIFFERENT_WAV_SHA",
+                              result["errors"])
+                self.assertFalse(result["calibrationComplete"])
+                self.assertFalse(result["mayPublish"])
+
 
 class BlindReferenceArchiveTests(unittest.TestCase):
     @staticmethod
@@ -493,6 +514,22 @@ class BlindReferenceArchiveTests(unittest.TestCase):
             self.make_zip(source, rows, samples, altered=rows[0]["sampleId"])
             report = audit_reference_archive(source)
             self.assertEqual(report["status"], "HOLD")
+            self.assertFalse(report["calibrationComplete"])
+
+    def test_archive_rejects_cross_split_pcm_duplicate_with_distinct_wav_sha(self):
+        rows, samples = BlindReferenceBenchmarkTests.fixture()
+        original, target = rows[0], rows[-1]
+        disguised = samples[original["sampleId"]] + b"JUNK"
+        samples[target["sampleId"]] = disguised
+        target["wavSha256"] = digest(disguised)
+        with tempfile.TemporaryDirectory() as td:
+            source = Path(td)/"spoofed.zip"
+            self.make_zip(source, rows, samples)
+            report = audit_reference_archive(source)
+            self.assertEqual(report["status"], "HOLD", report)
+            self.assertIn("REFERENCE_PCM_DUPLICATE_DESPITE_DIFFERENT_WAV_SHA",
+                          report["errors"])
+            self.assertFalse(report["mayPublish"])
             self.assertFalse(report["calibrationComplete"])
 
     def test_cli_rejects_mixing_benchmark_with_original_target_mode(self):
