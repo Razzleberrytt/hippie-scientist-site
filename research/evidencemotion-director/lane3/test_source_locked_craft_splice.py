@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import source_locked_craft_splice as S
 
@@ -141,5 +142,66 @@ class CraftSourceLockedContractTests(unittest.TestCase):
   def test_outside_ended_scene_cannot_claim_same_aac(self):
     with self.assertRaisesRegex(S.CraftHold,'SPLICED_OUTPUT_TECHNICAL_MISMATCH'):
       S.verify_result(FILM,SCENE,self.m)
+
+
+  def test_staging_filename_cannot_overwrite_pinned_source(self):
+    # The prior fixed 'movie.tmp.mp4' temporary path could be the actual input.
+    # Use mocks ONLY for the codec boundary; source bytes are real local files.
+    with tempfile.TemporaryDirectory() as td:
+      folder=Path(td)
+      source=folder/'movie.tmp.mp4';source.write_bytes(b'PINNED FILM')
+      scene=folder/'scene.mp4';scene.write_bytes(b'PINNED SCENE')
+      output=folder/'movie.mp4'
+      called=[]
+      def fake_ffmpeg(argv,**_):
+        staged=Path(argv[-1])
+        self.assertNotIn(staged.resolve(),{source.resolve(),scene.resolve()})
+        called.append(staged)
+        staged.write_bytes(b'RESEARCH FILM')
+        return ''
+      manifest={'startFrame':1,'endFrameExclusive':2}
+      verdict={'mayPublish':False,'status':'MOCK_CODEC_CONTRACT_ONLY'}
+      with patch.object(S,'preflight',return_value=True), \\
+           patch.object(S,'run',side_effect=fake_ffmpeg), \\
+           patch.object(S,'verify_result',return_value=verdict):
+        received=S.splice(source,scene,output,manifest)
+      self.assertEqual(received,verdict)
+      self.assertEqual(source.read_bytes(),b'PINNED FILM')
+      self.assertEqual(scene.read_bytes(),b'PINNED SCENE')
+      self.assertEqual(output.read_bytes(),b'RESEARCH FILM')
+      self.assertEqual(json.loads(output.with_suffix('.receipt.json').read_text()),verdict)
+      self.assertEqual(len(called),1)
+      self.assertFalse(called[0].exists())
+      self.assertEqual(list(folder.glob('.lane3-splice-*')),[])
+
+  def test_sidecar_destination_cannot_overwrite_source(self):
+    with tempfile.TemporaryDirectory() as td:
+      folder=Path(td)
+      source=folder/'movie.receipt.json';source.write_bytes(b'ORIGINAL PINNED SOURCE')
+      scene=folder/'scene.mp4';scene.write_bytes(b'SCENE')
+      with patch.object(S,'preflight',return_value=True),patch.object(S,'run') as ffmpeg:
+        with self.assertRaisesRegex(S.CraftHold,'REFUSE_OVERWRITE_INPUT'):
+          S.splice(source,scene,folder/'movie.mp4',{'startFrame':1,'endFrameExclusive':2})
+        ffmpeg.assert_not_called()
+      self.assertEqual(source.read_bytes(),b'ORIGINAL PINNED SOURCE')
+
+  def test_failed_staged_verification_preserves_prior_film_and_receipt(self):
+    with tempfile.TemporaryDirectory() as td:
+      folder=Path(td)
+      source=folder/'source.mp4';source.write_bytes(b'SOURCE')
+      scene=folder/'scene.mp4';scene.write_bytes(b'SCENE')
+      output=folder/'output.mp4';output.write_bytes(b'PRIOR FILM')
+      receipt=output.with_suffix('.receipt.json');receipt.write_bytes(b'PRIOR RECEIPT')
+      def fake_ffmpeg(argv,**_):
+        Path(argv[-1]).write_bytes(b'FAILED CANDIDATE')
+      with patch.object(S,'preflight',return_value=True), \\
+           patch.object(S,'run',side_effect=fake_ffmpeg), \\
+           patch.object(S,'verify_result',side_effect=S.CraftHold('FAILED_VISUAL_NEGATIVE')):
+        with self.assertRaisesRegex(S.CraftHold,'FAILED_VISUAL_NEGATIVE'):
+          S.splice(source,scene,output,{'startFrame':1,'endFrameExclusive':2})
+      self.assertEqual(output.read_bytes(),b'PRIOR FILM')
+      self.assertEqual(receipt.read_bytes(),b'PRIOR RECEIPT')
+      self.assertEqual(source.read_bytes(),b'SOURCE')
+      self.assertEqual(list(folder.glob('.lane3-splice-*')),[])
 
 if __name__=='__main__':unittest.main()
