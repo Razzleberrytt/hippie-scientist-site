@@ -10,7 +10,7 @@ import tempfile
 import unittest
 
 sys.path.insert(0, str(Path(__file__).parent))
-from phone_ui_audit import audit, validate_manifest, verify_decoded_shot_coverage
+from phone_ui_audit import audit, probe_movie, validate_manifest, verify_decoded_shot_coverage
 
 H = "a" * 64
 
@@ -35,6 +35,17 @@ class MobileAuditContract(unittest.TestCase):
         stamps = [Decimal("0"), Decimal("1.0"), Decimal("1.033333")]
         shots = [{"id": "short", "startSec": 1.0, "endSec": 1.008}]
         self.assertIsNone(verify_decoded_shot_coverage(stamps, shots))
+
+    def test_last_presented_frame_must_belong_to_a_shot(self):
+        stamps = [Decimal("0"), Decimal("0.033333")]
+        shots = [{"id": "short", "startSec": 0.0, "endSec": 0.02}]
+        with self.assertRaisesRegex(ValueError, "UNCLAIMED_FINAL_PRESENTED_FRAME"):
+            verify_decoded_shot_coverage(stamps, shots)
+
+    def test_final_partial_frame_padding_is_bounded_not_false_gap(self):
+        m = fixture()
+        m["shots"][0]["endSec"] = 2.98  # < 1 frame of non-content closing pad.
+        self.assertEqual(self.check(m)["status"], "OVERLAY_PREFLIGHT_PASS_REVIEW_REQUIRED")
 
     def test_good_research_metadata_does_not_publish(self):
         receipt = self.check(fixture())
@@ -168,6 +179,42 @@ class MobileAuditContract(unittest.TestCase):
             self.check(fixture(), size=(540, 960))
 
 class ActualFilmSmoke(unittest.TestCase):
+    def test_encoded_video_duration_not_extended_by_aac_tail(self):
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            picture = root / "picture.mp4"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+                "-f", "lavfi", "-i", "color=c=blue:s=1080x1920:r=30:d=3",
+                "-c:v", "libx264", "-preset", "ultrafast",
+                "-pix_fmt", "yuv420p", "-an", str(picture)
+            ], capture_output=True, timeout=50, check=True)
+            for audio_duration, accepted in ((3.045, True), (3.30, False)):
+                with self.subTest(audio_duration=audio_duration):
+                    movie = root / f"tail-{audio_duration}.mp4"
+                    subprocess.run([
+                        "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+                        "-i", str(picture), "-f", "lavfi",
+                        "-i", f"sine=frequency=440:sample_rate=48000:duration={audio_duration}",
+                        "-map", "0:v", "-map", "1:a", "-c:v", "copy",
+                        "-c:a", "aac", str(movie)
+                    ], capture_output=True, timeout=50, check=True)
+                    if accepted:
+                        _, _, video_duration, frames = probe_movie(movie)
+                        self.assertEqual(frames, 90)
+                        self.assertAlmostEqual(video_duration, 3.0, places=4)
+                        m = fixture()
+                        m["expectedVideoSha256"] = hashlib.sha256(movie.read_bytes()).hexdigest()
+                        plan = root / "plan.json"
+                        plan.write_text(json.dumps(m))
+                        receipt = audit(movie, plan, root / "frames")
+                        self.assertEqual(receipt["publicationVerdict"], "HOLD")
+                        self.assertAlmostEqual(receipt["durationSec"], 3.0, places=4)
+                        self.assertFalse(receipt["mayPublish"])
+                    else:
+                        with self.assertRaisesRegex(ValueError, "VIDEO_FRAME_COUNT_DURATION_MISMATCH"):
+                            probe_movie(movie)
+
     def test_vfr_video_rejected_by_decoded_timestamp_grid(self):
         with tempfile.TemporaryDirectory() as root:
             root = Path(root)
