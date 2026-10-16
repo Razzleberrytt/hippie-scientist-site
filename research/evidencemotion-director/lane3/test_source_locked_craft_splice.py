@@ -310,7 +310,9 @@ class CraftSourceLockedContractTests(unittest.TestCase):
       for key in ('scienceApproved','craftApproved','phonePlaybackApproved','mayPublish'):
         self.assertIs(result[key],False)
       self.assertFalse(list(folder.glob('.lane3-splice-*')))
-      with patch.object(S,'run') as launch:
+      # Preflight legitimately calls ffprobe via run(); mock that layer only
+      # for this second call so the assertion measures encoder non-admission.
+      with patch.object(S,'preflight',return_value=True), patch.object(S,'run') as launch:
         with self.assertRaisesRegex(S.CraftHold,'FRESH_OUTPUT_AND_RECEIPT_REQUIRED'):
           S.splice(source,scene,output,fixture)
         launch.assert_not_called()
