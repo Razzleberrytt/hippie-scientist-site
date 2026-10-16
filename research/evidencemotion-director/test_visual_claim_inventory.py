@@ -7,7 +7,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from autonomous_script_asr_research import WAV_SHA
+from autonomous_script_asr_research import WAV_SHA, LINES
 from encoded_science_pixel_audit import CRITICAL
 from narration_first_story_map import STORY
 from visual_claim_inventory import inventory
@@ -23,10 +23,26 @@ class VisualClaimInventoryTests(unittest.TestCase):
         self.movie=self.root/"film.mp4"
         self.movie.write_bytes(b"synthetic is never actual pixel proof")
         film=hashlib.sha256(self.movie.read_bytes()).hexdigest()
-        template=[{"id":r[0],"startSec":i*3.5,
-                   "endSec":(i+1)*3.5,
+        cuts=[0,1.61,3.47,10.85,16.58,23.38,25.71,27.35,31.25,34.34733333333333]
+        template=[{"id":r[0],"startSec":cuts[i],
+                   "endSec":cuts[i+1],
                    "annotations":[{"role":"science","text":"Sourced structure"}]}
                   for i,r in enumerate(STORY)]
+        # Full seven-scene frozen original narrator emission (71 screen cues).
+        scene_ids=[f"sentence_{i}" for i in range(1,6)]+["source_hold","sentence_6"]
+        scene_boundaries=[(cuts[0],cuts[2]),(cuts[2],cuts[3]),
+                          (cuts[3],cuts[4]),(cuts[4],cuts[5]),
+                          (cuts[5],cuts[7]),(cuts[7],cuts[8]),
+                          (cuts[8],cuts[9])]
+        self.scenes=[]
+        for i,(name,(start,end)) in enumerate(zip(scene_ids,scene_boundaries)):
+            line=LINES[i] if i<5 else ("" if i==5 else LINES[5])
+            words=line.split()
+            duration=(end-start)/max(1,len(words))
+            cues=[{"text":word,"startSec":round(start+j*duration+0.01,5),
+                   "endSec":round(start+(j+1)*duration-0.01,5)}
+                  for j,word in enumerate(words)]
+            self.scenes.append({"id":name,"line":line,"captionWords":cues})
         template[7]["annotations"]=[
             {"role":"source","text":t} for t in
             ("PubChem","Mitragynine • CID 3034396","7-OH • CID 44301524",
@@ -35,13 +51,13 @@ class VisualClaimInventoryTests(unittest.TestCase):
                     "releaseApproved":False,"shots":template}
         self.receipt={"videoSha256":film,"sourceWavSha256":WAV_SHA,
                       "fps":30,"frames":1031,"resolution":[1080,1920],
-                      "mayPublish":False}
+                      "scenes":self.scenes,"mayPublish":False}
         self.captions={"exactH264Sha256":film,"mayPublish":False,
                        "encodedSourceCardPairingRecovered":True}
         self.story={"encodedH264Sha256":film,"sourceWavSha256":WAV_SHA,
                     "mayPublish":False,"nineShotsMapped":9,
-                    "shots":[{"shot":r[0],"startSec":i*3.5,
-                              "endSec":(i+1)*3.5,"act":r[1],
+                    "shots":[{"shot":r[0],"startSec":cuts[i],
+                              "endSec":cuts[i+1],"act":r[1],
                               "learningObjective":r[2],
                               "directedComposition":r[3],
                               "scientificMeaningRestriction":r[4],
@@ -52,7 +68,7 @@ class VisualClaimInventoryTests(unittest.TestCase):
                       "originalWavSha256":WAV_SHA,
                       "mayPublish":False,"fullMotionFrameByFrameOcr":False,
                       "allNineShotInksIndependentlyRecovered":True,
-                      "rows":[{"shot":r[0],"timeSec":i*3.5+1,
+                      "rows":[{"shot":r[0],"timeSec":(cuts[i]+cuts[i+1])/2,
                                "decodedImageSha256":"a"*64,
                                "rawPixelOcrText":"Synthetic sample, not actual pixels",
                                "verifiedExactPhrases":list(CRITICAL[r[0]])}
@@ -81,6 +97,8 @@ class VisualClaimInventoryTests(unittest.TestCase):
     def test_nine_scene_inventory_is_hash_bound_and_never_science_approved(self):
         x=self.check()
         self.assertEqual(x["shotsInspected"],9)
+        self.assertEqual(x["sourceCaptionCuesAssigned"],71)
+        self.assertEqual(sum(len(r["all71SourceCaptionCuesForThisShot"]) for r in x["rows"]),71)
         self.assertEqual([r["shot"] for r in x["rows"]],[r[0] for r in STORY])
         self.assertEqual(x["rows"][7]["emittedSourceAnnotations"]["source"],
                          [t["text"] for t in self.phone["shots"][7]["annotations"]])
@@ -90,6 +108,17 @@ class VisualClaimInventoryTests(unittest.TestCase):
         self.assertFalse(x["scienceClaimsApproved"])
         self.assertFalse(x["allFrameIndependentOCR"])
         self.assertFalse(x["mayPublish"])
+
+    def test_missing_or_misleading_caption_cues_rejected_even_if_rehashed(self):
+        self.receipt["scenes"][3]["captionWords"].pop()
+        self.write()
+        with self.assertRaisesRegex(ValueError,"CAPTION_CUE_INVENTORY"):
+            self.check()
+        self.receipt["scenes"][3]["captionWords"].append(
+            {"text":"cures","startSec":17.1,"endSec":17.2})
+        self.write()
+        with self.assertRaisesRegex(ValueError,"CAPTION_CUE_INVENTORY"):
+            self.check()
 
     def test_foreign_media_and_rehashed_but_changed_story_are_rejected(self):
         self.movie.write_bytes(b"tampered film")
