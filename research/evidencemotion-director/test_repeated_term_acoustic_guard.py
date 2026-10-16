@@ -225,6 +225,91 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
         self.assertIn('"mayPublish": false', cmd.stdout)
 
 
+    @staticmethod
+    def mfa_signal_fixture(silence_at_word_20=False):
+        pcm = np.full(824336, 1500, dtype="<i2")
+        if silence_at_word_20:
+            pcm[96000:98400] = 0
+        wav_out = io.BytesIO()
+        with wave.open(wav_out, "wb") as audio:
+            audio.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            audio.writeframes(pcm.tobytes())
+        source = wav_out.getvalue()
+        words = [
+            {"word": "candidate", "startMs": i * 200.0,
+             "endMs": i * 200.0 + 100.0} for i in range(73)
+        ]
+        candidate = json.dumps({
+            "inputSha256": {"wav": digest(source)},
+            "sampleRate": 24000, "sampleCount": 824336,
+            "mayPublish": False, "pronunciationVerified": False,
+            "timingAccuracyCalibrated": False,
+            "wordAlignment": words,
+        }).encode()
+        return source, candidate
+
+    def test_mfa_73_source_word_windows_have_no_false_approval(self):
+        wav_raw, alignment_raw = self.mfa_signal_fixture()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(wav_raw)):
+            with patch.object(original_guard, "MFA_SOURCE_ALIGNMENT_SHA", digest(alignment_raw)):
+                result = original_guard.audit_original_mfa_word_signal_windows(
+                    wav_raw, alignment_raw)
+        self.assertEqual(result["status"], "RESEARCH_MFA_NO_FULL_ZERO_WORD_HOLD")
+        self.assertEqual(result["mfaWordWindowsScreened"], 73)
+        self.assertEqual(result["wholeWordDigitalZeroCount"], 0)
+        self.assertFalse(result["mayPublish"])
+        self.assertFalse(result["wordOnsetsApproved"])
+        self.assertFalse(result["wordTimingCalibrated"])
+        self.assertFalse(result["phonemeIdentityVerified"])
+
+    def test_mfa_wholly_silent_forced_word_is_detected_physically(self):
+        wav_raw, alignment_raw = self.mfa_signal_fixture(silence_at_word_20=True)
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(wav_raw)):
+            with patch.object(original_guard, "MFA_SOURCE_ALIGNMENT_SHA", digest(alignment_raw)):
+                result = original_guard.audit_original_mfa_word_signal_windows(
+                    wav_raw, alignment_raw)
+        self.assertEqual(result["status"], "RESEARCH_MFA_WHOLE_WORD_ZERO_HOLD")
+        self.assertEqual(result["wholeWordDigitalZeroCount"], 1)
+        self.assertEqual(result["wholeWordDigitalZeroContradictions"], [{
+            "wordIndex": 20, "forcedWordHypothesis": "candidate",
+            "startSample": 96000, "endSample": 98400,
+            "wholeCandidateWindowIsExactDigitalZero": True}])
+        self.assertFalse(result["mayPublish"])
+
+    def test_mfa_source_sha_and_schema_tampering_fail_closed(self):
+        wav_raw, candidate = self.mfa_signal_fixture()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(wav_raw)):
+            with patch.object(original_guard, "MFA_SOURCE_ALIGNMENT_SHA", digest(candidate)):
+                bad_wav = wav_raw[:-2] + bytes([wav_raw[-2] ^ 1, wav_raw[-1]])
+                result = original_guard.audit_original_mfa_word_signal_windows(
+                    bad_wav, candidate)
+                self.assertEqual(result["status"], "HOLD")
+                self.assertIn("MFA_SIGNAL_ORIGINAL_WAV_SHA_CHANGED", result["errors"])
+                data = json.loads(candidate)
+                data["wordAlignment"][4]["startMs"] = False
+                changed = json.dumps(data).encode()
+                result = original_guard.audit_original_mfa_word_signal_windows(
+                    wav_raw, changed)
+                self.assertEqual(result["status"], "HOLD")
+                self.assertIn("MFA_SIGNAL_ALIGNMENT_SHA_CHANGED", result["errors"])
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(wav_raw)):
+            with patch.object(original_guard, "MFA_SOURCE_ALIGNMENT_SHA", digest(changed)):
+                result = original_guard.audit_original_mfa_word_signal_windows(
+                    wav_raw, changed)
+        self.assertEqual(result["status"], "HOLD")
+        self.assertIn("MFA_SIGNAL_WORD_BOUNDS_OR_ORDER_INVALID", result["errors"])
+
+    def test_mfa_signal_cli_missing_source_never_certifies(self):
+        cmd = subprocess.run([
+            sys.executable, str(Path(__file__).with_name("repeated_term_acoustic_guard.py")),
+            "--mfa-zero-interval-audit", "--original-wav", "/nonexistent/master.wav",
+            "--mfa-alignment", "/nonexistent/align.json"],
+            capture_output=True, text=True, timeout=20)
+        self.assertEqual(cmd.returncode, 2, cmd.stderr)
+        self.assertIn('"mayPublish": false', cmd.stdout)
+        self.assertIn('"status": "HOLD"', cmd.stdout)
+
+
 class SyntheticMasterLinkTests(unittest.TestCase):
     """Synthetic controls only; original 34.35s master is NOT in hosted checkout."""
 
