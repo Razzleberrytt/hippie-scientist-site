@@ -20,6 +20,31 @@ class CaptionWindowsTests(unittest.TestCase):
         self.assertEqual(shown_at(groups,-.1),[])
         self.assertEqual(shown_at(groups,cues[-1]['endSec']),[])
 
+    def test_group_does_not_pre_display_future_words_or_qualifiers(self):
+        cues=fixture('This source is computed only'.split())
+        groups=schedule(cues,max_words=3)
+        self.assertEqual(shown_at(groups,.01),['This'])
+        self.assertEqual(shown_at(groups,.26),['This','source'])
+        self.assertNotIn('computed',shown_at(groups,.51))
+        self.assertNotIn('only',shown_at(groups,.76))
+        self.assertEqual([w for g in groups for w in g['words']],
+                         [c['text'] for c in cues])
+        self.assertEqual(len(groups[0]['wordCues']),3)
+        self.assertEqual(shown_at(groups,cues[-1]['endSec']),[])
+
+    def test_identical_repeated_words_do_not_appear_as_future_instances(self):
+        cues=fixture(['no','no','no'])
+        groups=schedule(cues,max_words=3)
+        self.assertEqual(shown_at(groups,.01),['no'])
+        self.assertEqual(shown_at(groups,.26),['no','no'])
+        self.assertEqual(shown_at(groups,.51),['no','no','no'])
+
+    def test_malformed_sample_time_fails_closed(self):
+        groups=schedule(fixture(['fact']))
+        for sample in (None,float('nan'),float('inf'),True,'0'):
+            with self.assertRaisesRegex(ValueError,'INVALID_SAMPLE_TIME'):
+                shown_at(groups,sample)
+
     def test_an_early_frame_never_reveals_a_future_negation(self):
         cues=fixture('It is not footage of a real molecule'.split())
         groups=schedule(cues)
