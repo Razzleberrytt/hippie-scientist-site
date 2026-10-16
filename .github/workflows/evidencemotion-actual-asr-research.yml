@@ -16,6 +16,8 @@ on:
       - 'research/evidencemotion-director/test_visual_claim_inventory.py'
       - 'research/evidencemotion-director/claim_source_context_join.py'
       - 'research/evidencemotion-director/test_claim_source_context_join.py'
+      - 'research/evidencemotion-director/scientific_uncertainty_ledger.py'
+      - 'research/evidencemotion-director/test_scientific_uncertainty_ledger.py'
       - 'research/evidencemotion-director/EM00701-FROZEN-SPOKEN-LEDGER-20261016.json'
       - 'research/evidencemotion-director/encoded_science_motion_audit.py'
       - 'research/evidencemotion-director/test_encoded_science_motion_audit.py'
@@ -601,6 +603,29 @@ jobs:
           assert result['needsIndependentScientificReview'] is True
           assert result['mayPublish'] is False
           print('Original 8/8 frozen spans joined; all six material contexts typed; no PubChem-to-clinical extrapolation')
+          PY
+      - name: Separate absent source-pack human studies from null, conflict and mechanism (EM-007.04 research)
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_scientific_uncertainty_ledger.py -v
+          python research/evidencemotion-director/scientific_uncertainty_ledger.py \\
+            --source-join "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-source-context-join.json" \\
+            --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/scientific-uncertainty-RESEARCH.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-timed-native/scientific-uncertainty-RESEARCH.json'
+          r=json.loads(p.read_text())
+          assert r['totalClaims']==8 and r['materialClaims']==6
+          assert r['claims'][6]['humanOutcomeEvidence']=='HUMAN_OUTCOME_DATA_NOT_SUPPLIED_IN_THIS_SOURCE_PACK'
+          assert all(x['nullFinding']=='UNASSESSED_NO_NULL_TRIAL_RECEIPT' and
+                     x['conflictingFindings']=='UNASSESSED_NO_SYSTEMATIC_CONFLICT_ASSESSMENT'
+                     for x in r['claims'])
+          assert not r['externalHumanOutcomeSearchPerformed']
+          assert not r['noHumanStudiesExistProven']
+          assert not r['independentScientificReviewApproved'] and not r['mayPublish']
+          print('Uncertainty ledger derived from exact SHA-bound filmed claims: absence from source pack never becomes a null outcome or proof of no evidence')
           PY
       - name: Independently measure actual encoded science camera movement and reject static or strobing visuals
         shell: micromamba-shell {0}
