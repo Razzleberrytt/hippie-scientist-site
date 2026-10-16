@@ -36,7 +36,42 @@ class MobileAuditContract(unittest.TestCase):
         # probe; other presented frames would need their own shot coverage.
         stamps = [Decimal("1.0")]
         shots = [{"id": "short", "startSec": 1.0, "endSec": 1.008}]
-        self.assertIsNone(verify_decoded_shot_coverage(stamps, shots))
+        result = verify_decoded_shot_coverage(stamps, shots)
+        self.assertEqual(result["actualPresentedFramesChecked"], 1)
+        self.assertEqual(result["framesAssignedExactlyOnce"], 1)
+        self.assertFalse(result["mayPublish"])
+
+    def test_presented_frame_inside_tolerated_micro_gap_fails_closed(self):
+        # Every shot owns >=1 frame and the last frame is covered, but a
+        # 0.8ms boundary gap silently loses frame 1 at t=0.033333s.
+        stamps = [Decimal("0"), Decimal("0.033333"), Decimal("0.066667")]
+        shots = [
+            {"id": "first", "startSec": 0.0, "endSec": 0.033},
+            {"id": "second", "startSec": 0.0338, "endSec": 0.1},
+        ]
+        with self.assertRaisesRegex(ValueError, "PRESENTED_FRAME_UNASSIGNED:1"):
+            verify_decoded_shot_coverage(stamps, shots)
+
+    def test_presented_frame_inside_tolerated_overlap_fails_closed(self):
+        stamps = [Decimal("0"), Decimal("0.033333"), Decimal("0.066667")]
+        shots = [
+            {"id": "first", "startSec": 0.0, "endSec": 0.034},
+            {"id": "second", "startSec": 0.0333, "endSec": 0.1},
+        ]
+        with self.assertRaisesRegex(ValueError, "PRESENTED_FRAME_MULTIPLY_ASSIGNED:1"):
+            verify_decoded_shot_coverage(stamps, shots)
+
+    def test_full_exact_frame_ownership_returns_research_only_receipt(self):
+        stamps = [Decimal("0"), Decimal("0.033333"), Decimal("0.066667")]
+        shots = [
+            {"id": "first", "startSec": 0.0, "endSec": 0.033333},
+            {"id": "second", "startSec": 0.033333, "endSec": 0.1},
+        ]
+        result = verify_decoded_shot_coverage(stamps, shots)
+        self.assertEqual(result["framesAssignedExactlyOnce"], 3)
+        self.assertEqual(result["framesWithoutShot"], 0)
+        self.assertEqual(result["framesAssignedToMultipleShots"], 0)
+        self.assertFalse(result["mayPublish"])
 
     def test_last_presented_frame_must_belong_to_a_shot(self):
         stamps = [Decimal("0"), Decimal("0.033333")]
@@ -55,6 +90,44 @@ class MobileAuditContract(unittest.TestCase):
         for key in ("mayPublish", "realHandsetPlaybackVerified", "mutedComprehensionVerified",
                     "visualCraftApproved", "nativeSourceResolutionVerified"):
             self.assertFalse(receipt[key])
+
+    def test_phone_width_type_risk_flags_declared_small_text(self):
+        m = fixture()
+        report = self.check(m)["projectedMobileTypeReview"]
+        self.assertEqual(report["referenceScreenWidthPx"], 375)
+        self.assertEqual(report["reviewThresholdPx"], 14)
+        self.assertEqual(report["smallDeclaredTextCount"], 1)
+        self.assertEqual(report["smallDeclaredText"][0]["projectedAt375Px"], 11.11)
+        self.assertEqual(report["smallDeclaredText"][0]["role"], "science")
+        self.assertEqual(report["status"], "SMALL_DECLARED_TEXT_REQUIRES_REVIEW")
+        self.assertFalse(report["actualRenderedGlyphsMeasured"])
+        self.assertFalse(report["realHandsetReadabilityVerified"])
+        self.assertFalse(report["mayPublish"])
+
+    def test_phone_type_review_catches_source_and_disclosure_together(self):
+        m = fixture()
+        m["shots"][0]["annotations"][1]["fontPx"] = 48
+        m["shots"][0]["annotations"].extend([
+            {"role": "source", "text": "PMID 12345678", "fontPx": 30,
+             "boxPx": [100, 450, 700, 500]},
+            {"role": "disclosure", "text": "Illustration; not proof",
+             "fontPx": 36, "boxPx": [100, 850, 700, 950]},
+        ])
+        report = self.check(m)["projectedMobileTypeReview"]
+        self.assertEqual(report["annotatedTextElements"], 4)
+        self.assertEqual(report["smallDeclaredTextCount"], 2)
+        self.assertEqual({r["role"] for r in report["smallDeclaredText"]},
+                         {"source", "disclosure"})
+        self.assertTrue(all(r["projectedAt375Px"] < 14
+                            for r in report["smallDeclaredText"]))
+
+    def test_phone_type_review_without_warnings_is_still_not_handset_approval(self):
+        m = fixture()
+        m["shots"][0]["annotations"][1]["fontPx"] = 48
+        report = self.check(m)["projectedMobileTypeReview"]
+        self.assertEqual(report["smallDeclaredTextCount"], 0)
+        self.assertFalse(report["realHandsetReadabilityVerified"])
+        self.assertFalse(report["mayPublish"])
 
     def test_bad_hash(self):
         with self.assertRaisesRegex(ValueError, "EXACT_VIDEO_SHA_MISMATCH"):
@@ -284,6 +357,9 @@ class ActualFilmSmoke(unittest.TestCase):
             plan.write_text(json.dumps(m))
             receipt = audit(movie, plan, root / "frames")
             self.assertEqual(receipt["publicationVerdict"], "HOLD")
+            self.assertEqual(receipt["frameToShotCoverage"]["actualPresentedFramesChecked"], 90)
+            self.assertEqual(receipt["frameToShotCoverage"]["framesAssignedExactlyOnce"], 90)
+            self.assertFalse(receipt["frameToShotCoverage"]["mayPublish"])
             self.assertEqual(len(receipt["decodedOverlayFrames"]), 3)
             self.assertEqual([x["timeSec"] for x in receipt["decodedOverlayFrames"] if x.get("openingHookProbe")], [.25, 1.5])
             png = root / "frames" / receipt["decodedOverlayFrames"][0]["file"]

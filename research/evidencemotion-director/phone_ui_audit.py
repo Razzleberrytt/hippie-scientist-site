@@ -24,6 +24,9 @@ TIMELINE_TOLERANCE_SEC = 0.001
 # Audio-bearing containers and ceil-to-full-frame encoding cannot define shot endpoints.
 # Permit at most one encoded frame of closing pad, never multi-frame missing shots.
 FRAME_END_TOLERANCE_SEC = (1 / 30) + TIMELINE_TOLERANCE_SEC
+# Explicit width-fit research model only; phone CSS scale and readability vary.
+REFERENCE_PHONE_WIDTH_PX = 375
+REVIEW_SMALL_TYPE_PX = 14
 ROLES = {"hook", "caption", "source", "science", "disclosure"}
 
 def sha256_file(path):
@@ -72,12 +75,64 @@ def verify_decoded_shot_coverage(stamps, shots):
         hold("NO_DECODED_FRAMES_FOR_SHOT_COVERAGE")
     if stamps[-1] >= Decimal(str(shots[-1]["endSec"])) + Decimal(str(TIMELINE_TOLERANCE_SEC)):
         hold("UNCLAIMED_FINAL_PRESENTED_FRAME")
+    spans = []
     for shot in shots:
         start = Decimal(str(shot["startSec"]))
         end = Decimal(str(shot["endSec"]))
         index = bisect_left(stamps, start)
         if index == len(stamps) or stamps[index] >= end:
             hold("SHOT_WITHOUT_PRESENTED_FRAME:" + shot["id"])
+        spans.append((start, end))
+    # Even a sub-1ms authored gap or overlap can conceal a real presented
+    # frame at the exact boundary; shot-has-a-frame alone misses this defect.
+    for index, stamp in enumerate(stamps):
+        ownership = sum(start <= stamp < end for start, end in spans)
+        if ownership == 0:
+            hold("PRESENTED_FRAME_UNASSIGNED:" + str(index))
+        if ownership != 1:
+            hold("PRESENTED_FRAME_MULTIPLY_ASSIGNED:" + str(index))
+    return {
+        "actualPresentedFramesChecked": len(stamps),
+        "framesAssignedExactlyOnce": len(stamps),
+        "framesWithoutShot": 0,
+        "framesAssignedToMultipleShots": 0,
+        "verification": "EXACT_DECODED_PTS_TO_DECLARED_SHOT_COVERAGE_RESEARCH_ONLY",
+        "mayPublish": False,
+    }
+
+
+def projected_type_review(shots, native_width):
+    """Expose tiny authored labels at phone width without pretending to inspect pixels.
+
+    These are font declarations from the renderer's annotations. They are NOT
+    OCR, rendered glyph-height measurements, contrast, physical phone tests or
+    independent comprehension verdicts. A missing warning is never a PASS.
+    """
+    small = []
+    checked = 0
+    for shot in shots:
+        for a in shot["annotations"]:
+            checked += 1
+            projected = round(a["fontPx"] * REFERENCE_PHONE_WIDTH_PX / native_width, 2)
+            if projected < REVIEW_SMALL_TYPE_PX:
+                small.append({
+                    "shotId": shot["id"], "role": a["role"],
+                    "text": a["text"], "declaredNativeFontPx": a["fontPx"],
+                    "projectedAt375Px": projected,
+                })
+    return {
+        "model": "declaration-only proportional width fit; not physical handset proof",
+        "referenceScreenWidthPx": REFERENCE_PHONE_WIDTH_PX,
+        "reviewThresholdPx": REVIEW_SMALL_TYPE_PX,
+        "annotatedTextElements": checked,
+        "smallDeclaredTextCount": len(small),
+        "smallDeclaredText": small,
+        "status": ("SMALL_DECLARED_TEXT_REQUIRES_REVIEW" if small
+                   else "NO_SMALL_DECLARED_TEXT_FOUND_HANDSET_REVIEW_STILL_REQUIRED"),
+        "actualRenderedGlyphsMeasured": False,
+        "realHandsetReadabilityVerified": False,
+        "mayPublish": False,
+    }
 
 
 def validate_manifest(m, *, width, height, duration, actual_sha):
@@ -137,6 +192,7 @@ def validate_manifest(m, *, width, height, duration, actual_sha):
         "sourceClaimsApproved": False,
         "nativeSourceResolutionVerified": False,
         "visualCraftApproved": False,
+        "projectedMobileTypeReview": projected_type_review(shots, width),
         "note": "Caller annotations do not prove visible pixels or actual app UI layouts."
     }
 
@@ -209,7 +265,7 @@ def audit(movie, manifest, output):
     # The grid checked by probe_movie() must also intersect every authored shot.
     # An entirely empty subframe shot is not video coverage even if its times
     # are contiguous and its annotation boxes are otherwise valid.
-    verify_decoded_shot_coverage(frame_timestamps(movie), plan["shots"])
+    coverage = verify_decoded_shot_coverage(frame_timestamps(movie), plan["shots"])
     frame_receipts = []
     # Emit all decoded artifacts into an isolated staging folder, not into the
     # previous run's public review directory. Publish receipt *last*.
@@ -237,6 +293,7 @@ def audit(movie, manifest, output):
         receipt.update({"videoSha256": movie_hash, "manifestSha256": sha256_file(manifest),
                         "videoResolution": [width, height], "durationSec": duration,
                         "decodedFrameCount": decoded_count,
+                        "frameToShotCoverage": coverage,
                         "exact30FpsTimestampGridVerified": True,
                         "platformExclusions": {"top": TOP, "right": RIGHT, "bottom": BOTTOM},
                         "decodedOverlayFrames": frame_receipts, "publicationVerdict": "HOLD"})
