@@ -726,6 +726,66 @@ class BlindReferenceBenchmarkTests(unittest.TestCase):
         self.assertFalse(outcome["mayPublish"])
 
 
+    def test_original_master_scaled_or_inverted_trimmed_excerpt_is_contamination(self):
+        # No exact WAV/PCM SHA matches; the excerpt is still the same recording
+        # from the authenticated original master after amplitude transformation.
+        for gain in (2, -1, -2):
+            with self.subTest(gain=gain):
+                rows, samples, master = self.embedded_reference_fixture()
+                last = rows[-1]
+                with wave.open(io.BytesIO(samples[last["sampleId"]]), "rb") as audio:
+                    source_excerpt = audio.readframes(audio.getnframes())
+                changed = (np.frombuffer(source_excerpt, dtype="<i2")
+                           .astype(np.int32) * gain).astype("<i2").tobytes()
+                self.assertNotEqual(digest(source_excerpt), digest(changed))
+                with wave.open(io.BytesIO(master), "rb") as source:
+                    full_pcm = source.readframes(source.getnframes())
+                self.assertEqual(full_pcm.find(changed), -1)
+                altered_wav = io.BytesIO()
+                with wave.open(altered_wav, "wb") as audio:
+                    audio.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+                    audio.writeframes(changed)
+                samples[last["sampleId"]] = altered_wav.getvalue()
+                last["wavSha256"] = digest(samples[last["sampleId"]])
+                with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(master)):
+                    without_target = evaluate_blind_reference_pairs(rows, samples, set())
+                    verified_target = evaluate_blind_reference_pairs(
+                        rows, samples, set(), master)
+                self.assertEqual(without_target["status"],
+                                 "RESEARCH_UNATTESTED_REFERENCE_BENCHMARK_ONLY",
+                                 without_target)
+                self.assertFalse(without_target["originalMasterSignTrajectoryScreened"])
+                self.assertEqual(verified_target["status"], "HOLD", verified_target)
+                self.assertIn("REFERENCE_GAIN_OR_POLARITY_EXCERPT_FROM_ORIGINAL_MASTER",
+                              verified_target["errors"])
+                self.assertTrue(verified_target["originalMasterSignTrajectoryScreened"])
+                self.assertTrue(verified_target["originalMasterPcmContainmentScreened"])
+                self.assertFalse(verified_target["calibrationComplete"])
+                self.assertFalse(verified_target["mayPublish"])
+
+    def test_unrelated_full_master_allows_unattested_reference_research_only(self):
+        # A different exact source identity must not make unrelated case audio
+        # look like contamination; this is a test of false-positive boundaries
+        # on synthetic noise, not attested speech or calibrated gold labels.
+        rows, samples = self.fixture()
+        pcm = np.random.default_rng(101).integers(
+            -16000, 16000, size=824336, dtype=np.int16).tobytes()
+        master = io.BytesIO()
+        with wave.open(master, "wb") as audio:
+            audio.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            audio.writeframes(pcm)
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(master.getvalue())):
+            result = evaluate_blind_reference_pairs(
+                rows, samples, set(), master.getvalue())
+        self.assertEqual(result["status"],
+                         "RESEARCH_UNATTESTED_REFERENCE_BENCHMARK_ONLY", result)
+        self.assertTrue(result["originalMasterSignTrajectoryScreened"])
+        self.assertTrue(result["originalMasterPcmContainmentScreened"])
+        self.assertFalse(result["speakerIdentitiesAuthenticated"])
+        self.assertFalse(result["phonemeIdentityVerified"])
+        self.assertFalse(result["mayPublish"])
+
+
 class BlindReferenceArchiveTests(unittest.TestCase):
     @staticmethod
     def make_zip(path, rows, clips, altered=None, add_extra=False):
