@@ -444,7 +444,11 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
     # and an intentional dark reading stage, without rewriting, restretching,
     # pre-revealing, or granting approval from author annotations.
     clarity_stage = (not light and idx==1 and caption_mode=='timed_research')
-    caption_font = f(48 if clarity_stage else 42,True)
+    # DejaVuSans-Bold can rasterize final lowercase "l" like "!" in the
+    # scientific word "hydroxyl" (a reproduced OCR false negative). The
+    # already-pinned regular DejaVuSans face retains the exact text while
+    # making the final glyph visually distinguishable from punctuation.
+    caption_font = f(48 if clarity_stage else 42,not clarity_stage)
     caption = wrapped(' '.join(w['text'] for w in visible_words),
                       caption_font,770*scale)
     if len(caption)>5:
