@@ -114,7 +114,10 @@ def selected_bond_count(seconds, start_sec, end_sec, *, max_bonds=MAX_BONDS):
     if seconds<start_sec:
         return 0
     phase=max(0.,min(1.,(seconds-start_sec)/(end_sec-start_sec)))
-    return min(max_bonds,math.ceil(phase*max_bonds))
+    # Exact spoken-step boundaries may evaluate to 1.0000000000000002
+    # because of binary floating-point rounding. A premature +1 marker
+    # would spoil the intended order. Tolerate only sub-frame epsilon.
+    return min(max_bonds,max(0,math.ceil(phase*max_bonds-1e-9)))
 
 
 def draw_existing_bond_connections(image, asset, *, seconds, scene,
