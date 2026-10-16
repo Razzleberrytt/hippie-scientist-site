@@ -9,6 +9,7 @@ import unittest
 import wave
 from pathlib import Path
 
+from original_replay_admission import inspect_replay_inputs, EXPECTED_RENDERER_FILES, EXPECTED_FONTS
 from native_stdin_capture_guard import (
     Capture, check_one, compare_pair, digest, capture_renderer_encoder_call
 )
@@ -35,6 +36,38 @@ def pair(a=None, b=None):
     return compare_pair(a or capture("run-one"), b or capture("run-two"),
                         expected_source=SOURCE, expected_wav=WAV,
                         expected_environment=ENV, geometry=GEOM)
+
+
+def pinned_environment_fixture(folder):
+    """Synthetic local inputs with real byte pins, never original media."""
+    base=Path(folder)
+    sources=base/"source"; sources.mkdir()
+    fonts=base/"fonts"; fonts.mkdir()
+    source_pins={}
+    font_pins={}
+    for name in EXPECTED_RENDERER_FILES:
+        p=sources/name
+        p.write_bytes(("pinned-test-source:"+name).encode())
+        source_pins[name]=digest(p.read_bytes())
+    for name in EXPECTED_FONTS:
+        p=fonts/name
+        p.write_bytes(("pinned-test-font:"+name).encode())
+        font_pins[name]=digest(p.read_bytes())
+    wav=base/"narration.wav"
+    wav.write_bytes(b"pinned-synthetic-wav-fixture")
+    receipt=base/"original-render-receipt.json"
+    receipt.write_text(json.dumps({
+        "rendererSourcesSha256":source_pins,
+        "fonts":font_pins,"sourceWavSha256":digest(wav.read_bytes()),
+        "pillowVersion":"12.0.0","rdkitVersion":"2025.09.4",
+        "resolution":[1080,1920],"frames":1031,"fps":30,
+        "treatment":"specimen","experimentCaptionMode":"TIMED_RESEARCH",
+    },sort_keys=True))
+    args=dict(receipt_path=receipt,renderer_dir=sources,font_dir=fonts,
+              wav_path=wav,expected_receipt_sha=digest(receipt.read_bytes()),
+              expected_wav_sha=digest(wav.read_bytes()),
+              pillow_version="12.0.0",rdkit_version="2025.09.4")
+    return args
 
 
 class ShortSink:
@@ -65,6 +98,83 @@ class Tests(unittest.TestCase):
         self.assertEqual(r["capturedBytes"],18)
         self.assertEqual(r["rawStdinSha256"],digest(FRAME*3))
         self.assertEqual(r["frameSha256"],[digest(FRAME)]*3)
+
+    def test_original_admission_synthetic_exact_pins_allow_local_only(self):
+        with tempfile.TemporaryDirectory() as d:
+            args=pinned_environment_fixture(d)
+            out=inspect_replay_inputs(**args)
+            self.assertEqual(out["status"],"LOCAL_INPUT_PINS_MATCH_RESEARCH_ONLY")
+            self.assertEqual(out["blockingReasons"],[])
+            self.assertFalse(out["twoNativeRendererRunsExecuted"])
+            self.assertFalse(out["originalEncoderVersionAuthenticated"])
+            self.assertFalse(out["mayPublish"])
+
+    def test_original_admission_changed_renderer_fails_before_encode(self):
+        with tempfile.TemporaryDirectory() as d:
+            args=pinned_environment_fixture(d)
+            (args["renderer_dir"]/"narration_locked_treatments.py").write_text("changed")
+            out=inspect_replay_inputs(**args)
+            self.assertIn("RENDERER_SOURCE_DRIFT:narration_locked_treatments.py",
+                          out["blockingReasons"])
+            self.assertEqual(out["status"],"HOLD")
+
+    def test_original_admission_changed_font_fails_before_encode(self):
+        with tempfile.TemporaryDirectory() as d:
+            args=pinned_environment_fixture(d)
+            (args["font_dir"]/"DejaVuSans.ttf").write_bytes(b"changed")
+            out=inspect_replay_inputs(**args)
+            self.assertIn("FONT_BYTES_DRIFT:DejaVuSans.ttf",out["blockingReasons"])
+
+    def test_original_admission_missing_font_fails_before_encode(self):
+        with tempfile.TemporaryDirectory() as d:
+            args=pinned_environment_fixture(d)
+            (args["font_dir"]/"DejaVuSans-Bold.ttf").unlink()
+            out=inspect_replay_inputs(**args)
+            self.assertIn("MISSING_OR_SYMLINK_FONT:DejaVuSans-Bold.ttf",
+                          out["blockingReasons"])
+
+    def test_original_admission_missing_source_fails_before_encode(self):
+        with tempfile.TemporaryDirectory() as d:
+            args=pinned_environment_fixture(d)
+            (args["renderer_dir"]/"narration_locked_treatments.py").unlink()
+            out=inspect_replay_inputs(**args)
+            self.assertIn("MISSING_OR_SYMLINK_RENDERER:narration_locked_treatments.py",
+                          out["blockingReasons"])
+
+    def test_original_admission_changed_wav_fails_before_encode(self):
+        with tempfile.TemporaryDirectory() as d:
+            args=pinned_environment_fixture(d)
+            args["wav_path"].write_bytes(b"changed")
+            out=inspect_replay_inputs(**args)
+            self.assertIn("ORIGINAL_WAV_BYTES_DRIFT",out["blockingReasons"])
+
+    def test_original_admission_version_drift_fails_before_encode(self):
+        with tempfile.TemporaryDirectory() as d:
+            args=pinned_environment_fixture(d)
+            args["pillow_version"]="12.3.0"
+            args["rdkit_version"]="2026.03.1"
+            out=inspect_replay_inputs(**args)
+            self.assertIn("PILLOW_VERSION_DRIFT",out["blockingReasons"])
+            self.assertIn("RDKIT_VERSION_DRIFT",out["blockingReasons"])
+
+    def test_original_admission_receipt_edit_fails_even_if_pins_look_plausible(self):
+        with tempfile.TemporaryDirectory() as d:
+            args=pinned_environment_fixture(d)
+            args["receipt_path"].write_text(args["receipt_path"].read_text()+" ")
+            out=inspect_replay_inputs(**args)
+            self.assertEqual(out["blockingReasons"],
+                ["PINNED_ORIGINAL_RECEIPT_UNAVAILABLE_OR_CHANGED"])
+
+    def test_original_admission_font_symlink_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            args=pinned_environment_fixture(d)
+            font=args["font_dir"]/"DejaVuSans.ttf"
+            other=args["font_dir"]/"alternate.ttf"
+            other.write_bytes(font.read_bytes())
+            font.unlink(); font.symlink_to(other)
+            out=inspect_replay_inputs(**args)
+            self.assertIn("MISSING_OR_SYMLINK_FONT:DejaVuSans.ttf",
+                          out["blockingReasons"])
 
     def test_original_renderer_unmodified_call_intercept_real_ffmpeg(self):
         # Opt-in from calling control runner, original producer function untouched.
