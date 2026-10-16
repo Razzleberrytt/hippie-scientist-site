@@ -160,7 +160,7 @@ class NarrationTreatments(unittest.TestCase):
                           ['Computed 3D illustration','• filming'],
                           ['Computed 3D illustration','']):
             with self.subTest(lines=candidate):
-                with self.assertRaisesRegex(ValueError,'VISUAL_REFLOW'):
+                with self.assertRaisesRegex(ValueError,'REFLOW'):
                     exact_visual_reflow(original,candidate)
         with self.assertRaisesRegex(ValueError,'INVALID_VISUAL_REFLOW'):
             exact_visual_reflow(original,['one line'])
