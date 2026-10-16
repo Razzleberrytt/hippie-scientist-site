@@ -727,7 +727,7 @@ def probe_movie(movie):
         if not isinstance(raw_matrix, str):
             hold("INVALID_VIDEO_DISPLAY_METADATA")
         rows = re.findall(
-            r"(?m)^\\s*[0-9a-fA-F]{8}:\\s*([+-]?\\d+)\\s+([+-]?\\d+)\\s+([+-]?\\d+)\\s*$",
+            r"(?m)^\s*[0-9a-fA-F]{8}:\s*([+-]?\d+)\s+([+-]?\d+)\s+([+-]?\d+)\s*$",
             raw_matrix)
         if len(rows) != 3:
             hold("INVALID_VIDEO_DISPLAY_METADATA")
