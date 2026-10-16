@@ -286,7 +286,7 @@ def splice(source,scene,output,manifest):
         if (digest(source)!=manifest['sourceFilmSha256'] or
                 digest(scene)!=manifest['craftSceneSha256']):
             raise CraftHold('PINNED_SOURCE_CHANGED_DURING_SPLICE')
-        staged_receipt.write_text(json.dumps(receipt,indent=2)+'\\n',encoding='utf-8')
+        staged_receipt.write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
         publish_verified_pair_no_clobber(temp,staged_receipt,output,receipt_path)
         return receipt
 
