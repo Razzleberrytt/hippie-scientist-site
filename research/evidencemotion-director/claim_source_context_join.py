@@ -15,7 +15,7 @@ from pathlib import Path
 from autonomous_script_asr_research import WAV_SHA, LINES, tokens
 from verified_molecular_comparison import (
     MITRAGYNINE, HYDROXYMITRAGYNINE, approved_comparison)
-from visual_claim_inventory import EXACT_SHOTS, SOURCE_CARD_LABELS
+from visual_claim_inventory import EXACT_SHOTS, SOURCE_CARD_LABELS, EFFECT_CLAIMS
 
 SCHEMA="ths-em00703-source-context-join-v1"
 EXPECTED_TYPES=(
@@ -70,6 +70,18 @@ SCOPE_CONTEXT_ORACLE={
 }
 MATERIAL_IDS=tuple(f"spoken-{i:03}" for i in range(2,8))
 BLOCKED_HUMAN_CONTEXT="HUMAN_OUTCOME_STUDY_NOT_IN_THIS_ASSET"
+# Require complete, independently digestible parent-artifact identities.
+# File-level SHA joins do not authenticate clinical meaning, but a missing or
+# malformed SHA must never be promoted into a source-backed assertion.
+VISUAL_HASH_FIELDS=(
+    "filmSha256","receiptSha256","phonePlanSha256",
+    "encodedScienceOcrSha256","encodedCaptionOcrSha256","storyMapSha256",
+)
+FRAME_HASH_FIELDS=("actualDecodedFrameSha256","actualDecodedPixelOcrSha256")
+ANNOTATION_ROLES=("hook","science","source","disclosure","caption")
+
+def is_sha256(value):
+    return isinstance(value,str) and re.fullmatch(r"[a-f0-9]{64}",value) is not None
 
 def hold(code):
     raise ValueError("EM00703_SOURCE_JOIN_HOLD:"+code)
@@ -104,7 +116,8 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
         or visual.get("scienceClaimsApproved") is not False
         or visual.get("impliedEffectRisksHumanReviewed") is not False
         or visual.get("mayPublish") is not False
-        or not re.fullmatch(r"[a-f0-9]{64}",str(visual.get("filmSha256","")))):
+        or not is_sha256(spoken_sha) or not is_sha256(visual_sha)
+        or any(not is_sha256(visual.get(field)) for field in VISUAL_HASH_FIELDS)):
         hold("EXACT_RESEARCH_INPUT_CONTRACT_REQUIRED")
     assertions=spoken.get("assertions")
     words=spoken.get("words")
@@ -128,14 +141,31 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
     if seen!=list(range(73)):
         hold("WORD_SPANS_OVERLAP_OR_OMIT")
     shots=visual.get("rows")
-    if (not isinstance(shots,list) or [s.get("shot") for s in shots]
-        !=list(EXACT_SHOTS) or any(
+    if (not isinstance(shots,list) or len(shots)!=9
+        or any(not isinstance(s,dict) for s in shots)
+        or [s.get("shot") for s in shots]!=list(EXACT_SHOTS) or any(
             not isinstance(s.get("impliedEffectOrMisreadingToReview"),str)
             or not s["impliedEffectOrMisreadingToReview"].strip()
             or s.get("humanInterpretationReviewed") is not False
             or s.get("clinicalEffectSupportedByThisVisual") is not False
+            or any(not is_sha256(s.get(field)) for field in FRAME_HASH_FIELDS)
             for s in shots)):
         hold("ACTUAL_NINE_SHOT_VISUAL_SCOPE_OR_RISKS_REQUIRED")
+    for shot in shots:
+        roles=shot.get("emittedSourceAnnotations")
+        if (not isinstance(roles,dict)
+            or set(roles)!=set(ANNOTATION_ROLES)
+            or any(not isinstance(roles.get(role),list)
+                   or any(not isinstance(t,str) or not t.strip()
+                          for t in roles[role]) for role in ANNOTATION_ROLES)):
+            hold("EXACT_NINE_SHOT_VISIBLE_ANNOTATIONS_REQUIRED")
+        if shot["shot"]!="source_hold" and roles["source"]:
+            hold("SOURCE_IDENTITY_CARD_OUTSIDE_AUTHORIZED_SCENE")
+        # A freshly rehashed, contaminated EM-007.02 JSON is not proof of a
+        # science-safe film; inspect its actual inventory content again.
+        if EFFECT_CLAIMS.search(" ".join(t for role in ANNOTATION_ROLES
+                                       for t in roles[role])):
+            hold("UNSUPPORTED_TREATMENT_OR_EFFECT_TEXT:"+shot["shot"])
     source_shot=shots[7]
     if tuple(source_shot.get("emittedSourceAnnotations",{}).get("source",[]))!=SOURCE_CARD_LABELS:
         hold("PINNED_COMPOUND_TO_CID_SOURCE_CARD_MISMATCH")
