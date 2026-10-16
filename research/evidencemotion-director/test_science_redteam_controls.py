@@ -200,9 +200,9 @@ class ScienceAdversarialMatrix(unittest.TestCase):
         self.visual["rows"][0]["emittedSourceAnnotations"]["disclosure"]=[
             "Botanical illustration"]
         self.visual["rows"][1]["emittedSourceAnnotations"]["disclosure"]=[
-            "not proof of 7-OH plant content"]
+            "not proof of 7-OH"]
         self.visual["rows"][2]["emittedSourceAnnotations"]["disclosure"]=[
-            "Diagram, not an assay"]
+            "Chemical structure diagram, not a botanical assay"]
         result=self.source_join()
         self.assertFalse(result["mayPublish"])
         self.assertFalse(result["clinicalSourceClaimsApproved"])
