@@ -237,6 +237,34 @@ class ScienceAdversarialMatrix(unittest.TestCase):
             ):
                 self.source_join()
 
+    def test_clinical_claim_split_across_two_or_three_shots_is_rejected(self):
+        # Re-serialization and a new media receipt cannot upgrade a
+        # two/three-shot sentence into human-outcome or receptor-assay data.
+        attempts=(
+            (("7-OH reduces", "withdrawal cravings"),2),
+            (("7-OH", "activates mu", "opioid receptors"),3),
+        )
+        for labels,span in attempts:
+            self.setUp()
+            for i,label in enumerate(labels):
+                self.visual["rows"][i]["emittedSourceAnnotations"]["science"]=[label]
+            with self.subTest(span=span),self.assertRaisesRegex(
+                ValueError,"UNSUPPORTED_TREATMENT_OR_EFFECT_CROSS_SHOT"
+            ):
+                self.source_join()
+
+    def test_neutral_two_and_three_shot_chemical_labels_remain_hold(self):
+        self.visual["rows"][0]["emittedSourceAnnotations"]["science"]=[
+            "Computed structure"]
+        self.visual["rows"][1]["emittedSourceAnnotations"]["science"]=[
+            "not measured receptor footage"]
+        # Do not replace mandatory computed-model qualifier in scene 3.
+        self.visual["rows"][2]["emittedSourceAnnotations"]["science"]=[
+            "Chemical identifier, not a human trial"]
+        report=self.source_join()
+        self.assertFalse(report["mayPublish"])
+        self.assertFalse(report["clinicalSourceClaimsApproved"])
+
     def test_neutral_computed_science_disclosure_remains_research_hold(self):
         self.visual["rows"][0]["emittedSourceAnnotations"]["disclosure"]=[
             "Computed molecular illustration; not measured human effects"]

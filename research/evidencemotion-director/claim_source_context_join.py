@@ -239,6 +239,18 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
         # botanical 7-OH concentrations, positive assays or absent content.
         if asserts_unverified_botanical_7oh_content(written_ink):
             hold("UNVERIFIED_BOTANICAL_7OH_CONTENT:"+shot["shot"])
+    # EM-007.06: an unsupported human-effect or receptor-assay assertion can
+    # also be assembled across cuts ("reduces" / "withdrawal cravings", or
+    # "activates mu" / "opioid receptors"). Do not trust individually harmless
+    # labels to establish clinical evidence when concatenated. This checks
+    # authored source-linked annotations, NOT decoded pixels or perception.
+    for width in (2, 3):
+        for offset in range(len(adjacent_ink)-width+1):
+            window=adjacent_ink[offset:offset+width]
+            joined=" ".join(ink for _,ink in window)
+            if EFFECT_CLAIMS.search(joined):
+                hold("UNSUPPORTED_TREATMENT_OR_EFFECT_CROSS_SHOT:"
+                     +":".join(name for name,_ in window))
     # A sequence of three neighboring shots can complete a botanical assay
     # assertion even when neither adjacent pair contains the whole statement.
     # Preserve the existing pairwise detector and also inspect complete
