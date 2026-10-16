@@ -28,6 +28,11 @@ FRAME_END_TOLERANCE_SEC = (1 / 30) + TIMELINE_TOLERANCE_SEC
 REFERENCE_PHONE_WIDTH_PX = 375
 REVIEW_SMALL_TYPE_PX = 14
 ROLES = {"hook", "caption", "source", "science", "disclosure"}
+# These filenames are removed or overwritten when publishing decoded review PNGs.
+# An input at one of these paths must be rejected before output mutation.
+GENERATED_OVERLAY_NAME = re.compile(
+    r"(?:[0-9]{2}-[a-z][a-z0-9_-]{0,49}|opening-(?:0_25|1_5))\.png"
+)
 
 def sha256_file(path):
     digest = hashlib.sha256()
@@ -322,6 +327,16 @@ def audit(movie, manifest, output):
     # the previous verdict. Check BEFORE creating or mutating output files.
     if report_path.resolve() in (movie.resolve(), manifest.resolve()):
         hold("REPORT_OUTPUT_ALIASES_SOURCE_INPUT")
+    # Old generated images are removed and replaced later in this audit.
+    # A source masquerading as an overlay PNG would be deleted after a valid
+    # media preflight, even though its bytes were just successfully checked.
+    # Compare supplied and resolved paths (including symlinked directories).
+    output_dir = output.resolve()
+    if any(GENERATED_OVERLAY_NAME.fullmatch(candidate.name) and
+           candidate.parent.resolve() == output_dir
+           for source in (movie, manifest)
+           for candidate in (source, source.resolve())):
+        hold("GENERATED_OUTPUT_ALIASES_SOURCE_INPUT")
     output.mkdir(parents=True, exist_ok=True)
     # Fail closed BEFORE probing / validation: a prior successful report must
     # never survive a new failed attempt against changed inputs.
@@ -384,9 +399,8 @@ def audit(movie, manifest, output):
                         "decodedOverlayFrames": frame_receipts, "publicationVerdict": "HOLD"})
         # Only generated filenames are ever cleaned up; unrelated files remain
         # untouched. A failed next run leaves no authoritative success report.
-        generated = re.compile(r"(?:[0-9]{2}-[a-z][a-z0-9_-]{0,49}|opening-(?:0_25|1_5))\.png")
         for old in output.iterdir():
-            if old.is_file() and generated.fullmatch(old.name):
+            if old.is_file() and GENERATED_OVERLAY_NAME.fullmatch(old.name):
                 old.unlink()
         for entry in frame_receipts:
             os.replace(stage / entry["file"], output / entry["file"])
