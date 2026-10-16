@@ -96,3 +96,11 @@ Actual preceding-head evidence independently retrieved this turn:
 - PR #6822 was merged **into this research branch**, not main, as `3ba203243635fbf04966c4c4abba9b9fa93b5d1d`. Its caption work is historical ancestor context; do not port or duplicate it based on stale memory.
 
 Next executable task: inspect latest remote head and exact-head hosted packet/native/CI/build results; repair any observed failure in #6743. If those pass, obtain genuine blinded viewer evidence under the preregistered method; `EM-034.12.T/R` remain HOLD and no participants may be fabricated. Protected merge stays sole-controller-owned. Do not run another full local render simply to restate unchanged source/media checks.
+
+## Latest exact implementation checkpoint
+
+- Implementation commit: `e6a7f4aee31300e11173ce23ab99966a40fd8756` (registered rubric and malformed SHA rejection).
+- Remote branch: `research/evidencemotion-all-green-operator-integrated-6743`; owning PR #6817 / research issue #6743.
+- This accompanying handoff-only commit records that exact implementation and is pushed in the same bounded batch. Determine the latest documentation head with GitHub/file history; do not assume the implementation SHA is the branch tip.
+- Fresh `node scripts/ci/validate-doc-links.mjs`: PASS, 387 Markdown files. Fresh `git diff --check`: PASS.
+- Pending: new-head hosted full CI/production build and native exact-media workflow after push. No current-head hosted completion is claimed in this checkpoint. No new atomic IDs; provisional count stays 740/1590. Known local focused failures after fix: none.
