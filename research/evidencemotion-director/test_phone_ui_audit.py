@@ -15,7 +15,8 @@ from phone_ui_audit import (audit, probe_movie, validate_manifest,
                             verify_decoded_shot_coverage, choose_decoded_sample,
                             decoded_overlay, validate_critical_ink_receipt_join,
                             OCR_SOURCE_LABELS, ocr_words, validate_exact_film_ocr_join,
-                            mute_story_negative_screen)
+                            mute_story_negative_screen,
+                            verify_claimed_ink_frames_belong_to_decoded_shots)
 
 H = "a" * 64
 
@@ -559,6 +560,105 @@ class ExactVariantCriticalInkJoinTests(unittest.TestCase):
                         audit(root / "movie.mp4", root / "plan.json",
                               output, ink_receipt=candidate)
                 self.assertEqual(candidate.read_bytes(), original)
+
+
+class EncodedFrameMembershipTests(unittest.TestCase):
+    """Receipt indices must belong to decoded shot PTS, not only a paper SHA."""
+
+    def fixtures(self):
+        receipt = ExactVariantCriticalInkJoinTests.timed_receipt()
+        names = [shot for shot in OCR_SOURCE_LABELS]
+        shots = [
+            {"id": name, "startSec": i * 50 / 30, "endSec": (i + 1) * 50 / 30}
+            for i, name in enumerate(names)
+        ]
+        stamps = [Decimal(n) / Decimal(30) for n in range(450)]
+        for i, sample in enumerate(receipt["actualEncodedSamples"]):
+            scene_idx = names.index(sample["shot"])
+            sample["index"] = scene_idx * 50 + {"early": 2, "middle": 22, "late": 42}[sample["phase"]]
+        return receipt, stamps, shots
+
+    def verify(self, receipt, stamps, shots):
+        return verify_claimed_ink_frames_belong_to_decoded_shots(receipt, stamps, shots)
+
+    def test_27_actual_pts_are_shot_owned_and_nonpublishing(self):
+        ink, frames, shots = self.fixtures()
+        result = self.verify(ink, frames, shots)
+        self.assertEqual(result["sampleFramesChecked"], 27)
+        self.assertTrue(result["allClaimedFramePTSBelongToDeclaredShots"])
+        self.assertFalse(result["ocrRerun"])
+        self.assertFalse(result["inkPixelsIndependentlyReplayed"])
+        self.assertFalse(result["mayPublish"])
+
+    def test_out_of_range_frame_index_is_not_valid_ink_proof(self):
+        ink, frames, shots = self.fixtures()
+        ink["actualEncodedSamples"][0]["index"] = len(frames)
+        with self.assertRaisesRegex(ValueError,
+                                    "INK_FRAME_INDEX_OR_SHOT_NOT_PRESENT_IN_DECODED_FILM"):
+            self.verify(ink, frames, shots)
+
+    def test_actual_index_from_neighbor_shot_cannot_be_relabelled(self):
+        ink, frames, shots = self.fixtures()
+        ink["actualEncodedSamples"][0]["index"] = 52
+        with self.assertRaisesRegex(ValueError,
+                                    "INK_DECODED_FRAME_BELONGS_TO_DIFFERENT_SHOT"):
+            self.verify(ink, frames, shots)
+
+    def test_early_middle_late_must_be_in_presented_order(self):
+        ink, frames, shots = self.fixtures()
+        ink["actualEncodedSamples"][0]["index"] = 43
+        ink["actualEncodedSamples"][2]["index"] = 2
+        with self.assertRaisesRegex(ValueError,
+                                    "INK_DECODED_PHASE_INDICES_NOT_IN_TEMPORAL_ORDER"):
+            self.verify(ink, frames, shots)
+
+    def test_duplicate_actual_frame_cannot_claim_two_phases(self):
+        ink, frames, shots = self.fixtures()
+        ink["actualEncodedSamples"][1]["index"] = ink["actualEncodedSamples"][0]["index"]
+        with self.assertRaisesRegex(ValueError,
+                                    "INK_DECODED_PHASE_INDICES_NOT_IN_TEMPORAL_ORDER"):
+            self.verify(ink, frames, shots)
+
+    def test_valid_index_but_invented_shot_is_rejected(self):
+        ink, frames, shots = self.fixtures()
+        ink["actualEncodedSamples"][0]["shot"] = "made_up"
+        with self.assertRaisesRegex(ValueError,
+                                    "INK_FRAME_INDEX_OR_SHOT_NOT_PRESENT_IN_DECODED_FILM"):
+            self.verify(ink, frames, shots)
+
+    def test_legacy_native_sample_keys_remain_source_bound(self):
+        ink, frames, shots = self.fixtures()
+        ink["schema"] = "ths-actual-native-teaching-ink-audit-v1"
+        ink["exactDecodedSampleFrames"] = [
+            {"sampleKey": [x["shot"], x["phase"]], "frameIndex": x["index"]}
+            for x in ink["actualEncodedSamples"]]
+        self.assertFalse(self.verify(ink, frames, shots)["mayPublish"])
+        ink["exactDecodedSampleFrames"][0]["frameIndex"] = 55
+        with self.assertRaisesRegex(ValueError,
+                                    "INK_DECODED_FRAME_BELONGS_TO_DIFFERENT_SHOT"):
+            self.verify(ink, frames, shots)
+
+    def test_missing_or_malformed_phase_fails_closed(self):
+        ink, frames, shots = self.fixtures()
+        ink["actualEncodedSamples"].pop()
+        with self.assertRaisesRegex(ValueError, "INK_FRAME_MEMBERSHIP_REQUIRES_27_SAMPLES"):
+            self.verify(ink, frames, shots)
+        ink, frames, shots = self.fixtures()
+        ink["actualEncodedSamples"][0]["index"] = True
+        with self.assertRaisesRegex(ValueError, "INK_FRAME_INDEX_OR_SHOT_NOT_PRESENT_IN_DECODED_FILM"):
+            self.verify(ink, frames, shots)
+
+    def test_bad_timestamp_and_wrong_named_shot_boundary_hold(self):
+        ink, frames, shots = self.fixtures()
+        frames[2] = Decimal("NaN")
+        with self.assertRaisesRegex(ValueError,
+                                    "INK_DECODED_FRAME_BELONGS_TO_DIFFERENT_SHOT"):
+            self.verify(ink, frames, shots)
+        ink, frames, shots = self.fixtures()
+        shots[0]["endSec"] = 0.05
+        with self.assertRaisesRegex(ValueError,
+                                    "INK_DECODED_FRAME_BELONGS_TO_DIFFERENT_SHOT"):
+            self.verify(ink, frames, shots)
 
 
 class PhysicalGlyphOCRReceiptJoinTests(unittest.TestCase):
