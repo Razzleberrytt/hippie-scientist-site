@@ -93,7 +93,7 @@ remain byte-identical to the locally tested source commit.
 
 Starting head `62511b0e7b78fcac0f2e6745eee7ca7cb711de07`, existing draft
 [#6847](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6847).
-Status: implementation in review; final production build pending in this checkpoint.
+Status: implementation in draft review; local production build PASS, actual-film intake HOLD.
 
 Observed defect: intake checked required role identities but copied every payload
 file, allowing an extra unpinned movie or note to accompany a PASS receipt.
@@ -105,11 +105,12 @@ intake/transfer implementation and existing adversarial suite. No second manifes
 schema, new dependency, renderer change or other lane-owned edit.
 
 Changed files: `artifact_intake.py`, `test_artifact_intake.py`, this receipt and
-`README.md`, all within Lane 6. Three new test methods cover unlisted movies/notes
+`README.md`, all within Lane 6. Four new test methods cover unlisted movies/notes
 in directories and ZIPs, positive sender/receiver transfer of a bound extra source,
-and rejection of changed extra-source bytes. Before the repair the 35-test suite
+rejection of changed extra-source bytes, and a controlled mutation after actual
+media decoding to check the final rehash. Before the repair the 35-test suite
 failed on two unpinned-payload subcases with an actual PASS response and copied
-bytes. After repair: **35/35 PASS**, zero errors/skips; native-master auditor
+bytes. After repair: **36/36 PASS**, zero errors/skips; native-master auditor
 **16/16 PASS**; doc links **PASS** (395 Markdown files); whitespace **PASS**.
 Fixtures use real tiny FFmpeg encoding/decoding and are synthetic protocol evidence
 only. Revised shot-5 actual media remains **HOLD**, never replaced by a fixture.
@@ -124,3 +125,27 @@ execution of this continuation. Fresh build result and exact commit follow below
 No new atomic credit or accepted parent; excellent-first 0/1 and streak 0/5 unchanged.
 Original Kokoro WAV, actual film review, phone, science, craft, voice and publication
 remain outside this repair's proof. `mayPublish=false`. Protected controller only.
+
+Continuation implementation commit: `8199b7de45621c5bd51e5f6fe43775b29c6d8001`,
+verified pushed to the existing draft. Hosted exact-head atomic contract,
+merge-controller monitor, generated-quality comparison and generator release suite
+all **SUCCESS**. Generic hosted tests/build/content/site-health remain **SKIPPED**;
+this is not hosted execution of the Lane 6 Python tests. Local production build result follows.
+
+
+Final continuation build: **PASS, exit 0**, 36 steps in **908.64 seconds**.
+Actual local session exit verified. All 1,722 static pages generated; production
+language audit 1,708 HTML pages / zero findings; structured-data regressions 9,240
+JSON-LD blocks / 1,652 routes; Pagefind 1,605 indexed pages. Machine summary and
+raw-log SHA: `receipts/inventory-boundary-build-summary.json`. This supersedes the
+pending-build note for the continuation, not the historical original-build receipt.
+Tracked build-generated files outside Lane 6 were restored after execution;
+pre-existing untracked generated profile files were preserved. Therefore this is
+local production-build evidence, not clean-checkout reproducibility or deployment.
+Tested intake/test sources remain byte-identical to `8199b7de4`; subsequent changes
+are receipt/documentation only. No UI change requiring theme/viewport screenshots.
+
+Next action: Lane 3 delivers the actual combined film and source sidecars; separately
+reconcile COMPLETE pin, run sender/receiver intake, then Lane 4 exact-film reviews.
+Do not substitute an older movie or accept an unlisted payload to bypass the blocker.
+No new atomic cards, independent approval, protected merge or publication.
