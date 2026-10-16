@@ -11,9 +11,11 @@ import json
 import re
 from pathlib import Path
 
-from autonomous_script_asr_research import WAV_SHA
+from autonomous_script_asr_research import WAV_SHA, LINES, tokens
 
 SCHEMA = "ths-em00704-frozen-claim-uncertainty-v1"
+FROZEN_SPOKEN_LEDGER = Path(__file__).with_name("EM00701-FROZEN-SPOKEN-LEDGER-20261016.json")
+CLAIM_SPAN_LENGTHS = (8,12,13,7,11,6,6,10)
 SOURCE_SCHEMA = "ths-em00703-source-context-join-v1"
 KINDS = (
     "QUESTION", "STRUCTURAL_ASSERTION", "SOURCE_PROVENANCE_ASSERTION",
@@ -65,12 +67,27 @@ def hold(code):
 def is_hash(value):
     return isinstance(value, str) and re.fullmatch("[a-f0-9]{64}", value) is not None
 
+def frozen_claim_spans():
+    words = tokens(" ".join(LINES))
+    if len(words) != 73 or sum(CLAIM_SPAN_LENGTHS) != 73:
+        hold("FROZEN_SOURCE_WORD_COUNT_CHANGED")
+    start = 0
+    spans = []
+    for size in CLAIM_SPAN_LENGTHS:
+        indices = list(range(start, start + size))
+        spans.append((indices, " ".join(words[start:start + size])))
+        start += size
+    return spans
+
 def classify(join, *, source_sha):
     if (not isinstance(join, dict) or join.get("schema") != SOURCE_SCHEMA
         or join.get("task") != "EM-007.03"
         or not is_hash(source_sha)
         or any(not is_hash(join.get(k)) for k in ALLOWED_SHA_FIELDS)
         or join["sourceWavSha256"] != WAV_SHA
+        or not FROZEN_SPOKEN_LEDGER.is_file()
+        or FROZEN_SPOKEN_LEDGER.is_symlink()
+        or join.get("spokenLedgerSha256") != hashlib.sha256(FROZEN_SPOKEN_LEDGER.read_bytes()).hexdigest()
         or join.get("materialClaimCount") != 6
         or join.get("materialClaimsWithTypedSourceContext") != 6
         or join.get("humanStudyContextsMissingForOutcomeInference") != ["spoken-007"]
@@ -115,6 +132,7 @@ def classify(join, *, source_sha):
         or any(not isinstance(x, dict) for x in claims)):
         hold("EIGHT_EXACT_FROZEN_CLAIMS_REQUIRED")
     rows = []
+    expected_spans = frozen_claim_spans()
     for i, claim in enumerate(claims):
         ident = f"spoken-{i+1:03d}"
         material = 1 <= i <= 6
@@ -124,8 +142,8 @@ def classify(join, *, source_sha):
             or claim.get("studyContextStatus") != SOURCE_CONTEXT[i]
             or claim.get("material") is not material
             or tuple(claim.get("sourceIds", ())) != SOURCE_IDS[i]
-            or not isinstance(claim.get("verbatimFrozenTokens"), str)
-            or not claim["verbatimFrozenTokens"]
+            or claim.get("wordIndices") != expected_spans[i][0]
+            or claim.get("verbatimFrozenTokens") != expected_spans[i][1]
             or claim.get("humanStudyId") is not None
             or claim.get("sourceLinksSupportClinicalEffect") is not False
             or claim.get("clinicalEffectAbsenceProven") is not False
