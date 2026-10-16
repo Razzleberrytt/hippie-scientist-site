@@ -676,6 +676,7 @@ def probe_movie(movie):
     # an audio-bearing film must have exactly one AAC track.
     cmd = ["ffprobe", "-v", "error", "-show_entries",
            "stream=codec_type,codec_name,width,height,avg_frame_rate,pix_fmt,sample_aspect_ratio",
+           "-show_entries", "stream_tags=rotate:stream_side_data=side_data_type,rotation,displaymatrix",
            "-show_entries", "format=duration", "-of", "json", str(movie)]
     data = json.loads(subprocess.run(cmd, capture_output=True, text=True, timeout=20, check=True).stdout)
     streams = data.get("streams")
@@ -699,6 +700,47 @@ def probe_movie(movie):
         hold("EXPECTED_MOBILE_YUV420P_PIXEL_FORMAT")
     if track.get("sample_aspect_ratio") != "1:1":
         hold("EXPECTED_SQUARE_VIDEO_SAMPLE_PIXELS")
+    # MP4's track-header display matrix may rotate, reflect or translate a
+    # perfectly square-pixel H.264 stream *at display time*. Raw FFmpeg
+    # screenshot coordinates are not proof of phone safe-area geometry when
+    # the player applies this transformation. Check the full matrix, not
+    # only the reported "rotation" angle: translations can have 0 degrees.
+    tags = track.get("tags", {})
+    if not isinstance(tags, dict):
+        hold("INVALID_VIDEO_DISPLAY_METADATA")
+    if "rotate" in tags:
+        try:
+            tagged_rotation = Decimal(str(tags["rotate"]))
+        except (InvalidOperation, ValueError, TypeError):
+            hold("INVALID_VIDEO_DISPLAY_METADATA")
+        if not tagged_rotation.is_finite() or tagged_rotation != 0:
+            hold("NONIDENTITY_VIDEO_DISPLAY_TRANSFORM")
+    side_data = track.get("side_data_list", [])
+    if not isinstance(side_data, list):
+        hold("INVALID_VIDEO_DISPLAY_METADATA")
+    for item in side_data:
+        if not isinstance(item, dict):
+            hold("INVALID_VIDEO_DISPLAY_METADATA")
+        if item.get("side_data_type") != "Display Matrix":
+            continue
+        raw_matrix = item.get("displaymatrix")
+        if not isinstance(raw_matrix, str):
+            hold("INVALID_VIDEO_DISPLAY_METADATA")
+        rows = re.findall(
+            r"(?m)^\\s*[0-9a-fA-F]{8}:\\s*([+-]?\\d+)\\s+([+-]?\\d+)\\s+([+-]?\\d+)\\s*$",
+            raw_matrix)
+        if len(rows) != 3:
+            hold("INVALID_VIDEO_DISPLAY_METADATA")
+        coefficients = tuple(int(value) for row in rows for value in row)
+        if coefficients != (65536, 0, 0, 0, 65536, 0, 0, 0, 1073741824):
+            hold("NONIDENTITY_VIDEO_DISPLAY_TRANSFORM")
+        if "rotation" in item:
+            try:
+                matrix_rotation = Decimal(str(item["rotation"]))
+            except (InvalidOperation, ValueError, TypeError):
+                hold("INVALID_VIDEO_DISPLAY_METADATA")
+            if not matrix_rotation.is_finite() or matrix_rotation != 0:
+                hold("NONIDENTITY_VIDEO_DISPLAY_TRANSFORM")
     numerator, denominator = map(int, track["avg_frame_rate"].split("/"))
     if denominator == 0 or abs(numerator / denominator - 30) > .6:
         hold("AVERAGE_RATE_NOT_30FPS")
