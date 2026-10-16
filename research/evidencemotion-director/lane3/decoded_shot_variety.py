@@ -162,6 +162,29 @@ def decode_samples(film, sample_frames, frame_count):
         process.stderr.close()
 
 
+def sample_frame_triplet(start_frame, end_frame):
+    """Early, middle, late *real frame numbers* strictly within one shot.
+
+    Three temporal samples avoid a false sense of motion/diversity when a
+    transient appears only at the midpoint. Short shots remain fail-closed:
+    requiring three distinct frames prevents fabricated independent evidence.
+    """
+    duration = end_frame - start_frame
+    if duration < 3:
+        raise CraftHold('SHOT_TOO_SHORT_FOR_TEMPORAL_REVIEW')
+    positions = [start_frame + (duration - 1) * num // 4 for num in (1, 2, 3)]
+    if len(set(positions)) != 3 or not all(start_frame <= x < end_frame for x in positions):
+        raise CraftHold('SHOT_TEMPORAL_SAMPLE_COLLISION')
+    return positions
+
+
+def similar(left, right):
+    mae, iou = compare(left, right)
+    return {'scienceRoiMeanAbsoluteGrayDifference':mae,
+            'scienceRoiEdgeIoU':iou,
+            'nearDuplicateReviewCandidate':mae <= MIN_ROI_MAE and iou >= MIN_EDGE_IOU}
+
+
 def audit(film, story_file):
     film = Path(film)
     digest = file_sha256(film)
@@ -170,27 +193,50 @@ def audit(film, story_file):
     frame_count = read_metadata(film)
     shots = validate_story(story, digest=digest, frame_count=frame_count)
     frame_bins = [(round(s['startSec'] * 30), round(s['endSec'] * 30)) for s in shots]
-    midpoints = [(a + b - 1) // 2 for a, b in frame_bins]
-    frames = decode_samples(film, midpoints, frame_count)
+    samples = [sample_frame_triplet(a, b) for a, b in frame_bins]
+    frames = decode_samples(film, [n for shot in samples for n in shot], frame_count)
     comparisons = []
     near = []
-    for i in range(len(shots) - 1):
-        mae, iou = compare(frames[midpoints[i]], frames[midpoints[i + 1]])
-        candidate = mae <= MIN_ROI_MAE and iou >= MIN_EDGE_IOU
-        result = {'from':shots[i]['shot'], 'to':shots[i+1]['shot'],
+    boundary_risk = []
+    within_shot = []
+    for i, shot in enumerate(shots):
+        early, mid, late = samples[i]
+        intra = {'shot':shot['shot'], 'sourceSceneIndex':i,
+                 'sampleFrameNumbers':[early, mid, late],
+                 **similar(frames[early], frames[late])}
+        # A source card may intentionally be static. Treat this as a review
+        # candidate, NEVER an automatically invalidated artistic decision.
+        intra['nearStaticBodyReviewCandidate'] = intra.pop('nearDuplicateReviewCandidate')
+        within_shot.append(intra)
+        if i + 1 == len(shots):
+            continue
+        next_early, next_mid, _ = samples[i + 1]
+        # Preserve V1's backwards-comparable midpoint comparison exactly.
+        result = {'from':shot['shot'], 'to':shots[i + 1]['shot'],
                   'sourceSceneIndex':i, 'toSceneIndex':i+1,
-                  'scienceRoiMeanAbsoluteGrayDifference':mae,
-                  'scienceRoiEdgeIoU':iou, 'nearDuplicateReviewCandidate':candidate}
+                  **similar(frames[mid], frames[next_mid])}
         comparisons.append(result)
-        if candidate: near.append(result)
-    return {'schema':'ths-lane3-decoded-visual-variety-negative-filter-v1',
+        if result['nearDuplicateReviewCandidate']:
+            near.append(result)
+        # Additionally inspect the *actual exit and entrance*, to catch a
+        # hold recycled across the cut but hidden by midpoint-only checking.
+        transition = {'from':shot['shot'], 'to':shots[i + 1]['shot'],
+                      'exitFrame':late, 'entryFrame':next_early,
+                      **similar(frames[late], frames[next_early])}
+        boundary_risk.append(transition)
+    return {'schema':'ths-lane3-decoded-visual-variety-negative-filter-v2',
             'status':'DECODED_VISUAL_REVIEW_REQUIRED',
             'filmSha256':digest, 'storySha256':file_sha256(source),
             'fullDecodedFrames':frame_count, 'scienceArea':list(SCIENCE_BOX),
             'framesIndependentlyDecoded':True,
-            'sampling':'one midpoint from each of nine mapped shots, full linear H264 decode',
-            'methodLimit':'Center-body pixel similarity cannot distinguish intentional comparison from cheap repetition; requires qualified viewing of the full film.',
+            'sampling':'three independent early/middle/late actual frames per shot (27 samples total), full linear H264 decode',
+            'uniqueDecodedFramesSampled':len(frames),
+            'methodLimit':'Small center-body grayscale and edge similarity are only visual risk proxies; they cannot tell purposeful scientific continuity from cheap repetition, or prove audience comprehension.',
             'comparisons':comparisons, 'nearDuplicateReviewCount':len(near),
+            'withinShotTemporalReview':within_shot,
+            'nearStaticShotCount':sum(1 for item in within_shot if item['nearStaticBodyReviewCandidate']),
+            'boundaryExitEntranceReview':boundary_risk,
+            'nearDuplicateBoundaryCount':sum(1 for item in boundary_risk if item['nearDuplicateReviewCandidate']),
             'creativeExceptionsAutomaticallyGranted':False,
             'sourceScienceVerified':False, 'voiceApproved':False,
             'phonePlaybackApproved':False, 'excellentCertified':False,
