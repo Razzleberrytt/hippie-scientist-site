@@ -50,7 +50,7 @@ def exact_gray_samples(movie, requests, stamps):
 
     Time seeking alone can collect a neighboring shot's pixels at a cut. All
     reported contrast measurements must instead be tied to their real PTS
-    and a declared shot, without multiplying full decodes for 18 samples.
+    and a declared shot, without multiplying full decodes for 27 samples.
     This is still a pixel-contrast proxy: no OCR or handset certification.
     """
     if not requests or not stamps:
@@ -139,22 +139,23 @@ def score_samples(plan,samples):
     for (scene,term),box in boxes.items():
         key=(scene,term)
         seq=samples.get(key)
-        if not isinstance(seq,(tuple,list)) or len(seq)!=2:
-            hold("EARLY_LATE_NATIVE_FRAME_SAMPLES_REQUIRED")
+        if not isinstance(seq,(tuple,list)) or len(seq)!=3:
+            hold("EARLY_MIDDLE_LATE_NATIVE_FRAME_SAMPLES_REQUIRED")
         measured=[measure_gray_crop(f,box) for f in seq]
         duration=float(byid[scene]["endSec"]-byid[scene]["startSec"])
         observations.append({
             "scene":scene,"label":term,"durationSec":round(duration,4),
-            "actualNativeBoxPx":box,"early":measured[0],"late":measured[1],
+            "actualNativeBoxPx":box,"early":measured[0],
+            "middle":measured[1],"late":measured[2],
             "minVisibleContrast":round(min(m["inkRange"] for m in measured),3),
-            "contrastDrift":round(abs(measured[0]["inkRange"]-
-                                      measured[1]["inkRange"]),3),
+            "contrastDrift":round(max(m["inkRange"] for m in measured)-
+                                  min(m["inkRange"] for m in measured),3),
         })
     contrast=all(item["minVisibleContrast"]>=MIN_INK_DYNAMIC_RANGE
                  for item in observations)
     persistent=all(item["durationSec"]>=MIN_HOLD_SEC
                    and item["contrastDrift"]<=MAX_INK_DRIFT
-                   and item["late"]["inkRange"]>=MIN_INK_DYNAMIC_RANGE
+                   and item["minVisibleContrast"]>=MIN_INK_DYNAMIC_RANGE
                    for item in observations)
     return {
         "schema":SCHEMA,
@@ -165,11 +166,11 @@ def score_samples(plan,samples):
              "threshold":"minimum p95-p05 luminance across both samples >=130/255"},
             {"code":"meaningful_instruction_text_persistence",
              "passed":persistent,"weightPct":1,
-             "threshold":"all scenes >=1.50s; late text contrast >=130; early/late contrast drift <=16"},
+             "threshold":"all scenes >=1.50s; early/middle/late contrast >=130; max three-point drift <=16"},
         ],
         "additionalObjectivePoints":int(contrast)+int(persistent),
         "observations":observations,
-        "scope":"actual frame text-ink/readability proxies, not audience understanding or OCR",
+        "scope":"three decoded instants per shot: luminance proxy only, not verified glyphs, audience comprehension or OCR",
         "viewerComprehensionApproved":False,
         "naturalVoiceApproved":False,
         "excellentFilmApproved":False,
@@ -196,9 +197,11 @@ def audit(movie,phone,receipt,claim,out):
         if end-start<MIN_HOLD_SEC or offset<=0:
             hold("CRITICAL_TEXT_DISPLAY_INTERVAL_TOO_SHORT")
         requests.extend([((scene,"early"),shot,start+offset),
+                         ((scene,"middle"),shot,(start+end)/2),
                          ((scene,"late"),shot,end-offset)])
     encoded_frames, frame_proof=exact_gray_samples(movie,requests,stamps)
     samples={(scene,term):(encoded_frames[(scene,"early")],
+                           encoded_frames[(scene,"middle")],
                            encoded_frames[(scene,"late")])
              for scene in REQUIRED for term in REQUIRED[scene]}
     result=score_samples(plan,samples)
