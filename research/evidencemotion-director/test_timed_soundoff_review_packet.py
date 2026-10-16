@@ -96,6 +96,32 @@ class SoundOffBlindPacketTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"BLIND_STIMULUS_SHOT_ORDER_CHANGED"):
             self.verify()
 
+    def test_matching_but_invalid_shot_lists_fail_closed(self):
+        original=copy.deepcopy(self.phone["shots"])
+        variants=[[],original[:-1],
+                  [original[0]]*9,
+                  list(reversed(original)),
+                  [{"id":"unknown_shot"}]+original[1:],
+                  [{} for _ in range(9)]]
+        for shots in variants:
+            with self.subTest(shots=shots):
+                self.phone["shots"]=shots
+                self.story["shots"]=[{"shot":shot.get("id")} for shot in shots]
+                self.write_all()  # Rehash inputs: hashes alone cannot prove shot identity.
+                with self.assertRaisesRegex(ValueError,"BLIND_STIMULUS_SHOT_ORDER_CHANGED"):
+                    self.verify()
+
+    def test_malformed_shot_containers_fail_with_explicit_hold(self):
+        for document in (self.phone,self.story):
+            original=copy.deepcopy(document["shots"])
+            for shots in (None,{},"nine shots",[None]*9):
+                with self.subTest(shots=shots):
+                    document["shots"]=shots
+                    self.write_all()
+                    with self.assertRaisesRegex(ValueError,"BLIND_STIMULUS_SHOT_ORDER_CHANGED"):
+                        self.verify()
+            document["shots"]=original
+
     def test_no_publishing_or_fabricated_review_flags(self):
         self.render["mayPublish"]=True
         self.write_all()

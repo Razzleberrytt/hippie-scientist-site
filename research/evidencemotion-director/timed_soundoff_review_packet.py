@@ -11,6 +11,7 @@ import subprocess
 from pathlib import Path
 
 from autonomous_script_asr_research import WAV_SHA
+from narration_first_story_map import STORY
 
 SCHEMA="ths-timed-native-soundoff-questionnaire-v1"
 QUESTIONS=(
@@ -83,8 +84,15 @@ def verify_sources(movie,receipt,plan,science,story):
         or st.get("mayPublish") is not False
         or x.get("mayPublish") is not False):
         hold("EXACT_TIMED_FILM_OR_RESEARCH_PROOF_MISMATCH")
-    if [a.get("shot") for a in st.get("shots",[])] != [a.get("id") for a in p.get("shots",[])]:
-        hold("BLIND_STIMULUS_SHOT_ORDER_CHANGED")
+    # Matching hashes and matching lists do not establish an exhaustive stimulus.
+    # Reuse the original-WAV story contract instead of accepting two forged lists.
+    expected_shots=[row[0] for row in STORY]
+    for document,field in ((st,"shot"),(p,"id")):
+        shots=document.get("shots")
+        if (not isinstance(shots,list)
+            or any(not isinstance(shot,dict) for shot in shots)
+            or [shot.get(field) for shot in shots]!=expected_shots):
+            hold("BLIND_STIMULUS_SHOT_ORDER_CHANGED")
     return {"video":filmsha,"receipt":digest(receipt),"phone":digest(plan),
             "science":digest(science),"story":digest(story)}
 
