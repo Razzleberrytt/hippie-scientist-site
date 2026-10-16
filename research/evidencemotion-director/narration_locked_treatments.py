@@ -262,7 +262,8 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
                 entry['renderedLineBreaks']=list(visual_lines)
             annotations.append(entry)
 
-    text(pos(72,220),'THE HIPPIE SCIENTIST',font=f(27,True),fill=accent,role=None)
+    text(pos(72,190 if idx==3 and not light else 220),'THE HIPPIE SCIENTIST',
+         font=f(27,True),fill=accent,role=None)
     titles = ['What makes\n7-OH different?', 'Look at the\nhydroxyl group.', 'A record of\nconnected atoms.', 'A possible\n3D shape.', 'Structure\nis not an effect.', 'SOURCE', 'Look closer.']
     # A semantic reveal must not be spoiled by the header before the narrator
     # says the negation. Keep the original WAV and acoustic cue untouched.
@@ -282,7 +283,8 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
     else:
         title = titles[idx]
     if title is not None:
-        text(pos(70,292),title,font=f(70 if idx==5 else 74,True),fill=fg,
+        text(pos(70,251 if idx==3 and not light else 292),title,
+             font=f(70 if idx==5 else 74,True),fill=fg,
              role='hook' if idx==0 else 'science')
     is_spatial = not light and idx not in (0,2,4,5)
     if idx==1 and is_spatial:
