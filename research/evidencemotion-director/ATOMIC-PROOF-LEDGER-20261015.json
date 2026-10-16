@@ -71,11 +71,24 @@
         "EM-034.12.O",
         "EM-034.12.X"
       ]
+    },
+    {
+      "group": "EM-007.01",
+      "source": "EM00701-ATOMIC-SPOKEN-INVENTORY-20261016.md",
+      "cards": [
+        "EM-007.01.U",
+        "EM-007.01.S",
+        "EM-007.01.O",
+        "EM-007.01.X",
+        "EM-007.01.T",
+        "EM-007.01.N",
+        "EM-007.01.R"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 33,
-  "provisionalCoverageCardCount": 740,
-  "provisionalCoveragePercent": 46.5409,
+  "individualMachineVerifiedResearchCardCount": 40,
+  "provisionalCoverageCardCount": 747,
+  "provisionalCoveragePercent": 46.9811,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }

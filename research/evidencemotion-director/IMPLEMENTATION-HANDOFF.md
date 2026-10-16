@@ -133,3 +133,15 @@ Fetch this branch and current main, inspect latest replacement PR head and exact
 ## Exact restage implementation checkpoint
 
 Restage implementation commit: `3681c287093e5330d1ef19e2fabd47dbd2164588`, on `research/evidencemotion-current-main-restage-6743-20261016`. This handoff-only successor pins that implementation SHA. All 54 provenance-listed blobs remain exact matches; 210 targeted tests and doc-link/diff checks passed as above. Full current-head hosted production/native acceptance remains pending. Resolve replacement PR by current branch name and inspect current remote tip before further changes.
+
+## Atomic implementation batch 1 — EM-007.01 (2026-10-16)
+
+Current branch `research/evidencemotion-current-main-restage-6743-20261016`, PR #6825, starting exact head `b0a3178fe6f84775b6a30f5b362bcc38fb027679`. Owner explicitly directed moving to unfinished atoms instead of more packet refinement.
+
+**EM-007.01 DONE_INVENTORY_ONLY**, all seven U/S/O/X/T/N/R inventory checkpoints passed against original actual WAV and five-input source bundle. `spoken_claim_ledger.py` reuses existing `source_check` and `inspect_alignment`; output `EM00701-FROZEN-SPOKEN-LEDGER-20261016.json` freezes 73 words, 8 speech units, qualifiers and source hashes. Exact output SHA and 7 evidence rows in `EM00701-ATOMIC-SPOKEN-INVENTORY-20261016.md`. Original scientific support/accuracy, calibrated timings and canonical EM-007 remain OPEN; no clinical or independent-review approval.
+
+Fresh checks: 3 spoken-inventory tests PASS; 7 ledger tests PASS; actual CLI replay PASS 73/73 words. Ledger now 40 machine-research cards +707 inherited = **747/1590**, from 740 (+7 unique open-parent cards). A Windows default-encoding error interrupted a bookkeeping script before doc edits; reran affected edits explicitly as UTF-8. No code/test waiver.
+
+Changed batch files: new spoken inventory module, tests, frozen JSON and proof receipt; atomic workcard and granular-register completion states; bounded ledger source/count additions and counter tests; existing native/ledger workflow path+test wiring; this handoff. Latest exact batch implementation SHA is recorded by the next checkpoint commit. The earlier restage equivalence manifest is historical at its pinned commit, not an assertion that intentional subsequent validator/workflow changes equal old source blobs.
+
+Next executable task: **EM-014.01** isolate every 7-OH/hydroxyl/mitragynine occurrence from the original source WAV, bind candidate MFA windows, extract actual PCM clips and prove exact sample equivalence; do not award pronunciation or boundary calibration. Hosted new-head full CI/production/native gates remain mandatory before protected merge. No new local full render is needed for the inventory operation. No new publication/normal WIP authority.

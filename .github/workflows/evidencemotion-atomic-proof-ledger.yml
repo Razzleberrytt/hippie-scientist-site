@@ -10,6 +10,7 @@ on:
       - 'research/evidencemotion-director/EM02301-ATOMIC-STORY-EVIDENCE-20261015.md'
       - 'research/evidencemotion-director/EM02303-ATOMIC-VISUAL-REPAIR-20261015.md'
       - 'research/evidencemotion-director/EM03412-ATOMIC-TIMED-SOUNDOFF-INSTRUMENT-20261016.md'
+      - 'research/evidencemotion-director/EM00701-ATOMIC-SPOKEN-INVENTORY-20261016.md'
       - '.github/workflows/evidencemotion-atomic-proof-ledger.yml'
   workflow_dispatch:
 permissions:

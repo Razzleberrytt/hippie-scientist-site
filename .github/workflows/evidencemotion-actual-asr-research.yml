@@ -17,6 +17,8 @@ on:
       - 'research/evidencemotion-director/encoded_bond_sequence_audit.py'
       - 'research/evidencemotion-director/test_encoded_bond_sequence_audit.py'
       - 'research/evidencemotion-director/timed_soundoff_review_packet.py'
+      - 'research/evidencemotion-director/spoken_claim_ledger.py'
+      - 'research/evidencemotion-director/test_spoken_claim_ledger.py'
       - 'research/evidencemotion-director/test_timed_soundoff_review_packet.py'
       - 'research/evidencemotion-director/test_narration_locked_treatments.py'
       - 'research/evidencemotion-director/timed_caption_windows.py'
@@ -104,6 +106,7 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director -p test_encoded_science_motion_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_encoded_bond_sequence_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_timed_soundoff_review_packet.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_spoken_claim_ledger.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_temporal_caption_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_encoded_caption_cue_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_native_autocritic.py -v

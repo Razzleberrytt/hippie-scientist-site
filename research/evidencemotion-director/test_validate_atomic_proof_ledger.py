@@ -9,15 +9,15 @@ class AtomicProofLedgerTests(unittest.TestCase):
     def setUpClass(cls):
         cls.good=json.loads(LEDGER.read_text(encoding="utf-8"))
 
-    def test_exact_29_named_research_cards_and_honest_707_inherited_estimate(self):
+    def test_exact_named_research_cards_and_honest_707_inherited_estimate(self):
         result=validate(self.good,LEDGER.parent)
-        self.assertEqual(result["evidenceGroupCount"],5)
-        self.assertEqual(result["individuallyAuditedMachineResearchOnly"],33)
+        self.assertEqual(result["evidenceGroupCount"],6)
+        self.assertEqual(result["individuallyAuditedMachineResearchOnly"],40)
         self.assertEqual(result["inheritedProvisionalCoverageNotIndividuallyAudited"],707)
-        self.assertEqual(result["provisionalCoverage"],740)
+        self.assertEqual(result["provisionalCoverage"],747)
         self.assertEqual(result["totalAtomicTemplates"],1590)
-        self.assertAlmostEqual(result["provisionalCoveragePercent"],46.5409,places=4)
-        self.assertEqual(len(result["individualResearchCardIDs"]),33)
+        self.assertAlmostEqual(result["provisionalCoveragePercent"],46.9811,places=4)
+        self.assertEqual(len(result["individualResearchCardIDs"]),40)
         self.assertFalse(result["mayPublish"])
         self.assertFalse(result["finalCreativeScientificViewerOrDeviceApproved"])
 
@@ -29,7 +29,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
 
     def test_missing_or_nonapproved_proof_table_row_fails(self):
         fake=copy.deepcopy(self.good)
-        fake["proofGroups"][-1]["cards"][-1]="EM-034.12.T"
+        next(g for g in fake["proofGroups"] if g["group"]=="EM-034.12")["cards"][-1]="EM-034.12.T"
         with self.assertRaisesRegex(ValueError,"NO_EXPLICIT_RESEARCH_PROOF_TABLE_ROW"):
             validate(fake,LEDGER.parent)
 

@@ -29,14 +29,15 @@ def validate(data,source_directory):
         or data.get("noDoubleCountAsserted") is not True):
         hold("DENOMINATOR_OR_ACCEPTANCE_CONTRACT_TAMPER")
     groups=data.get("proofGroups")
-    if not isinstance(groups,list) or len(groups)!=5:
-        hold("EXACT_FIVE_SOURCE_EVIDENCE_GROUPS_REQUIRED")
+    if not isinstance(groups,list) or len(groups)!=6:
+        hold("EXACT_SIX_SOURCE_EVIDENCE_GROUPS_REQUIRED")
     sources={
         "EM-034.04":"EM03404-ATOMIC-EVIDENCE-RECONCILIATION-20261015.md",
         "EM-034.11":"EM03411-ATOMIC-EVIDENCE-RECONCILIATION-20261015.md",
         "EM-023.01":"EM02301-ATOMIC-STORY-EVIDENCE-20261015.md",
         "EM-023.03":"EM02303-ATOMIC-VISUAL-REPAIR-20261015.md",
-        "EM-034.12":"EM03412-ATOMIC-TIMED-SOUNDOFF-INSTRUMENT-20261016.md"
+        "EM-034.12":"EM03412-ATOMIC-TIMED-SOUNDOFF-INSTRUMENT-20261016.md",
+        "EM-007.01":"EM00701-ATOMIC-SPOKEN-INVENTORY-20261016.md"
     }
     group_keys=set()
     cards=set()
