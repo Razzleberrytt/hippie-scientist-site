@@ -19,6 +19,16 @@ from original_replay_admission import (
 
 CANDIDATE_SHA = "a034f00c4fdffaa3574058093e506f184c6b347a5b5561556005c28ec86db626"
 FRAMES = (0, 60, 120, 360, 540, 750, 870, 1000)
+ARCHIVED_PNG_SHA = {
+    0: "580b8a55936a2acd661945f6a0349c16bee7570acfbd1d76d6dfd016c4c4bbf6",
+    60: "4a6de568e68a11618055ce643eecef5c6ee5293a790be84153474a3baee2cd56",
+    120: "ff13249df8bdeba53d863a2cdc575331231a05d49006a1ddd4f832312b6d0c0e",
+    360: "3fea33d6b398e20e9dc8e4157f78969c2c86cc836d599bf50684a369e9d2ddeb",
+    540: "31207bacc022c3aeceec5b964e4c9a8b03da9cf1606dfa94843c907973987f92",
+    750: "c5b050aa7c4faa806283fb16293f06ed7432207c401f83fc709eda442e4062af",
+    870: "fbf8795aedff1cc197d16b0f5f35d50c1bf12fca2f037773d2ebdad494b56ebb",
+    1000: "09736c1db02818f17e31bbfab302fd0d6dfc5f8bc98fe6fae6c47666b9aa9e32",
+}
 ARCHIVED_PATH = "specimen-timed-native"
 RECEIPT = "render-receipt.json"
 
@@ -96,8 +106,9 @@ def probe(*, source_dir, font_dir, wav, archive_dir):
                                          caption_mode="timed_research")
             actual_raw = shot.convert("RGB").tobytes()
             ref = root / ("source_frame_%04d.png" % i)
-            if ref.is_symlink() or not ref.is_file():
-                failures.append("ARCHIVED_FRAME_UNAVAILABLE:%d" % i)
+            if (ref.is_symlink() or not ref.is_file() or
+                    sha_file(ref) != ARCHIVED_PNG_SHA[i]):
+                failures.append("ARCHIVED_FRAME_MISSING_OR_CHANGED:%d" % i)
                 continue
             with Image.open(ref) as img:
                 if img.size != (1080, 1920):
