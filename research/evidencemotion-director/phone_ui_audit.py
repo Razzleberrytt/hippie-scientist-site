@@ -311,6 +311,72 @@ def validate_critical_ink_receipt_join(receipt, *, film_sha, plan_sha):
 
 
 
+def verify_claimed_ink_frames_belong_to_decoded_shots(ink, stamps, shots):
+    """Bind a claimed 27-sample receipt to ACTUAL decoded shot/PTS membership.
+
+    The separate ink/OCR joins validate claimed identities and lexical receipts,
+    but cannot establish that an index actually exists in this encoded movie,
+    lands inside its named shot, or precedes the next phase. Read actual PTS
+    here after full-media decode and fail closed before persisting any receipt.
+    This never inspects ink pixels or grants OCR/phone/science approval.
+    """
+    if not isinstance(ink, dict) or not isinstance(stamps, list) or not stamps:
+        hold("INK_DECODED_FRAME_MEMBERSHIP_INPUT_REQUIRED")
+    if not isinstance(shots, list) or len(shots) != 9:
+        hold("INK_NINE_ACTUAL_SHOTS_REQUIRED")
+    schema = ink.get("schema")
+    if schema == "ths-lane4-timed-variant-ink-probe-research-v1":
+        samples, old = ink.get("actualEncodedSamples"), False
+    elif schema == "ths-actual-native-teaching-ink-audit-v1":
+        samples, old = ink.get("exactDecodedSampleFrames"), True
+    else:
+        hold("INK_FRAME_MEMBERSHIP_UNSUPPORTED_SCHEMA")
+    if not isinstance(samples, list) or len(samples) != 27:
+        hold("INK_FRAME_MEMBERSHIP_REQUIRES_27_SAMPLES")
+    names = [shot.get("id") for shot in shots if isinstance(shot, dict)]
+    if len(names) != 9 or len(set(names)) != 9:
+        hold("INK_FRAME_MEMBERSHIP_INVALID_SHOT_IDS")
+    by_name = {shot["id"]: shot for shot in shots}
+    actual = {}
+    for sample in samples:
+        if not isinstance(sample, dict):
+            hold("INK_FRAME_MEMBERSHIP_INVALID_SAMPLE")
+        pair = sample.get("sampleKey") if old else [sample.get("shot"), sample.get("phase")]
+        index = sample.get("frameIndex") if old else sample.get("index")
+        if (not isinstance(pair, (list, tuple)) or len(pair) != 2
+            or pair[0] not in by_name or pair[1] not in ("early", "middle", "late")
+            or type(index) is not int or not 0 <= index < len(stamps)):
+            hold("INK_FRAME_INDEX_OR_SHOT_NOT_PRESENT_IN_DECODED_FILM")
+        name, phase = pair
+        key = (name, phase)
+        if key in actual:
+            hold("INK_DUPLICATE_DECODED_SHOT_PHASE")
+        start = Decimal(str(by_name[name]["startSec"]))
+        end = Decimal(str(by_name[name]["endSec"]))
+        stamp = stamps[index]
+        if not isinstance(stamp, Decimal) or not stamp.is_finite() or not start <= stamp < end:
+            hold("INK_DECODED_FRAME_BELONGS_TO_DIFFERENT_SHOT")
+        actual[key] = (index, stamp)
+    required = {(name, phase) for name in names for phase in ("early", "middle", "late")}
+    if set(actual) != required:
+        hold("INK_INCOMPLETE_DECODED_SHOT_PHASE_COVERAGE")
+    for name in names:
+        a, m, z = (actual[(name, phase)][0] for phase in ("early", "middle", "late"))
+        if not a < m < z:
+            hold("INK_DECODED_PHASE_INDICES_NOT_IN_TEMPORAL_ORDER")
+    return {
+        "status": "EXACT_DECODED_SHOT_FRAME_MEMBERSHIP_RESEARCH_ONLY",
+        "sampleFramesChecked": 27,
+        "nineShotsThreeDistinctOrderedSamplesEach": True,
+        "allClaimedIndicesAreRealDecodedFrames": True,
+        "allClaimedFramePTSBelongToDeclaredShots": True,
+        "inkPixelsIndependentlyReplayed": False,
+        "ocrRerun": False,
+        "realHandsetPlaybackVerified": False,
+        "mayPublish": False,
+    }
+
+
 # Fixed nine-scene factual text corpus for this research film. The OCR join
 # must not trust a self-authored receipt to redefine the expected science.
 OCR_SOURCE_LABELS = {
@@ -725,6 +791,12 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
     # are contiguous and its annotation boxes are otherwise valid.
     stamps = frame_timestamps(movie)
     coverage = verify_decoded_shot_coverage(stamps, plan["shots"])
+    # Receipt strings alone are not frame provenance. Bind each claimed
+    # early/middle/late film index to this movie's actually decoded PTS.
+    linked_frame_membership = (
+        verify_claimed_ink_frames_belong_to_decoded_shots(ink_data, stamps, plan["shots"])
+        if ink_data is not None else None
+    )
     frame_receipts = []
     # Emit all decoded artifacts into an isolated staging folder, not into the
     # previous run's public review directory. Publish receipt *last*.
@@ -765,6 +837,7 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
             hold("SOURCE_GLYPH_RECEIPT_CHANGED_DURING_AUDIT")
         if linked_ink is not None:
             receipt["linkedCriticalTextProxy"] = linked_ink
+            receipt["linkedCriticalTextDecodedFrameMembership"] = linked_frame_membership
         if linked_glyph is not None:
             receipt["linkedCriticalTextOCR"] = linked_glyph
             receipt["muteStoryNegativeScreen"] = muted_screen
