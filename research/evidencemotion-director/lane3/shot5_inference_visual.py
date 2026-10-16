@@ -6,7 +6,7 @@ SHA and exact 2D chemical record frame are pinned before any art is drawn.
 Modifies only the science-body stage in sentence_5 [702,821). No publishing.
 """
 from __future__ import annotations
-import argparse, hashlib, io, json, math, subprocess
+import argparse, hashlib, io, json, math, os, subprocess, tempfile
 from fractions import Fraction
 from pathlib import Path
 
@@ -218,6 +218,30 @@ def verify_native_silent_clip(path, *, width=W, height=H, fps=FPS, frames=END-ST
     return True
 
 
+
+def commit_verified_silent_scene(stage, output, *, width=W, height=H, fps=FPS, frames=END-START):
+    """Verify staged encoded bytes and link to a *new* output without clobber.
+
+    Failures NEVER unlink or rewrite the destination. render() creates the stage
+    in a private same-filesystem temp directory, then removes that directory.
+    Test-only expected-grid overrides permit tiny genuine FFmpeg fixtures.
+    """
+    stage,output=Path(stage),Path(output)
+    if stage.resolve()==output.resolve():
+        raise ResearchHold('STAGE_CANNOT_BE_OUTPUT')
+    verify_native_silent_clip(stage,width=width,height=height,fps=fps,frames=frames)
+    staged_sha=digest(stage)
+    try:
+        # Unlike os.replace()/ffmpeg -y, this is atomic no-clobber even if the
+        # final name is created AFTER the original preflight.
+        os.link(stage,output)
+    except FileExistsError as exc:
+        raise ResearchHold('OUTPUT_APPEARED_AFTER_PREFLIGHT') from exc
+    except OSError as exc:
+        raise ResearchHold('ATOMIC_OUTPUT_LINK_FAILED') from exc
+    return staged_sha
+
+
 def render(source,molecule,output):
     source=Path(source);output=Path(output);molecule=Path(molecule)
     if output.resolve() in (source.resolve(),molecule.resolve()):
@@ -229,41 +253,48 @@ def render(source,molecule,output):
     output.parent.mkdir(parents=True,exist_ok=True)
     crop=pinned_diagram(molecule)
     bg=palette_background()
-    raw_bytes=[]
-    # Read exact 119 RGB frames, select+sequential decoding, no motion guesses.
-    args=['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-xerror','-i',str(source),
-      '-map','0:v:0','-vf',f'select=between(n\\,{START}\\,{END-1})',
-      '-vsync','0','-f','rawvideo','-pix_fmt','rgb24','-']
-    dec=subprocess.Popen(args,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-    command=['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-y','-f','rawvideo',
-      '-pix_fmt','rgb24','-s',f'{W}x{H}','-r','30','-i','-', '-an','-c:v','libx264',
-      '-preset','veryfast','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',str(output)]
-    enc=subprocess.Popen(command,stdin=subprocess.PIPE,stderr=subprocess.PIPE)
-    try:
-        for f in range(START,END):
-            payload=dec.stdout.read(FRAME_SIZE)
-            if len(payload)!=FRAME_SIZE:raise ResearchHold('SOURCE_SCENE_DECODE_SHORT')
-            image=Image.frombytes('RGB',(W,H),payload)
-            changed=sample_treatment(image,crop,bg,f)
-            enc.stdin.write(changed.tobytes())
-        if dec.stdout.read(1) or dec.wait()!=0:raise ResearchHold('SOURCE_SCENE_DECODE_EXTRA_OR_FAILED')
-        enc.stdin.close()
-        if enc.wait()!=0:raise ResearchHold('SILENT_SCENE_ENCODING_FAILED')
-    except BaseException:
-        enc.kill();dec.kill();enc.wait();dec.wait()
-        if output.exists():output.unlink()
-        raise
-    finally:
-        for pipe in (dec.stdout,dec.stderr,enc.stderr):
-            if pipe:pipe.close()
-    # Producer-side exact readback. A nominal FFmpeg exit 0 is not evidence
-    # that a valid, complete and silent native scene was encoded.
-    try:
-        verify_native_silent_clip(output)
-    except ResearchHold:
-        if output.exists(): output.unlink()
-        raise
-    return {'schema':SCHEMA,'sourceFilmSha256':SOURCE_SHA,'silentSceneSha256':digest(output),
+    # A 0700-owned staging directory prevents final-name overwrites and
+    # prevents a concurrent render from colliding with another's temporary MP4.
+    with tempfile.TemporaryDirectory(dir=output.parent,prefix='.lane3-scene-') as temp:
+        stage=Path(temp)/'silent-scene.mp4'
+        args=['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-xerror','-i',str(source),
+          '-map','0:v:0','-vf',f'select=between(n\\\\,{START}\\\\,{END-1})',
+          '-vsync','0','-f','rawvideo','-pix_fmt','rgb24','-']
+        # -n is an additional fail-closed guard; stage must never preexist.
+        command=['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-n','-f','rawvideo',
+          '-pix_fmt','rgb24','-s',f'{W}x{H}','-r','30','-i','-', '-an','-c:v','libx264',
+          '-preset','veryfast','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',str(stage)]
+        dec=enc=None
+        # File sinks avoid deadlocking on an unconsumed stderr=PIPE buffer.
+        with open(Path(temp)/'decode.log','wb') as decerr, open(Path(temp)/'encode.log','wb') as encerr:
+            try:
+                dec=subprocess.Popen(args,stdout=subprocess.PIPE,stderr=decerr)
+                enc=subprocess.Popen(command,stdin=subprocess.PIPE,stderr=encerr)
+                for f in range(START,END):
+                    payload=dec.stdout.read(FRAME_SIZE)
+                    if len(payload)!=FRAME_SIZE:raise ResearchHold('SOURCE_SCENE_DECODE_SHORT')
+                    image=Image.frombytes('RGB',(W,H),payload)
+                    changed=sample_treatment(image,crop,bg,f)
+                    enc.stdin.write(changed.tobytes())
+                if dec.stdout.read(1) or dec.wait()!=0:
+                    raise ResearchHold('SOURCE_SCENE_DECODE_EXTRA_OR_FAILED')
+                enc.stdin.close()
+                if enc.wait()!=0:raise ResearchHold('SILENT_SCENE_ENCODING_FAILED')
+            except BaseException:
+                for process in (dec,enc):
+                    if process is not None and process.poll() is None:process.kill()
+                for process in (dec,enc):
+                    if process is not None:process.wait()
+                raise
+            finally:
+                for pipe in (dec.stdout if dec else None,enc.stdin if enc else None):
+                    if pipe and not pipe.closed:pipe.close()
+        # No output name has been touched yet. Reprove pinned source identities
+        # before exposing a verified clip, then link atomically with NO overwrite.
+        if digest(source)!=SOURCE_SHA or digest(molecule)!=MOL_SHA:
+            raise ResearchHold('SOURCE_IDENTITY_CHANGED_DURING_RENDER')
+        final_sha=commit_verified_silent_scene(stage,output)
+    return {'schema':SCHEMA,'sourceFilmSha256':SOURCE_SHA,'silentSceneSha256':final_sha,
        'originalNarrationSha256':ORIGINAL_WAV_SHA,'moleculeSha256':MOL_SHA,'width':W,'height':H,'fps':FPS,
        'startFrame':START,'endFrameExclusive':END,'negationFirstFrame':NEGATION,
        'diagramDerivedFromPinnedMol':True,'scienceApproved':False,'craftApproved':False,
