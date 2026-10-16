@@ -108,6 +108,47 @@ class ZeroSink(ShortSink):
 
 
 class Tests(unittest.TestCase):
+    def test_uploaded_original_movie_identity_matches_actual_bytes(self):
+        from original_native_stdin_replay import verify_uploaded_movie, ORIGINAL_NAME
+        with tempfile.TemporaryDirectory() as directory:
+            payload = b"synthetic transfer fixture - not a real encoded movie"
+            (Path(directory) / ORIGINAL_NAME).write_bytes(payload)
+            receipt = {"sourceToEncoderStdinReceipt": {
+                "filmSha256": hashlib.sha256(payload).hexdigest()}}
+            self.assertEqual(verify_uploaded_movie(directory, receipt),
+                             hashlib.sha256(payload).hexdigest())
+
+    def test_uploaded_original_movie_mutation_rejected(self):
+        from original_native_stdin_replay import verify_uploaded_movie, ORIGINAL_NAME
+        with tempfile.TemporaryDirectory() as directory:
+            payload = b"synthetic"
+            movie = Path(directory) / ORIGINAL_NAME
+            movie.write_bytes(payload)
+            receipt = {"sourceToEncoderStdinReceipt": {
+                "filmSha256": hashlib.sha256(payload).hexdigest()}}
+            movie.write_bytes(payload + b"mutated")
+            with self.assertRaisesRegex(ValueError, "UPLOADED_MOVIE_BYTES_DIFFER"):
+                verify_uploaded_movie(directory, receipt)
+
+    def test_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected(self):
+        from original_native_stdin_replay import verify_uploaded_movie, ORIGINAL_NAME
+        with tempfile.TemporaryDirectory() as directory:
+            movie = Path(directory) / ORIGINAL_NAME
+            receipt = {"sourceToEncoderStdinReceipt": {"filmSha256": "a" * 64}}
+            with self.assertRaisesRegex(ValueError, "MISSING_EMPTY_OR_SYMLINK"):
+                verify_uploaded_movie(directory, receipt)
+            target = Path(directory) / "other"
+            target.write_bytes(b"fake")
+            movie.symlink_to(target)
+            with self.assertRaisesRegex(ValueError, "MISSING_EMPTY_OR_SYMLINK"):
+                verify_uploaded_movie(directory, receipt)
+            movie.unlink()
+            movie.write_bytes(b"not a movie")
+            with self.assertRaisesRegex(ValueError, "INVALID_MOVIE_SHA_RECEIPT"):
+                verify_uploaded_movie(directory, {"sourceToEncoderStdinReceipt": {
+                    "filmSha256": "!" * 64}})
+
+
     def test_complete_two_run_synthetic_still_hold(self):
         self.assertFalse(pair()["mayPublish"])
         self.assertFalse(pair()["twoActualIndependentJobExecutionsAuthenticated"])
