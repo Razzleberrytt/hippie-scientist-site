@@ -1421,6 +1421,74 @@ class MutedStoryNegativeScreenTests(unittest.TestCase):
         self.assertFalse(result["mutedAudienceComprehensionApproved"])
 
 
+
+
+class ActualMediaStreamIdentityTests(unittest.TestCase):
+    """Real one-second FFmpeg fixtures, not mocked ffprobe metadata.
+
+    These do not certify the original video science, narration or handset.
+    They prove that alternate/multiple tracks cannot be named as the
+    single expected H.264/AAC-or-silent mobile research film.
+    """
+
+    def make_h264(self, root):
+        movie = root / "h264.mp4"
+        subprocess.run([
+            "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+            "-f", "lavfi", "-i", "color=c=blue:s=160x288:r=30:d=1",
+            "-c:v", "libx264", "-preset", "ultrafast",
+            "-pix_fmt", "yuv420p", "-an", str(movie)
+        ], capture_output=True, timeout=50, check=True)
+        return movie
+
+    def test_one_real_h264_video_without_audio_is_valid_research_input(self):
+        with tempfile.TemporaryDirectory() as directory:
+            movie = self.make_h264(Path(directory))
+            w, h, duration, frames = probe_movie(movie)
+            self.assertEqual((w, h, frames), (160, 288, 30))
+            self.assertAlmostEqual(duration, 1.0)
+
+    def test_real_mpeg4_video_cannot_appear_as_h264_by_averaged_frame_rate(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = root / "mpeg4.mp4"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+                "-f", "lavfi", "-i", "color=c=blue:s=160x288:r=30:d=1",
+                "-c:v", "mpeg4", "-q:v", "3", "-an", str(movie)
+            ], capture_output=True, timeout=50, check=True)
+            with self.assertRaisesRegex(ValueError, "EXPECTED_H264_VIDEO_CODEC"):
+                probe_movie(movie)
+
+    def test_actual_second_video_track_cannot_hide_behind_v0_selection(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = self.make_h264(root)
+            duplicate = root / "two-tracks.mp4"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+                "-i", str(source), "-map", "0:v:0", "-map", "0:v:0",
+                "-c:v", "copy", "-an", str(duplicate)
+            ], capture_output=True, timeout=50, check=True)
+            with self.assertRaisesRegex(ValueError, "UNEXPECTED_MOVIE_STREAM_LAYOUT"):
+                probe_movie(duplicate)
+
+    def test_real_non_aac_audio_cannot_claim_aac_research_soundtrack(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = self.make_h264(root)
+            movie = root / "mpeg-audio.mkv"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+                "-i", str(source), "-f", "lavfi",
+                "-i", "sine=frequency=440:sample_rate=44100:duration=1",
+                "-map", "0:v:0", "-map", "1:a:0",
+                "-c:v", "copy", "-c:a", "libmp3lame", str(movie)
+            ], capture_output=True, timeout=50, check=True)
+            with self.assertRaisesRegex(ValueError, "EXPECTED_AAC_AUDIO_CODEC"):
+                probe_movie(movie)
+
+
 class ActualFilmSmoke(unittest.TestCase):
     def test_first_presented_video_frame_must_start_at_zero(self):
         # Real encoded 30fps clips; setpts advances every decoded PTS by
