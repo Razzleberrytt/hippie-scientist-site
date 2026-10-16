@@ -776,6 +776,28 @@ class RepairedSameShotOCRContractTests(unittest.TestCase):
                                     "GLYPH_OCR_NEGATION_OPERATOR_NOT_RECOVERED"):
             self.verify(proof, ink, plan)
 
+    def test_v2_operator_before_subject_cannot_fake_correct_relationship(self):
+        proof, ink, plan = self.fixtures()
+        row = next(r for r in proof["observations"]
+                   if r["scene"] == "sentence_5_part1" and r["phase"] == "early")
+        row["recognized"] = "≠ STRUCTURE HUMAN EXPERIENCE"
+        row["recognizedTokens"] = ocr_words(row["recognized"])
+        with self.assertRaisesRegex(
+            ValueError, "GLYPH_OCR_COMPLETE_NEGATION_SEQUENCE_NOT_RECOVERED"
+        ):
+            self.verify(proof, ink, plan)
+
+    def test_v2_operator_between_wrong_words_cannot_fake_comparison(self):
+        proof, ink, plan = self.fixtures()
+        row = next(r for r in proof["observations"]
+                   if r["scene"] == "sentence_5_part1" and r["phase"] == "late")
+        row["recognized"] = "STRUCTURE HUMAN ≠ EXPERIENCE"
+        row["recognizedTokens"] = ocr_words(row["recognized"])
+        with self.assertRaisesRegex(
+            ValueError, "GLYPH_OCR_COMPLETE_NEGATION_SEQUENCE_NOT_RECOVERED"
+        ):
+            self.verify(proof, ink, plan)
+
     def test_v2_rejects_metadata_only_or_split_science_annotations(self):
         proof, ink, plan = self.fixtures()
         scene = next(s for s in plan["shots"] if s["id"] == "sentence_5_part1")
