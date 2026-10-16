@@ -84,11 +84,24 @@
         "EM-007.01.N",
         "EM-007.01.R"
       ]
+    },
+    {
+      "group": "EM-014.01",
+      "source": "EM01401-ORIGINAL-PCM-TERM-ISOLATION-20261016.md",
+      "cards": [
+        "EM-014.01.U",
+        "EM-014.01.S",
+        "EM-014.01.O",
+        "EM-014.01.X",
+        "EM-014.01.T",
+        "EM-014.01.N",
+        "EM-014.01.R"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 40,
-  "provisionalCoverageCardCount": 747,
-  "provisionalCoveragePercent": 46.9811,
+  "individualMachineVerifiedResearchCardCount": 47,
+  "provisionalCoverageCardCount": 754,
+  "provisionalCoveragePercent": 47.4214,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }
