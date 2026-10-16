@@ -120,6 +120,26 @@ class ScienceGateProcessAttestationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"SCIENCE_GATE_CANNOT_SELF_AUTHORIZE_RELEASE"):
             verify_attestation(payload)
 
+    def test_rehashed_claim_id_missing_reviewer_hold_or_extra_scope_refused(self):
+        for change in (
+            lambda report: report["claims"][2].update({"claimId":"spoken-007"}),
+            lambda report: report["claims"][6].update({"unresolvedHoldReasons":[
+                "NO_INDEPENDENT_QUALIFIED_SCIENTIFIC_REVIEW_FOR_EXACT_ASSET"]}),
+            lambda report: report["claims"][5].update({"sourceScope":"HUMAN_TRIAL_PROVEN"}),
+            lambda report: report.update({"independentReviewerReceiptPresent":True}),
+            lambda report: report.update({"claimsReconciled":9}),
+        ):
+            candidate=self.inspect()
+            change(candidate)
+            payload={k:v for k,v in candidate.items() if k!="processAttestation"}
+            candidate["processAttestation"]["canonicalPayloadSha256"]=digest(canonical(payload))
+            candidate["processAttestation"]["domainSeparatedDigest"]=digest(
+                DOMAIN+canonical(payload))
+            with self.subTest(mutation=change.__code__.co_firstlineno), \\
+                 self.assertRaisesRegex(ValueError,
+                     "CLAIM_ID_SCOPE_OR_HOLDS_REHASHED|SCIENCE_GATE_CANNOT_SELF_AUTHORIZE_RELEASE"):
+                verify_attestation(candidate)
+
     def test_actual_cli_writes_three_real_parent_sha_receipts_and_holds(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
