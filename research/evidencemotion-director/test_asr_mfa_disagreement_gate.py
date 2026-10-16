@@ -3,8 +3,12 @@ import hashlib
 import io
 import json
 import struct
+import subprocess
+import sys
+import tempfile
 import unittest
 import wave
+from pathlib import Path
 from asr_mfa_disagreement_gate import assess_original_asr_mfa
 
 
@@ -42,6 +46,61 @@ class CrossModelResearchTests(unittest.TestCase):
         self.mfa['alignmentCandidateSha256']=hashlib.sha256(candidate).hexdigest()
         return assess_original_asr_mfa(self.wav if wav is None else wav,self.sha,
                          self.asr,self.mfa,candidate,self.transcript if transcript is None else transcript)
+
+    def execute_real_cli(self):
+        """Run the real file-reading CLI with source-hash-bound synthetic inputs."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            candidate = json.dumps(self.alignment, sort_keys=True).encode()
+            self.mfa['alignmentCandidateSha256'] = hashlib.sha256(candidate).hexdigest()
+            files = {
+                'original.wav': self.wav, 'transcript.txt': self.transcript,
+                'alignment.json': candidate,
+                'asr.json': json.dumps(self.asr).encode(),
+                'mfa.json': json.dumps(self.mfa).encode(),
+            }
+            for name, data in files.items():
+                (root / name).write_bytes(data)
+            command = [sys.executable, str(Path(__file__).with_name('asr_mfa_disagreement_gate.py')),
+                       '--original', str(root / 'original.wav'),
+                       '--original-sha256', self.sha,
+                       '--asr', str(root / 'asr.json'),
+                       '--mfa', str(root / 'mfa.json'),
+                       '--alignment', str(root / 'alignment.json'),
+                       '--transcript', str(root / 'transcript.txt')]
+            done = subprocess.run(command, capture_output=True, text=True, check=False, timeout=20)
+            return done.returncode, json.loads(done.stdout), done.stderr
+
+    def test_cli_conflicting_spoken_word_exits_review_hold_not_green(self):
+        self.asr['recognizedWords'][0]['word'] = 'poles'
+        self.asr['recognizedWords'][0]['probability'] = .9999
+        code, receipt, stderr = self.execute_real_cli()
+        self.assertEqual(code, 3, stderr)
+        self.assertEqual(receipt['status'], 'RESEARCH_REVIEW_HOLD')
+        self.assertFalse(receipt['mayPublish'])
+        self.assertEqual(receipt['disagreements'][0]['authoredWords'], ['pose'])
+
+    def test_cli_disputed_timing_exits_review_hold_not_green(self):
+        self.asr['recognizedWords'][0]['start'] = .299
+        code, receipt, stderr = self.execute_real_cli()
+        self.assertEqual(code, 3, stderr)
+        self.assertEqual(receipt['counts']['matchedStartsOver150ms'], 1)
+        self.assertFalse(receipt['wordTimingCalibrated'])
+
+    def test_cli_matching_model_hypotheses_returns_non_authoritative_zero(self):
+        code, receipt, stderr = self.execute_real_cli()
+        self.assertEqual(code, 0, stderr)
+        self.assertEqual(receipt['status'], 'RESEARCH_MODEL_CONSENSUS_ONLY')
+        self.assertFalse(receipt['pronunciationVerified'])
+        self.assertFalse(receipt['mayPublish'])
+
+    def test_cli_stale_pinned_source_returns_hard_error(self):
+        self.asr['sourceWavSha256'] = 'f' * 64
+        code, receipt, stderr = self.execute_real_cli()
+        self.assertEqual(code, 2, stderr)
+        self.assertEqual(receipt['status'], 'HOLD')
+        self.assertIn('ASR_MFA_SOURCE_IDENTITIES_MISMATCH', receipt['errors'])
+
 
     def test_matching_hypotheses_do_not_grant_pronunciation(self):
         report=self.result()
