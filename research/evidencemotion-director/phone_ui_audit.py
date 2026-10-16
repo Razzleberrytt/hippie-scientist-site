@@ -231,6 +231,85 @@ def validate_manifest(m, *, width, height, duration, actual_sha):
         "note": "Caller annotations do not prove visible pixels or actual app UI layouts."
     }
 
+
+def validate_critical_ink_receipt_join(receipt, *, film_sha, plan_sha):
+    """Join a three-point ink-proxy receipt ONLY to its exact encoded film.
+
+    Research receipt identity is not fresh pixel replay, OCR, human science,
+    true handset readability, or permission to publish.
+    """
+    if not isinstance(receipt, dict):
+        hold("CRITICAL_INK_RECEIPT_OBJECT_REQUIRED")
+    schema = receipt.get("schema")
+    old = schema == "ths-actual-native-teaching-ink-audit-v1"
+    timed = schema == "ths-lane4-timed-variant-ink-probe-research-v1"
+    if not (old or timed):
+        hold("UNSUPPORTED_CRITICAL_INK_RECEIPT_SCHEMA")
+    joined_movie = receipt.get("actualFilmSha256" if old else "filmSha256")
+    joined_plan = receipt.get("actualPhonePlanSha256" if old else "phonePlanSha256")
+    if not is_hash(joined_movie) or joined_movie != film_sha:
+        hold("CRITICAL_INK_RECEIPT_DIFFERENT_FILM")
+    if not is_hash(joined_plan) or joined_plan != plan_sha:
+        hold("CRITICAL_INK_RECEIPT_DIFFERENT_PHONE_PLAN")
+    if (receipt.get("mayPublish") is not False or
+        receipt.get("realHandsetApproved") is not False or
+        receipt.get("viewerComprehensionApproved") is not False):
+        hold("CRITICAL_INK_RECEIPT_FORGED_APPROVAL")
+    count = receipt.get("testedCriticalVisibleLabels" if old else "actualCriticalLabels")
+    if type(count) is not int or count != 16:
+        hold("SIXTEEN_ACTUAL_CRITICAL_LABELS_REQUIRED")
+    if old:
+        criteria = receipt.get("criteria")
+        expected = {"actual_full_hd_text_ink_contrast",
+                    "meaningful_instruction_text_persistence"}
+        if (not isinstance(criteria, list) or len(criteria) != 2 or
+            {item.get("code") for item in criteria if isinstance(item, dict)} != expected or
+            any(not isinstance(item, dict) or item.get("passed") is not True
+                for item in criteria) or
+            receipt.get("additionalObjectivePoints") != 2 or
+            receipt.get("exactSourceFrameSamplingVerified") is not True):
+            hold("CRITICAL_INK_PROXY_CRITERIA_NOT_PROVEN")
+        frames = receipt.get("exactDecodedSampleFrames")
+    else:
+        if (receipt.get("contrastProxyPass") is not True or
+            receipt.get("persistenceProxyPass") is not True or
+            receipt.get("previousVariantScoreEligible") is not False):
+            hold("TIMED_CRITICAL_INK_PROXY_NOT_PROVEN")
+        frames = receipt.get("actualEncodedSamples")
+    if not isinstance(frames, list) or len(frames) != 27:
+        hold("TWENTY_SEVEN_EXACT_INK_SAMPLES_REQUIRED")
+    phases = {}
+    for sample in frames:
+        if not isinstance(sample, dict):
+            hold("INVALID_CRITICAL_INK_FRAME_IDENTITY")
+        pair = sample.get("sampleKey") if old else [sample.get("shot"), sample.get("phase")]
+        index = sample.get("frameIndex") if old else sample.get("index")
+        if (not isinstance(pair, (list, tuple)) or len(pair) != 2 or
+            not all(isinstance(v, str) and v for v in pair) or
+            pair[1] not in ("early", "middle", "late") or
+            type(index) is not int or index < 0):
+            hold("INVALID_CRITICAL_INK_FRAME_IDENTITY")
+        scene, phase = pair
+        phases.setdefault(scene, set())
+        if phase in phases[scene]:
+            hold("DUPLICATE_CRITICAL_INK_SAMPLE")
+        phases[scene].add(phase)
+    if len(phases) != 9 or any(v != {"early", "middle", "late"} for v in phases.values()):
+        hold("NINE_THREE_PHASE_SHOTS_REQUIRED")
+    return {
+        "status": "EXACT_FILM_AND_PHONE_PLAN_INK_PROXY_RECEIPT_JOINED_RESEARCH_ONLY",
+        "filmSha256": film_sha,
+        "phonePlanSha256": plan_sha,
+        "receiptSchema": schema,
+        "sourceFramesClaimed": 27,
+        "criticalLabelsClaimed": 16,
+        "receiptMeasurementsIndependentlyReplayedHere": False,
+        "actualGlyphsVerifiedByThisJoin": False,
+        "actualPhoneComprehensionVerified": False,
+        "mayPublish": False,
+    }
+
+
 def probe_movie(movie):
     cmd = ["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
            "stream=width,height,avg_frame_rate", "-show_entries", "format=duration",
@@ -319,13 +398,15 @@ def decoded_overlay(movie, frame_index, shot, destination, width, height):
     if not destination.is_file() or destination.stat().st_size == 0:
         hold("REAL_FRAME_EXTRACTION_FAILED")
 
-def audit(movie, manifest, output):
+def audit(movie, manifest, output, ink_receipt=None):
     movie, manifest, output = Path(movie), Path(manifest), Path(output)
+    ink_receipt = Path(ink_receipt) if ink_receipt is not None else None
+    sources = (movie, manifest) + ((ink_receipt,) if ink_receipt is not None else ())
     report_path = output / "research-report.json"
     # A caller can put its input manifest/movie at this same path, including
     # through a symlink or .. alias. Never unlink a source while invalidating
     # the previous verdict. Check BEFORE creating or mutating output files.
-    if report_path.resolve() in (movie.resolve(), manifest.resolve()):
+    if report_path.resolve() in {source.resolve() for source in sources}:
         hold("REPORT_OUTPUT_ALIASES_SOURCE_INPUT")
     # Old generated images are removed and replaced later in this audit.
     # A source masquerading as an overlay PNG would be deleted after a valid
@@ -334,7 +415,7 @@ def audit(movie, manifest, output):
     output_dir = output.resolve()
     if any(GENERATED_OVERLAY_NAME.fullmatch(candidate.name) and
            candidate.parent.resolve() == output_dir
-           for source in (movie, manifest)
+           for source in sources
            for candidate in (source, source.resolve())):
         hold("GENERATED_OUTPUT_ALIASES_SOURCE_INPUT")
     output.mkdir(parents=True, exist_ok=True)
@@ -348,6 +429,14 @@ def audit(movie, manifest, output):
     plan = json.loads(manifest_bytes.decode("utf-8"))
     manifest_hash = hashlib.sha256(manifest_bytes).hexdigest()
     movie_hash = sha256_file(movie)
+    linked_ink = None
+    ink_hash = None
+    if ink_receipt is not None:
+        ink_bytes = ink_receipt.read_bytes()
+        ink_hash = hashlib.sha256(ink_bytes).hexdigest()
+        linked_ink = validate_critical_ink_receipt_join(
+            json.loads(ink_bytes.decode("utf-8")), film_sha=movie_hash,
+            plan_sha=manifest_hash)
     width, height, duration, decoded_count = probe_movie(movie)
     receipt = validate_manifest(plan, width=width, height=height,
                                 duration=duration, actual_sha=movie_hash)
@@ -390,6 +479,10 @@ def audit(movie, manifest, output):
             hold("SOURCE_VIDEO_CHANGED_DURING_AUDIT")
         if sha256_file(manifest) != manifest_hash:
             hold("SOURCE_MANIFEST_CHANGED_DURING_AUDIT")
+        if ink_receipt is not None and sha256_file(ink_receipt) != ink_hash:
+            hold("SOURCE_INK_RECEIPT_CHANGED_DURING_AUDIT")
+        if linked_ink is not None:
+            receipt["linkedCriticalTextProxy"] = linked_ink
         receipt.update({"videoSha256": movie_hash, "manifestSha256": manifest_hash,
                         "videoResolution": [width, height], "durationSec": duration,
                         "decodedFrameCount": decoded_count,
@@ -414,9 +507,12 @@ if __name__ == "__main__":
     parser.add_argument("--movie", required=True)
     parser.add_argument("--manifest", required=True)
     parser.add_argument("--output", required=True)
+    parser.add_argument("--ink-receipt", default=None,
+                        help="Optional exact-film 27-sample research ink proxy; no approval")
     args = parser.parse_args()
     try:
-        print(json.dumps(audit(args.movie, args.manifest, args.output), indent=2))
+        print(json.dumps(audit(args.movie, args.manifest, args.output,
+                               ink_receipt=args.ink_receipt), indent=2))
     except (ValueError, OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired,
             KeyError, IndexError, TypeError) as error:
         raise SystemExit("PHONE_UI_HOLD:" + str(error)) from error
