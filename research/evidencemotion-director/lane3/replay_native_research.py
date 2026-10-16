@@ -14,7 +14,8 @@ import source_locked_craft_splice as splice
 
 class ReplayHold(ValueError):pass
 
-def run(*,source,mol,manifest,external_manifest_sha,output):
+def run(*,source,mol,manifest,external_manifest_sha,output,treatment="baseline"):
+    if treatment not in ("baseline","depth_study"):raise ReplayHold("UNREVIEWED_CRAFT_TREATMENT")
     rule=splice.trusted_manifest(manifest,external_manifest_sha)
     if rule['sourceFilmSha256'] not in render.KNOWN_SOURCE_FILMS:
         raise ReplayHold('UNKNOWN_APPROVED_NARRATION_FILM')
@@ -37,14 +38,14 @@ def run(*,source,mol,manifest,external_manifest_sha,output):
         raise ReplayHold('MOLECULAR_SOURCE_REVISION_MISMATCH')
     with tempfile.TemporaryDirectory(prefix='ths-lane3-craft-') as temp:
         scene=Path(temp)/'native-verified-scene.mp4'
-        scene_receipt=render.render(source,mol,scene,expected_film_sha=rule['sourceFilmSha256'])
+        scene_receipt=render.render(source,mol,scene,expected_film_sha=rule['sourceFilmSha256'],treatment=treatment)
         if scene_receipt['clipSha256']!=rule['craftSceneSha256']:
             raise ReplayHold('RENDERED_SCENE_DIFFERS_FROM_EXTERNAL_PIN')
         result=splice.splice(source,scene,output,rule)
         if result['mayPublish'] or result['scienceApproved'] or result['craftApproved']:
             raise ReplayHold('UNAUTHORIZED_PROMOTION')
         return {'schema':'ths-native-scene4-end-to-end-replay-research-v1',
-                'scene':scene_receipt,'film':result,'publishPermitted':False}
+                'scene':scene_receipt,'film':result,'treatment':treatment,'publishPermitted':False}
 
 if __name__=='__main__':
     p=argparse.ArgumentParser()
@@ -53,6 +54,7 @@ if __name__=='__main__':
     p.add_argument('--manifest',type=Path,required=True)
     p.add_argument('--external-manifest-sha256',required=True)
     p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--treatment',choices=['baseline','depth_study'],default='baseline')
     a=p.parse_args()
     print(json.dumps(run(source=a.source_film,mol=a.mol,manifest=a.manifest,
-                        external_manifest_sha=a.external_manifest_sha256,output=a.output),indent=2))
+                        external_manifest_sha=a.external_manifest_sha256,output=a.output,treatment=a.treatment),indent=2))
