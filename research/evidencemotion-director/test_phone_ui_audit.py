@@ -129,6 +129,47 @@ class MobileAuditContract(unittest.TestCase):
         self.assertFalse(report["realHandsetReadabilityVerified"])
         self.assertFalse(report["mayPublish"])
 
+    def test_same_shot_caption_covering_source_fails_closed(self):
+        m = fixture()
+        m["shots"][0]["annotations"].append({
+            "role": "source", "text": "PubChem CID 44301524",
+            "fontPx": 34, "boxPx": [250, 270, 650, 330],
+        })
+        with self.assertRaisesRegex(ValueError, "OVERLAPPING_CRITICAL_TEXT:opening:hook:source"):
+            self.check(m)
+
+    def test_same_shot_disclosure_covered_by_science_fails_closed(self):
+        m = fixture()
+        m["shots"][0]["annotations"].append({
+            "role": "disclosure", "text": "Illustration; not proof",
+            "fontPx": 38, "boxPx": [150, 1120, 690, 1230],
+        })
+        with self.assertRaisesRegex(ValueError, "OVERLAPPING_CRITICAL_TEXT:opening:science:disclosure"):
+            self.check(m)
+
+    def test_tiny_box_edge_touch_does_not_fake_collision(self):
+        m = fixture()
+        m["shots"][0]["annotations"].append({
+            "role": "source", "text": "Reference",
+            "fontPx": 38, "boxPx": [200, 349, 600, 420],
+        })
+        receipt = self.check(m)
+        self.assertEqual(receipt["declaredTextSeparation"]["annotationPairsChecked"], 3)
+        self.assertEqual(receipt["declaredTextSeparation"]["significantDeclaredTextCollisions"], 0)
+        self.assertFalse(receipt["declaredTextSeparation"]["actualEncodedPixelSeparationVerified"])
+        self.assertFalse(receipt["declaredTextSeparation"]["mayPublish"])
+
+    def test_overlapping_boxes_across_different_shots_are_valid(self):
+        m = fixture()
+        m["shots"][0]["endSec"] = 1.0
+        following = copy.deepcopy(m["shots"][0])
+        following["id"] = "followup"
+        following["startSec"] = 1.0
+        following["endSec"] = 3.0
+        m["shots"].append(following)
+        receipt = self.check(m)
+        self.assertEqual(receipt["declaredTextSeparation"]["significantDeclaredTextCollisions"], 0)
+
     def test_bad_hash(self):
         with self.assertRaisesRegex(ValueError, "EXACT_VIDEO_SHA_MISMATCH"):
             self.check(fixture(), sha="b" * 64)
@@ -359,6 +400,7 @@ class ActualFilmSmoke(unittest.TestCase):
             self.assertEqual(receipt["publicationVerdict"], "HOLD")
             self.assertEqual(receipt["frameToShotCoverage"]["actualPresentedFramesChecked"], 90)
             self.assertEqual(receipt["frameToShotCoverage"]["framesAssignedExactlyOnce"], 90)
+            self.assertEqual(receipt["declaredTextSeparation"]["significantDeclaredTextCollisions"], 0)
             self.assertFalse(receipt["frameToShotCoverage"]["mayPublish"])
             self.assertEqual(len(receipt["decodedOverlayFrames"]), 3)
             self.assertEqual([x["timeSec"] for x in receipt["decodedOverlayFrames"] if x.get("openingHookProbe")], [.25, 1.5])
