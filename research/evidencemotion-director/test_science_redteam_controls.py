@@ -27,8 +27,11 @@ class ScienceAdversarialMatrix(unittest.TestCase):
         self.visual = visual_fixture()
 
     def source_join(self):
+        pinned_spoken = json.loads(LEDGER.read_text(encoding="utf-8"))
+        source_sha = (hashlib.sha256(LEDGER.read_bytes()).hexdigest()
+                      if self.spoken == pinned_spoken else digest(self.spoken))
         return join(self.spoken, self.visual,
-                    spoken_sha=digest(self.spoken), visual_sha=digest(self.visual))
+                    spoken_sha=source_sha, visual_sha=digest(self.visual))
 
     def test_baseline_eight_original_claims_remain_research_hold(self):
         original = self.source_join()
