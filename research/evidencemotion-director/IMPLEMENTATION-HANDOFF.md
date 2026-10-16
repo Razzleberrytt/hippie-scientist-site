@@ -2,7 +2,7 @@
 
 Updated 2026-10-16. Maintained after every meaningful implementation batch. ChatGPT and Codex both implement, test, debug, maintain PRs and account for progress. Resume from GitHub, not conversation history. Re-read this file and latest remote head before work; never assume this checkpoint remains newest.
 
-## Current checkpoint
+## Current checkpoint (previous batch; latest continuation below)
 
 - Repository: https://github.com/Razzleberrytt/hippie-scientist-site
 - Owning issue: #6743, research-only; existing PR: https://github.com/Razzleberrytt/hippie-scientist-site/pull/6817
@@ -75,3 +75,24 @@ Count disagreement retained: build reported 215 governed indexable herbs / 102 c
 Build-generated tracked/untracked outputs in this initially clean isolated worktree are disposable and excluded from implementation; restore tracked generated paths to HEAD and remove only newly generated untracked files. Original shared checkout was never edited. Full local build proves repository build acceptance for implementation source, not hosted exact-final-head CI, native-media artifact regeneration, real viewer comprehension, calibration, handset, deployment or merge.
 
 Next executable task remains current-remote-head CI/native packet verification for PR #6817, followed by repairing any observed failures. No new atomic IDs or total increase. This documentation checkpoint is committed and pushed after the implementation; obtain the exact containing SHA from GitHub/file history.
+
+## Continuation batch — registered scoring rubric integrity (2026-10-16)
+
+Branch unchanged: remote `research/evidencemotion-all-green-operator-integrated-6743`, local `research/evidencemotion-continuous-handoff-20261016`. Exact starting remote SHA `a600bbe35de0cb41ce3a46ed25b97a43e1f275e2`; no newer remote implementation was present at resume. Latest implementation SHA is pinned in the checkpoint following this batch.
+
+Observable acceptance: `grade` must evaluate exactly the five registered questions against the registered answers, reject missing/extra/altered keys, reject malformed SHA-256 identifiers, and continue stating that a deterministic comparison is not independent viewing proof. Reused existing `QUESTIONS`, `grade`, tests and native workflow; no alternate scoring system.
+
+Reproduction before fix: a one-question key, altered Q4 answer, and extra Q6 all returned all-critical success; empty key raised division by zero. Two 64-character nonhex identities were accepted. New tests reproduced **5 failures and 1 error** before implementation. After fix: **10/10 packet tests PASS**, **7/7 ledger tests PASS**, ledger CLI PASS at **740/1,590 = 33 audited + 707 inherited provisional**. No atomic IDs newly completed or credited. Film SHA syntax validation does not authenticate a viewing session or establish media provenance by itself.
+
+Changed files: `timed_soundoff_review_packet.py`, `test_timed_soundoff_review_packet.py`, this handoff, and the scoped status notes in `docs/CURRENT_SPRINT.md` / `docs/MASTER_BACKLOG.md`. Status: implementation in review, new-head hosted gates pending. No new full render or production build was run locally for this continuation; the previous 36-step local build receipt applies to the preceding implementation, and the current exact-head hosted CI/build remains required before acceptance.
+
+Actual preceding-head evidence independently retrieved this turn:
+
+- Native original-WAV run [38896105714](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/38896105714), SUCCESS for exact head `a600bbe35de0cb41ce3a46ed25b97a43e1f275e2`.
+- Artifact **12044415927**, 21,809,986 bytes; GitHub archive digest `bb7a4da88268988a26c54c485e265f462f44361c2e5356a44e2fd9f81f110684`. Downloaded and independently passed current `verify_sources` on actual original movie/render/phone/science/story files.
+- Actual film SHA `eb73b6a7c1cd615c5d4f9ac542beb85f098fc56175b5400eeccd285271d61428`; silent stimulus SHA `a6f9b7b53deb14ac9f32308a703952e8e69b0e0b39a2007980b8ce65a0555afd`. Packet reports zero real responses, no comprehension/craft/handset/voice approval, and `mayPublish=false`.
+- Artifact source-join hashes: render `69d3a6dead85417bd8ebcccdb63507fedaf969c5c093a621daba9f7eac003b43`; phone `c7b235056ece1d181f20f87cc63ddcc4e5b0166ecc6fe0d909b5bd4535765bdb`; science `0a712011b41853d834c5a5a9e66396b2b6706342855c628509a250769de581f9`; story `b943fdd4482746807f46d87befcf89338616ec9238aef3ca2b2346eed07bd2e0`.
+- Prior-head operator, ledger and site-health workflows also SUCCESS; production CI was still in progress at observation. These are bounded old-head receipts, not an approval of this later scorer mutation.
+- PR #6822 was merged **into this research branch**, not main, as `3ba203243635fbf04966c4c4abba9b9fa93b5d1d`. Its caption work is historical ancestor context; do not port or duplicate it based on stale memory.
+
+Next executable task: inspect latest remote head and exact-head hosted packet/native/CI/build results; repair any observed failure in #6743. If those pass, obtain genuine blinded viewer evidence under the preregistered method; `EM-034.12.T/R` remain HOLD and no participants may be fabricated. Protected merge stays sole-controller-owned. Do not run another full local render simply to restate unchanged source/media checks.

@@ -98,9 +98,13 @@ def verify_sources(movie,receipt,plan,science,story):
 
 def grade(responses,key,source_film_sha):
     """Deterministic answer comparison is NOT evidence a person watched film."""
+    registered_key={qid:choice for qid,_,_,choice,_ in QUESTIONS}
+    if not isinstance(key,dict) or key!=registered_key:
+        hold("REGISTERED_FIVE_QUESTION_RUBRIC_REQUIRED")
     if not isinstance(responses,dict) or set(responses)!=set(key):
         hold("REAL_COMPLETE_BLIND_RESPONSE_REQUIRED")
-    if not isinstance(source_film_sha,str) or len(source_film_sha)!=64:
+    if (not isinstance(source_film_sha,str) or len(source_film_sha)!=64
+        or any(c not in "0123456789abcdefABCDEF" for c in source_film_sha)):
         hold("NO_EXACT_REVIEWED_VIDEO_IDENTITY")
     if any(not isinstance(v,str) or v not in ("A","B","C","D")
            for v in responses.values()):

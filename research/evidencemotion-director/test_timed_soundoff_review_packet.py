@@ -80,6 +80,21 @@ class SoundOffBlindPacketTests(unittest.TestCase):
         self.assertEqual(r["correct"],4)
         self.assertFalse(r["allCriticalQuestionsCorrect"])
 
+    def test_incomplete_or_altered_rubric_cannot_report_critical_pass(self):
+        canonical={q[0]:q[3] for q in QUESTIONS}
+        for key in ({"Q1":"A"},{**canonical,"Q4":"A"},
+                    {**canonical,"Q6":"A"},{}):
+            with self.subTest(key=key):
+                with self.assertRaisesRegex(ValueError,"REGISTERED_FIVE_QUESTION_RUBRIC_REQUIRED"):
+                    grade(key,key,self.sha)
+
+    def test_reviewed_video_identity_must_be_sha256_hex(self):
+        key={q[0]:q[3] for q in QUESTIONS}
+        for identity in ("z"*64," "*64,"a"*63,None):
+            with self.subTest(identity=identity):
+                with self.assertRaisesRegex(ValueError,"NO_EXACT_REVIEWED_VIDEO_IDENTITY"):
+                    grade(key,key,identity)
+
     def test_source_media_mutation_is_rejected(self):
         self.movie.write_bytes(b"UNTRUSTED CHANGE")
         with self.assertRaisesRegex(ValueError,"EXACT_TIMED_FILM"):
