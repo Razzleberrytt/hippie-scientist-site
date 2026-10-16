@@ -69,6 +69,39 @@ class CraftSourceLockedContractTests(unittest.TestCase):
       with tempfile.TemporaryDirectory() as td:
         p=Path(td)/'unsafe.json';x=copy.deepcopy(self.m);x[field]=v;p.write_text(json.dumps(x))
         with self.assertRaises(S.CraftHold):S.trusted_manifest(p,S.digest(p))
+  def test_cfr_timestamp_sequence_accepts_exact_grid(self):
+    # Mocked probe payload; the real H264/AAC positive stays in the codec test.
+    data={'frames':[{'best_effort_timestamp_time':p} for p in
+                    ('0.000000','0.033333','0.066667')]}
+    with patch.object(S,'run',return_value=json.dumps(data)) as probe:
+      self.assertEqual(S.require_exact_cfr_frame_grid('native.mp4',3),3)
+      self.assertIn('-show_frames',probe.call_args.args[0])
+
+  def test_noncfr_timestamp_rejected_despite_nominal_30fps(self):
+    # A manifest declaring FPS 30 does not make a delayed reveal safe.
+    data={'frames':[{'best_effort_timestamp_time':p} for p in
+                    ('0.000000','0.033333','0.100000')]}
+    with patch.object(S,'run',return_value=json.dumps(data)):
+      with self.assertRaisesRegex(S.CraftHold,'NON_CFR_OR_SHIFTED_FRAME_PTS'):
+        S.require_exact_cfr_frame_grid('nominal30-vfr.mp4',3)
+
+  def test_shifted_first_frame_or_nonfinite_timing_rejected(self):
+    for timestamps in [('-0.033333','0.000000','0.033333'),
+                       ('0.000000','NaN','0.066667')]:
+      data={'frames':[{'best_effort_timestamp_time':p} for p in timestamps]}
+      with self.subTest(timestamps=timestamps),patch.object(S,'run',return_value=json.dumps(data)):
+        with self.assertRaisesRegex(S.CraftHold,'NON_CFR_OR_SHIFTED_FRAME_PTS'):
+          S.require_exact_cfr_frame_grid('shifted.mp4',3)
+
+  def test_missing_or_extra_decoded_frame_timestamp_holds(self):
+    for data,reason in [
+      ({'frames':[{'best_effort_timestamp_time':'0'}]},'DECODED_FRAME_TIMESTAMP_COUNT_MISMATCH'),
+      ({'frames':[{}, {'best_effort_timestamp_time':'0.033333'}]},'DECODED_FRAME_TIMESTAMPS_UNAVAILABLE'),
+      ({'frames':'not-an-array'},'DECODED_FRAME_TIMESTAMP_COUNT_MISMATCH')]:
+      with self.subTest(reason=reason),patch.object(S,'run',return_value=json.dumps(data)):
+        with self.assertRaisesRegex(S.CraftHold,reason):
+          S.require_exact_cfr_frame_grid('incomplete.mp4',2)
+
   def test_all_untouched_frames_are_explicitly_counted(self):
     manifest={'frames':5,'startFrame':1,'endFrameExclusive':3}
     a=[bytes([10]*12)]*5
