@@ -1,3 +1,4 @@
+import math
 import unittest
 from narration_locked_treatments import LINES, tokens, timeline, wrapped, chemistry_assets
 
@@ -16,7 +17,7 @@ class NarrationTreatments(unittest.TestCase):
         font,_=fonts(path)
         assets=chemistry_assets();assets['dark_diagram']=assets['7_hydroxymitragynine']['diagram']
         scenes=timeline(self.alignment())
-        bounds=[0,3.47,10.85,16.58,23.38,27.35,31.25,824336/24000]
+        bounds=[0,3.47,10.85,16.58,23.38,27.35,31.25,math.ceil(824336*30/24000)/30]
         for i,s in enumerate(scenes):
             s['startSec'],s['endSec']=bounds[i:i+2]
             cues=s.get('captionWords',[])
@@ -43,7 +44,10 @@ class NarrationTreatments(unittest.TestCase):
         scenes=timeline(a)
         self.assertEqual(len(scenes),7)
         self.assertEqual([s['line'] for s in scenes if s['line']],list(LINES))
-        self.assertEqual(scenes[-1]['endSec'],824336/24000)
+        self.assertEqual(scenes[-1]['endSec'],math.ceil(824336*30/24000)/30)
+        self.assertGreater(scenes[-1]['endSec'],824336/24000)
+        self.assertLess(scenes[-1]['endSec']-824336/24000,1/30)
+        self.assertLess(scenes[-1]['speechEndSec'],scenes[-1]['endSec'])
         self.assertEqual(scenes[5]['startSec'],scenes[4]['speechEndSec'])
         self.assertEqual(scenes[5]['endSec'],scenes[6]['startSec'])
         self.assertTrue(all(scenes[i]['endSec']==scenes[i+1]['startSec'] for i in range(6)))
@@ -51,6 +55,24 @@ class NarrationTreatments(unittest.TestCase):
         self.assertAlmostEqual(scenes[-1]['captionWords'][0]['endSec']-scenes[-1]['captionWords'][0]['startSec'],.45)
         compound=next(w for w in scenes[1]['captionWords'] if w['text']=='seven-hydroxymitragynine')
         self.assertGreater(compound['endSec']-compound['startSec'],.4)
+
+    def test_film_tail_is_frame_locked_without_stretching_original_voice(self):
+        # Any fractional audio sample duration uses ceil to the next video
+        # frame, while the original final audible word timing is unchanged.
+        for sample_count, expected in ((816000,34.0),(816001,1021/30),
+                                       (824336,1031/30)):
+            with self.subTest(sample_count=sample_count):
+                a=self.alignment()
+                a['sampleCount']=sample_count
+                scenes=timeline(a)
+                self.assertAlmostEqual(scenes[-1]['endSec'],expected)
+                self.assertEqual(scenes[-1]['captionWords'][-1]['endSec'],
+                                 a['wordAlignment'][-1]['endMs']/1000)
+                self.assertTrue(scenes[-1]['startSec'] <=
+                                (math.ceil(sample_count*30/24000)-1)/30
+                                < scenes[-1]['endSec'])
+                self.assertLess(scenes[-1]['endSec']-sample_count/24000,
+                                1/30+1e-10)
 
     def test_misspelled_or_reordered_words_cannot_reuse_captions(self):
         a=self.alignment()
@@ -182,7 +204,7 @@ class NarrationTreatments(unittest.TestCase):
         visible0=[a['text'] for a in payoff[0]['annotations'] if a['role']=='caption']
         visible1=[a['text'] for a in payoff[1]['annotations'] if a['role']=='caption']
         self.assertEqual(visible0+visible1,full)
-        result=validate_manifest(m,width=1080,height=1920,duration=824336/24000,actual_sha='a'*64)
+        result=validate_manifest(m,width=1080,height=1920,duration=math.ceil(824336*30/24000)/30,actual_sha='a'*64)
         self.assertFalse(result['realHandsetPlaybackVerified'])
 
     def test_real_emitter_contract_covers_all_spoken_words_and_exact_split(self):
