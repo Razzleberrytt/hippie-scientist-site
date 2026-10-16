@@ -648,6 +648,43 @@ class EncodedFrameMembershipTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "INK_FRAME_INDEX_OR_SHOT_NOT_PRESENT_IN_DECODED_FILM"):
             self.verify(ink, frames, shots)
 
+    def test_full_audit_clears_old_report_before_misassigned_ink_receipt(self):
+        # Integration wiring: patch expensive FFmpeg only. The real audit must
+        # call the decoded-PTS membership gate BEFORE generating any image.
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            movie = root / "film.mp4"
+            movie.write_bytes(b"source movie integrity sentinel")
+            ink, frames, shots = self.fixtures()
+            plan_path = root / "nine-shot-plan.json"
+            plan_path.write_text(json.dumps({"shots": shots}))
+            ink["filmSha256"] = hashlib.sha256(movie.read_bytes()).hexdigest()
+            ink["phonePlanSha256"] = hashlib.sha256(plan_path.read_bytes()).hexdigest()
+            ink["actualEncodedSamples"][0]["index"] = 52  # named shot 0, frame in shot 1
+            ink_path = root / "ink.json"
+            ink_path.write_text(json.dumps(ink))
+            output = root / "screens"
+            output.mkdir()
+            report = output / "research-report.json"
+            report.write_text('{"staleFalsePass": true}')
+            source_bytes = (movie.read_bytes(), plan_path.read_bytes(), ink_path.read_bytes())
+            with (patch("phone_ui_audit.probe_movie", return_value=(1080, 1920, 15., 450)),
+                  patch("phone_ui_audit.validate_manifest", return_value={"mayPublish": False}),
+                  patch("phone_ui_audit.frame_timestamps", return_value=frames),
+                  patch("phone_ui_audit.verify_decoded_shot_coverage",
+                        return_value={"mayPublish": False}),
+                  patch("phone_ui_audit.decoded_overlay",
+                        side_effect=AssertionError("must fail before image extraction"))):
+                with self.assertRaisesRegex(
+                    ValueError, "INK_DECODED_FRAME_BELONGS_TO_DIFFERENT_SHOT"
+                ):
+                    audit(movie, plan_path, output, ink_receipt=ink_path)
+            self.assertFalse(report.exists(), "stale QA approval must be invalidated")
+            self.assertEqual(
+                (movie.read_bytes(), plan_path.read_bytes(), ink_path.read_bytes()),
+                source_bytes, "input sources must remain immutable")
+
+
     def test_bad_timestamp_and_wrong_named_shot_boundary_hold(self):
         ink, frames, shots = self.fixtures()
         frames[2] = Decimal("NaN")
