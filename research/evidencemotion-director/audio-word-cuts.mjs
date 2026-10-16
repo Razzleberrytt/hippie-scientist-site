@@ -23,20 +23,22 @@ export function proposeAudioLockedCuts({approvedWavSha256,actualWavSha256,
  if(!['independent-original-wav-mfa','byte-bound-textgrid-candidate'].includes(alignmentOrigin))errors.push('INDEPENDENT_REAL_WAV_ALIGNMENT_REQUIRED');
  if(!Number.isInteger(durationMs)||durationMs<=0)errors.push('UNKNOWN_AUDIO_DURATION');
  if(!Array.isArray(wordAlignment)||wordAlignment.length<3||
-    wordAlignment.some((w,i)=>!w||typeof w.word!=='string'||!w.word.trim()||!finite(w.startMs)||
+    Array.from(wordAlignment).some((w,i)=>!w||typeof w.word!=='string'||!w.word.trim()||!finite(w.startMs)||
      !finite(w.endMs)||w.startMs<0||w.endMs<=w.startMs||
      (i>0&&w.startMs<wordAlignment[i-1].endMs)||w.endMs>durationMs))
    errors.push('WORD_TIMING_INVALID');
- if(Array.isArray(beats)&&beats.some(b=>!b||!Array.isArray(b.scientificAssetIDs)||
-    b.scientificAssetIDs.length===0||b.scientificAssetIDs.some(assetId=>!ID(assetId))||
+ if(Array.isArray(beats)&&Array.from(beats).some(b=>!b||!Array.isArray(b.scientificAssetIDs)||
+    b.scientificAssetIDs.length===0||Array.from(b.scientificAssetIDs).some(assetId=>!ID(assetId))||
     new Set(b.scientificAssetIDs).size!==b.scientificAssetIDs.length))
    errors.push('SHOT_ASSET_LINEAGE_MISSING');
- if(!Array.isArray(beats)||beats.length!==3||beats.some((b,i)=>!b||!ID(b.id)||
+ if(!Array.isArray(beats)||beats.length!==3||Array.from(beats).some((b,i)=>!b||!ID(b.id)||
     !roles.has(b.role)||!grammars.has(b.grammar)||!Number.isInteger(b.startWordIndex)||
     !Number.isInteger(b.endWordIndex)||b.startWordIndex<0||b.endWordIndex<b.startWordIndex||
     (i>0&&b.startWordIndex<=beats[i-1].endWordIndex)||
     b.endWordIndex>=wordAlignment?.length))errors.push('SHOT_WORD_ANCHORS_INVALID');
  if(errors.length)return {status:'HOLD',errors,shots:[],finalRenderEligible:false};
+ // Shot identifiers are downstream timeline keys; collisions can misroute visual cuts.
+ if(new Set(beats.map(b=>b.id)).size!==beats.length)errors.push('SHOT_IDENTIFIERS_NOT_UNIQUE');
  if(beats[0].role!=='hook'||beats[1].role!=='science_site_reveal'||
     beats[2].role!=='honesty_disclosure')errors.push('SCIENTIFIC_NARRATIVE_ORDER_REQUIRED');
  if(beats[0].startWordIndex!==0||beats.at(-1).endWordIndex!==wordAlignment.length-1||
@@ -65,13 +67,17 @@ export function proposeAudioLockedCuts({approvedWavSha256,actualWavSha256,
  */
 export async function proposeFileBoundAudioLockedCuts({root,reportPath,
  expectedReportSha256,expectedInputSha256,manifest,beats,scienceManifestSha256,
- previousAlignmentRevisionSha256,pythonExecutable='python'}={}){
+ previousAlignmentRevisionSha256,previousNarrationSha256,pythonExecutable='python'}={}){
  const refusal=error=>({status:'HOLD',errors:[error],shots:[],finalRenderEligible:false});
  const fields=['wav','transcript','textgrid','dictionary','acousticModel'];
  const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
  try{
   if(!root||!hash(expectedReportSha256)||fields.some(f=>!hash(expectedInputSha256?.[f])))
    return refusal('FROZEN_ALIGNMENT_IDENTITIES_REQUIRED');
+  // A new aligned WAV cannot silently inherit cuts anchored to an older take.
+  if(previousNarrationSha256!==undefined &&
+     (!hash(previousNarrationSha256)||previousNarrationSha256!==expectedInputSha256.wav))
+   return refusal('STALE_NARRATION_REVISION_REQUIRES_NEW_CUTS');
   const base=await realpath(root);
   const load=async name=>{
    if(typeof name!=='string'||!name||name.includes('\\')||name.includes(':')||isAbsolute(name)||name.split('/').some(p=>p==='.'||p==='..'))
