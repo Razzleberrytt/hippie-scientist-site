@@ -289,3 +289,37 @@ voice/craft and release HOLD, no new 46/1590 credit, excellent-first 0/1 and var
 streak 0/5 unchanged; `mayPublish=false`. Next: exact owner media delivery and
 Linux/symlink-capable execution of the two named tests before claiming all-green
 combined validation. Sole protected merge controller retains authority.
+
+
+## Lane 6 access-only continuation — Linux symlink guard execution
+
+Starting lane6 head `50249e9bb62ad0ab6aac245ded5f9ba256c6f035`. Observable
+acceptance: execute both previously setup-blocked tests unchanged in a real
+symlink-capable environment against the exact pinned combined source tree, without
+editing lane4-owned tests, installing dependencies, or weakening the guards.
+
+Existing Ubuntu WSL environment found; Python **3.12.3**, test temp directory
+`/tmp`. No FFmpeg/Pillow/NumPy/RDKit available there, but these two early alias
+rejection tests require none of them. Executed unchanged exact methods with
+`wsl -d Ubuntu --cd <previous-snapshot-director> --exec python3 -B -m unittest -v`.
+Both create real Linux directory symlinks and exercise the alias guards. Actual
+result: **2/2 PASS**, zero errors/skips, exit **0**, unittest reported **0.003s**.
+
+Checked `phone_ui_audit.py`, `test_phone_ui_audit.py` and `native_master_audit.py`
+byte-for-byte against combined tree `fb11bde189ecc1c69f0aa8e9ef880f3731a52b43`;
+all match. Git blobs, SHA-256 values, exact command, environment and test names:
+`receipts/linux-symlink-integration-followup.json`. No snapshot/source/test mutation.
+The original Windows run remains **201 PASS + 2 setup errors**, not overwritten.
+Across Windows and Linux there are now passing executions for **all 203 distinct
+focused tests on this pinned prior combined tree**. This is not one all-green
+single-environment run, full combined CI/build, or current moving-head acceptance.
+Lane heads have since advanced; this result must not be relabeled to those heads.
+
+At previous lane6 receipt head `50249e9bb`, atomic/controller/quality/release hosted
+checks SUCCESS; generic unrelated tests/build/content/site-health remain skipped,
+no independent review. New receipt-head CI separately pending. Latest lane3 still
+requires real revised combined-film delivery. No actual media hash/decode/OCR,
+phone playback/science/voice/craft approval or new 46/1590 credit. `mayPublish=false`,
+excellent-first 0/1 and varied streak 0/5 unchanged. This record + one receipt only;
+access-only operation under AGENTS.md rule 10, no repeated production build.
+Doc-links/whitespace checks run after these edits; protected merge remains controller-only.
