@@ -261,7 +261,32 @@ def probe_movie(movie):
         hold("FRAME_TIMESTAMP_EXTRACTION_FAILED")
     return int(track["width"]), int(track["height"]), duration, len(stamps)
 
-def decoded_overlay(movie, time_sec, shot, destination, width, height):
+def choose_decoded_sample(stamps, shot, requested_sec):
+    """Select the closest actual presentation timestamp *within* the shot.
+
+    A time seek alone may decode the preceding/following cut's frame, so the
+    audit must preserve exact presented-frame identity with each screenshot.
+    """
+    if not stamps:
+        hold("NO_DECODED_FRAMES_FOR_SAMPLE")
+    start = Decimal(str(shot["startSec"]))
+    end = Decimal(str(shot["endSec"]))
+    target = Decimal(str(requested_sec))
+    if target < start or target >= end:
+        hold("SAMPLE_TIME_OUTSIDE_DECLARED_SHOT")
+    lo = bisect_left(stamps, start)
+    hi = bisect_left(stamps, end)
+    if lo >= hi:
+        hold("NO_PRESENTED_FRAME_IN_SAMPLE_SHOT")
+    idx = bisect_left(stamps, target, lo, hi)
+    if idx >= hi:
+        idx = hi - 1
+    elif idx > lo and abs(stamps[idx - 1] - target) <= abs(stamps[idx] - target):
+        idx -= 1
+    return idx, stamps[idx]
+
+
+def decoded_overlay(movie, frame_index, shot, destination, width, height):
     x = int((1 - RIGHT) * width)
     y = int((1 - BOTTOM) * height)
     top = int(TOP * height)
@@ -273,8 +298,13 @@ def decoded_overlay(movie, time_sec, shot, destination, width, height):
     for a in shot["annotations"]:
         x1, y1, x2, y2 = (int(v) for v in a["boxPx"])
         overlays.append(f"drawbox=x={x1}:y={y1}:w={x2-x1}:h={y2-y1}:color=green@0.9:t=3")
+    if type(frame_index) is not int or frame_index < 0:
+        hold("INVALID_DECODED_SAMPLE_INDEX")
+    # Select by real decoded display-order index, not approximate input seeking.
+    # Input -ss could silently return a neighbor across a hard scientific cut.
+    select = f"select=eq(n\\\\,{frame_index})"
     cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
-           "-ss", f"{time_sec:.5f}", "-i", str(movie), "-vf", ",".join(overlays),
+           "-i", str(movie), "-an", "-vf", ",".join([select, *overlays]),
            "-frames:v", "1", str(destination)]
     subprocess.run(cmd, capture_output=True, timeout=30, check=True)
     if not destination.is_file() or destination.stat().st_size == 0:
@@ -295,7 +325,8 @@ def audit(movie, manifest, output):
     # The grid checked by probe_movie() must also intersect every authored shot.
     # An entirely empty subframe shot is not video coverage even if its times
     # are contiguous and its annotation boxes are otherwise valid.
-    coverage = verify_decoded_shot_coverage(frame_timestamps(movie), plan["shots"])
+    stamps = frame_timestamps(movie)
+    coverage = verify_decoded_shot_coverage(stamps, plan["shots"])
     frame_receipts = []
     # Emit all decoded artifacts into an isolated staging folder, not into the
     # previous run's public review directory. Publish receipt *last*.
@@ -305,8 +336,11 @@ def audit(movie, manifest, output):
             t = (shot["startSec"] + shot["endSec"]) / 2
             name = f"{index:02d}-{shot['id']}.png"
             destination = stage / name
-            decoded_overlay(movie, t, shot, destination, width, height)
+            index_pt, actual_pts = choose_decoded_sample(stamps, shot, t)
+            decoded_overlay(movie, index_pt, shot, destination, width, height)
             frame_receipts.append({"shotId": shot["id"], "timeSec": t,
+                                   "actualFrameIndex": index_pt,
+                                   "actualFramePtsSec": float(actual_pts),
                                    "file": name, "frameSha256": sha256_file(destination)})
         # The opening deserves two additional *actual* pixel samples.
         for t in (.25, 1.50):
@@ -316,8 +350,11 @@ def audit(movie, manifest, output):
                 hold("NO_SHOT_FOR_OPENING_SAMPLE")
             name = f"opening-{str(t).replace('.', '_')}.png"
             destination = stage / name
-            decoded_overlay(movie, t, opening_shot, destination, width, height)
+            index_pt, actual_pts = choose_decoded_sample(stamps, opening_shot, t)
+            decoded_overlay(movie, index_pt, opening_shot, destination, width, height)
             frame_receipts.append({"shotId": opening_shot["id"], "timeSec": t,
+                                   "actualFrameIndex": index_pt,
+                                   "actualFramePtsSec": float(actual_pts),
                                    "openingHookProbe": True, "file": name,
                                    "frameSha256": sha256_file(destination)})
         receipt.update({"videoSha256": movie_hash, "manifestSha256": sha256_file(manifest),
