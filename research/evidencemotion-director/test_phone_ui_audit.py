@@ -8,6 +8,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).parent))
 from phone_ui_audit import (audit, probe_movie, validate_manifest,
@@ -401,6 +402,51 @@ class ActualFilmSmoke(unittest.TestCase):
             plan.write_text(json.dumps(m))
             with self.assertRaisesRegex(ValueError, "NONCONSTANT_DECODED_FRAME_TIMING"):
                 audit(movie, plan, root / "frames")
+
+    def test_mid_audit_source_mutation_cannot_issue_valid_receipt(self):
+        # A real 90-frame H264 gets decoded before a deliberate late
+        # in-place change. A prior success file may never survive.
+        for mutation in ("movie", "manifest"):
+            with self.subTest(mutation=mutation):
+                with tempfile.TemporaryDirectory() as root:
+                    root = Path(root)
+                    movie = root / "real.mp4"
+                    subprocess.run([
+                        "ffmpeg", "-hide_banner", "-loglevel", "error",
+                        "-nostdin", "-y", "-f", "lavfi", "-i",
+                        "color=c=blue:s=1080x1920:r=30:d=3",
+                        "-c:v", "libx264", "-preset", "ultrafast",
+                        "-pix_fmt", "yuv420p", "-an", str(movie)
+                    ], capture_output=True, timeout=50, check=True)
+                    manifest = fixture()
+                    manifest["expectedVideoSha256"] = hashlib.sha256(movie.read_bytes()).hexdigest()
+                    plan = root / "plan.json"
+                    plan.write_text(json.dumps(manifest))
+                    output = root / "frames"
+                    output.mkdir()
+                    (output / "research-report.json").write_text('{"prior":"stale success"}')
+                    import phone_ui_audit
+                    original = phone_ui_audit.decoded_overlay
+                    did_change = [False]
+
+                    def tamper_after_last_sample(*args, **kwargs):
+                        original(*args, **kwargs)
+                        if args[3].name == "opening-1_5.png" and not did_change[0]:
+                            did_change[0] = True
+                            if mutation == "movie":
+                                with movie.open("ab") as stream:
+                                    stream.write(b"changed-after-final-frame")
+                            else:
+                                plan.write_text(plan.read_text() + " ")
+                    with patch("phone_ui_audit.decoded_overlay", side_effect=tamper_after_last_sample):
+                        with self.assertRaisesRegex(
+                            ValueError,
+                            "SOURCE_" + ("VIDEO" if mutation == "movie" else "MANIFEST")
+                            + "_CHANGED_DURING_AUDIT"
+                        ):
+                            audit(movie, plan, output)
+                    self.assertTrue(did_change[0])
+                    self.assertFalse((output / "research-report.json").exists())
 
     def test_failed_rerun_erases_prior_success_receipt(self):
         with tempfile.TemporaryDirectory() as root:
