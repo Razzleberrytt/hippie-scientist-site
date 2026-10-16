@@ -61,13 +61,13 @@ def smoothstep(x):
     x=max(0.,min(1.,x));return x*x*(3-2*x)
 
 def pinned_diagram(molecule):
+    p=Path(molecule)
+    if not p.is_file() or digest(p)!=MOL_SHA:
+        raise ResearchHold('SOURCE_MOLECULE_SHA_CHANGED')
     from PIL import Image
     from rdkit import Chem
     from rdkit.Chem import AllChem
     from rdkit.Chem.Draw import rdMolDraw2D
-    p=Path(molecule)
-    if not p.is_file() or digest(p)!=MOL_SHA:
-        raise ResearchHold('SOURCE_MOLECULE_SHA_CHANGED')
     mol=Chem.MolFromMolBlock(p.read_text('utf-8'),removeHs=False)
     if mol is None or not mol.GetConformer().Is3D() or Chem.MolToInchiKey(Chem.RemoveHs(mol))!=INCHIKEY:
         raise ResearchHold('SOURCE_CHEMISTRY_STEREO_CHANGED')
@@ -123,13 +123,13 @@ def sample_treatment(base_frame,graph_image,science_bg,frame_no):
     return frame
 
 def render(source,molecule,output):
-    from PIL import Image
     source=Path(source);output=Path(output);molecule=Path(molecule)
     if output.resolve() in (source.resolve(),molecule.resolve()):
         raise ResearchHold('OUTPUT_OVERWRITES_SOURCE')
     if output.exists() or output.is_symlink():
         raise ResearchHold('FRESH_OUTPUT_REQUIRED')
     freeze(source)
+    from PIL import Image
     output.parent.mkdir(parents=True,exist_ok=True)
     crop=pinned_diagram(molecule)
     bg=palette_background()
