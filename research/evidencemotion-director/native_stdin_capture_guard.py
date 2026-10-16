@@ -253,15 +253,15 @@ def capture_renderer_encoder_call(render_fn, *, run_id, source_sha, wav_path,
                         ("ENVIRONMENT_SHA", environment_sha),
                         ("WAV_SHA", expected_wav_sha)):
         sha_check(value, name)
-    w, h, frames = geometry
     if (not isinstance(geometry, tuple) or len(geometry) != 3 or
             any(type(v) is not int or v < 1 for v in geometry)):
         hold("INVALID_GEOMETRY")
-    if not wav.is_file() or wav.is_symlink() or not film.parent.is_dir():
-        # Newly generated renderer output directory can be created by the
-        # original render function; its parent must already be real.
-        if not wav.is_file() or wav.is_symlink() or not film.parent.parent.is_dir():
-            hold("SOURCE_WAV_OR_RENDER_PARENT_UNAVAILABLE")
+    w, h, frames = geometry
+    # A fresh renderer may create its output directory; only its existing
+    # trusted parent must already exist. Original WAV is always required.
+    if (not wav.is_file() or wav.is_symlink()
+            or not (film.parent.is_dir() or film.parent.parent.is_dir())):
+        hold("SOURCE_WAV_OR_RENDER_PARENT_UNAVAILABLE")
     if film.is_symlink() or film.exists():
         hold("STALE_OR_SYMLINKED_FILM_DESTINATION")
     if _hash_file(wav) != expected_wav_sha:
@@ -326,10 +326,9 @@ def capture_renderer_encoder_call(render_fn, *, run_id, source_sha, wav_path,
         hold("ORIGINAL_ENCODER_NOT_SUCCESSFULLY_WAITED")
     if not film.is_file() or film.is_symlink() or _hash_file(wav) != expected_wav_sha:
         hold("ENCODED_FILM_MISSING_OR_WAV_CHANGED")
-    report = writer.receipt(exit_code=process.returncode, film_sha=_hash_file(film))
-    report["physicalMovieBytesHashedAfterEncoderExit"] = True
-    report["sourceRendererOriginalAndUnmodifiedExternallyVerified"] = False
-    return report
+    # Reuse the exact v1 schema: unknown fields are deliberately rejected.
+    # The captured film SHA is derived from physical output bytes here.
+    return writer.receipt(exit_code=process.returncode, film_sha=_hash_file(film))
 
 
 def _hash_file(path):
