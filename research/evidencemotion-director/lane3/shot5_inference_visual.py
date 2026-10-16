@@ -7,6 +7,7 @@ Modifies only the science-body stage in sentence_5 [702,821). No publishing.
 """
 from __future__ import annotations
 import argparse, hashlib, io, json, math, subprocess
+from fractions import Fraction
 from pathlib import Path
 
 SOURCE_SHA = '53bf75bfcd9752917f7f666afdb86fda493b78ecdc3c94e005a62da70ef39642'
@@ -146,6 +147,34 @@ def sample_treatment(base_frame,graph_image,science_bg,frame_no):
     return frame
 
 
+def verify_decoded_presentation_grid(decoded, time_base, *, fps, expected_frames):
+    """Fail closed if actual decoded presentation ticks deviate from native CFR.
+
+    This checks only the short silent research clip; Lane 4 independently
+    owns the complete audio-containing film PTS/shot/caption validations.
+    """
+    if not isinstance(decoded, list) or len(decoded)!=expected_frames:
+        raise ResearchHold('ENCODED_SCENE_TIMESTAMP_COUNT_CHANGED')
+    try:
+        tick=Fraction(time_base)
+    except (ValueError,TypeError,ZeroDivisionError) as exc:
+        raise ResearchHold('ENCODED_SCENE_TIME_BASE_INVALID') from exc
+    if tick<=0 or type(fps) is not int or fps<=0:
+        raise ResearchHold('ENCODED_SCENE_TIME_BASE_INVALID')
+    tolerance=max(tick/2,Fraction(1,10000))
+    previous=None
+    for index, frame in enumerate(decoded):
+        stamp=frame.get('best_effort_timestamp') if isinstance(frame,dict) else None
+        if type(stamp) is not int:
+            raise ResearchHold('ENCODED_SCENE_TIMESTAMP_MISSING_OR_INVALID')
+        if previous is not None and stamp<=previous:
+            raise ResearchHold('ENCODED_SCENE_TIMESTAMP_NOT_STRICTLY_INCREASING')
+        if abs(Fraction(stamp)*tick-Fraction(index,fps))>tolerance:
+            raise ResearchHold('ENCODED_SCENE_PRESENTATION_GRID_CHANGED')
+        previous=stamp
+    return True
+
+
 def verify_native_silent_clip(path, *, width=W, height=H, fps=FPS, frames=END-START):
     """Read back the *encoded* preview, not just the writer's exit status.
 
@@ -157,9 +186,11 @@ def verify_native_silent_clip(path, *, width=W, height=H, fps=FPS, frames=END-ST
         raise ResearchHold('ENCODED_SCENE_MISSING_OR_EMPTY')
     try:
         probe=subprocess.run(['ffprobe','-v','error','-count_frames','-show_entries',
-          'stream=codec_name,codec_type,width,height,avg_frame_rate,nb_read_frames',
-          '-of','json',str(path)],capture_output=True,text=True,check=True)
-        streams=json.loads(probe.stdout)['streams']
+          'stream=codec_name,codec_type,width,height,avg_frame_rate,nb_read_frames,time_base:frame=best_effort_timestamp',
+          '-show_frames','-select_streams','v:0','-of','json',str(path)],
+          capture_output=True,text=True,check=True)
+        full_probe=json.loads(probe.stdout)
+        streams=full_probe['streams']
         if len(streams)!=1 or streams[0].get('codec_type')!='video':
             raise ResearchHold('SILENT_SCENE_STREAMS_CHANGED')
         stream=streams[0]
@@ -168,6 +199,8 @@ def verify_native_silent_clip(path, *, width=W, height=H, fps=FPS, frames=END-ST
         expected=('h264',width,height,f'{fps}/1',frames)
         if actual!=expected:
             raise ResearchHold('ENCODED_SCENE_FRAME_GRID_CHANGED')
+        verify_decoded_presentation_grid(full_probe.get('frames'),
+            stream.get('time_base'),fps=fps,expected_frames=frames)
         subprocess.run(['ffmpeg','-nostdin','-v','error','-xerror','-i',str(path),
           '-map','0:v:0','-f','null','-'],capture_output=True,check=True)
     except ResearchHold:
