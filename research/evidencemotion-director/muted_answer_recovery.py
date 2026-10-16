@@ -24,8 +24,8 @@ MAX_PROXY_PROGRESS=96
 # existing mutable scoring-key.json or an ASR transcript.
 QUESTIONS=(
     ("Q1","Which two source-identified compounds are compared?",
-     (("sentence_1_part0","MITRAGYNINE • CID 3034396"),
-      ("sentence_1_part1","7-OH • CID 44301524")),
+     (("sentence_1_part0","MITRAGYNINE"),
+      ("sentence_1_part1","7-OH")),
      "Both separate compound record labels must be visible in order"),
     ("Q2","What does the highlighted hydroxyl group consist of?",
      (("sentence_2","Look at the\nhydroxyl group."),
@@ -36,14 +36,13 @@ QUESTIONS=(
       ("sentence_4","Computed 3D illustration • not filmed")),
      "The 3D graphic must explicitly say computed and not filmed"),
     ("Q4","Does molecular structure prove human felt effects?",
-     (("sentence_5_part0","What the shape\nshows."),
-      ("sentence_5_part1","What it cannot\ntell us."),
+     (("sentence_5_part0","STRUCTURE"),
       ("sentence_5_part1","≠"),
       ("sentence_5_part1","HUMAN EXPERIENCE")),
      "The explicit negation and effect boundary must emerge only at its spoken cue"),
     ("Q5","Where and by which CID is the 7-OH structure verified?",
      (("source_hold","PubChem"),
-      ("source_hold","CID 44301524"),
+      ("source_hold","7-OH • CID 44301524"),
       ("source_hold","pubchem.ncbi.nlm.nih.gov")),
      "The primary database, exact record and actual domain must be jointly shown"),
 )
@@ -103,7 +102,13 @@ def answer_evidence(plan,question):
                 return False
         shots={x["id"]:x for x in plan["shots"]}
         if qid=="Q1":
-            return shots["sentence_1_part0"]["endSec"]<=shots["sentence_1_part1"]["startSec"]+.002
+            source=labels(plan,"source_hold")
+            source_text=" ".join(a["text"] for a in source)
+            return (shots["sentence_1_part0"]["endSec"]<=
+                    shots["sentence_1_part1"]["startSec"]+.002
+                    and "Mitragynine • CID 3034396" in source_text
+                    and "CID 44301524" in source_text
+                    and "CID = compound record number" in source_text)
         if qid=="Q2":
             transcript=" ".join(a.get("text","") for a in labels(plan,"sentence_2")
                                 if a.get("role")=="caption").casefold()
