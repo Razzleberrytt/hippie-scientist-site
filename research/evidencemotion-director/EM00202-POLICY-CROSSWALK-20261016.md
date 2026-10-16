@@ -37,6 +37,21 @@ The source **Git blob SHA-1** values below bind the assertions to exact fetched 
 - **FAIL/HOLD:** missing source, mutated/premature admission or publication assertion, source SHA drift, broken crosswalk rows. The accompanying `test_em00202_policy_crosswalk.py` exercises both this live report and synthetic tamper cases; a green unit test is **document-integrity only**, not a real merge/phone/science/craft audit.
 - **Unresolved:** exact-final handset playback `EM-001.03.T`, independently calibrated scientific claim review `EM-007.07`, independent speech/craft gates, PR approval/merge, first premium render and five-render streak. **No canonical parent or film gate is advanced by this report.** `mayPublish=false`.
 
+## Machine-only atomic receipt — EM-002.02
+
+**Hosted proof source:** exact original CI code head `3df4f10d53b643102b34a5657b51eaa8e30312f7`, [atomic proof run #38975052480, job #117222371489](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/38975052480/job/117222371489), **SUCCESS**. Retrieved hosted runner logs confirm **5/5** crosswalk tests PASS, actual `PASS_RESEARCH_POLICY_CROSSWALK_BYTES_ONLY` report with five original Git blob matches and seven policy rows. The adversarial cases rejected source drift, a missing WIP row, missing owner freeze-rescission language, forged publish permissions and broken source links. This is exact source/document evidence, **not** qualified science, real device, protected merge or production execution. Any subsequent report/ledger edit needs a new exact-head CI recheck before final accounting.
+
+| Atomic card | Source-bound proof |
+|---|---|
+| `EM-002.02.U` | **VERIFIED_MACHINE_RESEARCH** — one real EvidenceMotion version/admission policy restriction identified; not another lane or scope |
+| `EM-002.02.S` | **VERIFIED_MACHINE_RESEARCH** — five exact source Git blob identities pinned above and independently matched from the actual hosted checkout |
+| `EM-002.02.O` | **VERIFIED_MACHINE_RESEARCH** — predeclared seven required gate rows, revoked-vs-retained authority distinction, explicit fail-closed missing/drift criteria |
+| `EM-002.02.X` | **VERIFIED_MACHINE_RESEARCH** — crosswalk, deterministic SHA policy validator, adversarial test fixture and mandatory CI integration executed for that bounded unit |
+| `EM-002.02.T` | **VERIFIED_MACHINE_RESEARCH** — hosted first-party tests **5/5 PASS** at exact cited CI source, including validation of actual source bytes and governing links |
+| `EM-002.02.R` | **VERIFIED_MACHINE_RESEARCH** — this dated source-SHA/CI/exact-scope audit record, with independent science/film/phone/merge/posting gates explicitly HOLD |
+
+**Score boundary:** exactly six independently auditable machine-only research cards for this one EM-002.02 unit, never a parent EM-002 accepted checkbox, owner review, additional slot or publication permission. The existing 707 inherited provisional items remain unaudited. The canonical 26/46, excellent-first 0/1 and varied streak 0/5 stay unchanged; `mayPublish=false`.
+
 ## EM-002.04 trace target (NOT accepted by this EM-002.02 report)
 
 The governing parent remains [EvidenceMotion COMPLETION-CHECKLIST.md, section A](COMPLETION-CHECKLIST.md) and the [EM-002.04 granular task](GRANULAR-46-EXECUTION-REGISTER.md#em-002). This document **links** there but intentionally does not edit a canonical checked box, the main project sprint or any runtime production controller. A separate exact-source trace/approval is required before `EM-002.04` acceptance.
