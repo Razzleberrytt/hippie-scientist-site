@@ -39,6 +39,15 @@ class CraftSourceLockedContractTests(unittest.TestCase):
       # Even someone separately repinning a dishonest manifest cannot approve.
       with self.assertRaisesRegex(S.CraftHold,'INVALID_FIELD_mayPublish'):
         S.trusted_manifest(p,S.digest(p))
+  def test_newer_master_pin_is_distinct_and_still_research_only(self):
+    pin=ROOT/'scene4-pr6836-native1080-framepts-pin.json'
+    m=S.trusted_manifest(pin,'a78ef93305b7725633fb690cef3d7b1167d106ce2907e0c3d1285d6b28b698ef')
+    self.assertNotEqual(self.m['sourceFilmSha256'],m['sourceFilmSha256'])
+    self.assertNotEqual(self.m['craftSceneSha256'],m['craftSceneSha256'])
+    self.assertEqual(m['originalNarrationSha256'],self.m['originalNarrationSha256'])
+    self.assertEqual(m['endFrameExclusive']-m['startFrame'],204)
+    for k in ('mayPublish','craftApproved','scienceApproved','phonePlaybackApproved'):
+      self.assertIs(m[k],False)
   def test_missing_external_sha(self):
     for fake in ('','a'*63,'b'*64):
       with self.assertRaises(S.CraftHold):S.trusted_manifest(MANIFEST,fake)
