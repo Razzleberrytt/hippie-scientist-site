@@ -32,6 +32,23 @@ ORIGINAL_MFA_WINDOWS = {
 }
 POSE_ASR_RECEIPT_SHA = "87a9c5fd757f269967dfc751ea322f8b33e774b9c0a41016f94e90b6b829cdaa"
 POSE_SOURCE_CLIP_SHA = "43c010d2d0cc1a400e05423abebfb917562b2cd51ed70eb02b73b84f3493e149"
+# Independently re-extracted from exact full original 24 kHz PCM16 WAV SHA
+# 9dca049e... using immutable MFA candidate SHA a034f00c....
+# Nine whole candidate-word excerpts: four term windows and five same-narrator
+# pose/poles comparison windows. These PCM SHA-256 pins detect BYTE-EXACT
+# source contamination even when WAV headers/chunks are repackaged.
+# They are NOT phoneme, timing, stress or speaker-verification ground truth.
+ORIGINAL_PCM_EXCERPT_SHA256 = frozenset({
+    "57bbe1ee1e1818b122e708fac7fee16b8dd0dfb673c31102a469c67e84f44ab2",  # 7-OH
+    "1886f62741cc8ac440af625b094724b6ca5b5d27b531d565678ff17c3d44f136",  # mitragynine #1
+    "54228088b5de668bb2a25a7cc1581430e3c9b3d48f56c025ca94d14f1a0b34cd",  # 7-hydroxy..
+    "ba336fe42a479b9b7fbbec5a30ac7fdaa685be97795be47c1d433f9e430bc10c",  # mitragynine #2
+    "62cb67bac7c1c0cecc28bfd9f8c83d2fddfc7412cf788085b17b6ad621090389",  # pose/poles
+    "f58a3b67a7869904ddda1ac152e25f03f031925edf3617bda3e61085e19d60b3",  # is
+    "3439698ba61501c49e81b3c14d17e0d61d6ab88cf9641a0a78c6a26bd0f21c35",  # feel
+    "1fa3f5925ff0215e015ae39efb50bb901385caa1a1c6f8d6369f71910e62183d",  # detail
+    "d9fd5511396ef1e113c95805faed195c0806fc7fe54a83375170a9391710db29",  # closer
+})
 SCHEMA = "ths-lane2-source-repeated-term-research-v1"
 
 
@@ -313,6 +330,7 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes):
         return refuse("REFERENCE_EXCLUDED_TARGET_SOURCES_REQUIRED")
     prohibited = set(excluded_source_hashes) | {
         SOURCE_WAV_REFERENCE, POSE_SOURCE_CLIP_SHA,
+        *ORIGINAL_CLIP_HASHES.values(),
         *(sha for _, _, sha in POSE_INTERNAL_CONTRAST_WINDOWS.values()),
     }
     # WAV-container identity is insufficient: the same PCM can be repackaged
@@ -348,6 +366,8 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes):
             if not 2400 <= num <= 120000 or len(pcm) != num*2:
                 return refuse("REFERENCE_WAV_DURATION_OR_BYTES_INVALID")
             pcm_sha = digest(pcm)
+            if pcm_sha in ORIGINAL_PCM_EXCERPT_SHA256:
+                return refuse("REFERENCE_ORIGINAL_TARGET_PCM_REUSE")
             if pcm_sha in seen_pcm_hashes:
                 return refuse("REFERENCE_PCM_DUPLICATE_DESPITE_DIFFERENT_WAV_SHA")
             spectral = spectral_band_trace(pcm)
