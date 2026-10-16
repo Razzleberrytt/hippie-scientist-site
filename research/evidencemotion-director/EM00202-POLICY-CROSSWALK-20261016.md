@@ -5,7 +5,7 @@
 ## Owner decision and precedence
 
 - **October 12:** the owner initially imposed an EvidenceMotion version/capability freeze pending genuinely excellent first-final quality. **October 13:** the owner explicitly **rescinded the version freeze**. Iteration is allowed **only** under ordinary work admission, protection, budgets, science and safety constraints. The signed-in repository [canonical checklist](COMPLETION-CHECKLIST.md) records both dates, distinguishes freeze rescission from deployment/publishing authority, and remains the milestone authority.
-- **Authority order for this unit:** [AGENTS.md](../../AGENTS.md) / [CURRENT_SPRINT.md](../../docs/CURRENT_SPRINT.md) for admission and WIP; [DECISIONS.md](../../docs/DECISIONS.md) for recorded governance; [canonical EvidenceMotion checklist](COMPLETION-CHECKLIST.md) for media/science/owner gates; [atomic register](GRANULAR-46-EXECUTION-REGISTER.md) for this decomposed acceptance item. Live issue/PR/CI state outranks dated prose. The atomic index and this report are not new control planes.
+- **Authority order for this unit:** [AGENTS.md](../../AGENTS.md) / [CURRENT_SPRINT.md](../../docs/CURRENT_SPRINT.md) for admission and WIP; [DECISIONS.md](../../docs/DECISIONS.md) for recorded governance; [canonical EvidenceMotion checklist](COMPLETION-CHECKLIST.md) for media/science/owner gates; [atomic register](GRANULAR-46-EXECUTION-REGISTER.md) for this decomposed acceptance item. Live issue/PR/CI state outranks dated prose. The atomic index and this report are not new control planes. The canonical tracker currently has **26/46** accepted foundations; this crosswalk does not increase that count.
 
 ## Still-required policy crosswalk
 
