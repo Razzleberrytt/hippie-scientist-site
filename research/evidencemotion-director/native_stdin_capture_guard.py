@@ -6,13 +6,23 @@ governed jobs. The source must pass independent code, font, version, input,
 film and runner attestation before any reproducibility claim.
 """
 import hashlib
-import io
 import re
 
 SCHEMA = "ths-em-original-rgb24-stdin-receipt-v1"
 SHA = re.compile(r"^[0-9a-f]{64}$")
 IDENT = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.:-]{1,95}$")
 NATIVE = (1080, 1920, 1031)
+# Versioned v1 envelope: reject any added self-certifying approval fields,
+# including names unknown to this guard. New fields require deliberate v2.
+RECEIPT_FIELDS = frozenset((
+    "schema", "runId", "width", "height", "fps", "pixelFormat",
+    "expectedFrames", "capturedFrameCount", "bytesPerFrame", "capturedBytes",
+    "frameSha256", "rawStdinSha256", "sourceManifestSha256",
+    "originalWavSha256", "environmentSha256", "filmSha256",
+    "sinkClosedBeforeEncoderWaitDeclared", "encoderExitCodeDeclared",
+    "independentRunnerAuthenticated", "originalMediaExternallyValidated",
+    "mayPublish", "streakAccepted",
+))
 
 
 def hold(reason):
@@ -56,9 +66,21 @@ class Capture:
         if self.closed or self.broken:
             hold("PIPE_CLOSED_OR_BROKEN")
         if len(self.frame_hashes) >= self.frames:
+            self.broken = True
             hold("EXTRA_FRAME")
-        data = memoryview(raw)
+        try:
+            # Cast to byte units, never buffer elements (e.g. uint16), and
+            # reject noncontiguous sources rather than miscounting sent bytes.
+            data = memoryview(raw)
+            if not data.c_contiguous:
+                self.broken = True
+                hold("NONCONTIGUOUS_FRAME")
+            data = data.cast("B")
+        except (TypeError, ValueError):
+            self.broken = True
+            hold("INVALID_FRAME_BUFFER")
         if len(data) != self.frame_bytes:
+            self.broken = True
             hold("INCOMPLETE_RGB24_FRAME")
         pos = 0
         try:
@@ -117,6 +139,8 @@ def check_one(receipt, *, expected_source, expected_wav, expected_environment,
               geometry=NATIVE):
     if not isinstance(receipt, dict) or receipt.get("schema") != SCHEMA:
         hold("RECEIPT_SCHEMA")
+    if set(receipt) != RECEIPT_FIELDS:
+        hold("NONCANONICAL_RECEIPT_FIELDS")
     if not isinstance(receipt.get("runId"), str) or not IDENT.fullmatch(receipt["runId"]):
         hold("RECEIPT_RUN_ID")
     w, h, frames = geometry
