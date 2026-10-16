@@ -248,6 +248,61 @@ class Tests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "UPLOADED_MOVIE_BYTES_DIFFER"):
                 read_original_pair_dir(root)
 
+    @staticmethod
+    def _small_h264_aac_original_codec_fixture(directory):
+        """Real 12-frame 64x64 test media, NOT the pinned original video."""
+        from original_native_stdin_replay import ORIGINAL_NAME, original_media_executable
+        base = Path(directory)
+        movie = base / ORIGINAL_NAME
+        proc = subprocess.run([
+            original_media_executable("ffmpeg"), "-hide_banner", "-v", "info",
+            "-cpuflags", "0", "-nostdin",
+            "-f", "lavfi", "-i", "testsrc2=size=64x64:rate=30:duration=0.4",
+            "-f", "lavfi", "-i", "sine=frequency=500:sample_rate=24000:duration=0.4",
+            "-map", "0:v:0", "-map", "1:a:0",
+            "-c:v", "libx264", "-threads:v", "1",
+            "-x264-params", "asm=0:sync-lookahead=0", "-pix_fmt", "yuv420p",
+            "-preset", "ultrafast", "-crf", "28", "-c:a", "aac", "-b:a", "64k",
+            "-frames:v", "12", "-movflags", "+faststart", "-y", str(movie),
+        ], capture_output=True, timeout=45)
+        if proc.returncode:
+            raise AssertionError("Actual tiny FFmpeg fixture failed: " +
+                                 proc.stderr[-2000:].decode("utf-8", "replace"))
+        (base / "encoder.log").write_bytes(proc.stderr)
+        return movie
+
+    def test_downloaded_native_media_real_codec_fixture(self):
+        from original_native_stdin_replay import audit_downloaded_original_movie
+        with tempfile.TemporaryDirectory() as directory:
+            self._small_h264_aac_original_codec_fixture(directory)
+            report = audit_downloaded_original_movie(directory,
+                                                     expected_geometry=(64, 64, 12))
+            self.assertTrue(report["originalNativeFullMediaPhysicalDecode"])
+            self.assertEqual(report["actualDecodedSourceFrameCount"], 12)
+            self.assertTrue(report["actualPhysicalAACStreamConfirmed"])
+            self.assertFalse(report["humanCraftOrPhoneApproved"])
+            self.assertFalse(report["mayPublish"])
+
+    def test_downloaded_native_media_rejects_removed_or_faked_encoder_control(self):
+        from original_native_stdin_replay import audit_downloaded_original_movie
+        with tempfile.TemporaryDirectory() as directory:
+            self._small_h264_aac_original_codec_fixture(directory)
+            (Path(directory) / "encoder.log").write_bytes(
+                b"using cpu capabilities: AVX2\nError parsing option 'asm = invalid'\n")
+            with self.assertRaisesRegex(ValueError, "X264_CPU_ASM_CONTROL_NOT_PROVEN"):
+                audit_downloaded_original_movie(directory,
+                                              expected_geometry=(64, 64, 12))
+
+    def test_downloaded_native_media_rejects_truncated_actual_encoded_movie(self):
+        from original_native_stdin_replay import audit_downloaded_original_movie
+        with tempfile.TemporaryDirectory() as directory:
+            movie = self._small_h264_aac_original_codec_fixture(directory)
+            data = movie.read_bytes()
+            movie.write_bytes(data[:len(data) // 2])
+            with self.assertRaisesRegex(ValueError, "DOWNLOADED_MEDIA_"):
+                audit_downloaded_original_movie(directory,
+                                              expected_geometry=(64, 64, 12))
+
     def test_environment_v1_recompute_realistic_fixture(self):
         from original_native_stdin_replay import validate_environment_report_v1
         env = self._frozen_environment_v1()
