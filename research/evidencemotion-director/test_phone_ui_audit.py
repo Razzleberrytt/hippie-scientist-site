@@ -1490,6 +1490,66 @@ class ActualMediaStreamIdentityTests(unittest.TestCase):
 
 
 class ActualFilmSmoke(unittest.TestCase):
+    def test_physically_corrupt_midfilm_h264_fails_even_with_complete_ffprobe_grid(self):
+        # Real original x264 bitstream, then a one-byte data-area corruption.
+        # ffprobe can still emit all presentation timestamps and exit zero:
+        # PTS alone is not proof that every video frame actually decodes.
+        from phone_ui_audit import verify_complete_media_decode
+        from native_master_audit import frame_timestamps
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = root / "source.mp4"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
+                "-y", "-f", "lavfi", "-i",
+                "testsrc2=size=160x288:rate=30:duration=1.5",
+                "-c:v", "libx264", "-preset", "ultrafast",
+                "-pix_fmt", "yuv420p", "-movflags", "+faststart",
+                "-an", str(movie)
+            ], capture_output=True, timeout=50, check=True)
+            timestamps = frame_timestamps(movie)
+            self.assertEqual(len(timestamps), 45)
+            receipt = verify_complete_media_decode(movie)
+            self.assertTrue(receipt["allMappedStreamsDecodedWithoutFatalErrors"])
+            self.assertFalse(receipt["mayPublish"])
+            encoded = bytearray(movie.read_bytes())
+            encoded[len(encoded) // 2] ^= 0xff
+            corrupted = root / "corrupt.mp4"
+            corrupted.write_bytes(encoded)
+            # The deliberately unmodified MP4 headers preserve plausible
+            # stream and timeline metadata; decode must catch the damaged
+            # *compressed payload* regardless of the matching PTS count.
+            self.assertEqual(len(frame_timestamps(corrupted)), 45)
+            with self.assertRaisesRegex(ValueError, "FULL_ENCODED_MEDIA_DECODE_FAILED"):
+                verify_complete_media_decode(corrupted)
+
+    def test_full_decode_failure_invalidates_prior_report_before_success_claim(self):
+        from phone_ui_audit import verify_complete_media_decode
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            movie = root / "source.mp4"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
+                "-y", "-f", "lavfi", "-i",
+                "color=c=blue:s=1080x1920:r=30:d=3",
+                "-c:v", "libx264", "-preset", "ultrafast",
+                "-pix_fmt", "yuv420p", "-an", str(movie)
+            ], capture_output=True, timeout=50, check=True)
+            plan_data = fixture()
+            plan_data["expectedVideoSha256"] = hashlib.sha256(movie.read_bytes()).hexdigest()
+            plan = root / "plan.json"
+            plan.write_text(json.dumps(plan_data))
+            output = root / "frames"
+            output.mkdir()
+            old_report = output / "research-report.json"
+            old_report.write_text('{"old":"should not survive"}')
+            with patch("phone_ui_audit.verify_complete_media_decode",
+                       side_effect=ValueError("PHONE_UI_HOLD:FULL_ENCODED_MEDIA_DECODE_FAILED")):
+                with self.assertRaisesRegex(ValueError, "FULL_ENCODED_MEDIA_DECODE_FAILED"):
+                    audit(movie, plan, output)
+            self.assertFalse(old_report.exists())
+            self.assertFalse(list(output.glob("*.png")))
+
     def test_first_presented_video_frame_must_start_at_zero(self):
         # Real encoded 30fps clips; setpts advances every decoded PTS by
         # one frame without changing their regular spacing or frame count.
@@ -1704,6 +1764,8 @@ class ActualFilmSmoke(unittest.TestCase):
             self.assertEqual(receipt["publicationVerdict"], "HOLD")
             self.assertEqual(receipt["frameToShotCoverage"]["actualPresentedFramesChecked"], 90)
             self.assertEqual(receipt["frameToShotCoverage"]["framesAssignedExactlyOnce"], 90)
+            self.assertTrue(receipt["completeEncodedMediaDecode"]["allMappedStreamsDecodedWithoutFatalErrors"])
+            self.assertFalse(receipt["completeEncodedMediaDecode"]["mayPublish"])
             self.assertEqual(receipt["decodedOverlayFrames"][0]["actualFrameIndex"], 45)
             self.assertAlmostEqual(receipt["decodedOverlayFrames"][0]["actualFramePtsSec"], 1.5, places=3)
             self.assertIn(receipt["decodedOverlayFrames"][1]["actualFrameIndex"], (7, 8))
