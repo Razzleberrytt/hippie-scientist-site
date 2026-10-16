@@ -67,14 +67,14 @@ export function proposeAudioLockedCuts({approvedWavSha256,actualWavSha256,
  */
 export async function proposeFileBoundAudioLockedCuts({root,reportPath,
  expectedReportSha256,expectedInputSha256,manifest,beats,scienceManifestSha256,
- previousAlignmentRevisionSha256,pythonExecutable='python'}={}){
+ previousAlignmentRevisionSha256,previousNarrationSha256,pythonExecutable='python'}={}){
  const refusal=error=>({status:'HOLD',errors:[error],shots:[],finalRenderEligible:false});
  const fields=['wav','transcript','textgrid','dictionary','acousticModel'];
  const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
  try{
   if(!root||!hash(expectedReportSha256)||fields.some(f=>!hash(expectedInputSha256?.[f])))
    return refusal('FROZEN_ALIGNMENT_IDENTITIES_REQUIRED');
-  const base=await realpath(root);
+  // A new aligned WAV cannot silently inherit cuts anchored to an older take.\n  if(previousNarrationSha256!==undefined &&\n     (!hash(previousNarrationSha256)||previousNarrationSha256!==expectedInputSha256.wav))\n   return refusal('STALE_NARRATION_REVISION_REQUIRES_NEW_CUTS');\n  const base=await realpath(root);
   const load=async name=>{
    if(typeof name!=='string'||!name||name.includes('\\')||name.includes(':')||isAbsolute(name)||name.split('/').some(p=>p==='.'||p==='..'))
     throw new Error('UNSAFE_ALIGNMENT_PATH');
