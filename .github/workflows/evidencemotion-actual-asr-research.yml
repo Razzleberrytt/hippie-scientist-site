@@ -609,8 +609,8 @@ jobs:
         run: |
           set -euo pipefail
           python -m unittest discover -s research/evidencemotion-director -p test_scientific_uncertainty_ledger.py -v
-          python research/evidencemotion-director/scientific_uncertainty_ledger.py \\
-            --source-join "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-source-context-join.json" \\
+          python research/evidencemotion-director/scientific_uncertainty_ledger.py \
+            --source-join "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-source-context-join.json" \
             --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/scientific-uncertainty-RESEARCH.json"
           python - <<'PY'
           import json,os
