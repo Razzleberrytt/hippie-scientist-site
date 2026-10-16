@@ -34,6 +34,36 @@ def hold(reason):
             "wordTimingCalibrated": False, "sourceWavIndependentlyRehashed": False}
 
 
+
+def source_clip_sample_offsets(master_raw, clip_raws, expected_sha):
+    """Prove each raw excerpt is one exact PCM slice of the pinned full WAV.
+
+    This establishes file provenance, not a phoneme, word boundary or speaker
+    quality.  Reject fabricated, edited, or multiply-reused source excerpts.
+    """
+    if digest(master_raw) != expected_sha:
+        raise ValueError("ORIGINAL_MASTER_WAV_SHA_CHANGED")
+    with wave.open(io.BytesIO(master_raw), "rb") as source:
+        if (source.getnchannels(), source.getsampwidth(), source.getframerate(),
+                source.getcomptype()) != (1, 2, 24000, "NONE"):
+            raise ValueError("ORIGINAL_MASTER_WAV_FORMAT_INVALID")
+        full_pcm = source.readframes(source.getnframes())
+    offsets = {}
+    for index, raw in sorted(clip_raws.items()):
+        with wave.open(io.BytesIO(raw), "rb") as excerpt:
+            if (excerpt.getnchannels(), excerpt.getsampwidth(),
+                    excerpt.getframerate(), excerpt.getcomptype()) != (1, 2, 24000, "NONE"):
+                raise ValueError("ORIGINAL_CLIP_FORMAT_INVALID")
+            clip_pcm = excerpt.readframes(excerpt.getnframes())
+        if len(clip_pcm) < 2 or len(clip_pcm) % 2:
+            raise ValueError("ORIGINAL_CLIP_PCM_INVALID")
+        byte_start = full_pcm.find(clip_pcm)
+        if (byte_start < 0 or byte_start % 2
+                or full_pcm.find(clip_pcm, byte_start + 2) != -1):
+            raise ValueError("ORIGINAL_CLIP_NOT_UNIQUELY_EXTRACTED_FROM_MASTER")
+        offsets[index] = byte_start // 2
+    return offsets
+
 def decode_pcm(raw):
     if not isinstance(raw, bytes) or not 44 <= len(raw) <= 300000:
         raise ValueError("SOURCE_CLIP_SIZE_INVALID")
@@ -119,7 +149,7 @@ def compare(first, second, unrelated):
             "phonesOrWordIdentityProven":False}
 
 
-def audit(packet):
+def audit(packet, original_wav=None):
     try:
         packet=Path(packet)
         if not packet.is_file() or packet.is_symlink() or packet.stat().st_size > 1000000:
@@ -138,6 +168,7 @@ def audit(packet):
                     or report.get("mayPublish") is not False):
                 return hold("ORIGINAL_DISAGREEMENT_RECEIPT_REQUIRED")
             clips={}
+            raw_clips={}
             for index,pinned in ORIGINAL_CLIP_HASHES.items():
                 raw=archive.read(f"review/clips/review-{index:02}.wav")
                 row=report["dispositions"][index-1]
@@ -147,10 +178,19 @@ def audit(packet):
                         or row.get("pronunciationVerified") is not False):
                     return hold("ORIGINAL_CLIP_SOURCE_OR_AUTHORITY_CHANGED")
                 clips[index]=decode_pcm(raw)
+                raw_clips[index]=raw
             if (report["dispositions"][1]["authoredWords"] != ["mitragynine"]
                 or report["dispositions"][3]["authoredWords"] != ["mitragynine"]):
                 return hold("REPEATED_TERM_SOURCE_LABEL_CHANGED")
             result=compare(clips[2],clips[4],[clips[1],clips[3]])
+            source_offsets = None
+            if original_wav is not None:
+                original = Path(original_wav)
+                if (not original.is_file() or original.is_symlink()
+                        or original.stat().st_size > 3000000):
+                    return hold("ORIGINAL_MASTER_WAV_UNAVAILABLE_OR_UNSAFE")
+                source_offsets = source_clip_sample_offsets(
+                    original.read_bytes(), raw_clips, SOURCE_WAV_REFERENCE)
     except (ValueError, TypeError, IndexError, KeyError, OSError,
             EOFError, UnicodeError, zipfile.BadZipFile) as exc:
         return hold("ORIGINAL_RESEARCH_READ_OR_MEASURE_ERROR:"+str(exc)[:120])
@@ -159,22 +199,27 @@ def audit(packet):
     return {"schema":SCHEMA,
             "status":"RESEARCH_REPEATED_TERM_PATTERN_ONLY",
             "sourceArchiveSha256":SOURCE_ARCHIVE_SHA,
-            "originalWavShaReferencedButNotRehashed":SOURCE_WAV_REFERENCE,
+            "originalWavShaReferencedButNotRehashed":(
+                SOURCE_WAV_REFERENCE if source_offsets is None else None),
+            "originalWavShaIndependentlyVerified":(
+                SOURCE_WAV_REFERENCE if source_offsets is not None else None),
+            "sourceClipSampleOffsetsInOriginalWav":source_offsets,
             "originalClips":[ORIGINAL_CLIP_HASHES[2],ORIGINAL_CLIP_HASHES[4]],
             "originalNegativeControls":[ORIGINAL_CLIP_HASHES[1],ORIGINAL_CLIP_HASHES[3]],
             "method":"25ms_10ms_hop_32_log_bands_13_DCT_cosine_DTW",
             **result,
             "mayPublish":False,"pronunciationVerified":False,
             "phonemeIdentityVerified":False,"wordTimingCalibrated":False,
-            "sourceWavIndependentlyRehashed":False,
+            "sourceWavIndependentlyRehashed":source_offsets is not None,
             "caution":"Both occurrences can sound alike and BOTH still be mispronounced; not phone or release approval."}
 
 
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--source-archive", required=True)
+    p.add_argument("--original-wav", help="Optional original, full 24 kHz WAV; exact hash and PCM excerpt proof")
     a=p.parse_args(argv)
-    result=audit(Path(a.source_archive))
+    result=audit(Path(a.source_archive), a.original_wav)
     print(json.dumps(result, indent=2, sort_keys=True, allow_nan=False))
     return 3 if result["status"]=="RESEARCH_REPEATED_TERM_PATTERN_ONLY" else 2
 
