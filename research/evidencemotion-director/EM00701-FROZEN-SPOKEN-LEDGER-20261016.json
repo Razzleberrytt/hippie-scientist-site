@@ -1,0 +1,768 @@
+{
+  "schema": "ths-frozen-spoken-claim-ledger-v1",
+  "task": "EM-007.01",
+  "inputSha256": {
+    "wav": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+    "transcript": "835f15869c48a7c77e4b344ab174180ceac492aae8011d127c51226cfa92afa3",
+    "textgrid": "762d81e84010bdf99a804e3077c2701c60382bbb42a55d1a695bdb7f27290a9a",
+    "dictionary": "6ba301cf5589965044d59903ddb1e45159c6ad8837fab6d9aa3b07ff12182eef",
+    "acousticModel": "d35ce271ded357d833d2f4b8d1041dc3748b9538567ba13f2c697f4e4126711b"
+  },
+  "sourceWavSha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+  "alignmentRevisionSha256": "2414833bfd35c18ad6c629c3d10cbfab8501b09e296cc1963db01638b854bbaf",
+  "authoredLines": [
+    "What makes seven O H different from mitragynine?",
+    "This hydroxyl group is a structural difference between seven-hydroxymitragynine and mitragynine.",
+    "This molecular structure is built from a verified chemical record, atom by atom.",
+    "But the three dimensional pose is computed. It is not footage of a molecule binding to a receptor.",
+    "So the picture explains its structure, not what its effects feel like.",
+    "That's the kind of detail worth looking closer at."
+  ],
+  "wordCount": 73,
+  "assertionCount": 8,
+  "assertions": [
+    {
+      "id": "spoken-001",
+      "kind": "QUESTION",
+      "sentence": 1,
+      "wordIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "text": "what makes seven o h different from mitragynine",
+      "scientificSupportStatus": "NOT_REVIEWED_IN_THIS_INVENTORY"
+    },
+    {
+      "id": "spoken-002",
+      "kind": "STRUCTURAL_ASSERTION",
+      "sentence": 2,
+      "wordIndices": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "text": "this hydroxyl group is a structural difference between seven hydroxymitragynine and mitragynine",
+      "scientificSupportStatus": "NOT_REVIEWED_IN_THIS_INVENTORY"
+    },
+    {
+      "id": "spoken-003",
+      "kind": "SOURCE_PROVENANCE_ASSERTION",
+      "sentence": 3,
+      "wordIndices": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "text": "this molecular structure is built from a verified chemical record atom by atom",
+      "scientificSupportStatus": "NOT_REVIEWED_IN_THIS_INVENTORY"
+    },
+    {
+      "id": "spoken-004",
+      "kind": "COMPUTED_POSE_LIMIT",
+      "sentence": 4,
+      "wordIndices": [
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "text": "but the three dimensional pose is computed",
+      "scientificSupportStatus": "NOT_REVIEWED_IN_THIS_INVENTORY"
+    },
+    {
+      "id": "spoken-005",
+      "kind": "NOT_OBSERVED_BINDING",
+      "sentence": 4,
+      "wordIndices": [
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "text": "it is not footage of a molecule binding to a receptor",
+      "scientificSupportStatus": "NOT_REVIEWED_IN_THIS_INVENTORY"
+    },
+    {
+      "id": "spoken-006",
+      "kind": "STRUCTURE_EXPLANATION",
+      "sentence": 5,
+      "wordIndices": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "text": "so the picture explains its structure",
+      "scientificSupportStatus": "NOT_REVIEWED_IN_THIS_INVENTORY"
+    },
+    {
+      "id": "spoken-007",
+      "kind": "NO_EXPERIENCED_EFFECT_INFERENCE",
+      "sentence": 5,
+      "wordIndices": [
+        57,
+        58,
+        59,
+        60,
+        61,
+        62
+      ],
+      "text": "not what its effects feel like",
+      "scientificSupportStatus": "NOT_REVIEWED_IN_THIS_INVENTORY"
+    },
+    {
+      "id": "spoken-008",
+      "kind": "EDITORIAL_INVITATION",
+      "sentence": 6,
+      "wordIndices": [
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "text": "that s the kind of detail worth looking closer at",
+      "scientificSupportStatus": "NOT_REVIEWED_IN_THIS_INVENTORY"
+    }
+  ],
+  "words": [
+    {
+      "index": 0,
+      "word": "what",
+      "assertionId": "spoken-001",
+      "startMs": 160.0,
+      "endMs": 330.0,
+      "roles": []
+    },
+    {
+      "index": 1,
+      "word": "makes",
+      "assertionId": "spoken-001",
+      "startMs": 330.0,
+      "endMs": 560.0,
+      "roles": []
+    },
+    {
+      "index": 2,
+      "word": "seven",
+      "assertionId": "spoken-001",
+      "startMs": 560.0,
+      "endMs": 950.0,
+      "roles": []
+    },
+    {
+      "index": 3,
+      "word": "o",
+      "assertionId": "spoken-001",
+      "startMs": 950.0,
+      "endMs": 1160.0,
+      "roles": []
+    },
+    {
+      "index": 4,
+      "word": "h",
+      "assertionId": "spoken-001",
+      "startMs": 1200.0,
+      "endMs": 1570.0,
+      "roles": []
+    },
+    {
+      "index": 5,
+      "word": "different",
+      "assertionId": "spoken-001",
+      "startMs": 1610.0,
+      "endMs": 1920.0,
+      "roles": []
+    },
+    {
+      "index": 6,
+      "word": "from",
+      "assertionId": "spoken-001",
+      "startMs": 1920.0,
+      "endMs": 2110.0,
+      "roles": []
+    },
+    {
+      "index": 7,
+      "word": "mitragynine",
+      "assertionId": "spoken-001",
+      "startMs": 2110.0,
+      "endMs": 2920.0,
+      "roles": []
+    },
+    {
+      "index": 8,
+      "word": "this",
+      "assertionId": "spoken-002",
+      "startMs": 3470.0,
+      "endMs": 3670.0,
+      "roles": []
+    },
+    {
+      "index": 9,
+      "word": "hydroxyl",
+      "assertionId": "spoken-002",
+      "startMs": 3670.0,
+      "endMs": 4540.0,
+      "roles": []
+    },
+    {
+      "index": 10,
+      "word": "group",
+      "assertionId": "spoken-002",
+      "startMs": 4540.0,
+      "endMs": 4960.0,
+      "roles": []
+    },
+    {
+      "index": 11,
+      "word": "is",
+      "assertionId": "spoken-002",
+      "startMs": 5260.0,
+      "endMs": 5380.0,
+      "roles": []
+    },
+    {
+      "index": 12,
+      "word": "a",
+      "assertionId": "spoken-002",
+      "startMs": 5380.0,
+      "endMs": 5440.0,
+      "roles": []
+    },
+    {
+      "index": 13,
+      "word": "structural",
+      "assertionId": "spoken-002",
+      "startMs": 5440.0,
+      "endMs": 6090.0,
+      "roles": []
+    },
+    {
+      "index": 14,
+      "word": "difference",
+      "assertionId": "spoken-002",
+      "startMs": 6090.0,
+      "endMs": 6580.0,
+      "roles": []
+    },
+    {
+      "index": 15,
+      "word": "between",
+      "assertionId": "spoken-002",
+      "startMs": 6580.0,
+      "endMs": 7040.0,
+      "roles": []
+    },
+    {
+      "index": 16,
+      "word": "seven",
+      "assertionId": "spoken-002",
+      "startMs": 7190.0,
+      "endMs": 7540.0,
+      "roles": []
+    },
+    {
+      "index": 17,
+      "word": "hydroxymitragynine",
+      "assertionId": "spoken-002",
+      "startMs": 7540.0,
+      "endMs": 9130.0,
+      "roles": []
+    },
+    {
+      "index": 18,
+      "word": "and",
+      "assertionId": "spoken-002",
+      "startMs": 9290.0,
+      "endMs": 9460.0,
+      "roles": []
+    },
+    {
+      "index": 19,
+      "word": "mitragynine",
+      "assertionId": "spoken-002",
+      "startMs": 9460.0,
+      "endMs": 10270.0,
+      "roles": []
+    },
+    {
+      "index": 20,
+      "word": "this",
+      "assertionId": "spoken-003",
+      "startMs": 10850.0,
+      "endMs": 11070.0,
+      "roles": []
+    },
+    {
+      "index": 21,
+      "word": "molecular",
+      "assertionId": "spoken-003",
+      "startMs": 11070.0,
+      "endMs": 11600.0,
+      "roles": []
+    },
+    {
+      "index": 22,
+      "word": "structure",
+      "assertionId": "spoken-003",
+      "startMs": 11600.0,
+      "endMs": 12160.0,
+      "roles": []
+    },
+    {
+      "index": 23,
+      "word": "is",
+      "assertionId": "spoken-003",
+      "startMs": 12160.0,
+      "endMs": 12350.0,
+      "roles": []
+    },
+    {
+      "index": 24,
+      "word": "built",
+      "assertionId": "spoken-003",
+      "startMs": 12350.0,
+      "endMs": 12630.0,
+      "roles": []
+    },
+    {
+      "index": 25,
+      "word": "from",
+      "assertionId": "spoken-003",
+      "startMs": 12630.0,
+      "endMs": 12790.0,
+      "roles": []
+    },
+    {
+      "index": 26,
+      "word": "a",
+      "assertionId": "spoken-003",
+      "startMs": 12790.0,
+      "endMs": 12830.0,
+      "roles": []
+    },
+    {
+      "index": 27,
+      "word": "verified",
+      "assertionId": "spoken-003",
+      "startMs": 12830.0,
+      "endMs": 13550.0,
+      "roles": [
+        "PROVENANCE_ASSERTION_REQUIRES_SOURCE_REVIEW"
+      ]
+    },
+    {
+      "index": 28,
+      "word": "chemical",
+      "assertionId": "spoken-003",
+      "startMs": 13550.0,
+      "endMs": 14010.0,
+      "roles": []
+    },
+    {
+      "index": 29,
+      "word": "record",
+      "assertionId": "spoken-003",
+      "startMs": 14010.0,
+      "endMs": 14490.0,
+      "roles": []
+    },
+    {
+      "index": 30,
+      "word": "atom",
+      "assertionId": "spoken-003",
+      "startMs": 14930.0,
+      "endMs": 15290.0,
+      "roles": []
+    },
+    {
+      "index": 31,
+      "word": "by",
+      "assertionId": "spoken-003",
+      "startMs": 15290.0,
+      "endMs": 15510.0,
+      "roles": []
+    },
+    {
+      "index": 32,
+      "word": "atom",
+      "assertionId": "spoken-003",
+      "startMs": 15580.0,
+      "endMs": 15990.0,
+      "roles": []
+    },
+    {
+      "index": 33,
+      "word": "but",
+      "assertionId": "spoken-004",
+      "startMs": 16580.0,
+      "endMs": 16700.001,
+      "roles": []
+    },
+    {
+      "index": 34,
+      "word": "the",
+      "assertionId": "spoken-004",
+      "startMs": 16700.001,
+      "endMs": 16790.001,
+      "roles": []
+    },
+    {
+      "index": 35,
+      "word": "three",
+      "assertionId": "spoken-004",
+      "startMs": 16790.001,
+      "endMs": 17250.0,
+      "roles": []
+    },
+    {
+      "index": 36,
+      "word": "dimensional",
+      "assertionId": "spoken-004",
+      "startMs": 17250.0,
+      "endMs": 17840.0,
+      "roles": []
+    },
+    {
+      "index": 37,
+      "word": "pose",
+      "assertionId": "spoken-004",
+      "startMs": 17870.001,
+      "endMs": 18340.0,
+      "roles": []
+    },
+    {
+      "index": 38,
+      "word": "is",
+      "assertionId": "spoken-004",
+      "startMs": 18340.0,
+      "endMs": 18480.0,
+      "roles": []
+    },
+    {
+      "index": 39,
+      "word": "computed",
+      "assertionId": "spoken-004",
+      "startMs": 18480.0,
+      "endMs": 19150.0,
+      "roles": [
+        "COMPUTED_LIMIT"
+      ]
+    },
+    {
+      "index": 40,
+      "word": "it",
+      "assertionId": "spoken-005",
+      "startMs": 19590.0,
+      "endMs": 19700.001,
+      "roles": []
+    },
+    {
+      "index": 41,
+      "word": "is",
+      "assertionId": "spoken-005",
+      "startMs": 19700.001,
+      "endMs": 19830.0,
+      "roles": []
+    },
+    {
+      "index": 42,
+      "word": "not",
+      "assertionId": "spoken-005",
+      "startMs": 19830.0,
+      "endMs": 20100.0,
+      "roles": [
+        "NEGATION"
+      ]
+    },
+    {
+      "index": 43,
+      "word": "footage",
+      "assertionId": "spoken-005",
+      "startMs": 20100.0,
+      "endMs": 20580.0,
+      "roles": []
+    },
+    {
+      "index": 44,
+      "word": "of",
+      "assertionId": "spoken-005",
+      "startMs": 20580.0,
+      "endMs": 20709.999,
+      "roles": []
+    },
+    {
+      "index": 45,
+      "word": "a",
+      "assertionId": "spoken-005",
+      "startMs": 20709.999,
+      "endMs": 20760.0,
+      "roles": []
+    },
+    {
+      "index": 46,
+      "word": "molecule",
+      "assertionId": "spoken-005",
+      "startMs": 20760.0,
+      "endMs": 21440.001,
+      "roles": []
+    },
+    {
+      "index": 47,
+      "word": "binding",
+      "assertionId": "spoken-005",
+      "startMs": 21440.001,
+      "endMs": 22000.0,
+      "roles": []
+    },
+    {
+      "index": 48,
+      "word": "to",
+      "assertionId": "spoken-005",
+      "startMs": 22000.0,
+      "endMs": 22190.001,
+      "roles": []
+    },
+    {
+      "index": 49,
+      "word": "a",
+      "assertionId": "spoken-005",
+      "startMs": 22190.001,
+      "endMs": 22230.0,
+      "roles": []
+    },
+    {
+      "index": 50,
+      "word": "receptor",
+      "assertionId": "spoken-005",
+      "startMs": 22230.0,
+      "endMs": 22860.001,
+      "roles": []
+    },
+    {
+      "index": 51,
+      "word": "so",
+      "assertionId": "spoken-006",
+      "startMs": 23379.999,
+      "endMs": 23530.001,
+      "roles": []
+    },
+    {
+      "index": 52,
+      "word": "the",
+      "assertionId": "spoken-006",
+      "startMs": 23530.001,
+      "endMs": 23620.001,
+      "roles": []
+    },
+    {
+      "index": 53,
+      "word": "picture",
+      "assertionId": "spoken-006",
+      "startMs": 23620.001,
+      "endMs": 24059.999,
+      "roles": []
+    },
+    {
+      "index": 54,
+      "word": "explains",
+      "assertionId": "spoken-006",
+      "startMs": 24059.999,
+      "endMs": 24639.999,
+      "roles": []
+    },
+    {
+      "index": 55,
+      "word": "its",
+      "assertionId": "spoken-006",
+      "startMs": 24639.999,
+      "endMs": 24770.0,
+      "roles": []
+    },
+    {
+      "index": 56,
+      "word": "structure",
+      "assertionId": "spoken-006",
+      "startMs": 24770.0,
+      "endMs": 25389.999,
+      "roles": []
+    },
+    {
+      "index": 57,
+      "word": "not",
+      "assertionId": "spoken-007",
+      "startMs": 25709.999,
+      "endMs": 25959.999,
+      "roles": [
+        "NEGATION"
+      ]
+    },
+    {
+      "index": 58,
+      "word": "what",
+      "assertionId": "spoken-007",
+      "startMs": 25959.999,
+      "endMs": 26120.001,
+      "roles": []
+    },
+    {
+      "index": 59,
+      "word": "its",
+      "assertionId": "spoken-007",
+      "startMs": 26120.001,
+      "endMs": 26250.0,
+      "roles": []
+    },
+    {
+      "index": 60,
+      "word": "effects",
+      "assertionId": "spoken-007",
+      "startMs": 26250.0,
+      "endMs": 26670.0,
+      "roles": []
+    },
+    {
+      "index": 61,
+      "word": "feel",
+      "assertionId": "spoken-007",
+      "startMs": 26670.0,
+      "endMs": 27000.0,
+      "roles": []
+    },
+    {
+      "index": 62,
+      "word": "like",
+      "assertionId": "spoken-007",
+      "startMs": 27000.0,
+      "endMs": 27350.0,
+      "roles": []
+    },
+    {
+      "index": 63,
+      "word": "that",
+      "assertionId": "spoken-008",
+      "startMs": 31250.0,
+      "endMs": 31430.0,
+      "roles": []
+    },
+    {
+      "index": 64,
+      "word": "s",
+      "assertionId": "spoken-008",
+      "startMs": 31430.0,
+      "endMs": 31490.0,
+      "roles": []
+    },
+    {
+      "index": 65,
+      "word": "the",
+      "assertionId": "spoken-008",
+      "startMs": 31490.0,
+      "endMs": 31580.0,
+      "roles": []
+    },
+    {
+      "index": 66,
+      "word": "kind",
+      "assertionId": "spoken-008",
+      "startMs": 31580.0,
+      "endMs": 31770.0,
+      "roles": []
+    },
+    {
+      "index": 67,
+      "word": "of",
+      "assertionId": "spoken-008",
+      "startMs": 31770.0,
+      "endMs": 31870.001,
+      "roles": []
+    },
+    {
+      "index": 68,
+      "word": "detail",
+      "assertionId": "spoken-008",
+      "startMs": 31870.001,
+      "endMs": 32419.998,
+      "roles": []
+    },
+    {
+      "index": 69,
+      "word": "worth",
+      "assertionId": "spoken-008",
+      "startMs": 32419.998,
+      "endMs": 32790.001,
+      "roles": []
+    },
+    {
+      "index": 70,
+      "word": "looking",
+      "assertionId": "spoken-008",
+      "startMs": 32849.998,
+      "endMs": 33169.998,
+      "roles": []
+    },
+    {
+      "index": 71,
+      "word": "closer",
+      "assertionId": "spoken-008",
+      "startMs": 33169.998,
+      "endMs": 33650.002,
+      "roles": []
+    },
+    {
+      "index": 72,
+      "word": "at",
+      "assertionId": "spoken-008",
+      "startMs": 33650.002,
+      "endMs": 33889.999,
+      "roles": []
+    }
+  ],
+  "wordCoverageVerified": true,
+  "timingAccuracyCalibrated": false,
+  "scienceApproved": false,
+  "mayPublish": false
+}
