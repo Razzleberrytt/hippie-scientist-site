@@ -11,6 +11,9 @@ const beat={
 };
 const receipt={
  origin:'independent-full-decode',schemaVersion:'ths-director-decoded-pixels-v1',previewSha256:hex,decodedFrameCount:120,
+ candidateId:'b1:G1:1',beatId:'b1',grammarId:'G1',camera:'MACRO_PUSH',
+ originalBeatDurationSec:4,sourceClaimIds:[...beat.claimIds],
+ scientificAssetIds:[...beat.scientificAssetIds],anchorTimes:[...beat.spokenAnchorTimes],
  width:360,height:640,fps:12,roiPixels:[40,115,320,486],medianChangedFraction:0.18,medianBroadStructureChangedFraction:0.08,
  voiceTimeStretched:false,factualGeometryGenerated:false,heroAbsent:false,
  stockClipArtDetected:false,maxCaptionExcludedStaticSec:1.5,sourceLocked:true,
@@ -77,4 +80,59 @@ test('moving pixels do not establish hero motion',()=>{
  const result=evaluatePreviz(candidate,{...receipt,medianChangedFraction:0.2,medianBroadStructureChangedFraction:0});
  assert.equal(result.status,'HOLD');
  assert.ok(result.reasons.includes('HERO_STATIC_CONCEPT_REVIEW_HOLD'));
+});
+
+test('missing claim or asset lineage cannot produce a preview proposal',()=>{
+  assert.equal(proposeShots({...beat,claimIds:[]}).status,'HOLD');
+  assert.equal(proposeShots({...beat,scientificAssetIds:[]}).status,'HOLD');
+  assert.equal(proposeShots({...beat,scientificAssetIds:['asset','asset']}).status,'HOLD');
+});
+
+test('receipt cannot be recycled for another independently authored treatment',()=>{
+  const candidates=proposeShots(beat).candidates;
+  const result=evaluatePreviz(candidates[1],receipt);
+  assert.equal(result.status,'HOLD');
+  assert.ok(result.reasons.includes('SHOT_REVIEW_SOURCE_OR_TIMING_IDENTITY_MISMATCH'));
+  assert.equal(result.excellentCertified,false);
+});
+
+test('shot/source/camera/voice-anchor swaps hold despite otherwise plausible decoded motion',()=>{
+  const candidate=proposeShots(beat).candidates[0];
+  const faults=[
+    {candidateId:'unrelated-shot'},
+    {beatId:'unrelated-beat'},
+    {grammarId:'G5'},
+    {camera:'ORBIT_REVEAL'},
+    {originalBeatDurationSec:4.1},
+    {sourceClaimIds:['pmid:987654']},
+    {sourceClaimIds:[]},
+    {scientificAssetIds:['another-molecule']},
+    {scientificAssetIds:[]},
+    {anchorTimes:[.4,1.9,3.4]},
+    {anchorTimes:[]}
+  ];
+  for(const fault of faults){
+    const result=evaluatePreviz(candidate,{...receipt,...fault});
+    assert.equal(result.status,'HOLD',JSON.stringify(fault));
+    assert.ok(result.reasons.includes('SHOT_REVIEW_SOURCE_OR_TIMING_IDENTITY_MISMATCH'),
+      JSON.stringify(fault));
+    assert.equal(result.mayRenderFinal,false);
+    assert.equal(result.excellentCertified,false);
+  }
+});
+
+test('missing shot linkage is held even with green synthetic pixel measurements',()=>{
+  const candidate=proposeShots(beat).candidates[0];
+  const {candidateId,...unbound}=receipt;
+  const result=evaluatePreviz(candidate,unbound);
+  assert.equal(result.status,'HOLD');
+  assert.ok(result.reasons.includes('SHOT_REVIEW_SOURCE_OR_TIMING_IDENTITY_MISMATCH'));
+});
+
+test('valid source-bound metadata still requires independent perceptual evaluation',()=>{
+  const candidate=proposeShots(beat).candidates[0];
+  const result=evaluatePreviz(candidate,receipt);
+  assert.equal(result.status,'PERCEPTUAL_REVIEW_REQUIRED');
+  assert.equal(result.mayRenderFinal,false);
+  assert.equal(result.excellentCertified,false);
 });
