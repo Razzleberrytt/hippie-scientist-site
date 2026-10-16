@@ -180,6 +180,18 @@ class AlignmentTests(unittest.TestCase):
         args['previousAlignmentRevisionSha256'] = 'b'*64
         self.assertIn('STALE_CUTS_REALIGNMENT_REQUIRED', run()['errors'])
         del args['previousAlignmentRevisionSha256']
+        # Simulate a changed take whose new MFA inputs/report are already valid:
+        # a client retaining its old narration SHA must not reuse earlier cuts.
+        args['previousNarrationSha256'] = 'b'*64
+        self.assertIn('STALE_NARRATION_REVISION_REQUIRES_NEW_CUTS', run()['errors'])
+        del args['previousNarrationSha256']
+        args['previousNarrationSha256'] = report['inputSha256']['wav']
+        self.assertEqual(run()['status'], 'PREVIZ_EDL_READY_FOR_INDEPENDENT_MEDIA_QA')
+        del args['previousNarrationSha256']
+        args['previousNarrationSha256'] = 'not-a-real-sha'
+        self.assertIn('STALE_NARRATION_REVISION_REQUIRES_NEW_CUTS', run()['errors'])
+        del args['previousNarrationSha256']
+
         report['wordAlignment'][0]['startMs'] = 300
         forged = (json.dumps(report)+'\n').encode()
         (self.root/'report.json').write_bytes(forged)
