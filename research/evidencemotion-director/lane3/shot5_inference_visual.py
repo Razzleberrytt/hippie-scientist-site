@@ -258,7 +258,7 @@ def render(source,molecule,output):
     with tempfile.TemporaryDirectory(dir=output.parent,prefix='.lane3-scene-') as temp:
         stage=Path(temp)/'silent-scene.mp4'
         args=['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-xerror','-i',str(source),
-          '-map','0:v:0','-vf',f'select=between(n\\\\,{START}\\\\,{END-1})',
+          '-map','0:v:0','-vf',f'select=between(n\\,{START}\\,{END-1})',
           '-vsync','0','-f','rawvideo','-pix_fmt','rgb24','-']
         # -n is an additional fail-closed guard; stage must never preexist.
         command=['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-n','-f','rawvideo',
