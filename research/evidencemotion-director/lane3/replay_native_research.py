@@ -25,8 +25,11 @@ def run(*,source,mol,manifest,external_manifest_sha,output):
         raise ReplayHold('AUTHORED_SCENE_OR_NATIVE_TIMELINE_MISMATCH')
     if (rule['computedSpokenOnsetSec'],rule['negationSpokenOnsetSec'])!=(render.COMPUTED_AT,render.NOT_AT):
         raise ReplayHold('SCENE_AUDIO_CUE_REVISION_MISMATCH')
-    if output is None or Path(output).resolve() in (Path(source).resolve(),Path(mol).resolve()):
+    protected_paths=(Path(source),Path(mol),Path(manifest))
+    if output is None or Path(output).resolve() in tuple(p.resolve() for p in protected_paths):
         raise ReplayHold('INVALID_OUTPUT_DESTINATION')
+    if Path(output).with_suffix('.receipt.json').resolve() in tuple(p.resolve() for p in protected_paths):
+        raise ReplayHold('INVALID_RECEIPT_DESTINATION')
     # Preflight only from externally anchored video+MOL, *before* any rendering.
     if splice.digest(source)!=rule['sourceFilmSha256']:
         raise ReplayHold('SOURCE_FILM_REVISION_MISMATCH')
