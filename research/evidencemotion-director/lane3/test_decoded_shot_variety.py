@@ -10,7 +10,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from decoded_shot_variety import CraftHold, audit, validate_story
+from decoded_shot_variety import CraftHold, audit, validate_story, sample_frame_triplet, THUMB_W, THUMB_H, fingerprint, compare, similar
 
 
 class DecodedShotVarietyTests(unittest.TestCase):
@@ -57,9 +57,62 @@ class DecodedShotVarietyTests(unittest.TestCase):
         self.assertTrue(data['comparisons'][5]['nearDuplicateReviewCandidate'])
         self.assertFalse(data['comparisons'][2]['nearDuplicateReviewCandidate'])
         self.assertEqual(data['nearDuplicateReviewCount'],2)
+        self.assertEqual(data['schema'],'ths-lane3-decoded-visual-variety-negative-filter-v2')
+        self.assertEqual(data['uniqueDecodedFramesSampled'],27)
+        self.assertEqual(len(data['withinShotTemporalReview']),9)
+        self.assertEqual(len(data['boundaryExitEntranceReview']),8)
+        self.assertTrue(data['withinShotTemporalReview'][0]['nearStaticBodyReviewCandidate'])
+        self.assertTrue(data['withinShotTemporalReview'][5]['nearStaticBodyReviewCandidate'])
+        self.assertTrue(data['boundaryExitEntranceReview'][5]['nearDuplicateReviewCandidate'])
         self.assertFalse(data['excellentCertified'])
         self.assertFalse(data['mayPublish'])
         self.assertFalse(data['creativeExceptionsAutomaticallyGranted'])
+
+    def test_single_midpoint_cannot_substitute_for_temporal_evidence(self):
+        # This is an actual H264 film, not invented metadata. All three
+        # samples have distinct frame IDs inside each nine-shot interval.
+        data=audit(self.film,self.story_file)
+        for shot in data['withinShotTemporalReview']:
+            indices=shot['sampleFrameNumbers']
+            self.assertEqual(len(set(indices)),3)
+            self.assertTrue(all(0 <= i < data['fullDecodedFrames'] for i in indices))
+        self.assertNotEqual(data['nearStaticShotCount'],0)
+        self.assertFalse(data['creativeExceptionsAutomaticallyGranted'])
+
+    def test_temporal_sample_lattice_rejects_short_ambiguous_shots(self):
+        self.assertEqual(sample_frame_triplet(100,110),[102,104,106])
+        self.assertEqual(sample_frame_triplet(0,4),[0,1,2])
+        with self.assertRaisesRegex(CraftHold,'TOO_SHORT'):
+            sample_frame_triplet(0,2)
+        with self.assertRaisesRegex(CraftHold,'SAMPLE_COLLISION'):
+            sample_frame_triplet(0,3)
+
+    def test_temporal_change_does_not_erase_midpoint_repetition(self):
+        # Designed synthetic pixel evidence in the exact science ROI:
+        # early and late match, midpoint is transiently distinct. One
+        # midpoint-only sample would incorrectly call the shot varied.
+        from PIL import Image, ImageDraw
+        def frame(x):
+            im=Image.new('L',(THUMB_W,THUMB_H),15)
+            d=ImageDraw.Draw(im)
+            d.rectangle((x,65,x+22,101),fill=221)
+            return fingerprint(im.tobytes())
+        e, m, l=frame(10),frame(52),frame(10)
+        self.assertFalse(similar(e,m)['nearDuplicateReviewCandidate'])
+        self.assertTrue(similar(e,l)['nearDuplicateReviewCandidate'])
+        self.assertEqual(compare(e,l)[0],0)
+
+    def test_repeated_science_layout_not_masked_by_header_typography(self):
+        from PIL import Image, ImageDraw
+        def frame(header):
+            im=Image.new('L',(THUMB_W,THUMB_H),15)
+            d=ImageDraw.Draw(im)
+            d.rectangle((20,65,60,110),fill=220)
+            d.rectangle((10,10,60,25),fill=header)
+            return fingerprint(im.tobytes())
+        result=similar(frame(255),frame(0))
+        self.assertTrue(result['nearDuplicateReviewCandidate'])
+        self.assertEqual(result['scienceRoiMeanAbsoluteGrayDifference'],0)
 
     def test_swapped_encoded_movie_refused(self):
         stale=copy.deepcopy(self.story)
@@ -114,6 +167,9 @@ class ArchivedFilmOptIn(unittest.TestCase):
         self.assertEqual(data['fullDecodedFrames'],1031)
         self.assertEqual(len(data['comparisons']),8)
         self.assertEqual(data['nearDuplicateReviewCount'],2)
+        self.assertEqual(data['uniqueDecodedFramesSampled'],27)
+        self.assertEqual(data['nearStaticShotCount'],6)
+        self.assertEqual(data['nearDuplicateBoundaryCount'],1)
         self.assertEqual([(c['from'],c['to']) for c in data['comparisons'] if c['nearDuplicateReviewCandidate']],
                          [('sentence_1_part0','sentence_1_part1'),('sentence_5_part0','sentence_5_part1')])
         self.assertFalse(data['mayPublish'])
