@@ -291,15 +291,15 @@
 
 ### EM-007.01 — Enumerate every spoken assertion and qualifier, word by word
 
-**Required deliverable from 243-subtask register:** frozen claim ledger. **Unit of work:** one spoken or depicted claim. **Domain:** science. **Dependencies:** U → S → O → X → T → R. **State:** NOT_AUDITED.
+**Required deliverable from 243-subtask register:** frozen claim ledger. **Unit of work:** one spoken or depicted claim. **Domain:** science. **Dependencies:** U → S → O → X → T → R. **State:** DONE_INVENTORY_ONLY. [Exact receipt](../EM00701-ATOMIC-SPOKEN-INVENTORY-20261016.md); scientific acceptance stays OPEN.
 
-- [ ] **EM-007.01.U** — Register exactly **one spoken or depicted claim** for this objective; assign a stable unit key and recorded source location. **Receipt:** one unit inventory row.
-- [ ] **EM-007.01.S** — Pin the exact primary source URL/revision, exact claim ID, authoritative source image and their content hashes for that unit; mark missing or contradictory evidence **BLOCKED**. **Receipt:** one input/source hash manifest row.
-- [ ] **EM-007.01.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **frozen claim ledger**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
-- [ ] **EM-007.01.X** — For that **one spoken or depicted claim**, perform or independently replay this bounded operation: **Enumerate every spoken assertion and qualifier, word by word**. **Receipt:** a single output artifact corresponding to **frozen claim ledger**.
-- [ ] **EM-007.01.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
-- [ ] **EM-007.01.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
-- [ ] **EM-007.01.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
+- [x] **EM-007.01.U** — Register exactly **one spoken or depicted claim** for this objective; assign a stable unit key and recorded source location. **Receipt:** one unit inventory row.
+- [x] **EM-007.01.S** — Pin the exact primary source URL/revision, exact claim ID, authoritative source image and their content hashes for that unit; mark missing or contradictory evidence **BLOCKED**. **Receipt:** one input/source hash manifest row.
+- [x] **EM-007.01.O** — Write **one falsifiable acceptance assertion** before execution, grounded in required output: **frozen claim ledger**. **Receipt:** assertion ID and expected PASS/FAIL outcome.
+- [x] **EM-007.01.X** — For that **one spoken or depicted claim**, perform or independently replay this bounded operation: **Enumerate every spoken assertion and qualifier, word by word**. **Receipt:** a single output artifact corresponding to **frozen claim ledger**.
+- [x] **EM-007.01.T** — Check the actual output against the predeclared assertion using source-level attribution, graph/visual identity and explicit evidence-strength or uncertainty checks. **Receipt:** one measured PASS/FAIL/HOLD with test identity and actual input bytes.
+- [x] **EM-007.01.N** — Construct one independent negative case that violates this exact science/source/voice/provenance acceptance criterion; run the same validator and record an explicit HOLD/FAIL rather than a false PASS. **Receipt:** one evidence-linked rejected-case run with input hashes.
+- [x] **EM-007.01.R** — Attach exactly one immutable result record: unit key, source/output SHA(s), command/workflow, accepted evidence URL, limitations and disposition. **Receipt:** reviewable evidence ledger row; roll up only genuinely verified units.
 
 ### EM-007.02 — Extract text, implied effects, labels and diagrams from each exact scene
 
