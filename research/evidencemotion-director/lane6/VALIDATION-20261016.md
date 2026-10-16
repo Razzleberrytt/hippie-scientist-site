@@ -237,3 +237,55 @@ plus original WAV and sufficient caption/plan/source sidecars to independently
 reconcile a COMPLETE trusted pin. Owner may provide its shared path or actual
 GitHub artifact; do not rebuild or substitute a different film across lane ownership.
 New atomic credit 0, first excellent 0/1, varied streak 0/5, `mayPublish=false`.
+
+
+## Lane 6 access-only continuation — six-lane integration probe
+
+Starting lane6 head `3a285313bf5fb2841ec71cd91f98735982453e51`, main
+`ecc249f5f460ca38be8850375b8b4f4a4d98b448`. Access-only source compatibility
+verification; no source behavior changed, branch merged, ref updated, protected
+controller invoked or other lane-owned file edited. Acceptance: combine the exact
+six lane heads in temporary Git tree objects; check shared renderer edits preserve
+both caption and reflow contracts and intake remains compatible with latest phone
+auditor; retain any failures. No actual-film substitution or new normal WIP slot.
+
+Live path inventory found Lane 1 and Lane 3 both changing
+`narration_locked_treatments.py`. Sequential `git merge-tree --write-tree
+--name-only` in order lanes 1,2,3,4,5,6 returned exit 0 at each step. Unreferenced
+synthetic commits support the next probe only; no checkout/branch/main changed.
+Final combined tree `fb11bde189ecc1c69f0aa8e9ef880f3731a52b43`, research-directory
+archive SHA `11bd53fc8c89ef617910c370e92d381e53b21762c5d78e058bd682088ba1a5fa`.
+Exact per-lane heads/trees, runtime, log hashes and reproduction commands are in
+`receipts/six-lane-integration-probe.json`.
+
+Reused the available Python 3.12.14 visual runtime and pinned DejaVu font directory
+from the narration-audit worktree. Earlier memory guidance pointed at a different
+worktree; paths were checked live and the runtime actually used is recorded.
+Fresh actual temporary-snapshot tests:
+
+| Suite | Actual result |
+|---|---|
+| timed caption windows | **7/7 PASS** |
+| narration-locked treatments | **19/19 PASS**, no font/dependency skip |
+| phone auditor | **121 PASS + 2 setup ERRORS** out of 123; no skip or PASS waiver |
+| native-master auditor | **16/16 PASS** |
+| lane6 artifact intake against combined sources | **38/38 PASS** |
+
+Total **203 discovered / 201 PASS / 2 ERRORS / 0 skips**. Both errors are Windows
+`WinError 1314` in `ReportOutputAliasSafety` while creating directory symlinks,
+before auditor guard execution: `test_symlinked_output_dir_cannot_hide_generated_input_path`
+and `test_symlinked_output_directory_cannot_bypass_alias_guard`. These tests were
+not edited or excluded. This is not a fully green combined suite. No code failure
+was observed in the executed shared-renderer/intake checks, which is a bounded
+sampled-compatibility result, not full cross-lane certification. No lane2/5-specific
+test suites, workflows, full combined production build or real revised movie were
+validated by this probe.
+
+Only this record and the new receipt change. Doc-links/whitespace checks follow.
+No repeated production build for this explicitly access-only operation under
+AGENTS.md rule 10. Latest lane3 coordination still says revised combined film absent;
+original pending location question remains unanswered. Actual film/phone/science/
+voice/craft and release HOLD, no new 46/1590 credit, excellent-first 0/1 and varied
+streak 0/5 unchanged; `mayPublish=false`. Next: exact owner media delivery and
+Linux/symlink-capable execution of the two named tests before claiming all-green
+combined validation. Sole protected merge controller retains authority.
