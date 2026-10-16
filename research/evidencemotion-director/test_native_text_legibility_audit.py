@@ -101,6 +101,50 @@ class RealEncodedTextInkTests(unittest.TestCase):
         r=score_samples(self.plan,self.samples)
         self.assertFalse(r["criteria"][1]["passed"])
 
+    def test_word_preserving_mobile_line_wrap_is_not_falsely_rejected(self):
+        # The actual 36px one-line atom/bond overlay cannot simply grow to
+        # 42px inside the conservative 1080px-phone UI safe region.
+        shot=next(s for s in self.plan["shots"] if s["id"]=="sentence_3")
+        target=next(a for a in shot["annotations"]
+                    if a["text"]=="Dots mark atoms. Lines mark bonds.")
+        target["text"]="Dots mark atoms.\\nLines mark bonds."
+        r=score_samples(self.plan,self.samples)
+        self.assertEqual(r["testedCriticalVisibleLabels"],16)
+        self.assertEqual(r["additionalObjectivePoints"],2)
+        self.assertFalse(r["mayPublish"])
+
+    def test_full_computed_disclosure_can_wrap_without_losing_caveat(self):
+        shot=next(s for s in self.plan["shots"] if s["id"]=="sentence_4")
+        target=next(a for a in shot["annotations"]
+                    if a["text"]=="Computed 3D illustration • not filmed")
+        target["text"]="Computed 3D illustration\\n• not filmed"
+        _,boxes=get_boxes(self.plan)
+        self.assertIn(("sentence_4","Computed 3D illustration • not filmed"),boxes)
+
+    def test_wrapping_cannot_hide_missing_scientific_words_or_caveats(self):
+        shot=next(s for s in self.plan["shots"] if s["id"]=="sentence_3")
+        target=next(a for a in shot["annotations"]
+                    if a["text"]=="Dots mark atoms. Lines mark bonds.")
+        target["text"]="Dots mark bonds.\\nLines mark atoms."
+        with self.assertRaisesRegex(ValueError,"MISSING_OR_DUPLICATE_CRITICAL_LABEL"):
+            get_boxes(self.plan)
+        disclaimer=next(s for s in self.plan["shots"] if s["id"]=="sentence_4")
+        target2=next(a for a in disclaimer["annotations"]
+                     if a["text"]=="Computed 3D illustration • not filmed")
+        target2["text"]="Computed 3D illustration"
+        with self.assertRaisesRegex(ValueError,"MISSING_OR_DUPLICATE_CRITICAL_LABEL"):
+            get_boxes(self.plan)
+
+    def test_duplicate_wrapped_label_cannot_double_count_same_science(self):
+        shot=next(s for s in self.plan["shots"] if s["id"]=="sentence_3")
+        old=next(a for a in shot["annotations"]
+                 if a["text"]=="Dots mark atoms. Lines mark bonds.")
+        another=copy.deepcopy(old)
+        another["text"]="Dots mark atoms.\\nLines mark bonds."
+        shot["annotations"].append(another)
+        with self.assertRaisesRegex(ValueError,"MISSING_OR_DUPLICATE_CRITICAL_LABEL"):
+            get_boxes(self.plan)
+
     def test_missing_first_use_definition_rejected(self):
         shot=next(s for s in self.plan["shots"] if s["id"]=="source_hold")
         shot["annotations"]=[a for a in shot["annotations"]
