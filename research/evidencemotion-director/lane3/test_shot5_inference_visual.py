@@ -251,6 +251,54 @@ class ResearchProtocolTests(unittest.TestCase):
                     width=64,height=96,frames=3)
             self.assertFalse(dest.exists())
 
+    def test_real_ffmpeg_end_to_end_scene_render_stages_and_preserves_source(self):
+        """Physical 10-frame H264 source -> selected 4-frame H264 preview.
+
+        This substitutes only the unavailable 7-OH asset/chemistry rendering,
+        not the FFmpeg decoder, encoder, staged publication, or final readback.
+        It cannot certify scientific correctness or original-film visual craft.
+        """
+        if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
+            self.skipTest('Native FFmpeg required for complete physical stage test')
+        try:
+            from PIL import Image
+        except ImportError:
+            self.skipTest('Pinned Pillow required for complete physical stage test')
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            film=root/'source.mp4'
+            mol=root/'source.mol'
+            mol.write_bytes(b'synthetic non-science molecule fixture')
+            subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi',
+                '-i','testsrc2=s=64x96:r=30','-frames:v','10','-an',
+                '-c:v','libx264','-pix_fmt','yuv420p',str(film)],
+                check=True,capture_output=True)
+            before_sha=craft.digest(film)
+            molecule_sha=craft.digest(mol)
+            output=root/'new-scene.mp4'
+            # Patch the science-specific image treatment and fixed archived
+            # source identity ONLY; real FFmpeg executes the complete render.
+            with patch.multiple(craft, W=64,H=96,N=10,START=2,END=6,
+                                NEGATION=4,FRAME_SIZE=64*96*3,
+                                SOURCE_SHA=before_sha,MOL_SHA=molecule_sha):
+                with patch.object(craft,'pinned_diagram',return_value=None), \\
+                     patch.object(craft,'palette_background',return_value=None), \\
+                     patch.object(craft,'sample_treatment',
+                                  side_effect=lambda frame,graph,bg,n:frame.copy()):
+                    receipt=craft.render(film,mol,output)
+                self.assertTrue(craft.verify_native_silent_clip(
+                    output,width=64,height=96,fps=30,frames=4))
+            self.assertEqual(craft.digest(film),before_sha)
+            self.assertEqual(craft.digest(mol),molecule_sha)
+            self.assertEqual(craft.digest(output),receipt['silentSceneSha256'])
+            self.assertEqual((receipt['startFrame'],receipt['endFrameExclusive']),
+                             (2,6))
+            self.assertFalse(receipt['mayPublish'])
+            self.assertFalse(receipt['excellentCertified'])
+            self.assertEqual(sorted(p.name for p in root.iterdir()),
+                ['new-scene.mp4','source.mol','source.mp4'])
+            self.assertFalse(list(root.glob('.lane3-scene-*')))
+
     def test_transition_interpolation_is_monotonic_and_bounded(self):
         data=[craft.smoothstep(i/20) for i in range(21)]
         self.assertEqual(data[0],0.)
