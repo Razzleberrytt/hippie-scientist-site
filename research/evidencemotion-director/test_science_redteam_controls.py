@@ -196,6 +196,41 @@ class ScienceAdversarialMatrix(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"UNVERIFIED_BOTANICAL_7OH_THREE_SHOT"):
             self.source_join()
 
+    def test_em008_disclaimer_cannot_sanitize_detectable_or_measurable_content(self):
+        # A disclaimer cannot make an empirical product-content claim true.
+        for text in (
+            "Kratom 7-OH is detectable; botanical illustration, not proof",
+            "Kratom extract 7-OH is measurable; illustration, not proof",
+            "Kratom 7-OH is rich; illustration, not proof",
+            "Kratom 7-OH test result; illustration, not proof",
+            "7-OH detectable in capsules; botanical illustration, not proof",
+        ):
+            with self.subTest(text=text):
+                self.setUp()
+                self.visual["rows"][0]["emittedSourceAnnotations"]["science"]=[text]
+                with self.assertRaisesRegex(
+                        ValueError, "UNVERIFIED_BOTANICAL_7OH_CONTENT"):
+                    self.source_join()
+
+    def test_em008_four_shot_botanical_assertion_stays_unverified(self):
+        # Each shorter window misses at least one piece of the invented assay.
+        for idx, value in enumerate((
+            "Kratom leaf", "from the sample", "in the batch", "7-OH is detectable"
+        )):
+            self.visual["rows"][idx]["emittedSourceAnnotations"]["science"]=[value]
+        with self.assertRaisesRegex(
+                ValueError, "UNVERIFIED_BOTANICAL_7OH_FOUR_SHOT"):
+            self.source_join()
+
+    def test_em007_four_shot_receptor_assertion_fails_closed(self):
+        for idx, value in enumerate((
+            "7-OH activates", "the", "mu", "receptor"
+        )):
+            self.visual["rows"][idx]["emittedSourceAnnotations"]["science"]=[value]
+        with self.assertRaisesRegex(
+                ValueError, "UNSUPPORTED_TREATMENT_OR_EFFECT_CROSS_SHOT"):
+            self.source_join()
+
     def test_em008_three_shot_neutral_illustration_stays_hold_not_clinical(self):
         self.visual["rows"][0]["emittedSourceAnnotations"]["disclosure"]=[
             "Botanical illustration"]
