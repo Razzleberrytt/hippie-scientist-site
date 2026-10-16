@@ -179,6 +179,102 @@ def compare(first, second, unrelated):
 
 
 
+
+def audit_original_asr_digital_zero_onsets(source_raw, asr_raw):
+    """Negative-only source-WAV proof: ASR cannot start speech in 150ms of zeros.
+
+    Audible signal does NOT certify a phone, lexical identity or accurate boundary.
+    This never corrects or edits the original waveform or caption timings.
+    """
+    if not isinstance(source_raw, bytes) or not isinstance(asr_raw, bytes):
+        return hold("DIGITAL_ZERO_SOURCE_BYTES_REQUIRED")
+    if digest(source_raw) != SOURCE_WAV_REFERENCE:
+        return hold("DIGITAL_ZERO_ORIGINAL_WAV_SHA_CHANGED")
+    if digest(asr_raw) != POSE_ASR_RECEIPT_SHA:
+        return hold("DIGITAL_ZERO_ORIGINAL_ASR_SHA_CHANGED")
+    try:
+        asr = json.loads(asr_raw)
+        words = asr.get("recognizedWords")
+        if (asr.get("sourceWavSha256") != SOURCE_WAV_REFERENCE
+                or asr.get("mayPublish") is not False
+                or not isinstance(words, list) or len(words) != 70):
+            return hold("DIGITAL_ZERO_ASR_AUTHORITY_OR_INVENTORY_CHANGED")
+        with wave.open(io.BytesIO(source_raw), "rb") as audio:
+            if (audio.getnchannels(), audio.getsampwidth(),
+                    audio.getframerate(), audio.getcomptype(),
+                    audio.getnframes()) != (1, 2, 24000, "NONE", 824336):
+                return hold("DIGITAL_ZERO_MASTER_FORMAT_CHANGED")
+            pcm_raw = audio.readframes(audio.getnframes())
+        if len(pcm_raw) != 824336*2:
+            return hold("DIGITAL_ZERO_MASTER_SAMPLES_TRUNCATED")
+        pcm = np.frombuffer(pcm_raw, dtype="<i2")
+        failures = []
+        prev = -1.0
+        for i, row in enumerate(words):
+            if not isinstance(row, dict):
+                return hold("DIGITAL_ZERO_ASR_WORD_INVALID")
+            start, end, spelling = row.get("start"), row.get("end"), row.get("word")
+            if (not isinstance(start, (int, float)) or isinstance(start, bool)
+                    or not isinstance(end, (int, float)) or isinstance(end, bool)
+                    or not np.isfinite(start) or not np.isfinite(end)
+                    or not 0 <= prev <= start < end <= 824336/24000
+                    or not isinstance(spelling, str) or not spelling.strip()):
+                # Previous sentinel -1 is handled separately for the first row.
+                if not (i == 0 and isinstance(start, (int, float))
+                        and not isinstance(start, bool)
+                        and isinstance(end, (int, float)) and not isinstance(end, bool)
+                        and np.isfinite(start) and np.isfinite(end)
+                        and 0 <= start < end <= 824336/24000
+                        and isinstance(spelling, str) and spelling.strip()):
+                    return hold("DIGITAL_ZERO_ASR_BOUNDARY_OR_ORDER_INVALID")
+            prev = start
+            start_sample = round(start*24000)
+            if start_sample >= len(pcm):
+                return hold("DIGITAL_ZERO_ASR_START_SAMPLE_OUTSIDE_MASTER")
+            scan = pcm[start_sample:min(start_sample+24000, len(pcm))]
+            active = np.flatnonzero(scan)
+            gap_samples = int(active[0]) if len(active) else len(scan)
+            if gap_samples >= 3600:
+                failures.append({
+                    "wordIndex": i, "asrWordHypothesis": spelling,
+                    "claimedStartSeconds": start,
+                    "claimedStartSample": start_sample,
+                    "firstNonzeroSampleOrOneSecondLimit": start_sample + gap_samples,
+                    "provenDigitalZeroAfterOnsetMs": round(gap_samples/24, 3),
+                    "firstNonzeroFoundWithinOneSecond": bool(len(active)),
+                })
+        return {"schema": SCHEMA,
+                "status": ("RESEARCH_IMPOSSIBLE_ASR_ZERO_ONSET_HOLD" if failures
+                           else "RESEARCH_NO_ZERO_ONSET_CONTRADICTION_HOLD"),
+                "originalWavSha256": SOURCE_WAV_REFERENCE,
+                "originalAsrReceiptSha256": POSE_ASR_RECEIPT_SHA,
+                "sourceWavIndependentlyRehashed": True,
+                "wordCountScreened": len(words),
+                "zeroOnsetContradictionThresholdMs": 150,
+                "contradictionCount": len(failures),
+                "contradictions": failures,
+                "mayPublish": False, "pronunciationVerified": False,
+                "phonemeIdentityVerified": False, "wordTimingCalibrated": False,
+                "wordOnsetsApproved": False,
+                "caution": "Digital zeros reject only impossible ASR onset hypotheses; "
+                           "other boundaries and phones remain uncalibrated."}
+    except (ValueError, TypeError, OSError, wave.Error, EOFError):
+        return hold("DIGITAL_ZERO_ORIGINAL_ASR_PARSE_FAILED")
+
+
+def audit_asr_zero_onsets_files(source_path, asr_path):
+    """Read only the two exact original first-party assets. Never substitute."""
+    try:
+        paths = ((Path(source_path), 3000000), (Path(asr_path), 20000))
+        if any(p.is_symlink() or not p.is_file() or not 0 < p.stat().st_size <= max_size
+               for p, max_size in paths):
+            return hold("DIGITAL_ZERO_ORIGINAL_SOURCE_FILES_UNAVAILABLE")
+        return audit_original_asr_digital_zero_onsets(
+            *(p.read_bytes() for p, _ in paths))
+    except (OSError, TypeError, ValueError):
+        return hold("DIGITAL_ZERO_ORIGINAL_SOURCE_FILES_UNREADABLE")
+
+
 def audit_pose_poles_conflict(source_raw, alignment_raw, asr_raw):
     """Pin real pose/poles source disagreement; never select a phonetic winner."""
     base = {"mayPublish": False, "pronunciationVerified": False,
@@ -765,6 +861,8 @@ def main(argv=None):
     p.add_argument("--original-wav", help="Pinned original full 24 kHz source WAV")
     p.add_argument("--mfa-receipt", help="Pinned first-party original MFA run receipt")
     p.add_argument("--mfa-alignment", help="Pinned original MFA word alignment candidate")
+    p.add_argument("--asr-zero-onset-audit", action="store_true",
+                   help="Negative-only: detect original ASR starts inside digital zeros")
     p.add_argument("--pose-asr-receipt", help="Research-only frozen original ASR receipt, pose/poles contrast")
     p.add_argument("--reference-benchmark-zip",
                    help="Optional external source-WAV reference minimal-pair ZIP (research ONLY)")
@@ -773,7 +871,15 @@ def main(argv=None):
     p.add_argument("--pose-internal-contrasts", action="store_true",
                    help="Produce source-pinned same-narrator comparisons; NEVER a phoneme verdict")
     a=p.parse_args(argv)
-    if a.reference_benchmark_zip is not None:
+    if a.asr_zero_onset_audit:
+        if (not a.original_wav or not a.pose_asr_receipt
+                or any((a.mfa_alignment, a.mfa_receipt, a.source_archive,
+                        a.reference_target_wav, a.reference_benchmark_zip,
+                        a.pose_internal_contrasts))):
+            result=hold("DIGITAL_ZERO_MODE_REQUIRES_EXACT_WAV_AND_ASR_ONLY")
+        else:
+            result=audit_asr_zero_onsets_files(a.original_wav, a.pose_asr_receipt)
+    elif a.reference_benchmark_zip is not None:
         if any((a.original_wav, a.mfa_receipt, a.mfa_alignment,
                 a.pose_asr_receipt, a.source_archive, a.pose_internal_contrasts)):
             result=hold("REFERENCE_BENCHMARK_MUST_RUN_IN_EXCLUSIVE_NON_TARGET_MODE")
