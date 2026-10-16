@@ -47,6 +47,40 @@ class MobileAuditContract(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "INCOMPLETE_FILM_COVERAGE"):
             self.check(m)
 
+    def test_missing_native_frame_between_shots_is_rejected(self):
+        m = fixture()
+        m["shots"][0]["endSec"] = 1.0
+        m["shots"].append({
+            "id": "followup", "startSec": 1.04, "endSec": 3.0,
+            "assetKind": "editorial",
+            "annotations": [{"role": "caption", "text": "Follow-up explanation",
+                             "fontPx": 40, "boxPx": [100, 250, 700, 350]}],
+        })
+        # Prior 50-ms tolerance accepted a >1-frame gap at native 30 fps.
+        with self.assertRaisesRegex(ValueError, "NONCONTIGUOUS_SHOT_TIMELINE"):
+            self.check(m)
+
+    def test_short_tail_or_overrun_is_not_complete_movie_coverage(self):
+        for end, expected in [(2.92, "INCOMPLETE_FILM_COVERAGE"),
+                              (3.04, "NONCONTIGUOUS_SHOT_TIMELINE")]:
+            with self.subTest(endSec=end):
+                m = fixture()
+                m["shots"][0]["endSec"] = end
+                # Prior 100-ms tail slack or 50-ms overrun slack falsely passed.
+                with self.assertRaisesRegex(ValueError, expected):
+                    self.check(m)
+
+    def test_sub_millisecond_annotation_rounding_is_tolerated(self):
+        m = fixture()
+        m["shots"][0]["endSec"] = 1.0
+        m["shots"].append({
+            "id": "followup", "startSec": 1.0005, "endSec": 3.0,
+            "assetKind": "editorial",
+            "annotations": [{"role": "caption", "text": "Continues on time",
+                             "fontPx": 40, "boxPx": [100, 250, 700, 350]}],
+        })
+        self.assertEqual(self.check(m)["status"], "OVERLAY_PREFLIGHT_PASS_REVIEW_REQUIRED")
+
     def test_duplicate_and_unsafe_shot_id(self):
         m = fixture()
         m["shots"].append(copy.deepcopy(m["shots"][0]))
