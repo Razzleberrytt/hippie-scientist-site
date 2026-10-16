@@ -93,6 +93,33 @@ class MobileAuditContract(unittest.TestCase):
         self.assertEqual(result["framesAssignedToMultipleShots"], 0)
         self.assertFalse(result["mayPublish"])
 
+    def test_reordered_decoded_pts_cannot_prove_shot_ownership(self):
+        stamps = [Decimal("0"), Decimal("0.066667"), Decimal("0.033333")]
+        shots = [{"id": "one", "startSec": 0, "endSec": 0.1}]
+        with self.assertRaisesRegex(ValueError, "NONMONOTONIC_DECODED_FRAME_PTS:2"):
+            verify_decoded_shot_coverage(stamps, shots)
+
+    def test_duplicate_decoded_pts_cannot_prove_shot_ownership(self):
+        stamps = [Decimal("0"), Decimal("0.033333"), Decimal("0.033333")]
+        shots = [{"id": "one", "startSec": 0, "endSec": 0.1}]
+        with self.assertRaisesRegex(ValueError, "NONMONOTONIC_DECODED_FRAME_PTS:2"):
+            verify_decoded_shot_coverage(stamps, shots)
+
+    def test_nan_and_infinite_decoded_pts_cannot_prove_shot_ownership(self):
+        shots = [{"id": "one", "startSec": 0, "endSec": 0.1}]
+        for invalid in (Decimal("NaN"), Decimal("Infinity"), Decimal("-Infinity")):
+            with self.subTest(invalid=str(invalid)):
+                with self.assertRaisesRegex(ValueError, "INVALID_DECODED_FRAME_PTS:1"):
+                    verify_decoded_shot_coverage([Decimal(0), invalid], shots)
+
+    def test_monotonic_nonuniform_pts_only_prove_coverage_not_constant_fps(self):
+        stamps = [Decimal("0"), Decimal("0.030"), Decimal("0.066667")]
+        shots = [{"id": "one", "startSec": 0, "endSec": 0.1}]
+        result = verify_decoded_shot_coverage(stamps, shots)
+        self.assertTrue(result["decodedPTSStrictlyIncreasingAndFinite"])
+        self.assertFalse(result["mayPublish"])
+
+
     def test_last_presented_frame_must_belong_to_a_shot(self):
         stamps = [Decimal("0"), Decimal("0.033333")]
         shots = [{"id": "short", "startSec": 0.0, "endSec": 0.02}]
@@ -586,6 +613,7 @@ class EncodedFrameMembershipTests(unittest.TestCase):
         result = self.verify(ink, frames, shots)
         self.assertEqual(result["sampleFramesChecked"], 27)
         self.assertTrue(result["allClaimedFramePTSBelongToDeclaredShots"])
+        self.assertTrue(result["nineShotsThreePhasesSpanActualPresentationTime"])
         self.assertFalse(result["ocrRerun"])
         self.assertFalse(result["inkPixelsIndependentlyReplayed"])
         self.assertFalse(result["mayPublish"])
@@ -603,6 +631,62 @@ class EncodedFrameMembershipTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,
                                     "INK_DECODED_FRAME_BELONGS_TO_DIFFERENT_SHOT"):
             self.verify(ink, frames, shots)
+
+    def test_early_middle_late_must_cover_different_parts_of_shot(self):
+        ink, frames, shots = self.fixtures()
+        # 3 distinct increasing valid decoded indices; all still in first 15%.
+        for position, ix in enumerate((3, 5, 7)):
+            ink["actualEncodedSamples"][position]["index"] = ix
+        with self.assertRaisesRegex(ValueError,
+                                    "INK_EARLY_MIDDLE_LATE_NOT_SPREAD_ACROSS_SHOT"):
+            self.verify(ink, frames, shots)
+
+    def test_proximate_triplet_at_center_is_not_three_phase_persistence(self):
+        ink, frames, shots = self.fixtures()
+        for position, ix in enumerate((18, 21, 24)):
+            ink["actualEncodedSamples"][position]["index"] = ix
+        with self.assertRaisesRegex(ValueError,
+                                    "INK_EARLY_MIDDLE_LATE_NOT_SPREAD_ACROSS_SHOT"):
+            self.verify(ink, frames, shots)
+
+    def test_last_observation_too_early_cannot_prove_tail_persistence(self):
+        ink, frames, shots = self.fixtures()
+        ink["actualEncodedSamples"][2]["index"] = 26
+        with self.assertRaisesRegex(ValueError,
+                                    "INK_EARLY_MIDDLE_LATE_NOT_SPREAD_ACROSS_SHOT"):
+            self.verify(ink, frames, shots)
+
+    def test_middle_observation_at_beginning_cannot_prove_midpoint(self):
+        ink, frames, shots = self.fixtures()
+        ink["actualEncodedSamples"][1]["index"] = 8
+        with self.assertRaisesRegex(ValueError,
+                                    "INK_EARLY_MIDDLE_LATE_NOT_SPREAD_ACROSS_SHOT"):
+            self.verify(ink, frames, shots)
+
+    def test_middle_observation_at_end_cannot_prove_midpoint(self):
+        ink, frames, shots = self.fixtures()
+        ink["actualEncodedSamples"][1]["index"] = 42
+        ink["actualEncodedSamples"][2]["index"] = 46
+        with self.assertRaisesRegex(ValueError,
+                                    "INK_EARLY_MIDDLE_LATE_NOT_SPREAD_ACROSS_SHOT"):
+            self.verify(ink, frames, shots)
+
+    def test_insufficient_early_to_late_span_rejects_nominal_phases(self):
+        ink, frames, shots = self.fixtures()
+        for position, ix in enumerate((20, 25, 35)):
+            ink["actualEncodedSamples"][position]["index"] = ix
+        with self.assertRaisesRegex(ValueError,
+                                    "INK_EARLY_MIDDLE_LATE_NOT_SPREAD_ACROSS_SHOT"):
+            self.verify(ink, frames, shots)
+
+    def test_phase_spread_is_decoded_pts_based_not_ordinal_frame_indices(self):
+        ink, frames, shots = self.fixtures()
+        # A nominally late encoded index is physically presented early.
+        frames[42] = Decimal("0.25")
+        with self.assertRaisesRegex(ValueError,
+                                    "INK_EARLY_MIDDLE_LATE_NOT_SPREAD_ACROSS_SHOT"):
+            self.verify(ink, frames, shots)
+
 
     def test_early_middle_late_must_be_in_presented_order(self):
         ink, frames, shots = self.fixtures()
