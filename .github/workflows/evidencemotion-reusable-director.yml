@@ -5,6 +5,7 @@ on:
       - 'research/evidencemotion-director/reusable-director-program.mjs'
       - 'research/evidencemotion-director/reusable-director-program.test.mjs'
       - 'research/evidencemotion-director/previz-director.mjs'
+      - 'research/evidencemotion-director/lane3/**'
       - 'research/evidencemotion-director/preview-proof.mjs'
       - '.github/workflows/evidencemotion-reusable-director.yml'
 permissions:
@@ -29,3 +30,23 @@ jobs:
         run: |
           echo 'G1–G6 grammar extraction is source/voice-identical across more than one synthetic research topic.' >> "$GITHUB_STEP_SUMMARY"
           echo 'A source-locked director proposal is not an actual multimedia clip, first-rate visual originality, or a scientific claim approval.' >> "$GITHUB_STEP_SUMMARY"
+  source-locked-craft-splice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure offline H.264/AAC test inputs can be generated
+        run: |
+          command -v python3
+          command -v ffmpeg
+          command -v ffprobe
+      - name: Reproduce source-pinned research-contract tests and genuine encoded-film tamper rejection
+        run: |
+          python3 -m unittest discover \
+            -s research/evidencemotion-director/lane3 \
+            -p 'test_*.py' -v
+      - name: State narrow evidence and explicitly retain creative, clinical and release holds
+        if: always()
+        run: |
+          echo 'Lane 3 tests use an automatically generated synthetic H.264/AAC movie; this checks splice mechanics, external-manifest pin rules, decoded outside-scene preservation and tamper rejection.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'The large archived real 7-OH movie is NOT checked by this hosted workflow. No human comprehension, source science, genuine iPhone playback, craft excellence, or publish permission is established.' >> "$GITHUB_STEP_SUMMARY"
