@@ -83,6 +83,7 @@ class Tests(unittest.TestCase):
             writer.close()
             proc.wait(timeout=20)
             stderr = proc.stderr.read()
+            proc.stderr.close()
             self.assertEqual(proc.returncode, 0, stderr.decode("utf-8", "replace"))
             report = writer.receipt(exit_code=proc.returncode,
                                     film_sha=hashlib.sha256(movie.read_bytes()).hexdigest())
