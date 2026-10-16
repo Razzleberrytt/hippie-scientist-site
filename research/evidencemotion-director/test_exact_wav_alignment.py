@@ -217,6 +217,7 @@ from test_encoded_caption_transition_gate import EncodedCaptionBandTests  # noqa
 # Hosted synthetic negatives run; source clips are SKIPPED unless SHA-pinned and supplied.
 from test_repeated_term_acoustic_guard import (  # noqa: F401
     SpectralNegativeTests, ActualArchivedSourceTests, SyntheticMasterLinkTests,
+    OriginalMfaCliContractTests, OriginalMasterMfaTests,
 )
 
 if __name__ == '__main__':
