@@ -5,7 +5,7 @@ import unittest
 from autonomous_script_asr_research import WAV_SHA
 from scientific_uncertainty_ledger import (
     classify, NULL_STATUS, CONFLICT_STATUS, HUMAN_STATUS,
-    SOURCE_CONTEXT, SOURCE_IDS, KINDS,
+    SOURCE_CONTEXT, SOURCE_IDS, SOURCE_SCOPES, KINDS,
 )
 
 H = lambda letter: letter * 64
@@ -40,6 +40,9 @@ def fixture():
             "claimId":f"spoken-{i+1:03d}","claimType":KINDS[i],
             "verbatimFrozenTokens":f"test tokens {i}",
             "studyContextStatus":SOURCE_CONTEXT[i],
+            "supportedMeaningScope":SOURCE_SCOPES[i],
+            "wordIndices":list(range(i*2,i*2+2)),
+            "shotIds":["synthetic-shot-test"],
             "material":1<=i<=6,
             "sourceIds":list(SOURCE_IDS[i]),
             "humanStudyId":None,
@@ -91,6 +94,15 @@ class UncertaintyLedgerContracts(unittest.TestCase):
             self.inspect()
         self.join=fixture()
         self.join["claims"][6]["studyContextStatus"]="CLINICAL_TRIAL_CONFIRMED"
+        with self.assertRaisesRegex(ValueError,"CONFLATION"):
+            self.inspect()
+
+    def test_claim_scope_cannot_be_promoted_by_rehash_or_extra_key(self):
+        self.join["claims"][6]["supportedMeaningScope"]="CLINICAL_EFFECT_PROVEN"
+        with self.assertRaisesRegex(ValueError,"CONFLATION"):
+            self.inspect()
+        self.join=fixture()
+        self.join["claims"][6]["humanTrialShowsNoEffect"]=True
         with self.assertRaisesRegex(ValueError,"CONFLATION"):
             self.inspect()
 
