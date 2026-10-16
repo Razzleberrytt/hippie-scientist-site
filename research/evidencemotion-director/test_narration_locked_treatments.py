@@ -214,7 +214,7 @@ class NarrationTreatments(unittest.TestCase):
                            caption_mode='timed_research')
         # This left inset ends before the model stage begins, so its pixels
         # must stay still and trace back to the actual approved RDKit drawing.
-        left=(88,540,299,783)
+        left=(88,480,415,640)
         self.assertIsNone(ImageChops.difference(before.crop(left),
                                                 after.crop(left)).getbbox())
         no_source=dict(assets)
