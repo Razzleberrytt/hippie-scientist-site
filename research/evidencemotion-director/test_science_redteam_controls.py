@@ -98,6 +98,37 @@ class ScienceAdversarialMatrix(unittest.TestCase):
                     ValueError, "EXACT_FROZEN_73_WORD"):
                 self.source_join()
 
+    def test_em008_botanical_measured_content_and_absence_controls_hold(self):
+        # Rehashed phone/OCR-like metadata cannot turn chemistry into a
+        # measured amount, positive detection, or proved absence in a plant.
+        for text in (
+            "Kratom leaf contains measured 7-OH",
+            "Leaf 7-OH: 4.2 mg/g",
+            "Kratom powder has no 7-hydroxymitragynine content",
+            "This plant contains 7OH; illustration, not proof of 7-OH content",
+        ):
+            with self.subTest(text=text):
+                self.setUp()
+                self.visual["rows"][0]["emittedSourceAnnotations"]["science"] = [text]
+                with self.assertRaisesRegex(ValueError, "UNVERIFIED_BOTANICAL_7OH_CONTENT"):
+                    self.source_join()
+
+    def test_em008_split_biological_labels_cannot_evade_content_guard(self):
+        # Two separately innocent-looking captions form one false visual
+        # inference when read together in the same encoded shot.
+        self.visual["rows"][0]["emittedSourceAnnotations"]["science"] = [
+            "Kratom leaf", "7-OH", "Confirmed 3.5 mg per gram"]
+        with self.assertRaisesRegex(ValueError, "UNVERIFIED_BOTANICAL_7OH_CONTENT"):
+            self.source_join()
+
+    def test_em008_clear_disclosure_and_chemical_id_remain_research_only(self):
+        self.visual["rows"][0]["emittedSourceAnnotations"]["disclosure"] = [
+            "Botanical illustration; not proof of 7-OH plant content."]
+        report = self.source_join()
+        self.assertFalse(report["mayPublish"])
+        self.assertFalse(report["clinicalSourceClaimsApproved"])
+        self.assertFalse(report["claims"][0]["sourceLinksSupportClinicalEffect"])
+
     def test_swapped_source_join_study_identity_fails_even_with_fresh_sha(self):
         original = self.source_join()
         original["claims"][6]["humanStudyId"] = "PMID:00000000"

@@ -80,6 +80,39 @@ VISUAL_HASH_FIELDS=(
 FRAME_HASH_FIELDS=("actualDecodedFrameSha256","actualDecodedPixelOcrSha256")
 ANNOTATION_ROLES=("hook","science","source","disclosure","caption")
 
+# EM-008.02: guard measured-content claims when botanical imagery is discussed.
+# A PubChem chemical structure cannot establish an assay result for a leaf,
+# plant, kratom product, extract or powder. This checks claimed annotations
+# (including split labels in the same scene), not the underlying video pixels.
+BOTANICAL_CONTEXT = re.compile(
+    r"\b(?:plant|plants|leaf|leaves|foliage|botanical|botanicals|kratom|"
+    r"mitragyna\s+speciosa|herb|herbs|powder|extract|tea)\b", re.I)
+SEVEN_OH_REFERENCE = re.compile(
+    r"(?<!\w)(?:7\s*[-–]?\s*OH|7\s*[-–]?\s*hydroxymitragynine)(?!\w)", re.I)
+BOTANICAL_CONTENT_ASSERTION = re.compile(
+    r"\b(?:contains?|content|measur(?:ed|ement|able)|detect(?:ed|ion|able)|"
+    r"quantif(?:ied|ication)|tested|test\s+result|confirmed|verified|"
+    r"concentration|percent|present|absent|none|zero|rich|mg|µg|ppm)\b"
+    r"|\d+(?:\.\d+)?\s*(?:%|mg|µg|ug|ppm)\b", re.I)
+POSITIVE_CONTENT_LANGUAGE = re.compile(
+    r"\b(?:contains?|detected|measured|quantified|tested|confirmed|verified|"
+    r"concentration|percent|present|absent|none|zero|rich|mg|µg|ppm)\b"
+    r"|\d+(?:\.\d+)?\s*(?:%|mg|µg|ug|ppm)\b", re.I)
+
+def asserts_unverified_botanical_7oh_content(text):
+    """Flag plant/product 7-OH quantity, presence, absence or assay assertions.
+
+    An explicit 'illustration; not proof' disclosure is allowed only when
+    no content assertion accompanies it. Does not certify actual pixel glyphs,
+    plant chemistry, audience inference, or an absent-7-OH trial result.
+    """
+    if not (BOTANICAL_CONTEXT.search(text) and SEVEN_OH_REFERENCE.search(text)):
+        return False
+    if ("illustration" in text.casefold() and "not proof" in text.casefold()
+            and not POSITIVE_CONTENT_LANGUAGE.search(text)):
+        return False
+    return bool(BOTANICAL_CONTENT_ASSERTION.search(text))
+
 def is_sha256(value):
     return isinstance(value,str) and re.fullmatch(r"[a-f0-9]{64}",value) is not None
 
@@ -163,9 +196,14 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
             hold("SOURCE_IDENTITY_CARD_OUTSIDE_AUTHORIZED_SCENE")
         # A freshly rehashed, contaminated EM-007.02 JSON is not proof of a
         # science-safe film; inspect its actual inventory content again.
-        if EFFECT_CLAIMS.search(" ".join(t for role in ANNOTATION_ROLES
-                                       for t in roles[role])):
+        written_ink = " ".join(t for role in ANNOTATION_ROLES
+                               for t in roles[role])
+        if EFFECT_CLAIMS.search(written_ink):
             hold("UNSUPPORTED_TREATMENT_OR_EFFECT_TEXT:"+shot["shot"])
+        # Even separately split annotation labels must not present imagined
+        # botanical 7-OH concentrations, positive assays or absent content.
+        if asserts_unverified_botanical_7oh_content(written_ink):
+            hold("UNVERIFIED_BOTANICAL_7OH_CONTENT:"+shot["shot"])
     # EM-007.06: this exact nine-shot film must preserve its visible science
     # limitations. A freshly rehashed visual inventory is not enough if a
     # later picture edit drops "computed" or "not filmed" while source CIDs
