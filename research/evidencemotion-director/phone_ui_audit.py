@@ -950,16 +950,17 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
     # are contiguous and its annotation boxes are otherwise valid.
     stamps = frame_timestamps(movie)
     coverage = verify_decoded_shot_coverage(stamps, plan["shots"])
-    # ffprobe frame timestamps and sampled PNGs cannot certify full bitstream
-    # integrity. Decode the entire physical video and optional AAC stream.
-    # This must pass BEFORE publishing any decoded screenshot/review receipt.
-    full_decode = verify_complete_media_decode(movie)
     # Receipt strings alone are not frame provenance. Bind each claimed
     # early/middle/late film index to this movie's actually decoded PTS.
     linked_frame_membership = (
         verify_claimed_ink_frames_belong_to_decoded_shots(ink_data, stamps, plan["shots"])
         if ink_data is not None else None
     )
+    # Reject invalid shot/frame ownership first. A valid timestamp inventory
+    # alone is not an error-free compressed bitstream, so additionally decode
+    # every physical frame and (when present) the AAC track before creating
+    # screenshots or a success-shaped review receipt.
+    full_decode = verify_complete_media_decode(movie)
     frame_receipts = []
     # Emit all decoded artifacts into an isolated staging folder, not into the
     # previous run's public review directory. Publish receipt *last*.
