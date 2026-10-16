@@ -263,7 +263,7 @@ def audit_inserted_scene_frames(source,scene,output,manifest,*,decoder=_decoded_
     }
 
 
-def verify_result(source,output,manifest):
+def verify_result(source,output,manifest,*,scene=None):
     v,a=media_info(output)
     if (v.get('codec_name')!='h264' or v.get('width')!=manifest['width'] or
         v.get('height')!=manifest['height'] or v.get('r_frame_rate')!='30/1' or
@@ -274,14 +274,17 @@ def verify_result(source,output,manifest):
     original,updated=aac_sha(source),aac_sha(output)
     if original!=updated:raise CraftHold('ORIGINAL_AAC_BYTES_CHANGED')
     visual=audit_outside_scene_frames(source,output,manifest)
+    inserted=(audit_inserted_scene_frames(source,scene,output,manifest)
+              if scene is not None else None)
     return {'schema':SCHEMA,'status':'RESEARCH_ONLY_AUDIO_AND_OUTSIDE_SCENE_VERIFIED',
       'sourceFilmSha256':digest(source),'sceneSha256':manifest['craftSceneSha256'],
       'outputFilmSha256':digest(output),'aacAdtsSha256':original,
       'frames':manifest['frames'],'startFrame':manifest['startFrame'],
       'endFrameExclusive':manifest['endFrameExclusive'],'outsideSceneVisualAudit':visual,
+      'insertedSceneVisualAudit':inserted,
       'scienceApproved':False,'craftApproved':False,
       'phonePlaybackApproved':False,'mayPublish':False,
-      'limits':['AUDIO_AND_OUTSIDE_SCENE_QA_ONLY: not independent source-science or mobile QA',
+      'limits':['SAMPLED_SCENE_INSERTION_AND_OUTSIDE_QA_ONLY: not native-pixel identity or source-science/mobile QA',
                 'No actual spoken-onset pixel/word audit; manifest times are not proof',
                 'No external craft reference shelf or viewer-comprehension authority',
                 'Video outside inserted scene was re-encoded, not byte-identical']}
@@ -347,11 +350,9 @@ def splice(source,scene,output,manifest):
            '-i',str(scene),'-filter_complex',graph,'-map','[out]','-map','0:a:0',
            '-c:v','libx264','-preset','veryfast','-crf','18','-pix_fmt','yuv420p',
            '-c:a','copy','-movflags','+faststart',str(temp)])
-        receipt=verify_result(source,temp,manifest)
-        # The outside-edit negative screen alone cannot tell whether the
-        # independently supplied replacement scene made it into the movie.
-        receipt['insertedSceneVisualAudit']=audit_inserted_scene_frames(
-            source,scene,temp,manifest)
+        # Source/scene/output are independently decoded; a legitimate
+        # outside-frame pass is insufficient if the scene was omitted.
+        receipt=verify_result(source,temp,manifest,scene=scene)
         # Recheck both exact external inputs AFTER encoding and verification.
         if (digest(source)!=manifest['sourceFilmSha256'] or
                 digest(scene)!=manifest['craftSceneSha256']):
