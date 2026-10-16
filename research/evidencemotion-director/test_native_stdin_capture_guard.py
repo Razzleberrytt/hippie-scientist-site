@@ -116,7 +116,7 @@ class Tests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             for tool in ("ffmpeg", "ffprobe"):
                 shadow = Path(temp) / tool
-                shadow.write_text("#!/bin/sh\\nexit 42\\n")
+                shadow.write_text("#!/bin/sh\nexit 42\n")
                 shadow.chmod(0o755)
             with patch.dict(os.environ, {"PATH": temp + os.pathsep + os.environ.get("PATH", "")}):
                 for tool in ("ffmpeg", "ffprobe"):
