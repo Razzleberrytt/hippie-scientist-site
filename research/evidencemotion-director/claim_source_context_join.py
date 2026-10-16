@@ -133,11 +133,21 @@ def digest(path):
             h.update(c)
     return h.hexdigest()
 
-def loaded(path):
+def loaded_with_digest(path):
+    """Parse and SHA-pin the *same* immutable byte snapshot.
+
+    EM-007.03 previously reopened sources after parsing to compute separate
+    hashes. If a source file changed between those reads, the emitted hash
+    could attest bytes different from the claims actually inspected.
+    """
     f=Path(path)
     if not f.is_file() or f.is_symlink():
         hold("REGULAR_IMMUTABLE_INPUT_REQUIRED")
-    return strict_research_json(f.read_bytes())
+    raw=f.read_bytes()
+    return strict_research_json(raw),hashlib.sha256(raw).hexdigest()
+
+def loaded(path):
+    return loaded_with_digest(path)[0]
 
 def join(spoken,visual,*,spoken_sha,visual_sha):
     if (spoken.get("schema")!="ths-frozen-spoken-claim-ledger-v1"
@@ -320,9 +330,9 @@ def main():
         p.add_argument("--"+arg,required=True)
     a=p.parse_args()
     output_path=prepare_research_output(a.out,(a.spoken,a.visual))
-    s=loaded(a.spoken)
-    v=loaded(a.visual)
-    data=join(s,v,spoken_sha=digest(a.spoken),visual_sha=digest(a.visual))
+    s,spoken_sha=loaded_with_digest(a.spoken)
+    v,visual_sha=loaded_with_digest(a.visual)
+    data=join(s,v,spoken_sha=spoken_sha,visual_sha=visual_sha)
     emit_research_output(output_path,data)
     print(json.dumps({"status":"SOURCE_CONTEXT_JOIN_RESEARCH_ONLY",
                       "claims":len(data["claims"]),

@@ -248,4 +248,56 @@ class ExactClaimContextTests(unittest.TestCase):
             self.assertEqual(result["materialClaimCount"],6)
             self.assertFalse(result["mayPublish"])
 
+    def test_source_hashes_bound_to_the_exact_bytes_parsed_once(self):
+        # A source may change between two old-style open() calls; the new
+        # CLI must never hash a different payload from the one it validated.
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            spoken,visual,out=root/"spoken.json",root/"visual.json",root/"report.json"
+            spoken.write_text(json.dumps(self.spoken),encoding="utf8")
+            visual.write_text(json.dumps(self.visual),encoding="utf8")
+            frozen_spoken=spoken.read_bytes()
+            frozen_visual=visual.read_bytes()
+            original_read=Path.read_bytes
+            reads={spoken:0,visual:0}
+
+            def swap_after_read(path):
+                raw=original_read(path)
+                if path in reads:
+                    reads[path]+=1
+                    if path==spoken and reads[path]==1:
+                        path.write_text('{"tamperedAfterSnapshot":true}',encoding="utf8")
+                    if path==visual and reads[path]==1:
+                        path.write_text('{"tamperedAfterSnapshot":true}',encoding="utf8")
+                return raw
+
+            with patch.object(Path,"read_bytes",swap_after_read),patch.object(sys,"argv",[
+                "claim_source_context_join","--spoken",str(spoken),
+                "--visual",str(visual),"--out",str(out),
+            ]):
+                join_main()
+            self.assertEqual(reads,{spoken:1,visual:1})
+            receipt=json.loads(out.read_text(encoding="utf8"))
+            self.assertEqual(receipt["spokenLedgerSha256"],
+                             hashlib.sha256(frozen_spoken).hexdigest())
+            self.assertEqual(receipt["visualInventorySha256"],
+                             hashlib.sha256(frozen_visual).hexdigest())
+            self.assertFalse(receipt["mayPublish"])
+
+    def test_no_second_digest_pass_needed_for_science_source_join(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            spoken,visual,out=root/"spoken.json",root/"visual.json",root/"receipt.json"
+            spoken.write_text(json.dumps(self.spoken),encoding="utf8")
+            visual.write_text(json.dumps(self.visual),encoding="utf8")
+            with patch("claim_source_context_join.digest",
+                       side_effect=AssertionError("unbound second source-read")),patch.object(sys,"argv",[
+                "claim_source_context_join","--spoken",str(spoken),
+                "--visual",str(visual),"--out",str(out),
+            ]):
+                join_main()
+            record=json.loads(out.read_text(encoding="utf8"))
+            self.assertEqual(record["materialClaimsWithTypedSourceContext"],6)
+            self.assertFalse(record["mayPublish"])
+
 if __name__=="__main__":unittest.main()
