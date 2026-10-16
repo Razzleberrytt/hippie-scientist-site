@@ -8,9 +8,11 @@ All unresolved independent-review, human-outcome, craft and release gates HOLD.
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 
-from scientific_uncertainty_ledger import classify as classify_uncertainty
+from scientific_uncertainty_ledger import (
+    classify as classify_uncertainty, SOURCE_IDS, SOURCE_SCOPES)
 from claim_strength_source_limits import evaluate as evaluate_strength
 
 SCHEMA = "ths-em00708-process-science-gate-v1"
@@ -149,15 +151,60 @@ def verify_attestation(report):
         or record["domainSeparatedDigest"] != hashlib.sha256(
             DOMAIN + canonical(payload)).hexdigest()):
         hold("SOURCE_OR_HOLD_RESULT_TAMPERED")
-    if (payload.get("scienceGate") != GATE or
-        payload.get("mayPublish") is not False or
-        payload.get("approvalToMerge") is not False or
-        payload.get("independentScientificReviewPassed") is not False or
-        len(payload.get("claims", [])) != 8 or
-        any(c.get("scientificAcceptance") != GATE or
-            c.get("qualifiedIndependentScienceVerdict") != "NOT_RECEIVED"
-            or not c.get("unresolvedHoldReasons") for c in payload["claims"])):
+    required = {
+        "schema","task","sourceJoinSha256","uncertaintyReportSha256",
+        "claimStrengthReportSha256","filmSha256","sourceWavSha256",
+        "claims","claimsReconciled","materialClaimsReconciled",
+        "independentReviewerReceiptPresent","independentScientificReviewPassed",
+        "nullAndConflictingHumanEvidenceExternallyAssessed",
+        "voiceArtHandsetAndAudienceGatesPassed","scienceGate","mayPublish",
+        "approvalToMerge","status",
+    }
+    sha_fields = ("sourceJoinSha256","uncertaintyReportSha256",
+                  "claimStrengthReportSha256","filmSha256","sourceWavSha256")
+    if (set(payload) != required or payload.get("schema") != SCHEMA
+        or payload.get("task") != "EM-007.08"
+        or any(not isinstance(payload.get(k),str) or
+               re.fullmatch(r"[a-f0-9]{64}",payload[k]) is None
+               for k in sha_fields)
+        or payload.get("claimsReconciled") != 8
+        or payload.get("materialClaimsReconciled") != 6
+        or payload.get("status") != "RESEARCH_ONLY_PROCESS_ATTESTED_OPEN_HOLDS"
+        or payload.get("scienceGate") != GATE
+        or any(payload.get(k) is not False for k in (
+            "independentReviewerReceiptPresent",
+            "independentScientificReviewPassed",
+            "nullAndConflictingHumanEvidenceExternallyAssessed",
+            "voiceArtHandsetAndAudienceGatesPassed",
+            "mayPublish","approvalToMerge"))):
         hold("SCIENCE_GATE_CANNOT_SELF_AUTHORIZE_RELEASE")
+    claims=payload.get("claims")
+    if not isinstance(claims,list) or len(claims)!=8:
+        hold("EXACT_EIGHT_CLAIMS_REQUIRED")
+    expected_fields={
+        "claimId","material","sourceIds","sourceScope",
+        "machineProvenanceReconciled","qualifiedIndependentScienceVerdict",
+        "scientificAcceptance","unresolvedHoldReasons",
+        "clinicalOrAudienceValidityApproved",
+    }
+    for i,claim in enumerate(claims):
+        material = 1 <= i <= 6
+        reasons = ["NO_INDEPENDENT_QUALIFIED_SCIENTIFIC_REVIEW_FOR_EXACT_ASSET"]
+        if material:
+            reasons += ["HUMAN_POPULATION_OUTCOME_DOSE_TIMING_NOT_IN_SOURCE_PACK",
+                        "NO_EXTERNAL_CLINICAL_LITERATURE_ASSESSMENT",
+                        "BIOLOGICAL_MECHANISM_NOT_PROVEN_BY_COMPUTED_MEDIA"]
+        if (not isinstance(claim,dict) or set(claim)!=expected_fields
+            or claim.get("claimId")!=EXPECTED[i]
+            or claim.get("material") is not material
+            or claim.get("sourceIds")!=list(SOURCE_IDS[i])
+            or claim.get("sourceScope")!=SOURCE_SCOPES[i]
+            or claim.get("machineProvenanceReconciled") is not True
+            or claim.get("qualifiedIndependentScienceVerdict")!="NOT_RECEIVED"
+            or claim.get("scientificAcceptance")!=GATE
+            or claim.get("unresolvedHoldReasons")!=reasons
+            or claim.get("clinicalOrAudienceValidityApproved") is not False):
+            hold("CLAIM_ID_SCOPE_OR_HOLDS_REHASHED:" + EXPECTED[i])
     return True
 
 def main():
