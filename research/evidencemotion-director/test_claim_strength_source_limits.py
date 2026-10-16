@@ -57,6 +57,8 @@ class ClaimStrengthSourceLimitsTests(unittest.TestCase):
         self.assertFalse(result["externalPopulationOutcomeDoseTimingSearchPerformed"])
         self.assertFalse(result["mayPublish"])
 
+    # EM-007.04 now rejects corrupted nonclinical source packs before EM-007.05.
+    # Either specific fail-closed stage is correct; an accepted fake is not.
     def test_fake_human_dose_or_follow_up_in_chemical_records_is_blocked(self):
         for field,value in (("doseMg",7),("followUpDays",14),
                             ("population","human volunteers"),
@@ -65,7 +67,7 @@ class ClaimStrengthSourceLimitsTests(unittest.TestCase):
             self.setUp()
             self.join["sources"]["pubchem:44301524"][field]=value
             with self.subTest(field=field), self.assertRaisesRegex(
-                    ValueError,"INJECTED_HUMAN_STUDY_METADATA"):
+                    ValueError,"(?:INJECTED_HUMAN_STUDY_METADATA|NONCLINICAL_SOURCE_SCHEMA_OR_MEANING_DRIFT)"):
                 self.inspect()
 
     def test_nonclinical_source_record_schema_refuses_unknown_efficacy_fields(self):
@@ -78,12 +80,12 @@ class ClaimStrengthSourceLimitsTests(unittest.TestCase):
             self.setUp()
             self.join["sources"][source][key] = value
             with self.subTest(source=source, key=key), self.assertRaisesRegex(
-                    ValueError, "NONCLINICAL_SOURCE_SCHEMA_DRIFT|INJECTED_HUMAN_STUDY_METADATA"):
+                    ValueError, "(?:NONCLINICAL_SOURCE_SCHEMA_DRIFT|INJECTED_HUMAN_STUDY_METADATA|NONCLINICAL_SOURCE_SCHEMA_OR_MEANING_DRIFT)"):
                 self.inspect()
         self.setUp()
         # Lost scope metadata must not be mistaken for a source-backed PASS.
         self.join["sources"]["pubchem:3034396"].pop("permittedMeaning")
-        with self.assertRaisesRegex(ValueError, "NONCLINICAL_SOURCE_SCHEMA_DRIFT"):
+        with self.assertRaisesRegex(ValueError, "(?:NONCLINICAL_SOURCE_SCHEMA_DRIFT|NONCLINICAL_SOURCE_SCHEMA_OR_MEANING_DRIFT)"):
             self.inspect()
 
     def test_rehashed_source_record_cannot_inflate_the_meaning_of_evidence(self):
@@ -100,16 +102,16 @@ class ClaimStrengthSourceLimitsTests(unittest.TestCase):
             self.setUp()
             self.join["sources"][sid]["permittedMeaning"]=promoted
             with self.subTest(sid=sid), self.assertRaisesRegex(
-                    ValueError,"SOURCE_MEANING_EXCEEDS_NONCLINICAL_SCOPE"):
+                    ValueError,"(?:SOURCE_MEANING_EXCEEDS_NONCLINICAL_SCOPE|NONCLINICAL_SOURCE_SCHEMA_OR_MEANING_DRIFT)"):
                 self.inspect()
         self.setUp()
         self.join["sources"]["media:render"]["permittedMeaning"]=""
-        with self.assertRaisesRegex(ValueError,"SOURCE_MEANING_EXCEEDS_NONCLINICAL_SCOPE"):
+        with self.assertRaisesRegex(ValueError,"(?:SOURCE_MEANING_EXCEEDS_NONCLINICAL_SCOPE|NONCLINICAL_SOURCE_SCHEMA_OR_MEANING_DRIFT)"):
             self.inspect()
 
     def test_fake_clinical_fields_in_internal_film_are_blocked(self):
         self.join["sources"]["media:render"]["sampleSize"]=31
-        with self.assertRaisesRegex(ValueError,"INJECTED_HUMAN_STUDY_METADATA"):
+        with self.assertRaisesRegex(ValueError,"(?:INJECTED_HUMAN_STUDY_METADATA|NONCLINICAL_SOURCE_SCHEMA_OR_MEANING_DRIFT)"):
             self.inspect()
 
     def test_modified_uncertainty_receipt_cannot_self_certify_a_human_study(self):
