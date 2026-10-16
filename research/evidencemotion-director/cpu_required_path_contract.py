@@ -65,7 +65,7 @@ def inspect(workflow):
                            if line.lstrip() and not line.lstrip().startswith("#"))
     disallowed = {
         "NVIDIA_OR_CUDA": r"(?i)(?:nvidia|cuda|nvenc|nvdec|nvcuda|cupy|cudnn)",
-        "GPU_OR_TPU_EXECUTOR": r"(?i)(?:\bgpu\b|\btpu\b|rocm|opencl|torch\.mps)",
+        "GPU_OR_TPU_EXECUTOR": r"(?i)(?:\bgpu\b|\btpu\b|rocm|opencl|\bmps\b)",
     }
     for key, pattern in disallowed.items():
         if re.search(pattern, executable):
