@@ -11,13 +11,13 @@ class AtomicProofLedgerTests(unittest.TestCase):
 
     def test_exact_named_research_cards_and_honest_707_inherited_estimate(self):
         result=validate(self.good,LEDGER.parent)
-        self.assertEqual(result["evidenceGroupCount"],6)
-        self.assertEqual(result["individuallyAuditedMachineResearchOnly"],40)
+        self.assertEqual(result["evidenceGroupCount"],7)
+        self.assertEqual(result["individuallyAuditedMachineResearchOnly"],47)
         self.assertEqual(result["inheritedProvisionalCoverageNotIndividuallyAudited"],707)
-        self.assertEqual(result["provisionalCoverage"],747)
+        self.assertEqual(result["provisionalCoverage"],754)
         self.assertEqual(result["totalAtomicTemplates"],1590)
-        self.assertAlmostEqual(result["provisionalCoveragePercent"],46.9811,places=4)
-        self.assertEqual(len(result["individualResearchCardIDs"]),40)
+        self.assertAlmostEqual(result["provisionalCoveragePercent"],47.4214,places=4)
+        self.assertEqual(len(result["individualResearchCardIDs"]),47)
         self.assertFalse(result["mayPublish"])
         self.assertFalse(result["finalCreativeScientificViewerOrDeviceApproved"])
 
