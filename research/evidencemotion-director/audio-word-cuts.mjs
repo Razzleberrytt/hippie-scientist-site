@@ -37,6 +37,8 @@ export function proposeAudioLockedCuts({approvedWavSha256,actualWavSha256,
     (i>0&&b.startWordIndex<=beats[i-1].endWordIndex)||
     b.endWordIndex>=wordAlignment?.length))errors.push('SHOT_WORD_ANCHORS_INVALID');
  if(errors.length)return {status:'HOLD',errors,shots:[],finalRenderEligible:false};
+ // Shot identifiers are downstream timeline keys; collisions can misroute visual cuts.
+ if(new Set(beats.map(b=>b.id)).size!==beats.length)errors.push('SHOT_IDENTIFIERS_NOT_UNIQUE');
  if(beats[0].role!=='hook'||beats[1].role!=='science_site_reveal'||
     beats[2].role!=='honesty_disclosure')errors.push('SCIENTIFIC_NARRATIVE_ORDER_REQUIRED');
  if(beats[0].startWordIndex!==0||beats.at(-1).endWordIndex!==wordAlignment.length-1||
