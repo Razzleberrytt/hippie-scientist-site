@@ -717,6 +717,130 @@ class PhysicalGlyphOCRReceiptJoinTests(unittest.TestCase):
                     self.assertEqual(source.read_bytes(), original)
 
 
+class RepairedSameShotOCRContractTests(unittest.TestCase):
+    """A new exact-film source contract, without rewriting archived v1 proof."""
+
+    def fixtures(self):
+        proof, ink, plan = PhysicalGlyphOCRReceiptJoinTests().fixtures()
+        proof["schema"] = "ths-lane4-actual-decoded-ocr-research-v2"
+        scene = next(s for s in plan["shots"]
+                     if s["id"] == "sentence_5_part1")
+        scene["annotations"] = [
+            {"role": "science", "text": "STRUCTURE ≠ HUMAN EXPERIENCE"},
+        ]
+        for row in proof["observations"]:
+            if row["scene"] == "sentence_5_part1":
+                row["expected"] = "STRUCTURE ≠ HUMAN EXPERIENCE"
+                row["recognized"] = "STRUCTURE ≠ HUMAN EXPERIENCE"
+                row["expectedTokens"] = ocr_words(row["expected"])
+                row["recognizedTokens"] = ocr_words(row["recognized"])
+        return proof, ink, plan
+
+    def verify(self, proof, ink, plan):
+        return validate_exact_film_ocr_join(
+            proof, ink, plan, film_sha="a" * 64, plan_sha="b" * 64)
+
+    def test_v2_exact_source_words_then_muted_screen_remain_research_only(self):
+        proof, ink, plan = self.fixtures()
+        receipt = self.verify(proof, ink, plan)
+        self.assertEqual(receipt["ocrContractSchema"],
+                         "ths-lane4-actual-decoded-ocr-research-v2")
+        self.assertEqual(receipt["observationsClaimed"], 48)
+        self.assertFalse(receipt["ocrRerunByThisJoin"])
+        self.assertFalse(receipt["mayPublish"])
+        screen = mute_story_negative_screen(plan, proof)
+        self.assertEqual(screen["verdict"],
+                         "MECHANICAL_WORD_SCREEN_ONLY_REVIEW_REQUIRED")
+        self.assertTrue(screen["subjectObjectAndOperatorOCRInSameCropAllThreeTimes"])
+        self.assertFalse(screen["inequalitySymbolDecodedAndIndependentlyVerified"])
+        self.assertFalse(screen["mayPublish"])
+
+    def test_v2_allows_realistic_line_wrap_but_not_missing_operator(self):
+        proof, ink, plan = self.fixtures()
+        scene = next(s for s in plan["shots"] if s["id"] == "sentence_5_part1")
+        scene["annotations"][0]["text"] = "STRUCTURE\n≠ HUMAN EXPERIENCE"
+        for row in proof["observations"]:
+            if row["scene"] == "sentence_5_part1":
+                row["recognized"] = "STRUCTURE\n≠ HUMAN EXPERIENCE"
+                row["recognizedTokens"] = ocr_words(row["recognized"])
+        self.assertFalse(self.verify(proof, ink, plan)["mayPublish"])
+
+    def test_v2_rejects_missing_operator_in_middle_decoded_crop(self):
+        proof, ink, plan = self.fixtures()
+        row = next(r for r in proof["observations"]
+                   if r["scene"] == "sentence_5_part1" and r["phase"] == "middle")
+        row["recognized"] = "STRUCTURE HUMAN EXPERIENCE"
+        # Lexical word check alone is not sufficient to prove negation.
+        row["recognizedTokens"] = ocr_words(row["recognized"])
+        with self.assertRaisesRegex(ValueError,
+                                    "GLYPH_OCR_NEGATION_OPERATOR_NOT_RECOVERED"):
+            self.verify(proof, ink, plan)
+
+    def test_v2_rejects_metadata_only_or_split_science_annotations(self):
+        proof, ink, plan = self.fixtures()
+        scene = next(s for s in plan["shots"] if s["id"] == "sentence_5_part1")
+        scene["annotations"] = [
+            {"role": "science", "text": "STRUCTURE"},
+            {"role": "science", "text": "≠ HUMAN EXPERIENCE"},
+        ]
+        with self.assertRaisesRegex(ValueError,
+                                    "REPAIRED_NEGATION_SINGLE_SCIENCE_ANNOTATION_REQUIRED"):
+            self.verify(proof, ink, plan)
+        scene["annotations"] = [{"role": "science", "text": "HUMAN EXPERIENCE"}]
+        with self.assertRaisesRegex(ValueError,
+                                    "REPAIRED_NEGATION_SINGLE_SCIENCE_ANNOTATION_REQUIRED"):
+            self.verify(proof, ink, plan)
+
+    def test_v2_cannot_be_passed_as_old_original_ocr_contract(self):
+        proof, ink, plan = self.fixtures()
+        proof["schema"] = "ths-lane4-actual-decoded-ocr-research-v1"
+        with self.assertRaisesRegex(ValueError,
+                                    "GLYPH_OCR_RECORDED_SOURCE_WORDS_CHANGED"):
+            self.verify(proof, ink, plan)
+
+    def test_v2_does_not_let_old_split_source_pretend_to_be_repaired(self):
+        proof, ink, plan = self.fixtures()
+        scene = next(s for s in plan["shots"] if s["id"] == "sentence_5_part1")
+        scene["annotations"][0]["text"] = "HUMAN EXPERIENCE"
+        with self.assertRaisesRegex(ValueError,
+                                    "REPAIRED_NEGATION_SINGLE_SCIENCE_ANNOTATION_REQUIRED"):
+            self.verify(proof, ink, plan)
+
+    def test_v2_still_rejects_changed_pubchem_identity_and_computed_caveat(self):
+        proof, ink, plan = self.fixtures()
+        bad = next(r for r in proof["observations"]
+                   if r["expected"] == "7-OH • CID 44301524")
+        bad["recognized"] = "7-OH CID 3034396"
+        bad["recognizedTokens"] = ocr_words(bad["recognized"])
+        with self.assertRaisesRegex(ValueError, "GLYPH_OCR_WORDS_NOT_RECOVERED"):
+            self.verify(proof, ink, plan)
+        proof, ink, plan = self.fixtures()
+        bad = next(r for r in proof["observations"]
+                   if "not filmed" in r["expected"])
+        bad["recognized"] = "Computed 3D illustration"
+        bad["recognizedTokens"] = ocr_words(bad["recognized"])
+        with self.assertRaisesRegex(ValueError, "GLYPH_OCR_WORDS_NOT_RECOVERED"):
+            self.verify(proof, ink, plan)
+
+    def test_v2_wrong_film_and_fake_approval_still_hold(self):
+        proof, ink, plan = self.fixtures()
+        proof["movieSha256"] = "c" * 64
+        with self.assertRaisesRegex(ValueError, "GLYPH_OCR_DIFFERENT_FILM_OR_PLAN"):
+            self.verify(proof, ink, plan)
+        proof, ink, plan = self.fixtures()
+        proof["viewerComprehensionApproved"] = True
+        with self.assertRaisesRegex(ValueError, "GLYPH_OCR_FORGED_APPROVAL"):
+            self.verify(proof, ink, plan)
+
+    def test_original_v1_still_joins_with_unchanged_split_film_corpus(self):
+        proof, ink, plan = PhysicalGlyphOCRReceiptJoinTests().fixtures()
+        receipt = self.verify(proof, ink, plan)
+        self.assertEqual(receipt["ocrContractSchema"],
+                         "ths-lane4-actual-decoded-ocr-research-v1")
+        self.assertFalse(receipt["mayPublish"])
+        self.assertEqual(mute_story_negative_screen(plan, proof)["verdict"], "HOLD")
+
+
 class MutedStoryNegativeScreenTests(unittest.TestCase):
     def build(self):
         proof, ink, plan = PhysicalGlyphOCRReceiptJoinTests().fixtures()
