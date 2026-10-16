@@ -438,16 +438,34 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
         visible_words=visible_words[active['firstCue']:active['afterLastCue']] if active else []
         if [cue['text'] for cue in visible_words]!=now:
             raise ValueError('TREATMENT_HOLD:TIMED_CAPTION_SOURCE_DRIFT')
-    caption = wrapped(' '.join(w['text'] for w in visible_words),f(42,True),770*scale)
+    # Scene 2's encoded H264 OCR could not recover the important scientific
+    # word "hydroxyl" at the 42px research caption size. Correct the *pixels*:
+    # give this original-word-cued teaching line a slightly larger native font
+    # and an intentional dark reading stage, without rewriting, restretching,
+    # pre-revealing, or granting approval from author annotations.
+    clarity_stage = (not light and idx==1 and caption_mode=='timed_research')
+    caption_font = f(48 if clarity_stage else 42,True)
+    caption = wrapped(' '.join(w['text'] for w in visible_words),
+                      caption_font,770*scale)
     if len(caption)>5:
         raise ValueError('TREATMENT_HOLD:CAPTION_TOO_DENSE')
+    caption_step=56 if clarity_stage else 50
+    if clarity_stage and visible_words:
+        # Preserve the platform-safe caption field and keep the legibility
+        # treatment entirely below the source drawing and its disclosures.
+        lower=1310+caption_step*(len(caption)-1)+62
+        draw.rounded_rectangle((*pos(59,1291),*pos(855,lower)),
+                               radius=round(16*scale),
+                               fill=(13,35,44,255))
     word_index=0
     for n,line in enumerate(caption):
-        x,y=pos(72,1310+50*n)
+        x,y=pos(72,1310+caption_step*n)
         for word in line.split():
             cue=visible_words[word_index]
-            text((x,y),word,font=f(42,True),fill=accent if cue['startSec']<=t<cue['endSec'] else fg,role='caption')
-            x += f(42,True).getlength(word+' ')
+            text((x,y),word,font=caption_font,
+                 fill=accent if cue['startSec']<=t<cue['endSec'] else fg,
+                 role='caption')
+            x += caption_font.getlength(word+' ')
             word_index+=1
     draw.line((pos(72,1640),pos(840,1640)),fill=accent,width=max(1,round(scale*2)))
     return image.convert('RGB')
