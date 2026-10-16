@@ -13,9 +13,13 @@ class ScienceStageMotionChecks(unittest.TestCase):
         x0,y0,x1,y1=REGION
         height,width=y1-y0,x1-x0
         count=round(height*width*changed_percent/100)
+        # The science ROI is a strided view. reshape(-1) would create a
+        # detached COPY, accidentally fabricating a no-motion fixture.
+        # Fill a contiguous 2-D tile then assign it back to actual frames.
+        tile=np.zeros((height,width),dtype=np.uint8)
+        tile.flat[:count]=200
         for i in range(1,12,2):
-            area=frames[i,y0:y1,x0:x1].reshape(-1)
-            area[:count]=200
+            frames[i,y0:y1,x0:x1]=tile
         return frames
 
     def test_modest_progressive_science_camera_passes(self):
