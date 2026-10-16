@@ -130,8 +130,7 @@ def asserts_unverified_botanical_7oh_content(text):
     if BOTANICAL_ABSENCE_ASSERTION.search(text):
         return True
     if ("illustration" in text.casefold() and "not proof" in text.casefold()
-            and not POSITIVE_CONTENT_LANGUAGE.search(text)
-            and not BOTANICAL_CONTENT_ASSERTION.search(text)):
+            and not POSITIVE_CONTENT_LANGUAGE.search(text)):
         return False
     return bool(BOTANICAL_CONTENT_ASSERTION.search(text))
 
