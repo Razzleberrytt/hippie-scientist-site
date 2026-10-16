@@ -56,6 +56,44 @@ class MobileAuditContract(unittest.TestCase):
                     "visualCraftApproved", "nativeSourceResolutionVerified"):
             self.assertFalse(receipt[key])
 
+    def test_phone_width_type_risk_flags_declared_small_text(self):
+        m = fixture()
+        report = self.check(m)["projectedMobileTypeReview"]
+        self.assertEqual(report["referenceScreenWidthPx"], 375)
+        self.assertEqual(report["reviewThresholdPx"], 14)
+        self.assertEqual(report["smallDeclaredTextCount"], 1)
+        self.assertEqual(report["smallDeclaredText"][0]["projectedAt375Px"], 11.11)
+        self.assertEqual(report["smallDeclaredText"][0]["role"], "science")
+        self.assertEqual(report["status"], "SMALL_DECLARED_TEXT_REQUIRES_REVIEW")
+        self.assertFalse(report["actualRenderedGlyphsMeasured"])
+        self.assertFalse(report["realHandsetReadabilityVerified"])
+        self.assertFalse(report["mayPublish"])
+
+    def test_phone_type_review_catches_source_and_disclosure_together(self):
+        m = fixture()
+        m["shots"][0]["annotations"][1]["fontPx"] = 48
+        m["shots"][0]["annotations"].extend([
+            {"role": "source", "text": "PMID 12345678", "fontPx": 30,
+             "boxPx": [100, 450, 700, 500]},
+            {"role": "disclosure", "text": "Illustration; not proof",
+             "fontPx": 36, "boxPx": [100, 850, 700, 950]},
+        ])
+        report = self.check(m)["projectedMobileTypeReview"]
+        self.assertEqual(report["annotatedTextElements"], 4)
+        self.assertEqual(report["smallDeclaredTextCount"], 2)
+        self.assertEqual({r["role"] for r in report["smallDeclaredText"]},
+                         {"source", "disclosure"})
+        self.assertTrue(all(r["projectedAt375Px"] < 14
+                            for r in report["smallDeclaredText"]))
+
+    def test_phone_type_review_without_warnings_is_still_not_handset_approval(self):
+        m = fixture()
+        m["shots"][0]["annotations"][1]["fontPx"] = 48
+        report = self.check(m)["projectedMobileTypeReview"]
+        self.assertEqual(report["smallDeclaredTextCount"], 0)
+        self.assertFalse(report["realHandsetReadabilityVerified"])
+        self.assertFalse(report["mayPublish"])
+
     def test_bad_hash(self):
         with self.assertRaisesRegex(ValueError, "EXACT_VIDEO_SHA_MISMATCH"):
             self.check(fixture(), sha="b" * 64)
