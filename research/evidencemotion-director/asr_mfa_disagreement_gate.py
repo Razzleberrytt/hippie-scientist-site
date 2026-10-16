@@ -241,7 +241,11 @@ def main():
     except (OSError, ValueError, UnicodeError, TypeError):
         result = hold('INPUT_FILE_UNREADABLE')
     print(json.dumps(result, indent=2, allow_nan=False))
-    return 2 if result['status'] == 'HOLD' else 0
+    # A review-only result is NOT a passing automated caption-alignment check.
+    # Distinguish malformed/stale inputs (2) from a valid but disputed take (3).
+    # Even exit 0 confirms research-model agreement ONLY, never publish clearance.
+    return {'HOLD': 2, 'RESEARCH_REVIEW_HOLD': 3,
+            'RESEARCH_MODEL_CONSENSUS_ONLY': 0}.get(result['status'], 2)
 
 
 if __name__ == '__main__':
