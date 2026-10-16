@@ -97,6 +97,7 @@ def background(light):
     return Image.fromarray(np.uint8(rgb),'RGB').convert('RGBA')
 
 def model(mol,t,*,camera="baseline"):
+    if camera not in ("baseline","depth_study"):raise SceneHold("UNKNOWN_CINEMATIC_CAMERA")
     import numpy as np
     from PIL import Image,ImageDraw
     from rdkit import Chem
@@ -144,9 +145,9 @@ def model(mol,t,*,camera="baseline"):
     return img
 
 def render_frame(frame_no,mol,diagram,*,treatment="baseline"):
-    from PIL import Image,ImageDraw
     if not START_FRAME<=frame_no<END_FRAME:raise SceneHold('FRAME_OUTSIDE_SCENE')
     if treatment not in ('baseline','depth_study'):raise SceneHold('UNKNOWN_CINEMATIC_TREATMENT')
+    from PIL import Image,ImageDraw
     depth=(treatment=='depth_study')
     t=frame_no/FPS;phase=state(t);light=phase=='SOURCE'
     out=background(light).copy();d=ImageDraw.Draw(out)
