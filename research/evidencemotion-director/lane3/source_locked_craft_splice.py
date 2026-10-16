@@ -317,7 +317,7 @@ def publish_verified_pair_no_clobber(stage_film,stage_receipt,output,receipt_pat
             if trusted_receipt.get(field) is not False:
                 raise CraftHold('STAGED_RESEARCH_RELEASE_HOLD_CHANGED')
         try:
-            expected_bytes=(json.dumps(trusted_receipt,indent=2,allow_nan=False)+'\\n').encode('utf-8')
+            expected_bytes=(json.dumps(trusted_receipt,indent=2,allow_nan=False)+'\n').encode('utf-8')
             receipt_bytes=stage_receipt.read_bytes()
         except (OSError,ValueError,TypeError) as exc:
             raise CraftHold('UNTRUSTED_STAGED_RECEIPT') from exc
