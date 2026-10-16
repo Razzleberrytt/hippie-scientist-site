@@ -192,7 +192,8 @@ class CraftSourceLockedContractTests(unittest.TestCase):
         called.append(staged)
         staged.write_bytes(b'RESEARCH FILM')
         return ''
-      manifest={'startFrame':1,'endFrameExclusive':2}
+      manifest={'startFrame':1,'endFrameExclusive':2,
+                'sourceFilmSha256':S.digest(source),'craftSceneSha256':S.digest(scene)}
       verdict={'mayPublish':False,'status':'MOCK_CODEC_CONTRACT_ONLY'}
       with patch.object(S,'preflight',return_value=True), \
            patch.object(S,'run',side_effect=fake_ffmpeg), \
@@ -236,5 +237,123 @@ class CraftSourceLockedContractTests(unittest.TestCase):
       self.assertEqual(receipt.read_bytes(),b'PRIOR RECEIPT')
       self.assertEqual(source.read_bytes(),b'SOURCE')
       self.assertEqual(list(folder.glob('.lane3-splice-*')),[])
+
+
+  def test_no_clobber_pair_preserves_prior_movie_receipt_and_symlinks(self):
+    with tempfile.TemporaryDirectory() as td:
+      folder=Path(td)
+      stage=folder/'stage.mp4';stage.write_bytes(b'VERIFIED VIDEO')
+      staged_receipt=folder/'stage.receipt.json'
+      staged_receipt.write_text(json.dumps({'mayPublish':False})+'\\n')
+      movie=folder/'movie.mp4';sidecar=folder/'movie.receipt.json'
+      movie.write_bytes(b'OWNER MOVIE');sidecar.write_bytes(b'OWNER RECEIPT')
+      with self.assertRaisesRegex(S.CraftHold,'FRESH_OUTPUT_AND_RECEIPT_REQUIRED'):
+        S.publish_verified_pair_no_clobber(stage,staged_receipt,movie,sidecar)
+      self.assertEqual(movie.read_bytes(),b'OWNER MOVIE')
+      self.assertEqual(sidecar.read_bytes(),b'OWNER RECEIPT')
+      movie.unlink();sidecar.unlink()
+      linked=folder/'alias.mp4';linked.symlink_to(stage)
+      with self.assertRaisesRegex(S.CraftHold,'FRESH_OUTPUT_AND_RECEIPT_REQUIRED'):
+        S.publish_verified_pair_no_clobber(stage,staged_receipt,linked,sidecar)
+      self.assertTrue(linked.is_symlink())
+      linked.unlink()
+      self.assertTrue(S.publish_verified_pair_no_clobber(stage,staged_receipt,movie,sidecar))
+      self.assertEqual(movie.read_bytes(),b'VERIFIED VIDEO')
+      self.assertEqual(sidecar.read_bytes(),staged_receipt.read_bytes())
+      self.assertEqual((movie.stat().st_dev,movie.stat().st_ino),
+                       (stage.stat().st_dev,stage.stat().st_ino))
+      self.assertFalse(json.loads(sidecar.read_text())['mayPublish'])
+
+  def test_receipt_collision_after_movie_link_rolls_back_without_clobber(self):
+    with tempfile.TemporaryDirectory() as td:
+      folder=Path(td)
+      stage=folder/'stage.mp4';stage.write_bytes(b'VERIFIED VIDEO')
+      staged_receipt=folder/'stage.receipt.json';staged_receipt.write_bytes(b'RECEIPT')
+      movie=folder/'movie.mp4';sidecar=folder/'movie.receipt.json'
+      real_link=os.link
+      def conflict_after_first_link(src,dst):
+        if Path(dst)==sidecar:
+          sidecar.write_bytes(b'RACED OWNER RECEIPT')
+        return real_link(src,dst)
+      with patch.object(S.os,'link',side_effect=conflict_after_first_link):
+        with self.assertRaisesRegex(S.CraftHold,'APPEARED_AFTER_PREFLIGHT'):
+          S.publish_verified_pair_no_clobber(stage,staged_receipt,movie,sidecar)
+      self.assertFalse(movie.exists())
+      self.assertEqual(sidecar.read_bytes(),b'RACED OWNER RECEIPT')
+      self.assertEqual(stage.read_bytes(),b'VERIFIED VIDEO')
+
+  def test_movie_collision_during_link_never_replaces_new_owner_file(self):
+    with tempfile.TemporaryDirectory() as td:
+      folder=Path(td)
+      stage=folder/'stage.mp4';stage.write_bytes(b'VERIFIED VIDEO')
+      staged_receipt=folder/'stage.receipt.json';staged_receipt.write_bytes(b'RECEIPT')
+      movie=folder/'movie.mp4';sidecar=folder/'movie.receipt.json'
+      real_link=os.link
+      def inject_owner_movie(src,dst):
+        if Path(dst)==movie:
+          movie.write_bytes(b'CONCURRENT OWNER MOVIE')
+        return real_link(src,dst)
+      with patch.object(S.os,'link',side_effect=inject_owner_movie):
+        with self.assertRaisesRegex(S.CraftHold,'APPEARED_AFTER_PREFLIGHT'):
+          S.publish_verified_pair_no_clobber(stage,staged_receipt,movie,sidecar)
+      self.assertEqual(movie.read_bytes(),b'CONCURRENT OWNER MOVIE')
+      self.assertFalse(sidecar.exists())
+
+  def test_changed_output_during_receipt_collision_is_not_deleted(self):
+    with tempfile.TemporaryDirectory() as td:
+      folder=Path(td)
+      stage=folder/'stage.mp4';stage.write_bytes(b'VERIFIED VIDEO')
+      staged_receipt=folder/'stage.receipt.json';staged_receipt.write_bytes(b'RECEIPT')
+      movie=folder/'movie.mp4';sidecar=folder/'movie.receipt.json'
+      real_link=os.link
+      def race_change(src,dst):
+        if Path(dst)==sidecar:
+          movie.write_bytes(b'OWNER EDITED MOVIE')
+          sidecar.write_bytes(b'CONCURRENT RECEIPT')
+        return real_link(src,dst)
+      with patch.object(S.os,'link',side_effect=race_change):
+        with self.assertRaisesRegex(S.CraftHold,'PARTIAL_FILM_CHANGED_CANNOT_ROLL_BACK'):
+          S.publish_verified_pair_no_clobber(stage,staged_receipt,movie,sidecar)
+      self.assertEqual(movie.read_bytes(),b'OWNER EDITED MOVIE')
+      self.assertEqual(sidecar.read_bytes(),b'CONCURRENT RECEIPT')
+
+  def test_splice_rejects_existing_output_and_sidecar_before_encoder(self):
+    with tempfile.TemporaryDirectory() as td:
+      folder=Path(td)
+      src=folder/'source.mp4';src.write_bytes(b'SOURCE')
+      scene=folder/'scene.mp4';scene.write_bytes(b'SCENE')
+      dst=folder/'out.mp4';receipt=dst.with_suffix('.receipt.json')
+      for occupied in (dst,receipt):
+        occupied.write_bytes(b'DO NOT OVERWRITE')
+        with patch.object(S,'preflight',return_value=True),patch.object(S,'run') as encode:
+          with self.assertRaisesRegex(S.CraftHold,'FRESH_OUTPUT_AND_RECEIPT_REQUIRED'):
+            S.splice(src,scene,dst,{'startFrame':1,'endFrameExclusive':2})
+          encode.assert_not_called()
+        self.assertEqual(occupied.read_bytes(),b'DO NOT OVERWRITE')
+        occupied.unlink()
+      self.assertEqual(src.read_bytes(),b'SOURCE')
+      self.assertEqual(scene.read_bytes(),b'SCENE')
+
+  def test_source_mutation_during_splice_holds_before_final_handoff(self):
+    with tempfile.TemporaryDirectory() as td:
+      folder=Path(td)
+      src=folder/'source.mp4';src.write_bytes(b'ORIGINAL SOURCE')
+      scene=folder/'scene.mp4';scene.write_bytes(b'SCIENCE SCENE')
+      dst=folder/'output.mp4'
+      manifest={'startFrame':1,'endFrameExclusive':2,
+        'sourceFilmSha256':S.digest(src),'craftSceneSha256':S.digest(scene)}
+      verdict={'status':'RESEARCH_TEST_ONLY','mayPublish':False}
+      def render_then_mutate(argv,**_):
+        Path(argv[-1]).write_bytes(b'ENCODED CANDIDATE')
+        src.write_bytes(b'MUTATED SOURCE')
+        return ''
+      with patch.object(S,'preflight',return_value=True), \\
+           patch.object(S,'run',side_effect=render_then_mutate), \\
+           patch.object(S,'verify_result',return_value=verdict):
+        with self.assertRaisesRegex(S.CraftHold,'PINNED_SOURCE_CHANGED_DURING_SPLICE'):
+          S.splice(src,scene,dst,manifest)
+      self.assertFalse(dst.exists())
+      self.assertFalse(dst.with_suffix('.receipt.json').exists())
+      self.assertFalse(list(folder.glob('.lane3-splice-*')))
 
 if __name__=='__main__':unittest.main()
