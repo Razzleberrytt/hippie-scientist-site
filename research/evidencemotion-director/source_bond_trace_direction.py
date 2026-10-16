@@ -143,6 +143,15 @@ def draw_existing_bond_connections(image, asset, *, seconds, scene,
         r=max(5,round(11*scale))
         draw.ellipse((x-r,y-r,x+r,y+r),outline=(255,193,100,225),
                      width=max(2,round(3*scale)))
-        # Small, stationary dots at actual verified bond midpoints; no
-        # drifting animated "atoms" or synthetic force/reaction arrows.
+        # The *newly reached real atom* becomes the only teal atom marker.
+        # Generic scatter across unrelated atoms obscured the lesson; this
+        # keeps a visible connected path with at most six cyan endpoints.
+        px,py=mapped_atom_point(points[b],scene_progress,image.size)
+        atom_radius=max(4,round(7*scale))
+        draw.ellipse((px-atom_radius,py-atom_radius,
+                      px+atom_radius,py+atom_radius),
+                     outline=(96,216,199,215),
+                     width=max(2,round(2*scale)))
+        # Source-bound stationary bond and atom cues; never moving or
+        # synthesizing atoms, forming new bonds or effect arrows.
     return count
