@@ -2,7 +2,8 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-10-15 (proposed scored R #6810 admission; effective only after protected merge)
+**Updated:** 2026-10-16 (retire verified merged D #6685; no new admission)
+**Current control reconciliation — 2026-10-16:** D #6685 was implemented by PR #6706, merged 2026-10-12 as `9ab23731835362718a42c6b0258f2ff778da4343`. Its hosted validation/tests/data, generator release suite and production build/output/SEO checks passed. On current main, `node scripts/ci/validate-ai-citation-protected-assets.mjs` passes with 25 protected source owners and zero unresolved URLs. Retire this completed owner; normal implementation WIP is 2/3 (A #6769 and R #6810), with D free. Older admission/count prose below is historical. This control-only correction grants no new admission, changes no repository behavior and claims no traffic, citation or revenue improvement.
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
 **Verified completion 2026-10-12:** D #6683 / PR #6684 merged as `f5d2e98762786b558e64d968db158c3ba38e18e7`; Cloudflare deployment run `38251809776` verified exact production receipt. The two additive hub links shipped, with no scientific content/canonical change. Historical admission score **108.0** is not measured ROI. Normal WIP **0/3**, D/R/A free; external citation, traffic and revenue impact remain Unknown.
@@ -106,7 +107,7 @@ Live GitHub #6259 is CLOSED and PR #6260 MERGED as `bba24cd536f7f75e95f86c0a8ec9
 
 Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0/3. Candidate #6149 is OPEN and `ready-next` with direct code reproduction and scored 4×4×3×5×1/1 = **240.0**. This separate control-plane PR admits only one R owner and does not implement consent logic or activate GA4/Ahrefs transport; exact-head checks, privacy and release proof remain required.
 
-## Active / in review — implementation WIP 3/3
+## Active / in review — implementation WIP 2/3
 
 **2026-10-15 exact-base R #6810 scored admission:** Owner-authorized continuation proposes admitting only the smallest read-only Publisher PUBLISHED job → existing Flywheel receipt integration in [#6810](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6810), grounded by merged Phase 0 audit. Existing score **45.0 = 3×4×3×5×0.75÷3**, estimated priority only; D #6685 and A #6769 remain owned independently. This control change itself is **not** a working bridge: a separate implementation PR with negative fixtures and exact-head CI/build must pass the sole controller, and a real published/metric observation remains Unknown pending real canonical receipts. No new publisher, future experiment winner automation, medical-claim rewriting, private data ingestion, EvidenceMotion checklist credit or sacrifice of the 46-item craft priority. (This R admission becomes effective only on protected merge.)
 
@@ -141,7 +142,6 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6685 | Activate durable protected identities for citation-leading pages | Active — admitted | P0 | 120.0 | 2026-10-12 |
 | A | #6769 | Semantic Opportunity Compiler: source-bound cross-system review pilot | Active — admitted (research-only, review requests only; no publication) | P1 | 75.0 | 2026-10-13 |
 | R | #6810 | Read-only Publisher-verified published-video → R8.10 Flywheel integration | Active — narrowly admitted; no provider API, uploader or claims | P2 | 45.0 | 2026-10-15 |
 
