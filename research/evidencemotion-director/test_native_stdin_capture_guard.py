@@ -108,6 +108,28 @@ class ZeroSink(ShortSink):
 
 
 class Tests(unittest.TestCase):
+    def test_original_media_executables_ignore_path_shadow(self):
+        """The file hashed as encoder must actually be the binary executed."""
+        import os
+        from unittest.mock import patch
+        from original_native_stdin_replay import original_media_executable
+        with tempfile.TemporaryDirectory() as temp:
+            for tool in ("ffmpeg", "ffprobe"):
+                shadow = Path(temp) / tool
+                shadow.write_text("#!/bin/sh\\nexit 42\\n")
+                shadow.chmod(0o755)
+            with patch.dict(os.environ, {"PATH": temp + os.pathsep + os.environ.get("PATH", "")}):
+                for tool in ("ffmpeg", "ffprobe"):
+                    self.assertEqual(original_media_executable(tool), "/usr/bin/" + tool)
+                    probe = subprocess.run([original_media_executable(tool), "-version"],
+                                           capture_output=True, text=True, timeout=10)
+                    self.assertEqual(probe.returncode, 0, probe.stderr[-500:])
+                    self.assertIn(tool + " version", probe.stdout.lower())
+            with self.assertRaisesRegex(ValueError, "UNRECOGNIZED_MEDIA_EXECUTABLE"):
+                original_media_executable("../ffmpeg")
+            with self.assertRaisesRegex(ValueError, "UNRECOGNIZED_MEDIA_EXECUTABLE"):
+                original_media_executable("ffmpeg -y")
+
     def test_x264_cpu_asm_0_physically_confirmed_on_small_ffmpeg_fixture(self):
         from original_native_stdin_replay import validate_disabled_x264_cpu_asm
         with tempfile.TemporaryDirectory() as d:
