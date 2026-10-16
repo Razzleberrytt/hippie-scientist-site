@@ -36,7 +36,42 @@ class MobileAuditContract(unittest.TestCase):
         # probe; other presented frames would need their own shot coverage.
         stamps = [Decimal("1.0")]
         shots = [{"id": "short", "startSec": 1.0, "endSec": 1.008}]
-        self.assertIsNone(verify_decoded_shot_coverage(stamps, shots))
+        result = verify_decoded_shot_coverage(stamps, shots)
+        self.assertEqual(result["actualPresentedFramesChecked"], 1)
+        self.assertEqual(result["framesAssignedExactlyOnce"], 1)
+        self.assertFalse(result["mayPublish"])
+
+    def test_presented_frame_inside_tolerated_micro_gap_fails_closed(self):
+        # Every shot owns >=1 frame and the last frame is covered, but a
+        # 0.8ms boundary gap silently loses frame 1 at t=0.033333s.
+        stamps = [Decimal("0"), Decimal("0.033333"), Decimal("0.066667")]
+        shots = [
+            {"id": "first", "startSec": 0.0, "endSec": 0.033},
+            {"id": "second", "startSec": 0.0338, "endSec": 0.1},
+        ]
+        with self.assertRaisesRegex(ValueError, "PRESENTED_FRAME_UNASSIGNED:1"):
+            verify_decoded_shot_coverage(stamps, shots)
+
+    def test_presented_frame_inside_tolerated_overlap_fails_closed(self):
+        stamps = [Decimal("0"), Decimal("0.033333"), Decimal("0.066667")]
+        shots = [
+            {"id": "first", "startSec": 0.0, "endSec": 0.034},
+            {"id": "second", "startSec": 0.0333, "endSec": 0.1},
+        ]
+        with self.assertRaisesRegex(ValueError, "PRESENTED_FRAME_MULTIPLY_ASSIGNED:1"):
+            verify_decoded_shot_coverage(stamps, shots)
+
+    def test_full_exact_frame_ownership_returns_research_only_receipt(self):
+        stamps = [Decimal("0"), Decimal("0.033333"), Decimal("0.066667")]
+        shots = [
+            {"id": "first", "startSec": 0.0, "endSec": 0.033333},
+            {"id": "second", "startSec": 0.033333, "endSec": 0.1},
+        ]
+        result = verify_decoded_shot_coverage(stamps, shots)
+        self.assertEqual(result["framesAssignedExactlyOnce"], 3)
+        self.assertEqual(result["framesWithoutShot"], 0)
+        self.assertEqual(result["framesAssignedToMultipleShots"], 0)
+        self.assertFalse(result["mayPublish"])
 
     def test_last_presented_frame_must_belong_to_a_shot(self):
         stamps = [Decimal("0"), Decimal("0.033333")]
@@ -322,6 +357,9 @@ class ActualFilmSmoke(unittest.TestCase):
             plan.write_text(json.dumps(m))
             receipt = audit(movie, plan, root / "frames")
             self.assertEqual(receipt["publicationVerdict"], "HOLD")
+            self.assertEqual(receipt["frameToShotCoverage"]["actualPresentedFramesChecked"], 90)
+            self.assertEqual(receipt["frameToShotCoverage"]["framesAssignedExactlyOnce"], 90)
+            self.assertFalse(receipt["frameToShotCoverage"]["mayPublish"])
             self.assertEqual(len(receipt["decodedOverlayFrames"]), 3)
             self.assertEqual([x["timeSec"] for x in receipt["decodedOverlayFrames"] if x.get("openingHookProbe")], [.25, 1.5])
             png = root / "frames" / receipt["decodedOverlayFrames"][0]["file"]
