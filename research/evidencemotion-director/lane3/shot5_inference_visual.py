@@ -161,7 +161,7 @@ def verify_decoded_presentation_grid(decoded, time_base, *, fps, expected_frames
         raise ResearchHold('ENCODED_SCENE_TIME_BASE_INVALID') from exc
     if tick<=0 or type(fps) is not int or fps<=0:
         raise ResearchHold('ENCODED_SCENE_TIME_BASE_INVALID')
-    tolerance=max(tick/2,Fraction(1,10000))
+    tolerance=tick/2  # exact rational nearest-tick quantization bound
     previous=None
     for index, frame in enumerate(decoded):
         stamp=frame.get('best_effort_timestamp') if isinstance(frame,dict) else None
