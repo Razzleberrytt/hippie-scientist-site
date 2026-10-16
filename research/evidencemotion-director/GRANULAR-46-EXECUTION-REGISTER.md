@@ -196,7 +196,7 @@
 
 **Canonical state (2026-10-15):** OPEN. **Child evidence audit:** NOT_AUDITED (6 subtasks). **Owning source:** [canonical #14](COMPLETION-CHECKLIST.md).
 
-- [ ] **EM-014.01** Isolate all 7-OH/hydroxyl/mitragynine instances in the exact WAV — **Pass/receipt:** timed target list
+- [x] **EM-014.01** Isolate all 7-OH/hydroxyl/mitragynine instances in the exact WAV — **Pass/receipt:** [5 actual original-WAV PCM terms, byte-verified](EM01401-ORIGINAL-PCM-TERM-ISOLATION-20261016.md). Candidate timings only; pronunciation and parent EM-014 remain OPEN.
 - [ ] **EM-014.02** Construct phoneme and stress reference dictionary with sourced or listen-confirmed anchors — **Pass/receipt:** lexicon
 - [ ] **EM-014.03** Run an actual acoustic/phonetic evaluator rather than text-only ASR — **Pass/receipt:** term-level observations
 - [ ] **EM-014.04** Calibrate against real listening ground truth and negative pronunciations — **Pass/receipt:** measured error/confusion table
