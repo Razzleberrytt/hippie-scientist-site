@@ -23,15 +23,15 @@ export function proposeAudioLockedCuts({approvedWavSha256,actualWavSha256,
  if(!['independent-original-wav-mfa','byte-bound-textgrid-candidate'].includes(alignmentOrigin))errors.push('INDEPENDENT_REAL_WAV_ALIGNMENT_REQUIRED');
  if(!Number.isInteger(durationMs)||durationMs<=0)errors.push('UNKNOWN_AUDIO_DURATION');
  if(!Array.isArray(wordAlignment)||wordAlignment.length<3||
-    wordAlignment.some((w,i)=>!w||typeof w.word!=='string'||!w.word.trim()||!finite(w.startMs)||
+    Array.from(wordAlignment).some((w,i)=>!w||typeof w.word!=='string'||!w.word.trim()||!finite(w.startMs)||
      !finite(w.endMs)||w.startMs<0||w.endMs<=w.startMs||
      (i>0&&w.startMs<wordAlignment[i-1].endMs)||w.endMs>durationMs))
    errors.push('WORD_TIMING_INVALID');
- if(Array.isArray(beats)&&beats.some(b=>!b||!Array.isArray(b.scientificAssetIDs)||
+ if(Array.isArray(beats)&&Array.from(beats).some(b=>!b||!Array.isArray(b.scientificAssetIDs)||
     b.scientificAssetIDs.length===0||b.scientificAssetIDs.some(assetId=>!ID(assetId))||
     new Set(b.scientificAssetIDs).size!==b.scientificAssetIDs.length))
    errors.push('SHOT_ASSET_LINEAGE_MISSING');
- if(!Array.isArray(beats)||beats.length!==3||beats.some((b,i)=>!b||!ID(b.id)||
+ if(!Array.isArray(beats)||beats.length!==3||Array.from(beats).some((b,i)=>!b||!ID(b.id)||
     !roles.has(b.role)||!grammars.has(b.grammar)||!Number.isInteger(b.startWordIndex)||
     !Number.isInteger(b.endWordIndex)||b.startWordIndex<0||b.endWordIndex<b.startWordIndex||
     (i>0&&b.startWordIndex<=beats[i-1].endWordIndex)||
