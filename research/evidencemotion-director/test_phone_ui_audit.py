@@ -1527,7 +1527,7 @@ class ActualFilmSmoke(unittest.TestCase):
                 for width in (1, 4, 8, 16, 64):
                     damaged = bytearray(encoded)
                     offset = int(len(damaged) * fraction)
-                    damaged[offset:offset + width] = b"\\xff" * width
+                    damaged[offset:offset + width] = b"\xff" * width
                     corrupted.write_bytes(damaged)
                     try:
                         if len(frame_timestamps(corrupted)) != 45:
