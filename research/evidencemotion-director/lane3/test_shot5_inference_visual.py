@@ -83,6 +83,52 @@ class ResearchProtocolTests(unittest.TestCase):
                 craft.render(source,molecule,link)
             self.assertEqual(existing.read_bytes(),b'keep unchanged')
 
+    def test_full_muted_claim_after_exact_spoken_onset(self):
+        self.assertIsNone(craft.complete_negation_after_spoken_not(771))
+        for frame in (772,773,778,794,820):
+            self.assertEqual(craft.complete_negation_after_spoken_not(frame),
+                             'STRUCTURE ≠ HUMAN EXPERIENCE')
+        for frame in (701,821):
+            with self.assertRaisesRegex(craft.ResearchHold,'OUTSIDE_EDIT_INTERVAL'):
+                craft.complete_negation_after_spoken_not(frame)
+
+    def test_declared_silent_negation_fits_phone_type_floor(self):
+        # Geometry/wording contract, NOT physical OCR or audience comprehension.
+        self.assertEqual(craft.FULL_SILENT_NEGATION,'STRUCTURE ≠ HUMAN EXPERIENCE')
+        self.assertGreaterEqual(craft.FULL_NEGATION_FONT_SIZE * 375/1080,14)
+        self.assertEqual(craft.NEGATION,772)
+        self.assertLess(craft.NEGATION,craft.END)
+
+    def test_actual_pillow_stage_full_proposition_on_exact_cue_frame(self):
+        try:
+            from PIL import Image, ImageChops, ImageFont
+        except ImportError:
+            self.skipTest('Pillow not available in this research runner')
+        face=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf',
+                                craft.FULL_NEGATION_FONT_SIZE)
+        self.assertLessEqual(face.getbbox(craft.FULL_SILENT_NEGATION)[2],874)
+        base=Image.new('RGB',(craft.W,craft.H),(2,7,13))
+        science=Image.new('RGB',(craft.W,730),(4,12,20))
+        graph=Image.new('RGBA',(650,400),(255,255,255,0))
+        before=craft.sample_treatment(base,graph,science,771)
+        at=craft.sample_treatment(base,graph,science,772)
+        later=craft.sample_treatment(base,graph,science,796)
+        negation_box=(92,963,1000,1041)
+        self.assertIsNotNone(ImageChops.difference(before.crop(negation_box),
+                                                    at.crop(negation_box)).getbbox())
+        self.assertIsNotNone(ImageChops.difference(at.crop(negation_box),
+                                                    later.crop(negation_box)).getbbox()
+                             if at.crop(negation_box).tobytes()!=later.crop(negation_box).tobytes()
+                             else ImageChops.difference(before.crop(negation_box),
+                                                        later.crop(negation_box)).getbbox())
+        for image in (before,at,later):
+            # Protected original header/caption fields stay byte-identical in
+            # the pre-encode Pillow surface, NOT necessarily final H264 pixels.
+            self.assertEqual(image.crop((0,0,craft.W,390)).tobytes(),
+                             base.crop((0,0,craft.W,390)).tobytes())
+            self.assertEqual(image.crop((0,1120,craft.W,craft.H)).tobytes(),
+                             base.crop((0,1120,craft.W,craft.H)).tobytes())
+
     def test_transition_interpolation_is_monotonic_and_bounded(self):
         data=[craft.smoothstep(i/20) for i in range(21)]
         self.assertEqual(data[0],0.)
