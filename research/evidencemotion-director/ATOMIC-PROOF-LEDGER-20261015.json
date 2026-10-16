@@ -2,7 +2,7 @@
   "schema": "ths-atomic-workcard-proof-ledger-v1",
   "recordedDate": "2026-10-16",
   "authoritativePlanningIndex": "https://github.com/Razzleberrytt/hippie-scientist-site/blob/main/research/evidencemotion-director/ATOMIC-EXECUTION-INDEX.md",
-  "note": "Research-only 20 bounded evidence groups (131 individually machine-audited cards), including hosted EM-002.04 governed policy trace + fail-closed negative controls on three exact source blobs. 707 inherited provisional NOT individually audited. EM-001.03.T real iPhone open/play and EM-007.07 independent science remain HOLD. No premium render, science, audio, craft, device, merge or release approval.",
+  "note": "Research-only 21 bounded evidence groups (137 individually machine-audited source/research cards), including EM-002.01 dated Oct 12 restriction and Oct 13 owner-recorded narrow rescission with tested original source byte identities; GitHub comment author-account attribution is not cryptographic personal identity. 707 inherited provisional cards are NOT individually audited. EM-001.03.T real iPhone open/play, EM-007.07 qualified independent science, original voice/craft and 1+5 first-render quality remain HOLD. No extra WIP, protected merge, production release, publication or canonical 26/46 promotion.",
   "denominator": 1590,
   "inheritedMappedToAcceptedFoundationsNotIndividuallyAudited": 707,
   "status": "PROVISIONAL_COVERAGE_NOT_FINAL_ACCEPTANCE",
@@ -259,11 +259,23 @@
         "EM-002.04.T",
         "EM-002.04.R"
       ]
+    },
+    {
+      "group": "EM-002.01",
+      "source": "EM00201-DATED-OWNER-POLICY-20261016.md",
+      "cards": [
+        "EM-002.01.U",
+        "EM-002.01.S",
+        "EM-002.01.O",
+        "EM-002.01.X",
+        "EM-002.01.T",
+        "EM-002.01.R"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 131,
-  "provisionalCoverageCardCount": 838,
-  "provisionalCoveragePercent": 52.7044,
+  "individualMachineVerifiedResearchCardCount": 137,
+  "provisionalCoverageCardCount": 844,
+  "provisionalCoveragePercent": 53.0818,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }
