@@ -134,6 +134,120 @@ class Tests(unittest.TestCase):
         env["releaseAuthorized"] = False
         return env
 
+    @classmethod
+    def _job_v1_fixture(cls, *, movie_bytes=b"synthetic-research-video-not-real-film"):
+        from original_native_stdin_replay import ORIGINAL_JOB_V1_FIELDS
+        env = cls._frozen_environment_v1()
+        environment_file = (json.dumps(env, indent=2) + "\n").encode()
+        job = {
+            "schema": "ths-em-original-stdin-full-native-replay-job-v1",
+            "status": "ONE_ORIGINAL_SOURCE_RENDER_RESEARCH_ONLY",
+            "encoderMode": "CPU_ASM_DISABLED_X264_AND_SWSCALE_RESEARCH",
+            "runId": "fixture-run-one",
+            "runnerJobId": "research-matrix",
+            "runnerName": "fixture-runner",
+            "githubRunId": "fixture-github-run",
+            "originalRendererGitSourcesRecovered": True,
+            "allEightArchivedOriginalPixelSamplesBitwiseMatched": True,
+            "nativeEncodedFilmFullDecode": True,
+            "originalRendererFullRenderExecuted": True,
+            "x264CpuAsmDisabledMachineLogObserved": True,
+            "sourceToEncoderStdinReceipt": {"filmSha256": digest(movie_bytes)},
+            "sha256EnvironmentJson": digest(environment_file),
+            "wallSeconds": 12.125,
+            "mayPublish": False,
+            "firstExcellentMasterAccepted": False,
+            "fiveRenderStreakAccepted": False,
+            "independentJobProvenanceExternallyAuthenticated": False,
+            "originalArchivedFFmpegBinaryAuthenticated": False,
+        }
+        assert set(job) == ORIGINAL_JOB_V1_FIELDS, "Fixture must exactly model original v1 writer"
+        return job, env, movie_bytes
+
+    def test_original_job_v1_valid_bounded_fixture(self):
+        from original_native_stdin_replay import validate_original_job_v1
+        job, _, _ = self._job_v1_fixture()
+        self.assertTrue(validate_original_job_v1(job))
+
+    def test_original_job_v1_blocks_forged_approvals(self):
+        from original_native_stdin_replay import validate_original_job_v1
+        for name in ("mayPublish", "firstExcellentMasterAccepted",
+                     "fiveRenderStreakAccepted", "independentJobProvenanceExternallyAuthenticated",
+                     "originalArchivedFFmpegBinaryAuthenticated"):
+            for spoof in (True, 0, "false"):
+                job, _, _ = self._job_v1_fixture()
+                job[name] = spoof
+                with self.subTest(name=name, spoof=spoof):
+                    with self.assertRaisesRegex(ValueError, "FORGED_CREATIVE_OR_TRUST_APPROVAL"):
+                        validate_original_job_v1(job)
+
+    def test_original_job_v1_blocks_unrecognized_keys_false_machine_claims(self):
+        from original_native_stdin_replay import validate_original_job_v1
+        job, _, _ = self._job_v1_fixture()
+        job["externalFilmApproved"] = True
+        with self.assertRaisesRegex(ValueError, "NONCANONICAL_JOB_RECEIPT_FIELDS"):
+            validate_original_job_v1(job)
+        job, _, _ = self._job_v1_fixture()
+        job["nativeEncodedFilmFullDecode"] = 1
+        with self.assertRaisesRegex(ValueError, "ORIGINAL_FRAME_OR_DECODE_CHECK_FAILED"):
+            validate_original_job_v1(job)
+        job, _, _ = self._job_v1_fixture()
+        job["wallSeconds"] = float("nan")
+        with self.assertRaisesRegex(ValueError, "INVALID_JOB_DURATION"):
+            validate_original_job_v1(job)
+
+    @classmethod
+    def _write_pair_fixture(cls, path):
+        from original_native_stdin_replay import ORIGINAL_NAME
+        job, env, movie = cls._job_v1_fixture()
+        root = Path(path)
+        (root / ORIGINAL_NAME).write_bytes(movie)
+        (root / "environment.json").write_text(json.dumps(env, indent=2) + "\n")
+        (root / "full-original-replay.json").write_text(json.dumps(job, indent=2) + "\n")
+        return job, env
+
+    def test_physical_pair_json_valid_synthetic_fixture_still_research_only(self):
+        from original_native_stdin_replay import read_original_pair_dir
+        with tempfile.TemporaryDirectory() as directory:
+            job, env = self._write_pair_fixture(directory)
+            received_job, received_env = read_original_pair_dir(directory)
+            self.assertEqual(received_job, job)
+            self.assertEqual(received_env, env)
+            self.assertFalse(received_job["mayPublish"])
+
+    def test_physical_pair_rejects_duplicate_json_keys_and_nonfinite_values(self):
+        from original_native_stdin_replay import read_original_pair_dir
+        with tempfile.TemporaryDirectory() as directory:
+            self._write_pair_fixture(directory)
+            job_path = Path(directory) / "full-original-replay.json"
+            original = job_path.read_text()
+            job_path.write_text(original.replace(
+                '"mayPublish": false', '"mayPublish": false, "mayPublish": true', 1))
+            with self.assertRaisesRegex(ValueError, "PAIR_REPORT_MALFORMED"):
+                read_original_pair_dir(directory)
+            job_path.write_text(original.replace('"wallSeconds": 12.125',
+                                                '"wallSeconds": NaN', 1))
+            with self.assertRaisesRegex(ValueError, "PAIR_REPORT_MALFORMED"):
+                read_original_pair_dir(directory)
+
+    def test_physical_pair_rejects_symlink_or_mutated_film(self):
+        from original_native_stdin_replay import read_original_pair_dir, ORIGINAL_NAME
+        with tempfile.TemporaryDirectory() as directory:
+            self._write_pair_fixture(directory)
+            root = Path(directory)
+            env = root / "environment.json"
+            other = root / "alternate.json"
+            other.write_bytes(env.read_bytes())
+            env.unlink()
+            env.symlink_to(other)
+            with self.assertRaisesRegex(ValueError, "PAIR_REPORT_MISSING_OR_UNSAFE"):
+                read_original_pair_dir(root)
+            env.unlink()
+            env.write_bytes(other.read_bytes())
+            (root / ORIGINAL_NAME).write_bytes(b"tampered physical movie")
+            with self.assertRaisesRegex(ValueError, "UPLOADED_MOVIE_BYTES_DIFFER"):
+                read_original_pair_dir(root)
+
     def test_environment_v1_recompute_realistic_fixture(self):
         from original_native_stdin_replay import validate_environment_report_v1
         env = self._frozen_environment_v1()
