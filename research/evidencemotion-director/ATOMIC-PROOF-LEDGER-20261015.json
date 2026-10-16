@@ -162,11 +162,24 @@
         "EM-007.05.N",
         "EM-007.05.R"
       ]
+    },
+    {
+      "group": "EM-007.08",
+      "source": "EM00708-REAL-ARCHIVE-SCIENCE-HOLD-20261016.md",
+      "cards": [
+        "EM-007.08.U",
+        "EM-007.08.S",
+        "EM-007.08.O",
+        "EM-007.08.X",
+        "EM-007.08.T",
+        "EM-007.08.N",
+        "EM-007.08.R"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 82,
-  "provisionalCoverageCardCount": 789,
-  "provisionalCoveragePercent": 49.6226,
+  "individualMachineVerifiedResearchCardCount": 89,
+  "provisionalCoverageCardCount": 796,
+  "provisionalCoveragePercent": 50.0629,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }
