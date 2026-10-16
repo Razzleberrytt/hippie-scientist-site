@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 import re
 import subprocess
+import tempfile
 
 SCHEMA='ths-lane3-exact-film-splice-research-v1'
 SHA=re.compile(r'^[0-9a-f]{64}$')
@@ -189,26 +190,36 @@ def verify_result(source,output,manifest):
 
 def splice(source,scene,output,manifest):
     preflight(source,scene,manifest)
-    output=Path(output);output.parent.mkdir(parents=True,exist_ok=True)
-    if output.resolve() in (Path(source).resolve(),Path(scene).resolve()):
+    output=Path(output)
+    protected={Path(source).resolve(),Path(scene).resolve()}
+    receipt_path=output.with_suffix('.receipt.json')
+    if output.resolve() in protected or receipt_path.resolve() in protected:
         raise CraftHold('REFUSE_OVERWRITE_INPUT')
-    temp=output.with_name(output.stem+'.tmp'+output.suffix)
+    output.parent.mkdir(parents=True,exist_ok=True)
     start,end=manifest['startFrame'],manifest['endFrameExclusive']
     graph=(f'[0:v]trim=end_frame={start},setpts=PTS-STARTPTS,setsar=1[a];'
            '[1:v]setpts=PTS-STARTPTS,setsar=1[b];'
            f'[0:v]trim=start_frame={end},setpts=PTS-STARTPTS,setsar=1[c];'
            '[a][b][c]concat=n=3:v=1:a=0,format=yuv420p[out]')
-    try:
+    # The old deterministic output.stem + '.tmp' path could be an existing
+    # source movie. Use a private, same-filesystem directory instead: FFmpeg's
+    # -y flag must never be allowed to clobber the externally pinned inputs.
+    with tempfile.TemporaryDirectory(prefix='.lane3-splice-',dir=output.parent) as staging:
+        temp=Path(staging)/('candidate'+output.suffix)
+        staged_receipt=Path(staging)/'candidate.receipt.json'
         run(['ffmpeg','-hide_banner','-loglevel','error','-y','-i',str(source),
            '-i',str(scene),'-filter_complex',graph,'-map','[out]','-map','0:a:0',
            '-c:v','libx264','-preset','veryfast','-crf','18','-pix_fmt','yuv420p',
            '-c:a','copy','-movflags','+faststart',str(temp)])
         receipt=verify_result(source,temp,manifest)
+        staged_receipt.write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+        # Remove any earlier receipt BEFORE film promotion. A crash between
+        # replacements then leaves an unapproved film with NO stale PASS receipt.
+        if receipt_path.exists() or receipt_path.is_symlink():
+            receipt_path.unlink()
         os.replace(temp,output)
-        output.with_suffix('.receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+        os.replace(staged_receipt,receipt_path)
         return receipt
-    finally:
-        if temp.exists():temp.unlink()
 
 if __name__=='__main__':
     ap=argparse.ArgumentParser()
