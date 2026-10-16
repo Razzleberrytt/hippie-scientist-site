@@ -1,0 +1,42 @@
+# EM-002.02 — EvidenceMotion policy crosswalk (research-only, 2026-10-16)
+
+**Purpose / real unit:** one EvidenceMotion version/admission-policy restriction for `EM-002.02`. This crosswalk records existing authorities; it does **not** invent a workstream, a permission, a reviewer, a new version freeze, or completion credit. Existing research [issue #6743](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6743) / **draft** [PR #6840](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6840) remain research-only. `mayPublish=false`.
+
+## Owner decision and precedence
+
+- **October 12:** the owner initially imposed an EvidenceMotion version/capability freeze pending genuinely excellent first-final quality. **October 13:** the owner explicitly **rescinded the version freeze**. Iteration is allowed **only** under ordinary work admission, protection, budgets, science and safety constraints. The signed-in repository [canonical checklist](COMPLETION-CHECKLIST.md) records both dates, distinguishes freeze rescission from deployment/publishing authority, and remains the milestone authority.
+- **Authority order for this unit:** [AGENTS.md](../../AGENTS.md) / [CURRENT_SPRINT.md](../../docs/CURRENT_SPRINT.md) for admission and WIP; [DECISIONS.md](../../docs/DECISIONS.md) for recorded governance; [canonical EvidenceMotion checklist](COMPLETION-CHECKLIST.md) for media/science/owner gates; [atomic register](GRANULAR-46-EXECUTION-REGISTER.md) for this decomposed acceptance item. Live issue/PR/CI state outranks dated prose. The atomic index and this report are not new control planes.
+
+## Still-required policy crosswalk
+
+| Requirement | Primary governing source | Required action / stop condition |
+|---|---|---|
+| **WIP / admission** | [AGENTS](../../AGENTS.md), [CURRENT_SPRINT](../../docs/CURRENT_SPRINT.md) | No more than **three normal active workstreams**: Discovery/SEO (D), Revenue/Conversion (R), Authority/Content (A); at most one active ticket per workstream. A research chat lane / draft PR does **not** consume or confer admission to an extra Operations workstream. Current sprint was 2/3 at the 2026-10-16 reconciliation; recalculate from GitHub before admitting anything. |
+| **Source and scientific truth** | [AGENTS](../../AGENTS.md), [canonical checklist](COMPLETION-CHECKLIST.md) | Bind each factual/visual claim to retrievable source/context and exact asset identities; unsupported human effects stay HOLD. Qualified independent or separately calibrated primary-source-grounded review is still required; a synthetic suite or solo model opinion cannot self-approve science. |
+| **Spending / dependencies** | [CURRENT_SPRINT](../../docs/CURRENT_SPRINT.md), [DECISIONS](../../docs/DECISIONS.md) | No new paid critical-path dependency or spending authorization arises from an EvidenceMotion version or research run. Use existing CPU/open tooling unless a distinct owner-authorized, governed cost decision exists. Unknown cost is **Unknown**, not free-by-assertion. |
+| **Security / privileged actions** | [AGENTS](../../AGENTS.md), [DECISIONS](../../docs/DECISIONS.md), [EM-002.03 guard](research_workflow_release_guard.py) | Preserve secrets/permissions/security gates, reject write scopes, posting/deploy triggers and privileged workflow changes. The narrow research-workflow source guard is **not** a complete arbitrary-script security proof. |
+| **Protected integration / release** | [CURRENT_SPRINT](../../docs/CURRENT_SPRINT.md), [DECISIONS](../../docs/DECISIONS.md) | Exact current head/base, mandatory protected CI, resolved relevant review, source and safety checks, sole protected merge controller and required actual deployment receipts. Draft research PR checks do not substitute for these gates or self-merge. |
+| **Media, device and independent acceptance** | [canonical checklist](COMPLETION-CHECKLIST.md) | Real 1080×1920/30 fps decoded native final, original voice/phonetic proof, genuine handset playback, calibrated science/craft acceptance, then first excellent first render **0/1** and five varied excellent first renders **0/5** until independently earned. |
+| **Publication / integration authorization** | [canonical checklist](COMPLETION-CHECKLIST.md), [EM-002.03 guard](research_workflow_release_guard.py) | **Explicit separate owner authorization** before TikTok/YouTube posting, automated posting, production publisher changes or lifting any release HOLD. `mayPublish=false`, `releaseAuthorized=false` and no research result changes those flags. |
+
+## Evidence pins for this fixed crosswalk
+
+The source **Git blob SHA-1** values below bind the assertions to exact fetched repository bytes on the existing Lane 1 branch. Changing the source content invalidates this dated crosswalk and requires re-review; these pins are *not* signatures by a reviewer.
+
+| Source path | Git blob SHA-1 at inspection |
+|---|---|
+| `AGENTS.md` | `08c7fb68759faec3dc26c83928eb7e73e3c1abf8` |
+| `docs/CURRENT_SPRINT.md` | `3fd3e60e6ed15679e1d11a8b97ea4aba632600f6` |
+| `docs/DECISIONS.md` | `80e43540c3ef6c43025715bdbb4564d3bb45d0d1` |
+| `research/evidencemotion-director/COMPLETION-CHECKLIST.md` | `de3501764918492216e4a84c11e563d34fc71e6c` |
+| `research/evidencemotion-director/research_workflow_release_guard.py` | `738cd6d2b2fdf7607a9e686fc2fd59b54bc114bb` |
+
+## Measurable acceptance and held conditions
+
+- **PASS (bounded document scope):** each of the five above Git blobs matches the pinned bytes; all seven policy rows and governing links remain present; rescission explicitly remains separate from publishing/merge authority; the policy has no grant of a fourth normal WIP slot or independent media acceptance.
+- **FAIL/HOLD:** missing source, mutated/premature admission or publication assertion, source SHA drift, broken crosswalk rows. The accompanying `test_em00202_policy_crosswalk.py` exercises both this live report and synthetic tamper cases; a green unit test is **document-integrity only**, not a real merge/phone/science/craft audit.
+- **Unresolved:** exact-final handset playback `EM-001.03.T`, independently calibrated scientific claim review `EM-007.07`, independent speech/craft gates, PR approval/merge, first premium render and five-render streak. **No canonical parent or film gate is advanced by this report.** `mayPublish=false`.
+
+## EM-002.04 trace target (NOT accepted by this EM-002.02 report)
+
+The governing parent remains [EvidenceMotion COMPLETION-CHECKLIST.md, section A](COMPLETION-CHECKLIST.md) and the [EM-002.04 granular task](GRANULAR-46-EXECUTION-REGISTER.md#em-002). This document **links** there but intentionally does not edit a canonical checked box, the main project sprint or any runtime production controller. A separate exact-source trace/approval is required before `EM-002.04` acceptance.
