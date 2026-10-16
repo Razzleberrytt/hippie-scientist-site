@@ -16,6 +16,16 @@ on:
       - 'research/evidencemotion-director/test_visual_claim_inventory.py'
       - 'research/evidencemotion-director/claim_source_context_join.py'
       - 'research/evidencemotion-director/test_claim_source_context_join.py'
+      - 'research/evidencemotion-director/scientific_uncertainty_ledger.py'
+      - 'research/evidencemotion-director/test_scientific_uncertainty_ledger.py'
+      - 'research/evidencemotion-director/claim_strength_source_limits.py'
+      - 'research/evidencemotion-director/test_claim_strength_source_limits.py'
+      - 'research/evidencemotion-director/em00705_original_archive_replay.py'
+      - 'research/evidencemotion-director/test_em00705_original_archive_replay.py'
+      - 'research/evidencemotion-director/test_science_redteam_controls.py'
+      - 'research/evidencemotion-director/science_gate_process_attestation.py'
+      - 'research/evidencemotion-director/test_science_gate_process_attestation.py'
+      - 'research/evidencemotion-director/test_research_cli_continuations.py'
       - 'research/evidencemotion-director/EM00701-FROZEN-SPOKEN-LEDGER-20261016.json'
       - 'research/evidencemotion-director/encoded_science_motion_audit.py'
       - 'research/evidencemotion-director/test_encoded_science_motion_audit.py'
@@ -144,6 +154,11 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core
           python -m pip install 'rdkit==2025.9.4' 'pillow==12.0.0'
+          # Fail fast on scientific data-contract regressions before slow FFmpeg renders.
+          # Positive/negative REAL-film CLI checks still execute after video generation.
+          for unit in test_claim_source_context_join.py test_scientific_uncertainty_ledger.py test_claim_strength_source_limits.py test_science_redteam_controls.py test_timed_caption_windows.py; do
+            python -m unittest discover -s research/evidencemotion-director -p "$unit" -v
+          done
           python -m unittest discover -s research/evidencemotion-director -p test_narration_locked_treatments.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_source_locked_visual_direction.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_source_bond_trace_direction.py -v
@@ -602,6 +617,69 @@ jobs:
           assert result['mayPublish'] is False
           print('Original 8/8 frozen spans joined; all six material contexts typed; no PubChem-to-clinical extrapolation')
           PY
+      - name: Separate absent source-pack human studies from null, conflict and mechanism (EM-007.04 research)
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_scientific_uncertainty_ledger.py -v
+          python research/evidencemotion-director/scientific_uncertainty_ledger.py \
+            --source-join "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-source-context-join.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/scientific-uncertainty-RESEARCH.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-timed-native/scientific-uncertainty-RESEARCH.json'
+          r=json.loads(p.read_text())
+          assert r['totalClaims']==8 and r['materialClaims']==6
+          assert r['claims'][6]['humanOutcomeEvidence']=='HUMAN_OUTCOME_DATA_NOT_SUPPLIED_IN_THIS_SOURCE_PACK'
+          assert all(x['nullFinding']=='UNASSESSED_NO_NULL_TRIAL_RECEIPT' and
+                     x['conflictingFindings']=='UNASSESSED_NO_SYSTEMATIC_CONFLICT_ASSESSMENT'
+                     for x in r['claims'])
+          assert not r['externalHumanOutcomeSearchPerformed']
+          assert not r['noHumanStudiesExistProven']
+          assert not r['independentScientificReviewApproved'] and not r['mayPublish']
+          print('Uncertainty ledger derived from exact SHA-bound filmed claims: absence from source pack never becomes a null outcome or proof of no evidence')
+          PY
+      - name: Compare actual narrated claim strength to population, outcome, dose and time (EM-007.05 research)
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_claim_strength_source_limits.py -v
+          python research/evidencemotion-director/claim_strength_source_limits.py \
+            --source-join "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-source-context-join.json" \
+            --uncertainty "$RUNNER_TEMP/ths-mfa/specimen-timed-native/scientific-uncertainty-RESEARCH.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-strength-RESEARCH.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-timed-native/claim-strength-RESEARCH.json'
+          result=json.loads(p.read_text())
+          assert result['spokenClaimsAssessed']==8
+          assert result['materialClaimsWithSourceScopeComparison']==6
+          assert not result['humanStudyComparisonPossible']
+          assert not result['externalPopulationOutcomeDoseTimingSearchPerformed']
+          assert all(not row['sourceSupportsEffectsOrAbsence'] and
+                     not row['independentScienceApproval'] for row in result['claims'])
+          assert not result['clinicalStrengthClaimsApproved'] and not result['mayPublish']
+          print('Eight original source-bound claims checked against five population/outcome/dose/time/follow-up axes; clinical comparisons remain HOLD')
+          PY
+      - name: Produce SHA-bound science-gate HOLD receipt for all eight exact claims (EM-007.08)
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_science_gate_process_attestation.py -v
+          python research/evidencemotion-director/science_gate_process_attestation.py --source "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-source-context-join.json" --uncertainty "$RUNNER_TEMP/ths-mfa/specimen-timed-native/scientific-uncertainty-RESEARCH.json" --strength "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-strength-RESEARCH.json" --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/science-gate-HOLD-RESEARCH.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-timed-native/science-gate-HOLD-RESEARCH.json'
+          report=json.loads(p.read_text())
+          assert report['claimsReconciled']==8 and report['materialClaimsReconciled']==6
+          assert report['scienceGate']=='HOLD_AWAITING_QUALIFIED_INDEPENDENT_SCIENTIFIC_REVIEW'
+          assert report['mayPublish'] is False and report['approvalToMerge'] is False
+          assert report['processAttestation']['notHumanSigned'] is True
+          print('Eight original-claim source identities reconciled, research HOLD report preserved and process digest checked')
+          PY
       - name: Independently measure actual encoded science camera movement and reject static or strobing visuals
         shell: micromamba-shell {0}
         run: |
@@ -699,6 +777,68 @@ jobs:
         run: |
           echo 'MFA aligns the pinned original WAV on CPU. G2P chemical-term phones are unverified candidates.' >> "$GITHUB_STEP_SUMMARY"
           echo 'No calibrated pronunciation, scientific/craft/device or publication approval follows from this job.' >> "$GITHUB_STEP_SUMMARY"
+  science-source-adversarial-controls:
+    # Fast independent science gate: never depend on H264/FFmpeg success.
+    # Synthetic mutations test an existing frozen-claim oracle, not real
+    # clinical evidence, independent human review or publish permission.
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install only pinned open-source chemical graph validator
+        run: python -m pip install 'rdkit==2025.9.4'
+      - name: Reject source swaps, invented human effects and missing qualifiers
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_research_cli_continuations.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_science_redteam_controls.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_claim_source_context_join.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_scientific_uncertainty_ledger.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_claim_strength_source_limits.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_science_gate_process_attestation.py -v
+      - name: Restore previously verified original-film source artifact on CPU (EM-007.05)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/em00705-real"
+          gh run download 38914069118 --repo "$GITHUB_REPOSITORY" \
+            --name evidencemotion-original-wav-mfa-acoustic-candidate \
+            --dir "$RUNNER_TEMP/em00705-real"
+          test -s "$RUNNER_TEMP/em00705-real/specimen-timed-native/specimen_NEW_RESEARCH_CANDIDATE.mp4"
+      - name: Replay original 1080p film plus source/uncertainty SHA on 30 evidence axes
+        env:
+          THS_EM00705_ARCHIVE_ROOT: ${{ runner.temp }}/em00705-real
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_em00705_original_archive_replay.py -v
+          python research/evidencemotion-director/em00705_original_archive_replay.py \
+            --root "$THS_EM00705_ARCHIVE_ROOT" \
+            --out "$RUNNER_TEMP/em00705-exact-archive-receipt.json"
+          python - <<'PY'
+          import json,os,pathlib
+          p=pathlib.Path(os.environ['RUNNER_TEMP'])/'em00705-exact-archive-receipt.json'
+          v=json.loads(p.read_text())
+          assert v['materialStudyAxesRecordedAbsent']==30 and v['frozenClaimCount']==8
+          assert v['currentHeadNativeRenderCertified'] is False
+          assert v['qualifiedHumanScientistApproval'] is False and v['mayPublish'] is False
+          print('EM00705 exact ORIGINAL H264/claim/uncertainty rehash done; no clinical approval')
+          PY
+      - name: Preserve bounded real-source strength proof without original film
+        uses: actions/upload-artifact@v4
+        with:
+          name: em00705-original-archive-source-ceiling-only
+          path: ${{ runner.temp }}/em00705-exact-archive-receipt.json
+          retention-days: 14
+          if-no-files-found: error
+      - name: Keep machine science evidence distinct from clinical and release authority
+        if: always()
+        run: |
+          echo 'EM-007.06 synthetic negative cases are research-only, with no external clinical review or publication permission.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'This job is intentionally independent of slow native rendering and cannot certify finished MP4 or human interpretation.' >> "$GITHUB_STEP_SUMMARY"
   strict-script-compare:
     runs-on: ubuntu-latest
     timeout-minutes: 4
