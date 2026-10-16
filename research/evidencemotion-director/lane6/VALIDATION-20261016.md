@@ -196,3 +196,44 @@ monitor, generated quality comparison and generator release suite **SUCCESS**.
 Generic hosted tests, production build, content and site-health **SKIPPED**;
 Lane 6 test execution remains local. Final receipt-only head needs separate hosted
 observation; implementation/build results are not relabeled as that head's CI.
+
+
+## Lane 6 access-only continuation — physical artifact availability
+
+Starting head `c8d199fac148673096913090bd0f330b34bb1d8c`, draft #6847. This is an
+**access-only verification operation**, no repository behavior or implementation
+change. Acceptance: inspect current lane reports, directly check available media
+artifact bytes against the reported revised film identity, record exact findings
+and preserve HOLD on mismatch. No new normal WIP slot or checklist credit.
+
+Fresh GitHub state: final receipt head `c8d199fac` atomic/controller/quality/release
+checks SUCCESS; generic tests/build/content/site-health SKIPPED; one superseded
+release run CANCELLED. No reviews, draft OPEN. Latest Lane 3 head
+`861322d0ee3f79e7c9e735cbcb2e3a2588fe9988` still reports combined film undelivered.
+Its director run `38976358826` and critic run `38976358833` each expose zero
+artifacts. Related successful ASR run `38976358908` exposes three artifacts.
+Repository-wide artifact listing again failed `unexpected end of JSON input`;
+no global absence conclusion is drawn. The reported local bundle path does not
+exist; this is a check of that path only.
+
+Actually downloaded ASR media artifact **12079387576**, **21,897,215 bytes**,
+ZIP SHA-256 `eb6b9037a2636c3c62a91d0bdcc6f6a4a17e6b0ab1c96fa9a6ed446d2e2c5b1e`.
+ZIP CRC validation **PASS, all 136 members**. Streamed and hashed **all six MP4
+members**, without extraction or substitution. **None** equals the requested
+revised-film SHA `e79e44746e8a8581ecc592e41de20bb67ded7e999042234902ed30b0142a0c9a`.
+The timed-native candidate is instead
+`8d7c5e8649a9ba5ce905ae5ac0a968ac6051405547b34109eda75f89cb9ac3eb`.
+No WAV member is supplied. Full member paths, sizes and measured media hashes:
+`receipts/available-lane3-artifact-inventory.json`.
+
+Disposition: **HOLD_REVISED_FILM_NOT_IN_THIS_ARTIFACT**. No original-WAV identity,
+full A/V decode, pixels, science/craft/voice/phone review or final-media acceptance
+is asserted from CRC/hash inspection. Existing intake/test bytes remain unchanged;
+no production build rerun is required for this explicitly access-only operation
+under AGENTS.md rule 10. Documentation/receipt validation runs after mutation.
+Next dependency remains Lane 3's actual 4,419,781-byte conversation bundle,
+reported ZIP SHA `86d802f3819320c6d645c5a8d93e8880ac82d02ed77de833c1cf5a4d1aaffea9`,
+plus original WAV and sufficient caption/plan/source sidecars to independently
+reconcile a COMPLETE trusted pin. Owner may provide its shared path or actual
+GitHub artifact; do not rebuild or substitute a different film across lane ownership.
+New atomic credit 0, first excellent 0/1, varied streak 0/5, `mayPublish=false`.
