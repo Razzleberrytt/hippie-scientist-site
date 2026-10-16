@@ -10,6 +10,7 @@ on:
       - 'research/evidencemotion-director/original_replay_admission.py'
       - 'research/evidencemotion-director/original_replay_source_restore.py'
       - 'research/evidencemotion-director/original_frame_replay_probe.py'
+      - 'research/evidencemotion-director/original_native_stdin_replay.py'
       - 'research/evidencemotion-director/test_native_stdin_capture_guard.py'
       - 'research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md'
       - '.github/workflows/evidencemotion-operator-rehearsal.yml'
@@ -159,3 +160,111 @@ jobs:
         if: always()
         run: |
           echo 'Eight restored original-source RGB frames are a diagnostic only. This job does NOT encode the full original film or authenticate two independent original 1031-frame stdin streams. No release, excellence or five-render streak credit.' >> "$GITHUB_STEP_SUMMARY"
+
+  full-original-native-stdin-replay:
+    # Original SOURCE-ALGORITHM replays, not original historical CPU/x264 proof.
+    # Matrix jobs execute on separately provisioned Ubuntu GitHub runners.
+    if: github.event.pull_request.number == 6846 && needs.archived-eight-frame-native-source-pixel-replay.result == 'success'
+    needs: [archived-eight-frame-native-source-pixel-replay]
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    strategy:
+      fail-fast: false
+      matrix:
+        attempt: ['a', 'b']
+    env:
+      MATRIX_ATTEMPT: ${{ matrix.attempt }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Restore exact original immutable 11 renderer source files
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin ecc249f5f460ca38be8850375b8b4f4a4d98b448
+          git fetch --no-tags --depth=1 origin 5fde6994c09e8464606074e5a1f21b06385b95e5
+          mkdir -p "$RUNNER_TEMP/em-original-source"
+          python research/evidencemotion-director/original_replay_source_restore.py \
+            --repo "$PWD" --out "$RUNNER_TEMP/em-original-source/eleven"
+      - name: Restore actual pinned original voice and alignment candidate archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/em-archive/source" "$RUNNER_TEMP/em-archive/voice"
+          gh run download 38918216741 --repo "$GITHUB_REPOSITORY" \
+            --name evidencemotion-original-wav-mfa-acoustic-candidate \
+            --dir "$RUNNER_TEMP/em-archive/source"
+          gh run download 38417454106 --repo "$GITHUB_REPOSITORY" \
+            --name ths-kokoro-narration \
+            --dir "$RUNNER_TEMP/em-archive/voice"
+          printf '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435  %s\n' \
+            "$RUNNER_TEMP/em-archive/voice/narration.wav" | sha256sum -c -
+      - name: Freeze actual Ubuntu source-render environment
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core
+          python -m pip install --disable-pip-version-check 'pillow==12.0.0' 'rdkit==2025.9.4'
+          python -m py_compile research/evidencemotion-director/original_native_stdin_replay.py
+      - name: Physically generate, capture and full-decode all 1,031 original source RGB24 frames
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/original_native_stdin_replay.py render \
+            --source-dir "$RUNNER_TEMP/em-original-source/eleven" \
+            --font-dir /usr/share/fonts/truetype/dejavu \
+            --wav "$RUNNER_TEMP/em-archive/voice/narration.wav" \
+            --archive-dir "$RUNNER_TEMP/em-archive/source" \
+            --out "$RUNNER_TEMP/em-native-run" \
+            --run-id "github-${GITHUB_RUN_ID}-native-${MATRIX_ATTEMPT}"
+      - name: Preserve actual original native source-to-stdin and encoded movie evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: em-lane5-native-full-${{ matrix.attempt }}
+          path: |
+            ${{ runner.temp }}/em-native-run/full-original-replay.json
+            ${{ runner.temp }}/em-native-run/environment.json
+            ${{ runner.temp }}/em-native-run/specimen_NEW_RESEARCH_CANDIDATE.mp4
+            ${{ runner.temp }}/em-native-run/encoder.log
+          if-no-files-found: warn
+          retention-days: 7
+      - name: No promotional, human or original FFmpeg historical equivalence approval
+        if: always()
+        run: |
+          echo 'The native RGB24/FFmpeg run is archival SOURCE-replay research only; original historical encoder SHA, source-review, human/phone and premium-artistry gates are NOT proved.' >> "$GITHUB_STEP_SUMMARY"
+
+  compare-two-original-native-stdin-replays:
+    if: github.event.pull_request.number == 6846 && needs.full-original-native-stdin-replay.result == 'success'
+    needs: [full-original-native-stdin-replay]
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: em-lane5-native-full-*
+          path: ${{ runner.temp }}/em-original-pair
+      - name: Independently compare every actual pre-encoder source frame and runtime SHA
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/original_native_stdin_replay.py compare \
+            --first "$RUNNER_TEMP/em-original-pair/em-lane5-native-full-a" \
+            --second "$RUNNER_TEMP/em-original-pair/em-lane5-native-full-b" \
+            --out "$RUNNER_TEMP/em-original-pair/PAIR-RESEARCH-HOLD.json"
+      - name: Persist physical peer comparison without promotion
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: em-lane5-full-source-stdin-pair-hold
+          path: ${{ runner.temp }}/em-original-pair/PAIR-RESEARCH-HOLD.json
+          if-no-files-found: warn
+          retention-days: 7
+      - name: State exactly what did not pass
+        if: always()
+        run: |
+          echo 'Two original source-algorithm runs are not verification of historical FFmpeg/x264 bytes, independent trust attestation, creator/craft/science/handset judgment or publication. First excellent remains 0/1, streak 0/5.' >> "$GITHUB_STEP_SUMMARY"
