@@ -343,6 +343,57 @@ class ReportOutputAliasSafety(unittest.TestCase):
                 audit(movie, plan, output)
             self.assertEqual(movie.read_bytes(), original)
 
+    def test_generated_overlay_filename_cannot_destroy_source_manifest(self):
+        for name in ("00-opening.png", "opening-1_5.png", "23-source_hold.png"):
+            with self.subTest(name=name), tempfile.TemporaryDirectory() as root:
+                root = Path(root)
+                output = root / "review"
+                output.mkdir()
+                movie = root / "movie.mp4"
+                movie.write_bytes(b"original movie bytes")
+                manifest = output / name
+                original = b'{"status":"RESEARCH_ONLY","releaseApproved":false}'
+                manifest.write_bytes(original)
+                with self.assertRaisesRegex(
+                    ValueError, "GENERATED_OUTPUT_ALIASES_SOURCE_INPUT"
+                ):
+                    audit(movie, manifest, output)
+                self.assertEqual(manifest.read_bytes(), original)
+                self.assertEqual(movie.read_bytes(), b"original movie bytes")
+
+    def test_generated_overlay_filename_cannot_destroy_source_movie(self):
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            output = root / "review"
+            output.mkdir()
+            movie = output / "opening-0_25.png"
+            original = b"encoded-video-source"
+            movie.write_bytes(original)
+            manifest = root / "plan.json"
+            manifest.write_text("{}")
+            with self.assertRaisesRegex(
+                ValueError, "GENERATED_OUTPUT_ALIASES_SOURCE_INPUT"
+            ):
+                audit(movie, manifest, output)
+            self.assertEqual(movie.read_bytes(), original)
+
+    def test_symlinked_output_dir_cannot_hide_generated_input_path(self):
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            source_dir = root / "originals"
+            source_dir.mkdir()
+            manifest = source_dir / "00-opening.png"
+            original = b"immutable plan source"
+            manifest.write_bytes(original)
+            (root / "review-link").symlink_to(source_dir, target_is_directory=True)
+            movie = root / "movie.mp4"
+            movie.write_bytes(b"video bytes")
+            with self.assertRaisesRegex(
+                ValueError, "GENERATED_OUTPUT_ALIASES_SOURCE_INPUT"
+            ):
+                audit(movie, manifest, root / "review-link")
+            self.assertEqual(manifest.read_bytes(), original)
+
     def test_symlinked_output_directory_cannot_bypass_alias_guard(self):
         with tempfile.TemporaryDirectory() as root:
             root = Path(root)
