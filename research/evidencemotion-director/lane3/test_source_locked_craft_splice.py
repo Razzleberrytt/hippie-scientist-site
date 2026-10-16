@@ -161,8 +161,8 @@ class CraftSourceLockedContractTests(unittest.TestCase):
         return ''
       manifest={'startFrame':1,'endFrameExclusive':2}
       verdict={'mayPublish':False,'status':'MOCK_CODEC_CONTRACT_ONLY'}
-      with patch.object(S,'preflight',return_value=True), \\
-           patch.object(S,'run',side_effect=fake_ffmpeg), \\
+      with patch.object(S,'preflight',return_value=True), \
+           patch.object(S,'run',side_effect=fake_ffmpeg), \
            patch.object(S,'verify_result',return_value=verdict):
         received=S.splice(source,scene,output,manifest)
       self.assertEqual(received,verdict)
@@ -194,8 +194,8 @@ class CraftSourceLockedContractTests(unittest.TestCase):
       receipt=output.with_suffix('.receipt.json');receipt.write_bytes(b'PRIOR RECEIPT')
       def fake_ffmpeg(argv,**_):
         Path(argv[-1]).write_bytes(b'FAILED CANDIDATE')
-      with patch.object(S,'preflight',return_value=True), \\
-           patch.object(S,'run',side_effect=fake_ffmpeg), \\
+      with patch.object(S,'preflight',return_value=True), \
+           patch.object(S,'run',side_effect=fake_ffmpeg), \
            patch.object(S,'verify_result',side_effect=S.CraftHold('FAILED_VISUAL_NEGATIVE')):
         with self.assertRaisesRegex(S.CraftHold,'FAILED_VISUAL_NEGATIVE'):
           S.splice(source,scene,output,{'startFrame':1,'endFrameExclusive':2})
