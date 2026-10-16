@@ -13,7 +13,8 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).parent))
 from phone_ui_audit import (audit, probe_movie, validate_manifest,
                             verify_decoded_shot_coverage, choose_decoded_sample,
-                            decoded_overlay, validate_critical_ink_receipt_join)
+                            decoded_overlay, validate_critical_ink_receipt_join,
+                            OCR_SOURCE_LABELS, ocr_words, validate_exact_film_ocr_join)
 
 H = "a" * 64
 
@@ -557,6 +558,162 @@ class ExactVariantCriticalInkJoinTests(unittest.TestCase):
                         audit(root / "movie.mp4", root / "plan.json",
                               output, ink_receipt=candidate)
                 self.assertEqual(candidate.read_bytes(), original)
+
+
+class PhysicalGlyphOCRReceiptJoinTests(unittest.TestCase):
+    FILM = "a" * 64
+    PLAN = "b" * 64
+
+    def fixtures(self):
+        shots = []
+        observations = []
+        decoded = []
+        for i, (scene, labels) in enumerate(OCR_SOURCE_LABELS.items()):
+            shots.append({"id": scene, "annotations": [
+                {"role": "science", "text": label} for label in labels
+            ]})
+            for j, phase in enumerate(("early", "middle", "late")):
+                idx = i * 50 + j * 9
+                decoded.append({"shot": scene, "phase": phase, "index": idx})
+                for label in labels:
+                    observations.append({
+                        "scene": scene, "phase": phase, "frameIndex": idx,
+                        "expected": label, "recognized": label,
+                        "expectedTokens": ocr_words(label),
+                        "recognizedTokens": ocr_words(label),
+                        "wordSequenceRecovered": True, "cropSha256": "c" * 64
+                    })
+        self.assertEqual(len(shots), 9)
+        self.assertEqual(len(observations), 48)
+        proof = {
+            "schema": "ths-lane4-actual-decoded-ocr-research-v1",
+            "movieSha256": self.FILM, "phonePlanSha256": self.PLAN,
+            "framesPhysicallyExtracted": 27, "labelInstancesTested": 48,
+            "wordSequenceRecovered": 48, "allThreePhasesLexicallyRecovered": True,
+            "ocrEngineVersion": "tesseract 5.5.0",
+            "observations": observations,
+            "physicalHandsetApproved": False,
+            "viewerComprehensionApproved": False,
+            "scienceApproved": False, "filmExcellentApproved": False,
+            "mayPublish": False
+        }
+        ink = {"schema": "ths-lane4-timed-variant-ink-probe-research-v1",
+               "actualEncodedSamples": decoded}
+        return proof, ink, {"shots": shots}
+
+    def verify(self, proof, ink, plan):
+        return validate_exact_film_ocr_join(
+            proof, ink, plan, film_sha=self.FILM, plan_sha=self.PLAN
+        )
+
+    def test_matching_all_48_is_still_a_nonpublishing_research_join(self):
+        proof, ink, plan = self.fixtures()
+        report = self.verify(proof, ink, plan)
+        self.assertEqual(report["observationsClaimed"], 48)
+        self.assertFalse(report["ocrRerunByThisJoin"])
+        self.assertFalse(report["exactPunctuationVerified"])
+        self.assertFalse(report["physicalHandsetVerified"])
+        self.assertFalse(report["mayPublish"])
+
+    def test_one_wrong_pubchem_cid_fails_even_with_claimed_perfect_score(self):
+        proof, ink, plan = self.fixtures()
+        row = next(r for r in proof["observations"]
+                   if r["expected"] == "7-OH \u2022 CID 44301524")
+        row["recognized"] = "7-OH CID 3034396"
+        row["recognizedTokens"] = ocr_words(row["recognized"])
+        with self.assertRaisesRegex(ValueError, "GLYPH_OCR_WORDS_NOT_RECOVERED"):
+            self.verify(proof, ink, plan)
+
+    def test_missing_not_filmed_caveat_fails_even_with_claimed_perfect_score(self):
+        proof, ink, plan = self.fixtures()
+        row = next(r for r in proof["observations"]
+                   if "Computed 3D illustration" in r["expected"])
+        row["recognized"] = "Computed 3D illustration"
+        row["recognizedTokens"] = ocr_words(row["recognized"])
+        with self.assertRaisesRegex(ValueError, "GLYPH_OCR_WORDS_NOT_RECOVERED"):
+            self.verify(proof, ink, plan)
+
+    def test_self_forged_expected_words_cannot_change_immutable_corpus(self):
+        proof, ink, plan = self.fixtures()
+        row = next(r for r in proof["observations"]
+                   if "CID 44301524" in r["expected"])
+        row["expected"] = "7-OH CID 3034396"
+        row["recognized"] = row["expected"]
+        row["expectedTokens"] = ocr_words(row["expected"])
+        row["recognizedTokens"] = ocr_words(row["expected"])
+        with self.assertRaisesRegex(ValueError, "GLYPH_OCR_UNKNOWN_OR_DUPLICATE_LABEL"):
+            self.verify(proof, ink, plan)
+
+    def test_changed_film_or_phone_plan_hash_fails(self):
+        for key in ("movieSha256", "phonePlanSha256"):
+            with self.subTest(key=key):
+                proof, ink, plan = self.fixtures()
+                proof[key] = "d" * 64
+                with self.assertRaisesRegex(ValueError, "GLYPH_OCR_DIFFERENT_FILM_OR_PLAN"):
+                    self.verify(proof, ink, plan)
+
+    def test_wrong_or_duplicate_sample_cannot_fake_three_phase_replay(self):
+        proof, ink, plan = self.fixtures()
+        proof["observations"][0]["frameIndex"] += 1
+        with self.assertRaisesRegex(ValueError, "GLYPH_OCR_WRONG_DECODED_FRAME"):
+            self.verify(proof, ink, plan)
+        proof, ink, plan = self.fixtures()
+        proof["observations"][0] = copy.deepcopy(proof["observations"][1])
+        with self.assertRaisesRegex(ValueError, "GLYPH_OCR_UNKNOWN_OR_DUPLICATE_LABEL"):
+            self.verify(proof, ink, plan)
+
+    def test_missing_observation_or_invalid_crop_provenance_fails(self):
+        proof, ink, plan = self.fixtures()
+        proof["observations"].pop()
+        with self.assertRaisesRegex(ValueError, "FORTY_EIGHT_REAL_OCR_ROWS_REQUIRED"):
+            self.verify(proof, ink, plan)
+        proof, ink, plan = self.fixtures()
+        proof["observations"][0]["cropSha256"] = "garbage"
+        with self.assertRaisesRegex(ValueError, "GLYPH_OCR_CROP_PROVENANCE_MISSING"):
+            self.verify(proof, ink, plan)
+
+    def test_unauthorized_publication_or_human_review_claims_rejected(self):
+        for key in ("mayPublish", "physicalHandsetApproved",
+                    "viewerComprehensionApproved", "scienceApproved",
+                    "filmExcellentApproved"):
+            with self.subTest(key=key):
+                proof, ink, plan = self.fixtures()
+                proof[key] = True
+                with self.assertRaisesRegex(ValueError, "GLYPH_OCR_FORGED_APPROVAL"):
+                    self.verify(proof, ink, plan)
+
+    def test_missing_source_disclosure_in_plan_cannot_pass_stale_ocr(self):
+        proof, ink, plan = self.fixtures()
+        shot = next(s for s in plan["shots"] if s["id"] == "sentence_4")
+        shot["annotations"] = [a for a in shot["annotations"]
+                               if "not filmed" not in a["text"]]
+        with self.assertRaisesRegex(ValueError, "GLYPH_OCR_RECORDED_SOURCE_WORDS_CHANGED"):
+            self.verify(proof, ink, plan)
+
+    def test_no_receipt_can_be_joined_without_same_film_ink_receipt(self):
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            with self.assertRaisesRegex(ValueError, "TIMED_INK_PROOF_REQUIRED_FOR_OCR_JOIN"):
+                audit(root / "movie.mp4", root / "plan.json",
+                      root / "output", glyph_receipt=root / "glyph.json")
+
+    def test_glyph_receipt_alias_to_generated_file_cannot_destroy_input(self):
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            output = root / "output"
+            output.mkdir()
+            for name in ("research-report.json", "opening-1_5.png"):
+                ink = root / "ink.json"
+                ink.write_text("{}")
+                source = output / name
+                original = b"protected local glyph evidence"
+                source.write_bytes(original)
+                with self.subTest(name=name):
+                    with self.assertRaisesRegex(ValueError,
+                                                "ALIASES_SOURCE_INPUT"):
+                        audit(root / "movie.mp4", root / "plan.json",
+                              output, ink_receipt=ink, glyph_receipt=source)
+                    self.assertEqual(source.read_bytes(), original)
 
 
 class ActualFilmSmoke(unittest.TestCase):
