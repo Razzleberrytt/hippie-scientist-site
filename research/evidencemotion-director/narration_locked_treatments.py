@@ -16,7 +16,10 @@ import time
 
 from autonomous_script_asr_research import LINES, WAV_SHA, tokens, source_check
 from exact_wav_alignment import inspect_alignment
+from timed_caption_windows import schedule as caption_schedule, shown_at as timed_caption_shown_at, SCHEMA as CAPTION_WINDOW_SCHEMA
 from editorial_2d_cpu_research import smooth
+from source_locked_visual_direction import draw_verified_oxygen_locus
+from source_bond_trace_direction import draw_existing_bond_connections, research_science_camera
 
 FPS = 30
 TREATMENTS = {'atlas', 'specimen'}
@@ -210,7 +213,7 @@ def wrapped(text, font, width):
     return lines+[line] if line else lines
 
 
-def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
+def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, caption_mode='legacy'):
     from PIL import Image,ImageDraw
     w,h = size
     scale = w/1080
@@ -242,18 +245,27 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
             annotations.append({'role':role,'text':wording,'fontPx':font.size,'boxPx':list(box)})
 
     text(pos(72,220),'THE HIPPIE SCIENTIST',font=f(27,True),fill=accent,role=None)
-    titles = ['What makes\n7-OH different?', 'Look at the\nhydroxyl group.', 'A record of\nconnected atoms.', 'A possible\n3D shape.', 'Structure\nis not an effect.', 'CHECK THE SOURCE', 'Look closer.']
+    titles = ['What makes\n7-OH different?', 'Look at the\nhydroxyl group.', 'A record of\nconnected atoms.', 'A possible\n3D shape.', 'Structure\nis not an effect.', 'SOURCE', 'Look closer.']
     # A semantic reveal must not be spoiled by the header before the narrator
     # says the negation. Keep the original WAV and acoustic cue untouched.
     effect_boundary = None
+    opening_boundary = None
     if not light and idx == 4:
         effect_boundary = next(w['startSec'] for w in scene['captionWords']
                                if w['text'].casefold() == 'not')
-        title = 'What the shape\nshows.' if t < effect_boundary else 'What it cannot\ntell us.'
+        title = None  # Source graph and timed negation carry the explanation.
+    elif not light and idx == 0:
+        # Narration names both compounds. Keep the two rapid opening cuts
+        # beginner-readable; full PubChem record IDs are explained on the
+        # silent source card instead of cramming 17 words into 1.61 seconds.
+        title = None  # The source identity and exact spoken question are the hook.
+        opening_boundary = next(w['startSec'] for w in scene['captionWords']
+                                if w['text'].casefold().strip('?!.,') == 'different')
     else:
         title = titles[idx]
-    text(pos(70,292),title,font=f(70 if idx==5 else 74,True),fill=fg,
-         role='hook' if idx==0 else 'science')
+    if title is not None:
+        text(pos(70,292),title,font=f(70 if idx==5 else 74,True),fill=fg,
+             role='hook' if idx==0 else 'science')
     is_spatial = not light and idx not in (0,2,4,5)
     if idx==1 and is_spatial:
         text(pos(72,500),'–OH group: oxygen + hydrogen',font=f(36,True),fill=accent)
@@ -269,14 +281,16 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
         source=assets['7_hydroxymitragynine'] if is_h else assets['mitragynine']
         diagram=source['diagram'].resize((round(800*scale),round(600*scale)))
         image.alpha_composite(diagram,pos(35,545))
+        # Timed research only: identify the sole source-verified added hydroxyl
+        # oxygen after the genuine spoken comparison cut; never morph atoms.
+        if is_h and caption_mode == 'timed_research':
+            draw_verified_oxygen_locus(
+                image,assets['7_hydroxymitragynine'],t=t,
+                spoken_boundary=boundary)
         draw=ImageDraw.Draw(image)
-        text(pos(72,1150),'7-OH • CID 44301524' if is_h else 'MITRAGYNINE • CID 3034396',
-             font=f(42,True),fill=accent)
-        text(pos(72,1198),'2D source structure • no reaction shown',
-             font=f(36),fill=muted,role='disclosure')
-        # The opening shows CID identifiers from its first frame. Teach that
-        # abbreviation right where it first appears, not 27 seconds later.
-        text(pos(72,1242),'CID = compound record number',
+        text(pos(72,1150),'7-OH' if is_h else 'MITRAGYNINE',
+             font=f(42,True),fill=accent,role='hook')
+        text(pos(72,1200),'No reaction',
              font=f(36),fill=muted,role='disclosure')
     elif idx==4 and not light:
         # The original ending was essentially an empty typographic slide. Put
@@ -295,7 +309,8 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
         draw=ImageDraw.Draw(image)
         # The line is an inference boundary, not an invented process arrow.
         draw.line((pos(74,1118),pos(838,1118)),fill=accent,width=max(2,round(3*scale)))
-        text(pos(108,525),'STRUCTURE',font=f(52,True),fill=accent)
+        if t < boundary:
+            text(pos(108,525),'STRUCTURE',font=f(52,True),fill=accent)
         if t>=boundary:
             # Large distinct payoff precisely on the original narrator's
             # 'not'. Preserve the intact source graph above the boundary.
@@ -303,8 +318,8 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
             text(pos(212,1170),'HUMAN EXPERIENCE',font=f(46,True),fill=fg)
     elif idx==5:
         text(pos(72,760),'PubChem',font=f(86,True),fill=fg,role='source')
-        text(pos(72,710),'Chemical structure database',font=f(36),fill=muted,role='source')
-        text(pos(72,880),'CID 44301524',font=f(51,True),fill=accent,role='source')
+        text(pos(72,710),'Mitragynine • CID 3034396',font=f(36),fill=muted,role='source')
+        text(pos(72,880),'7-OH • CID 44301524',font=f(51,True),fill=accent,role='source')
         text(pos(72,940),'CID = compound record number',font=f(36),fill=muted,role='source')
         text(pos(72,1010),'C23H30N2O5',font=f(48),fill=fg,role='source')
         text(pos(72,1120),'pubchem.ncbi.nlm.nih.gov',font=f(38),fill=muted,role='source')
@@ -320,16 +335,33 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
         # Both treatments require a palette matching the current background.
         if not light:
             diagram = assets['dark_diagram']
-        diagram = diagram.resize((round((790-40*p)*scale),round((593-30*p)*scale)))
-        image.alpha_composite(diagram,pos(45+20*p,620+15*p))
+        if idx==2 and not light and caption_mode=='timed_research':
+            # Distinct grammar: an actual science-illustration camera pullback
+            # from closer detail to the COMPLETE verified graph; do not crop,
+            # recompute bonds or infer any chemical reaction.
+            dx,dy,dw,dh=research_science_camera(p)
+        else:
+            dx,dy,dw,dh=45+20*p,620+15*p,790-40*p,593-30*p
+        diagram = diagram.resize((round(dw*scale),round(dh*scale)))
+        image.alpha_composite(diagram,pos(dx,dy))
         if idx==2:
             draw=ImageDraw.Draw(image)
             text(pos(72,520),'Dots mark atoms. Lines mark bonds.',font=f(36,True),fill=accent)
-            for x,y in hero['diagramAtomXY'][:round(p*len(hero['diagramAtomXY']))]:
-                x=(45+20*p)*scale+x*diagram.width/1200
-                y=(620+15*p)*scale+y*diagram.height/900
-                radius=10*scale
-                draw.ellipse((x-radius,y-radius,x+radius,y+radius),outline=accent,width=max(1,round(2*scale)))
+            # Legacy preview may display all atom markers; the opt-in timed
+            # source-teaching film instead reveals ONLY six actual connected
+            # atom endpoints via draw_existing_bond_connections below.
+            if caption_mode != 'timed_research':
+                for x,y in hero['diagramAtomXY'][:round(p*len(hero['diagramAtomXY']))]:
+                    x=dx*scale+x*diagram.width/1200
+                    y=dy*scale+y*diagram.height/900
+                    radius=10*scale
+                    draw.ellipse((x-radius,y-radius,x+radius,y+radius),outline=accent,width=max(1,round(2*scale)))
+            # Teaching progression: light up only *existing verified bonds*
+            # while the narrator describes the connected-atom source record.
+            # The primary RDKit drawing and its stereo/bond-order remain intact.
+            if caption_mode == 'timed_research':
+                draw_existing_bond_connections(
+                    image,hero,seconds=t,scene=scene,scene_progress=p)
         if idx==1:
             draw = ImageDraw.Draw(image)
             text(pos(72,1150),'–OH = oxygen + hydrogen',font=f(40,True),fill=accent)
@@ -346,10 +378,13 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
         image.alpha_composite(model,pos(20,540))
         draw = ImageDraw.Draw(image)
         disclosure = 'DETAIL REVEAL • computed model' if idx in (1,6) else 'Computed 3D illustration • not filmed'
+        if idx == 6:
+            disclosure = 'Computed detail'
         text(pos(72,1190),disclosure,font=f(38),fill=accent,role='disclosure')
-        text(pos(72,1235),'Hydrogen atoms omitted',font=f(36),fill=muted,role='disclosure')
+        text(pos(72,1235),'Hydrogens omitted' if idx==6 else 'Hydrogen atoms omitted',
+             font=f(36),fill=muted,role='disclosure')
     draw = ImageDraw.Draw(image)
-    if idx not in (0,5) and not is_spatial:
+    if idx not in (0,4,5) and not is_spatial:
         text(pos(72,1260),hero_label,font=f(30,True),fill=muted)
     # In the limitation beat, present each exact, source-aligned phrase only
     # when its meaning is spoken. Whole-sentence previews gave away "not"
@@ -362,6 +397,24 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
     if effect_boundary is not None:
         visible_words = [word for word in visible_words
                          if (word['startSec'] < effect_boundary) == (t < effect_boundary)]
+    if opening_boundary is not None:
+        visible_words = [word for word in visible_words
+                         if (word['startSec'] < opening_boundary) == (t < opening_boundary)]
+    # Opt-in experimental caption rendering preserves original source WAV and
+    # all science overlays. Existing production/claim review keeps legacy mode.
+    if caption_mode not in ('legacy','timed_research'):
+        raise ValueError('TREATMENT_HOLD:UNKNOWN_CAPTION_MODE')
+    if caption_mode == 'timed_research':
+        # Schedule only already-safe pre/post reveal phrases: even future
+        # words in a caption group cannot expose the spoken "not" early.
+        groups=caption_schedule(visible_words,max_words=3)
+        now=timed_caption_shown_at(groups,t)
+        # Use the exact source-cue range, not text equality: repeated words
+        # must never be mistaken for the same acoustic occurrence.
+        active=next((g for g in groups if g['startSec']<=t<g['endSec']),None)
+        visible_words=visible_words[active['firstCue']:active['afterLastCue']] if active else []
+        if [cue['text'] for cue in visible_words]!=now:
+            raise ValueError('TREATMENT_HOLD:TIMED_CAPTION_SOURCE_DRIFT')
     caption = wrapped(' '.join(w['text'] for w in visible_words),f(42,True),770*scale)
     if len(caption)>5:
         raise ValueError('TREATMENT_HOLD:CAPTION_TOO_DENSE')
@@ -377,7 +430,7 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None):
     return image.convert('RGB')
 
 
-def native_phone_plan(video_sha,scenes,assets,treatment,font):
+def native_phone_plan(video_sha,scenes,assets,treatment,font,*,caption_mode='legacy'):
     from phone_ui_audit import validate_manifest
     shots=[]
     for scene in scenes:
@@ -389,22 +442,26 @@ def native_phone_plan(video_sha,scenes,assets,treatment,font):
             boundaries.insert(1,next(w['startSec'] for w in scene['captionWords'] if w['text'].casefold()=='not'))
         for i,(start,end) in enumerate(zip(boundaries,boundaries[1:])):
             annotations=[]
-            render_frame((start+end)/2,scenes,assets,treatment,(1080,1920),font,annotations=annotations)
+            render_frame((start+end)/2,scenes,assets,treatment,(1080,1920),font,annotations=annotations,caption_mode=caption_mode)
             shots.append({'id':scene['id']+(f'_part{i}' if len(boundaries)>2 else ''),'startSec':start,'endSec':end,
                           'assetKind':'deterministic_science','annotations':annotations})
     plan={'status':'RESEARCH_ONLY','releaseApproved':False,'expectedVideoSha256':video_sha,
           'platforms':['tiktok','shorts'],'hook':{'textVisibleAtSec':0,'spokenOpeningAtSec':.16,'heroVisualStartsAtSec':0},'shots':shots}
+    if caption_mode != 'legacy':
+        plan['captionMode']='TIMED_RESEARCH_NOT_FULL_FRAME_VERIFIED'
     validate_manifest(plan,width=1080,height=1920,duration=scenes[-1]['endSec'],actual_sha=video_sha)
     return plan
 
 
-def render(root, destination, font_dir, treatment, native=False):
+def render(root, destination, font_dir, treatment, native=False, *, experimental_timed_captions=False):
     import PIL
     import rdkit
     source_files = [Path(__file__).with_name(name) for name in (
         'narration_locked_treatments.py','verified_molecular_comparison.py',
         'editorial_2d_cpu_research.py','exact_wav_alignment.py','autonomous_script_asr_research.py',
-        'phone_ui_audit.py','native_master_audit.py')]
+        'phone_ui_audit.py','native_master_audit.py','timed_caption_windows.py',
+        'temporal_caption_audit.py','source_locked_visual_direction.py',
+        'source_bond_trace_direction.py')]
     renderer_sources = {p.name:sha(p) for p in source_files}
     if treatment not in TREATMENTS:
         raise ValueError('TREATMENT_HOLD:UNKNOWN_TREATMENT')
@@ -418,6 +475,16 @@ def render(root, destination, font_dir, treatment, native=False):
     if alignment['inputSha256']['wav']!=WAV_SHA:
         raise ValueError('TREATMENT_HOLD:ORIGINAL_WAV_REQUIRED')
     scenes = timeline(alignment)
+    # Candidate only; rendered captions remain unchanged until all independent
+    # scientific, muted-answer and native-frame reviewers support the change.
+    caption_proposal=[]
+    for scene in scenes:
+        cues=scene.get('captionWords',[])
+        groups=caption_schedule(cues,max_words=3)
+        if [word for group in groups for word in group['words']] != [cue['text'] for cue in cues]:
+            raise ValueError('TREATMENT_HOLD:CAPTION_WINDOW_WORD_DRIFT')
+        caption_proposal.append({'scene':scene['id'],'groups':groups,
+                                 'spokenWords':len(cues)})
     size = (1080,1920) if native else (540,960)
     # Both previews are the same full timeline; no silent/different-audio proxy.
     count = math.ceil(duration*FPS)
@@ -425,6 +492,19 @@ def render(root, destination, font_dir, treatment, native=False):
     assets = chemistry_assets(light=treatment=='atlas')
     assets['dark_diagram'] = chemistry_assets(light=False)['7_hydroxymitragynine']['diagram']
     out.mkdir(parents=True)
+    proposal_path=out/'timed-caption-windows-RESEARCH.json'
+    proposal_path.write_text(json.dumps({
+        'schema':CAPTION_WINDOW_SCHEMA,
+        'status':'TIMED_RESEARCH_FILM_REQUIRES_FRAME_REVIEW' if experimental_timed_captions else 'CANDIDATE_ONLY_NOT_RENDERED',
+        'sourceWavSha256':WAV_SHA,
+        'alignmentRevisionSha256':alignment['revisionSha256'],
+        'maxWordsPerGroup':3,
+        'scenes':caption_proposal,
+        'rendererUsesProposal':experimental_timed_captions,
+        'actualEncodedCaptionPixelsRechecked':False,
+        'independentMutedComprehensionApproved':False,
+        'mayPublish':False
+    },indent=2)+'\n',encoding='utf-8')
     start = time.monotonic()
     video = out/(treatment+'_NEW_RESEARCH_CANDIDATE.mp4')
     # Gain plus latency-compensated peak limiting preserves performance timing.
@@ -435,14 +515,26 @@ def render(root, destination, font_dir, treatment, native=False):
                '-crf','18','-pix_fmt','yuv420p','-af',AUDIO_FILTER,'-c:a','aac','-b:a','192k',
                '-frames:v',str(count),'-movflags','+faststart',str(video)]
     snapshots = {0,60,120,360,540,750,870,1000}
+    emitted_frames=[]  # only the separately rendered experimental original-WAV movie
     with (out/'encoder.log').open('wb') as log:
         process = subprocess.Popen(command,stdin=subprocess.PIPE,stderr=log)
         try:
             for i in range(count):
-                image = render_frame(i/FPS,scenes,assets,treatment,size,font)
+                emitted=[] if native and experimental_timed_captions else None
+                image = render_frame(i/FPS,scenes,assets,treatment,size,font,
+                                     caption_mode='timed_research' if experimental_timed_captions else 'legacy',
+                                     annotations=emitted)
                 if i in snapshots:
                     image.save(out/f'source_frame_{i:04d}.png')
-                process.stdin.write(image.tobytes())
+                raw_frame=image.tobytes()
+                if emitted is not None:
+                    scene_name=next(sc['id'] for sc in scenes
+                                    if sc['startSec']<=i/FPS<sc['endSec'])
+                    emitted_frames.append({
+                        'index':i,'second':round(i/FPS,6),'scene':scene_name,
+                        'rgbSha256':hashlib.sha256(raw_frame).hexdigest(),
+                        'annotations':[[ann['role'],ann['text']] for ann in emitted]})
+                process.stdin.write(raw_frame)
             process.stdin.close()
             if process.wait(timeout=90):
                 raise ValueError('TREATMENT_HOLD:ENCODER_FAILED')
@@ -469,14 +561,35 @@ def render(root, destination, font_dir, treatment, native=False):
     phone_status='NOT_RUN_PREVIEW_ONLY'
     if native:
         from phone_ui_audit import audit
-        plan=native_phone_plan(sha(video),scenes,assets,treatment,font)
+        plan=native_phone_plan(sha(video),scenes,assets,treatment,font,caption_mode='timed_research' if experimental_timed_captions else 'legacy')
         plan_path=out/'phone-ui-plan.json'
         plan_path.write_text(json.dumps(plan,indent=2)+'\n',encoding='utf-8')
         phone_status=audit(video,plan_path,out/'phone-ui')['status']
+    temporal_ledger=None
+    if emitted_frames:
+        from temporal_caption_audit import SCHEMA as TEMPORAL_SCHEMA
+        temporal_ledger=out/'timed-caption-all-RGB-frames-RESEARCH.json'
+        temporal_ledger.write_text(json.dumps({
+            'schema':TEMPORAL_SCHEMA,'sourceWavSha256':WAV_SHA,
+            'videoSha256':sha(video),'width':1080,'height':1920,
+            'fps':FPS,'frames':emitted_frames,
+            'encodedFilmOCRIndependentlyChecked':False,
+            'humanComprehensionObserved':False,
+            'mayPublish':False
+        },separators=(',',':'))+'\n',encoding='utf-8')
     receipt = {'status':'NEW_RENDERED_RESEARCH_CANDIDATE_REQUIRES_INDEPENDENT_REVIEW',
                'isOriginalV5':False,'treatment':treatment,'videoSha256':sha(video),
                'resolution':list(size),'nativePixelsDrawnAtOutputResolution':True,
                'fps':FPS,'frames':count,'sourceWavSha256':WAV_SHA,
+               'candidateCaptionWindowManifestSha256':sha(proposal_path),
+               'candidateCaptionWindowsAppliedToFilm':experimental_timed_captions,
+               'preEncodeFrameLedgerSha256':sha(temporal_ledger) if temporal_ledger else None,
+               'allFrameCaptionAuditApproved':False,
+               'experimentCaptionMode':'TIMED_RESEARCH' if experimental_timed_captions else 'LEGACY',
+               'sourceLockedOxygenSpotlightResearch':experimental_timed_captions,
+               'researchSpotlightIsNotReactionOrEffectEvidence':True,
+               'sourceGraphConnectionTeachingResearch':experimental_timed_captions,
+               'bondTraceNeverReplacesVerifiedSourceGraph':True,
                'audioProcessing':AUDIO_FILTER+' then AAC; no stretch, trimming or resynthesis',
                'alignmentRevisionSha256':alignment['revisionSha256'], 'scenes':scenes,
                'fonts':font_hashes,'chemistry':sources,'wallSeconds':round(time.monotonic()-start,3),
@@ -496,5 +609,6 @@ if __name__=='__main__':
     parser.add_argument('--font-dir',required=True)
     parser.add_argument('--treatment',choices=sorted(TREATMENTS),required=True)
     parser.add_argument('--native',action='store_true')
+    parser.add_argument('--experimental-timed-captions',action='store_true')
     args=parser.parse_args()
-    print(json.dumps(render(args.alignment_root,args.out,args.font_dir,args.treatment,args.native),indent=2))
+    print(json.dumps(render(args.alignment_root,args.out,args.font_dir,args.treatment,args.native,experimental_timed_captions=args.experimental_timed_captions),indent=2))

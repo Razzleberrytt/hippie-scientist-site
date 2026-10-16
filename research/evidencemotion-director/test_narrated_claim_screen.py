@@ -37,22 +37,23 @@ class RealFilmClaimScreenTests(unittest.TestCase):
             if sid == "sentence_1":
                 diff = next(c["startSec"] for c in cues if c["text"] == "different")
                 second = copy.deepcopy(ann)
-                next(a for a in second if a.get("role") == "science")["text"] = "7-OH • CID 44301524"
+                next(a for a in second if a.get("role") == "hook")["text"] = "7-OH"
+                pivot = words.index("different")
+                first = ann[:2] + [{"role":"caption","text":w} for w in words[:pivot]]
+                second = second[:2] + [{"role":"caption","text":w} for w in words[pivot:]]
                 self.shots.extend([
                     {"id": "sentence_1_part0", "startSec": start, "endSec": diff,
-                     "annotations": copy.deepcopy(ann), "assetKind": "deterministic_science"},
+                     "annotations": first, "assetKind": "deterministic_science"},
                     {"id": "sentence_1_part1", "startSec": diff, "endSec": end,
                      "annotations": second, "assetKind": "deterministic_science"},
                 ])
             elif sid == "sentence_5":
                 pivot = words.index("not")
-                pre = copy.deepcopy(ann[:3]) + [
+                pre = copy.deepcopy(ann[:1]) + [
                     {"role": "caption", "text": w} for w in words[:pivot]]
-                post = copy.deepcopy(ann[:3])
-                post[0]["text"] = "What it cannot\ntell us."
-                post = post[:2] + [
+                post = [
                     {"role": "science", "text": "≠"},
-                    {"role": "science", "text": "HUMAN EXPERIENCE"}] + post[2:] + [
+                    {"role": "science", "text": "HUMAN EXPERIENCE"}] + [
                     {"role": "caption", "text": w} for w in words[pivot:]]
                 self.shots.extend([
                     {"id": sid + "_part0", "startSec": start, "endSec": start+2.,
@@ -103,25 +104,21 @@ class RealFilmClaimScreenTests(unittest.TestCase):
             self.screen()
         self.receipt["chemistry"][1]["cid"] = HYDROXYMITRAGYNINE.pubchem_cid
         self.shot("source_hold")["annotations"] = [
-            a for a in self.shot("source_hold")["annotations"] if a["text"] != "CID 44301524"]
+            a for a in self.shot("source_hold")["annotations"] if a["text"] != "7-OH • CID 44301524"]
         with self.assertRaisesRegex(ValueError, "VISIBLE_PRIMARY_SOURCE_LABEL"):
             self.screen()
 
-    def test_opening_source_cid_must_be_explained_for_muted_viewers(self):
-        for name in ("sentence_1_part0", "sentence_1_part1"):
-            with self.subTest(name=name):
-                fixture=self.shot(name)["annotations"]
-                removed=next(a for a in fixture if a["text"] ==
-                             "CID = compound record number")
-                fixture.remove(removed)
-                with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
-                    self.screen()
-                fixture.append(removed)
-                # Exact order matters: restore to original position, not
-                # just plausible-looking content for the next subtest.
-                fixture.remove(removed)
-                fixture.insert(3, removed)
+    def test_first_visible_cid_defined_on_held_source_card(self):
+        source=self.shot("source_hold")["annotations"]
+        removed=next(a for a in source if a["text"]=="CID = compound record number")
+        source.remove(removed)
+        with self.assertRaisesRegex(ValueError,"VISUAL_CLAIM_UNSUPPORTED"):
+            self.screen()
+        source.insert(4,removed)
         self.assertFalse(self.screen()["mayPublish"])
+        for name in ("sentence_1_part0","sentence_1_part1"):
+            self.assertFalse(any("CID" in a["text"] for a in
+                             self.shot(name)["annotations"] if a["role"]!="caption"))
 
     def test_3d_scene_cannot_fall_back_to_unexplained_technical_title(self):
         self.shot("sentence_4")["annotations"][0]["text"] = "The pose\nis computed."
@@ -152,12 +149,12 @@ class RealFilmClaimScreenTests(unittest.TestCase):
 
     def test_early_title_cannot_spoil_limitation(self):
         self.shot("sentence_5_part0")["annotations"][0]["text"] = (
-            self.shot("sentence_5_part1")["annotations"][0]["text"])
+            self.shot("sentence_5_part1")["annotations"][1]["text"])
         with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
             self.screen()
 
     def test_late_title_must_match_the_approved_limit(self):
-        self.shot("sentence_5_part1")["annotations"][0]["text"] = "Scientifically proven effects"
+        self.shot("sentence_5_part1")["annotations"][1]["text"] = "Scientifically proven effects"
         with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
             self.screen()
 
@@ -187,13 +184,16 @@ class RealFilmClaimScreenTests(unittest.TestCase):
             self.screen()
 
     def test_duplicate_source_label_is_refused(self):
-        self.shot("source_hold")["annotations"].append({"role": "source", "text": "CID 44301524"})
+        self.shot("source_hold")["annotations"].append({"role": "source", "text": "7-OH • CID 44301524"})
         with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
             self.screen()
 
     def test_source_label_role_swap_is_refused(self):
         self.shot("source_hold")["annotations"][2]["role"] = "science"
-        with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
+        # The stronger primary-CID identity screen now rejects this before
+        # the later generic annotation allowlist. Either way, source role
+        # corruption must never become publication-eligible.
+        with self.assertRaisesRegex(ValueError, "VISIBLE_PRIMARY_SOURCE_LABEL_DRIFT"):
             self.screen()
 
     def test_original_labels_preserve_exact_order(self):
@@ -203,13 +203,13 @@ class RealFilmClaimScreenTests(unittest.TestCase):
     def test_comparison_switches_two_distinct_cids_on_spoken_cue(self):
         result = self.screen()
         self.assertEqual(result["emittedShotIntervalsInspected"], 9)
-        self.assertIn("MITRAGYNINE • CID 3034396",
+        self.assertIn("MITRAGYNINE",
                       [a["text"] for a in self.shot("sentence_1_part0")["annotations"]])
-        self.assertIn("7-OH • CID 44301524",
+        self.assertIn("7-OH",
                       [a["text"] for a in self.shot("sentence_1_part1")["annotations"]])
 
     def test_comparison_wrong_source_identity_refused(self):
-        self.shot("sentence_1_part1")["annotations"][1]["text"] = "MITRAGYNINE • CID 3034396"
+        self.shot("sentence_1_part1")["annotations"][1]["text"] = "MITRAGYNINE"
         with self.assertRaisesRegex(ValueError, "VISUAL_CLAIM_UNSUPPORTED"):
             self.screen()
 

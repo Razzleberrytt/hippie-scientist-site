@@ -28,6 +28,11 @@ class AnswerRecoveryTests(unittest.TestCase):
                 lookup[scene]["annotations"].append(
                     {"role":"science","text":target,
                      "boxPx":[70,450+i*95,700,510+i*95]})
+        for source_text in ("Mitragynine • CID 3034396",
+                            "CID = compound record number"):
+            lookup["source_hold"]["annotations"].append({
+                "role":"source","text":source_text,
+                "boxPx":[70,750,720,816]})
         lookup["sentence_2"]["annotations"].append(
             {"role":"caption","text":"This hydroxyl group is a structural difference."})
         lookup["sentence_4"]["annotations"].append(
