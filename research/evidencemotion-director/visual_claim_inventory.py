@@ -34,6 +34,11 @@ INTERPRETATION_RISKS = {
     "sentence_6": "Computed detail does not demonstrate effects or treatment",
 }
 
+SOURCE_CARD_LABELS = (
+    "PubChem","Mitragynine • CID 3034396","7-OH • CID 44301524",
+    "CID = compound record number","C23H30N2O5","pubchem.ncbi.nlm.nih.gov"
+)
+
 def hold(reason):
     raise ValueError("EM00702_VISUAL_HOLD:" + reason)
 
@@ -155,8 +160,8 @@ def inventory(movie, receipt_path, phone_path, science_path, story_path,
     if any(len(row["emittedSourceAnnotations"]["source"]) for row in rows
            if row["shot"]!="source_hold"):
         hold("SOURCE_IDENTITY_CARD_OFF_SCENE")
-    if len(rows[7]["emittedSourceAnnotations"]["source"])!=6:
-        hold("SOURCE_CARD_TEXT_NOT_EXHAUSTIVE")
+    if tuple(rows[7]["emittedSourceAnnotations"]["source"])!=SOURCE_CARD_LABELS:
+        hold("SOURCE_CARD_TEXT_IDENTITY_OR_CID_ASSOCIATION_CHANGED")
     return {"schema":SCHEMA,"task":"EM-007.02","filmSha256":film,
             "sourceWavSha256":WAV_SHA,"receiptSha256":receipt_hash,
             "phonePlanSha256":phone_hash,"encodedScienceOcrSha256":sha(science_path),
