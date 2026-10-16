@@ -2,7 +2,7 @@
   "schema": "ths-atomic-workcard-proof-ledger-v1",
   "recordedDate": "2026-10-16",
   "authoritativePlanningIndex": "https://github.com/Razzleberrytt/hippie-scientist-site/blob/main/research/evidencemotion-director/ATOMIC-EXECUTION-INDEX.md",
-  "note": "Research-only 16 bounded machine-audited proof groups, including real hosted CPU receipts, decodable original-WAV native media, and a hosted-tested mandatory GPU-optional workflow guard. No blanket canonical milestone, real iPhone, independent reviewer, premium video, protected merge or publishing acceptance.",
+  "note": "Research-only 17 bounded evidence groups (112 machine-audited cards), including original GitHub ZIP physical retrieval, MP4 SHA/decode and portable review export. EM-001.03.T real iPhone open/play remains HOLD and earns NO credit. 707 inherited provisional cards are not individually audited; no release/phone/science/quality approval.",
   "denominator": 1590,
   "inheritedMappedToAcceptedFoundationsNotIndividuallyAudited": 707,
   "status": "PROVISIONAL_COVERAGE_NOT_FINAL_ACCEPTANCE",
@@ -211,11 +211,22 @@
         "EM-001.04.T",
         "EM-001.04.R"
       ]
+    },
+    {
+      "group": "EM-001.03",
+      "source": "EM00103-IPHONE-HANDOFF-BYTES-REVIEW-20261016.md",
+      "cards": [
+        "EM-001.03.U",
+        "EM-001.03.S",
+        "EM-001.03.O",
+        "EM-001.03.X",
+        "EM-001.03.R"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 107,
-  "provisionalCoverageCardCount": 814,
-  "provisionalCoveragePercent": 51.195,
+  "individualMachineVerifiedResearchCardCount": 112,
+  "provisionalCoverageCardCount": 819,
+  "provisionalCoveragePercent": 51.5094,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }
