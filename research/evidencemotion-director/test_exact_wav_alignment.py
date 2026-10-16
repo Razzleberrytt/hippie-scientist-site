@@ -218,6 +218,7 @@ from test_encoded_caption_transition_gate import EncodedCaptionBandTests  # noqa
 from test_repeated_term_acoustic_guard import (  # noqa: F401
     SpectralNegativeTests, ActualArchivedSourceTests, SyntheticMasterLinkTests,
     OriginalMfaCliContractTests, OriginalMasterMfaTests,
+    PoseConflictNegativeTests, ActualPoseConflictTests,
 )
 
 if __name__ == '__main__':
