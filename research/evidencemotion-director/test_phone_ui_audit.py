@@ -14,7 +14,8 @@ sys.path.insert(0, str(Path(__file__).parent))
 from phone_ui_audit import (audit, probe_movie, validate_manifest,
                             verify_decoded_shot_coverage, choose_decoded_sample,
                             decoded_overlay, validate_critical_ink_receipt_join,
-                            OCR_SOURCE_LABELS, ocr_words, validate_exact_film_ocr_join)
+                            OCR_SOURCE_LABELS, ocr_words, validate_exact_film_ocr_join,
+                            mute_story_negative_screen)
 
 H = "a" * 64
 
@@ -714,6 +715,136 @@ class PhysicalGlyphOCRReceiptJoinTests(unittest.TestCase):
                         audit(root / "movie.mp4", root / "plan.json",
                               output, ink_receipt=ink, glyph_receipt=source)
                     self.assertEqual(source.read_bytes(), original)
+
+
+class MutedStoryNegativeScreenTests(unittest.TestCase):
+    def build(self):
+        proof, ink, plan = PhysicalGlyphOCRReceiptJoinTests().fixtures()
+        # The real original plan has a standalone ≠ and HUMAN EXPERIENCE in
+        # sentence_5_part1; STRUCTURE is in prior scene, not this one.
+        shot = next(s for s in plan["shots"] if s["id"] == "sentence_5_part1")
+        shot["annotations"].append({"role": "science", "text": "≠"})
+        return proof, plan
+
+    def test_split_negation_is_objective_hold_despite_48_positive_glyphs(self):
+        proof, plan = self.build()
+        result = mute_story_negative_screen(plan, proof)
+        self.assertEqual(result["verdict"], "HOLD")
+        self.assertEqual(len(result["actualOCRRequiredScienceFacts"]), 4)
+        self.assertTrue(all(result["actualOCRRequiredScienceFacts"].values()))
+        self.assertIn("NEGATION_ANTECEDENT_SPLIT_ACROSS_CUT", result["blockingFindings"])
+        self.assertIn("NO_EXACT_ENCODED_SAME_SHOT_NEGATION_OCR_PROOF",
+                      result["blockingFindings"])
+        self.assertFalse(result["mayPublish"])
+
+    def test_source_metadata_only_repair_does_not_fake_encoded_full_text(self):
+        proof, plan = self.build()
+        part = next(s for s in plan["shots"] if s["id"] == "sentence_5_part1")
+        part["annotations"].append({"role": "science", "text": "STRUCTURE"})
+        result = mute_story_negative_screen(plan, proof)
+        self.assertTrue(result["negationSubjectObjectAndOperatorDeclaredSameShot"])
+        self.assertFalse(result["subjectAndObjectOCRWithinSameShotAllThreeTimes"])
+        self.assertEqual(result["verdict"], "HOLD")
+
+    def test_two_different_crops_do_not_prove_same_crop_sentence(self):
+        proof, plan = self.build()
+        target = next(s for s in plan["shots"] if s["id"] == "sentence_5_part1")
+        target["annotations"].append({"role": "science", "text": "STRUCTURE"})
+        # The fact that STRUCTURE is in one crop and HUMAN EXPERIENCE another
+        # does not establish that a viewer reads their relationship together.
+        for phase in ("early", "middle", "late"):
+            proof["observations"].append({
+                "scene": "sentence_5_part1", "phase": phase,
+                "recognized": "STRUCTURE", "recognizedTokens": ["structure"],
+                "expectedTokens": ["structure"], "expected": "STRUCTURE",
+                "wordSequenceRecovered": True,
+            })
+        result = mute_story_negative_screen(plan, proof)
+        self.assertFalse(result["subjectAndObjectOCRWithinSameShotAllThreeTimes"])
+        self.assertEqual(result["verdict"], "HOLD")
+
+    def test_hypothetical_same_crop_word_proof_remains_nonpublishing(self):
+        proof, plan = self.build()
+        target = next(s for s in plan["shots"] if s["id"] == "sentence_5_part1")
+        target["annotations"].append({"role": "science", "text": "STRUCTURE"})
+        for phase in ("early", "middle", "late"):
+            words = ["structure", "human", "experience"]
+            proof["observations"].append({
+                "scene": "sentence_5_part1", "phase": phase,
+                "recognized": "STRUCTURE HUMAN EXPERIENCE",
+                "recognizedTokens": words,
+                "expectedTokens": words,
+                "expected": "STRUCTURE HUMAN EXPERIENCE",
+                "wordSequenceRecovered": True,
+            })
+        result = mute_story_negative_screen(plan, proof)
+        self.assertEqual(result["verdict"], "MECHANICAL_WORD_SCREEN_ONLY_REVIEW_REQUIRED")
+        self.assertFalse(result["inequalitySymbolDecodedAndIndependentlyVerified"])
+        self.assertFalse(result["mutedAudienceComprehensionApproved"])
+        self.assertFalse(result["realHandsetPlaybackApproved"])
+        self.assertFalse(result["qualifiedScienceApproved"])
+        self.assertFalse(result["mayPublish"])
+        # A synthetic row would not pass the separately enforced 48-label
+        # full-source OCR intake; no actual film is accepted by this unit.
+
+    def test_missing_just_one_of_three_phases_stays_on_hold(self):
+        proof, plan = self.build()
+        shot = next(s for s in plan["shots"] if s["id"] == "sentence_5_part1")
+        shot["annotations"].append({"role": "science", "text": "STRUCTURE"})
+        for phase in ("early", "middle"):
+            proof["observations"].append({
+                "scene": "sentence_5_part1", "phase": phase,
+                "recognized": "STRUCTURE HUMAN EXPERIENCE",
+                "recognizedTokens": ["structure", "human", "experience"],
+                "expected": "STRUCTURE HUMAN EXPERIENCE",
+                "expectedTokens": ["structure", "human", "experience"],
+                "wordSequenceRecovered": True,
+            })
+        self.assertIn("NO_EXACT_ENCODED_SAME_SHOT_NEGATION_OCR_PROOF",
+                      mute_story_negative_screen(plan, proof)["blockingFindings"])
+
+    def test_dropped_not_filmed_copy_is_independent_science_hold(self):
+        proof, plan = self.build()
+        row = next(r for r in proof["observations"]
+                   if r["expected"] == "Computed 3D illustration • not filmed")
+        row["recognized"] = "Computed 3D illustration"
+        row["recognizedTokens"] = ["computed", "3d", "illustration"]
+        result = mute_story_negative_screen(plan, proof)
+        self.assertIn("MISSING_MUTED_SCIENCE_FACT_COMPUTED_NOT_FILMED",
+                      result["blockingFindings"])
+
+    def test_altered_cid_digits_are_missing_source_fact(self):
+        proof, plan = self.build()
+        row = next(r for r in proof["observations"] if r["expected"] == "7-OH • CID 44301524")
+        row["recognized"] = "7-OH CID 3034396"
+        row["recognizedTokens"] = ocr_words(row["recognized"])
+        result = mute_story_negative_screen(plan, proof)
+        self.assertIn("MISSING_MUTED_SCIENCE_FACT_TWO_SOURCE_CIDS",
+                      result["blockingFindings"])
+
+    def test_stale_recognized_token_list_does_not_override_raw_ocr(self):
+        proof, plan = self.build()
+        row = next(r for r in proof["observations"] if r["expected"] == "7-OH • CID 44301524")
+        row["recognized"] = "7-QH CID 3034396"
+        with self.assertRaisesRegex(ValueError,
+                                    "MUTED_STORY_OCR_WORDS_MUST_MATCH_ACTUAL_RECOGNIZED_TEXT"):
+            mute_story_negative_screen(plan, proof)
+
+    def test_shot_reorder_is_rejected_before_claiming_continuity(self):
+        proof, plan = self.build()
+        plan["shots"][5], plan["shots"][6] = plan["shots"][6], plan["shots"][5]
+        with self.assertRaisesRegex(ValueError,
+                                    "MUTED_STORY_EXACT_SHOT_ORDER_REQUIRED"):
+            mute_story_negative_screen(plan, proof)
+
+    def test_silent_no_reaction_copy_remains_explicit_review_advisory(self):
+        proof, plan = self.build()
+        plan["shots"][0]["annotations"].append(
+            {"role": "science", "text": "No reaction"})
+        result = mute_story_negative_screen(plan, proof)
+        self.assertIn("NO_REACTION_WORDING_NEEDS_SEMANTIC_REVIEW",
+                      result["advisoryFindings"])
+        self.assertFalse(result["mutedAudienceComprehensionApproved"])
 
 
 class ActualFilmSmoke(unittest.TestCase):
