@@ -290,7 +290,7 @@ def verify_result(source,output,manifest,*,scene=None):
                 'Video outside inserted scene was re-encoded, not byte-identical']}
 
 
-def publish_verified_pair_no_clobber(stage_film,stage_receipt,output,receipt_path):
+def publish_verified_pair_no_clobber(stage_film,stage_receipt,output,receipt_path,*,trusted_receipt=None):
     """Publish research film+receipt only to fresh names, retaining old files.
 
     Two files are not an atomic transaction. If receipt publication conflicts
@@ -304,6 +304,25 @@ def publish_verified_pair_no_clobber(stage_film,stage_receipt,output,receipt_pat
     if output.exists() or output.is_symlink() or receipt_path.exists() or receipt_path.is_symlink():
         raise CraftHold('FRESH_OUTPUT_AND_RECEIPT_REQUIRED')
     staged_sha=digest(stage_film)
+    if trusted_receipt is not None:
+        # Bind the exact verified movie bytes to the exact research-only
+        # receipt before making EITHER publicly named file visible. A valid
+        # earlier QA result is not transferable to later-mutated stage bytes.
+        if type(trusted_receipt) is not dict:
+            raise CraftHold('UNTRUSTED_STAGED_RECEIPT')
+        expected_sha=trusted_receipt.get('outputFilmSha256')
+        if type(expected_sha) is not str or not SHA.fullmatch(expected_sha) or expected_sha!=staged_sha:
+            raise CraftHold('STAGED_FILM_RECEIPT_SHA_MISMATCH')
+        for field in ('mayPublish','scienceApproved','craftApproved','phonePlaybackApproved'):
+            if trusted_receipt.get(field) is not False:
+                raise CraftHold('STAGED_RESEARCH_RELEASE_HOLD_CHANGED')
+        try:
+            expected_bytes=(json.dumps(trusted_receipt,indent=2,allow_nan=False)+'\\n').encode('utf-8')
+            receipt_bytes=stage_receipt.read_bytes()
+        except (OSError,ValueError,TypeError) as exc:
+            raise CraftHold('UNTRUSTED_STAGED_RECEIPT') from exc
+        if receipt_bytes!=expected_bytes:
+            raise CraftHold('STAGED_RECEIPT_CONTENT_CHANGED')
     linked_film=False
     try:
         os.link(stage_film,output)
@@ -358,7 +377,8 @@ def splice(source,scene,output,manifest):
                 digest(scene)!=manifest['craftSceneSha256']):
             raise CraftHold('PINNED_SOURCE_CHANGED_DURING_SPLICE')
         staged_receipt.write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
-        publish_verified_pair_no_clobber(temp,staged_receipt,output,receipt_path)
+        publish_verified_pair_no_clobber(temp,staged_receipt,output,receipt_path,
+            trusted_receipt=receipt)
         return receipt
 
 if __name__=='__main__':
