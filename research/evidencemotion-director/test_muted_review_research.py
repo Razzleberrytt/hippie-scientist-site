@@ -28,9 +28,9 @@ class RealMutedReviewPacketTests(unittest.TestCase):
                 {"id": name, "startSec": bounds[i], "endSec": bounds[i+1],
                  "annotations": [{"role": "science", "text": source}]}
                 for i, (name, source) in enumerate(zip(names, (
-                    "MITRAGYNINE • CID 3034396", "7-OH • CID 44301524",
+                    "MITRAGYNINE", "7-OH",
                     "Look at hydroxyl –OH", "Connected atoms", "Computed 3D illustration",
-                    "Structure", "HUMAN EXPERIENCE", "PubChem CID 44301524",
+                    "Structure", "HUMAN EXPERIENCE", "PubChem 7-OH • CID 44301524 Mitragynine • CID 3034396 CID = compound record number",
                     "Look closer")))
             ]
         }
@@ -75,7 +75,7 @@ class RealMutedReviewPacketTests(unittest.TestCase):
             self.examine()
 
     def test_wrong_first_compound_identity_is_hold(self):
-        self.plan["shots"][0]["annotations"][0]["text"] = "MITRAGYNINE • CID 44301524"
+        self.plan["shots"][0]["annotations"][0]["text"] = "WRONG MOLECULE"
         with self.assertRaisesRegex(ValueError, "MISSING_SOUND_OFF_TEACHING_EVIDENCE"):
             self.examine()
 

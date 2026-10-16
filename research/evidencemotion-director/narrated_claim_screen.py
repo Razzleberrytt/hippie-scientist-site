@@ -29,10 +29,8 @@ REVIEW_TOPICS = (
 # Any new rendered science/source text must first receive its own source review.
 EXPECTED_NON_CAPTION_ANNOTATIONS = {
     "sentence_1": (
-        ("hook", "What makes\n7-OH different?"),
-        ("science", "MITRAGYNINE • CID 3034396"),
-        ("disclosure", "2D source structure • no reaction shown"),
-        ("disclosure", "CID = compound record number"),
+        ("hook", "MITRAGYNINE"),
+        ("disclosure", "No reaction"),
     ),
     "sentence_2": (
         ("science", "Look at the\nhydroxyl group."),
@@ -51,23 +49,21 @@ EXPECTED_NON_CAPTION_ANNOTATIONS = {
         ("disclosure", "Hydrogen atoms omitted"),
     ),
     "sentence_5": (
-        ("science", "What the shape\nshows."),
         ("science", "STRUCTURE"),
-        ("science", "7-HYDROXYMITRAGYNINE"),
     ),
     "source_hold": (
-        ("science", "CHECK THE SOURCE"),
+        ("science", "SOURCE"),
         ("source", "PubChem"),
-        ("source", "Chemical structure database"),
-        ("source", "CID 44301524"),
+        ("source", "Mitragynine • CID 3034396"),
+        ("source", "7-OH • CID 44301524"),
         ("source", "CID = compound record number"),
         ("source", "C23H30N2O5"),
         ("source", "pubchem.ncbi.nlm.nih.gov"),
     ),
     "sentence_6": (
         ("science", "Look closer."),
-        ("disclosure", "DETAIL REVEAL • computed model"),
-        ("disclosure", "Hydrogen atoms omitted"),
+        ("disclosure", "Computed detail"),
+        ("disclosure", "Hydrogens omitted"),
     ),
 }
 
@@ -142,6 +138,11 @@ def inspect(movie, wav, receipt_path, phone_plan_path):
             hold("EMITTED_FRAME_TEXT_MISSING")
         captions = " ".join(a["text"] for a in annotations if a.get("role") == "caption")
         expected_captions = matching["line"]
+        if base == "sentence_1" and name in ("sentence_1_part0", "sentence_1_part1"):
+            original_words = matching["line"].split()
+            pivot = original_words.index("different")
+            expected_captions = " ".join(original_words[:pivot] if name.endswith("part0")
+                                         else original_words[pivot:])
         if base == "sentence_5" and name in ("sentence_5_part0", "sentence_5_part1"):
             # Exact acoustic negation divides *one immutable sentence* into
             # two non-overlapping caption phrases. Do not let the first shot
@@ -164,10 +165,11 @@ def inspect(movie, wav, receipt_path, phone_plan_path):
     for base in ("sentence_2", "sentence_4", "sentence_6"):
         for shot, annotations in grouped[base]:
             disclosures = " ".join(a["text"] for a in annotations if a.get("role") == "disclosure").lower()
-            if "computed" not in disclosures or "hydrogen atoms omitted" not in disclosures:
+            hydrogen_disclosure = "hydrogens omitted" if base == "sentence_6" else "hydrogen atoms omitted"
+            if "computed" not in disclosures or hydrogen_disclosure not in disclosures:
                 hold("COMPUTED_MODEL_UNDISCLOSED")
     source_labels = {a["text"] for _, ann in grouped["source_hold"] for a in ann if a.get("role") == "source"}
-    if not {"PubChem", "CID 44301524", "C23H30N2O5", "pubchem.ncbi.nlm.nih.gov"} <= source_labels:
+    if not {"PubChem", "Mitragynine • CID 3034396", "7-OH • CID 44301524", "C23H30N2O5", "pubchem.ncbi.nlm.nih.gov"} <= source_labels:
         hold("VISIBLE_PRIMARY_SOURCE_LABEL_DRIFT")
     comparison = grouped["sentence_1"]
     diff_word = next((c for c in scenes[0]["captionWords"]
@@ -204,14 +206,12 @@ def inspect(movie, wav, receipt_path, phone_plan_path):
             # science text, and is allowed strictly after the spoken "not".
             if base == "sentence_1" and shot is second[0]:
                 expected_shot = (
-                    expected[0], ("science", "7-OH • CID 44301524"),
-                ) + expected[2:]
+                    ("hook", "7-OH"), ("disclosure", "No reaction"),
+                )
             elif base == "sentence_5" and shot is later[0]:
                 expected_shot = (
-                    ("science", "What it cannot\ntell us."),
-                    expected[1],
                     ("science", "≠"), ("science", "HUMAN EXPERIENCE"),
-                ) + expected[2:]
+                )
             else:
                 expected_shot = expected
             if observed != expected_shot:

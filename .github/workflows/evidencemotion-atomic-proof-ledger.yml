@@ -1,0 +1,36 @@
+name: EvidenceMotion atomic proof ledger gate
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/ATOMIC-PROOF-LEDGER-20261015.json'
+      - 'research/evidencemotion-director/validate_atomic_proof_ledger.py'
+      - 'research/evidencemotion-director/test_validate_atomic_proof_ledger.py'
+      - 'research/evidencemotion-director/EM03404-ATOMIC-EVIDENCE-RECONCILIATION-20261015.md'
+      - 'research/evidencemotion-director/EM03411-ATOMIC-EVIDENCE-RECONCILIATION-20261015.md'
+      - 'research/evidencemotion-director/EM02301-ATOMIC-STORY-EVIDENCE-20261015.md'
+      - 'research/evidencemotion-director/EM02303-ATOMIC-VISUAL-REPAIR-20261015.md'
+      - 'research/evidencemotion-director/EM03412-ATOMIC-TIMED-SOUNDOFF-INSTRUMENT-20261016.md'
+      - '.github/workflows/evidencemotion-atomic-proof-ledger.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  honest-atomic-workcard-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reject fictional, duplicate, falsely approved or unaudited atomic workcards
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_validate_atomic_proof_ledger.py' -v
+          python research/evidencemotion-director/validate_atomic_proof_ledger.py
+      - name: Preserve score interpretation
+        if: always()
+        run: |
+          echo 'Research machine evidence and 707 inherited coverage estimates are distinct.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'A checked template or machine receipt is not calibrated premium, clinical, device or publishing approval.' >> "$GITHUB_STEP_SUMMARY"
