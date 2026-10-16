@@ -38,10 +38,20 @@ class VisualClaimInventoryTests(unittest.TestCase):
         for i,(name,(start,end)) in enumerate(zip(scene_ids,scene_boundaries)):
             line=LINES[i] if i<5 else ("" if i==5 else LINES[5])
             words=line.split()
-            duration=(end-start)/max(1,len(words))
-            cues=[{"text":word,"startSec":round(start+j*duration+0.01,5),
-                   "endSec":round(start+(j+1)*duration-0.01,5)}
-                  for j,word in enumerate(words)]
+            # The original editor's two narrative beats cut inside sentence 1
+            # (before "different") and sentence 5 (before "not"). A generic
+            # uniform whole-sentence fixture wrongly spans these real cuts.
+            spans=([(start,cuts[1],words[:5]),(cuts[1],end,words[5:])]
+                   if i==0 else
+                   [(start,cuts[6],words[:6]),(cuts[6],end,words[6:])]
+                   if i==4 else [(start,end,words)])
+            cues=[]
+            for a,b,segment in spans:
+                duration=(b-a)/max(1,len(segment))
+                cues.extend({"text":word,
+                             "startSec":round(a+j*duration+0.01,5),
+                             "endSec":round(a+(j+1)*duration-0.01,5)}
+                            for j,word in enumerate(segment))
             self.scenes.append({"id":name,"line":line,"captionWords":cues})
         template[7]["annotations"]=[
             {"role":"source","text":t} for t in
