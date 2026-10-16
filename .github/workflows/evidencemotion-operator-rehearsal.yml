@@ -256,6 +256,21 @@ jobs:
             --first "$RUNNER_TEMP/em-original-pair/em-lane5-native-full-a" \
             --second "$RUNNER_TEMP/em-original-pair/em-lane5-native-full-b" \
             --out "$RUNNER_TEMP/em-original-pair/PAIR-RESEARCH-HOLD.json"
+      - name: Diagnose actual H264 AAC and container byte divergence without relaxing HOLD
+        if: failure()
+        run: |
+          set -euo pipefail
+          for attempt in a b; do
+            movie="$RUNNER_TEMP/em-original-pair/em-lane5-native-full-$attempt/specimen_NEW_RESEARCH_CANDIDATE.mp4"
+            test -s "$movie"
+            echo "=== Original native replay $attempt: physical container SHA ==="
+            sha256sum "$movie"
+            echo "=== Original native replay $attempt: H264 elementary packet digest ==="
+            ffmpeg -nostdin -v error -i "$movie" -map 0:v:0 -c copy -f streamhash -hash SHA256 -
+            echo "=== Original native replay $attempt: AAC elementary packet digest ==="
+            ffmpeg -nostdin -v error -i "$movie" -map 0:a:0 -c copy -f streamhash -hash SHA256 -
+          done
+          echo 'Stream hashes diagnose mismatch only; never override failed bitwise film comparison.' >> "$GITHUB_STEP_SUMMARY"
       - name: Persist physical peer comparison without promotion
         if: always()
         uses: actions/upload-artifact@v4
