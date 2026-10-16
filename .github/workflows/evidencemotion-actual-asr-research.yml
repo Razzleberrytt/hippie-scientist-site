@@ -23,6 +23,8 @@ on:
       - 'research/evidencemotion-director/em00705_original_archive_replay.py'
       - 'research/evidencemotion-director/test_em00705_original_archive_replay.py'
       - 'research/evidencemotion-director/test_science_redteam_controls.py'
+      - 'research/evidencemotion-director/science_gate_process_attestation.py'
+      - 'research/evidencemotion-director/test_science_gate_process_attestation.py'
       - 'research/evidencemotion-director/test_research_cli_continuations.py'
       - 'research/evidencemotion-director/EM00701-FROZEN-SPOKEN-LEDGER-20261016.json'
       - 'research/evidencemotion-director/encoded_science_motion_audit.py'
@@ -661,6 +663,23 @@ jobs:
           assert not result['clinicalStrengthClaimsApproved'] and not result['mayPublish']
           print('Eight original source-bound claims checked against five population/outcome/dose/time/follow-up axes; clinical comparisons remain HOLD')
           PY
+      - name: Produce SHA-bound science-gate HOLD receipt for all eight exact claims (EM-007.08)
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_science_gate_process_attestation.py -v
+          python research/evidencemotion-director/science_gate_process_attestation.py --source "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-source-context-join.json" --uncertainty "$RUNNER_TEMP/ths-mfa/specimen-timed-native/scientific-uncertainty-RESEARCH.json" --strength "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-strength-RESEARCH.json" --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/science-gate-HOLD-RESEARCH.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-timed-native/science-gate-HOLD-RESEARCH.json'
+          report=json.loads(p.read_text())
+          assert report['claimsReconciled']==8 and report['materialClaimsReconciled']==6
+          assert report['scienceGate']=='HOLD_AWAITING_QUALIFIED_INDEPENDENT_SCIENTIFIC_REVIEW'
+          assert report['mayPublish'] is False and report['approvalToMerge'] is False
+          assert report['processAttestation']['notHumanSigned'] is True
+          print('Eight original-claim source identities reconciled, research HOLD report preserved and process digest checked')
+          PY
       - name: Independently measure actual encoded science camera movement and reject static or strobing visuals
         shell: micromamba-shell {0}
         run: |
@@ -779,6 +798,7 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director -p test_claim_source_context_join.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_scientific_uncertainty_ledger.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_claim_strength_source_limits.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_science_gate_process_attestation.py -v
       - name: Restore previously verified original-film source artifact on CPU (EM-007.05)
         env:
           GH_TOKEN: ${{ github.token }}
