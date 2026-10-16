@@ -14,6 +14,9 @@ on:
       - 'research/evidencemotion-director/test_narration_first_story_map.py'
       - 'research/evidencemotion-director/visual_claim_inventory.py'
       - 'research/evidencemotion-director/test_visual_claim_inventory.py'
+      - 'research/evidencemotion-director/claim_source_context_join.py'
+      - 'research/evidencemotion-director/test_claim_source_context_join.py'
+      - 'research/evidencemotion-director/EM00701-FROZEN-SPOKEN-LEDGER-20261016.json'
       - 'research/evidencemotion-director/encoded_science_motion_audit.py'
       - 'research/evidencemotion-director/test_encoded_science_motion_audit.py'
       - 'research/evidencemotion-director/encoded_bond_sequence_audit.py'
@@ -571,6 +574,33 @@ jobs:
           assert not x['scienceClaimsApproved']
           assert x['mayPublish'] is False
           print('Nine actual shot visual/text/source/diagram inventory PASS; effects interpretation and approval still HOLD')
+          PY
+      - name: Bind all frozen scientific claims to exact PubChem and film-context identities (EM-007.03 research)
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_claim_source_context_join.py -v
+          python research/evidencemotion-director/claim_source_context_join.py \
+            --spoken research/evidencemotion-director/EM00701-FROZEN-SPOKEN-LEDGER-20261016.json \
+            --visual "$RUNNER_TEMP/ths-mfa/specimen-timed-native/visual-claim-inventory.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-source-context-join.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-timed-native/claim-source-context-join.json'
+          result=json.loads(p.read_text())
+          assert len(result['claims'])==8
+          assert result['materialClaimCount']==6
+          assert result['materialClaimsWithTypedSourceContext']==6
+          assert result['humanStudyContextsMissingForOutcomeInference']==['spoken-007']
+          assert result['sources']['pubchem:3034396']['cid']==3034396
+          assert result['sources']['pubchem:44301524']['cid']==44301524
+          assert all(not x['sourceLinksSupportClinicalEffect'] for x in result['claims'])
+          assert result['fabricatedPubmedIds']==[]
+          assert result['clinicalSourceClaimsApproved'] is False
+          assert result['needsIndependentScientificReview'] is True
+          assert result['mayPublish'] is False
+          print('Original 8/8 frozen spans joined; all six material contexts typed; no PubChem-to-clinical extrapolation')
           PY
       - name: Independently measure actual encoded science camera movement and reject static or strobing visuals
         shell: micromamba-shell {0}
