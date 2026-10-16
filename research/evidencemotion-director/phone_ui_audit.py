@@ -497,6 +497,22 @@ def mute_story_negative_screen(plan, glyph_proof):
         for phase in ("early", "middle", "late"))
     if not same_shot_ocr:
         findings.append("NO_EXACT_ENCODED_SAME_SHOT_NEGATION_OCR_PROOF")
+    # OCR word recovery alone is insufficient: an absent or corrupted ≠
+    # operator changes the meaning of the comparison. Require the literal
+    # operator WITH both terms inside one captured crop at every phase.
+    # This is still caller-provided OCR evidence, not independently replayed
+    # pixels or validated human comprehension.
+    same_shot_operator_ocr = all(
+        any(row.get("scene") == "sentence_5_part1"
+            and row.get("phase") == phase
+            and isinstance(row.get("recognized"), str)
+            and "≠" in row["recognized"]
+            and all(term in ocr_words(row["recognized"])
+                    for term in ("structure", "human", "experience"))
+            for row in raw_rows if isinstance(row, dict))
+        for phase in ("early", "middle", "late"))
+    if not same_shot_operator_ocr:
+        findings.append("NO_EXACT_ENCODED_NEGATION_OPERATOR_OCR_PROOF")
     review = any(a.get("text") == "No reaction"
                  for scene in ("sentence_1_part0", "sentence_1_part1")
                  for a in byid[scene].get("annotations", [])
@@ -507,6 +523,7 @@ def mute_story_negative_screen(plan, glyph_proof):
         "actualOCRRequiredScienceFacts": facts,
         "negationSubjectObjectAndOperatorDeclaredSameShot": same_shot_declared,
         "subjectAndObjectOCRWithinSameShotAllThreeTimes": same_shot_ocr,
+        "subjectObjectAndOperatorOCRInSameCropAllThreeTimes": same_shot_operator_ocr,
         "blockingFindings": findings,
         "advisoryFindings": (["NO_REACTION_WORDING_NEEDS_SEMANTIC_REVIEW"]
                              if review else []),
