@@ -148,6 +148,30 @@ jobs:
             --wav "$RUNNER_TEMP/em-archive/voice/narration.wav" \
             --archive-dir "$RUNNER_TEMP/em-archive/source" \
             --out "$RUNNER_TEMP/em-archive/eight-native-original-frame-replay.json"
+      - name: Stage only verified original source inputs once for the paired render jobs
+        run: |
+          set -euo pipefail
+          dest="$RUNNER_TEMP/em-staged-original-pins"
+          mkdir -p "$dest/source/specimen-timed-native" "$dest/source/result" "$dest/voice"
+          cp "$RUNNER_TEMP/em-archive/source/specimen-timed-native/render-receipt.json" "$dest/source/specimen-timed-native/"
+          cp "$RUNNER_TEMP/em-archive/source/result/alignment-candidate.json" "$dest/source/result/"
+          for number in 0 60 120 360 540 750 870 1000; do
+            printf -v frame 'source_frame_%04d.png' "$number"
+            cp "$RUNNER_TEMP/em-archive/source/specimen-timed-native/$frame" "$dest/source/specimen-timed-native/"
+          done
+          cp "$RUNNER_TEMP/em-archive/voice/narration.wav" "$dest/voice/"
+          printf '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435  %s\\n' "$dest/voice/narration.wav" | sha256sum -c -
+          ( cd "$dest" && find source voice -type f -print0 | sort -z | xargs -0 sha256sum > PINNED-FILE-SHA256SUMS )
+          test "$(find "$dest/source/specimen-timed-native" -type f | wc -l)" -eq 9
+          test "$(find "$dest" -type f | wc -l)" -eq 12
+          echo 'Research-only transport: one already-verified original input snapshot, no replacement WAV.'
+      - name: Upload minimal source inputs only after original 8-frame physical probe passed
+        uses: actions/upload-artifact@v4
+        with:
+          name: em-lane5-stage-pinned-original-inputs
+          path: ${{ runner.temp }}/em-staged-original-pins/
+          if-no-files-found: error
+          retention-days: 1
       - name: Preserve research-only physical eight-frame receipt
         if: always()
         uses: actions/upload-artifact@v4
@@ -187,20 +211,20 @@ jobs:
           mkdir -p "$RUNNER_TEMP/em-original-source"
           python research/evidencemotion-director/original_replay_source_restore.py \
             --repo "$PWD" --out "$RUNNER_TEMP/em-original-source/eleven"
-      - name: Restore actual pinned original voice and alignment candidate archives
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Download this-run archived and pinned input snapshot (not old artifact twice)
+        uses: actions/download-artifact@v4
+        with:
+          name: em-lane5-stage-pinned-original-inputs
+          path: ${{ runner.temp }}/em-archive
+      - name: Check actual staged bytes and original-WAV SHA in each independent runner
         run: |
           set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/em-archive/source" "$RUNNER_TEMP/em-archive/voice"
-          gh run download 38918216741 --repo "$GITHUB_REPOSITORY" \
-            --name evidencemotion-original-wav-mfa-acoustic-candidate \
-            --dir "$RUNNER_TEMP/em-archive/source"
-          gh run download 38417454106 --repo "$GITHUB_REPOSITORY" \
-            --name ths-kokoro-narration \
-            --dir "$RUNNER_TEMP/em-archive/voice"
-          printf '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435  %s\n' \
-            "$RUNNER_TEMP/em-archive/voice/narration.wav" | sha256sum -c -
+          cd "$RUNNER_TEMP/em-archive"
+          sha256sum -c PINNED-FILE-SHA256SUMS
+          printf '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435  %s\\n' "$RUNNER_TEMP/em-archive/voice/narration.wav" | sha256sum -c -
+          test "$(find source/specimen-timed-native -type f | wc -l)" -eq 9
+          test "$(find . -type f | wc -l)" -eq 12
+          echo 'Original archive bytes staged from successful 8-frame probe; no substituted voice.'
       - name: Freeze actual Ubuntu source-render environment
         run: |
           set -euo pipefail
