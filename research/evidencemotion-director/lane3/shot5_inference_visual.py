@@ -189,11 +189,10 @@ def verify_native_silent_clip(path, *, width=W, height=H, fps=FPS, frames=END-ST
         raise ResearchHold('ENCODED_SCENE_MISSING_OR_EMPTY')
     try:
         probe=subprocess.run(['ffprobe','-v','error','-count_frames','-show_entries',
-          'stream=codec_name,codec_type,width,height,avg_frame_rate,nb_read_frames,time_base:frame=best_effort_timestamp',
-          '-show_frames','-select_streams','v:0','-of','json',str(path)],
-          capture_output=True,text=True,check=True)
-        full_probe=json.loads(probe.stdout)
-        streams=full_probe['streams']
+          'stream=codec_name,codec_type,width,height,avg_frame_rate,nb_read_frames,time_base',
+          '-of','json',str(path)],capture_output=True,text=True,check=True)
+        all_streams=json.loads(probe.stdout)
+        streams=all_streams['streams']
         if len(streams)!=1 or streams[0].get('codec_type')!='video':
             raise ResearchHold('SILENT_SCENE_STREAMS_CHANGED')
         stream=streams[0]
@@ -202,7 +201,13 @@ def verify_native_silent_clip(path, *, width=W, height=H, fps=FPS, frames=END-ST
         expected=('h264',width,height,f'{fps}/1',frames)
         if actual!=expected:
             raise ResearchHold('ENCODED_SCENE_FRAME_GRID_CHANGED')
-        verify_decoded_presentation_grid(full_probe.get('frames'),
+        # A separate VIDEO-ONLY frame query is deliberate: filtering the
+        # stream-inventory query to v:0 would hide unexpected AAC audio.
+        ticks=subprocess.run(['ffprobe','-v','error','-select_streams','v:0',
+          '-show_frames','-show_entries','frame=best_effort_timestamp',
+          '-of','json',str(path)],capture_output=True,text=True,check=True)
+        video_frames=json.loads(ticks.stdout).get('frames')
+        verify_decoded_presentation_grid(video_frames,
             stream.get('time_base'),fps=fps,expected_frames=frames)
         subprocess.run(['ffmpeg','-nostdin','-v','error','-xerror','-i',str(path),
           '-map','0:v:0','-f','null','-'],capture_output=True,check=True)
