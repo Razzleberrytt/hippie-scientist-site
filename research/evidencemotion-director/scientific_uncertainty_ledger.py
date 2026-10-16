@@ -28,6 +28,20 @@ SOURCE_CONTEXT = (
     "NOT_A_RECEPTOR_STUDY", "NOT_A_HUMAN_STUDY",
     "HUMAN_OUTCOME_STUDY_NOT_IN_THIS_ASSET", "NOT_A_STUDY_CLAIM",
 )
+SOURCE_SCOPES = (
+    "CHEMICAL_IDENTITY_ONLY", "CHEMICAL_GRAPH_ONLY",
+    "CHEMICAL_GRAPH_AND_RENDER_PROVENANCE",
+    "COMPUTED_ARTIFACT_PROVENANCE_ONLY", "FILM_FOOTAGE_SCOPE_ONLY",
+    "CHEMICAL_DEPICTION_ONLY", "LIMIT_OF_DEPICTION_NOT_ABSENCE_OF_EFFECT",
+    "NONFACTUAL_EDITORIAL_INVITATION",
+)
+CLAIM_FIELDS = frozenset({
+    "claimId", "claimType", "verbatimFrozenTokens", "wordIndices",
+    "material", "shotIds", "sourceIds", "supportedMeaningScope",
+    "studyContextStatus", "humanStudyId",
+    "sourceLinksSupportClinicalEffect", "clinicalEffectAbsenceProven",
+    "qualifiedIndependentScientificReview", "sourceContextMachineJoined",
+})
 SOURCE_IDS = (
     ("pubchem:3034396", "pubchem:44301524"),
     ("pubchem:3034396", "pubchem:44301524"),
@@ -104,7 +118,9 @@ def classify(join, *, source_sha):
     for i, claim in enumerate(claims):
         ident = f"spoken-{i+1:03d}"
         material = 1 <= i <= 6
-        if (claim.get("claimId") != ident or claim.get("claimType") != KINDS[i]
+        if (set(claim) != CLAIM_FIELDS
+            or claim.get("claimId") != ident or claim.get("claimType") != KINDS[i]
+            or claim.get("supportedMeaningScope") != SOURCE_SCOPES[i]
             or claim.get("studyContextStatus") != SOURCE_CONTEXT[i]
             or claim.get("material") is not material
             or tuple(claim.get("sourceIds", ())) != SOURCE_IDS[i]
