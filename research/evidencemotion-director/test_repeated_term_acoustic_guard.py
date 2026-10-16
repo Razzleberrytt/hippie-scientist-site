@@ -130,6 +130,77 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
         self.assertEqual(out["contradictionCount"], 0)
         self.assertFalse(out["wordOnsetsApproved"])
 
+    def test_short_word_wholly_in_110ms_digital_silence_is_flagged(self):
+        original, asr = self.fixture()
+        with wave.open(io.BytesIO(original), "rb") as source:
+            pcm = np.frombuffer(source.readframes(source.getnframes()),
+                                dtype="<i2").copy()
+        # A 110ms silence is below the original 150ms onset threshold.
+        pcm[100000:102640] = 0
+        rebuilt = io.BytesIO()
+        with wave.open(rebuilt, "wb") as audio:
+            audio.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            audio.writeframes(pcm.tobytes())
+        updated_wav = rebuilt.getvalue()
+        receipt = json.loads(asr)
+        receipt["sourceWavSha256"] = digest(updated_wav)
+        receipt["recognizedWords"][68].update({
+            "word": "short", "start": 100100 / 24000,
+            "end": 101300 / 24000})
+        changed_asr = json.dumps(receipt).encode()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(updated_wav)):
+            with patch.object(original_guard, "POSE_ASR_RECEIPT_SHA", digest(changed_asr)):
+                result = audit_original_asr_digital_zero_onsets(updated_wav, changed_asr)
+        self.assertEqual(result["status"], "RESEARCH_IMPOSSIBLE_ASR_ZERO_ONSET_HOLD")
+        self.assertEqual(result["contradictionCount"], 2)
+        short = next(x for x in result["contradictions"] if x["wordIndex"] == 68)
+        self.assertLess(short["provenDigitalZeroAfterOnsetMs"], 150)
+        self.assertTrue(short["entireClaimedWordIntervalIsDigitalZero"])
+        self.assertEqual(short["contradictionType"], "FULL_WORD_DIGITAL_ZERO")
+        self.assertEqual(short["claimedEndSample"], 101300)
+        self.assertFalse(result["wordOnsetsApproved"])
+        self.assertFalse(result["mayPublish"])
+
+    def test_short_silence_crossing_nonzero_is_not_falsely_full_word(self):
+        original, asr = self.fixture()
+        with wave.open(io.BytesIO(original), "rb") as source:
+            pcm = np.frombuffer(source.readframes(source.getnframes()),
+                                dtype="<i2").copy()
+        pcm[100000:102640] = 0
+        rebuilt = io.BytesIO()
+        with wave.open(rebuilt, "wb") as audio:
+            audio.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            audio.writeframes(pcm.tobytes())
+        updated_wav = rebuilt.getvalue()
+        receipt = json.loads(asr)
+        receipt["sourceWavSha256"] = digest(updated_wav)
+        receipt["recognizedWords"][68].update({
+            "word": "crossing", "start": 100100 / 24000,
+            "end": 103600 / 24000})
+        changed_asr = json.dumps(receipt).encode()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(updated_wav)):
+            with patch.object(original_guard, "POSE_ASR_RECEIPT_SHA", digest(changed_asr)):
+                result = audit_original_asr_digital_zero_onsets(updated_wav, changed_asr)
+        self.assertEqual(result["contradictionCount"], 1)
+        self.assertEqual(result["contradictions"][0]["wordIndex"], 69)
+        self.assertEqual(result["contradictions"][0]["contradictionType"],
+                         "ONSET_150MS_BEFORE_ANY_NONZERO")
+        self.assertFalse(result["mayPublish"])
+
+    def test_subsample_length_asr_word_is_invalid_not_falsely_silent(self):
+        original, asr = self.fixture()
+        receipt = json.loads(asr)
+        receipt["recognizedWords"][0].update({"start": 0.003,
+                                               "end": 0.003001})
+        changed_asr = json.dumps(receipt).encode()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(original)):
+            with patch.object(original_guard, "POSE_ASR_RECEIPT_SHA", digest(changed_asr)):
+                out = audit_original_asr_digital_zero_onsets(original, changed_asr)
+        self.assertEqual(out["status"], "HOLD")
+        self.assertIn("DIGITAL_ZERO_ASR_WORD_INTERVAL_COLLAPSES_TO_ZERO_SAMPLES",
+                      out["errors"])
+        self.assertFalse(out["mayPublish"])
+
     def test_source_hash_and_asr_hash_tamper_are_rejected(self):
         original, asr = self.fixture()
         with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(original)):
