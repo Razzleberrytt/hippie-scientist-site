@@ -4,6 +4,8 @@ on:
     paths:
       - 'research/evidencemotion-director/operator_evidence_rehearsal.py'
       - 'research/evidencemotion-director/test_operator_evidence_rehearsal.py'
+      - 'research/evidencemotion-director/five_render_attempt_guard.py'
+      - 'research/evidencemotion-director/test_five_render_attempt_guard.py'
       - 'research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md'
       - '.github/workflows/evidencemotion-operator-rehearsal.yml'
 permissions:
