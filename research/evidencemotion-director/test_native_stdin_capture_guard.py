@@ -108,6 +108,90 @@ class ZeroSink(ShortSink):
 
 
 class Tests(unittest.TestCase):
+    @staticmethod
+    def _frozen_environment_v1():
+        from original_replay_source_restore import PINNED
+        from original_replay_admission import ORIGINAL_TIMED_RECEIPT_SHA256, ORIGINAL_WAV_SHA256
+        from original_frame_replay_probe import CANDIDATE_SHA
+        from original_native_stdin_replay import ORIGINAL_FONT_PINS
+        env = {
+            "schema": "ths-em-original-stdin-env-v1",
+            "archivedOriginalReceiptSha256": ORIGINAL_TIMED_RECEIPT_SHA256,
+            "alignmentCandidateSha256": CANDIDATE_SHA,
+            "wavSha256": ORIGINAL_WAV_SHA256,
+            "sourceHashesSha256": dict(PINNED),
+            "fontHashesSha256": dict(ORIGINAL_FONT_PINS),
+            "pillowVersion": "12.0.0",
+            "rdkitVersion": "2025.09.4",
+            "pythonVersion": "3.11.17",
+            "ffmpegExecutableSha256": digest(b"fixture actual ffmpeg executable"),
+            "ffmpegVersion": "ffmpeg version 6.1.1-3ubuntu5",
+            "encoderMode": "CPU_ASM_DISABLED_X264_AND_SWSCALE_RESEARCH",
+        }
+        env["environmentSha256"] = digest(json.dumps(
+            env, sort_keys=True, separators=(",", ":")).encode("utf-8"))
+        env["originalArchivedFFmpegBinarySha256Verified"] = False
+        env["releaseAuthorized"] = False
+        return env
+
+    def test_environment_v1_recompute_realistic_fixture(self):
+        from original_native_stdin_replay import validate_environment_report_v1
+        env = self._frozen_environment_v1()
+        self.assertEqual(validate_environment_report_v1(env), env["environmentSha256"])
+
+    def test_environment_v1_changed_version_with_old_internal_digest_is_rejected(self):
+        from original_native_stdin_replay import validate_environment_report_v1
+        env = self._frozen_environment_v1()
+        env["pillowVersion"] = "99.0.0"
+        with self.assertRaisesRegex(ValueError, "ENVIRONMENT_FINGERPRINT_MISMATCH"):
+            validate_environment_report_v1(env)
+
+    def test_environment_v1_changed_encoder_hash_with_old_digest_is_rejected(self):
+        from original_native_stdin_replay import validate_environment_report_v1
+        env = self._frozen_environment_v1()
+        env["ffmpegExecutableSha256"] = digest(b"shadowed binary")
+        with self.assertRaisesRegex(ValueError, "ENVIRONMENT_FINGERPRINT_MISMATCH"):
+            validate_environment_report_v1(env)
+
+    def test_environment_v1_injected_approval_or_unknown_field_is_rejected(self):
+        from original_native_stdin_replay import validate_environment_report_v1
+        for key, value in (("mayPublish", True), ("twoRunnersAttested", True),
+                           ("unreviewedExtra", False)):
+            env = self._frozen_environment_v1()
+            env[key] = value
+            with self.subTest(key=key):
+                with self.assertRaisesRegex(ValueError, "ENVIRONMENT_FIELDS_OR_SCHEMA_DRIFT"):
+                    validate_environment_report_v1(env)
+
+    def test_environment_v1_recomputed_forgery_cannot_change_archived_source(self):
+        from original_native_stdin_replay import validate_environment_report_v1
+        from original_native_stdin_replay import ENVIRONMENT_V1_IDENTITY_FIELDS
+        env = self._frozen_environment_v1()
+        env["sourceHashesSha256"]["phone_ui_audit.py"] = digest(b"forged source")
+        identity = {k: env[k] for k in ENVIRONMENT_V1_IDENTITY_FIELDS}
+        env["environmentSha256"] = digest(json.dumps(
+            identity, sort_keys=True, separators=(",", ":")).encode("utf-8"))
+        with self.assertRaisesRegex(ValueError, "ENVIRONMENT_SOURCE_IDENTITY_DRIFT"):
+            validate_environment_report_v1(env)
+
+    def test_environment_v1_wrong_flag_type_missing_field_and_schema_fail_closed(self):
+        from original_native_stdin_replay import validate_environment_report_v1
+        cases = [
+            ("boolean-relabel", {"releaseAuthorized": 0}, "INVALID_ENVIRONMENT_REPORT"),
+            ("missing-fingerprint", {"environmentSha256": None}, "INVALID_ENVIRONMENT_SHA"),
+            ("wrong-schema", {"schema": "v2"}, "INVALID_ENVIRONMENT_REPORT"),
+        ]
+        for name, patch, reason in cases:
+            env = self._frozen_environment_v1()
+            env.update(patch)
+            with self.subTest(name=name):
+                with self.assertRaisesRegex(ValueError, reason):
+                    validate_environment_report_v1(env)
+        missing = self._frozen_environment_v1()
+        missing.pop("ffmpegVersion")
+        with self.assertRaisesRegex(ValueError, "ENVIRONMENT_FIELDS_OR_SCHEMA_DRIFT"):
+            validate_environment_report_v1(missing)
+
     def test_original_media_executables_ignore_path_shadow(self):
         """The file hashed as encoder must actually be the binary executed."""
         import os
