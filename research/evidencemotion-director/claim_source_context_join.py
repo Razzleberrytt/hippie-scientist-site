@@ -239,11 +239,20 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
         # botanical 7-OH concentrations, positive assays or absent content.
         if asserts_unverified_botanical_7oh_content(written_ink):
             hold("UNVERIFIED_BOTANICAL_7OH_CONTENT:"+shot["shot"])
-    for (left_name,left_ink),(right_name,right_ink) in zip(
-            adjacent_ink,adjacent_ink[1:]):
-        if asserts_unverified_botanical_7oh_content(left_ink+" "+right_ink):
-            hold("UNVERIFIED_BOTANICAL_7OH_CROSS_SHOT:"
-                 +left_name+":"+right_name)
+    # A sequence of three neighboring shots can complete a botanical assay
+    # assertion even when neither adjacent pair contains the whole statement.
+    # Preserve the existing pairwise detector and also inspect complete
+    # contiguous three-shot windows. This is metadata text validation, not
+    # decoded-pixel OCR or audience comprehension certification.
+    for width in (2, 3):
+        for offset in range(len(adjacent_ink)-width+1):
+            window=adjacent_ink[offset:offset+width]
+            if asserts_unverified_botanical_7oh_content(
+                    " ".join(ink for _,ink in window)):
+                label=("UNVERIFIED_BOTANICAL_7OH_CROSS_SHOT:"
+                       if width==2 else
+                       "UNVERIFIED_BOTANICAL_7OH_THREE_SHOT:")
+                hold(label+":".join([name for name,_ in window]))
     # EM-007.06: this exact nine-shot film must preserve its visible science
     # limitations. A freshly rehashed visual inventory is not enough if a
     # later picture edit drops "computed" or "not filmed" while source CIDs

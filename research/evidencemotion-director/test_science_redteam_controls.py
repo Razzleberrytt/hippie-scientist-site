@@ -180,6 +180,33 @@ class ScienceAdversarialMatrix(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "UNVERIFIED_BOTANICAL_7OH_CROSS_SHOT"):
             self.source_join()
 
+    def test_em008_three_shot_botanical_absence_rejected_after_rehash(self):
+        # Neither adjacent pair contains the full plant + 7-OH + absence
+        # assertion; the contiguous three-shot reading does.
+        self.visual["rows"][0]["emittedSourceAnnotations"]["science"]=["Kratom leaves"]
+        self.visual["rows"][1]["emittedSourceAnnotations"]["science"]=["from the tested sample"]
+        self.visual["rows"][2]["emittedSourceAnnotations"]["science"]=["7-OH is undetectable"]
+        with self.assertRaisesRegex(ValueError,"UNVERIFIED_BOTANICAL_7OH_THREE_SHOT"):
+            self.source_join()
+
+    def test_em008_three_shot_botanical_positive_claim_also_rejected(self):
+        self.visual["rows"][0]["emittedSourceAnnotations"]["science"]=["Kratom leaf"]
+        self.visual["rows"][1]["emittedSourceAnnotations"]["science"]=["in the submitted batch"]
+        self.visual["rows"][2]["emittedSourceAnnotations"]["science"]=["7-OH measured at 4mg"]
+        with self.assertRaisesRegex(ValueError,"UNVERIFIED_BOTANICAL_7OH_THREE_SHOT"):
+            self.source_join()
+
+    def test_em008_three_shot_neutral_illustration_stays_hold_not_clinical(self):
+        self.visual["rows"][0]["emittedSourceAnnotations"]["disclosure"]=[
+            "Botanical illustration"]
+        self.visual["rows"][1]["emittedSourceAnnotations"]["disclosure"]=[
+            "not proof of 7-OH plant content"]
+        self.visual["rows"][2]["emittedSourceAnnotations"]["disclosure"]=[
+            "Diagram, not an assay"]
+        result=self.source_join()
+        self.assertFalse(result["mayPublish"])
+        self.assertFalse(result["clinicalSourceClaimsApproved"])
+
     def test_em008_neutral_illustration_without_assay_claim_stays_unapproved(self):
         self.visual["rows"][0]["emittedSourceAnnotations"]["disclosure"]=[
             "Botanical illustration; not proof of 7-OH plant content."]
