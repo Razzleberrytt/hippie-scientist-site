@@ -192,7 +192,7 @@ def audit(packet, original_wav=None):
                 source_offsets = source_clip_sample_offsets(
                     original.read_bytes(), raw_clips, SOURCE_WAV_REFERENCE)
     except (ValueError, TypeError, IndexError, KeyError, OSError,
-            EOFError, UnicodeError, zipfile.BadZipFile) as exc:
+            EOFError, UnicodeError, zipfile.BadZipFile, wave.Error) as exc:
         return hold("ORIGINAL_RESEARCH_READ_OR_MEASURE_ERROR:"+str(exc)[:120])
     if not result["repeatPatternConsistent"]:
         return {**hold("SOURCE_REPEAT_PATTERN_CONTROL_REJECTED"),**result}
