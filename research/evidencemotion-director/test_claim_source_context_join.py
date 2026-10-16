@@ -19,7 +19,15 @@ def visual_fixture():
         rows.append({
             "shot":shot,
             "emittedSourceAnnotations":{
-                "source":list(SOURCE_CARD_LABELS) if shot=="source_hold" else []},
+                "source":list(SOURCE_CARD_LABELS) if shot=="source_hold" else [],
+                "hook":[],
+                "science":["≠","HUMAN EXPERIENCE"] if shot=="sentence_5_part1" else [],
+                "disclosure":(
+                    ["DETAIL REVEAL • computed model"] if shot=="sentence_2" else
+                    ["Computed 3D illustration • not filmed"] if shot=="sentence_4" else []
+                ),"caption":[]},
+            "actualDecodedFrameSha256":"3"*64,
+            "actualDecodedPixelOcrSha256":"4"*64,
             "impliedEffectOrMisreadingToReview":"Not a clinical study",
             "humanInterpretationReviewed":False,
             "clinicalEffectSupportedByThisVisual":False,
@@ -30,6 +38,9 @@ def visual_fixture():
         "sourceWavSha256":WAV_SHA,
         "filmSha256":"a"*64,
         "receiptSha256":"b"*64,
+        "phonePlanSha256":"5"*64,
+        "encodedScienceOcrSha256":"6"*64,
+        "encodedCaptionOcrSha256":"7"*64,
         "storyMapSha256":"c"*64,
         "shotsInspected":9,"sourceCaptionCuesAssigned":71,
         "scienceClaimsApproved":False,
@@ -101,6 +112,73 @@ class ExactClaimContextTests(unittest.TestCase):
             # by code accidentally mistaking chemical labels for trials.
             with self.assertRaisesRegex(ValueError,"SOURCE_SCOPE"):
                 self.produce()
+    def test_forged_or_missing_parent_artifact_hash_fails_closed(self):
+        # A new JSON file checksum does not make its claimed parent hashes valid.
+        for field in ("filmSha256","receiptSha256","phonePlanSha256",
+                      "encodedScienceOcrSha256","encodedCaptionOcrSha256",
+                      "storyMapSha256"):
+            original=self.visual[field]
+            self.visual[field]="fake-hash"
+            with self.subTest(field=field), self.assertRaisesRegex(
+                    ValueError,"EXACT_RESEARCH_INPUT_CONTRACT"):
+                self.produce()
+            self.visual[field]=original
+        self.visual["rows"][0]["actualDecodedFrameSha256"]="not-frames"
+        with self.assertRaisesRegex(ValueError,"VISUAL_SCOPE_OR_RISKS_REQUIRED"):
+            self.produce()
+
+    def test_rehashed_visual_injection_cannot_promote_clinical_claim(self):
+        self.visual["rows"][0]["emittedSourceAnnotations"]["science"]=[
+            "Clinically proven to treat withdrawal"]
+        with self.assertRaisesRegex(ValueError,"UNSUPPORTED_TREATMENT_OR_EFFECT_TEXT"):
+            self.produce()
+        self.setUp()
+        self.visual["rows"][0]["emittedSourceAnnotations"]["source"]=[
+            "PubChem"]
+        with self.assertRaisesRegex(ValueError,"SOURCE_IDENTITY_CARD_OUTSIDE"):
+            self.produce()
+        self.setUp()
+        del self.visual["rows"][3]["emittedSourceAnnotations"]["caption"]
+        with self.assertRaisesRegex(ValueError,"VISIBLE_ANNOTATIONS_REQUIRED"):
+            self.produce()
+
+    def test_visible_film_qualifiers_must_survive_independently_rehashed_edits(self):
+        # Negative controls mimic a real source-locked visual inventory being
+        # re-serialized/rehashed after a misleading editing change.
+        cases=(
+            ("sentence_2","disclosure",["Look at the group"],"COMPUTED_MODEL"),
+            ("sentence_4","disclosure",["Computed 3D illustration"],"NOT_FILMED"),
+            ("sentence_4","disclosure",["not filmed"],"NOT_FILMED"),
+            ("sentence_5_part1","science",["HUMAN EXPERIENCE"],"HUMAN_EXPERIENCE"),
+            ("sentence_5_part1","science",["≠"],"HUMAN_EXPERIENCE"),
+        )
+        for shot,role,altered,reason in cases:
+            self.setUp()
+            row=next(x for x in self.visual["rows"] if x["shot"]==shot)
+            row["emittedSourceAnnotations"][role]=altered
+            with self.subTest(shot=shot,role=role,change=altered):
+                with self.assertRaisesRegex(ValueError,reason):
+                    self.produce()
+
+    def test_spoken_negation_and_computed_qualifier_erasure_fails_even_if_text_edited(self):
+        # Rebuild matching local assertion text, without changing the frozen
+        # audio source identity. Source words must still match all 73 original
+        # tokens; changing a negation may never convert a visual to proof.
+        for claim_id,word,replacement in (
+            ("spoken-004","computed","observed"),
+            ("spoken-005","not","actually"),
+            ("spoken-007","not","yes"),
+        ):
+            self.setUp()
+            assertion=next(a for a in self.spoken["assertions"] if a["id"]==claim_id)
+            indexes=assertion["wordIndices"]
+            target=next(i for i in indexes if self.spoken["words"][i]["word"]==word)
+            self.spoken["words"][target]["word"]=replacement
+            assertion["text"]=" ".join(self.spoken["words"][i]["word"] for i in indexes)
+            with self.subTest(claim_id=claim_id),self.assertRaisesRegex(
+                    ValueError,"EXACT_FROZEN_73_WORD"):
+                self.produce()
+
     def test_no_human_release_upgrade_from_changed_flags(self):
         self.visual["scienceClaimsApproved"]=True
         with self.assertRaisesRegex(ValueError,"EXACT_RESEARCH_INPUT_CONTRACT"):
