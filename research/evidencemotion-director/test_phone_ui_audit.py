@@ -763,7 +763,7 @@ class MutedStoryNegativeScreenTests(unittest.TestCase):
         self.assertFalse(result["subjectAndObjectOCRWithinSameShotAllThreeTimes"])
         self.assertEqual(result["verdict"], "HOLD")
 
-    def test_hypothetical_same_crop_word_proof_remains_nonpublishing(self):
+    def test_full_words_without_inequality_glyph_cannot_clear_muted_story(self):
         proof, plan = self.build()
         target = next(s for s in plan["shots"] if s["id"] == "sentence_5_part1")
         target["annotations"].append({"role": "science", "text": "STRUCTURE"})
@@ -772,6 +772,48 @@ class MutedStoryNegativeScreenTests(unittest.TestCase):
             proof["observations"].append({
                 "scene": "sentence_5_part1", "phase": phase,
                 "recognized": "STRUCTURE HUMAN EXPERIENCE",
+                "recognizedTokens": words, "expectedTokens": words,
+                "expected": "STRUCTURE HUMAN EXPERIENCE",
+                "wordSequenceRecovered": True,
+            })
+        result = mute_story_negative_screen(plan, proof)
+        self.assertTrue(result["subjectAndObjectOCRWithinSameShotAllThreeTimes"])
+        self.assertFalse(result["subjectObjectAndOperatorOCRInSameCropAllThreeTimes"])
+        self.assertIn("NO_EXACT_ENCODED_NEGATION_OPERATOR_OCR_PROOF",
+                      result["blockingFindings"])
+        self.assertEqual(result["verdict"], "HOLD")
+        self.assertFalse(result["mayPublish"])
+
+    def test_inequality_glyph_missing_only_at_midpoint_is_still_hold(self):
+        proof, plan = self.build()
+        target = next(s for s in plan["shots"] if s["id"] == "sentence_5_part1")
+        target["annotations"].append({"role": "science", "text": "STRUCTURE"})
+        for phase in ("early", "middle", "late"):
+            words = ["structure", "human", "experience"]
+            proof["observations"].append({
+                "scene": "sentence_5_part1", "phase": phase,
+                "recognized": ("STRUCTURE HUMAN EXPERIENCE" if phase == "middle"
+                               else "STRUCTURE ≠ HUMAN EXPERIENCE"),
+                "recognizedTokens": words, "expectedTokens": words,
+                "expected": "STRUCTURE HUMAN EXPERIENCE",
+                "wordSequenceRecovered": True,
+            })
+        result = mute_story_negative_screen(plan, proof)
+        self.assertTrue(result["subjectAndObjectOCRWithinSameShotAllThreeTimes"])
+        self.assertFalse(result["subjectObjectAndOperatorOCRInSameCropAllThreeTimes"])
+        self.assertIn("NO_EXACT_ENCODED_NEGATION_OPERATOR_OCR_PROOF",
+                      result["blockingFindings"])
+        self.assertEqual(result["verdict"], "HOLD")
+
+    def test_hypothetical_same_crop_word_proof_remains_nonpublishing(self):
+        proof, plan = self.build()
+        target = next(s for s in plan["shots"] if s["id"] == "sentence_5_part1")
+        target["annotations"].append({"role": "science", "text": "STRUCTURE"})
+        for phase in ("early", "middle", "late"):
+            words = ["structure", "human", "experience"]
+            proof["observations"].append({
+                "scene": "sentence_5_part1", "phase": phase,
+                "recognized": "STRUCTURE ≠ HUMAN EXPERIENCE",
                 "recognizedTokens": words,
                 "expectedTokens": words,
                 "expected": "STRUCTURE HUMAN EXPERIENCE",
@@ -779,6 +821,7 @@ class MutedStoryNegativeScreenTests(unittest.TestCase):
             })
         result = mute_story_negative_screen(plan, proof)
         self.assertEqual(result["verdict"], "MECHANICAL_WORD_SCREEN_ONLY_REVIEW_REQUIRED")
+        self.assertTrue(result["subjectObjectAndOperatorOCRInSameCropAllThreeTimes"])
         self.assertFalse(result["inequalitySymbolDecodedAndIndependentlyVerified"])
         self.assertFalse(result["mutedAudienceComprehensionApproved"])
         self.assertFalse(result["realHandsetPlaybackApproved"])
