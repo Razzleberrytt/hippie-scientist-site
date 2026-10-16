@@ -5,13 +5,14 @@ import subprocess
 import tempfile
 from decimal import Decimal
 from pathlib import Path
+from unittest.mock import patch
 
 import numpy as np
 
 from native_master_audit import frame_timestamps
 from native_text_legibility_audit import (REQUIRED, SCHEMA, get_boxes,
                                           score_samples, MIN_INK_DYNAMIC_RANGE,
-                                          exact_gray_samples)
+                                          exact_gray_samples, audit)
 
 
 class RealEncodedTextInkTests(unittest.TestCase):
@@ -122,6 +123,30 @@ class RealEncodedTextInkTests(unittest.TestCase):
         for k in ("viewerComprehensionApproved","naturalVoiceApproved",
                   "excellentFilmApproved","realHandsetApproved","mayPublish"):
             self.assertIs(r[k],False)
+
+
+class StaleNativeAuditReceiptTests(unittest.TestCase):
+    def test_failing_new_media_audit_removes_prior_success_receipt(self):
+        with tempfile.TemporaryDirectory() as d:
+            out=Path(d)/"native-text-legibility.json"
+            out.write_text('{"additionalObjectivePoints":2,"mayPublish":true}')
+            with patch("native_text_legibility_audit.probe_movie",
+                       side_effect=ValueError("bad new film")):
+                with self.assertRaisesRegex(ValueError,"bad new film"):
+                    audit(Path(d)/"missing.mp4",Path(d)/"plan.json",
+                          Path(d)/"receipt.json",Path(d)/"claim.json",out)
+            self.assertFalse(out.exists(),
+                             "prior PASS must not survive a failed audit")
+
+    def test_receipt_path_must_not_alias_an_input_file(self):
+        with tempfile.TemporaryDirectory() as d:
+            movie=Path(d)/"original-movie.mp4"
+            movie.write_bytes(b"immutable source bytes")
+            with self.assertRaisesRegex(ValueError,
+                                        "OUTPUT_RECEIPT_MUST_NOT_OVERWRITE_INPUT"):
+                audit(movie,Path(d)/"plan.json",Path(d)/"receipt.json",
+                      Path(d)/"claim.json",movie)
+            self.assertEqual(movie.read_bytes(),b"immutable source bytes")
 
 
 class ActualH264FrameIdentityTests(unittest.TestCase):
