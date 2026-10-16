@@ -25,6 +25,8 @@ on:
       - 'research/evidencemotion-director/test_science_redteam_controls.py'
       - 'research/evidencemotion-director/science_gate_process_attestation.py'
       - 'research/evidencemotion-director/test_science_gate_process_attestation.py'
+      - 'research/evidencemotion-director/science_reviewer_handoff.py'
+      - 'research/evidencemotion-director/test_science_reviewer_handoff.py'
       - 'research/evidencemotion-director/em00708_original_archive_hold_replay.py'
       - 'research/evidencemotion-director/test_em00708_original_archive_hold_replay.py'
       - 'research/evidencemotion-director/test_research_cli_continuations.py'
@@ -681,6 +683,26 @@ jobs:
           assert report['mayPublish'] is False and report['approvalToMerge'] is False
           assert report['processAttestation']['notHumanSigned'] is True
           print('Eight original-claim source identities reconciled, research HOLD report preserved and process digest checked')
+          PY
+      - name: Export source-bound eight-claim qualified-science review intake without fabricating approval (EM-007.07)
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_science_reviewer_handoff.py -v
+          python research/evidencemotion-director/science_reviewer_handoff.py \
+            --gate "$RUNNER_TEMP/ths-mfa/specimen-timed-native/science-gate-HOLD-RESEARCH.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/qualified-science-review-INTAKE-ONLY.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-timed-native'
+          packet=json.loads((root/'qualified-science-review-INTAKE-ONLY.json').read_text())
+          assert len(packet['eightClaimsToReview'])==8
+          assert sum(x['material'] for x in packet['eightClaimsToReview'])==6
+          assert packet['independentQualifiedReviewReceived'] is False
+          assert packet['independentScientificReviewPassed'] is False
+          assert packet['mayPublish'] is False and packet['approvalToMerge'] is False
+          print('Eight source-locked reviewer questions ready; no independent science approval received')
           PY
       - name: Independently measure actual encoded science camera movement and reject static or strobing visuals
         shell: micromamba-shell {0}
