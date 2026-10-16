@@ -30,16 +30,13 @@ class RealEncodedTextInkTests(unittest.TestCase):
                 "id":scene,"startSec":start,"endSec":start+2.,
                 "annotations":rows})
             start+=2.
-        self.plan["shots"].append({
-            "id":"sentence_6","startSec":start,"endSec":start+2.,
-            "annotations":[{"role":"science","text":"Look closer.","boxPx":[80,400,400,470]}]})
         self.samples={(s,t):(self.good,self.good)
                       for s,terms in REQUIRED.items() for t in terms}
 
     def test_exact_13_visible_labels_meet_both_one_point_criteria(self):
         result=score_samples(self.plan,self.samples)
         self.assertEqual(result["schema"],SCHEMA)
-        self.assertEqual(result["testedCriticalVisibleLabels"],13)
+        self.assertEqual(result["testedCriticalVisibleLabels"],16)
         self.assertEqual(result["additionalObjectivePoints"],2)
         self.assertTrue(all(x["passed"] for x in result["criteria"]))
         self.assertFalse(result["viewerComprehensionApproved"])
@@ -57,7 +54,7 @@ class RealEncodedTextInkTests(unittest.TestCase):
         self.assertLess(r["additionalObjectivePoints"],2)
 
     def test_disappearing_late_text_rejected(self):
-        self.samples[("sentence_1_part0","CID = compound record number")]=(self.good,self.dark)
+        self.samples[("sentence_1_part0","No reaction")]=(self.good,self.dark)
         r=score_samples(self.plan,self.samples)
         self.assertFalse(r["criteria"][0]["passed"])
         self.assertFalse(r["criteria"][1]["passed"])
@@ -69,7 +66,7 @@ class RealEncodedTextInkTests(unittest.TestCase):
         box=[80,480,680,540]
         x1,y1,x2,y2=box
         late[y1:y2,x1+20:x2-20:2]=170
-        self.samples[("sentence_1_part0","MITRAGYNINE • CID 3034396")]=(self.good,late)
+        self.samples[("sentence_1_part0","MITRAGYNINE")]=(self.good,late)
         r=score_samples(self.plan,self.samples)
         self.assertTrue(r["criteria"][0]["passed"])
         self.assertFalse(r["criteria"][1]["passed"])
@@ -80,7 +77,7 @@ class RealEncodedTextInkTests(unittest.TestCase):
         self.assertFalse(r["criteria"][1]["passed"])
 
     def test_missing_first_use_definition_rejected(self):
-        shot=self.plan["shots"][0]
+        shot=next(s for s in self.plan["shots"] if s["id"]=="source_hold")
         shot["annotations"]=[a for a in shot["annotations"]
                              if a["text"]!="CID = compound record number"]
         with self.assertRaisesRegex(ValueError,"MISSING_OR_DUPLICATE_CRITICAL_LABEL"):
@@ -92,7 +89,7 @@ class RealEncodedTextInkTests(unittest.TestCase):
             score_samples(self.plan,self.samples)
 
     def test_missing_frame_samples_hold_not_neutral(self):
-        del self.samples[("source_hold","CID 44301524")]
+        del self.samples[("source_hold","7-OH • CID 44301524")]
         with self.assertRaisesRegex(ValueError,"EARLY_LATE_NATIVE_FRAME_SAMPLES_REQUIRED"):
             score_samples(self.plan,self.samples)
 
