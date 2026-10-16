@@ -9,7 +9,9 @@ eligible toward the current EvidenceMotion B-gate research percentage.
 import argparse
 import hashlib
 import json
+import os
 import subprocess
+import tempfile
 from pathlib import Path
 import numpy as np
 from muted_review_research import reject_untrusted
@@ -181,6 +183,11 @@ def score_samples(plan,samples):
 
 def audit(movie,phone,receipt,claim,out):
     movie,phone,receipt,claim,out=map(Path,(movie,phone,receipt,claim,out))
+    if out.resolve() in {p.resolve() for p in (movie,phone,receipt,claim)}:
+        hold("OUTPUT_RECEIPT_MUST_NOT_OVERWRITE_INPUT")
+    # A failed replacement audit must never leave an old positive JSON behind.
+    # Reject input/output aliasing before touching the destination.
+    out.unlink(missing_ok=True)
     width,height,duration,count=probe_movie(movie)
     plan,_,identity=reject_untrusted(movie,phone,receipt,claim,width,height,duration)
     approved=validate_manifest(plan,width=width,height=height,duration=duration,
@@ -218,7 +225,15 @@ def audit(movie,phone,receipt,claim,out):
         "automaticPublicationApproval":False
     })
     out.parent.mkdir(parents=True,exist_ok=True)
-    out.write_text(json.dumps(result,indent=2)+"\n")
+    # Make a completed, exact-media receipt visible only after the whole JSON
+    # is written. A crashed/failed attempt leaves no prior PASS or partial file.
+    fd,tmp=tempfile.mkstemp(prefix="."+out.name+".",suffix=".tmp",dir=out.parent)
+    try:
+        with os.fdopen(fd,"w",encoding="utf-8") as stream:
+            stream.write(json.dumps(result,indent=2)+"\n")
+        os.replace(tmp,out)
+    finally:
+        Path(tmp).unlink(missing_ok=True)
     return result
 
 
