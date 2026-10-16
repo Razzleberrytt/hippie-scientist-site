@@ -675,7 +675,7 @@ def probe_movie(movie):
     # source video. Muted H.264 films remain eligible for research inspection;
     # an audio-bearing film must have exactly one AAC track.
     cmd = ["ffprobe", "-v", "error", "-show_entries",
-           "stream=codec_type,codec_name,width,height,avg_frame_rate",
+           "stream=codec_type,codec_name,width,height,avg_frame_rate,pix_fmt,sample_aspect_ratio",
            "-show_entries", "format=duration", "-of", "json", str(movie)]
     data = json.loads(subprocess.run(cmd, capture_output=True, text=True, timeout=20, check=True).stdout)
     streams = data.get("streams")
@@ -690,6 +690,15 @@ def probe_movie(movie):
         hold("EXPECTED_H264_VIDEO_CODEC")
     if audios and audios[0].get("codec_name") != "aac":
         hold("EXPECTED_AAC_AUDIO_CODEC")
+    # Codec+dimensions alone do NOT guarantee an ordinary portrait phone
+    # image. H.264 4:4:4 is poorly supported by typical mobile decoders,
+    # while non-square sample pixels alter displayed dimensions and move
+    # rendered text relative to the phone safe-area exclusion rectangles.
+    # Reject unknown declarations instead of calling them 1:1/yuv420p.
+    if track.get("pix_fmt") != "yuv420p":
+        hold("EXPECTED_MOBILE_YUV420P_PIXEL_FORMAT")
+    if track.get("sample_aspect_ratio") != "1:1":
+        hold("EXPECTED_SQUARE_VIDEO_SAMPLE_PIXELS")
     numerator, denominator = map(int, track["avg_frame_rate"].split("/"))
     if denominator == 0 or abs(numerator / denominator - 30) > .6:
         hold("AVERAGE_RATE_NOT_30FPS")
