@@ -68,6 +68,27 @@ def verified_bond_path(asset):
     return tuple(zip(selected,selected[1:]))
 
 
+def research_science_camera(progress):
+    """One science-safe digital pullback for the *existing* full RDKit drawing.
+
+    Complete source graph remains in view at every time. The same geometry
+    drives both the actual diagram pixels and every atom/bond annotation.
+    Camera reframing does not change bond order, chemistry or source claims.
+    """
+    if (not isinstance(progress,(int,float)) or not math.isfinite(progress)
+        or not 0<=progress<=1):
+        raise ValueError("BOND_STORY_HOLD:INVALID_SHOT_PROGRESS")
+    x=25+80*progress
+    y=590+40*progress
+    width=880-160*progress
+    height=660-120*progress
+    if not (20<=x and x+width<=950 and 570<=y and y+height<=1260):
+        raise ValueError("BOND_STORY_HOLD:UNSAFE_PORTRAIT_CAMERA")
+    if abs(width/height-4/3)>1e-7:
+        raise ValueError("BOND_STORY_HOLD:CHEMICAL_DIAGRAM_ASPECT_CHANGED")
+    return x,y,width,height
+
+
 def mapped_atom_point(source_xy, scene_progress, image_size):
     if (not isinstance(scene_progress,(float,int)) or not math.isfinite(scene_progress)
         or not 0<=scene_progress<=1):
@@ -77,9 +98,10 @@ def mapped_atom_point(source_xy, scene_progress, image_size):
         raise ValueError("BOND_STORY_HOLD:UNSUPPORTED_FILM_GEOMETRY")
     x,y=source_xy
     scale=w/1080
-    mapped=((45+20*scene_progress+x*(790-40*scene_progress)/1200)*scale,
-            (620+15*scene_progress+y*(593-30*scene_progress)/900)*scale)
-    if not (25*scale<=mapped[0]<=920*scale and 605*scale<=mapped[1]<=1235*scale):
+    dx,dy,dw,dh=research_science_camera(scene_progress)
+    mapped=((dx+x*dw/1200)*scale,
+            (dy+y*dh/900)*scale)
+    if not (20*scale<=mapped[0]<=940*scale and 580*scale<=mapped[1]<=1260*scale):
         raise ValueError("BOND_STORY_HOLD:MARKER_OUTSIDE_SCIENCE_STAGE")
     return mapped
 
