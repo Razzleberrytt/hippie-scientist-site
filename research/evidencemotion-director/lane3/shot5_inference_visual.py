@@ -15,6 +15,8 @@ INCHIKEY = 'RYENLSMHLCNXJT-CYXFISRXSA-N'
 ORIGINAL_WAV_SHA = '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435'
 W,H,FPS,N = 1080,1920,30,1031
 START,END,NEGATION = 702,821,772
+FULL_SILENT_NEGATION = 'STRUCTURE ≠ HUMAN EXPERIENCE'
+FULL_NEGATION_FONT_SIZE = 44  # projects to 15.28px at 375px phone width
 FRAME_SIZE = W*H*3
 SCHEMA = 'ths-lane3-structure-vs-experience-optin-research-v1'
 
@@ -86,6 +88,16 @@ def pinned_diagram(molecule):
     return Image.open(io.BytesIO(canvas.GetDrawingText())).convert('RGBA')
 
 
+def complete_negation_after_spoken_not(frame_no):
+    """Full, same-shot silent proposition appears only after spoken 'not'.
+
+    This proves source intent, never pixel OCR, human comprehension, or film QA.
+    """
+    if not START <= frame_no < END:
+        raise ResearchHold('OUTSIDE_EDIT_INTERVAL')
+    return FULL_SILENT_NEGATION if frame_no >= NEGATION else None
+
+
 def sample_treatment(base_frame,graph_image,science_bg,frame_no):
     if not START<=frame_no<END:raise ResearchHold('OUTSIDE_EDIT_INTERVAL')
     from PIL import Image,ImageDraw,ImageFont
@@ -118,6 +130,18 @@ def sample_treatment(base_frame,graph_image,science_bg,frame_no):
             amber=(round(24+228*alpha),round(68+118*alpha),round(76+39*alpha))
             draw.text((753,616),'?',font=bold(180),fill=amber)
             draw.text((735,831),'NOT SHOWN',font=bold(41),fill=(232,242,235))
+            # The original lower-caption zone is source-preserved, but its
+            # "≠ HUMAN EXPERIENCE" omitted the subject within this shot.
+            # Co-locate the COMPLETE assertion in the science-body panel;
+            # do not make viewers carry a subject across the scene cut.
+            proposition=complete_negation_after_spoken_not(frame_no)
+            font=bold(FULL_NEGATION_FONT_SIZE)
+            width=draw.textbbox((0,0),proposition,font=font)[2]
+            if width>874:
+                raise ResearchHold('FULL_NEGATION_EXCEEDS_SAFE_PHONE_WIDTH')
+            draw.rounded_rectangle((92,963,1000,1041),radius=14,
+                                   fill=(12,40,48),outline=(90,184,169),width=2)
+            draw.text((106,978),proposition,font=font,fill=(244,248,246))
             # The original film's frame-synchronous lower "≠ HUMAN
             # EXPERIENCE" remains unchanged, not duplicated on this stage.
     return frame
