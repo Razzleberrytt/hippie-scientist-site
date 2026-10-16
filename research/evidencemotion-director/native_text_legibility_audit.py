@@ -107,6 +107,20 @@ def get_boxes(plan):
         shot=byid[scene]
         if not isinstance(shot.get("annotations"),list):
             hold("ACTUAL_RENDER_ANNOTATIONS_REQUIRED")
+        # A source annotation can retain truthful metadata while its separate
+        # renderer layout omits words. Reconcile actual declared visual lines
+        # before sampling pixels: the computed/not-filmed caveat must survive.
+        # This is metadata integrity, not encoded-pixel OCR.
+        for ann in shot["annotations"]:
+            if not isinstance(ann,dict):
+                hold("INVALID_RENDERED_ANNOTATION")
+            if "renderedLineBreaks" in ann:
+                lines=ann["renderedLineBreaks"]
+                if (not isinstance(lines,list) or len(lines)<2
+                    or any(type(line) is not str or not line.strip()
+                           or "\n" in line or "\r" in line for line in lines)
+                    or canonical(" ".join(lines))!=canonical(ann.get("text"))):
+                    hold("RENDERED_LINES_MISMATCH_DECLARED_TEXT:"+scene)
         for term in terms:
             found=[a for a in shot["annotations"]
                    if canonical(a.get("text"))==canonical(term)
