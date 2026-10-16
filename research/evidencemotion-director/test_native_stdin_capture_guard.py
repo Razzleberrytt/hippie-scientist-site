@@ -1,6 +1,11 @@
 """Adversarial research tests: these use tiny synthetic frames, not a real render."""
 import io
+import hashlib
+import json
+import subprocess
+import tempfile
 import unittest
+from pathlib import Path
 
 from native_stdin_capture_guard import Capture, check_one, compare_pair, hold, digest
 
@@ -56,6 +61,46 @@ class Tests(unittest.TestCase):
         self.assertEqual(r["capturedBytes"],18)
         self.assertEqual(r["rawStdinSha256"],digest(FRAME*3))
         self.assertEqual(r["frameSha256"],[digest(FRAME)]*3)
+
+    def test_real_ffmpeg_pipe_and_decoded_fixture(self):
+        # Live FFmpeg with three tiny REAL frames; never represents the 7-OH
+        # original 1080p 1031-frame film or a human/craft review.
+        with tempfile.TemporaryDirectory() as temp:
+            movie = Path(temp) / "tiny-h264-fixture.mp4"
+            cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error",
+                   "-nostdin", "-y", "-f", "rawvideo", "-pixel_format", "rgb24",
+                   "-video_size", "2x2", "-framerate", "30", "-i", "pipe:0",
+                   "-frames:v", "3", "-c:v", "libx264", "-pix_fmt", "yuv420p",
+                   str(movie)]
+            proc = subprocess.Popen(cmd, stdin=subprocess.PIPE,
+                                    stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+            writer = Capture(proc.stdin, run_id="native-pipe-fixture",
+                             source_sha=SOURCE, wav_sha=WAV, environment_sha=ENV,
+                             width=2, height=2, frames=3)
+            frames = [bytes([n]) * 12 for n in (30, 150, 230)]
+            for frame in frames:
+                writer.write(frame)
+            writer.close()
+            _, stderr = proc.communicate(timeout=20)
+            self.assertEqual(proc.returncode, 0, stderr.decode("utf-8", "replace"))
+            report = writer.receipt(exit_code=proc.returncode,
+                                    film_sha=hashlib.sha256(movie.read_bytes()).hexdigest())
+            self.assertEqual(report["capturedBytes"], 36)
+            self.assertEqual(report["frameSha256"], [digest(frame) for frame in frames])
+            self.assertEqual(report["rawStdinSha256"], digest(b"".join(frames)))
+            probe = subprocess.run([
+                "ffprobe", "-v", "error", "-count_frames", "-select_streams", "v:0",
+                "-show_entries", "stream=codec_name,width,height,nb_read_frames",
+                "-of", "json", str(movie)
+            ], check=True, capture_output=True, text=True, timeout=20)
+            stream = json.loads(probe.stdout)["streams"][0]
+            self.assertEqual((stream["codec_name"], stream["width"], stream["height"],
+                              int(stream["nb_read_frames"])), ("h264", 2, 2, 3))
+            # Independent actual decode, not just receipt claims.
+            subprocess.run(["ffmpeg", "-v", "error", "-xerror", "-i", str(movie),
+                            "-f", "null", "-"], check=True, capture_output=True, timeout=20)
+            self.assertFalse(report["originalMediaExternallyValidated"])
+            self.assertFalse(report["mayPublish"])
 
     def test_partial_writes_are_completed_not_silently_truncated(self):
         s=ShortSink()
