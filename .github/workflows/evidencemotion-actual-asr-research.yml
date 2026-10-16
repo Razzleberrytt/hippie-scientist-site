@@ -14,6 +14,9 @@ on:
       - 'research/evidencemotion-director/test_narration_first_story_map.py'
       - 'research/evidencemotion-director/visual_claim_inventory.py'
       - 'research/evidencemotion-director/test_visual_claim_inventory.py'
+      - 'research/evidencemotion-director/em00801_actual_botanical_frame_inventory.py'
+      - 'research/evidencemotion-director/test_em00801_actual_botanical_frame_inventory.py'
+      - 'research/evidencemotion-director/EM00801-ACTUAL-FILM-BOTANICAL-INVENTORY-20261016.md'
       - 'research/evidencemotion-director/claim_source_context_join.py'
       - 'research/evidencemotion-director/test_claim_source_context_join.py'
       - 'research/evidencemotion-director/scientific_uncertainty_ledger.py'
@@ -611,6 +614,28 @@ jobs:
           assert not x['scienceClaimsApproved']
           assert x['mayPublish'] is False
           print('Nine actual shot visual/text/source/diagram inventory PASS; effects interpretation and approval still HOLD')
+          PY
+      - name: Enumerate source-declared botanical assets and hash nine actual decoded H264 shot samples (EM-008.01)
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_em00801_actual_botanical_frame_inventory.py -v
+          python research/evidencemotion-director/em00801_actual_botanical_frame_inventory.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-timed-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --plan "$RUNNER_TEMP/ths-mfa/specimen-timed-native/phone-ui-plan.json" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-timed-native/render-receipt.json" \
+            --inventory "$RUNNER_TEMP/ths-mfa/specimen-timed-native/visual-claim-inventory.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/em00801-actual-botanical-frame-inventory.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-timed-native/em00801-actual-botanical-frame-inventory.json'
+          result=json.loads(p.read_text())
+          assert result['actualDecodedShotsSampled']==9 and result['declaredBotanicalArtShots']==0
+          assert result['actualBotanicalAbsenceFromAllFramesEstablished'] is False
+          assert result['actualFullFrameContentBotanicallyClassified'] is False
+          assert not result['mayPublish']
+          print('Real H264 nine-sample SHA inventory only; full film botanical visual classification remains HOLD')
           PY
       - name: Bind all frozen scientific claims to exact PubChem and film-context identities (EM-007.03 research)
         shell: micromamba-shell {0}
