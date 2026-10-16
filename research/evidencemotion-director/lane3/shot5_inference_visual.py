@@ -1,0 +1,173 @@
+#!/usr/bin/env python3
+"""Research-only source-bound structure-vs-effect craft treatment.
+
+Native 1080x1920 H.264, no narration/claim/caption editing. Source film
+SHA and exact 2D chemical record frame are pinned before any art is drawn.
+Modifies only the science-body stage in sentence_5 [702,821). No publishing.
+"""
+from __future__ import annotations
+import argparse, hashlib, io, json, math, subprocess
+from pathlib import Path
+
+SOURCE_SHA = '53bf75bfcd9752917f7f666afdb86fda493b78ecdc3c94e005a62da70ef39642'
+MOL_SHA = '150ccd331963beab2481ad47c36e1e171db6bdd37e4d50746a3d6b4b5be60bcb'
+INCHIKEY = 'RYENLSMHLCNXJT-CYXFISRXSA-N'
+ORIGINAL_WAV_SHA = '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435'
+W,H,FPS,N = 1080,1920,30,1031
+START,END,NEGATION = 702,821,772
+FRAME_SIZE = W*H*3
+SCHEMA = 'ths-lane3-structure-vs-experience-optin-research-v1'
+
+class ResearchHold(ValueError):pass
+
+def digest(p):
+    h=hashlib.sha256()
+    with open(p,'rb') as f:
+        for b in iter(lambda:f.read(1<<20),b''):h.update(b)
+    return h.hexdigest()
+
+def freeze(source):
+    source=Path(source)
+    if not source.is_file() or digest(source)!=SOURCE_SHA:
+        raise ResearchHold('SOURCE_FILM_SHA_CHANGED')
+    p=subprocess.run(['ffprobe','-v','error','-select_streams','v:0','-count_frames',
+        '-show_entries','stream=codec_name,width,height,avg_frame_rate,nb_read_frames',
+        '-of','json',str(source)],capture_output=True,text=True,check=True)
+    data=json.loads(p.stdout)['streams'][0]
+    if (data['codec_name'],data['width'],data['height'],data['avg_frame_rate'],int(data['nb_read_frames']))!=('h264',W,H,'30/1',N):
+        raise ResearchHold('SOURCE_FRAME_GRID_CHANGED')
+    return True
+
+def one_source_frame(source,number):
+    # Single exact source frame obtained by sequential decode, not inaccurate
+    # random seeks into H.264 P-/B-frame GOPs.
+    cmd=['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-xerror','-i',str(source),
+         '-map','0:v:0','-vf',f'select=eq(n\\,{number})',
+         '-vsync','0','-f','rawvideo','-pix_fmt','rgb24','-']
+    raw=subprocess.run(cmd,capture_output=True,check=True).stdout
+    if len(raw)!=FRAME_SIZE:raise ResearchHold('SOURCE_GRAPH_FRAME_DECODE_FAILURE')
+    from PIL import Image
+    return Image.frombytes('RGB',(W,H),raw)
+
+def palette_background():
+    import numpy as np
+    from PIL import Image
+    xx,yy=np.meshgrid(np.arange(W),np.arange(390,1120))
+    glow=np.exp(-(((xx-530)/735)**2+((yy-690)/600)**2))
+    rgb=np.stack([3+8*glow,13+20*glow,22+28*glow],axis=-1).clip(0,255).astype('uint8')
+    return Image.fromarray(rgb,'RGB')
+
+def smoothstep(x):
+    x=max(0.,min(1.,x));return x*x*(3-2*x)
+
+def pinned_diagram(molecule):
+    from PIL import Image
+    from rdkit import Chem
+    from rdkit.Chem import AllChem
+    from rdkit.Chem.Draw import rdMolDraw2D
+    p=Path(molecule)
+    if not p.is_file() or digest(p)!=MOL_SHA:
+        raise ResearchHold('SOURCE_MOLECULE_SHA_CHANGED')
+    mol=Chem.MolFromMolBlock(p.read_text('utf-8'),removeHs=False)
+    if mol is None or not mol.GetConformer().Is3D() or Chem.MolToInchiKey(Chem.RemoveHs(mol))!=INCHIKEY:
+        raise ResearchHold('SOURCE_CHEMISTRY_STEREO_CHANGED')
+    heavy=Chem.RemoveHs(Chem.Mol(mol))
+    AllChem.Compute2DCoords(heavy)
+    canvas=rdMolDraw2D.MolDraw2DCairo(650,400)
+    opts=canvas.drawOptions()
+    opts.clearBackground=False
+    opts.bondLineWidth=4
+    opts.minFontSize=19
+    opts.maxFontSize=28
+    opts.padding=.09
+    opts.setAtomPalette({6:(.8,.87,.89),7:(.08,.47,.78),8:(.92,.33,.12)})
+    rdMolDraw2D.PrepareAndDrawMolecule(canvas,heavy)
+    canvas.FinishDrawing()
+    return Image.open(io.BytesIO(canvas.GetDrawingText())).convert('RGBA')
+
+
+def sample_treatment(base_frame,graph_image,science_bg,frame_no):
+    if not START<=frame_no<END:raise ResearchHold('OUTSIDE_EDIT_INTERVAL')
+    from PIL import Image,ImageDraw,ImageFont
+    frame=base_frame.copy()
+    frame.paste(science_bg,(0,390))
+    draw=ImageDraw.Draw(frame)
+    fo='/usr/share/fonts/truetype/dejavu/'
+    bold=lambda n:ImageFont.truetype(fo+'DejaVuSans-Bold.ttf',n)
+    normal=lambda n:ImageFont.truetype(fo+'DejaVuSans.ttf',n)
+    post=frame_no>=NEGATION
+    advance=smoothstep((frame_no-START)/(END-START))
+    reveal=smoothstep((frame_no-NEGATION)/15) if post else 0
+    draw.rounded_rectangle((64,432,1016,1060),radius=29,fill=(9,32,45),outline=(48,104,117),width=3)
+    draw.rectangle((88,459,994,463),fill=(77,196,181))
+    draw.text((106,481),'STRUCTURE',font=bold(47),fill=(89,211,194))
+    # Rigid chemically verified RDKit connectivity; the source graph moves
+    # as ONE raster. No fake bond movement, ligand docking or transformation.
+    mw=round(650-150*reveal);mh=round(400-90*reveal)
+    mol=graph_image.resize((mw,mh),Image.Resampling.LANCZOS)
+    mx=round(167-76*reveal+5*math.sin(math.pi*advance))
+    my=round(570+45*reveal)
+    draw.rounded_rectangle((mx-12,my-8,mx+mw+12,my+mh+12),radius=16,
+                           fill=(10,34,49),outline=(48,106,117),width=2)
+    frame.paste(mol,(mx,my),mol)
+    draw=ImageDraw.Draw(frame)
+    if post:
+        alpha=smoothstep((frame_no-NEGATION)/9)
+        if alpha>.01:
+            draw.line((657,546,657,972),fill=(56,144,151),width=5)
+            amber=(round(24+228*alpha),round(68+118*alpha),round(76+39*alpha))
+            draw.text((753,616),'?',font=bold(180),fill=amber)
+            draw.text((735,831),'NOT SHOWN',font=bold(41),fill=(232,242,235))
+            # The original film's frame-synchronous lower "≠ HUMAN
+            # EXPERIENCE" remains unchanged, not duplicated on this stage.
+    return frame
+
+def render(source,molecule,output):
+    from PIL import Image
+    source=Path(source);output=Path(output);molecule=Path(molecule)
+    if output.resolve() in (source.resolve(),molecule.resolve()):
+        raise ResearchHold('OUTPUT_OVERWRITES_SOURCE')
+    if output.exists() or output.is_symlink():
+        raise ResearchHold('FRESH_OUTPUT_REQUIRED')
+    freeze(source)
+    output.parent.mkdir(parents=True,exist_ok=True)
+    crop=pinned_diagram(molecule)
+    bg=palette_background()
+    raw_bytes=[]
+    # Read exact 119 RGB frames, select+sequential decoding, no motion guesses.
+    args=['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-xerror','-i',str(source),
+      '-map','0:v:0','-vf',f'select=between(n\\,{START}\\,{END-1})',
+      '-vsync','0','-f','rawvideo','-pix_fmt','rgb24','-']
+    dec=subprocess.Popen(args,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    command=['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-y','-f','rawvideo',
+      '-pix_fmt','rgb24','-s',f'{W}x{H}','-r','30','-i','-', '-an','-c:v','libx264',
+      '-preset','veryfast','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',str(output)]
+    enc=subprocess.Popen(command,stdin=subprocess.PIPE,stderr=subprocess.PIPE)
+    try:
+        for f in range(START,END):
+            payload=dec.stdout.read(FRAME_SIZE)
+            if len(payload)!=FRAME_SIZE:raise ResearchHold('SOURCE_SCENE_DECODE_SHORT')
+            image=Image.frombytes('RGB',(W,H),payload)
+            changed=sample_treatment(image,crop,bg,f)
+            enc.stdin.write(changed.tobytes())
+        if dec.stdout.read(1) or dec.wait()!=0:raise ResearchHold('SOURCE_SCENE_DECODE_EXTRA_OR_FAILED')
+        enc.stdin.close()
+        if enc.wait()!=0:raise ResearchHold('SILENT_SCENE_ENCODING_FAILED')
+    except BaseException:
+        enc.kill();dec.kill();enc.wait();dec.wait()
+        if output.exists():output.unlink()
+        raise
+    finally:
+        for pipe in (dec.stdout,dec.stderr,enc.stderr):
+            if pipe:pipe.close()
+    return {'schema':SCHEMA,'sourceFilmSha256':SOURCE_SHA,'silentSceneSha256':digest(output),
+       'originalNarrationSha256':ORIGINAL_WAV_SHA,'moleculeSha256':MOL_SHA,'width':W,'height':H,'fps':FPS,
+       'startFrame':START,'endFrameExclusive':END,'negationFirstFrame':NEGATION,
+       'diagramDerivedFromPinnedMol':True,'scienceApproved':False,'craftApproved':False,
+       'phonePlaybackApproved':False,'mayPublish':False,'excellentCertified':False}
+
+if __name__=='__main__':
+    ap=argparse.ArgumentParser()
+    ap.add_argument('--source',type=Path,required=True);ap.add_argument('--molecule',type=Path,required=True);ap.add_argument('--output',type=Path,required=True)
+    a=ap.parse_args()
+    print(json.dumps(render(a.source,a.molecule,a.output),indent=2))
