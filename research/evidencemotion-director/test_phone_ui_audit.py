@@ -32,7 +32,9 @@ class MobileAuditContract(unittest.TestCase):
         return validate_manifest(plan, width=size[0], height=size[1], duration=duration, actual_sha=sha)
 
     def test_single_actual_frame_can_cover_a_short_shot(self):
-        stamps = [Decimal("0"), Decimal("1.0"), Decimal("1.033333")]
+        # Only the actual frame being claimed is in this tiny synthetic
+        # probe; other presented frames would need their own shot coverage.
+        stamps = [Decimal("1.0")]
         shots = [{"id": "short", "startSec": 1.0, "endSec": 1.008}]
         self.assertIsNone(verify_decoded_shot_coverage(stamps, shots))
 
