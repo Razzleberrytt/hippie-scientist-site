@@ -640,9 +640,9 @@ jobs:
         run: |
           set -euo pipefail
           python -m unittest discover -s research/evidencemotion-director -p test_claim_strength_source_limits.py -v
-          python research/evidencemotion-director/claim_strength_source_limits.py \\
-            --source-join "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-source-context-join.json" \\
-            --uncertainty "$RUNNER_TEMP/ths-mfa/specimen-timed-native/scientific-uncertainty-RESEARCH.json" \\
+          python research/evidencemotion-director/claim_strength_source_limits.py \
+            --source-join "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-source-context-join.json" \
+            --uncertainty "$RUNNER_TEMP/ths-mfa/specimen-timed-native/scientific-uncertainty-RESEARCH.json" \
             --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-strength-RESEARCH.json"
           python - <<'PY'
           import json,os
