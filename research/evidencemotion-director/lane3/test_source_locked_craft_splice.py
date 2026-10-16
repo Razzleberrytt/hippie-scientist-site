@@ -270,13 +270,16 @@ class CraftSourceLockedContractTests(unittest.TestCase):
       self.assertEqual(movie.read_bytes(),b'OWNER MOVIE')
       self.assertEqual(sidecar.read_bytes(),b'OWNER RECEIPT')
       movie.unlink();sidecar.unlink()
-      linked=folder/'alias.mp4';linked.symlink_to(stage)
+      protected=folder/'protected-owner.mp4';protected.write_bytes(b'OWNER FILM')
+      linked=folder/'alias.mp4';linked.symlink_to(protected)
       with self.assertRaisesRegex(S.CraftHold,'FRESH_OUTPUT_AND_RECEIPT_REQUIRED'):
         S.publish_verified_pair_no_clobber(stage,staged_receipt,linked,sidecar)
       self.assertTrue(linked.is_symlink())
+      self.assertEqual(protected.read_bytes(),b'OWNER FILM')
       linked.unlink()
       self.assertTrue(S.publish_verified_pair_no_clobber(stage,staged_receipt,movie,sidecar))
       self.assertEqual(movie.read_bytes(),b'VERIFIED VIDEO')
+      self.assertEqual(protected.read_bytes(),b'OWNER FILM')
       self.assertEqual(sidecar.read_bytes(),staged_receipt.read_bytes())
       self.assertEqual((movie.stat().st_dev,movie.stat().st_ino),
                        (stage.stat().st_dev,stage.stat().st_ino))
