@@ -118,14 +118,27 @@ def audit_caption_windows(wav_bytes, frozen_wav_sha256, alignment_bytes,
                 return _hold('CAPTION_CUE_GAP_DUPLICATION_OR_BAD_ORDER')
             local_cursor += len(token_words)
             visible_tokens += len(token_words)
-            expected_text = ''.join(normalize(w) for w in token_words)
+            # A concatenated character match can conceal incorrect visible
+            # word boundaries: e.g. MFA "pose" rewritten as caption "po se"
+            # or MFA "pose is" rewritten as "poseis". Match each authored
+            # display token separately. Only a visible contraction or
+            # hyphenated term can legitimately join multiple MFA tokens.
             start_word = cursor
-            consumed = ''
-            while len(consumed) < len(expected_text) and cursor < len(words):
-                consumed += normalize(words[cursor]['word'])
-                cursor += 1
-            if consumed != expected_text:
-                return _hold('CAPTION_LEXICAL_DRIFT_OR_SPLIT_MFA_TOKEN')
+            for visible_word in token_words:
+                expected = normalize(visible_word)
+                if cursor >= len(words):
+                    return _hold('CAPTION_LEXICAL_DRIFT_OR_SPLIT_MFA_TOKEN')
+                if normalize(words[cursor]['word']) == expected:
+                    cursor += 1
+                    continue
+                if not any(mark in visible_word for mark in ("'", "’", "-")):
+                    return _hold('CAPTION_LEXICAL_DRIFT_OR_SPLIT_MFA_TOKEN')
+                combined = ''
+                while cursor < len(words) and len(combined) < len(expected):
+                    combined += normalize(words[cursor]['word'])
+                    cursor += 1
+                if combined != expected:
+                    return _hold('CAPTION_LEXICAL_DRIFT_OR_SPLIT_MFA_TOKEN')
             start, end = group.get('startSec'), group.get('endSec')
             if any(isinstance(x, bool) or not isinstance(x, (int, float)) or
                    not math.isfinite(x) for x in (start, end)):
