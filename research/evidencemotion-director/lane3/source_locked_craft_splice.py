@@ -15,6 +15,7 @@ from pathlib import Path
 import re
 import subprocess
 import tempfile
+from decimal import Decimal, InvalidOperation
 
 SCHEMA='ths-lane3-exact-film-splice-research-v1'
 SHA=re.compile(r'^[0-9a-f]{64}$')
@@ -80,6 +81,34 @@ def trusted_manifest(path,expected_sha):
         raise CraftHold('CUE_OUTSIDE_OWNED_SHOT')
     return m
 
+def require_exact_cfr_frame_grid(path,expected_frames):
+    """Decode frame presentation timestamps, not a nominal r_frame_rate label.
+
+    A VFR input can advertise 30/1 and still silently delay a scientific
+    reveal relative to the unchanged narration. This is a negative admission
+    test only; it cannot certify the semantics of decoded pixels or speech.
+    """
+    try:
+        raw=run(['ffprobe','-v','error','-select_streams','v:0',
+                 '-show_frames','-show_entries','frame=best_effort_timestamp_time',
+                 '-of','json',str(path)])
+        rows=json.loads(raw).get('frames')
+    except (ValueError,TypeError,OSError) as exc:
+        raise CraftHold('DECODED_FRAME_TIMESTAMPS_UNAVAILABLE') from exc
+    if not isinstance(rows,list) or len(rows)!=expected_frames:
+        raise CraftHold('DECODED_FRAME_TIMESTAMP_COUNT_MISMATCH')
+    # Actual 30fps native film uses a 1/15360 timescale. Allow <=1.5ms
+    # rounding across different legal MP4 timescales, never a whole frame.
+    for index,row in enumerate(rows):
+        try:
+            observed=Decimal(str(row['best_effort_timestamp_time']))
+        except (KeyError,ValueError,TypeError,InvalidOperation) as exc:
+            raise CraftHold('DECODED_FRAME_TIMESTAMPS_UNAVAILABLE') from exc
+        expected=Decimal(index)/Decimal(30)
+        if not observed.is_finite() or abs(observed-expected)>Decimal('0.0015'):
+            raise CraftHold('NON_CFR_OR_SHIFTED_FRAME_PTS')
+    return expected_frames
+
 def preflight(source,scene,manifest):
     if digest(source)!=manifest['sourceFilmSha256']:
         raise CraftHold('SOURCE_FILM_REVISION_MISMATCH')
@@ -96,6 +125,8 @@ def preflight(source,scene,manifest):
     if len(aa)!=1 or aa[0].get('codec_name')!='aac' or aa[0].get('sample_rate')!='24000':
         raise CraftHold('SOURCE_ORIGINAL_AAC_REQUIRED')
     if bb:raise CraftHold('REPLACEMENT_MUST_BE_SILENT')
+    require_exact_cfr_frame_grid(source,manifest['frames'])
+    require_exact_cfr_frame_grid(scene,manifest['endFrameExclusive']-manifest['startFrame'])
     return True
 
 def aac_sha(path):
@@ -173,6 +204,7 @@ def verify_result(source,output,manifest):
         str(v.get('nb_frames'))!=str(manifest['frames']) or
         len(a)!=1 or a[0].get('codec_name')!='aac'):
         raise CraftHold('SPLICED_OUTPUT_TECHNICAL_MISMATCH')
+    require_exact_cfr_frame_grid(output,manifest['frames'])
     original,updated=aac_sha(source),aac_sha(output)
     if original!=updated:raise CraftHold('ORIGINAL_AAC_BYTES_CHANGED')
     visual=audit_outside_scene_frames(source,output,manifest)
