@@ -10,7 +10,9 @@ import tempfile
 import unittest
 
 sys.path.insert(0, str(Path(__file__).parent))
-from phone_ui_audit import audit, probe_movie, validate_manifest, verify_decoded_shot_coverage
+from phone_ui_audit import (audit, probe_movie, validate_manifest,
+                            verify_decoded_shot_coverage, choose_decoded_sample,
+                            decoded_overlay)
 
 H = "a" * 64
 
@@ -30,6 +32,20 @@ def fixture():
 class MobileAuditContract(unittest.TestCase):
     def check(self, plan, *, sha=H, size=(1080, 1920), duration=3.):
         return validate_manifest(plan, width=size[0], height=size[1], duration=duration, actual_sha=sha)
+
+    def test_sample_selection_uses_presented_frame_inside_shot(self):
+        stamps = [Decimal("0"), Decimal("0.033333"), Decimal("0.066667"), Decimal("0.1")]
+        first = {"id": "opening", "startSec": 0., "endSec": .05}
+        second = {"id": "following", "startSec": .05, "endSec": .125}
+        self.assertEqual(choose_decoded_sample(stamps, first, .049),
+                         (1, Decimal("0.033333")))
+        self.assertEqual(choose_decoded_sample(stamps, second, .05),
+                         (2, Decimal("0.066667")))
+        with self.assertRaisesRegex(ValueError, "SAMPLE_TIME_OUTSIDE_DECLARED_SHOT"):
+            choose_decoded_sample(stamps, first, .051)
+        with self.assertRaisesRegex(ValueError, "NO_PRESENTED_FRAME_IN_SAMPLE_SHOT"):
+            choose_decoded_sample(stamps, {"id": "micro",
+                                            "startSec": .044, "endSec": .045}, .0445)
 
     def test_single_actual_frame_can_cover_a_short_shot(self):
         # Only the actual frame being claimed is in this tiny synthetic
@@ -295,6 +311,32 @@ class MobileAuditContract(unittest.TestCase):
             self.check(fixture(), size=(540, 960))
 
 class ActualFilmSmoke(unittest.TestCase):
+    def test_actual_decoded_sample_is_from_requested_hard_cut(self):
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            movie = root / "two-colors.mp4"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+                "-f", "lavfi", "-i", "color=c=red:s=1080x1920:r=30:d=1.5",
+                "-f", "lavfi", "-i", "color=c=blue:s=1080x1920:r=30:d=1.5",
+                "-filter_complex", "[0:v][1:v]concat=n=2:v=1:a=0[v]",
+                "-map", "[v]", "-c:v", "libx264", "-preset", "ultrafast",
+                "-pix_fmt", "yuv420p", "-an", str(movie)
+            ], capture_output=True, timeout=50, check=True)
+            # The second cut begins on decoded frame 45, not at a guessed
+            # time-seek offset. The native center pixel must be blue.
+            png = root / "frame45.png"
+            decoded_overlay(movie, 45, fixture()["shots"][0], png, 1080, 1920)
+            pixel = subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
+                "-i", str(png), "-vf", "crop=1:1:540:960,format=rgb24",
+                "-frames:v", "1", "-f", "rawvideo", "pipe:1"
+            ], capture_output=True, timeout=30, check=True).stdout
+            self.assertEqual(len(pixel), 3)
+            self.assertLess(pixel[0], 40, "Captured wrong red-scene video frame")
+            self.assertLess(pixel[1], 40)
+            self.assertGreater(pixel[2], 205, "Expected blue scene at frame 45")
+
     def test_encoded_video_duration_not_extended_by_aac_tail(self):
         with tempfile.TemporaryDirectory() as root:
             root = Path(root)
@@ -400,6 +442,10 @@ class ActualFilmSmoke(unittest.TestCase):
             self.assertEqual(receipt["publicationVerdict"], "HOLD")
             self.assertEqual(receipt["frameToShotCoverage"]["actualPresentedFramesChecked"], 90)
             self.assertEqual(receipt["frameToShotCoverage"]["framesAssignedExactlyOnce"], 90)
+            self.assertEqual(receipt["decodedOverlayFrames"][0]["actualFrameIndex"], 45)
+            self.assertAlmostEqual(receipt["decodedOverlayFrames"][0]["actualFramePtsSec"], 1.5, places=3)
+            self.assertEqual(receipt["decodedOverlayFrames"][1]["actualFrameIndex"], 8)
+            self.assertEqual(receipt["decodedOverlayFrames"][2]["actualFrameIndex"], 45)
             self.assertEqual(receipt["declaredTextSeparation"]["significantDeclaredTextCollisions"], 0)
             self.assertFalse(receipt["frameToShotCoverage"]["mayPublish"])
             self.assertEqual(len(receipt["decodedOverlayFrames"]), 3)
