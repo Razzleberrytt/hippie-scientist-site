@@ -723,6 +723,32 @@ def probe_movie(movie):
         hold("FRAME_TIMESTAMP_EXTRACTION_FAILED")
     return int(track["width"]), int(track["height"]), duration, len(stamps)
 
+def verify_complete_media_decode(movie):
+    """Strictly decode every video frame and any audio track before review.
+
+    A complete ffprobe PTS grid can coexist with bitstream corruption in an
+    unsampled frame. -xerror and explode convert such decode failures to a
+    nonzero FFmpeg exit. A successful decode is a *technical* negative filter,
+    never a handset, science, narration-identity or release acceptance.
+    """
+    cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
+           "-xerror", "-err_detect", "explode", "-i", str(movie),
+           "-map", "0", "-f", "null", "-"]
+    try:
+        subprocess.run(cmd, capture_output=True, timeout=120, check=True)
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired, OSError):
+        hold("FULL_ENCODED_MEDIA_DECODE_FAILED")
+    return {
+        "allMappedStreamsDecodedWithoutFatalErrors": True,
+        "decoder": "FFMPEG_XERROR_EXPLODE_NULL_OUTPUT",
+        "rawDecodedFramesIndependentlyComparedToRenderer": False,
+        "originalNarratorIdentityVerified": False,
+        "scientificContentVerified": False,
+        "realHandsetPlaybackApproved": False,
+        "mayPublish": False,
+    }
+
+
 def choose_decoded_sample(stamps, shot, requested_sec):
     """Select the closest actual presentation timestamp *within* the shot.
 
@@ -924,6 +950,10 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
     # are contiguous and its annotation boxes are otherwise valid.
     stamps = frame_timestamps(movie)
     coverage = verify_decoded_shot_coverage(stamps, plan["shots"])
+    # ffprobe frame timestamps and sampled PNGs cannot certify full bitstream
+    # integrity. Decode the entire physical video and optional AAC stream.
+    # This must pass BEFORE publishing any decoded screenshot/review receipt.
+    full_decode = verify_complete_media_decode(movie)
     # Receipt strings alone are not frame provenance. Bind each claimed
     # early/middle/late film index to this movie's actually decoded PTS.
     linked_frame_membership = (
@@ -978,6 +1008,7 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
                         "videoResolution": [width, height], "durationSec": duration,
                         "decodedFrameCount": decoded_count,
                         "frameToShotCoverage": coverage,
+                        "completeEncodedMediaDecode": full_decode,
                         "exact30FpsTimestampGridVerified": True,
                         "platformExclusions": {"top": TOP, "right": RIGHT, "bottom": BOTTOM},
                         "decodedOverlayFrames": frame_receipts, "publicationVerdict": "HOLD"})
