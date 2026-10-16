@@ -196,6 +196,61 @@ class ResearchProtocolTests(unittest.TestCase):
                     craft.verify_decoded_presentation_grid(
                         good,time_base,fps=30,expected_frames=3)
 
+    def test_atomic_verified_scene_publish_never_replaces_existing_file(self):
+        if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
+            self.skipTest('Native FFmpeg required for physical publish regression')
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            stage=root/'staged.mp4'
+            subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi',
+                '-i','color=c=black:s=64x96:r=30','-frames:v','3','-an',
+                '-c:v','libx264','-pix_fmt','yuv420p',str(stage)],
+                check=True,capture_output=True)
+            pinned=craft.digest(stage)
+            existing=root/'already-there.mp4'
+            existing.write_bytes(b'untouchable original')
+            with self.assertRaisesRegex(craft.ResearchHold,'OUTPUT_APPEARED_AFTER_PREFLIGHT'):
+                craft.commit_verified_silent_scene(stage,existing,
+                    width=64,height=96,frames=3)
+            self.assertEqual(existing.read_bytes(),b'untouchable original')
+            self.assertEqual(craft.digest(stage),pinned)
+            target=root/'fresh.mp4'
+            self.assertEqual(craft.commit_verified_silent_scene(stage,target,
+                width=64,height=96,frames=3),pinned)
+            self.assertEqual(craft.digest(target),pinned)
+            self.assertEqual(stage.stat().st_ino,target.stat().st_ino)
+            self.assertEqual(stage.stat().st_dev,target.stat().st_dev)
+            self.assertRaisesRegex(craft.ResearchHold,'STAGE_CANNOT_BE_OUTPUT',
+                craft.commit_verified_silent_scene,stage,stage,
+                width=64,height=96,frames=3)
+            self.assertFalse((root/'not-produced.mp4').exists())
+
+    def test_atomic_scene_publish_refuses_symlink_and_invalid_staged_film(self):
+        if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
+            self.skipTest('Native FFmpeg required for physical publish regression')
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            stage=root/'valid.mp4'
+            subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi',
+                '-i','color=c=black:s=64x96:r=30','-frames:v','3','-an',
+                '-c:v','libx264','-pix_fmt','yuv420p',str(stage)],
+                check=True,capture_output=True)
+            protected=root/'protected.mp4'
+            protected.write_bytes(b'never change')
+            alias=root/'raced-destination.mp4'
+            alias.symlink_to(protected)
+            with self.assertRaisesRegex(craft.ResearchHold,'OUTPUT_APPEARED_AFTER_PREFLIGHT'):
+                craft.commit_verified_silent_scene(stage,alias,
+                    width=64,height=96,frames=3)
+            self.assertTrue(alias.is_symlink())
+            self.assertEqual(protected.read_bytes(),b'never change')
+            corrupt=root/'bad.mp4';corrupt.write_bytes(b'not a video')
+            dest=root/'unwritten.mp4'
+            with self.assertRaisesRegex(craft.ResearchHold,'DECODE_OR_PROBE_FAILED'):
+                craft.commit_verified_silent_scene(corrupt,dest,
+                    width=64,height=96,frames=3)
+            self.assertFalse(dest.exists())
+
     def test_transition_interpolation_is_monotonic_and_bounded(self):
         data=[craft.smoothstep(i/20) for i in range(21)]
         self.assertEqual(data[0],0.)
