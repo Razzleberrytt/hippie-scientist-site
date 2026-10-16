@@ -312,6 +312,34 @@ class MobileAuditContract(unittest.TestCase):
             self.check(fixture(), size=(540, 960))
 
 class ActualFilmSmoke(unittest.TestCase):
+    def test_first_presented_video_frame_must_start_at_zero(self):
+        # Real encoded 30fps clips; setpts advances every decoded PTS by
+        # one frame without changing their regular spacing or frame count.
+        # Old grid-only code falsely accepted the delayed first-frame hook.
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            for delayed in (False, True):
+                with self.subTest(delayed=delayed):
+                    movie = root / ("delayed.mp4" if delayed else "zero.mp4")
+                    cmd = [
+                        "ffmpeg", "-hide_banner", "-loglevel", "error",
+                        "-nostdin", "-y", "-f", "lavfi", "-i",
+                        "color=c=blue:s=540x960:r=30:d=3",
+                    ]
+                    if delayed:
+                        cmd += ["-vf", "setpts=PTS+1/(30*TB)"]
+                    cmd += ["-c:v", "libx264", "-preset", "ultrafast",
+                            "-pix_fmt", "yuv420p", "-an", str(movie)]
+                    subprocess.run(cmd, capture_output=True, timeout=50, check=True)
+                    if delayed:
+                        with self.assertRaisesRegex(
+                            ValueError, "NONZERO_FIRST_DECODED_FRAME_PTS"
+                        ):
+                            probe_movie(movie)
+                    else:
+                        width, height, duration, count = probe_movie(movie)
+                        self.assertEqual((width, height, count), (540, 960, 90))
+                        self.assertAlmostEqual(duration, 3.0)
     def test_actual_decoded_sample_is_from_requested_hard_cut(self):
         with tempfile.TemporaryDirectory() as root:
             root = Path(root)
