@@ -52,8 +52,54 @@ class FirstRenderIntegrityTests(unittest.TestCase):
              attempt(2, subject="second")]
         r = verify(register(x))
         self.assertEqual(r["registeredRevisionsExcluded"], 1)
-        self.assertEqual(r["provisionalDeclaredConsecutiveFirstPasses"], 2)
+        self.assertEqual(r["provisionalDeclaredConsecutiveFirstPasses"], 1)
+        self.assertEqual(r["attempts"][1]["declaredStreakBeforeEvent"], 1)
+        self.assertEqual(r["attempts"][1]["declaredStreakAfterEvent"], 0)
+        self.assertEqual(r["attempts"][1]["streakBreakReason"], "REVISION_NOT_FIRST_RENDER")
         self.assertFalse(r["attempts"][1]["declaredEligible"])
+
+    def test_revision_cannot_bridge_two_plus_three_first_attempts(self):
+        # This was the original false-positive: five PASS first renders in two
+        # clusters with an intervening repair, incorrectly reported as 5/5.
+        x = [attempt(0, subject="topic-a"), attempt(1, subject="topic-b"),
+             attempt(2, subject="topic-a", ordinal=2)]
+        x += [attempt(i) for i in (3, 4, 5)]
+        r = verify(register(x))
+        self.assertEqual(r["provisionalDeclaredConsecutiveFirstPasses"], 3)
+        self.assertEqual(r["provisionalMaxDeclaredFirstPasses"], 3)
+        self.assertFalse(r["lastFiveFirstAttemptsDeclaredPass"])
+        self.assertFalse(r["fiveRenderMilestoneAccepted"])
+
+    def test_revision_after_five_first_attempt_passes_resets_current_streak(self):
+        x = [attempt(i) for i in range(5)]
+        x.append(attempt(5, subject="topic-0", ordinal=2, decision="PASS"))
+        r = verify(register(x))
+        self.assertEqual(r["provisionalMaxDeclaredFirstPasses"], 5)
+        self.assertEqual(r["provisionalDeclaredConsecutiveFirstPasses"], 0)
+        self.assertFalse(r["lastFiveFirstAttemptsDeclaredPass"])
+        self.assertFalse(r["fiveRenderMilestoneAccepted"])
+
+    def test_failed_revision_also_breaks_streak(self):
+        r = verify(register([attempt(0), attempt(1, subject="topic-0",
+                                               ordinal=2, decision="FAIL"), attempt(2)]))
+        self.assertEqual(r["provisionalDeclaredConsecutiveFirstPasses"], 1)
+        self.assertEqual(r["attempts"][1]["streakBreakReason"], "REVISION_NOT_FIRST_RENDER")
+
+    def test_new_distinct_five_run_sequence_can_restart_after_revision(self):
+        x = [attempt(0), attempt(1, subject="topic-0", ordinal=2)]
+        x += [attempt(i) for i in range(2, 7)]
+        r = verify(register(x))
+        self.assertEqual(r["provisionalDeclaredConsecutiveFirstPasses"], 5)
+        self.assertTrue(r["lastFiveFirstAttemptsDeclaredPass"])
+        self.assertFalse(r["fiveRenderMilestoneAccepted"])
+        self.assertFalse(r["firstExcellentMasterAccepted"])
+        self.assertFalse(r["mayPublish"])
+
+    def test_failed_first_attempt_has_auditable_break_reason(self):
+        r = verify(register([attempt(0), attempt(1, decision="HOLD")]))
+        self.assertEqual(r["attempts"][1]["declaredStreakBeforeEvent"], 1)
+        self.assertEqual(r["attempts"][1]["declaredStreakAfterEvent"], 0)
+        self.assertEqual(r["attempts"][1]["streakBreakReason"], "DECLARED_HOLD")
 
     def test_relabelled_revision_rejected(self):
         x = [attempt(0, subject="same"), attempt(1, subject="same", ordinal=2)]
