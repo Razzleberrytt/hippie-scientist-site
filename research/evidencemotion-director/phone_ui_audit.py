@@ -399,7 +399,7 @@ def validate_exact_film_ocr_join(proof, ink, plan, *, film_sha, plan_sha):
             hold("REPAIRED_NEGATION_SINGLE_SCIENCE_ANNOTATION_REQUIRED")
         science = [a for a in annotations if isinstance(a, dict)
                    and a.get("role") == "science"]
-        science_text = [re.sub(r"\\s+", " ", a.get("text", "").strip())
+        science_text = [re.sub(r"\s+", " ", a.get("text", "").strip())
                         for a in science if isinstance(a.get("text"), str)]
         if science_text != ["STRUCTURE ≠ HUMAN EXPERIENCE"]:
             hold("REPAIRED_NEGATION_SINGLE_SCIENCE_ANNOTATION_REQUIRED")
