@@ -363,7 +363,7 @@ def inspect_both(first, second, environment_first, environment_second):
     for d, e in ((first, environment_first), (second, environment_second)):
         validate_original_job_v1(d)
         if d["sha256EnvironmentJson"] != sha(
-                (json.dumps(e, indent=2) + "\\n").encode()):
+                (json.dumps(e, indent=2) + "\n").encode()):
             raise ValueError("NATIVE_ORIGINAL_HOLD:ENV_REPORT_BYTES_DIFFER")
     if (first.get("encoderMode") != "CPU_ASM_DISABLED_X264_AND_SWSCALE_RESEARCH"
             or second.get("encoderMode") != first["encoderMode"]
