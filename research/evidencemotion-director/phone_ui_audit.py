@@ -670,11 +670,26 @@ def mute_story_negative_screen(plan, glyph_proof):
 
 
 def probe_movie(movie):
-    cmd = ["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
-           "stream=width,height,avg_frame_rate", "-show_entries", "format=duration",
-           "-of", "json", str(movie)]
+    # Inspect ALL streams. Selecting only v:0 hid extra video tracks and
+    # allowed a correctly timed non-H.264 stream to masquerade as a verified
+    # source video. Muted H.264 films remain eligible for research inspection;
+    # an audio-bearing film must have exactly one AAC track.
+    cmd = ["ffprobe", "-v", "error", "-show_entries",
+           "stream=codec_type,codec_name,width,height,avg_frame_rate",
+           "-show_entries", "format=duration", "-of", "json", str(movie)]
     data = json.loads(subprocess.run(cmd, capture_output=True, text=True, timeout=20, check=True).stdout)
-    track = data["streams"][0]
+    streams = data.get("streams")
+    if not isinstance(streams, list):
+        hold("MOVIE_STREAM_INVENTORY_MISSING")
+    videos = [s for s in streams if s.get("codec_type") == "video"]
+    audios = [s for s in streams if s.get("codec_type") == "audio"]
+    if len(videos) != 1 or len(audios) > 1 or len(videos) + len(audios) != len(streams):
+        hold("UNEXPECTED_MOVIE_STREAM_LAYOUT")
+    track = videos[0]
+    if track.get("codec_name") != "h264":
+        hold("EXPECTED_H264_VIDEO_CODEC")
+    if audios and audios[0].get("codec_name") != "aac":
+        hold("EXPECTED_AAC_AUDIO_CODEC")
     numerator, denominator = map(int, track["avg_frame_rate"].split("/"))
     if denominator == 0 or abs(numerator / denominator - 30) > .6:
         hold("AVERAGE_RATE_NOT_30FPS")
