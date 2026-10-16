@@ -25,6 +25,8 @@ on:
       - 'research/evidencemotion-director/test_science_redteam_controls.py'
       - 'research/evidencemotion-director/science_gate_process_attestation.py'
       - 'research/evidencemotion-director/test_science_gate_process_attestation.py'
+      - 'research/evidencemotion-director/em00708_original_archive_hold_replay.py'
+      - 'research/evidencemotion-director/test_em00708_original_archive_hold_replay.py'
       - 'research/evidencemotion-director/test_research_cli_continuations.py'
       - 'research/evidencemotion-director/EM00701-FROZEN-SPOKEN-LEDGER-20261016.json'
       - 'research/evidencemotion-director/encoded_science_motion_audit.py'
@@ -827,6 +829,32 @@ jobs:
           assert v['qualifiedHumanScientistApproval'] is False and v['mayPublish'] is False
           print('EM00705 exact ORIGINAL H264/claim/uncertainty rehash done; no clinical approval')
           PY
+      - name: Replay eight-claim science HOLD attestation against real original H264 SHA (EM-007.08)
+        env:
+          THS_EM00705_ARCHIVE_ROOT: ${{ runner.temp }}/em00705-real
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_em00708_original_archive_hold_replay.py -v
+          python research/evidencemotion-director/em00708_original_archive_hold_replay.py --root "$THS_EM00705_ARCHIVE_ROOT" --out "$RUNNER_TEMP/em00708-real-science-HOLD.json"
+          python - <<'PY'
+          import json,os,pathlib
+          p=pathlib.Path(os.environ['RUNNER_TEMP'])/'em00708-real-science-HOLD.json'
+          r=json.loads(p.read_text())
+          assert r['frozenClaimCount']==8 and r['materialClaimCount']==6
+          assert r['materialHumanStudyAxesUnreported']==30
+          assert r['actualArchivedFilmRehashed'] is True
+          assert r['nativeCurrentHeadExecutionOrReleaseCertified'] is False
+          assert r['independentQualifiedReviewerApproved'] is False
+          assert r['mayPublish'] is False
+          print('EM00708 original-file attestation replay completed; all qualified-science, human and publish gates HOLD')
+          PY
+      - name: Preserve actual-source eight-claim HOLD attestation without film or WAV
+        uses: actions/upload-artifact@v4
+        with:
+          name: em00708-original-archive-science-gate-hold-only
+          path: ${{ runner.temp }}/em00708-real-science-HOLD.json
+          retention-days: 14
+          if-no-files-found: error
       - name: Preserve bounded real-source strength proof without original film
         uses: actions/upload-artifact@v4
         with:
