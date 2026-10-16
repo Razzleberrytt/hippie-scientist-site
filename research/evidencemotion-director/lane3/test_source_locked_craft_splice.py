@@ -7,6 +7,8 @@ import copy
 import hashlib
 import json
 import os
+import shutil
+import subprocess
 from pathlib import Path
 import tempfile
 import unittest
@@ -256,6 +258,62 @@ class CraftSourceLockedContractTests(unittest.TestCase):
       self.assertEqual(scene.read_bytes(),b'SCENE')
       self.assertEqual(list(folder.glob('.lane3-splice-*')),[])
 
+
+
+  def test_real_h264_aac_full_splice_preserves_unedited_frames_and_sound(self):
+    """Exercise preflight, concat, encoded QA and handoff with *real* FFmpeg.
+
+    Synthetic 12-frame black H264 + silent AAC and 4-frame white replacement
+    are NOT the archived evidence movie or the original Kokoro narration.
+    This protects the full-film mechanics, not independent craft acceptance.
+    """
+    if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
+      self.skipTest('Free native FFmpeg/FFprobe required for real splice fixture')
+    with tempfile.TemporaryDirectory() as td:
+      folder=Path(td)
+      source=folder/'synthetic-source.mp4'
+      scene=folder/'synthetic-white-replacement.mp4'
+      output=folder/'new-full.mp4'
+      subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi',
+        '-i','color=c=black:s=96x170:r=30',
+        '-f','lavfi','-i','anullsrc=r=24000:cl=mono',
+        '-frames:v','12','-c:v','libx264','-pix_fmt','yuv420p',
+        '-c:a','aac','-shortest',str(source)],
+        check=True,capture_output=True)
+      subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi',
+        '-i','color=c=white:s=96x170:r=30','-frames:v','4',
+        '-an','-c:v','libx264','-pix_fmt','yuv420p',str(scene)],
+        check=True,capture_output=True)
+      source_pin,scene_pin=S.digest(source),S.digest(scene)
+      audio_pin=S.aac_sha(source)
+      fixture={
+        'frames':12,'width':96,'height':170,'fps':30,
+        'startFrame':4,'endFrameExclusive':8,
+        'sourceFilmSha256':source_pin,'craftSceneSha256':scene_pin
+      }
+      self.assertTrue(S.preflight(source,scene,fixture))
+      result=S.splice(source,scene,output,fixture)
+      self.assertEqual(S.digest(source),source_pin)
+      self.assertEqual(S.digest(scene),scene_pin)
+      self.assertEqual(S.digest(output),result['outputFilmSha256'])
+      self.assertEqual(S.aac_sha(output),audio_pin)
+      self.assertEqual(result['aacAdtsSha256'],audio_pin)
+      self.assertEqual(result['frames'],12)
+      self.assertEqual(result['outsideSceneVisualAudit']['framesComparedOutsideScene'],8)
+      self.assertEqual(result['outsideSceneVisualAudit']['outsideFrameMaxMeanAbsRgb255'],0)
+      frames=list(S._decoded_rgb_frames(output,width=96,height=170))
+      self.assertEqual(len(frames),12)
+      self.assertTrue(all(max(frame)==0 for frame in frames[:4]+frames[8:]))
+      self.assertGreater(min(frames[5]),200)
+      receipt=output.with_suffix('.receipt.json')
+      self.assertEqual(json.loads(receipt.read_text()),result)
+      for key in ('scienceApproved','craftApproved','phonePlaybackApproved','mayPublish'):
+        self.assertIs(result[key],False)
+      self.assertFalse(list(folder.glob('.lane3-splice-*')))
+      with patch.object(S,'run') as launch:
+        with self.assertRaisesRegex(S.CraftHold,'FRESH_OUTPUT_AND_RECEIPT_REQUIRED'):
+          S.splice(source,scene,output,fixture)
+        launch.assert_not_called()
 
   def test_no_clobber_pair_preserves_prior_movie_receipt_and_symlinks(self):
     with tempfile.TemporaryDirectory() as td:
