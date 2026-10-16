@@ -13,6 +13,9 @@ on:
       - 'research/evidencemotion-director/test_em00202_policy_crosswalk.py'
       - 'research/evidencemotion-director/validate_em00204_policy_trace.py'
       - 'research/evidencemotion-director/test_em00204_policy_trace.py'
+      - 'research/evidencemotion-director/validate_em00201_decision_record.py'
+      - 'research/evidencemotion-director/test_em00201_decision_record.py'
+      - 'research/evidencemotion-director/EM00201-DATED-OWNER-POLICY-20261016.md'
       - 'research/evidencemotion-director/EM00204-POLICY-TRACKER-TRACE-20261016.md'
       - 'research/evidencemotion-director/GRANULAR-46-EXECUTION-REGISTER.md'
       - 'research/evidencemotion-director/EM00202-POLICY-CROSSWALK-20261016.md'
@@ -62,6 +65,9 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director \
             -p 'test_em00204_policy_trace.py' -v
           python research/evidencemotion-director/validate_em00204_policy_trace.py
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_em00201_decision_record.py' -v
+          python research/evidencemotion-director/validate_em00201_decision_record.py
       - name: Preserve score interpretation
         if: always()
         run: |
