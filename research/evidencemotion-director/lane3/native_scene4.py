@@ -16,6 +16,8 @@ from pathlib import Path
 import subprocess
 
 SAMPLE_FILM_SHA = '41807a178cb140d1753ca77d3d4eb097265ef8505d46d89c7b2eb0c8ae31ce1d'
+ARCHIVED_FILM_SHA = 'bd5ee77b838d8598aa4a9c90b0f3a681d3554b1896fdba51fe1d86ef532e051a'
+KNOWN_SOURCE_FILMS = frozenset((SAMPLE_FILM_SHA,ARCHIVED_FILM_SHA))
 MOL_SHA = '150ccd331963beab2481ad47c36e1e171db6bdd37e4d50746a3d6b4b5be60bcb'
 INCHIKEY = 'RYENLSMHLCNXJT-CYXFISRXSA-N'
 NARRATION_SHA = '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435'
@@ -38,6 +40,7 @@ def material(source_film,mol_path,*,expected_film_sha=SAMPLE_FILM_SHA):
     from rdkit.Chem import AllChem
     from rdkit.Chem.Draw import rdMolDraw2D
     from PIL import Image
+    if expected_film_sha not in KNOWN_SOURCE_FILMS:raise SceneHold('UNKNOWN_NARRATION_SOURCE_REVISION')
     if sha(source_film)!=expected_film_sha:raise SceneHold('SOURCE_FILM_SHA_MISMATCH')
     if sha(mol_path)!=MOL_SHA:raise SceneHold('SOURCE_MOL_SHA_MISMATCH')
     mol=Chem.MolFromMolBlock(Path(mol_path).read_text(),removeHs=False)
