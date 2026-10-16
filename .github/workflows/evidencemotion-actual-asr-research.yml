@@ -14,6 +14,8 @@ on:
       - 'research/evidencemotion-director/test_narration_first_story_map.py'
       - 'research/evidencemotion-director/encoded_science_motion_audit.py'
       - 'research/evidencemotion-director/test_encoded_science_motion_audit.py'
+      - 'research/evidencemotion-director/encoded_bond_sequence_audit.py'
+      - 'research/evidencemotion-director/test_encoded_bond_sequence_audit.py'
       - 'research/evidencemotion-director/test_narration_locked_treatments.py'
       - 'research/evidencemotion-director/timed_caption_windows.py'
       - 'research/evidencemotion-director/test_timed_caption_windows.py'
@@ -98,6 +100,7 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director -p test_source_bond_trace_direction.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_narration_first_story_map.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_encoded_science_motion_audit.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_encoded_bond_sequence_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_temporal_caption_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_encoded_caption_cue_audit.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_native_autocritic.py -v
@@ -517,6 +520,29 @@ jobs:
           assert r['viewerComprehensionVerified'] is False
           assert r['mayPublish'] is False
           print('Actual encoded science visual progression passes frozen/flicker guard, craft and publishing still require separate gates')
+          PY
+      - name: Decode actual science pixels for six source-verified bonds in spoken reveal order
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/encoded_bond_sequence_audit.py \
+            --movie "$RUNNER_TEMP/ths-mfa/specimen-timed-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --receipt "$RUNNER_TEMP/ths-mfa/specimen-timed-native/render-receipt.json" \
+            --story "$RUNNER_TEMP/ths-mfa/specimen-timed-native/four-act-source-bound-story.json" \
+            --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/encoded-six-source-bond-pixels.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-timed-native/encoded-six-source-bond-pixels.json'
+          x=json.loads(p.read_text())
+          assert x['nativeFramesDecoded']==7
+          assert len(x['sixVerifiedRDKitEdges'])==6
+          assert x['allSixAppearInCorrectSpokenSequence'] is True
+          assert x['noMarkersBeforeSpokenCue'] is True
+          assert x['noFutureMarkersDuringPriorCueWindows'] is True
+          assert x['completeFilmVisualQualityReviewed'] is False
+          assert x['mayPublish'] is False
+          print('Seven exact H264 frames demonstrate six chemically real bonds in original narrated sequence; no craft or release claim')
           PY
       - name: Preserve actual timing evidence without source audio or model copies
         if: always()
