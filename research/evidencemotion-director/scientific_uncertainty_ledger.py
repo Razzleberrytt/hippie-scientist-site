@@ -10,6 +10,7 @@ import hashlib
 import json
 import re
 from pathlib import Path
+from research_receipt_io import prepare_research_output, emit_research_output
 
 from autonomous_script_asr_research import WAV_SHA, LINES, tokens
 
@@ -234,11 +235,12 @@ def main():
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
     input_file = Path(args.source_join)
+    output_path = prepare_research_output(args.out, (input_file,))
     if not input_file.is_file() or input_file.is_symlink():
         hold("EXACT_REGULAR_SOURCE_JOIN_REQUIRED")
     data = input_file.read_bytes()
     output = classify(json.loads(data), source_sha=hashlib.sha256(data).hexdigest())
-    Path(args.out).write_text(json.dumps(output, indent=2)+"\n", encoding="utf-8")
+    emit_research_output(output_path, output)
     print(json.dumps({"status": output["status"], "claims": 8, "material": 6,
                       "externalHumanOutcomeSearchPerformed": False,
                       "mayPublish": False}))

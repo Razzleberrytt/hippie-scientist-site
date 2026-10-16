@@ -10,6 +10,7 @@ import hashlib
 import json
 import re
 from pathlib import Path
+from research_receipt_io import prepare_research_output, emit_research_output
 
 from scientific_uncertainty_ledger import (
     classify as classify_uncertainty, SOURCE_IDS, SOURCE_SCOPES,
@@ -158,6 +159,7 @@ def main():
     parser.add_argument("--uncertainty", required=True)
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
+    output_path = prepare_research_output(args.out, (args.source_join, args.uncertainty))
     for name in ("source_join", "uncertainty"):
         path = Path(getattr(args, name))
         if not path.is_file() or path.is_symlink():
@@ -169,7 +171,7 @@ def main():
         source_join_sha=hashlib.sha256(join_file.read_bytes()).hexdigest(),
         uncertainty_sha=hashlib.sha256(uncertainty_file.read_bytes()).hexdigest(),
     )
-    Path(args.out).write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
+    emit_research_output(output_path, output)
     print(json.dumps({"status":output["status"],"claims":8,"material":6,
                       "humanStudyComparisonPossible":False,"mayPublish":False}))
 

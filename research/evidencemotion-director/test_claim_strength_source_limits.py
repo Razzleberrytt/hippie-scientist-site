@@ -6,12 +6,16 @@ Actual film proof must come from the original-WAV native workflow.
 import copy
 import hashlib
 import json
+import sys
+import tempfile
 import unittest
+from pathlib import Path
+from unittest.mock import patch
 
 from claim_source_context_join import join
 from scientific_uncertainty_ledger import classify
 from claim_strength_source_limits import (
-    evaluate, HUMAN_AXES, UNREPORTED, NOT_APPLICABLE,
+    evaluate, main as strength_main, HUMAN_AXES, UNREPORTED, NOT_APPLICABLE,
 )
 from test_claim_source_context_join import LEDGER, visual_fixture
 
@@ -162,6 +166,61 @@ class ClaimStrengthSourceLimitsTests(unittest.TestCase):
             self.join["claims"][5],self.join["claims"][4])
         with self.assertRaisesRegex(ValueError,"CONFLATION"):
             self.inspect()
+
+    def test_cli_rejects_output_alias_to_either_parent_without_writing(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            source, uncertainty = root / "source.json", root / "uncertainty.json"
+            for p in (source, uncertainty):
+                p.write_text("original input bytes", encoding="utf-8")
+            for output in (source, uncertainty):
+                with self.subTest(output=output.name), patch.object(sys, "argv", [
+                    "claim_strength_source_limits", "--source-join", str(source),
+                    "--uncertainty", str(uncertainty), "--out", str(output),
+                ]):
+                    with self.assertRaisesRegex(ValueError, "OUTPUT_SYMLINK_OR_INPUT_ALIAS"):
+                        strength_main()
+            self.assertEqual(source.read_text(encoding="utf-8"), "original input bytes")
+            self.assertEqual(uncertainty.read_text(encoding="utf-8"), "original input bytes")
+
+    def test_stale_strength_report_removed_on_invalid_input(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            source, uncertainty, output = (
+                root / "source.json", root / "uncertainty.json", root / "report.json"
+            )
+            source.write_text("{}", encoding="utf-8")
+            uncertainty.write_text("{}", encoding="utf-8")
+            output.write_text('{"mayPublish":true}', encoding="utf-8")
+            with patch.object(sys, "argv", [
+                "claim_strength_source_limits", "--source-join", str(source),
+                "--uncertainty", str(uncertainty), "--out", str(output),
+            ]):
+                with self.assertRaises(ValueError):
+                    strength_main()
+            self.assertFalse(output.exists())
+            self.assertTrue(source.exists())
+            self.assertTrue(uncertainty.exists())
+
+    def test_successful_strength_cli_writes_exact_holds(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            source, uncertainty, output = (
+                root / "source.json", root / "uncertainty.json", root / "report.json"
+            )
+            source.write_text(json.dumps(self.join), encoding="utf-8")
+            source_sha = hashlib.sha256(source.read_bytes()).hexdigest()
+            expected = classify(self.join, source_sha=source_sha)
+            uncertainty.write_text(json.dumps(expected), encoding="utf-8")
+            with patch.object(sys, "argv", [
+                "claim_strength_source_limits", "--source-join", str(source),
+                "--uncertainty", str(uncertainty), "--out", str(output),
+            ]):
+                strength_main()
+            report = json.loads(output.read_text(encoding="utf-8"))
+            self.assertEqual(report["sourceJoinSha256"], source_sha)
+            self.assertEqual(report["materialClaimsWithSourceScopeComparison"], 6)
+            self.assertFalse(report["mayPublish"])
 
 if __name__ == "__main__":
     unittest.main()

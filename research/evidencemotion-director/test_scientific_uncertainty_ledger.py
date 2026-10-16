@@ -1,11 +1,16 @@
 """EM-007.04 hermetic negative tests; never evidence of clinical review."""
 import copy
 import hashlib
+import json
+import sys
+import tempfile
 import unittest
+from pathlib import Path
+from unittest.mock import patch
 
 from autonomous_script_asr_research import WAV_SHA
 from scientific_uncertainty_ledger import (
-    classify, NULL_STATUS, CONFLICT_STATUS, HUMAN_STATUS,
+    classify, main as uncertainty_main, NULL_STATUS, CONFLICT_STATUS, HUMAN_STATUS,
     SOURCE_CONTEXT, SOURCE_IDS, SOURCE_SCOPES, KINDS,
     FROZEN_SPOKEN_LEDGER, frozen_claim_spans,
 )
@@ -216,6 +221,62 @@ class UncertaintyLedgerContracts(unittest.TestCase):
         self.join["spokenLedgerSha256"]="bad"
         with self.assertRaisesRegex(ValueError,"SOURCE_JOIN_IDENTITY"):
             self.inspect()
+
+    def test_output_reuse_and_symlink_never_overwrite_source(self):
+        # The command-line path guard must run before parsing any source JSON.
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            source = root / "source.json"
+            source.write_text("original source bytes", encoding="utf-8")
+            with patch.object(sys, "argv", [
+                "scientific_uncertainty_ledger", "--source-join", str(source),
+                "--out", str(source),
+            ]):
+                with self.assertRaisesRegex(ValueError, "OUTPUT_SYMLINK_OR_INPUT_ALIAS"):
+                    uncertainty_main()
+            self.assertEqual(source.read_text(encoding="utf-8"), "original source bytes")
+            link = root / "linked-output.json"
+            try:
+                link.symlink_to(source)
+            except (OSError, NotImplementedError):
+                self.skipTest("symlinks not supported in test environment")
+            with patch.object(sys, "argv", [
+                "scientific_uncertainty_ledger", "--source-join", str(source),
+                "--out", str(link),
+            ]):
+                with self.assertRaisesRegex(ValueError, "OUTPUT_SYMLINK_OR_INPUT_ALIAS"):
+                    uncertainty_main()
+            self.assertEqual(source.read_text(encoding="utf-8"), "original source bytes")
+
+    def test_invalid_replay_removes_stale_uncertainty_report(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            source, output = root / "bad-source.json", root / "report.json"
+            source.write_text("{}", encoding="utf-8")
+            output.write_text('{"mayPublish":true}', encoding="utf-8")
+            with patch.object(sys, "argv", [
+                "scientific_uncertainty_ledger", "--source-join", str(source),
+                "--out", str(output),
+            ]):
+                with self.assertRaises(ValueError):
+                    uncertainty_main()
+            self.assertFalse(output.exists())
+            self.assertTrue(source.exists())
+
+    def test_successful_uncertainty_cli_writes_hash_bound_atomic_hold(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            source, output = root / "source.json", root / "report.json"
+            source.write_text(json.dumps(fixture()), encoding="utf-8")
+            with patch.object(sys, "argv", [
+                "scientific_uncertainty_ledger", "--source-join", str(source),
+                "--out", str(output),
+            ]):
+                uncertainty_main()
+            report = json.loads(output.read_text(encoding="utf-8"))
+            self.assertEqual(report["sourceJoinSha256"], hashlib.sha256(source.read_bytes()).hexdigest())
+            self.assertFalse(report["mayPublish"])
+            self.assertEqual(report["totalClaims"], 8)
 
 if __name__ == "__main__":
     unittest.main()
