@@ -14,6 +14,7 @@ from repeated_term_acoustic_guard import (
     SOURCE_ARCHIVE_SHA, audit, compare, decode_pcm, digest, distance, trajectory,
     source_clip_sample_offsets, audit_original_source,
     audit_pose_poles_conflict, audit_pose_files, audit_pose_internal_reference_set,
+    spectral_band_trace,
 )
 
 ARCHIVE=Path(os.getenv("EM_LANE2_PREVIOUS_PACKET",
@@ -291,6 +292,51 @@ class ActualPoseConflictTests(unittest.TestCase):
 
 
 
+class SpectralTraceSignalOnlyTests(unittest.TestCase):
+    """Synthetic acoustic controls; none are /l/ pronunciation examples."""
+
+    @staticmethod
+    def sine_pcm(hz, gain=.35, duration=.5):
+        n = round(duration * 24000)
+        x = gain*np.sin(2*np.pi*hz*np.arange(n)/24000)
+        return (np.clip(x*32767, -32768, 32767).astype("<i2")).tobytes()
+
+    def test_low_and_high_spectral_signal_separation_is_not_phoneme_identity(self):
+        low = spectral_band_trace(self.sine_pcm(700))
+        high = spectral_band_trace(self.sine_pcm(2600))
+        self.assertGreater(low["activeRatioDbMedian"],
+                           high["activeRatioDbMedian"] + 20)
+        self.assertEqual(low["analysisType"],
+                         "RESEARCH_SPECTRAL_ENERGY_ONLY_NOT_PHONEMES")
+        for result in (low, high):
+            self.assertFalse(result["phonemeIdentityVerified"])
+            self.assertFalse(result["lateralPresenceClassified"])
+
+    def test_relative_gain_does_not_invent_word_or_lateral_verdict(self):
+        original = spectral_band_trace(self.sine_pcm(700))
+        quieter = spectral_band_trace(self.sine_pcm(700, gain=.17))
+        self.assertAlmostEqual(original["activeRatioDbMedian"],
+                               quieter["activeRatioDbMedian"], delta=1.0)
+        self.assertEqual(original["totalFrames"], quieter["totalFrames"])
+        self.assertFalse(quieter["lateralPresenceClassified"])
+
+    def test_silence_invalid_and_truncated_sources_fail(self):
+        for data in (b"", b"bad", bytes(12000), bytes(4801)):
+            with self.subTest(size=len(data)), self.assertRaises(ValueError):
+                spectral_band_trace(data)
+
+    def test_frame_hop_and_trace_values_are_fixed_and_finite(self):
+        report = spectral_band_trace(self.sine_pcm(700))
+        self.assertEqual(report["frameMs"], 25)
+        self.assertEqual(report["hopMs"], 10)
+        self.assertEqual(len(report["trace"]), report["totalFrames"])
+        self.assertGreater(report["activeFrames"], 5)
+        self.assertEqual(report["trace"][0]["centerMs"], 12.5)
+        for step in report["trace"]:
+            self.assertTrue(np.isfinite(step["bandRatioDb"]))
+            self.assertTrue(np.isfinite(step["relativeRms"]))
+
+
 class PoseInternalContrastNegativeTests(unittest.TestCase):
     def test_incomplete_contrast_cli_must_hold_not_auto_approve(self):
         script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
@@ -331,6 +377,15 @@ class ActualPoseInternalContrastTests(unittest.TestCase):
         self.assertEqual(result["status"], "RESEARCH_POSE_INTERNAL_CONTRAST_REVIEW_ONLY",
                          result)
         self.assertEqual(result["comparisonCount"], 5)
+        for row in result["sameNarratorSourceBoundControls"]:
+            spectral = row["signalOnlySpectralTrace"]
+            self.assertGreater(spectral["activeFrames"], 4)
+            self.assertEqual(spectral["analysisType"],
+                             "RESEARCH_SPECTRAL_ENERGY_ONLY_NOT_PHONEMES")
+            self.assertFalse(spectral["phonemeIdentityVerified"])
+            self.assertFalse(spectral["lateralPresenceClassified"])
+            self.assertEqual(len(spectral["trace"]), spectral["totalFrames"])
+
         self.assertEqual([x["mfaWordIndex"] for x in result["sameNarratorSourceBoundControls"]],
                          [37, 38, 61, 68, 71])
         self.assertTrue(all(x["physicalSameNarrationSourceVerified"]
