@@ -1,5 +1,7 @@
 """Fail-closed acoustic research; speech similarity is NOT pronunciation accuracy."""
 import io
+import json
+import zipfile
 import os
 from pathlib import Path
 import subprocess
@@ -14,7 +16,7 @@ from repeated_term_acoustic_guard import (
     SOURCE_ARCHIVE_SHA, audit, compare, decode_pcm, digest, distance, trajectory,
     source_clip_sample_offsets, audit_original_source,
     audit_pose_poles_conflict, audit_pose_files, audit_pose_internal_reference_set,
-    spectral_band_trace, evaluate_blind_reference_pairs,
+    spectral_band_trace, evaluate_blind_reference_pairs, audit_reference_archive,
 )
 
 ARCHIVE=Path(os.getenv("EM_LANE2_PREVIOUS_PACKET",
@@ -440,6 +442,69 @@ class BlindReferenceBenchmarkTests(unittest.TestCase):
         samples[last["sampleId"]] = samples[first["sampleId"]]
         self.assertEqual(evaluate_blind_reference_pairs(
             rows, samples, set())["status"], "HOLD")
+
+
+class BlindReferenceArchiveTests(unittest.TestCase):
+    @staticmethod
+    def make_zip(path, rows, clips, altered=None, add_extra=False):
+        with zipfile.ZipFile(path, "w") as z:
+            z.writestr("manifest.json", json.dumps({
+                "schema": "ths-lane2-blind-contrast-benchmark-v1",
+                "mayPublish": False, "cases": rows}, sort_keys=True))
+            for row in rows:
+                content = clips[row["sampleId"]]
+                if row["sampleId"] == altered:
+                    content += b"tampered"
+                z.writestr("clips/" + row["sampleId"] + ".wav", content)
+            if add_extra:
+                z.writestr("clips/undeclared.wav", b"unauthorized")
+
+    def test_healthy_synthetic_zip_scores_but_never_certifies_target(self):
+        rows, samples = BlindReferenceBenchmarkTests.fixture()
+        with tempfile.TemporaryDirectory() as td:
+            source = Path(td)/"ref.zip"
+            self.make_zip(source, rows, samples)
+            report = audit_reference_archive(source)
+            self.assertEqual(report["status"],
+                             "RESEARCH_UNATTESTED_REFERENCE_BENCHMARK_ONLY", report)
+            self.assertEqual(report["heldoutBalancedAccuracy"], 1)
+            self.assertFalse(report["calibrationComplete"])
+            self.assertFalse(report["mayPublish"])
+            cmd = subprocess.run([
+                sys.executable, str(Path(__file__).with_name("repeated_term_acoustic_guard.py")),
+                "--reference-benchmark-zip", str(source)],
+                capture_output=True, text=True, timeout=20)
+            self.assertEqual(cmd.returncode, 3, cmd.stderr)
+            self.assertIn('"originalNarrationJudged": false', cmd.stdout)
+
+    def test_unlisted_zip_clip_is_not_treated_as_gold_reference(self):
+        rows, samples = BlindReferenceBenchmarkTests.fixture()
+        with tempfile.TemporaryDirectory() as td:
+            source = Path(td)/"ref.zip"
+            self.make_zip(source, rows, samples, add_extra=True)
+            report = audit_reference_archive(source)
+            self.assertEqual(report["status"], "HOLD")
+            self.assertFalse(report["mayPublish"])
+
+    def test_hash_changing_one_wav_fails_zip_benchmark(self):
+        rows, samples = BlindReferenceBenchmarkTests.fixture()
+        with tempfile.TemporaryDirectory() as td:
+            source = Path(td)/"ref.zip"
+            self.make_zip(source, rows, samples, altered=rows[0]["sampleId"])
+            report = audit_reference_archive(source)
+            self.assertEqual(report["status"], "HOLD")
+            self.assertFalse(report["calibrationComplete"])
+
+    def test_cli_rejects_mixing_benchmark_with_original_target_mode(self):
+        script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
+        proc = subprocess.run([
+            sys.executable, script, "--reference-benchmark-zip",
+            "/nonexistent/ref.zip", "--original-wav", "/nonexistent/original.wav"],
+            capture_output=True, text=True, timeout=20)
+        self.assertEqual(proc.returncode, 2, proc.stderr)
+        self.assertIn("REFERENCE_BENCHMARK_MUST_RUN_IN_EXCLUSIVE_NON_TARGET_MODE",
+                      proc.stdout)
+        self.assertIn('"mayPublish": false', proc.stdout)
 
 
 class PoseInternalContrastNegativeTests(unittest.TestCase):
