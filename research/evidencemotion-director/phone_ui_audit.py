@@ -302,7 +302,7 @@ def decoded_overlay(movie, frame_index, shot, destination, width, height):
         hold("INVALID_DECODED_SAMPLE_INDEX")
     # Select by real decoded display-order index, not approximate input seeking.
     # Input -ss could silently return a neighbor across a hard scientific cut.
-    select = f"select=eq(n\\\\,{frame_index})"
+    select = f"select=eq(n\\,{frame_index})"
     cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
            "-i", str(movie), "-an", "-vf", ",".join([select, *overlays]),
            "-frames:v", "1", str(destination)]
