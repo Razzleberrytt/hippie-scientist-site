@@ -1,6 +1,6 @@
 {
   "schema": "ths-atomic-workcard-proof-ledger-v1",
-  "recordedDate": "2026-10-15",
+  "recordedDate": "2026-10-16",
   "authoritativePlanningIndex": "https://github.com/Razzleberrytt/hippie-scientist-site/blob/main/research/evidencemotion-director/ATOMIC-EXECUTION-INDEX.md",
   "note": "Research branch predates main's 1,590-card planning index. This is a bounded proof ledger, not a blanket main-branch tracker promotion.",
   "denominator": 1590,
@@ -61,11 +61,21 @@
         "EM-023.03.O",
         "EM-023.03.X"
       ]
+    },
+    {
+      "group": "EM-034.12",
+      "source": "EM03412-ATOMIC-TIMED-SOUNDOFF-INSTRUMENT-20261016.md",
+      "cards": [
+        "EM-034.12.U",
+        "EM-034.12.S",
+        "EM-034.12.O",
+        "EM-034.12.X"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 29,
-  "provisionalCoverageCardCount": 736,
-  "provisionalCoveragePercent": 46.2893,
+  "individualMachineVerifiedResearchCardCount": 33,
+  "provisionalCoverageCardCount": 740,
+  "provisionalCoveragePercent": 46.5409,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }
