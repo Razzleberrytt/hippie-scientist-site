@@ -28,7 +28,7 @@ export function proposeAudioLockedCuts({approvedWavSha256,actualWavSha256,
      (i>0&&w.startMs<wordAlignment[i-1].endMs)||w.endMs>durationMs))
    errors.push('WORD_TIMING_INVALID');
  if(Array.isArray(beats)&&Array.from(beats).some(b=>!b||!Array.isArray(b.scientificAssetIDs)||
-    b.scientificAssetIDs.length===0||b.scientificAssetIDs.some(assetId=>!ID(assetId))||
+    b.scientificAssetIDs.length===0||Array.from(b.scientificAssetIDs).some(assetId=>!ID(assetId))||
     new Set(b.scientificAssetIDs).size!==b.scientificAssetIDs.length))
    errors.push('SHOT_ASSET_LINEAGE_MISSING');
  if(!Array.isArray(beats)||beats.length!==3||Array.from(beats).some((b,i)=>!b||!ID(b.id)||
