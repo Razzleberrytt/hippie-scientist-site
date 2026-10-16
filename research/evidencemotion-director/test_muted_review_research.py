@@ -65,9 +65,10 @@ class RealMutedReviewPacketTests(unittest.TestCase):
         self.assertFalse(receipt["mayPublish"])
 
     def test_final_tail_gap_is_rejected_even_with_matching_hashes(self):
-        # This negative protects the new 1ms frame-coverage contract.
-        # The synthetic full-duration fixture above is deliberately valid.
-        self.plan["shots"][-1]["endSec"] -= 0.017
+        # Interior gaps still fail at 1 ms; the final tail tolerates only
+        # one 30-fps frame of encoder rounding, NOT a multi-frame hole.
+        # Test a 70-ms tail so this rejects an actual unaccounted video interval.
+        self.plan["shots"][-1]["endSec"] -= 0.070
         with self.assertRaisesRegex(ValueError, "INCOMPLETE_FILM_COVERAGE"):
             self.examine()
 
