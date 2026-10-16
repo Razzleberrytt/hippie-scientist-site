@@ -241,6 +241,53 @@ POSE_INTERNAL_CONTRAST_WINDOWS = {
 }
 
 
+def spectral_band_trace(pcm):
+    """Signal-only measured spectral balance. NEVER /l/, phones, word or verdict.
+
+    Every 25-ms source-excerpt window on a 10-ms hop: track signed PCM16 RMS
+    and 300-1200 Hz / 1800-3300 Hz spectral-energy ratio. Original samples
+    must be SHA-pinned by the calling provenance guard. A dark lateral, vowel,
+    compression or a model artifact can produce overlapping spectral profiles.
+    """
+    if (not isinstance(pcm, bytes) or not 4800 <= len(pcm) <= 240000
+            or len(pcm) % 2):
+        raise ValueError("SPECTRAL_SOURCE_PCM_INVALID")
+    sig = np.frombuffer(pcm, dtype="<i2").astype(np.float64) / 32768.0
+    windows = np.lib.stride_tricks.sliding_window_view(sig, 600)[::240].copy()
+    if len(windows) < 5:
+        raise ValueError("SPECTRAL_TOO_FEW_WINDOWS")
+    windows -= windows.mean(axis=1, keepdims=True)
+    rms = np.sqrt(np.mean(windows**2, axis=1))
+    if rms.max() < .002:
+        raise ValueError("SPECTRAL_ENERGY_TOO_LOW")
+    spectrum = abs(np.fft.rfft(windows*np.hanning(600), axis=1))**2
+    freq = np.fft.rfftfreq(600, 1/24000)
+    low = spectrum[:, (freq >= 300) & (freq <= 1200)].sum(axis=1)
+    high = spectrum[:, (freq >= 1800) & (freq <= 3300)].sum(axis=1)
+    floor = (low + high)*1e-10 + 1e-20
+    ratio = 10*np.log10((low + floor)/(high + floor))
+    active = rms >= max(float(rms.max())*.25, .002)
+    if int(active.sum()) < 5:
+        raise ValueError("SPECTRAL_ACTIVE_FRAMES_TOO_FEW")
+    return {
+        "analysisType": "RESEARCH_SPECTRAL_ENERGY_ONLY_NOT_PHONEMES",
+        "frameMs": 25, "hopMs": 10,
+        "lowHz": [300, 1200], "highHz": [1800, 3300],
+        "totalFrames": int(len(rms)), "activeFrames": int(active.sum()),
+        "activeRatioDbMedian": round(float(np.median(ratio[active])), 3),
+        "activeRatioDbP10": round(float(np.percentile(ratio[active], 10)), 3),
+        "activeRatioDbP90": round(float(np.percentile(ratio[active], 90)), 3),
+        "trace": [
+            {"centerMs": round((i*240 + 300)/24, 1),
+             "bandRatioDb": round(float(db), 2),
+             "relativeRms": round(float(rms[i]/rms.max()), 3)}
+            for i, db in enumerate(ratio)
+        ],
+        "phonemeIdentityVerified": False,
+        "lateralPresenceClassified": False,
+    }
+
+
 def audit_pose_internal_reference_set(source_raw, alignment_raw, asr_raw):
     """Exact source-linked auditory comparators; no inferred /l/ classification."""
     prior = audit_pose_poles_conflict(source_raw, alignment_raw, asr_raw)
@@ -276,6 +323,7 @@ def audit_pose_internal_reference_set(source_raw, alignment_raw, asr_raw):
                 "mfaWordIndex": index,
                 "sourceStartSample": a, "sourceEndSample": b,
                 "clipWavSha256": expected_digest,
+                "signalOnlySpectralTrace": spectral_band_trace(segment),
                 "physicalSameNarrationSourceVerified": True,
                 "authoredLabelIsCalibratedPhoneticTruth": False,
             })
