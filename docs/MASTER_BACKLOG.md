@@ -121,7 +121,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6685 | Activate durable protected identities for citation-leading pages | D | Active — admitted | P0 | 4/4/4/5/0.75/2 | 120.0 | 2026-10-12 |
+| #6685 / PR #6706 | Activate durable protected identities for citation-leading pages | D | Retired — merged as 9ab23731835362718a42c6b0258f2ff778da4343; current-main guard passes 25 owners, zero unresolved URLs (2026-10-16) | P0 | 4/4/4/5/0.75/2 | 120.0 | 2026-10-16 |
 | #6769 | Semantic Opportunity Compiler: source-bound cross-system review pilot | A | Active — admitted (source-bound research-only pilot; no scientific or publication authority) | P1 | 4/5/3/5/0.75/3 | 75.0 | 2026-10-13 |
 
 
@@ -169,7 +169,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-**Current ordered queue after proposed #6810 admission:** D #6685, A #6769 and narrowly-scoped R #6810 occupy 3/3 normal WIP on the protected admission head; no additional owner permitted. Former A #6766 is externally review-blocked, preserved in the deferred queue with its unpublished PR #6774. The compiler's implementation is a separate PR after admission through the sole controller; no source/claim authority, publishing or observed business impact is implied.
+**Current ordered queue after verified #6685 retirement (2026-10-16):** A #6769 and narrowly-scoped R #6810 occupy 2/3 normal WIP; D is free, subject to fresh scored admission. D #6685 shipped in PR #6706 with successful hosted validation/tests/data, generator release suite and production build/output/SEO checks. Former A #6766 is externally review-blocked, preserved in the deferred queue with its unpublished PR #6774. No source/claim authority, publishing or observed business impact is implied.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
