@@ -64,6 +64,31 @@ def contract(plan,receipt,inventory,film_sha):
     return [min(FRAME_COUNT-1,max(0,int(((s["startSec"]+s["endSec"])/2)*FPS)))
             for s in shots]
 
+def parse_framehash(output, indices):
+    """Parse real RGB24 FFmpeg SHA-256 output, rejecting missing/extra frames."""
+    if (not isinstance(output,str) or "#hash: SHA256" not in output
+        or "#dimensions 0: 1080x1920" not in output
+        or "#tb 0: 1/30" not in output
+        or "#codec_id 0: rawvideo" not in output):
+        raise SourceHold("FRAMEHASH_PROTOCOL_OR_VIDEO_IDENTITY_INVALID")
+    rows=[row for row in output.splitlines() if row and not row.startswith("#")]
+    if len(rows)!=len(indices):
+        raise SourceHold("REAL_DECODED_SAMPLES_MISSING_OR_EXTRA")
+    hashes=[]
+    for row,wanted in zip(rows,indices):
+        cells=[c.strip() for c in row.split(",")]
+        try:
+            stream,dts,pts,duration,size=map(int,cells[:5])
+        except (TypeError,ValueError,IndexError) as error:
+            raise SourceHold("INVALID_NATIVE_RGB_FRAMEHASH_ROW") from error
+        if (len(cells)!=6 or stream!=0 or dts!=wanted or pts!=wanted
+            or duration!=1 or size!=WIDTH*HEIGHT*3
+            or len(cells[5])!=64
+            or any(c not in "0123456789abcdef" for c in cells[5])):
+            raise SourceHold("SWAPPED_TRUNCATED_OR_WRONG_NATIVE_RGB_FRAME")
+        hashes.append(cells[5])
+    return hashes
+
 def audit(movie,plan_path,receipt_path,inventory_path):
     movie=Path(movie)
     if not movie.is_file() or movie.is_symlink():
@@ -84,21 +109,27 @@ def audit(movie,plan_path,receipt_path,inventory_path):
         video.get("avg_frame_rate")!="30/1" or int(video.get("nb_frames",0))!=FRAME_COUNT):
         raise SourceHold("ACTUAL_VIDEO_STREAM_IDENTITY_MISMATCH")
     expr="+".join("eq(n\\,"+str(i)+")" for i in indices)
-    decode=subprocess.run(
-        ["ffmpeg","-hide_banner","-loglevel","error","-i",str(movie),
-         "-an","-vf","select="+expr,"-vsync","0",
-         "-pix_fmt","rgb24","-f","rawvideo","pipe:1"],
-        capture_output=True,check=True)
-    framesize=WIDTH*HEIGHT*3
-    if len(decode.stdout)!=len(indices)*framesize:
-        raise SourceHold("REAL_DECODED_SAMPLES_MISSING")
+    # FFmpeg's framehash muxer hashes native RGB24 pixel bytes without
+    # capturing >55 MiB of rawvideo stdout in runner Python. Limit threads
+    # to avoid FFmpeg EAGAIN on resource-constrained hosted CPU machines.
+    try:
+        decode=subprocess.run(
+            ["ffmpeg","-hide_banner","-loglevel","error",
+             "-threads","1","-filter_threads","1",
+             "-i",str(movie),"-an","-vf","select="+expr,
+             "-fps_mode","passthrough","-pix_fmt","rgb24",
+             "-f","framehash","-hash","sha256","pipe:1"],
+            capture_output=True,text=True,check=True)
+    except subprocess.CalledProcessError as error:
+        raise SourceHold("FFMPEG_FRAMEHASH_EXTRACTION_FAILED:"+str(error.returncode)
+                         +":"+str(error.stderr or "")[-1500:]) from error
+    hashes=parse_framehash(decode.stdout,indices)
     samples=[]
-    for i,(shot,index) in enumerate(zip(plan["shots"],indices)):
-        raw=decode.stdout[i*framesize:(i+1)*framesize]
+    for shot,index,pixel_sha in zip(plan["shots"],indices,hashes):
         samples.append({
             "shotId":shot["id"],"sourceClass":shot["assetKind"],
             "frameIndex":index,"timeSec":round(index/FPS,6),
-            "decodedRgb24Sha256":digest(raw)})
+            "decodedRgb24Sha256":pixel_sha})
     return {
         "status":"ACTUAL_NINE_SHOT_SAMPLES_VERIFIED_BOTANICAL_CONTENT_HOLD",
         "filmSha256":film_sha,
