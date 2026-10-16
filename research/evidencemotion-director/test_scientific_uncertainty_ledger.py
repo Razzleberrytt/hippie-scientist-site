@@ -1,11 +1,13 @@
 """EM-007.04 hermetic negative tests; never evidence of clinical review."""
 import copy
+import hashlib
 import unittest
 
 from autonomous_script_asr_research import WAV_SHA
 from scientific_uncertainty_ledger import (
     classify, NULL_STATUS, CONFLICT_STATUS, HUMAN_STATUS,
     SOURCE_CONTEXT, SOURCE_IDS, SOURCE_SCOPES, KINDS,
+    FROZEN_SPOKEN_LEDGER, frozen_claim_spans,
 )
 
 H = lambda letter: letter * 64
@@ -20,7 +22,8 @@ def fixture():
     }
     return {
         "schema":"ths-em00703-source-context-join-v1","task":"EM-007.03",
-        "sourceWavSha256":WAV_SHA,"spokenLedgerSha256":H("a"),
+        "sourceWavSha256":WAV_SHA,
+        "spokenLedgerSha256":hashlib.sha256(FROZEN_SPOKEN_LEDGER.read_bytes()).hexdigest(),
         "visualInventorySha256":H("b"),"filmSha256":H("c"),
         "materialClaimCount":6,"materialClaimsWithTypedSourceContext":6,
         "humanStudyContextsMissingForOutcomeInference":["spoken-007"],
@@ -38,10 +41,10 @@ def fixture():
         },
         "claims":[{
             "claimId":f"spoken-{i+1:03d}","claimType":KINDS[i],
-            "verbatimFrozenTokens":f"test tokens {i}",
+            "verbatimFrozenTokens":frozen_claim_spans()[i][1],
             "studyContextStatus":SOURCE_CONTEXT[i],
             "supportedMeaningScope":SOURCE_SCOPES[i],
-            "wordIndices":list(range(i*2,i*2+2)),
+            "wordIndices":frozen_claim_spans()[i][0],
             "shotIds":["synthetic-shot-test"],
             "material":1<=i<=6,
             "sourceIds":list(SOURCE_IDS[i]),
@@ -104,6 +107,19 @@ class UncertaintyLedgerContracts(unittest.TestCase):
         self.join=fixture()
         self.join["claims"][6]["humanTrialShowsNoEffect"]=True
         with self.assertRaisesRegex(ValueError,"CONFLATION"):
+            self.inspect()
+
+    def test_frozen_spoken_claim_text_and_span_cannot_be_changed_by_rehash(self):
+        self.join["claims"][6]["verbatimFrozenTokens"]="not that any effects exist"
+        with self.assertRaisesRegex(ValueError,"CONFLATION"):
+            self.inspect()
+        self.join=fixture()
+        self.join["claims"][6]["wordIndices"]=[58,59,60,61,62,63]
+        with self.assertRaisesRegex(ValueError,"CONFLATION"):
+            self.inspect()
+        self.join=fixture()
+        self.join["spokenLedgerSha256"]=H("a")
+        with self.assertRaisesRegex(ValueError,"SOURCE_JOIN_IDENTITY"):
             self.inspect()
 
     def test_swapped_source_cids_are_not_film_evidence(self):
