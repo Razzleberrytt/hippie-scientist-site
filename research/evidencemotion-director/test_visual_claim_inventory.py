@@ -53,6 +53,10 @@ class VisualClaimInventoryTests(unittest.TestCase):
                              "endSec":round(a+(j+1)*duration-0.01,5)}
                             for j,word in enumerate(segment))
             self.scenes.append({"id":name,"line":line,"captionWords":cues})
+        # This exact original native film declares chemical diagram assets only.
+        # Source declarations never establish absence of an image by themselves.
+        for shot in template:
+            shot["assetKind"]="deterministic_science"
         template[7]["annotations"]=[
             {"role":"source","text":t} for t in
             ("PubChem","Mitragynine • CID 3034396","7-OH • CID 44301524",
@@ -107,6 +111,10 @@ class VisualClaimInventoryTests(unittest.TestCase):
     def test_nine_scene_inventory_is_hash_bound_and_never_science_approved(self):
         x=self.check()
         self.assertEqual(x["shotsInspected"],9)
+        self.assertEqual([row["declaredAssetKind"] for row in x["rows"]],
+                         ["deterministic_science"]*9)
+        self.assertEqual(x["declaredBotanicalArtShotCount"],0)
+        self.assertFalse(x["botanicalFrameContentIndependentlyClassified"])
         self.assertEqual(x["sourceCaptionCuesAssigned"],71)
         self.assertEqual(sum(len(r["all71SourceCaptionCuesForThisShot"]) for r in x["rows"]),71)
         self.assertEqual([r["shot"] for r in x["rows"]],[r[0] for r in STORY])
@@ -118,6 +126,21 @@ class VisualClaimInventoryTests(unittest.TestCase):
         self.assertFalse(x["scienceClaimsApproved"])
         self.assertFalse(x["allFrameIndependentOCR"])
         self.assertFalse(x["mayPublish"])
+
+    def test_unreviewed_botanical_or_missing_asset_kind_rejected_after_rehash(self):
+        # A caller may regenerate all linked manifest hashes. That still cannot
+        # relabel a chemistry-only original film as botanical or untyped art.
+        for variant in ("nonfactual_illustration", "generative_botanical", None):
+            self.setUp()
+            shot=self.phone["shots"][2]
+            if variant is None:
+                del shot["assetKind"]
+            else:
+                shot["assetKind"]=variant
+            self.write()
+            with self.subTest(assetKind=variant), self.assertRaisesRegex(
+                    ValueError, "SOURCE_LOCKED_SCIENCE_ASSET_KIND"):
+                self.check()
 
     def test_missing_or_misleading_caption_cues_rejected_even_if_rehashed(self):
         self.receipt["scenes"][3]["captionWords"].pop()

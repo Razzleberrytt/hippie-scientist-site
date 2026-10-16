@@ -135,6 +135,13 @@ def inventory(movie, receipt_path, phone_path, science_path, story_path,
             or act.get("directedComposition")!=template[3]
             or act.get("scientificMeaningRestriction")!=template[4]):
             hold("VISUAL_STORY_SEMANTIC_DRIFT:" + sid)
+        # EM-008 exact-film scope gate: all nine source-locked native V5
+        # shots are deterministic chemical diagrams. An asset-kind reclassification
+        # (including an illustrative botanical shot) invalidates this candidate
+        # and requires a fresh source/film and disclosure review. This checks
+        # author-declared provenance, never the actual presence of plant pixels.
+        if shot.get("assetKind") != "deterministic_science":
+            hold("SOURCE_LOCKED_SCIENCE_ASSET_KIND:" + sid)
         annotations=shot.get("annotations")
         if (not isinstance(annotations,list) or any(
             not isinstance(a,dict) or a.get("role") not in
@@ -169,6 +176,7 @@ def inventory(movie, receipt_path, phone_path, science_path, story_path,
         rows.append({
             "all71SourceCaptionCuesForThisShot":all_caption_cues,
             "shot":sid,"startSec":start,"endSec":end,"act":act["act"],
+            "declaredAssetKind":"deterministic_science",
             "diagramOrComposition":act["directedComposition"],
             "learningObjective":act["learningObjective"],
             "scientificMeaningRestriction":act["scientificMeaningRestriction"],
@@ -194,6 +202,8 @@ def inventory(movie, receipt_path, phone_path, science_path, story_path,
             "phonePlanSha256":phone_hash,"encodedScienceOcrSha256":sha(science_path),
             "encodedCaptionOcrSha256":caption_hash,"storyMapSha256":sha(story_path),
             "shotsInspected":len(rows),"sourceCaptionCuesAssigned":71,"rows":rows,
+            "declaredBotanicalArtShotCount":0,
+            "botanicalFrameContentIndependentlyClassified":False,
             "captionCoverage":"ALL_71_SOURCE_EMISSION_CUES_PLUS_12_ENCODED_SAMPLES_NOT_ALL_FRAMES",
             "allFrameIndependentOCR":False,
             "scienceClaimsApproved":False,"impliedEffectRisksHumanReviewed":False,
