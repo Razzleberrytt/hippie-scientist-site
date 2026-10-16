@@ -1,11 +1,17 @@
 """Negative controls: source-backed native text must be legible, not merely annotated."""
 import copy
 import unittest
+import subprocess
+import tempfile
+from decimal import Decimal
+from pathlib import Path
 
 import numpy as np
 
+from native_master_audit import frame_timestamps
 from native_text_legibility_audit import (REQUIRED, SCHEMA, get_boxes,
-                                          score_samples, MIN_INK_DYNAMIC_RANGE)
+                                          score_samples, MIN_INK_DYNAMIC_RANGE,
+                                          exact_gray_samples)
 
 
 class RealEncodedTextInkTests(unittest.TestCase):
@@ -98,6 +104,46 @@ class RealEncodedTextInkTests(unittest.TestCase):
         for k in ("viewerComprehensionApproved","naturalVoiceApproved",
                   "excellentFilmApproved","realHandsetApproved","mayPublish"):
             self.assertIs(r[k],False)
+
+
+class ActualH264FrameIdentityTests(unittest.TestCase):
+    def test_early_late_ink_samples_use_exact_decoded_frames_across_hard_cut(self):
+        # A real 90-frame 1080p H264 changes red to blue at frame 45.
+        # Both gray pixel values and PTS/shot IDs must stay coupled.
+        with tempfile.TemporaryDirectory() as d:
+            movie=Path(d)/"hard-cut.mp4"
+            subprocess.run([
+                "ffmpeg","-hide_banner","-loglevel","error","-nostdin","-y",
+                "-f","lavfi","-i","color=c=red:s=1080x1920:r=30:d=1.5",
+                "-f","lavfi","-i","color=c=blue:s=1080x1920:r=30:d=1.5",
+                "-filter_complex","[0:v][1:v]concat=n=2:v=1:a=0[v]",
+                "-map","[v]","-c:v","libx264","-preset","ultrafast",
+                "-pix_fmt","yuv420p","-an",str(movie)
+            ],capture_output=True,check=True,timeout=60)
+            stamps=frame_timestamps(movie)
+            self.assertEqual(len(stamps),90)
+            first={"id":"red","startSec":0.0,"endSec":1.5}
+            second={"id":"blue","startSec":1.5,"endSec":3.0}
+            requests=[(("blue","early"),second,1.51),
+                      (("red","late"),first,1.49)]
+            frames,proof=exact_gray_samples(movie,requests,stamps)
+            self.assertEqual([p["frameIndex"] for p in proof],[45,44])
+            self.assertEqual([p["shotId"] for p in proof],["blue","red"])
+            self.assertAlmostEqual(proof[0]["actualFramePtsSec"],1.5,places=4)
+            self.assertAlmostEqual(proof[1]["actualFramePtsSec"],44/30,places=4)
+            self.assertLess(int(frames[("blue","early")][960,540]),45)
+            self.assertGreater(int(frames[("red","late")][960,540]),65)
+
+    def test_out_of_shot_sample_fails_before_extracting_pixels(self):
+        with self.assertRaisesRegex(ValueError,"SAMPLE_TIME_OUTSIDE_DECLARED_SHOT"):
+            exact_gray_samples(
+                "/unused/movie.mp4",
+                [(("scene","late"),{"id":"scene","startSec":0.0,"endSec":1.0},1.2)],
+                [Decimal("0.0"),Decimal("0.033333"),Decimal("0.066667")])
+
+    def test_missing_actual_frame_list_fails_closed(self):
+        with self.assertRaisesRegex(ValueError,"EXACT_NATIVE_SAMPLE_REQUESTS_REQUIRED"):
+            exact_gray_samples("/unused/movie.mp4",[],[])
 
 
 if __name__=="__main__":
