@@ -685,6 +685,47 @@ class BlindReferenceBenchmarkTests(unittest.TestCase):
                 self.assertFalse(result["mayPublish"])
 
 
+    def test_volume_or_polarity_adjusted_copy_is_not_independent_reference(self):
+        # WAV SHA and decoded PCM SHA both change after the following edits.
+        # A gain-adjusted or sign-inverted copy must not become a fresh speaker
+        # or a held-out recording even when self-declared labels appear balanced.
+        for destination in (1, -1):  # within training and across held-out split
+            for factor in (2, -1):
+                with self.subTest(destination=destination, factor=factor):
+                    rows, samples = self.fixture()
+                    source_row, cloned_row = rows[0], rows[destination]
+                    source_raw = samples[source_row["sampleId"]]
+                    with wave.open(io.BytesIO(source_raw), "rb") as audio:
+                        pcm = np.frombuffer(
+                            audio.readframes(audio.getnframes()),
+                            dtype="<i2").astype(np.int32)
+                    transformed_pcm = (pcm * factor).astype("<i2").tobytes()
+                    with wave.open(io.BytesIO(source_raw), "rb") as original:
+                        source_pcm = original.readframes(original.getnframes())
+                    self.assertNotEqual(digest(source_pcm), digest(transformed_pcm))
+                    cloned_wav = io.BytesIO()
+                    with wave.open(cloned_wav, "wb") as copy:
+                        copy.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+                        copy.writeframes(transformed_pcm)
+                    samples[cloned_row["sampleId"]] = cloned_wav.getvalue()
+                    cloned_row["wavSha256"] = digest(samples[cloned_row["sampleId"]])
+                    self.assertNotEqual(source_row["wavSha256"], cloned_row["wavSha256"])
+                    result = evaluate_blind_reference_pairs(rows, samples, set())
+                    self.assertEqual(result["status"], "HOLD", result)
+                    self.assertIn("REFERENCE_GAIN_OR_POLARITY_REUSED_ACROSS_RECORDINGS",
+                                  result["errors"])
+                    self.assertFalse(result["calibrationComplete"])
+                    self.assertFalse(result["mayPublish"])
+
+    def test_distinct_synthetic_reference_waveforms_remain_eligible_for_research(self):
+        rows, samples = self.fixture()
+        outcome = evaluate_blind_reference_pairs(rows, samples, set())
+        self.assertEqual(outcome["status"],
+                         "RESEARCH_UNATTESTED_REFERENCE_BENCHMARK_ONLY", outcome)
+        self.assertFalse(outcome["phonemeIdentityVerified"])
+        self.assertFalse(outcome["mayPublish"])
+
+
 class BlindReferenceArchiveTests(unittest.TestCase):
     @staticmethod
     def make_zip(path, rows, clips, altered=None, add_extra=False):
