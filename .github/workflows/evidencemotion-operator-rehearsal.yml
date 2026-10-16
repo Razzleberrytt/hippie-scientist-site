@@ -45,7 +45,22 @@ jobs:
         run: |
           set -euo pipefail
           sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          font_dir = Path('/usr/share/fonts/truetype/dejavu')
+          pins = {
+              'DejaVuSans.ttf': 'ae7b7855e115a5966d8b1b3f80f254ccc117ec86f9965e202ee2940453837280',
+              'DejaVuSans-Bold.ttf': '5c1247acef7f2b8522a31742c76d6adcb5569bacc0be7ceaa4dc39dd252ce895',
+          }
+          for name, wanted in pins.items():
+              path = font_dir / name
+              observed = hashlib.sha256(path.read_bytes()).hexdigest()
+              print(name, observed, 'PIN_MATCH' if observed == wanted else 'PIN_MISMATCH')
+              assert observed == wanted, 'Original archived Ubuntu font bytes changed'
+          print('Archived original font bytes exactly available, no film was rendered.')
+          PY
           ffmpeg -version | head -1
           ffprobe -version | head -1
       - name: Reject incomplete original-RGB24-stdin captures (research only)
