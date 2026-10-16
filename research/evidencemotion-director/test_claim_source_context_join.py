@@ -93,7 +93,7 @@ class ExactClaimContextTests(unittest.TestCase):
             self.produce()
     def test_no_effect_source_inflation_or_missing_required_material_join(self):
         with patch.dict(SUPPORT,{"spoken-002":((),"CLINICAL_EFFECT_PROVEN","PAPER")},clear=False):
-            with self.assertRaisesRegex(ValueError,"MATERIAL_CLAIM_NO_SOURCE"):
+            with self.assertRaisesRegex(ValueError,"SOURCE_SCOPE_EXCEEDS_CHEMISTRY_OR_MEDIA"):
                 self.produce()
         with patch.dict(SUPPORT,{"spoken-007":(("pubchem:44301524",),
                      "WRONGLY_PROVEN_CLINICAL_CURE","HUMAN_TRIAL")},clear=False):
