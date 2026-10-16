@@ -46,17 +46,19 @@ def strict_json(raw):
 
 def inspect_replay_inputs(*, receipt_path, renderer_dir, font_dir, wav_path,
                           expected_receipt_sha=ORIGINAL_TIMED_RECEIPT_SHA256,
+                          expected_wav_sha=ORIGINAL_WAV_SHA256,
                           pillow_version=None, rdkit_version=None):
     """Report all concrete mismatches. No caller can self-assert admission.
 
     expected_receipt_sha override is strictly for small unit fixtures;
     the command-line entrypoint always uses ORIGINAL_TIMED_RECEIPT_SHA256.
     """
-    import PIL
-    import rdkit
-
-    pillow_version = PIL.__version__ if pillow_version is None else pillow_version
-    rdkit_version = rdkit.__version__ if rdkit_version is None else rdkit_version
+    if pillow_version is None:
+        import PIL
+        pillow_version = PIL.__version__
+    if rdkit_version is None:
+        import rdkit
+        rdkit_version = rdkit.__version__
     receipt_path = Path(receipt_path)
     renderer_dir = Path(renderer_dir)
     font_dir = Path(font_dir)
@@ -76,7 +78,7 @@ def inspect_replay_inputs(*, receipt_path, renderer_dir, font_dir, wav_path,
     font_pins = raw.get("fonts")
     if (not isinstance(renderer_pins, dict) or set(renderer_pins) != EXPECTED_RENDERER_FILES
             or not isinstance(font_pins, dict) or set(font_pins) != EXPECTED_FONTS
-            or raw.get("sourceWavSha256") != ORIGINAL_WAV_SHA256
+            or raw.get("sourceWavSha256") != expected_wav_sha
             or raw.get("resolution") != [1080, 1920] or raw.get("frames") != 1031
             or raw.get("fps") != 30 or raw.get("treatment") != "specimen"
             or raw.get("experimentCaptionMode") != "TIMED_RESEARCH"):
@@ -102,7 +104,7 @@ def inspect_replay_inputs(*, receipt_path, renderer_dir, font_dir, wav_path,
         failures.append("PINNED_WAV_MISSING_OR_SYMLINK")
     else:
         actual["originalWavSha256"] = digest(wav_path)
-        if actual["originalWavSha256"] != ORIGINAL_WAV_SHA256:
+        if actual["originalWavSha256"] != expected_wav_sha:
             failures.append("ORIGINAL_WAV_BYTES_DRIFT")
     actual["pillowVersion"] = pillow_version
     actual["rdkitVersion"] = rdkit_version
