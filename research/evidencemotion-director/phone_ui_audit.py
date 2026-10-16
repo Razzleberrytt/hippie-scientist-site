@@ -75,12 +75,30 @@ def verify_decoded_shot_coverage(stamps, shots):
         hold("NO_DECODED_FRAMES_FOR_SHOT_COVERAGE")
     if stamps[-1] >= Decimal(str(shots[-1]["endSec"])) + Decimal(str(TIMELINE_TOLERANCE_SEC)):
         hold("UNCLAIMED_FINAL_PRESENTED_FRAME")
+    spans = []
     for shot in shots:
         start = Decimal(str(shot["startSec"]))
         end = Decimal(str(shot["endSec"]))
         index = bisect_left(stamps, start)
         if index == len(stamps) or stamps[index] >= end:
             hold("SHOT_WITHOUT_PRESENTED_FRAME:" + shot["id"])
+        spans.append((start, end))
+    # Even a sub-1ms authored gap or overlap can conceal a real presented
+    # frame at the exact boundary; shot-has-a-frame alone misses this defect.
+    for index, stamp in enumerate(stamps):
+        ownership = sum(start <= stamp < end for start, end in spans)
+        if ownership == 0:
+            hold("PRESENTED_FRAME_UNASSIGNED:" + str(index))
+        if ownership != 1:
+            hold("PRESENTED_FRAME_MULTIPLY_ASSIGNED:" + str(index))
+    return {
+        "actualPresentedFramesChecked": len(stamps),
+        "framesAssignedExactlyOnce": len(stamps),
+        "framesWithoutShot": 0,
+        "framesAssignedToMultipleShots": 0,
+        "verification": "EXACT_DECODED_PTS_TO_DECLARED_SHOT_COVERAGE_RESEARCH_ONLY",
+        "mayPublish": False,
+    }
 
 
 def projected_type_review(shots, native_width):
@@ -247,7 +265,7 @@ def audit(movie, manifest, output):
     # The grid checked by probe_movie() must also intersect every authored shot.
     # An entirely empty subframe shot is not video coverage even if its times
     # are contiguous and its annotation boxes are otherwise valid.
-    verify_decoded_shot_coverage(frame_timestamps(movie), plan["shots"])
+    coverage = verify_decoded_shot_coverage(frame_timestamps(movie), plan["shots"])
     frame_receipts = []
     # Emit all decoded artifacts into an isolated staging folder, not into the
     # previous run's public review directory. Publish receipt *last*.
@@ -275,6 +293,7 @@ def audit(movie, manifest, output):
         receipt.update({"videoSha256": movie_hash, "manifestSha256": sha256_file(manifest),
                         "videoResolution": [width, height], "durationSec": duration,
                         "decodedFrameCount": decoded_count,
+                        "frameToShotCoverage": coverage,
                         "exact30FpsTimestampGridVerified": True,
                         "platformExclusions": {"top": TOP, "right": RIGHT, "bottom": BOTTOM},
                         "decodedOverlayFrames": frame_receipts, "publicationVerdict": "HOLD"})
