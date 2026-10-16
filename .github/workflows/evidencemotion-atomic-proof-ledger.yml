@@ -7,6 +7,8 @@ on:
       - 'research/evidencemotion-director/test_validate_atomic_proof_ledger.py'
       - 'research/evidencemotion-director/cpu_required_path_contract.py'
       - 'research/evidencemotion-director/test_cpu_required_path_contract.py'
+      - 'research/evidencemotion-director/iphone_review_handoff.py'
+      - 'research/evidencemotion-director/test_iphone_review_handoff.py'
       - '.github/workflows/evidencemotion-actual-asr-research.yml'
       - 'research/evidencemotion-director/EM03404-ATOMIC-EVIDENCE-RECONCILIATION-20261015.md'
       - 'research/evidencemotion-director/EM03411-ATOMIC-EVIDENCE-RECONCILIATION-20261015.md'
@@ -39,6 +41,8 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director \
             -p 'test_cpu_required_path_contract.py' -v
           python research/evidencemotion-director/cpu_required_path_contract.py
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_iphone_review_handoff.py' -v
       - name: Preserve score interpretation
         if: always()
         run: |
