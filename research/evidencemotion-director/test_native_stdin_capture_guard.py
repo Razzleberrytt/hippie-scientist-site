@@ -112,6 +112,54 @@ class Tests(unittest.TestCase):
         self.assertEqual(b"".join(s.chunks),FRAME)
         self.assertEqual(w.receipt(exit_code=0,film_sha=FILM)["capturedBytes"],6)
 
+    def test_short_frame_cannot_be_caught_then_retried_as_clean(self):
+        w=Capture(io.BytesIO(),run_id="run-one",source_sha=SOURCE,wav_sha=WAV,
+                  environment_sha=ENV,width=2,height=1,frames=1)
+        with self.assertRaisesRegex(ValueError,"INCOMPLETE_RGB24_FRAME"):
+            w.write(FRAME[:-1])
+        with self.assertRaisesRegex(ValueError,"PIPE_CLOSED_OR_BROKEN"):
+            w.write(FRAME)
+        with self.assertRaisesRegex(ValueError,"PIPE_CLOSE_AFTER_ERROR_OR_DUPLICATE"):
+            w.close()
+
+    def test_extra_frame_attempt_poisoned_even_if_exception_caught(self):
+        w=Capture(io.BytesIO(),run_id="run-one",source_sha=SOURCE,wav_sha=WAV,
+                  environment_sha=ENV,width=2,height=1,frames=1)
+        w.write(FRAME)
+        with self.assertRaisesRegex(ValueError,"EXTRA_FRAME"):
+            w.write(FRAME)
+        with self.assertRaisesRegex(ValueError,"PIPE_CLOSE_AFTER_ERROR_OR_DUPLICATE"):
+            w.close()
+
+    def test_noncontiguous_rgb_input_poisoned(self):
+        raw = memoryview(bytearray(range(12)))[::2]
+        w=Capture(io.BytesIO(),run_id="run-one",source_sha=SOURCE,wav_sha=WAV,
+                  environment_sha=ENV,width=2,height=1,frames=1)
+        with self.assertRaisesRegex(ValueError,"NONCONTIGUOUS_FRAME"):
+            w.write(raw)
+        with self.assertRaisesRegex(ValueError,"PIPE_CLOSED_OR_BROKEN"):
+            w.write(FRAME)
+
+    def test_non_buffer_input_poisoned(self):
+        w=Capture(io.BytesIO(),run_id="run-one",source_sha=SOURCE,wav_sha=WAV,
+                  environment_sha=ENV,width=2,height=1,frames=1)
+        with self.assertRaisesRegex(ValueError,"INVALID_FRAME_BUFFER"):
+            w.write("not raw bytes")
+        with self.assertRaisesRegex(ValueError,"PIPE_CLOSED_OR_BROKEN"):
+            w.write(FRAME)
+
+    def test_unrecognized_self_approved_field_rejected(self):
+        r=capture()
+        r["firstExcellentMasterAccepted"]=True
+        with self.assertRaisesRegex(ValueError,"NONCANONICAL_RECEIPT_FIELDS"):
+            pair(r)
+
+    def test_missing_canonical_field_rejected(self):
+        r=capture()
+        r.pop("independentRunnerAuthenticated")
+        with self.assertRaisesRegex(ValueError,"NONCANONICAL_RECEIPT_FIELDS"):
+            pair(r)
+
     def test_zero_write_rejected(self):
         w=Capture(ZeroSink(),run_id="run-one",source_sha=SOURCE,wav_sha=WAV,
                   environment_sha=ENV,width=2,height=1,frames=1)
