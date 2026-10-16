@@ -235,7 +235,7 @@ def write_report_atomically(out, receipt):
             prefix="." + out.name + ".", suffix=".tmp", delete=False
         ) as stream:
             pending = Path(stream.name)
-            stream.write(json.dumps(receipt, indent=2) + "\\n")
+            stream.write(json.dumps(receipt, indent=2) + "\n")
             stream.flush()
             os.fsync(stream.fileno())
         os.replace(pending, out)

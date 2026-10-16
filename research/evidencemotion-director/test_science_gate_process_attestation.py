@@ -193,7 +193,7 @@ class ScienceGateProcessAttestationTests(unittest.TestCase):
             source.write_text('{"mayPublish":false,"mayPublish":true}',encoding="utf-8")
             uncertainty.write_text("{}",encoding="utf-8")
             strength.write_text("{}",encoding="utf-8")
-            out.write_text(json.dumps(self.inspect())+"\\n",encoding="utf-8")
+            out.write_text(json.dumps(self.inspect())+"\n",encoding="utf-8")
             argv=["science_gate_process_attestation.py",
                   "--source",str(source),"--uncertainty",str(uncertainty),
                   "--strength",str(strength),"--out",str(out)]
