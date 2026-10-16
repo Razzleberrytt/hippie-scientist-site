@@ -9,6 +9,7 @@ import argparse
 import hashlib
 from pathlib import Path
 
+from scientific_uncertainty_ledger import frozen_claim_spans
 from science_gate_process_attestation import (
     GATE, canonical, hold, prepare_report_destination, read_record,
     strict_json, verify_attestation, write_report_atomically,
@@ -40,7 +41,11 @@ def reviewer_packet(gate):
     if gate["scienceGate"] != GATE:
         hold("SOURCE_GATE_NOT_A_RESEARCH_HOLD")
     rows = []
-    for claim in gate["claims"]:
+    frozen_spans = frozen_claim_spans()
+    if len(frozen_spans) != 8:
+        hold("EIGHT_FROZEN_SPOKEN_SPANS_REQUIRED")
+    for index, claim in enumerate(gate["claims"]):
+        indices, verbatim = frozen_spans[index]
         refs = []
         for ident in claim["sourceIds"]:
             if ident not in SOURCES:
@@ -51,6 +56,8 @@ def reviewer_packet(gate):
             questions.extend(HUMAN_QUESTIONS)
         rows.append({
             "claimId": claim["claimId"],
+            "verbatimFrozenSpokenClaim": verbatim,
+            "sourceWordIndices": list(indices),
             "material": claim["material"],
             "originalSupportedMeaningScope": claim["sourceScope"],
             "exactSourceIdentifiers": refs,

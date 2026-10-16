@@ -25,6 +25,12 @@ class IndependentScienceIntakeTests(unittest.TestCase):
         self.assertEqual(packet["exactOriginalWavSha256"], self.gate["sourceWavSha256"])
         self.assertEqual(packet["eightClaimsToReview"][0]["claimId"], "spoken-001")
         self.assertEqual(packet["eightClaimsToReview"][-1]["claimId"], "spoken-008")
+        self.assertEqual(
+            sum(len(x["sourceWordIndices"]) for x in packet["eightClaimsToReview"]),73)
+        self.assertTrue(all(x["verbatimFrozenSpokenClaim"].strip()
+                            for x in packet["eightClaimsToReview"]))
+        self.assertEqual([i for row in packet["eightClaimsToReview"]
+                          for i in row["sourceWordIndices"]],list(range(73)))
         self.assertEqual(sum(x["material"] for x in packet["eightClaimsToReview"]), 6)
         self.assertTrue(all(x["requiredIndependentChecks"] and
                             x["submittedReviewerFinding"] is None and
@@ -58,6 +64,8 @@ class IndependentScienceIntakeTests(unittest.TestCase):
             lambda p: p["reviewer"].update({"receiptAuthenticated": True}),
             lambda p: p["eightClaimsToReview"][2].update({"claimApproved": True}),
             lambda p: p["eightClaimsToReview"][4].update({"claimId": "spoken-007"}),
+            lambda p: p["eightClaimsToReview"][4].update({"verbatimFrozenSpokenClaim": "Cures pain"}),
+            lambda p: p["eightClaimsToReview"][4].update({"sourceWordIndices": [30,31]}),
             lambda p: p.update({"exactFilmSha256": "b"*64}),
         ):
             packet = reviewer_packet(self.gate)
