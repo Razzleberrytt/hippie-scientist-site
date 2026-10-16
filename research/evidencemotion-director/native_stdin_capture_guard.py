@@ -68,13 +68,17 @@ class Capture:
         if len(self.frame_hashes) >= self.frames:
             self.broken = True
             hold("EXTRA_FRAME")
+        # Cast to byte units, never buffer elements (e.g. uint16), and
+        # reject noncontiguous sources rather than miscounting sent bytes.
         try:
-            # Cast to byte units, never buffer elements (e.g. uint16), and
-            # reject noncontiguous sources rather than miscounting sent bytes.
             data = memoryview(raw)
-            if not data.c_contiguous:
-                self.broken = True
-                hold("NONCONTIGUOUS_FRAME")
+        except (TypeError, ValueError):
+            self.broken = True
+            hold("INVALID_FRAME_BUFFER")
+        if not data.c_contiguous:
+            self.broken = True
+            hold("NONCONTIGUOUS_FRAME")
+        try:
             data = data.cast("B")
         except (TypeError, ValueError):
             self.broken = True
