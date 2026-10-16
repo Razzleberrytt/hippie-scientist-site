@@ -802,6 +802,19 @@ def commit_decoded_review_images(output, stage, frame_receipts, previously_owned
         any(not isinstance(name, str) or not GENERATED_OVERLAY_NAME.fullmatch(name)
             for name in names)):
         hold("INVALID_GENERATED_IMAGE_NAMES")
+    # The report already hashes every decoded overlay immediately after FFmpeg.
+    # Do not publish it if a screenshot was removed, replaced or corrupted
+    # between that measurement and the final on-disk commit. Check every
+    # staged file BEFORE deleting a previously owned review image.
+    expected_hashes = {}
+    for entry in frame_receipts:
+        name, digest = entry["file"], entry.get("frameSha256")
+        if not is_hash(digest):
+            hold("MISSING_GENERATED_IMAGE_DIGEST:" + name)
+        staged = stage / name
+        if staged.is_symlink() or not staged.is_file() or sha256_file(staged) != digest:
+            hold("STAGED_REVIEW_IMAGE_HASH_MISMATCH:" + name)
+        expected_hashes[name] = digest
     for name, digest in previously_owned.items():
         path = output / name
         if path.is_symlink() or not path.is_file() or sha256_file(path) != digest:
@@ -813,7 +826,13 @@ def commit_decoded_review_images(output, stage, frame_receipts, previously_owned
     for name in previously_owned:
         (output / name).unlink()
     for name in names:
-        os.replace(stage / name, output / name)
+        dest = output / name
+        os.replace(stage / name, dest)
+        # A success report is written *after* this function. Recheck the
+        # physically committed bytes rather than trusting an earlier hash
+        # of a temporary file. A failed transfer stays HOLD, not a stale PASS.
+        if dest.is_symlink() or not dest.is_file() or sha256_file(dest) != expected_hashes[name]:
+            hold("COMMITTED_REVIEW_IMAGE_HASH_MISMATCH:" + name)
 
 
 def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
