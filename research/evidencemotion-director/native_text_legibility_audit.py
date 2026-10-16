@@ -98,13 +98,18 @@ def get_boxes(plan):
     byid={s["id"]:s for s in shots}
     if len(byid)!=len(shots) or any(key not in byid for key in REQUIRED):
         hold("EXACT_REQUIRED_SCENE_COVERAGE")
+    # Preserve the exact scientific words and punctuation while accepting
+    # explicit visual line breaks from a phone-safe typography reflow.
+    # No paraphrases, dropped qualifiers or duplicated labels are permitted.
+    canonical=lambda value:" ".join(value.split()) if isinstance(value,str) else None
     boxes={}
     for scene,terms in REQUIRED.items():
         shot=byid[scene]
         if not isinstance(shot.get("annotations"),list):
             hold("ACTUAL_RENDER_ANNOTATIONS_REQUIRED")
         for term in terms:
-            found=[a for a in shot["annotations"] if a.get("text")==term
+            found=[a for a in shot["annotations"]
+                   if canonical(a.get("text"))==canonical(term)
                    and a.get("role") in ("hook","science","disclosure","source")]
             if len(found)!=1:
                 hold("MISSING_OR_DUPLICATE_CRITICAL_LABEL_"+scene)
