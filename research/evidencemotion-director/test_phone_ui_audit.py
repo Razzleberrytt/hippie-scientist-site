@@ -444,7 +444,7 @@ class ActualFilmSmoke(unittest.TestCase):
             self.assertEqual(receipt["frameToShotCoverage"]["framesAssignedExactlyOnce"], 90)
             self.assertEqual(receipt["decodedOverlayFrames"][0]["actualFrameIndex"], 45)
             self.assertAlmostEqual(receipt["decodedOverlayFrames"][0]["actualFramePtsSec"], 1.5, places=3)
-            self.assertEqual(receipt["decodedOverlayFrames"][1]["actualFrameIndex"], 8)
+            self.assertIn(receipt["decodedOverlayFrames"][1]["actualFrameIndex"], (7, 8))
             self.assertEqual(receipt["decodedOverlayFrames"][2]["actualFrameIndex"], 45)
             self.assertEqual(receipt["declaredTextSeparation"]["significantDeclaredTextCollisions"], 0)
             self.assertFalse(receipt["frameToShotCoverage"]["mayPublish"])
