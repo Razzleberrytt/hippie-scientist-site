@@ -19,7 +19,7 @@ from exact_wav_alignment import inspect_alignment
 from timed_caption_windows import schedule as caption_schedule, shown_at as timed_caption_shown_at, SCHEMA as CAPTION_WINDOW_SCHEMA
 from editorial_2d_cpu_research import smooth
 from source_locked_visual_direction import draw_verified_oxygen_locus
-from source_bond_trace_direction import draw_existing_bond_connections
+from source_bond_trace_direction import draw_existing_bond_connections, research_science_camera
 
 FPS = 30
 TREATMENTS = {'atlas', 'specimen'}
@@ -335,14 +335,21 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
         # Both treatments require a palette matching the current background.
         if not light:
             diagram = assets['dark_diagram']
-        diagram = diagram.resize((round((790-40*p)*scale),round((593-30*p)*scale)))
-        image.alpha_composite(diagram,pos(45+20*p,620+15*p))
+        if idx==2 and not light and caption_mode=='timed_research':
+            # Distinct grammar: an actual science-illustration camera pullback
+            # from closer detail to the COMPLETE verified graph; do not crop,
+            # recompute bonds or infer any chemical reaction.
+            dx,dy,dw,dh=research_science_camera(p)
+        else:
+            dx,dy,dw,dh=45+20*p,620+15*p,790-40*p,593-30*p
+        diagram = diagram.resize((round(dw*scale),round(dh*scale)))
+        image.alpha_composite(diagram,pos(dx,dy))
         if idx==2:
             draw=ImageDraw.Draw(image)
             text(pos(72,520),'Dots mark atoms. Lines mark bonds.',font=f(36,True),fill=accent)
             for x,y in hero['diagramAtomXY'][:round(p*len(hero['diagramAtomXY']))]:
-                x=(45+20*p)*scale+x*diagram.width/1200
-                y=(620+15*p)*scale+y*diagram.height/900
+                x=dx*scale+x*diagram.width/1200
+                y=dy*scale+y*diagram.height/900
                 radius=10*scale
                 draw.ellipse((x-radius,y-radius,x+radius,y+radius),outline=accent,width=max(1,round(2*scale)))
             # Teaching progression: light up only *existing verified bonds*
