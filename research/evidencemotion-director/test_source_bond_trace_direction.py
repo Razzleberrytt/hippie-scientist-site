@@ -61,6 +61,29 @@ class SourceBondDirectionTests(unittest.TestCase):
         self.assertEqual(base.getpixel((800,1500)),(2,13,23,255))
         self.assertEqual(base.getpixel((250,150)),(2,13,23,255))
 
+    def test_only_newly_reached_source_atom_endpoints_are_teal(self):
+        from source_bond_trace_direction import mapped_atom_point
+        asset=self.asset
+        image=Image.new("RGBA",(1080,1920),(2,13,23,255))
+        path=verified_bond_path(asset)
+        # Exactly one valid bond is active at this original spoken cue.
+        count=draw_existing_bond_connections(
+            image,asset,seconds=10.,scene=self.scene,scene_progress=.40)
+        self.assertEqual(count,1)
+        a,b=path[0]
+        x,y=mapped_atom_point(asset["diagramAtomXY"][b],.40,image.size)
+        x,y=round(x),round(y)
+        visible=sum(image.getpixel((i,j))[:3]==(96,216,199)
+                    for i in range(x-10,x+11)
+                    for j in range(y-10,y+11))
+        self.assertGreater(visible,10)
+        # A disconnected/unreached distant atom must not get a cyan ring.
+        far=next(i for i in range(asset["mol"].GetNumAtoms())
+                 if i not in {a,b})
+        ox,oy=mapped_atom_point(asset["diagramAtomXY"][far],.40,image.size)
+        ox,oy=round(ox),round(oy)
+        self.assertEqual(image.getpixel((ox,oy))[:3],(2,13,23))
+
     def test_wrong_source_cannot_hijack_molecule_story(self):
         wrong={**self.asset,"source":WrongSource()}
         with self.assertRaisesRegex(ValueError,"WRONG_SOURCE_ID"):
