@@ -5,6 +5,9 @@ on:
       - 'research/evidencemotion-director/ATOMIC-PROOF-LEDGER-20261015.json'
       - 'research/evidencemotion-director/validate_atomic_proof_ledger.py'
       - 'research/evidencemotion-director/test_validate_atomic_proof_ledger.py'
+      - 'research/evidencemotion-director/cpu_required_path_contract.py'
+      - 'research/evidencemotion-director/test_cpu_required_path_contract.py'
+      - '.github/workflows/evidencemotion-actual-asr-research.yml'
       - 'research/evidencemotion-director/EM03404-ATOMIC-EVIDENCE-RECONCILIATION-20261015.md'
       - 'research/evidencemotion-director/EM03411-ATOMIC-EVIDENCE-RECONCILIATION-20261015.md'
       - 'research/evidencemotion-director/EM02301-ATOMIC-STORY-EVIDENCE-20261015.md'
@@ -33,6 +36,9 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director \
             -p 'test_validate_atomic_proof_ledger.py' -v
           python research/evidencemotion-director/validate_atomic_proof_ledger.py
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_cpu_required_path_contract.py' -v
+          python research/evidencemotion-director/cpu_required_path_contract.py
       - name: Preserve score interpretation
         if: always()
         run: |
