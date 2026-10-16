@@ -64,7 +64,7 @@ def exact_gray_samples(movie, requests, stamps):
     selection = "select=" + "+".join(f"eq(n\\,{index})" for index in indices)
     cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
            "-i", str(movie), "-an", "-vf", selection + ",format=gray",
-           "-vsync", "0", "-frames:v", str(len(indices)),
+           "-fps_mode", "passthrough", "-frames:v", str(len(indices)),
            "-pix_fmt", "gray", "-f", "rawvideo", "pipe:1"]
     try:
         raw = subprocess.run(cmd, capture_output=True, timeout=120,
