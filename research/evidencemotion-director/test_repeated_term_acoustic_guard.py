@@ -13,6 +13,7 @@ import numpy as np
 from repeated_term_acoustic_guard import (
     SOURCE_ARCHIVE_SHA, audit, compare, decode_pcm, digest, distance, trajectory,
     source_clip_sample_offsets, audit_original_source,
+    audit_pose_poles_conflict, audit_pose_files,
 )
 
 ARCHIVE=Path(os.getenv("EM_LANE2_PREVIOUS_PACKET",
@@ -210,6 +211,83 @@ class OriginalMasterMfaTests(unittest.TestCase):
             report = audit_original_source(MASTER, MFA_RECEIPT, altered)
             self.assertEqual(report["status"], "HOLD")
             self.assertIn("ORIGINAL_MFA_ALIGNMENT_SHA_CHANGED", report["errors"])
+
+
+
+class PoseConflictNegativeTests(unittest.TestCase):
+    def test_unavailable_source_fails_closed_without_spelling_winner(self):
+        bad = audit_pose_files("/nonexistent/voice.wav",
+                               "/nonexistent/alignment.json", "/nonexistent/asr.json")
+        self.assertEqual(bad["status"], "HOLD")
+        self.assertFalse(bad["mayPublish"])
+
+    def test_wrong_source_and_missing_source_types_do_not_approve(self):
+        for source, alignment, asr in (
+            (b"fake source", b"{}", b"{}"),
+            (None, b"{}", b"{}"),
+            (b"fake source", b"{}", 8),
+        ):
+            with self.subTest(source_type=str(type(source))):
+                result = audit_pose_poles_conflict(source, alignment, asr)
+                self.assertEqual(result["status"], "HOLD")
+                self.assertFalse(result["pronunciationVerified"])
+
+    def test_pose_cli_incomplete_triplet_remains_hold(self):
+        script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
+        for args in (
+            ["--pose-asr-receipt", "/nonexistent/asr.json"],
+            ["--pose-asr-receipt", "/nonexistent/asr.json",
+             "--original-wav", "/nonexistent/wav.wav",
+             "--mfa-alignment", "/nonexistent/alignment.json"],
+        ):
+            completed = subprocess.run([sys.executable, script, *args],
+                                       capture_output=True, text=True, timeout=20)
+            self.assertEqual(completed.returncode, 2, completed.stderr)
+            self.assertIn('"mayPublish": false', completed.stdout)
+
+
+ASR_SOURCE = Path(os.getenv("EM_LANE2_ASR_RECEIPT", "/nonexistent/lane2-asr.json"))
+
+
+@unittest.skipUnless(all(x.is_file() for x in (MASTER, MFA_ALIGNMENT, ASR_SOURCE)),
+    "Original complete WAV/MFA/ASR files unavailable in hosted checkout; no fake real-media PASS")
+class ActualPoseConflictTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.source = MASTER.read_bytes()
+        cls.alignment = MFA_ALIGNMENT.read_bytes()
+        cls.asr = ASR_SOURCE.read_bytes()
+
+    def test_original_actual_pose_poles_conflict_is_review_hold(self):
+        result = audit_pose_poles_conflict(self.source, self.alignment, self.asr)
+        self.assertEqual(result["status"], "RESEARCH_LEXICAL_DISAGREEMENT_REVIEW_HOLD", result)
+        self.assertIsNone(result["lexicalWinner"])
+        self.assertEqual(result["originalSourceSamples"], 11280)
+        self.assertEqual(result["asrWordHypothesis"], "poles")
+        self.assertEqual(result["forcedAlignmentWordHypothesis"], "pose")
+        self.assertFalse(result["phonemeIdentityVerified"])
+        self.assertFalse(result["mayPublish"])
+
+    def test_real_source_word_alignment_or_asr_mutation_stays_hold(self):
+        for index, source in enumerate((self.source, self.alignment, self.asr)):
+            with self.subTest(source_index=index):
+                altered = bytearray(source)
+                altered[-1] ^= 1
+                trio = [self.source, self.alignment, self.asr]
+                trio[index] = bytes(altered)
+                output = audit_pose_poles_conflict(*trio)
+                self.assertEqual(output["status"], "HOLD")
+                self.assertFalse(output["mayPublish"])
+
+    def test_cli_source_conflict_is_nonzero_even_when_pinned(self):
+        completed = subprocess.run([
+            sys.executable, str(Path(__file__).with_name("repeated_term_acoustic_guard.py")),
+            "--original-wav", str(MASTER), "--mfa-alignment", str(MFA_ALIGNMENT),
+            "--pose-asr-receipt", str(ASR_SOURCE)],
+            capture_output=True, text=True, timeout=20)
+        self.assertEqual(completed.returncode, 3, completed.stderr)
+        self.assertIn('"lexicalWinner": null', completed.stdout)
+        self.assertIn('"mayPublish": false', completed.stdout)
 
 
 @unittest.skipUnless(ARCHIVE.is_file(),
