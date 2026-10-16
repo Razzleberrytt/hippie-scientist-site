@@ -328,6 +328,17 @@ OCR_SOURCE_LABELS = {
 }
 
 
+# This is a NEW film-specific OCR contract, not an amendment of the original
+# 48-row source receipt: all other original science/source labels stay frozen.
+# The replacement's single complete claim must be shown in scene 5 part 1.
+OCR_SOURCE_LABELS_REPAIRED = {
+    **OCR_SOURCE_LABELS,
+    "sentence_5_part1": ("STRUCTURE ≠ HUMAN EXPERIENCE",),
+}
+OCR_SCHEMA_ORIGINAL = "ths-lane4-actual-decoded-ocr-research-v1"
+OCR_SCHEMA_REPAIRED = "ths-lane4-actual-decoded-ocr-research-v2"
+
+
 def ocr_words(text):
     return re.findall(r"[a-z0-9]+", text.casefold()) if isinstance(text, str) else []
 
@@ -338,8 +349,11 @@ def validate_exact_film_ocr_join(proof, ink, plan, *, film_sha, plan_sha):
     The verdict is provenance + machine-readable lexical comparison only.
     It does NOT rerun Tesseract, inspect phone pixels, or approve publishing.
     """
-    if not isinstance(proof, dict) or proof.get("schema") != "ths-lane4-actual-decoded-ocr-research-v1":
+    schema = proof.get("schema") if isinstance(proof, dict) else None
+    if schema not in (OCR_SCHEMA_ORIGINAL, OCR_SCHEMA_REPAIRED):
         hold("UNSUPPORTED_ACTUAL_GLYPH_OCR_SCHEMA")
+    source_labels = (OCR_SOURCE_LABELS_REPAIRED if schema == OCR_SCHEMA_REPAIRED
+                     else OCR_SOURCE_LABELS)
     if proof.get("movieSha256") != film_sha or proof.get("phonePlanSha256") != plan_sha:
         hold("GLYPH_OCR_DIFFERENT_FILM_OR_PLAN")
     for k in ("mayPublish", "physicalHandsetApproved", "viewerComprehensionApproved",
@@ -375,10 +389,22 @@ def validate_exact_film_ocr_join(proof, ink, plan, *, film_sha, plan_sha):
     if not isinstance(plan, dict) or not isinstance(plan.get("shots"), list):
         hold("ACTUAL_OCR_PHONE_PLAN_REQUIRED")
     by_scene = {s.get("id"): s for s in plan["shots"] if isinstance(s, dict)}
-    if set(by_scene) != set(OCR_SOURCE_LABELS) or len(plan["shots"]) != 9:
+    if set(by_scene) != set(source_labels) or len(plan["shots"]) != 9:
         hold("NINE_ACTUAL_OCR_SCENES_REQUIRED")
+    if schema == OCR_SCHEMA_REPAIRED:
+        # Repaired-v2 must be one real, complete science annotation, not a
+        # token union from unrelated boxes or a metadata-only patch to v1.
+        annotations = by_scene["sentence_5_part1"].get("annotations")
+        if not isinstance(annotations, list):
+            hold("REPAIRED_NEGATION_SINGLE_SCIENCE_ANNOTATION_REQUIRED")
+        science = [a for a in annotations if isinstance(a, dict)
+                   and a.get("role") == "science"]
+        science_text = [re.sub(r"\\s+", " ", a.get("text", "").strip())
+                        for a in science if isinstance(a.get("text"), str)]
+        if science_text != ["STRUCTURE ≠ HUMAN EXPERIENCE"]:
+            hold("REPAIRED_NEGATION_SINGLE_SCIENCE_ANNOTATION_REQUIRED")
     expected = {}
-    for scene, terms in OCR_SOURCE_LABELS.items():
+    for scene, terms in source_labels.items():
         annotations = by_scene[scene].get("annotations")
         if not isinstance(annotations, list):
             hold("ACTUAL_OCR_SOURCE_ANNOTATIONS_REQUIRED")
@@ -386,6 +412,9 @@ def validate_exact_film_ocr_join(proof, ink, plan, *, film_sha, plan_sha):
             matches = [a for a in annotations if isinstance(a, dict) and
                        a.get("role") in ("hook", "science", "disclosure", "source")
                        and ocr_words(a.get("text")) == ocr_words(term)]
+            if schema == OCR_SCHEMA_REPAIRED and scene == "sentence_5_part1":
+                matches = [a for a in matches if isinstance(a.get("text"), str)
+                           and "≠" in a["text"]]
             if len(matches) != 1:
                 hold("GLYPH_OCR_RECORDED_SOURCE_WORDS_CHANGED")
             for phase in ("early", "middle", "late"):
@@ -410,6 +439,10 @@ def validate_exact_film_ocr_join(proof, ink, plan, *, film_sha, plan_sha):
             row.get("recognizedTokens") != ocr_words(row.get("recognized")) or
             row["recognizedTokens"] != ocr_words(term)):
             hold("GLYPH_OCR_WORDS_NOT_RECOVERED")
+        if (schema == OCR_SCHEMA_REPAIRED and scene == "sentence_5_part1"
+            and (not isinstance(row.get("recognized"), str)
+                 or "≠" not in row["recognized"])):
+            hold("GLYPH_OCR_NEGATION_OPERATOR_NOT_RECOVERED")
         if not is_hash(row.get("cropSha256")):
             hold("GLYPH_OCR_CROP_PROVENANCE_MISSING")
     if set(expected) != seen:
@@ -417,6 +450,7 @@ def validate_exact_film_ocr_join(proof, ink, plan, *, film_sha, plan_sha):
     return {
         "status": "EXACT_FILM_OCR_LEXICAL_PROVENANCE_RESEARCH_ONLY",
         "filmSha256": film_sha, "phonePlanSha256": plan_sha,
+        "ocrContractSchema": schema,
         "observationsClaimed": 48, "labelsClaimed": 16, "scenesClaimed": 9,
         "ocrRerunByThisJoin": False, "exactPunctuationVerified": False,
         "physicalHandsetVerified": False, "viewerComprehensionApproved": False,
