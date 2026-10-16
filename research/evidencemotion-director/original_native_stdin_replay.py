@@ -31,15 +31,28 @@ SAMPLE_INDEX_SET = frozenset(ARCHIVED_PNG_SHA)
 ORIGINAL_NAME = "specimen_NEW_RESEARCH_CANDIDATE.mp4"
 
 
+def original_media_executable(tool):
+    """Bind both probes and encodes to a real fixed binary, not a PATH shadow.
+
+    A prior environment receipt hashed /usr/bin/ffmpeg while launching the
+    unqualified 'ffmpeg' binary. A different PATH entry could falsify the
+    recorded encoder provenance even though the workflow reported success.
+    """
+    if tool not in ("ffmpeg", "ffprobe"):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:UNRECOGNIZED_MEDIA_EXECUTABLE")
+    exe = Path("/usr/bin") / tool
+    if not exe.is_file() or exe.is_symlink():
+        raise ValueError("NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED")
+    return str(exe)
+
+
 def physical_environment(*, sources, fonts, wav, candidate, encoder_mode):
     """Stable cross-run fingerprint of actual runtime file bytes, not runner ID."""
     import PIL
     import rdkit
     from original_replay_source_restore import PINNED
 
-    exe = Path("/usr/bin/ffmpeg")
-    if not exe.is_file() or exe.is_symlink():
-        raise ValueError("NATIVE_ORIGINAL_HOLD:FFMPEG_BINARY_UNVERIFIED")
+    exe = original_media_executable("ffmpeg")
     source_hashes = {name: sha_file(sources / name) for name in sorted(PINNED)}
     font_hashes = {name: sha_file(fonts / name) for name in
                    ("DejaVuSans.ttf", "DejaVuSans-Bold.ttf")}
@@ -54,7 +67,7 @@ def physical_environment(*, sources, fonts, wav, candidate, encoder_mode):
         "rdkitVersion": rdkit.__version__,
         "pythonVersion": platform.python_version(),
         "ffmpegExecutableSha256": sha_file(exe),
-        "ffmpegVersion": subprocess.check_output(["ffmpeg", "-version"], text=True).splitlines()[0],
+        "ffmpegVersion": subprocess.check_output([exe, "-version"], text=True).splitlines()[0],
         "encoderMode": encoder_mode,
     }
     environment_sha = hashlib.sha256(
@@ -116,7 +129,7 @@ def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
         assets["dark_diagram"] = r.chemistry_assets(light=False)["7_hydroxymitragynine"]["diagram"]
         movie = out_dir / ORIGINAL_NAME
         cmd = [
-            "ffmpeg", "-v", "info", "-cpuflags", "0", "-nostdin", "-y",
+            original_media_executable("ffmpeg"), "-v", "info", "-cpuflags", "0", "-nostdin", "-y",
             "-f", "rawvideo", "-pixel_format", "rgb24",
             "-video_size", "1080x1920", "-framerate", "30",
             "-i", "pipe:0", "-i", str(wav_path),
@@ -160,7 +173,7 @@ def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
         if not movie.is_file():
             raise ValueError("NATIVE_ORIGINAL_HOLD:NO_OUTPUT_MOVIE")
         probe = subprocess.run([
-            "ffprobe", "-v", "error", "-count_frames", "-select_streams", "v:0",
+            original_media_executable("ffprobe"), "-v", "error", "-count_frames", "-select_streams", "v:0",
             "-show_entries", "stream=codec_name,width,height,nb_read_frames,avg_frame_rate",
             "-of", "json", str(movie)
         ], check=True, capture_output=True, text=True, timeout=45)
@@ -169,7 +182,7 @@ def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
                 or v.get("height") != 1920 or v.get("avg_frame_rate") != "30/1"
                 or int(v.get("nb_read_frames", -1)) != 1031):
             raise ValueError("NATIVE_ORIGINAL_HOLD:REAL_ENCODED_FILM_FRAME_OR_FORMAT_DRIFT")
-        subprocess.run(["ffmpeg", "-v", "error", "-xerror", "-i", str(movie),
+        subprocess.run([original_media_executable("ffmpeg"), "-v", "error", "-xerror", "-i", str(movie),
                         "-f", "null", "-"], check=True, capture_output=True, timeout=120)
         proof = {
             "schema": "ths-em-original-stdin-full-native-replay-job-v1",
