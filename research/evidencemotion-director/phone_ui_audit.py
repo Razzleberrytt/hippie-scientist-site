@@ -757,6 +757,65 @@ def decoded_overlay(movie, frame_index, shot, destination, width, height):
     if not destination.is_file() or destination.stat().st_size == 0:
         hold("REAL_FRAME_EXTRACTION_FAILED")
 
+
+def verified_prior_review_images(output, previous_report_bytes):
+    """Identify ONLY images actually listed and hashed by the prior report.
+
+    A filename pattern by itself is not ownership: a caller may keep an
+    unrelated 03-notes.png in the output directory. No old report, malformed
+    receipt, missing frame or changed bytes grants cleanup authority.
+    """
+    if previous_report_bytes is None:
+        return {}
+    try:
+        report = json.loads(previous_report_bytes.decode("utf-8"))
+    except (ValueError, UnicodeError):
+        return {}
+    if (not isinstance(report, dict) or report.get("mayPublish") is not False or
+        report.get("publicationVerdict") != "HOLD" or
+        not isinstance(report.get("decodedOverlayFrames"), list)):
+        return {}
+    owned = {}
+    for row in report["decodedOverlayFrames"]:
+        if not isinstance(row, dict):
+            return {}
+        name, digest = row.get("file"), row.get("frameSha256")
+        if (not isinstance(name, str) or not GENERATED_OVERLAY_NAME.fullmatch(name)
+            or not is_hash(digest) or name in owned):
+            return {}
+        path = output / name
+        if path.is_symlink() or not path.is_file() or sha256_file(path) != digest:
+            return {}
+        owned[name] = digest
+    return owned
+
+
+def commit_decoded_review_images(output, stage, frame_receipts, previously_owned):
+    """Never delete or overwrite unowned outputs, even if their names match.
+
+    A stale old report is invalidated earlier. Old images are deleted only
+    after verifying the exact previous report and rechecking on-disk hashes.
+    """
+    names = [entry.get("file") if isinstance(entry, dict) else None
+             for entry in frame_receipts]
+    if (len(names) != len(set(names)) or
+        any(not isinstance(name, str) or not GENERATED_OVERLAY_NAME.fullmatch(name)
+            for name in names)):
+        hold("INVALID_GENERATED_IMAGE_NAMES")
+    for name, digest in previously_owned.items():
+        path = output / name
+        if path.is_symlink() or not path.is_file() or sha256_file(path) != digest:
+            hold("PREVIOUS_REVIEW_IMAGE_CHANGED_BEFORE_REPLACEMENT")
+    for name in names:
+        dest = output / name
+        if (dest.exists() or dest.is_symlink()) and name not in previously_owned:
+            hold("UNOWNED_REVIEW_IMAGE_COLLISION:" + name)
+    for name in previously_owned:
+        (output / name).unlink()
+    for name in names:
+        os.replace(stage / name, output / name)
+
+
 def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
     movie, manifest, output = Path(movie), Path(manifest), Path(output)
     ink_receipt = Path(ink_receipt) if ink_receipt is not None else None
@@ -780,10 +839,12 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
            for source in sources
            for candidate in (source, source.resolve())):
         hold("GENERATED_OUTPUT_ALIASES_SOURCE_INPUT")
+    previous_report_bytes = report_path.read_bytes() if report_path.is_file() else None
     output.mkdir(parents=True, exist_ok=True)
     # Fail closed BEFORE probing / validation: a prior successful report must
     # never survive a new failed attempt against changed inputs.
     report_path.unlink(missing_ok=True)
+    previously_owned = verified_prior_review_images(output, previous_report_bytes)
     # Bind both input identities to the exact bytes actually parsed/decoded.
     # Recheck them after FFmpeg completes so mid-audit edits cannot yield a
     # successful receipt for media or annotations that were never reviewed.
@@ -876,13 +937,9 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
                         "exact30FpsTimestampGridVerified": True,
                         "platformExclusions": {"top": TOP, "right": RIGHT, "bottom": BOTTOM},
                         "decodedOverlayFrames": frame_receipts, "publicationVerdict": "HOLD"})
-        # Only generated filenames are ever cleaned up; unrelated files remain
-        # untouched. A failed next run leaves no authoritative success report.
-        for old in output.iterdir():
-            if old.is_file() and GENERATED_OVERLAY_NAME.fullmatch(old.name):
-                old.unlink()
-        for entry in frame_receipts:
-            os.replace(stage / entry["file"], output / entry["file"])
+        # Filename patterns are NOT proof of ownership. A previous same-name
+        # file may be a user's unrelated work; preserve it or HOLD.
+        commit_decoded_review_images(output, stage, frame_receipts, previously_owned)
         staged_report = stage / "research-report.json"
         staged_report.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
         os.replace(staged_report, report_path)
