@@ -33,11 +33,13 @@ class CaptionWindowsTests(unittest.TestCase):
         self.assertEqual(shown_at(groups,cues[-1]['endSec']),[])
 
     def test_identical_repeated_words_do_not_appear_as_future_instances(self):
-        cues=fixture(['no','no','no'])
+        # "no" is a protected negation and correctly starts its own group;
+        # use identical ordinary words to exercise cue-occurrence identity.
+        cues=fixture(['look','look','look'])
         groups=schedule(cues,max_words=3)
-        self.assertEqual(shown_at(groups,.01),['no'])
-        self.assertEqual(shown_at(groups,.26),['no','no'])
-        self.assertEqual(shown_at(groups,.51),['no','no','no'])
+        self.assertEqual(shown_at(groups,.01),['look'])
+        self.assertEqual(shown_at(groups,.26),['look','look'])
+        self.assertEqual(shown_at(groups,.51),['look','look','look'])
 
     def test_malformed_sample_time_fails_closed(self):
         groups=schedule(fixture(['fact']))
