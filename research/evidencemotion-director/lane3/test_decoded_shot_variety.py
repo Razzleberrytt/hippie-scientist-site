@@ -91,25 +91,29 @@ class DecodedShotVarietyTests(unittest.TestCase):
         # Designed synthetic pixel evidence in the exact science ROI:
         # early and late match, midpoint is transiently distinct. One
         # midpoint-only sample would incorrectly call the shot varied.
-        from PIL import Image, ImageDraw
         def frame(x):
-            im=Image.new('L',(THUMB_W,THUMB_H),15)
-            d=ImageDraw.Draw(im)
-            d.rectangle((x,65,x+22,101),fill=221)
-            return fingerprint(im.tobytes())
+            # Pure Python bitmap: hosted FFmpeg lane deliberately does NOT
+            # install Pillow. These test pixels are not a native film claim.
+            data=bytearray([15])*(THUMB_W*THUMB_H)
+            for y in range(65,102):
+                for xx in range(x,min(x+23,THUMB_W)):
+                    data[y*THUMB_W+xx]=221
+            return fingerprint(bytes(data))
         e, m, l=frame(10),frame(52),frame(10)
         self.assertFalse(similar(e,m)['nearDuplicateReviewCandidate'])
         self.assertTrue(similar(e,l)['nearDuplicateReviewCandidate'])
         self.assertEqual(compare(e,l)[0],0)
 
     def test_repeated_science_layout_not_masked_by_header_typography(self):
-        from PIL import Image, ImageDraw
         def frame(header):
-            im=Image.new('L',(THUMB_W,THUMB_H),15)
-            d=ImageDraw.Draw(im)
-            d.rectangle((20,65,60,110),fill=220)
-            d.rectangle((10,10,60,25),fill=header)
-            return fingerprint(im.tobytes())
+            data=bytearray([15])*(THUMB_W*THUMB_H)
+            for y in range(65,111):
+                for xx in range(20,61):
+                    data[y*THUMB_W+xx]=220
+            for y in range(10,26):
+                for xx in range(10,61):
+                    data[y*THUMB_W+xx]=header
+            return fingerprint(bytes(data))
         result=similar(frame(255),frame(0))
         self.assertTrue(result['nearDuplicateReviewCandidate'])
         self.assertEqual(result['scienceRoiMeanAbsoluteGrayDifference'],0)
