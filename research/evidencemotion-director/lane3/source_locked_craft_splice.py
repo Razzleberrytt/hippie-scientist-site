@@ -197,6 +197,72 @@ def audit_outside_scene_frames(source,output,manifest,*,decoder=_decoded_rgb_fra
       'metric':'sequential-full-decode-RGB24-area-resample-96x170',
       'limits':'Low-resolution conservative visual change detector, not pixel identity or artistic approval'}
 
+
+def audit_inserted_scene_frames(source,scene,output,manifest,*,decoder=_decoded_rgb_frames):
+    """Negative-screen the *actual encoded* insertion against its scene asset.
+
+    Independently sequential-decode all three streams at 96x170. Re-encoding
+    imposes loss, so this is conservative sampled-RGB evidence, not native
+    pixel identity, chemical accuracy, OCR, or a viewer's art approval.
+    """
+    start,end,count=(manifest[k] for k in ('startFrame','endFrameExclusive','frames'))
+    if not (0<=start<end<=count):
+        raise CraftHold('UNTRUSTED_INSERTION_INTERVAL')
+    original_frames=decoder(source)
+    replacement_frames=decoder(scene)
+    finished_frames=decoder(output)
+    changed=0
+    scene_count=0
+    max_mismatch=0.0
+    sum_mismatch=0.0
+    max_edit_difference=0.0
+    try:
+        for frame_index in range(count):
+            original=next(original_frames,None)
+            rendered=next(finished_frames,None)
+            if (not isinstance(original,bytes) or not isinstance(rendered,bytes) or
+                    not original or len(original)!=len(rendered)):
+                raise CraftHold('INCOMPLETE_INSERTED_SCENE_DECODE')
+            if not start<=frame_index<end:
+                continue
+            expected=next(replacement_frames,None)
+            if (not isinstance(expected,bytes) or len(expected)!=len(rendered)):
+                raise CraftHold('INCOMPLETE_REPLACEMENT_SCENE_DECODE')
+            mismatch=sum(abs(a-b) for a,b in zip(expected,rendered))/len(rendered)
+            max_mismatch=max(max_mismatch,mismatch)
+            sum_mismatch+=mismatch
+            # Up to two lossy H264 generations at 96x170 area-sampled RGB.
+            # This only detects gross substitution/omission/reordering.
+            if mismatch>12:
+                raise CraftHold('INSERTED_SCENE_DOES_NOT_MATCH_ENCODED_MOVIE')
+            change=sum(abs(a-b) for a,b in zip(original,rendered))/len(rendered)
+            max_edit_difference=max(max_edit_difference,change)
+            if change>1:
+                changed+=1
+            scene_count+=1
+        if (next(replacement_frames,None) is not None or
+                next(original_frames,None) is not None or
+                next(finished_frames,None) is not None):
+            raise CraftHold('EXTRA_INSERTED_SCENE_DECODED_FRAMES')
+    finally:
+        for stream in (original_frames,replacement_frames,finished_frames):
+            if hasattr(stream,'close'):
+                stream.close()
+    if scene_count!=end-start:
+        raise CraftHold('INCOMPLETE_INSERTED_SCENE_COVERAGE')
+    if changed==0:
+        raise CraftHold('NO_VISIBLE_CRAFT_EDIT_IN_INSERTION_INTERVAL')
+    return {
+      'insertedFramesCompared':scene_count,
+      'visiblyChangedEditedFrames':changed,
+      'maxSceneToOutputMeanAbsRgb255':round(max_mismatch,6),
+      'meanSceneToOutputMeanAbsRgb255':round(sum_mismatch/scene_count,6),
+      'maxEditedSourceToOutputMeanAbsRgb255':round(max_edit_difference,6),
+      'metric':'sequential-full-decode-RGB24-area-resample-96x170',
+      'limits':'Gross substitution/omission screen; lossy downsampling can hide text and scientific errors; no art approval'
+    }
+
+
 def verify_result(source,output,manifest):
     v,a=media_info(output)
     if (v.get('codec_name')!='h264' or v.get('width')!=manifest['width'] or
@@ -282,6 +348,10 @@ def splice(source,scene,output,manifest):
            '-c:v','libx264','-preset','veryfast','-crf','18','-pix_fmt','yuv420p',
            '-c:a','copy','-movflags','+faststart',str(temp)])
         receipt=verify_result(source,temp,manifest)
+        # The outside-edit negative screen alone cannot tell whether the
+        # independently supplied replacement scene made it into the movie.
+        receipt['insertedSceneVisualAudit']=audit_inserted_scene_frames(
+            source,scene,temp,manifest)
         # Recheck both exact external inputs AFTER encoding and verification.
         if (digest(source)!=manifest['sourceFilmSha256'] or
                 digest(scene)!=manifest['craftSceneSha256']):
