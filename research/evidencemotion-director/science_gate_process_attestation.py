@@ -8,7 +8,9 @@ All unresolved independent-review, human-outcome, craft and release gates HOLD.
 import argparse
 import hashlib
 import json
+import os
 import re
+import tempfile
 from pathlib import Path
 
 from scientific_uncertainty_ledger import (
@@ -207,6 +209,42 @@ def verify_attestation(report):
             hold("CLAIM_ID_SCOPE_OR_HOLDS_REHASHED:" + EXPECTED[i])
     return True
 
+def prepare_report_destination(out):
+    """Discard a prior research receipt before any new input is trusted.
+
+    This does not change the science verdict: the receipt remains HOLD.  A
+    failed replay must never leave an earlier SHA-bound report at the current
+    destination pretending to have been created by the failed invocation.
+    """
+    out = Path(out)
+    if out.is_symlink():
+        hold("SYMLINK_REPORT_DESTINATION_NOT_ALLOWED")
+    if out.exists() and not out.is_file():
+        hold("NONFILE_REPORT_DESTINATION_NOT_ALLOWED")
+    if out.exists():
+        out.unlink()
+    return out
+
+
+def write_report_atomically(out, receipt):
+    """Replace with a fully flushed, validated report or leave no report."""
+    pending = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="w", encoding="utf-8", dir=str(out.parent),
+            prefix="." + out.name + ".", suffix=".tmp", delete=False
+        ) as stream:
+            pending = Path(stream.name)
+            stream.write(json.dumps(receipt, indent=2) + "\\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(pending, out)
+        pending = None
+    finally:
+        if pending is not None:
+            pending.unlink(missing_ok=True)
+
+
 def main():
     parser = argparse.ArgumentParser()
     for name in ("source", "uncertainty", "strength", "out"):
@@ -215,12 +253,13 @@ def main():
     paths = [Path(getattr(args, k)).resolve() for k in ("source","uncertainty","strength","out")]
     if len(set(paths)) != 4:
         hold("INPUT_OUTPUT_PATH_ALIAS_NOT_ALLOWED")
+    out = prepare_report_destination(Path(args.out))
     records, digests = {}, {}
     for key in ("source", "uncertainty", "strength"):
         records[key], digests[key] = read_record(getattr(args, key))
     receipt = attest(records, digests)
     verify_attestation(receipt)
-    Path(args.out).write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+    write_report_atomically(out, receipt)
     print(json.dumps({"status": receipt["status"], "claims": 8,
                       "holdsOpen": True, "mayPublish": False}))
 

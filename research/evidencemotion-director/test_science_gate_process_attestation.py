@@ -181,5 +181,57 @@ class ScienceGateProcessAttestationTests(unittest.TestCase):
                     ValueError,"INPUT_OUTPUT_PATH_ALIAS"):
                 main()
 
+
+    def test_failed_second_cli_run_removes_stale_science_receipt(self):
+        # A previous report must not survive a subsequently failed source run.
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            source=root/"source.json"
+            uncertainty=root/"uncertainty.json"
+            strength=root/"strength.json"
+            out=root/"science-gate.json"
+            source.write_text('{"mayPublish":false,"mayPublish":true}',encoding="utf-8")
+            uncertainty.write_text("{}",encoding="utf-8")
+            strength.write_text("{}",encoding="utf-8")
+            out.write_text(json.dumps(self.inspect())+"\\n",encoding="utf-8")
+            argv=["science_gate_process_attestation.py",
+                  "--source",str(source),"--uncertainty",str(uncertainty),
+                  "--strength",str(strength),"--out",str(out)]
+            with patch("sys.argv",argv), self.assertRaisesRegex(
+                    ValueError, "DUPLICATED_JSON_KEY"):
+                main()
+            self.assertFalse(out.exists(), "stale science receipt survived failure")
+
+    def test_output_symlink_fails_before_mutating_source(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            source=root/"source.json"
+            source.write_text('{"source":"immutable"}',encoding="utf-8")
+            output=root/"science-gate.json"
+            output.symlink_to(source)
+            argv=["science_gate_process_attestation.py",
+                  "--source",str(source),"--uncertainty",str(root/"u.json"),
+                  "--strength",str(root/"s.json"),"--out",str(output)]
+            with patch("sys.argv",argv),self.assertRaisesRegex(
+                    ValueError, "INPUT_OUTPUT_PATH_ALIAS|SYMLINK_REPORT_DESTINATION"):
+                main()
+            self.assertEqual(source.read_text(encoding="utf-8"),
+                             '{"source":"immutable"}')
+            self.assertTrue(output.is_symlink())
+
+    def test_failed_atomic_rename_leaves_no_report_or_temp(self):
+        from science_gate_process_attestation import (
+            prepare_report_destination,write_report_atomically)
+        with tempfile.TemporaryDirectory() as tmp:
+            out=Path(tmp)/"science-gate.json"
+            out.write_text(json.dumps(self.inspect()),encoding="utf-8")
+            prepare_report_destination(out)
+            with patch("science_gate_process_attestation.os.replace",
+                       side_effect=OSError("injected rename failure")):
+                with self.assertRaises(OSError):
+                    write_report_atomically(out,self.inspect())
+            self.assertFalse(out.exists())
+            self.assertEqual(list(Path(tmp).glob(".science-gate.json.*.tmp")),[])
+
 if __name__ == "__main__":
     unittest.main()
