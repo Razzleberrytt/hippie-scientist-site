@@ -2,7 +2,7 @@
   "schema": "ths-atomic-workcard-proof-ledger-v1",
   "recordedDate": "2026-10-16",
   "authoritativePlanningIndex": "https://github.com/Razzleberrytt/hippie-scientist-site/blob/main/research/evidencemotion-director/ATOMIC-EXECUTION-INDEX.md",
-  "note": "Research-only 18 bounded evidence groups (119 machine-audited cards), adding hosted EM-002.03 research workflow privilege negative control. Original GitHub film archived/decode and portable handoff remain separate. EM-001.03.T real iPhone open/play HOLD. 707 inherited provisional cards are not individually audited; no release/phone/science/quality approval.",
+  "note": "Research-only 19 bounded evidence groups (125 individually machine-audited cards), including hosted EM-002.02 policy SHA/crosswalk proof (5/5 tests). 707 inherited provisional cards are NOT individually audited. Original source film/native review and EM-001.03.T real iPhone open/play remain HOLD; qualified independent science EM-007.07 remains HOLD. No canonical, creative, scientific, audio, handset, merge or publication acceptance.",
   "denominator": 1590,
   "inheritedMappedToAcceptedFoundationsNotIndividuallyAudited": 707,
   "status": "PROVISIONAL_COVERAGE_NOT_FINAL_ACCEPTANCE",
@@ -235,11 +235,23 @@
         "EM-002.03.N",
         "EM-002.03.R"
       ]
+    },
+    {
+      "group": "EM-002.02",
+      "source": "EM00202-POLICY-CROSSWALK-20261016.md",
+      "cards": [
+        "EM-002.02.U",
+        "EM-002.02.S",
+        "EM-002.02.O",
+        "EM-002.02.X",
+        "EM-002.02.T",
+        "EM-002.02.R"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 119,
-  "provisionalCoverageCardCount": 826,
-  "provisionalCoveragePercent": 51.9497,
+  "individualMachineVerifiedResearchCardCount": 125,
+  "provisionalCoverageCardCount": 832,
+  "provisionalCoveragePercent": 52.327,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }
