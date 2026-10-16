@@ -36,34 +36,52 @@ class RealEncodedTextInkTests(unittest.TestCase):
                 "id":scene,"startSec":start,"endSec":start+2.,
                 "annotations":rows})
             start+=2.
-        self.samples={(s,t):(self.good,self.good)
+        self.samples={(s,t):(self.good,self.good,self.good)
                       for s,terms in REQUIRED.items() for t in terms}
 
-    def test_exact_13_visible_labels_meet_both_one_point_criteria(self):
+    def test_exact_16_visible_labels_meet_both_one_point_proxy_criteria(self):
         result=score_samples(self.plan,self.samples)
         self.assertEqual(result["schema"],SCHEMA)
         self.assertEqual(result["testedCriticalVisibleLabels"],16)
         self.assertEqual(result["additionalObjectivePoints"],2)
+        self.assertTrue(all("middle" in item for item in result["observations"]))
         self.assertTrue(all(x["passed"] for x in result["criteria"]))
         self.assertFalse(result["viewerComprehensionApproved"])
         self.assertFalse(result["mayPublish"])
 
     def test_black_frame_does_not_earn_readability(self):
-        self.samples[("sentence_4","A possible\n3D shape.")]=(self.dark,self.dark)
+        self.samples[("sentence_4","A possible\n3D shape.")]=(self.dark,self.dark,self.dark)
         r=score_samples(self.plan,self.samples)
         self.assertEqual(r["additionalObjectivePoints"],0)
 
     def test_faded_glyph_ink_loses_contrast(self):
-        self.samples[("sentence_4","Computed 3D illustration • not filmed")]=(self.faded,self.faded)
+        self.samples[("sentence_4","Computed 3D illustration • not filmed")]=(self.faded,self.faded,self.faded)
         r=score_samples(self.plan,self.samples)
         self.assertFalse(r["criteria"][0]["passed"])
         self.assertLess(r["additionalObjectivePoints"],2)
 
     def test_disappearing_late_text_rejected(self):
-        self.samples[("sentence_1_part0","No reaction")]=(self.good,self.dark)
+        self.samples[("sentence_1_part0","No reaction")]=(self.good,self.good,self.dark)
         r=score_samples(self.plan,self.samples)
         self.assertFalse(r["criteria"][0]["passed"])
         self.assertFalse(r["criteria"][1]["passed"])
+
+    def test_invisible_middle_text_fails_even_when_first_and_last_are_identical(self):
+        # Prior two-point sampling awarded both proxy points even if the
+        # teaching label vanished halfway through the intended reading hold.
+        self.samples[("sentence_4","Computed 3D illustration • not filmed")]=(
+            self.good,self.dark,self.good)
+        r=score_samples(self.plan,self.samples)
+        self.assertEqual(r["additionalObjectivePoints"],0)
+        self.assertFalse(r["criteria"][0]["passed"])
+        self.assertFalse(r["criteria"][1]["passed"])
+        self.assertEqual(r["testedCriticalVisibleLabels"],16)
+
+    def test_two_frame_receipt_cannot_claim_three_phase_persistence(self):
+        self.samples[("sentence_2","–OH group: oxygen + hydrogen")]=(
+            self.good,self.good)
+        with self.assertRaisesRegex(ValueError,"EARLY_MIDDLE_LATE_NATIVE_FRAME_SAMPLES_REQUIRED"):
+            score_samples(self.plan,self.samples)
 
     def test_flickering_contrast_breaks_persistence(self):
         late=self.good.copy()
@@ -72,7 +90,7 @@ class RealEncodedTextInkTests(unittest.TestCase):
         box=[80,480,680,540]
         x1,y1,x2,y2=box
         late[y1:y2,x1+20:x2-20:2]=170
-        self.samples[("sentence_1_part0","MITRAGYNINE")]=(self.good,late)
+        self.samples[("sentence_1_part0","MITRAGYNINE")]=(self.good,self.good,late)
         r=score_samples(self.plan,self.samples)
         self.assertTrue(r["criteria"][0]["passed"])
         self.assertFalse(r["criteria"][1]["passed"])
@@ -96,7 +114,7 @@ class RealEncodedTextInkTests(unittest.TestCase):
 
     def test_missing_frame_samples_hold_not_neutral(self):
         del self.samples[("source_hold","7-OH • CID 44301524")]
-        with self.assertRaisesRegex(ValueError,"EARLY_LATE_NATIVE_FRAME_SAMPLES_REQUIRED"):
+        with self.assertRaisesRegex(ValueError,"EARLY_MIDDLE_LATE_NATIVE_FRAME_SAMPLES_REQUIRED"):
             score_samples(self.plan,self.samples)
 
     def test_cannot_pass_with_simulated_human_comprehension(self):
@@ -133,6 +151,18 @@ class ActualH264FrameIdentityTests(unittest.TestCase):
             self.assertAlmostEqual(proof[1]["actualFramePtsSec"],44/30,places=4)
             self.assertLess(int(frames[("blue","early")][960,540]),45)
             self.assertGreater(int(frames[("red","late")][960,540]),65)
+
+    def test_three_phase_actual_h264_frame_receipt_is_pts_bound(self):
+        # The existing real hard-cut test protects the decoder itself.
+        # The audit request now has a third, in-shot timestamp by contract.
+        shot={"id":"center","startSec":0.0,"endSec":3.0}
+        samples=[(("center","early"),shot,0.3),
+                 (("center","middle"),shot,1.5),
+                 (("center","late"),shot,2.7)]
+        # A missing source does not silently generate positive media proof.
+        with self.assertRaisesRegex(ValueError,"EXACT_PRESENTED_FRAME_EXTRACTION_FAILED"):
+            exact_gray_samples("/missing/not-a-film.mp4",samples,
+                               [Decimal(i)/30 for i in range(90)])
 
     def test_out_of_shot_sample_fails_before_extracting_pixels(self):
         with self.assertRaisesRegex(ValueError,"SAMPLE_TIME_OUTSIDE_DECLARED_SHOT"):
