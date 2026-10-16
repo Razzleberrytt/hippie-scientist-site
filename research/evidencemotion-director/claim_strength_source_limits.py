@@ -59,8 +59,13 @@ def evaluate(source_join, uncertainty, *, source_join_sha, uncertainty_sha):
         data = sources[sid]
         if not isinstance(data, dict) or data.get("kind") != expected_kind:
             hold("NONCLINICAL_SOURCE_KIND_CHANGED:" + sid)
-        if any(key in CLINICAL_FIELDS or re.search(
-                r"(clinical|trial|effectEstimate|humanOutcome)", key, re.I)
+        # The upstream exact source-join has explicit *null* non-study fields.
+        # Preserve those as null proof, but reject extra clinical fields and
+        # ANY non-null upgrade of their declared missing-human-data status.
+        allowed_null_markers = {"studyPopulation", "measuredHumanOutcome"}
+        if any(key not in allowed_null_markers and
+               (key in CLINICAL_FIELDS or re.search(
+                r"(clinical|trial|effectEstimate|humanOutcome)", key, re.I))
                for key in data):
             hold("INJECTED_HUMAN_STUDY_METADATA:" + sid)
         if data.get("studyPopulation") is not None or data.get("measuredHumanOutcome") is not None:
