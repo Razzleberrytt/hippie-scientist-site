@@ -129,6 +129,43 @@ class ResearchProtocolTests(unittest.TestCase):
             self.assertEqual(image.crop((0,1120,craft.W,craft.H)).tobytes(),
                              base.crop((0,1120,craft.W,craft.H)).tobytes())
 
+    def test_native_encoded_readback_with_actual_tiny_h264_and_negative_frames(self):
+        if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
+            self.skipTest('Native FFmpeg required for physical encoded-clip regression')
+        with tempfile.TemporaryDirectory() as d:
+            tiny=Path(d)/'tiny.mp4'
+            subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi',
+                '-i','color=c=black:s=64x96:r=30','-frames:v','3',
+                '-an','-c:v','libx264','-pix_fmt','yuv420p',str(tiny)],
+                check=True,capture_output=True)
+            self.assertTrue(craft.verify_native_silent_clip(
+                tiny,width=64,height=96,fps=30,frames=3))
+            with self.assertRaisesRegex(craft.ResearchHold,'FRAME_GRID_CHANGED'):
+                craft.verify_native_silent_clip(tiny,width=64,height=96,fps=30,frames=4)
+            with self.assertRaisesRegex(craft.ResearchHold,'FRAME_GRID_CHANGED'):
+                craft.verify_native_silent_clip(tiny,width=65,height=96,fps=30,frames=3)
+
+    def test_native_encoded_readback_rejects_nonmovie_empty_and_audio_stream(self):
+        if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
+            self.skipTest('Native FFmpeg required for physical encoded-clip regression')
+        with tempfile.TemporaryDirectory() as d:
+            empty=Path(d)/'empty.mp4'
+            empty.write_bytes(b'')
+            with self.assertRaisesRegex(craft.ResearchHold,'MISSING_OR_EMPTY'):
+                craft.verify_native_silent_clip(empty,width=64,height=96,frames=3)
+            corrupt=Path(d)/'corrupt.mp4'
+            corrupt.write_bytes(b'not H264')
+            with self.assertRaisesRegex(craft.ResearchHold,'DECODE_OR_PROBE_FAILED'):
+                craft.verify_native_silent_clip(corrupt,width=64,height=96,frames=3)
+            mixed=Path(d)/'with-audio.mp4'
+            subprocess.run(['ffmpeg','-nostdin','-v','error',
+                '-f','lavfi','-i','color=c=black:s=64x96:r=30',
+                '-f','lavfi','-i','anullsrc=r=24000:cl=mono',
+                '-frames:v','3','-shortest','-c:v','libx264','-pix_fmt','yuv420p',
+                '-c:a','aac',str(mixed)],check=True,capture_output=True)
+            with self.assertRaisesRegex(craft.ResearchHold,'STREAMS_CHANGED'):
+                craft.verify_native_silent_clip(mixed,width=64,height=96,frames=3)
+
     def test_transition_interpolation_is_monotonic_and_bounded(self):
         data=[craft.smoothstep(i/20) for i in range(21)]
         self.assertEqual(data[0],0.)
