@@ -234,6 +234,12 @@ class NarrationTreatments(unittest.TestCase):
                       np.asarray(after.crop(model),dtype=np.int16))
         self.assertGreater(float(change.mean()),.20)
         words=[a['text'] for a in before_ann if a['role']!='caption']
+        title=next(a for a in before_ann if a['text']=='A possible\n3D shape.')
+        # Actual emitted native glyph bounds must leave visible whitespace
+        # above the *physical* source-panel upper edge y=456; tiny 2px
+        # collisions would otherwise pass the old semantic copy checks.
+        self.assertGreaterEqual(title['boxPx'][1],192)
+        self.assertGreaterEqual(456-title['boxPx'][3],30)
         self.assertIn('A possible\n3D shape.',words)
         self.assertIn('Computed 3D illustration • not filmed',words)
         self.assertIn('Hydrogen atoms omitted',words)
