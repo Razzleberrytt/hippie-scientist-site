@@ -61,7 +61,7 @@ def exact_gray_samples(movie, requests, stamps):
         picks.append((key, shot["id"], idx, pts))
     indices = sorted({item[2] for item in picks})
     # A Python source escape becomes one literal FFmpeg filtergraph escape.
-    selection = "select=" + "+".join(f"eq(n\\\\,{index})" for index in indices)
+    selection = "select=" + "+".join(f"eq(n\\,{index})" for index in indices)
     cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
            "-i", str(movie), "-an", "-vf", selection + ",format=gray",
            "-vsync", "0", "-frames:v", str(len(indices)),
