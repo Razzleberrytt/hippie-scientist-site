@@ -129,5 +129,44 @@ class CrossModelResearchTests(unittest.TestCase):
 
 
 
+    def test_mfa_onset_inside_source_silence_requires_review_even_if_asr_agrees_within_150ms(self):
+        # 250–600ms are *literally* zero PCM. MFA puts 'is' at 400ms,
+        # ASR guesses 510ms, inside silence by only 90ms. Their 110ms
+        # disagreement does NOT reach the separate 150ms model heuristic.
+        candidate = bytearray(self.wav)
+        for i in range(6000, 14400):
+            candidate[44+2*i:44+2*i+2] = b'\x00\x00'
+        self.wav = bytes(candidate)
+        self.sha = hashlib.sha256(self.wav).hexdigest()
+        self.asr['sourceWavSha256'] = self.sha
+        self.mfa['originalWavSha256'] = self.sha
+        self.alignment['inputSha256']['wav'] = self.sha
+        self.asr['recognizedWords'][1]['start'] = .51
+        report = self.result()
+        self.assertEqual(report['status'], 'RESEARCH_REVIEW_HOLD')
+        self.assertEqual(report['counts']['matchedStartsOver150ms'], 0)
+        self.assertEqual(report['counts']['asrOnsetsInsideProvenDigitalSilence'], 0)
+        self.assertEqual(report['counts']['mfaOnsetsInsideProvenDigitalSilence'], 1)
+        self.assertEqual(report['mfaDigitalSilenceOnsetContradictions'][0]['authoredWord'], 'is')
+        self.assertEqual(report['mfaDigitalSilenceOnsetContradictions'][0]['onsetPrecedesAnyNonzeroSourceSampleMs'], 200)
+        self.assertFalse(report['mayPublish'])
+
+    def test_both_models_can_agree_and_still_be_wrong_about_silent_source_onset(self):
+        candidate = bytearray(self.wav)
+        for i in range(6000, 14400):
+            candidate[44+2*i:44+2*i+2] = b'\x00\x00'
+        self.wav = bytes(candidate)
+        self.sha = hashlib.sha256(self.wav).hexdigest()
+        self.asr['sourceWavSha256'] = self.sha
+        self.mfa['originalWavSha256'] = self.sha
+        self.alignment['inputSha256']['wav'] = self.sha
+        report = self.result()
+        self.assertEqual(report['counts']['matchedStartsOver150ms'], 0)
+        self.assertEqual(report['counts']['mfaOnsetsInsideProvenDigitalSilence'], 1)
+        self.assertEqual(report['counts']['asrOnsetsInsideProvenDigitalSilence'], 1)
+        self.assertEqual(report['status'], 'RESEARCH_REVIEW_HOLD')
+        self.assertFalse(report['wordTimingCalibrated'])
+
+
 if __name__ == '__main__':
     unittest.main()
