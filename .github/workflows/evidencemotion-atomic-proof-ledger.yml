@@ -16,6 +16,9 @@ on:
       - 'research/evidencemotion-director/validate_em00201_decision_record.py'
       - 'research/evidencemotion-director/test_em00201_decision_record.py'
       - 'research/evidencemotion-director/EM00201-DATED-OWNER-POLICY-20261016.md'
+      - 'research/evidencemotion-director/botanical_caption_honesty_gate.mjs'
+      - 'research/evidencemotion-director/test_em00604_botanical_caption_gate.mjs'
+      - 'research/evidencemotion-director/EM00604-BOTANICAL-CAPTION-NEGATIVE-20261016.md'
       - 'research/evidencemotion-director/EM00204-POLICY-TRACKER-TRACE-20261016.md'
       - 'research/evidencemotion-director/GRANULAR-46-EXECUTION-REGISTER.md'
       - 'research/evidencemotion-director/EM00202-POLICY-CROSSWALK-20261016.md'
@@ -68,6 +71,8 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director \
             -p 'test_em00201_decision_record.py' -v
           python research/evidencemotion-director/validate_em00201_decision_record.py
+          node --test research/evidencemotion-director/illustrative-crop-gate.test.mjs
+          node --test research/evidencemotion-director/test_em00604_botanical_caption_gate.mjs
       - name: Preserve score interpretation
         if: always()
         run: |
