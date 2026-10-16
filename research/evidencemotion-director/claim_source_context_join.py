@@ -166,6 +166,19 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
         if EFFECT_CLAIMS.search(" ".join(t for role in ANNOTATION_ROLES
                                        for t in roles[role])):
             hold("UNSUPPORTED_TREATMENT_OR_EFFECT_TEXT:"+shot["shot"])
+    # EM-007.06: this exact nine-shot film must preserve its visible science
+    # limitations. A freshly rehashed visual inventory is not enough if a
+    # later picture edit drops "computed" or "not filmed" while source CIDs
+    # and the spoken source ledger remain superficially intact.
+    structural_disclosure=" ".join(shots[2]["emittedSourceAnnotations"]["disclosure"]).casefold()
+    computed_disclosure=" ".join(shots[4]["emittedSourceAnnotations"]["disclosure"]).casefold()
+    contrast=" ".join(shots[6]["emittedSourceAnnotations"]["science"]).casefold()
+    if "computed model" not in structural_disclosure:
+        hold("VISIBLE_COMPUTED_MODEL_QUALIFIER_REQUIRED")
+    if not ("computed" in computed_disclosure and "not filmed" in computed_disclosure):
+        hold("VISIBLE_NOT_FILMED_COMPUTED_POSE_QUALIFIER_REQUIRED")
+    if "≠" not in contrast or "human experience" not in contrast:
+        hold("VISIBLE_NO_HUMAN_EXPERIENCE_INFERENCE_REQUIRED")
     source_shot=shots[7]
     if tuple(source_shot.get("emittedSourceAnnotations",{}).get("source",[]))!=SOURCE_CARD_LABELS:
         hold("PINNED_COMPOUND_TO_CID_SOURCE_CARD_MISMATCH")
