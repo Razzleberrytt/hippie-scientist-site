@@ -341,6 +341,30 @@ class MobileAuditContract(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "NATIVE_PORTRAIT_FRAME_REQUIRED"):
             self.check(fixture(), size=(540, 960))
 
+
+def create_directory_alias_for_test(alias, target):
+    """Exercise the real alias guard on Windows without symlink privilege.
+
+    Native directory symlinks remain the primary case. Hosted Windows
+    accounts can lack SeCreateSymbolicLinkPrivilege (WinError 1314), even
+    though the equivalent NTFS directory junction can be created without it.
+    Never skip the safety assertion: a fallback must resolve to the SAME
+    directory or the test fails before invoking the audited operation.
+    """
+    try:
+        alias.symlink_to(target, target_is_directory=True)
+    except OSError as exc:
+        if (sys.platform != "win32" or
+                getattr(exc, "winerror", None) not in (5, 1314)):
+            raise
+        subprocess.run(
+            ["cmd", "/c", "mklink", "/J", str(alias), str(target)],
+            capture_output=True, text=True, timeout=20, check=True)
+    if not alias.is_dir() or alias.resolve() != target.resolve():
+        raise AssertionError("DIRECTORY_ALIAS_SETUP_FAILED")
+
+
+
 class ReportOutputAliasSafety(unittest.TestCase):
     def test_manifest_with_report_filename_is_never_deleted(self):
         # Before this guard the phone audit erased its own input plan while
@@ -415,7 +439,7 @@ class ReportOutputAliasSafety(unittest.TestCase):
             manifest = source_dir / "00-opening.png"
             original = b"immutable plan source"
             manifest.write_bytes(original)
-            (root / "review-link").symlink_to(source_dir, target_is_directory=True)
+            create_directory_alias_for_test(root / "review-link", source_dir)
             movie = root / "movie.mp4"
             movie.write_bytes(b"video bytes")
             with self.assertRaisesRegex(
@@ -432,7 +456,7 @@ class ReportOutputAliasSafety(unittest.TestCase):
             plan = source_dir / "research-report.json"
             original = b"original scientific source plan"
             plan.write_bytes(original)
-            (root / "output-alias").symlink_to(source_dir, target_is_directory=True)
+            create_directory_alias_for_test(root / "output-alias", source_dir)
             movie = root / "movie.mp4"
             movie.write_bytes(b"movie")
             with self.assertRaisesRegex(ValueError, "REPORT_OUTPUT_ALIASES_SOURCE_INPUT"):
