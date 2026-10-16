@@ -12,6 +12,7 @@ import re
 import os
 import tempfile
 from decimal import Decimal, InvalidOperation
+from bisect import bisect_left
 from pathlib import Path
 import subprocess
 from native_master_audit import frame_timestamps
@@ -56,6 +57,23 @@ def verify_shots(shots, duration):
         cursor = end
     if abs(cursor - duration) > TIMELINE_TOLERANCE_SEC:
         hold("INCOMPLETE_FILM_COVERAGE")
+
+def verify_decoded_shot_coverage(stamps, shots):
+    """Every declared shot must own at least one actual presented frame.
+
+    Timestamp-grid correctness alone does not catch a subframe 'phantom shot'
+    inserted between otherwise valid 30fps frames. This is only a technical
+    coverage oracle, not scientific, pixel-content, or handset approval.
+    """
+    if not stamps:
+        hold("NO_DECODED_FRAMES_FOR_SHOT_COVERAGE")
+    for shot in shots:
+        start = Decimal(str(shot["startSec"]))
+        end = Decimal(str(shot["endSec"]))
+        index = bisect_left(stamps, start)
+        if index == len(stamps) or stamps[index] >= end:
+            hold("SHOT_WITHOUT_PRESENTED_FRAME:" + shot["id"])
+
 
 def validate_manifest(m, *, width, height, duration, actual_sha):
     if not isinstance(m, dict) or m.get("status") != "RESEARCH_ONLY" or m.get("releaseApproved") is not False:
@@ -180,6 +198,10 @@ def audit(movie, manifest, output):
     width, height, duration, decoded_count = probe_movie(movie)
     receipt = validate_manifest(plan, width=width, height=height,
                                 duration=duration, actual_sha=movie_hash)
+    # The grid checked by probe_movie() must also intersect every authored shot.
+    # An entirely empty subframe shot is not video coverage even if its times
+    # are contiguous and its annotation boxes are otherwise valid.
+    verify_decoded_shot_coverage(frame_timestamps(movie), plan["shots"])
     frame_receipts = []
     # Emit all decoded artifacts into an isolated staging folder, not into the
     # previous run's public review directory. Publish receipt *last*.
