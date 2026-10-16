@@ -21,6 +21,9 @@ TOP, RIGHT, BOTTOM = .10, .20, .18
 MAX_SHOTS = 24
 # Sub-frame authoring precision; old 50/100-ms slack hid real missing frames.
 TIMELINE_TOLERANCE_SEC = 0.001
+# Audio-bearing containers and ceil-to-full-frame encoding cannot define shot endpoints.
+# Permit at most one encoded frame of closing pad, never multi-frame missing shots.
+FRAME_END_TOLERANCE_SEC = (1 / 30) + TIMELINE_TOLERANCE_SEC
 ROLES = {"hook", "caption", "source", "science", "disclosure"}
 
 def sha256_file(path):
@@ -52,10 +55,10 @@ def verify_shots(shots, duration):
             hold("INVALID_OR_DUPLICATE_SHOT_ID")
         seen.add(shot["id"])
         begin, end = shot.get("startSec"), shot.get("endSec")
-        if not number(begin) or not number(end) or abs(begin - cursor) > TIMELINE_TOLERANCE_SEC or end <= begin or end > duration + TIMELINE_TOLERANCE_SEC:
+        if not number(begin) or not number(end) or abs(begin - cursor) > TIMELINE_TOLERANCE_SEC or end <= begin or end > duration + FRAME_END_TOLERANCE_SEC:
             hold("NONCONTIGUOUS_SHOT_TIMELINE")
         cursor = end
-    if abs(cursor - duration) > TIMELINE_TOLERANCE_SEC:
+    if abs(cursor - duration) > FRAME_END_TOLERANCE_SEC:
         hold("INCOMPLETE_FILM_COVERAGE")
 
 def verify_decoded_shot_coverage(stamps, shots):
@@ -67,6 +70,8 @@ def verify_decoded_shot_coverage(stamps, shots):
     """
     if not stamps:
         hold("NO_DECODED_FRAMES_FOR_SHOT_COVERAGE")
+    if stamps[-1] >= Decimal(str(shots[-1]["endSec"])) + Decimal(str(TIMELINE_TOLERANCE_SEC)):
+        hold("UNCLAIMED_FINAL_PRESENTED_FRAME")
     for shot in shots:
         start = Decimal(str(shot["startSec"]))
         end = Decimal(str(shot["endSec"]))
@@ -144,7 +149,9 @@ def probe_movie(movie):
     numerator, denominator = map(int, track["avg_frame_rate"].split("/"))
     if denominator == 0 or abs(numerator / denominator - 30) > .6:
         hold("AVERAGE_RATE_NOT_30FPS")
-    duration = float(data["format"]["duration"])
+    # Format duration includes AAC priming/padding and may overrun the video
+    # timeline. Shot coverage must use the actual decoded video frame count.
+    container_duration = float(data["format"]["duration"])
     # Reuse the already-tested native audit's *actual per-frame timestamps*:
     # avg_frame_rate alone can falsely certify a variable-frame-rate movie.
     try:
@@ -158,7 +165,8 @@ def probe_movie(movie):
             any(abs((stamp - origin) - nominal_step * index) > tolerance
                 for index, stamp in enumerate(stamps))):
             hold("NONCONSTANT_DECODED_FRAME_TIMING")
-        if abs(len(stamps) / 30 - duration) > .12:
+        duration = len(stamps) / 30
+        if not math.isfinite(container_duration) or abs(duration - container_duration) > .12:
             hold("VIDEO_FRAME_COUNT_DURATION_MISMATCH")
     except (subprocess.CalledProcessError, OSError, ValueError, InvalidOperation,
             UnicodeError, KeyError, IndexError) as exc:
