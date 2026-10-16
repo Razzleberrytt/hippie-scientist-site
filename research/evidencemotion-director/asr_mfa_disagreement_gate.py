@@ -50,9 +50,27 @@ def read_pcm(wav_bytes):
             payload = source.readframes(frames)
         if not 24000 <= frames <= 24000*180 or len(payload) != frames*2:
             return None
-        return frames
+        return frames, payload
     except (EOFError, ValueError, OSError, wave.Error):
         return None
+
+
+def exact_digital_silence_runs(pcm, min_run_samples=4800):
+    """Detect only consecutive literal zero PCM16 samples (not perceived silence)."""
+    runs = []
+    start = None
+    samples = len(pcm) // 2
+    for index in range(samples):
+        if pcm[index*2:index*2+2] == b'\x00\x00':
+            if start is None:
+                start = index
+        elif start is not None:
+            if index-start >= min_run_samples:
+                runs.append((start/24, index/24))
+            start = None
+    if start is not None and samples-start >= min_run_samples:
+        runs.append((start/24, samples/24))
+    return runs
 
 
 def validate_words(words, start_key, end_key, scale, duration_ms, label):
@@ -81,9 +99,10 @@ def assess_original_asr_mfa(wav_bytes, approved_source_sha256, asr, mfa,
     """Frozen source + actual MFA candidate bytes + two original-source receipts."""
     if not valid_hash(approved_source_sha256):
         return hold('FROZEN_ORIGINAL_SHA_REQUIRED')
-    frames = read_pcm(wav_bytes)
-    if frames is None:
+    decoded = read_pcm(wav_bytes)
+    if decoded is None:
         return hold('ACTUAL_SOURCE_WAV_REQUIRED')
+    frames, pcm = decoded
     if sha(wav_bytes) != approved_source_sha256:
         return hold('ORIGINAL_SOURCE_WAV_CHANGED')
     if not isinstance(alignment_bytes, bytes) or len(alignment_bytes) > MAX_BYTES:
@@ -130,6 +149,20 @@ def assess_original_asr_mfa(wav_bytes, approved_source_sha256, asr, mfa,
             return hold(issue)
     if mfa.get('alignedWordCount') != len(words) or mfa.get('scriptTokenCount') != len(words):
         return hold('MFA_SOURCE_WORD_INVENTORY_CHANGED')
+    # An ASR word cannot audibly start 100+ ms inside literal zero PCM samples.
+    # This is a physical timing contradiction, not a pronunciation verdict.
+    digital_silence_runs = exact_digital_silence_runs(pcm)
+    physically_impossible_asr_onsets = []
+    for index, token in enumerate(recognized):
+        onset = token['start']*1000
+        for silent_start, silent_end in digital_silence_runs:
+            if silent_start <= onset and silent_end-onset >= 100:
+                physically_impossible_asr_onsets.append({
+                    'asrIndex': index, 'hypothesis': token['word'].strip(),
+                    'onsetMs': round(onset, 3),
+                    'zeroPcmIntervalMs': [round(silent_start, 3), round(silent_end, 3)],
+                    'onsetPrecedesAnyNonzeroSourceSampleMs': round(silent_end-onset, 3)})
+                break
     matches, disagreements = [], []
     matcher = difflib.SequenceMatcher(None, [normalize(w['word']) for w in words],
                                       [normalize(w['word']) for w in recognized], autojunk=False)
@@ -161,13 +194,15 @@ def assess_original_asr_mfa(wav_bytes, approved_source_sha256, asr, mfa,
     review_count = sum(d['requiresAcousticReview'] for d in disagreements)
     return {
         'schema': SCHEMA,
-        'status': 'RESEARCH_REVIEW_HOLD' if review_count or first_count or last_count else 'RESEARCH_MODEL_CONSENSUS_ONLY',
+        'status': 'RESEARCH_REVIEW_HOLD' if review_count or first_count or last_count or physically_impossible_asr_onsets else 'RESEARCH_MODEL_CONSENSUS_ONLY',
         'sourceWavSha256': approved_source_sha256, 'alignmentCandidateSha256': sha(alignment_bytes),
         'transcriptSha256': sha(transcript_bytes), 'asrModelSha256': model['modelBinarySha256'],
         'counts': {'mfaWords': len(words), 'asrEntries': len(recognized),
                    'matchedWords': len(matches), 'disagreementBlocks': len(disagreements),
                    'reviewBlocks': review_count, 'orthographicOnlyBlocks': len(disagreements)-review_count,
-                   'matchedStartsOver150ms': first_count, 'matchedEndsOver150ms': last_count},
+                   'matchedStartsOver150ms': first_count, 'matchedEndsOver150ms': last_count,
+                   'asrOnsetsInsideProvenDigitalSilence': len(physically_impossible_asr_onsets)},
+        'digitalSilenceOnsetContradictions': physically_impossible_asr_onsets,
         'disagreements': disagreements, 'matchedWordTiming': matches,
         'originalNarrationModified': False, 'mayPublish': False,
         'pronunciationVerified': False, 'wordTimingCalibrated': False,
