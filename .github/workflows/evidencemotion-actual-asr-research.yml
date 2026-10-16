@@ -755,6 +755,31 @@ jobs:
         run: |
           echo 'MFA aligns the pinned original WAV on CPU. G2P chemical-term phones are unverified candidates.' >> "$GITHUB_STEP_SUMMARY"
           echo 'No calibrated pronunciation, scientific/craft/device or publication approval follows from this job.' >> "$GITHUB_STEP_SUMMARY"
+  science-source-adversarial-controls:
+    # Fast independent science gate: never depend on H264/FFmpeg success.
+    # Synthetic mutations test an existing frozen-claim oracle, not real
+    # clinical evidence, independent human review or publish permission.
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install only pinned open-source chemical graph validator
+        run: python -m pip install 'rdkit==2025.9.4'
+      - name: Reject source swaps, invented human effects and missing qualifiers
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_science_redteam_controls.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_claim_source_context_join.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_scientific_uncertainty_ledger.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_claim_strength_source_limits.py -v
+      - name: Keep machine science evidence distinct from clinical and release authority
+        if: always()
+        run: |
+          echo 'EM-007.06 synthetic negative cases are research-only, with no external clinical review or publication permission.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'This job is intentionally independent of slow native rendering and cannot certify finished MP4 or human interpretation.' >> "$GITHUB_STEP_SUMMARY"
   strict-script-compare:
     runs-on: ubuntu-latest
     timeout-minutes: 4
