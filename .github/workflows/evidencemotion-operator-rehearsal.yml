@@ -15,7 +15,7 @@ permissions:
 jobs:
   offline-operator-contract:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - name: Checkout exact proposed research code
         uses: actions/checkout@v4
@@ -28,6 +28,13 @@ jobs:
         run: |
           set -euo pipefail
           python3 -m unittest discover -s research/evidencemotion-director -p 'test_five_render_attempt_guard.py' -v
+      - name: Install open-source FFmpeg and FFprobe for physical pipe fixture
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          ffmpeg -version | head -1
+          ffprobe -version | head -1
       - name: Reject incomplete original-RGB24-stdin captures (research only)
         run: |
           set -euo pipefail
