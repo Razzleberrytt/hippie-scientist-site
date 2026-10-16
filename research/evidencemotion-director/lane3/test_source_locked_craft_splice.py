@@ -68,6 +68,50 @@ class CraftSourceLockedContractTests(unittest.TestCase):
       with tempfile.TemporaryDirectory() as td:
         p=Path(td)/'unsafe.json';x=copy.deepcopy(self.m);x[field]=v;p.write_text(json.dumps(x))
         with self.assertRaises(S.CraftHold):S.trusted_manifest(p,S.digest(p))
+  def test_all_untouched_frames_are_explicitly_counted(self):
+    manifest={'frames':5,'startFrame':1,'endFrameExclusive':3}
+    a=[bytes([10]*12)]*5
+    b=list(a)
+    b[1]=bytes([255]*12)  # Inside the authorized scene can change.
+    b[2]=bytes([0]*12)
+    def decode(which):return iter(a if which=='source' else b)
+    r=S.audit_outside_scene_frames('source','output',manifest,decoder=decode)
+    self.assertEqual(r['framesComparedOutsideScene'],3)
+    self.assertEqual(r['outsideFrameMeanAbsRgb255'],0)
+
+  def test_subtle_outside_scene_overlay_is_rejected(self):
+    manifest={'frames':5,'startFrame':1,'endFrameExclusive':3}
+    a=[bytes([10]*12)]*5
+    b=list(a)
+    b[0]=bytes([200]*12)
+    def decode(which):return iter(a if which=='source' else b)
+    with self.assertRaisesRegex(S.CraftHold,'OUTSIDE_CRAFT_SCENE_VISUAL_DRIFT'):
+      S.audit_outside_scene_frames('source','output',manifest,decoder=decode)
+
+  def test_incomplete_decode_cannot_gain_source_preservation_receipt(self):
+    manifest={'frames':5,'startFrame':1,'endFrameExclusive':3}
+    a=[bytes([10]*12)]*5
+    b=list(a[:-1])
+    def decode(which):return iter(a if which=='source' else b)
+    with self.assertRaisesRegex(S.CraftHold,'INCOMPLETE_DECODED_FRAME_SEQUENCE'):
+      S.audit_outside_scene_frames('source','output',manifest,decoder=decode)
+
+  def test_extra_decoded_frame_cannot_be_ignored(self):
+    manifest={'frames':5,'startFrame':1,'endFrameExclusive':3}
+    a=[bytes([10]*12)]*5
+    b=a+[bytes([10]*12)]
+    def decode(which):return iter(a if which=='source' else b)
+    with self.assertRaisesRegex(S.CraftHold,'UNEXPECTED_EXTRA_DECODED_FRAMES'):
+      S.audit_outside_scene_frames('source','output',manifest,decoder=decode)
+
+  def test_source_frame_and_new_frame_size_mismatch_holds(self):
+    manifest={'frames':5,'startFrame':1,'endFrameExclusive':3}
+    a=[bytes([10]*12)]*5
+    b=list(a);b[0]=bytes([10]*9)
+    def decode(which):return iter(a if which=='source' else b)
+    with self.assertRaisesRegex(S.CraftHold,'INCOMPLETE_DECODED_FRAME_SEQUENCE'):
+      S.audit_outside_scene_frames('source','output',manifest,decoder=decode)
+
   def test_original_narration_pin_requires_exact_sha(self):
     with tempfile.TemporaryDirectory() as td:
       p=Path(td)/'bad_wav.json';x=copy.deepcopy(self.m);x['originalNarrationSha256']='0';p.write_text(json.dumps(x))
@@ -84,6 +128,8 @@ class CraftSourceLockedContractTests(unittest.TestCase):
     self.assertEqual(result['frames'],1031)
     self.assertEqual(result['aacAdtsSha256'],'f0057c19c9d06b8a2f3c6d8fec948ca4555966114579fd1a48b0bcfccc84aa98')
     self.assertEqual(result['outputFilmSha256'],'62cd299089bbde5b91cd03d1ec6cb2c710bfee17bb5ecca9c65f0b2e41e8e567')
+    self.assertEqual(result['outsideSceneVisualAudit']['framesComparedOutsideScene'],827)
+    self.assertLess(result['outsideSceneVisualAudit']['outsideFrameMaxMeanAbsRgb255'],0.5)
     self.assertFalse(result['scienceApproved'])
     self.assertFalse(result['craftApproved'])
     self.assertFalse(result['mayPublish'])
