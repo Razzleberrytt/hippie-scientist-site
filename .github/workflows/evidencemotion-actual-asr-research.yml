@@ -25,6 +25,8 @@ on:
       - 'research/evidencemotion-director/timed_soundoff_review_packet.py'
       - 'research/evidencemotion-director/spoken_claim_ledger.py'
       - 'research/evidencemotion-director/test_spoken_claim_ledger.py'
+      - 'research/evidencemotion-director/term_pcm_isolation.py'
+      - 'research/evidencemotion-director/test_term_pcm_isolation.py'
       - 'research/evidencemotion-director/test_timed_soundoff_review_packet.py'
       - 'research/evidencemotion-director/test_narration_locked_treatments.py'
       - 'research/evidencemotion-director/timed_caption_windows.py'
@@ -98,6 +100,38 @@ jobs:
             --acoustic-model "$RUNNER_TEMP/ths-mfa/models/acoustic.zip" \
             --g2p-model "$RUNNER_TEMP/ths-mfa/models/g2p.zip" \
             --out "$RUNNER_TEMP/ths-mfa/result"
+      - name: Verify exact scientific term windows and source PCM clips (EM-014.01)
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_term_pcm_isolation.py -v
+          python research/evidencemotion-director/term_pcm_isolation.py \
+            --root "$RUNNER_TEMP/ths-mfa/result" \
+            --manifest "$RUNNER_TEMP/ths-mfa/result/alignment-manifest.json" \
+            --clips "$RUNNER_TEMP/ths-mfa/term-clips" \
+            --out "$RUNNER_TEMP/ths-mfa/term-windows.json"
+          python - <<'PY'
+          import json, os
+          from collections import Counter
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/term-windows.json'
+          x=json.loads(p.read_text(encoding='utf-8'))
+          assert x['instanceCount']==5 and x['everyClipIdenticalToOriginalPcmSlice']
+          assert Counter(r['term'] for r in x['instances'])=={
+              '7-OH':1,'hydroxyl':1,'mitragynine':2,'7-hydroxymitragynine':1}
+          assert all(r['exactSourcePcmMatch'] and not r['pronunciationVerified'] for r in x['instances'])
+          assert x['mayPublish'] is False and x['voiceApproved'] is False
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:
+              f.write('EM-014.01: 5 pinned term instances; exact original 24k/16-bit PCM clips verified. Pronunciation and release remain HOLD.\\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: em01401-original-pcm-term-windows
+          path: |
+            ${{ runner.temp }}/ths-mfa/term-windows.json
+            ${{ runner.temp }}/ths-mfa/term-clips/*.wav
+          retention-days: 7
+          if-no-files-found: error
       - name: Render two previews and repaired native research candidate on CPU
         shell: micromamba-shell {0}
         run: |
