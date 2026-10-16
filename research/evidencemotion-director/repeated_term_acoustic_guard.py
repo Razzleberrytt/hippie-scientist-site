@@ -229,16 +229,27 @@ def audit_original_asr_digital_zero_onsets(source_raw, asr_raw):
                     return hold("DIGITAL_ZERO_ASR_BOUNDARY_OR_ORDER_INVALID")
             prev = start
             start_sample = round(start*24000)
+            end_sample = round(end*24000)
             if start_sample >= len(pcm):
                 return hold("DIGITAL_ZERO_ASR_START_SAMPLE_OUTSIDE_MASTER")
+            if end_sample <= start_sample:
+                return hold("DIGITAL_ZERO_ASR_WORD_INTERVAL_COLLAPSES_TO_ZERO_SAMPLES")
             scan = pcm[start_sample:min(start_sample+24000, len(pcm))]
             active = np.flatnonzero(scan)
             gap_samples = int(active[0]) if len(active) else len(scan)
-            if gap_samples >= 3600:
+            # A short ASR token completely inside genuine digital zeros
+            # must also HOLD even when its duration is below the 150ms
+            # onset screening window. This is a physical negative only.
+            fully_silent_word = not bool(np.any(pcm[start_sample:end_sample]))
+            if gap_samples >= 3600 or fully_silent_word:
                 failures.append({
                     "wordIndex": i, "asrWordHypothesis": spelling,
                     "claimedStartSeconds": start,
                     "claimedStartSample": start_sample,
+                    "claimedEndSample": end_sample,
+                    "entireClaimedWordIntervalIsDigitalZero": fully_silent_word,
+                    "contradictionType": ("FULL_WORD_DIGITAL_ZERO" if fully_silent_word
+                                          else "ONSET_150MS_BEFORE_ANY_NONZERO"),
                     "firstNonzeroSampleOrOneSecondLimit": start_sample + gap_samples,
                     "provenDigitalZeroAfterOnsetMs": round(gap_samples/24, 3),
                     "firstNonzeroFoundWithinOneSecond": bool(len(active)),
