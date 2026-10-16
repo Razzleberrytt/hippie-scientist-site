@@ -78,6 +78,14 @@ def verify_decoded_shot_coverage(stamps, shots):
     """
     if not stamps:
         hold("NO_DECODED_FRAMES_FOR_SHOT_COVERAGE")
+    # bisect_left and the 9-shot ownership proof require actual presentation
+    # order. A merely correctly sized or source-hashed PTS array can still
+    # conceal reordered or duplicated decoded presentation timestamps.
+    for i, stamp in enumerate(stamps):
+        if not isinstance(stamp, Decimal) or not stamp.is_finite():
+            hold("INVALID_DECODED_FRAME_PTS:" + str(i))
+        if i and stamp <= stamps[i - 1]:
+            hold("NONMONOTONIC_DECODED_FRAME_PTS:" + str(i))
     if stamps[-1] >= Decimal(str(shots[-1]["endSec"])) + Decimal(str(TIMELINE_TOLERANCE_SEC)):
         hold("UNCLAIMED_FINAL_PRESENTED_FRAME")
     spans = []
@@ -101,6 +109,7 @@ def verify_decoded_shot_coverage(stamps, shots):
         "framesAssignedExactlyOnce": len(stamps),
         "framesWithoutShot": 0,
         "framesAssignedToMultipleShots": 0,
+        "decodedPTSStrictlyIncreasingAndFinite": True,
         "verification": "EXACT_DECODED_PTS_TO_DECLARED_SHOT_COVERAGE_RESEARCH_ONLY",
         "mayPublish": False,
     }
@@ -364,10 +373,29 @@ def verify_claimed_ink_frames_belong_to_decoded_shots(ink, stamps, shots):
         a, m, z = (actual[(name, phase)][0] for phase in ("early", "middle", "late"))
         if not a < m < z:
             hold("INK_DECODED_PHASE_INDICES_NOT_IN_TEMPORAL_ORDER")
+        # Merely ascending early/middle/late indices can all be from the
+        # same opening tenth of a shot: a false persistence receipt. Compute
+        # fractional position using this movie's decoded presentation times,
+        # not guessed nominal frame counts or self-declared sample phases.
+        start = Decimal(str(by_name[name]["startSec"]))
+        duration = Decimal(str(by_name[name]["endSec"])) - start
+        if not duration.is_finite() or duration <= 0:
+            hold("INK_INVALID_DECLARED_SHOT_DURATION")
+        early = (actual[(name, "early")][1] - start) / duration
+        middle = (actual[(name, "middle")][1] - start) / duration
+        late = (actual[(name, "late")][1] - start) / duration
+        # Research sampling windows intentionally tolerate source-bound
+        # frame quantization. They are not reader/handset approval.
+        if (early > Decimal("0.40") or
+            not Decimal("0.25") <= middle <= Decimal("0.75") or
+            late < Decimal("0.60") or
+            late - early < Decimal("0.50")):
+            hold("INK_EARLY_MIDDLE_LATE_NOT_SPREAD_ACROSS_SHOT:" + name)
     return {
         "status": "EXACT_DECODED_SHOT_FRAME_MEMBERSHIP_RESEARCH_ONLY",
         "sampleFramesChecked": 27,
         "nineShotsThreeDistinctOrderedSamplesEach": True,
+        "nineShotsThreePhasesSpanActualPresentationTime": True,
         "allClaimedIndicesAreRealDecodedFrames": True,
         "allClaimedFramePTSBelongToDeclaredShots": True,
         "inkPixelsIndependentlyReplayed": False,
