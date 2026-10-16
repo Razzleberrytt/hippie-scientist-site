@@ -20,6 +20,7 @@ from repeated_term_acoustic_guard import (
     SOURCE_WAV_REFERENCE, MFA_SOURCE_ALIGNMENT_SHA, ORIGINAL_PCM_EXCERPT_SHA256,
     audit_pose_poles_conflict, audit_pose_files, audit_pose_internal_reference_set,
     spectral_band_trace, evaluate_blind_reference_pairs, audit_reference_archive,
+    audit_original_asr_digital_zero_onsets,
 )
 
 ARCHIVE=Path(os.getenv("EM_LANE2_PREVIOUS_PACKET",
@@ -78,6 +79,79 @@ class SpectralNegativeTests(unittest.TestCase):
         self.assertEqual(p.returncode,2)
         self.assertIn('"mayPublish": false',p.stdout)
 
+
+
+
+class OriginalDigitalZeroNegativeTests(unittest.TestCase):
+    """Actual source SHA-pinned in production mode; synthetic audio only in CI."""
+
+    @staticmethod
+    def fixture():
+        pcm = np.full(824336, 1000, dtype="<i2")
+        pcm[663600:746160] = 0  # 27.65..31.09 s: synthetic physical silence
+        stream = io.BytesIO()
+        with wave.open(stream, "wb") as audio:
+            audio.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            audio.writeframes(pcm.tobytes())
+        original = stream.getvalue()
+        rows = [{"word": "earlier", "start": i*.02, "end": i*.02+.01}
+                for i in range(69)]
+        rows.append({"word": "That's", "start": 30.8, "end": 31.4})
+        asr = json.dumps({"sourceWavSha256": digest(original),
+                          "mayPublish": False, "recognizedWords": rows}).encode()
+        return original, asr
+
+    def test_290ms_impossible_word_onset_detected_physically(self):
+        original, asr = self.fixture()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(original)):
+            with patch.object(original_guard, "POSE_ASR_RECEIPT_SHA", digest(asr)):
+                result = audit_original_asr_digital_zero_onsets(original, asr)
+        self.assertEqual(result["status"], "RESEARCH_IMPOSSIBLE_ASR_ZERO_ONSET_HOLD", result)
+        self.assertEqual(result["wordCountScreened"], 70)
+        self.assertEqual(result["contradictionCount"], 1)
+        row = result["contradictions"][0]
+        self.assertEqual(row["wordIndex"], 69)
+        self.assertEqual(row["claimedStartSample"], 739200)
+        self.assertEqual(row["firstNonzeroSampleOrOneSecondLimit"], 746160)
+        self.assertEqual(row["provenDigitalZeroAfterOnsetMs"], 290)
+        for key in ("mayPublish", "pronunciationVerified", "phonemeIdentityVerified",
+                    "wordTimingCalibrated", "wordOnsetsApproved"):
+            self.assertFalse(result[key])
+
+    def test_nonzero_at_start_never_grants_timing_or_voice_certification(self):
+        original, asr = self.fixture()
+        data = json.loads(asr)
+        data["recognizedWords"][-1]["start"] = 31.10
+        modified = json.dumps(data).encode()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(original)):
+            with patch.object(original_guard, "POSE_ASR_RECEIPT_SHA", digest(modified)):
+                out = audit_original_asr_digital_zero_onsets(original, modified)
+        self.assertEqual(out["status"], "RESEARCH_NO_ZERO_ONSET_CONTRADICTION_HOLD")
+        self.assertEqual(out["contradictionCount"], 0)
+        self.assertFalse(out["wordOnsetsApproved"])
+
+    def test_source_hash_and_asr_hash_tamper_are_rejected(self):
+        original, asr = self.fixture()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(original)):
+            with patch.object(original_guard, "POSE_ASR_RECEIPT_SHA", digest(asr)):
+                altered = bytearray(original)
+                altered[-10] ^= 1
+                out = audit_original_asr_digital_zero_onsets(bytes(altered), asr)
+                self.assertIn("DIGITAL_ZERO_ORIGINAL_WAV_SHA_CHANGED", out["errors"])
+                self.assertEqual(out["status"], "HOLD")
+                out = audit_original_asr_digital_zero_onsets(original, asr+b" ")
+                self.assertIn("DIGITAL_ZERO_ORIGINAL_ASR_SHA_CHANGED", out["errors"])
+                self.assertFalse(out["mayPublish"])
+
+    def test_missing_source_cli_never_implies_acceptance(self):
+        cmd = subprocess.run([
+            sys.executable, str(Path(__file__).with_name("repeated_term_acoustic_guard.py")),
+            "--original-wav", "/nonexistent/narration.wav", "--pose-asr-receipt",
+            "/nonexistent/asr.json", "--asr-zero-onset-audit"],
+            capture_output=True, text=True, timeout=20)
+        self.assertEqual(cmd.returncode, 2, cmd.stderr)
+        self.assertIn('"status": "HOLD"', cmd.stdout)
+        self.assertIn('"mayPublish": false', cmd.stdout)
 
 
 class SyntheticMasterLinkTests(unittest.TestCase):
