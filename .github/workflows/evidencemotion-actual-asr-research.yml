@@ -20,6 +20,8 @@ on:
       - 'research/evidencemotion-director/test_scientific_uncertainty_ledger.py'
       - 'research/evidencemotion-director/claim_strength_source_limits.py'
       - 'research/evidencemotion-director/test_claim_strength_source_limits.py'
+      - 'research/evidencemotion-director/em00705_original_archive_replay.py'
+      - 'research/evidencemotion-director/test_em00705_original_archive_replay.py'
       - 'research/evidencemotion-director/test_science_redteam_controls.py'
       - 'research/evidencemotion-director/test_research_cli_continuations.py'
       - 'research/evidencemotion-director/EM00701-FROZEN-SPOKEN-LEDGER-20261016.json'
@@ -777,6 +779,41 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director -p test_claim_source_context_join.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_scientific_uncertainty_ledger.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_claim_strength_source_limits.py -v
+      - name: Restore previously verified original-film source artifact on CPU (EM-007.05)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/em00705-real"
+          gh run download 38914069118 --repo "$GITHUB_REPOSITORY" \
+            --name evidencemotion-original-wav-mfa-acoustic-candidate \
+            --dir "$RUNNER_TEMP/em00705-real"
+          test -s "$RUNNER_TEMP/em00705-real/specimen-timed-native/specimen_NEW_RESEARCH_CANDIDATE.mp4"
+      - name: Replay original 1080p film plus source/uncertainty SHA on 30 evidence axes
+        env:
+          THS_EM00705_ARCHIVE_ROOT: ${{ runner.temp }}/em00705-real
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_em00705_original_archive_replay.py -v
+          python research/evidencemotion-director/em00705_original_archive_replay.py \
+            --root "$THS_EM00705_ARCHIVE_ROOT" \
+            --out "$RUNNER_TEMP/em00705-exact-archive-receipt.json"
+          python - <<'PY'
+          import json,os,pathlib
+          p=pathlib.Path(os.environ['RUNNER_TEMP'])/'em00705-exact-archive-receipt.json'
+          v=json.loads(p.read_text())
+          assert v['materialStudyAxesRecordedAbsent']==30 and v['frozenClaimCount']==8
+          assert v['currentHeadNativeRenderCertified'] is False
+          assert v['qualifiedHumanScientistApproval'] is False and v['mayPublish'] is False
+          print('EM00705 exact ORIGINAL H264/claim/uncertainty rehash done; no clinical approval')
+          PY
+      - name: Preserve bounded real-source strength proof without original film
+        uses: actions/upload-artifact@v4
+        with:
+          name: em00705-original-archive-source-ceiling-only
+          path: ${{ runner.temp }}/em00705-exact-archive-receipt.json
+          retention-days: 14
+          if-no-files-found: error
       - name: Keep machine science evidence distinct from clinical and release authority
         if: always()
         run: |
