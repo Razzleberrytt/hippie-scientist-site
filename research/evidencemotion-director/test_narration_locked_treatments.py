@@ -149,6 +149,43 @@ class NarrationTreatments(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'MISSING_SPOKEN_WORD_CUES'):
             render_frame(.5,scenes,assets,'specimen',(1080,1920),font)
 
+    def test_encoded_hydroxyl_ocr_repair_has_actual_source_locked_native_pixels(self):
+        # A new decoded H264 + independent OCR pass remains mandatory. This
+        # isolates the actual renderer pixel/font/cue design, not OCR success.
+        import os
+        from pathlib import Path
+        from PIL import Image
+        from narration_locked_treatments import fonts,render_frame
+        folder=Path(os.environ.get('THS_TEST_FONT_DIR',
+                                    '/usr/share/fonts/truetype/dejavu'))
+        if not folder.is_dir():
+            self.skipTest('Pinned font directory unavailable')
+        font,_=fonts(folder)
+        scenes=timeline(self.alignment())
+        assets=chemistry_assets()
+        assets['dark_diagram']=assets['7_hydroxymitragynine']['diagram']
+        cue=next(c for c in scenes[1]['captionWords'] if c['text']=='hydroxyl')
+        when=(cue['startSec']+cue['endSec'])/2
+        rendered=[]
+        frame=render_frame(when,scenes,assets,'specimen',(1080,1920),
+                           font,annotations=rendered,caption_mode='timed_research')
+        caption=[a for a in rendered if a['role']=='caption']
+        words=[a['text'] for a in caption]
+        self.assertIn('hydroxyl',words)
+        self.assertEqual([c['text'] for c in scenes[1]['captionWords']],
+                         scenes[1]['line'].split())
+        self.assertTrue(all(a['fontPx']==48 for a in caption))
+        self.assertTrue(all(0<=a['boxPx'][0]<a['boxPx'][2]<=864 and
+                            1290<=a['boxPx'][1]<a['boxPx'][3]<=1574
+                            for a in caption))
+        self.assertEqual(frame.getpixel((64,1305)),(13,35,44))
+        self.assertTrue(all(x['text']!='hydroxyl' or
+                            x['role']=='caption' for x in caption))
+        # The narration and the source science cue are not rewritten.
+        self.assertEqual(cue['text'],'hydroxyl')
+        self.assertEqual(cue['startSec'],next(c['startSec']
+            for c in scenes[1]['captionWords'] if c['text']=='hydroxyl'))
+
     def test_exact_visual_reflow_never_changes_source_claim(self):
         from narration_locked_treatments import exact_visual_reflow
         original='Computed 3D illustration • not filmed'
