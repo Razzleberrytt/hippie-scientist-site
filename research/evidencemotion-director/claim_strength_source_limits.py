@@ -51,6 +51,15 @@ CLINICAL_FIELDS = frozenset({
     "treatmentEffect", "effectEstimate", "confidenceInterval",
     "measuredClinicalOutcome", "humanOutcome", "outcomeMeasure",
 })
+# The envelope/schema alone is insufficient: a newly rehashed source join
+# could retain every allowed field yet replace its meaning with "human trial
+# proven". Keep the semantic source ceiling independent of the join producer.
+PINNED_SOURCE_MEANING = {
+    "pubchem:3034396":"mitragynine chemical identity/connectivity only",
+    "pubchem:44301524":"7-hydroxymitragynine identity, O-H, connectivity only",
+    "media:render":"film is computed structure artwork, not receptor footage",
+    "media:story":"source-locked shot annotations and limits only",
+}
 AUDIT_RESULT = "WITHIN_NONCLINICAL_SOURCE_SCOPE_RESEARCH_ONLY"
 
 def hold(reason):
@@ -88,6 +97,8 @@ def evaluate(source_join, uncertainty, *, source_join_sha, uncertainty_sha):
             hold("INJECTED_HUMAN_STUDY_RESULT:" + sid)
         if set(data) != EXACT_SOURCE_FIELDS[sid]:
             hold("NONCLINICAL_SOURCE_SCHEMA_DRIFT:" + sid)
+        if data.get("permittedMeaning") != PINNED_SOURCE_MEANING[sid]:
+            hold("SOURCE_MEANING_EXCEEDS_NONCLINICAL_SCOPE:" + sid)
 
     rows = []
     for idx, (claim, prior) in enumerate(zip(source_join["claims"], uncertainty["claims"])):
