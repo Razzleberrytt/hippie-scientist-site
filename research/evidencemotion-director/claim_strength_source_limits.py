@@ -26,6 +26,22 @@ SOURCE_KINDS = {
     "media:render": "SOURCE_FILM_ATTESTATION",
     "media:story": "SOURCE_SHOT_STORY_MAP",
 }
+# Exact schema is necessary: unknown names such as "effectiveDoseMg"
+# could insinuate human efficacy without matching a keyword denylist.
+EXACT_SOURCE_FIELDS = {
+    "pubchem:3034396": frozenset((
+        "cid", "formula", "inchiKey", "kind", "measuredHumanOutcome",
+        "permittedMeaning", "recordType", "studyPopulation", "url")),
+    "pubchem:44301524": frozenset((
+        "cid", "formula", "inchiKey", "kind", "measuredHumanOutcome",
+        "permittedMeaning", "recordType", "studyPopulation", "url")),
+    "media:render": frozenset((
+        "artifactSha256", "kind", "measuredHumanOutcome", "permittedMeaning",
+        "renderReceiptSha256", "studyPopulation", "url")),
+    "media:story": frozenset((
+        "kind", "measuredHumanOutcome", "permittedMeaning",
+        "storyMapSha256", "studyPopulation", "url")),
+}
 # Metadata that would inject a clinical study context into the pinned chemical
 # descriptors or local movie is not accepted even if a new JSON hash matches.
 CLINICAL_FIELDS = frozenset({
@@ -70,6 +86,8 @@ def evaluate(source_join, uncertainty, *, source_join_sha, uncertainty_sha):
             hold("INJECTED_HUMAN_STUDY_METADATA:" + sid)
         if data.get("studyPopulation") is not None or data.get("measuredHumanOutcome") is not None:
             hold("INJECTED_HUMAN_STUDY_RESULT:" + sid)
+        if set(data) != EXACT_SOURCE_FIELDS[sid]:
+            hold("NONCLINICAL_SOURCE_SCHEMA_DRIFT:" + sid)
 
     rows = []
     for idx, (claim, prior) in enumerate(zip(source_join["claims"], uncertainty["claims"])):
