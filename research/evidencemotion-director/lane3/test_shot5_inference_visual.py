@@ -281,10 +281,12 @@ class ResearchProtocolTests(unittest.TestCase):
             with patch.multiple(craft, W=64,H=96,N=10,START=2,END=6,
                                 NEGATION=4,FRAME_SIZE=64*96*3,
                                 SOURCE_SHA=before_sha,MOL_SHA=molecule_sha):
-                with patch.object(craft,'pinned_diagram',return_value=None), \\
-                     patch.object(craft,'palette_background',return_value=None), \\
-                     patch.object(craft,'sample_treatment',
-                                  side_effect=lambda frame,graph,bg,n:frame.copy()):
+                with (
+                    patch.object(craft,'pinned_diagram',return_value=None),
+                    patch.object(craft,'palette_background',return_value=None),
+                    patch.object(craft,'sample_treatment',
+                                 side_effect=lambda frame,graph,bg,n:frame.copy()),
+                ):
                     receipt=craft.render(film,mol,output)
                 self.assertTrue(craft.verify_native_silent_clip(
                     output,width=64,height=96,fps=30,frames=4))
