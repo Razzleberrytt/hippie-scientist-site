@@ -8,6 +8,9 @@ from autonomous_script_asr_research import WAV_SHA
 from muted_review_research import reject_untrusted, sha, SCENE_IDS, SOURCE_REFS
 
 
+SYNTHETIC_FILM_DURATION_SEC = 34.367  # Exact fixture coverage, no missing tail.
+
+
 class RealMutedReviewPacketTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -19,7 +22,7 @@ class RealMutedReviewPacketTests(unittest.TestCase):
         self.claim = root / "claim.json"
         self.movie.write_bytes(b"fake film: contract-only test not a real MP4")
         names = SCENE_IDS
-        bounds = (0, 1.5, 3.5, 10.5, 16.5, 23.3, 25.7, 27.35, 31.25, 34.35)
+        bounds = (0, 1.5, 3.5, 10.5, 16.5, 23.3, 25.7, 27.35, 31.25, SYNTHETIC_FILM_DURATION_SEC)
         self.plan = {
             "status": "RESEARCH_ONLY",
             "releaseApproved": False,
@@ -56,7 +59,7 @@ class RealMutedReviewPacketTests(unittest.TestCase):
         self.screen["phonePlanSha256"] = sha(self.manifest)
         self.claim.write_text(json.dumps(self.screen))
         return reject_untrusted(self.movie, self.manifest, self.receipt,
-                                self.claim, 1080, 1920, 34.367)
+                                self.claim, 1080, 1920, SYNTHETIC_FILM_DURATION_SEC)
 
     def test_good_synthetic_contract_is_not_a_viewer_pass(self):
         plan, receipt, video_sha = self.examine()
