@@ -1,19 +1,18 @@
 {
   "version": 1,
   "mode": "fresh-admission",
-  "base_revision": "66fe7f80b7c067cc9707124099049c816a197ee2",
-  "last_verified": "2026-10-09",
-  "ticket": 6149,
+  "base_revision": "4f220b8223e6b1e1392c7f3f770cc5cbe3b3c9f8",
+  "last_verified": "2026-10-15",
+  "ticket": 6810,
   "lane": "R",
-  "title": "Capture consented social attribution before remote analytics transport check",
-  "priority": "P1",
+  "priority": "P2",
   "score_inputs": {
-    "businessImpact": 4,
+    "businessImpact": 3,
     "userValue": 4,
     "trafficPotential": 3,
     "strategicLeverage": 5,
-    "confidence": 1,
-    "effort": 1
+    "confidence": 0.75,
+    "effort": 3
   },
-  "score": 240
+  "score": 45
 }

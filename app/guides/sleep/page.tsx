@@ -190,8 +190,8 @@ const COMPARISONS: GuideCard[] = [
   },
   {
     href: '/guides/sleep/magnesium-types-for-sleep/',
-    title: 'Magnesium Types for Sleep',
-    desc: 'Glycinate vs citrate vs threonate vs oxide, ranked for sleep.',
+    title: 'Magnesium Types for Sleep — Evidence and Six-Form Buyer Guide',
+    desc: 'Compare six forms, elemental label amounts, gut tolerance, relative cost, placebo findings and funding disclosures without unverified product rankings.',
   },
   {
     href: '/guides/sleep/best-magnesium-for-sleep/',
@@ -493,6 +493,11 @@ const SUBSTANCES_AND_OTC: GuideCard[] = [
     title: 'OTC Antihistamines for Sleep',
     desc: 'Why diphenhydramine and doxylamine sedation is not the same as strong chronic-insomnia treatment evidence.',
   },
+  {
+    href: '/articles/natural-sleep-aids-with-sleep-medications-safety/',
+    title: 'Sleep Supplements + Medications: Safety',
+    desc: 'Additive sedation, next-morning impairment and interaction uncertainty when mixing natural sleep aids with prescription or OTC sleep medicines.',
+  },
 ]
 
 const LIFE_STAGES_AND_COMORBIDITY: GuideCard[] = [
@@ -631,6 +636,11 @@ const WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION: GuideCard[] = [
     href: '/articles/restless-legs-iron-and-sleep/',
     title: 'Restless Legs, Iron and Sleep',
     desc: 'Why RLS can masquerade as insomnia and why AASM guidance centers ferritin and transferrin saturation rather than blind iron use.',
+  },
+  {
+    href: '/articles/daytime-sleepiness-vs-fatigue/',
+    title: 'Daytime Sleepiness vs Fatigue',
+    desc: 'Unintentional dozing and chronic low energy suggest different questions; learn when cause-focused sleep evaluation matters more than another supplement.',
   },
 ]
 

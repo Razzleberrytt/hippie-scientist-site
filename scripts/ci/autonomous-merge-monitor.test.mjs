@@ -78,7 +78,7 @@ describe('read-only autonomous merge monitor', () => {
         return
       }
       if (req.url?.startsWith('/repos/owner/repo/pulls/1/files?')) {
-        res.end(JSON.stringify([]))
+        res.end(JSON.stringify([{ filename: 'docs/merge-stale-base-contract.md' }]))
         return
       }
       if (req.url?.startsWith('/repos/owner/repo/compare/new-base...head')) {

@@ -1,0 +1,41 @@
+name: EvidenceMotion story-first research gates
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/story-first-gates.mjs'
+      - 'research/evidencemotion-director/story-first-gates.test.mjs'
+      - 'research/evidencemotion-director/story-first-fixture.mjs'
+      - 'research/evidencemotion-director/stage-gates.mjs'
+      - 'research/evidencemotion-director/stage-gates.test.mjs'
+      - '.github/workflows/evidencemotion-story-first-research.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'research/evidencemotion-director/story-first-gates.mjs'
+      - 'research/evidencemotion-director/story-first-gates.test.mjs'
+      - 'research/evidencemotion-director/story-first-fixture.mjs'
+      - 'research/evidencemotion-director/stage-gates.mjs'
+      - 'research/evidencemotion-director/stage-gates.test.mjs'
+      - '.github/workflows/evidencemotion-story-first-research.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  narrative-layout-evidence-negative-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate story and existing director JavaScript syntax
+        run: |
+          node --check research/evidencemotion-director/story-first-gates.mjs
+          node --check research/evidencemotion-director/stage-gates.mjs
+      - name: Run bounded narrative, source and phone-safe-area regressions
+        run: |
+          node --test research/evidencemotion-director/story-first-gates.test.mjs research/evidencemotion-director/stage-gates.test.mjs
+      - name: Record limits
+        run: |
+          echo 'Research-only contract checks. Do not infer human readability, source truth, cinematic quality, actual rendered phone layout, or owner approval from a passing test.' >> "$GITHUB_STEP_SUMMARY"

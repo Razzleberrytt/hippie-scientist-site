@@ -6,13 +6,13 @@
 
 ## Measurement status
 
-**Verified code/deployment:** Consent-gated analytics and affiliate-event code exists. PR #4269 merged as `ac20330`, preserving first consented GA events during deferred loading and assigning explicit initial/client-route page views to one owner. PR #6137 merged the bounded social-attribution/session bridge as `fd9ea3ea079c868453e364b479fff54fa7b152d2`; main `3d9ee3a6e9ba6e1d5099619635c8803ed591fdd2` subsequently passed the Cloudflare deployment workflow and exact production-receipt verification.
+**Code candidate, production unverified:** PR #6663 proposes GA4-only default-on pageviews only for Cloudflare-confirmed U.S. visits when configured and absent opt-out or DNT/GPC; all other/unknown locations require prior opt-in; Ahrefs, affiliate and social-attribution systems remain consent-gated. The existing deployment observations below do not establish a successful GA4 production receipt. PR #4269 merged as `ac20330`, preserving first consented GA events during deferred loading and assigning explicit initial/client-route page views to one owner. PR #6137 merged the bounded social-attribution/session bridge as `fd9ea3ea079c868453e364b479fff54fa7b152d2`; main `3d9ee3a6e9ba6e1d5099619635c8803ed591fdd2` subsequently passed the Cloudflare deployment workflow and exact production-receipt verification.
 
 **Verified production transport status (2026-10-01):** A clean browser probe with analytics consent granted found `window.gtag` still undefined, no GA4 loader/collection request and no Ahrefs analytics request. The present first-party GTM container `GTM-K9MGMJZS` exposes no configured tags/rules. Therefore the browser attribution capability is deployed, but aggregate remote event receipt is not active through the current application/GTM path.
 
 **Unknown:** First-party landing sessions, social `qualifiedVisits`, downstream journey sessions/rates, affiliate conversions, email conversions, revenue, and all other business performance values. Missing transport/coverage is not zero performance.
 
-**Next:** Resolve GitHub #6143 by connecting the intended GA4 property/web stream (or another explicitly approved aggregate analytics transport), configuring production without committing credentials, proving a consented tagged test receipt, and establishing read-only reporting. Then import matching-period GSC/GA4/Amazon/Mailchimp aggregates. Never commit private analytics credentials or person-level data.
+**Next:** Resolve GitHub #6143 by connecting the intended GA4 property/web stream (or another explicitly approved aggregate analytics transport), configuring production without committing credentials, proving region-appropriate consent handling plus default-on/opt-out network receipts where permitted, and establishing read-only reporting. Then import matching-period GSC/GA4/Amazon/Mailchimp aggregates. Never commit private analytics credentials or person-level data.
 
 ## Additive P0 engineering-throughput scoreboard (2026-10-09)
 
@@ -30,6 +30,8 @@ This section measures the new build/CI acceleration track **in addition** to the
 | Release safety regressions | Escaped build, scientific, security, accessibility, SEO or deployment failures | Unknown | Confirmed incidents and rollbacks |
 
 **Existing implementation:** #6507 / PR #6509 offers optional preflight and owner-retirement proposal tooling, but has not established observed acceleration by its existence. Record before/after only from actual runs, including failed and canceled runs; never count a missing receipt as a success or zero.
+
+**Regional privacy candidate:** The Pages Function allowlists server-confirmed U.S. requests for GA4 default-on; all other/unknown regions fail closed pending affirmative consent. Verify Cloudflare geolocation and denied-network receipts in production. This is not a blanket legal-compliance claim.
 
 ## Search
 

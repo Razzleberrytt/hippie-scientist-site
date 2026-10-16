@@ -1,0 +1,36 @@
+# EvidenceMotion — autonomous quality authority (owner direction Oct 13, 2026 ET)
+
+**Owner instruction:** Stop treating an available human listener, credentialed reviewer or owner's subjective taste signoff as a prerequisite to making every video-quality decision. ChatGPT/EvidenceMotion should be able to **inspect, judge, repair and re-inspect** autonomously. This is a direction to build **reliable automatic verification**, not permission to invent clinical proof, impersonate a licensed scientist, falsify listening, auto-publish, or silently lift the version freeze.
+
+**Research-only implementation:** `native_autocritic.py`, `autonomous-quality-arbiter.mjs`, focused fail-closed regressions and a path-scoped hosted workflow. No paid AI generation, no new R-version, owner laptop or production modification. The scope owner remains #6743.
+
+## Decision outputs
+
+1. **AUTO_REVISE:** independently decoded MP4 shows a mechanically reproducible disqualifying flaw; source contradiction, source mutation, actual audio fault, specialist mispronunciation reliably detected by independent audio review, or low premium-quality score from calibrated independent full-video multimodal critics. No owner feedback required. Emit fault type, actual timestamps where known, film hash, fix instructions; rerender only the relevant shot and revalidate changed hashes.
+2. **AUTO_RUN_MISSING_REVIEWS:** the engine has not yet acquired adequate independent evidence for an affirmative decision. The correct automation is to **run the missing machine tools**, not to silently invent a human, assistant, V or science signoff. Repeat with bounded attempts; unresolved uncertainty remains explicit.
+3. **AUTO_HOLD_INVALID_PROOF:** hash or source provenance mismatched, missing actual decoder, untrusted/forged approvals, or unknown state. Fail closed.
+4. **AUTO_ACCEPT_RESEARCH_QUALITY** (future conditional): all independent source, voice, decoded-frame and calibrated multimodal art assessments agree at the owner-specified premium threshold. This is **not** clinical certification, native device playback, or production publishing authority. Real use must verify model invocations, content hashes and calibration on actual good/bad anchor films. An untrusted JSON object containing high scores is not sufficient.
+
+## Four cooperative independent critic layers
+
+**Science & safety (source-anchored).** Use the existing PubChem/RDKit graph and exact-source graph/PMID lineage; check each spoken/captioned claim against retrieved evidence type (chemical diagram, cell, animal, human, review) and claim directness, conflicts, adverse events and meaningful uncertainty. A structural model is not a human-effect finding. Reference metadata alone is not clinical interpretation; uncertainty triggers abstention and a new targeted retrieval, never a fabricated certainty.
+
+**Voice & speech.** Preserve exact original voice WAV and mastered AAC hash, decoded frame and speech durations. Independently run ASR plus forced phoneme/word alignment and compare against the canonical script and specialist pronunciation lexicon, recording suspect excerpts and confidence. ASR transcription alone cannot certify pronunciation, prosody or a natural sentence. Low-confidence specialist tokens should trigger a second specialized acoustic check or focused regenerate/retry, not an invented human listen.
+
+**Craft & comprehensibility.** Actually decode the final MP4; measure repetition, subject-specific motion, safe-zone collision, perceptual cuts and dialogue/picture correspondence. Run **two independent blind, calibrated multimodal film critics** over exact same full encoded media and a frozen external reference shelf, each producing scores for opening clarity, narrative causality, distinctive visual art direction, motion meaning, typography/phone readability, cohesion and audio naturalness, with timecoded defect explanations and repair targets. One model's unsupported 10/10 verdict never counts as independent consensus. A machine-negative layout fault does not need an owner veto to reject.
+
+**Arbiter and recovery.** The controller enforces exact film/source/voice identity and evidence-type boundaries, arbitrates disagreements, queues more machine checks when uncertain, and retains a transparent source-linked report. No indefinite false-perfect loop: bounded retries, otherwise explicit ABSTAIN. The system should minimize interruption for ordinary user workflows.
+
+## First actual-media result
+
+Treatment B native 1080×1920/30fps 34.366667s MP4 SHA `5a3ba3313a091fd745bd9cab6764b644fbe97b38a0aaac05217f8a0752059550` was analyzed from **actual decoded frames**, not self-reported scene metadata. Under the **original broader crop** it had 17 sampled two-second views and 50.00% edge-layout similarity above 0.95. After narrowing the new critic to the actual subject stage (excluding more persistent header/footer UI) and re-running the decoded pixels against the pinned MP4, its measurements changed to **43.75%** pairwise repetition (7 of 16 pairs), median subject similarity **0.9396**, median grayscale contrast **28.324**, with repeated pair starts at **0, 6, 10, 12, 18, 20, and 28 seconds**. This is just under the current *provisional* 45% threshold: the machine decision is **AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE**, **not AUTO_REVISE**. ChatGPT's separate visual inspection still judges the repeated panels **REVISE**. This honest divergence is a calibration example—not a reason to secretly tune the threshold after seeing the target.
+
+## Real deployment/calibration work still needed
+
+- Connect actual independent full-audio ASR+phoneme analyses and generate verified timestamped speech receipts; do not claim they ran merely from a WAV hash.
+- Obtain a stable, licensed/free-to-view high-end science shorts reference shelf and a set of good/bad video examples. Calibrate two genuinely independent multimodal model families with measured false-pass/false-reject rates, full film hash, and timecoded fault accuracy. No borrowed human credentials.
+- Use retrieved exact citations, original papers/corrections and evidence-type checks for real clinical science rather than relying on model majority vote.
+- Run complete real MP4 regression tests, including synthetic false-positive examples and historically rejected 7-OH shots, then evaluate repeatability over 1+5 varied topics. Automated on-device testing may be required for real iPhone parity; desktop frame bounds are not physical iPhone playback.
+- **Owner's new no-routine-human-review goal supersedes prior manual-quality workflow expectations as a research direction**, but any previously required manual release signoff is not silently marked done. Only after an evidence-backed alternative is proven may canonical checklist gates be explicitly rewritten and credited. The explicit posting/production authorization remains a different action, not implied by eliminating routine taste review.
+
+**Checklist accounting:** #6781 merged its nine-rejected-failures test milestone as **24/46**, 22 open. This autonomous-critic PR adds a machine-negative and arbiter-contract pilot; **no additional checkbox** until the entire corresponding acceptance gate is proven on actual media. First excellent certified master 0/1; consecutive five first renders 0/5; production freeze remains.

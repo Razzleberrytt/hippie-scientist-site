@@ -18,6 +18,7 @@ import tempfile
 import numpy as np
 import soundfile as sf
 from kokoro_onnx import Kokoro
+from voice_pronunciation import apply_pronunciations, lexicon_receipt
 
 VOICE = "am_michael"
 RATE = 24000
@@ -63,7 +64,8 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
     with tempfile.TemporaryDirectory(prefix="ths-r812-kokoro-") as tmpdir:
         tmp = Path(tmpdir)
         for idx, (name, start, end, words) in enumerate(SCENES):
-            raw, rate = engine.create(words, voice=VOICE, speed=1.05, lang="en-us")
+            voice_input = apply_pronunciations(words)
+            raw, rate = engine.create(voice_input, voice=VOICE, speed=1.05, lang="en-us")
             if rate != RATE:
                 raise RuntimeError(f"Unexpected Kokoro sample rate: {rate} != {RATE}")
             raw = np.asarray(raw, dtype=np.float32)
@@ -107,7 +109,7 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
             speech[offset : offset + len(fit)] += fit
             receipts.append({
                 "scene": name, "startSeconds": start, "endSeconds": end,
-                "script": words, "rawSeconds": round(len(raw) / RATE, 3),
+                "script": words, "voiceInput": voice_input, "rawSeconds": round(len(raw) / RATE, 3),
                 "fittedSeconds": round(len(fit) / RATE, 3),
                 "rawRms": round(raw_rms, 6),
                 "tempo": round(tempo, 4),
@@ -125,6 +127,7 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
         "releaseAuthority": "draft-only-not-for-publication",
         "voiceEngine": "kokoro-onnx==0.6.1",
         "voice": VOICE,
+        "pronunciationLexicon": lexicon_receipt(),
         "modelSha256": sha_file(model),
         "voicebankSha256": sha_file(voices),
         "voiceModelAsset": model.name,

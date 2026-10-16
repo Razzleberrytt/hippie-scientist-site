@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 
 import { classifyRisk, evaluateReadiness } from './autonomous-merge-controller.mjs'
+import { loadPublicationApprovalEvidence } from './canonical-publication-approval.mjs'
 
 const API_ROOT = process.env.GITHUB_API_URL || 'https://api.github.com'
 const DISPATCH_EVENTS = new Set(['pull_request', 'workflow_dispatch'])
@@ -136,6 +137,8 @@ async function main() {
     getPrFiles(repo, number),
   ])
   const riskTier = classifyRisk({ pr, changedFiles })
+  if (!changedFiles.length) throw new Error('Cannot evaluate publication approval: PR files unavailable')
+  const approvalEvidence = await loadPublicationApprovalEvidence(github, repo, number, changedFiles)
 
   if (!currentBaseSha || !(await headContainsBase(repo, currentBaseSha, currentHeadSha))) {
     console.log(`[PR #${number}] [${riskTier}] defer: base drift is owned by the serialized fallback sweep`)
@@ -151,6 +154,7 @@ async function main() {
     controllerRunId,
     riskTier,
     changedFiles,
+    approvalEvidence,
   })
 
   if (verdict.action === 'sync') {

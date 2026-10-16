@@ -1,8 +1,24 @@
 # Decision Log
 
 **Status:** Authoritative
-**Updated:** 2026-10-08
+**Updated:** 2026-10-15 (Algorithm Observatory additive decision; earlier EvidenceMotion version/autonomous-review direction retained)
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
+
+## 2026-10-15 — Unify THS system end-state checklists without duplicating execution authority
+
+**Owner direction:** Track each major research, media, UX, publishing, learning, operations, business and asset-system ambition with a measurable completion checklist and straightforward progress reporting, similar to EvidenceMotion's existing 46-item living checklist.
+
+**Scope:** Supporting [16-system owner dashboard](THS_SYSTEM_COMPLETION_PROGRAM_V1.md) and four linked domain checklists (128 *high-level goal acceptance questions*, not new project admissions), tracked under [#6818](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6818). The existing EvidenceMotion 46, reconstructed P0 150, 14 integration packages, AI-citation candidate set, Algorithm Observatory criteria and Asset Intelligence tracker remain the canonical details for their domains; these counts are nonadditive and their proof may not be inferred from the new dashboard. Every checkbox requires real acceptance evidence, not mere code existence or a progress estimate.
+
+**Execution:** Respect `CURRENT_SPRINT`, `MASTER_BACKLOG` scoring and D/R/A WIP cap, sole protected merge controller and scientific, security, creative/phone and publication approvals. This is documentation-only initial design and does **not** start a scheduler, new lane, refactor, subscription, third-party license work, marketing experiment, or runtime feature. Unknown progress remains Unknown until audited; proof-bearing subcriteria may then supply specific per-current-step fractions without invented percentage increases.
+
+## 2026-10-15 — Adopt THS Algorithm Observatory 1.0 as additive learning specification
+
+**Decision:** Owner adopts [THS Algorithm Observatory 1.0](THS_ALGORITHM_OBSERVATORY_V1_SPEC.md): black-box, platform-specific video-performance observation, creative-DNA features, pre-registered experiments, calibrated predictions, and future-only EvidenceMotion creative recommendations. This is **not** a claim of access to proprietary platform algorithms, implemented capability, validated performance lift or publication authorization.
+
+**Integration:** Extend the existing EvidenceMotion R8.10 flywheel, SocialOS/THS Publisher/Observer canonical post identity and verified state, durable experiment-learning #4414, outcome-ingestion #4407, and governed approved creative manifests. No parallel metrics registry, second priority score, auto-posting, unapproved scientific claims or paid critical-path service. Retain truthfully labeled `Unknown`, platform-native metrics, sample-size/confounder controls, authorized-only access, privacy, and exact source/quality/provenance reviews.
+
+**Sequencing and gates:** Specification is accepted; actual work is **unadmitted candidate** in MASTER_BACKLOG, not a change to CURRENT_SPRINT or the 46-item EvidenceMotion count. Prioritize completion of EvidenceMotion quality gates. Any later implementation needs existing scored admission/WIP, CI, sole-controller merge, deployment and real field receipts. No historical THS-MASTER-P0 §§1–73 or original 150-item checklist is silently amended.
 
 ## 2026-10-09 — Add build/CI optimization to existing P0 without displacing it
 
@@ -405,3 +421,44 @@ Coverage: 9 routes × 2 themes × 3 breakpoints = 54 combinations, 7,998 element
 **Rationale:** Earlier releases protected voice synchronization and visual variety but did not fully prevent an audio-off viewer from missing the finding, qualifier or on-screen meaning. Device-safe visible text and real hold time are enforceable before release; semantic fidelity remains a reviewer judgment, not a word-count proxy.
 
 **Consequences:** R8.08 fails closed at brief, renderer, master QA and Publisher boundaries. Inherited R8.07/R8.06/R8.05/R8.04 protections remain mandatory, with no paid provider or credit prerequisite. **Status:** In review under PR #6388; audience uplift Unknown.
+
+## 2026-10-12 — Owner instructions outrank V's preferences in THS collaboration
+
+**Decision:** The owner's initial and later explicit creative, editorial-product, technical-quality, and strategic preferences control The Hippie Scientist collaboration, including EvidenceMotion. V's opinions, design suggestions, and critiques are valuable independent input—not authority to quietly replace or dilute the owner's vision. When preferences conflict, preserve the owner's brief, identify the conflict transparently, and seek an owner decision rather than silently adopting V's option.
+
+**Evidence boundary:** This creative/product preference precedence does not permit unsupported scientific assertions, fabricated or mismatched PMID/DOI evidence, false clinical implications, unsafe publishing, circumvention of legally required practices, or bypassing established release/QA checks. V's independent scientific reviews are recorded separately from ChatGPT's solo review; V cannot be represented as having verified content that V has not checked. Correct risks without substituting a reviewer's artistic preferences for the owner's.
+
+**Current example:** R8.14 owner brief = unusually high-quality, original cinematic 2D/3D-synthesized 2.5D visuals with a real wow factor; scene-specific camera framing and motion; no generic slides or "Science Signal / Concept / 001" ornaments; original natural Kokoro voice; readable accurate captions; proven iPhone-compatible video audio. Independent perceptual and device acceptance remains required, as documented in [R8.14 art direction](evidencemotion-r814-cinematic-quality.md).
+
+## 2026-10-13 — Plain-language explanation is part of scientific integrity
+
+**Owner decision:** All new public-facing The Hippie Scientist videos, graphics, captions and evidence-based articles should be understandable to someone without prior specialist knowledge. Explain a scientific concept in ordinary language first, then give the accurate technical name, teach it near its first use, show why it matters and state what the evidence does **not** establish. Keep precise terminology when it helps teach rather than deleting useful science.
+
+**Required editorial review:** Use the [plain-language science editorial standard](PLAIN_LANGUAGE_SCIENCE_EDITORIAL_STANDARD.md), including examples for molecule drawings, PubChem record IDs, medical-study methods and computer-estimated shapes. Check comprehension and accuracy with people as well as with tools. Technical word detectors are incomplete; even a passing automated screening remains unapproved for scientific claims, readability on real phones or cinematic quality.
+
+**Scope and boundaries:** This is a **durable editorial direction**, not a claim that all existing published articles have been rewritten. Do not silently alter the frozen original 7-OH narrator take or approved media hashes; a revised recorded script triggers new timing, rendered frames, editorial and owner scientific/voice/phone/craft approval. This decision grants no automatic publishing, no EvidenceMotion R-version change, no fourth WIP lane, and no extra 46-item checklist credit. Current 23/46 research and 1+5 creative milestone continue unchanged.
+
+**Pilot evidence:** The [EvidenceMotion research teaching standard](../research/evidencemotion-director/PLAIN-ENGLISH-SCIENCE-STANDARD-2026-10-13.md), [7-OH proposed lesson](../research/evidencemotion-director/7OH-PLAIN-ENGLISH-SCRIPT-PILOT-2026-10-13.md), and its opt-in known-term regression tests are *supporting evidence*, not content release authorization.
+
+## 2026-10-13 — EvidenceMotion V4 failed craft: implement story-first gates before improving visuals
+
+**Owner verdict:** The 7-OH V4 research preview is **not** an acceptable model for final EvidenceMotion videos. The owner identified lack of meaningful story and logical progression, dull animation, misaligned compositions and too much repeated template layout. Prior engineering passes on decoded frames and original audio do not override this craft rejection. No excellent-first-render or publication credit is earned.
+
+**Mandatory next-patch behavior:** Before spending on another long video, prepare an ordinary-language opening question, evidence-supported discovery, explanation of the real research (including preclinical vs. human limits), and an actual answer. Lock scientifically reviewed narration **first**, design camera and material direction to teach each beat, check phone-safe placement, define technical words when first used, and build two genuinely distinct short previz concepts. Evaluate both against an owner-selected shelf of 3–5 excellent science videos. All failed hypotheses become repeatable negative tests where objectively testable. Never claim visual quality from pixel motion or codec validation.
+
+**Execution:** [Story-first repair register](../research/evidencemotion-director/STORY-FIRST-REPAIR-PATCH-2026-10-13.md) distinguishes **implemented research preflight code** from pending artistic rendering and human evidence. The stage-gates research director now requires that contract, but this does **not** constitute production EvidenceMotion integration, a new R version or owner craft approval.
+
+**Freeze and evidence:** Keep current pinned original narration and source assets unchanged until a replacement is authorized and properly re-audited. Preserve qualified independent scientific checks, iPhone playback, owner separate craft and correctness acceptance, protected CI, the first truly excellent first render plus five consecutive excellent first renders, and explicit publishing authority before promotion.
+
+
+## 2026-10-13 — Owner rescinds EvidenceMotion capability/version freeze
+
+**Decision:** The October 12 freeze on EvidenceMotion R-version increments and new features is **RESCINDED by the owner**. Continue incremental creative/rendering and reliability improvements, grounded in source identity, actual decoded media, protected CI and normal research/production admission. No first-premium-video or five-video first-render streak is required **before modifying the system or advancing R-versions**. Older documents stating “version freeze ON until 1+5” are superseded on this narrow point.
+
+**Quality target stays demanding:** One genuinely excellent native 1080x1920 finished film and five excellent first renders on different scientific topics remain the creative/reproducibility objectives. No artificial 46-item checklist credit is awarded by permission to iterate. No generic template, cheap CGI, mispronounced scientific terms, fake receptor footage, re-timed narration or source-unsupported therapeutic claims become acceptable merely because the freeze lifted.
+
+**Autonomous feedback:** The owner prefers ChatGPT-controlled, evidence-based routine correctness/craft/audio review rather than mandatory owner, V or human verdict for every draft. Fail-closed automated negative review can operate now. **Positive automated certification** requires real source-linked claim evidence, genuine decoded audio and phonetic checks, independent calibrated full-film quality judgments and inspectable disagreement/repair receipts; an uncalibrated model score or synthetic positive receipt is not approval. Human uncertainty should cause HOLD, not invent evidence.
+
+**Still unchanged:** CI/security/privacy/evidence-source integrity, repo WIP/sprint admission, scientific publishing boundaries, truthful conflict/source disclosures, platform account permissions, and explicit authorized publishing remain separate from permission to ship improvements. Never auto-post solely because the creative/version freeze was lifted.
+
+**Implementation:** Research issue #6743; exact-WAV source and microphone-independent ASR experiment tracked by PR #6788; prior real decoded-film critic PR #6782 and source-preserving audio reviewer PR #6783 merged. The canonical EvidenceMotion tracker has 24/46 verified until independent outcomes earn more.

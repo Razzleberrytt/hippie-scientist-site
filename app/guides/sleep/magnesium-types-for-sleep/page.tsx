@@ -3,7 +3,7 @@ import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '../../../../lib/seo'
 import EmailCapture from '@/components/EmailCapture'
-import { getRevenueProductSet } from '@/config/revenue-products'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import RecommendationSection from '@/components/RecommendationSection'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
@@ -13,7 +13,7 @@ const TITLE = 'Magnesium Types for Sleep: Glycinate vs Threonate vs Citrate'
 const DESCRIPTION =
   'Evidence-first 2026 comparison of magnesium glycinate, L-threonate, citrate, oxide and other forms for sleep, including new form-specific RCTs, bioavailability, safety, funding and the head-to-head evidence gap.'
 const DATE = '2026-06-09'
-const UPDATED_DATE = '2026-08-22'
+const UPDATED_DATE = '2026-10-13'
 
 export const metadata = buildPageMetadata({
   title: TITLE,
@@ -61,6 +61,14 @@ const FAQS = [
     answer:
       'Unabsorbed magnesium salts can have an osmotic effect in the intestine. The likelihood varies with dose, formulation, and individual tolerance. Kidney impairment also changes the safety calculation because magnesium clearance can be reduced.',
   },
+  {
+    question: 'How do I compare magnesium labels before buying?',
+    answer: 'Compare elemental magnesium per serving rather than compound weight, total daily supplements, gut tolerance, medication interactions, price per 100 mg of elemental magnesium, and independent testing evidence. Do not mistake marketing for clinical trials.',
+  },
+  {
+    question: 'Are premium magnesium forms better for sleep?',
+    answer: 'No reliable head-to-head RCT proves an expensive form works better. L-threonate results are mixed and the key product-specific trials had commercial funding; price reflects formulation and market positioning, not proven superiority.',
+  },
 ]
 
 const SOURCES = [
@@ -76,7 +84,20 @@ const SOURCES = [
   { n: 10, label: 'Lindberg et al. (1990): Magnesium citrate vs oxide bioavailability', href: 'https://pubmed.ncbi.nlm.nih.gov/2407766/', note: 'Citrate was more soluble/bioavailable than oxide; sleep was not an endpoint.' },
   { n: 11, label: 'Walker et al. (2003): Citrate, amino-acid chelate and oxide bioavailability', href: 'https://pubmed.ncbi.nlm.nih.gov/14596323/', note: 'Randomized double-blind comparison; citrate/chelate showed greater absorption than oxide. Again, not a sleep trial.' },
   { n: 12, label: 'Schuchardt & Hahn (2017): Intestinal absorption and magnesium bioavailability review', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC5652077/', note: 'Human form-comparison literature is limited/mixed; some studies favor organic salts while others find smaller differences.' },
+  { n: 13, label: 'Nielsen, Johnson & Zeng (2010): Magnesium citrate in adults with poor sleep', href: 'https://pubmed.ncbi.nlm.nih.gov/21199787/', note: '100 adults older than 51 enrolled (96 completed), 320 mg/day citrate vs sodium-citrate placebo for seven weeks; sleep quality improved in both groups, no magnesium-specific benefit.' },
+  { n: 14, label: '2026 systematic review: magnesium supplementation and sleep', href: 'https://pubmed.ncbi.nlm.nih.gov/42661485/', note: 'Twelve main sleep trials; heterogeneity and low-to-very-low certainty limit form-specific conclusions.' },
+  { n: 15, label: 'Lopresti & Smith (2026): correction to 2026 L-threonate RCT', href: 'https://doi.org/10.3389/fnut.2026.2010644', note: 'Clarifies two-tailed testing wording; reported results unchanged.' },
 ]
+
+
+const BUYER_FORMS = [
+  { name: 'Glycinate / bisglycinate', amount: '100–200 mg', evidence: 'Small placebo RCT benefit', gi: 'Often gentle; data limited', price: '$$' },
+  { name: 'Citrate', amount: '100–200 mg', evidence: 'Placebo RCT without sleep-specific benefit', gi: 'Can loosen stools', price: '$' },
+  { name: 'L-threonate', amount: '~72–144 mg from 1–2 g compound', evidence: 'Mixed industry-funded RCTs', gi: 'Often tolerated in short trials', price: '$$$' },
+  { name: 'Malate', amount: '100–200 mg', evidence: 'No verified malate-only sleep trial', gi: 'Variable; limited direct data', price: '$$' },
+  { name: 'Taurate', amount: '50–150 mg', evidence: 'No verified taurate-only sleep trial', gi: 'Variable; limited direct data', price: '$$–$$$' },
+  { name: 'Oxide', amount: '200–400 mg', evidence: 'Small older-adult insomnia RCT at ~500 mg/day', gi: 'Laxative; lower fractional absorption', price: '$' },
+] as const
 
 export default function MagnesiumTypesForSleepPage() {
   const articleLd = blogJsonLd(
@@ -104,9 +125,9 @@ export default function MagnesiumTypesForSleepPage() {
 
       <div className="space-y-8">
         <header className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
-          <p className="eyebrow-label">Sleep-form evidence guide · 12-source ledger</p>
+          <p className="eyebrow-label">Sleep-form evidence and buyer guide · Updated source ledger</p>
           <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">{TITLE}</h1>
-          <p className="mt-2 text-xs text-muted">Last evidence review August 22, 2026</p>
+          <p className="mt-2 text-xs text-muted">Last evidence review October 13, 2026</p>
           <p className="mt-4 max-w-3xl text-base leading-8 text-muted">
             Magnesium forms now have more sleep research than they did even two years ago. That is useful—but it still does <strong className="text-ink">not</strong> justify the internet’s usual ranking of “glycinate first, threonate second, citrate third.” A 2025 bisglycinate trial found a small placebo-adjusted insomnia benefit, and two recent L-threonate trials reported some form-specific sleep signals.<Cite n={3} /><Cite n={4} /><Cite n={6} /> None of those trials directly compared glycinate with threonate, citrate, or oxide.
           </p>
@@ -118,13 +139,39 @@ export default function MagnesiumTypesForSleepPage() {
           </figure>
         </header>
 
+
+        <section id="buying-comparison" className="space-y-4">
+          <p className="eyebrow-label">Six-form buyer comparison</p>
+          <h2 className="text-2xl font-semibold text-ink">At-a-glance: elemental magnesium, sleep evidence, GI effects and price</h2>
+          <p className="text-sm leading-7 text-muted">Typical elemental magnesium ranges are illustrative per-serving label amounts, not recommended doses. Price tiers ($–$$$) are relative, not live offers. No reliable head-to-head trial proves one form best; L-threonate's key trials were industry funded.<Cite n={3} /><Cite n={4} /><Cite n={6} /><Cite n={9} /><Cite n={13} /><Cite n={14} /></p>
+          <ResponsiveTable label="Six-form magnesium comparison: label dose, sleep evidence, gut tolerance and price">
+            <table className="min-w-[900px] w-full text-sm">
+              <caption className="sr-only">Comparison of six magnesium forms, elemental amount per serving, sleep evidence, gastrointestinal effects and relative cost</caption>
+              <thead className="border-b border-brand-900/10 bg-brand-50/50"><tr>
+                <th scope="col" className="p-3 text-left">Form</th>
+                <th scope="col" className="p-3 text-left">Elemental / serving</th>
+                <th scope="col" className="p-3 text-left">Direct sleep evidence</th>
+                <th scope="col" className="p-3 text-left">GI tolerance</th>
+                <th scope="col" className="p-3 text-left">Relative price</th>
+              </tr></thead>
+              <tbody className="divide-y divide-brand-900/10 text-muted">
+                {BUYER_FORMS.map((form) => (
+                  <tr key={form.name}><th scope="row" className="p-3 text-left font-semibold text-ink">{form.name}</th>
+                    <td className="p-3">{form.amount}</td><td className="p-3">{form.evidence}</td><td className="p-3">{form.gi}</td><td className="p-3">{form.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </ResponsiveTable>
+        </section>
+
         <section className="rounded-[1.5rem] border border-brand-700/25 bg-brand-50/60 p-6 shadow-sm">
           <p className="eyebrow-label">Bottom line</p>
           <h2 className="mt-2 text-2xl font-semibold text-ink">There is still no proven “best magnesium form for sleep”</h2>
           <div className="mt-4 space-y-3 text-sm leading-7 text-muted sm:text-base">
             <p><strong className="text-ink">Bisglycinate:</strong> now has direct placebo-controlled sleep evidence. In 155 adults reporting poor sleep, four weeks produced a statistically greater ISI reduction than placebo, but the effect was small (Cohen’s d ≈ 0.2) and the trial lacked objective sleep measurement.<Cite n={3} /></p>
             <p><strong className="text-ink">L-threonate:</strong> has two recent branded-product RCTs. One reported favorable subjective and wearable outcomes; another found improved sleep-related impairment but <strong>no group difference in sleep disturbance, restorative sleep, or wearable-measured sleep outcomes</strong>.<Cite n={4} /><Cite n={6} /></p>
-            <p><strong className="text-ink">Citrate:</strong> has better human bioavailability evidence than oxide, but that is not evidence of superior insomnia treatment.<Cite n={10} /><Cite n={11} /></p>
+            <p><strong className="text-ink">Citrate:</strong> has better human bioavailability evidence than oxide, but a seven-week placebo-controlled trial in older adults found no magnesium-specific sleep benefit.<Cite n={10} /><Cite n={11} /><Cite n={13} /></p>
             <p><strong className="text-ink">Oxide:</strong> should not be dismissed as “useless for sleep” solely because absorption is lower; an older insomnia RCT using oxide reported positive outcomes, though the broader evidence is low certainty.<Cite n={7} /><Cite n={1} /></p>
           </div>
         </section>
@@ -170,12 +217,12 @@ export default function MagnesiumTypesForSleepPage() {
             <article className="rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-ink">2024 trial: positive branded-product signal</h3>
               <p className="mt-3 text-sm leading-7 text-muted">An 80-person, 21-day randomized trial reported favorable changes in several subjective and Oura Ring-derived measures with magnesium L-threonate versus placebo.<Cite n={4} /> The paper later received a corrigendum.<Cite n={5} /></p>
-              <p className="mt-3 text-sm leading-7 text-muted">The study was funded by <strong className="text-ink">AIDP</strong>, and several authors were AIDP employees/affiliates.<Cite n={4} /> That is material because the intervention was a branded ingredient.</p>
+              <p className="mt-3 text-sm leading-7 text-muted">The study was funded by <strong className="text-ink">AIDP</strong>, and several authors were AIDP employees/affiliates.<Cite n={4} /> Its 2025 corrigendum disclosed delayed trial registration.<Cite n={5} /> This is material because the intervention was a branded ingredient.</p>
             </article>
             <article className="rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-ink">2026 publication: mixed sleep findings</h3>
               <p className="mt-3 text-sm leading-7 text-muted">A separate six-week trial in 100 adults found greater improvement in sleep-related impairment, but <strong className="text-ink">no group differences</strong> in sleep disturbance, restorative sleep, or Oura Ring sleep outcomes.<Cite n={6} /></p>
-              <p className="mt-3 text-sm leading-7 text-muted">It was funded by Threotech, which supplied the intellectual property/product and participated in study conceptualization; both authors had ties to the contract research organization conducting the trial.<Cite n={6} /></p>
+              <p className="mt-3 text-sm leading-7 text-muted">It was funded by Threotech, which supplied the intellectual property/product and participated in study conceptualization; both authors had ties to the contract research organization conducting the trial.<Cite n={6} /> An October 2026 correction clarified two-tailed statistics without changing results.<Cite n={15} /></p>
             </article>
           </div>
           <p className="text-sm leading-7 text-muted">Together these studies support “L-threonate is worth further study,” not “L-threonate is clinically proven to cross the brain and therefore beats glycinate for sleep.” Neither trial directly compared forms.</p>
@@ -206,22 +253,7 @@ export default function MagnesiumTypesForSleepPage() {
           </div>
         </section>
 
-        <section className="space-y-4">
-          <p className="eyebrow-label">Decision table</p>
-          <h2 className="text-2xl font-semibold text-ink">How the forms compare in 2026</h2>
-          <ResponsiveTable label="Magnesium forms for sleep evidence comparison">
-            <table className="min-w-[900px] w-full text-sm">
-              <thead className="border-b border-brand-900/10 bg-brand-50/50"><tr><th className="p-4 text-left font-semibold text-ink">Form</th><th className="p-4 text-left font-semibold text-ink">Direct sleep evidence</th><th className="p-4 text-left font-semibold text-ink">Other useful evidence</th><th className="p-4 text-left font-semibold text-ink">Verdict</th></tr></thead>
-              <tbody className="divide-y divide-brand-900/10 text-muted">
-                <tr><td className="p-4 font-semibold text-ink">Bisglycinate / glycinate</td><td className="p-4">One 155-person placebo RCT; small ISI effect.<Cite n={3} /></td><td className="p-4">Popularity/tolerability claims exceed direct comparative evidence.</td><td className="p-4"><strong className="text-ink">Promising, not proven best.</strong></td></tr>
-                <tr><td className="p-4 font-semibold text-ink">L-threonate</td><td className="p-4">Two recent branded-product RCTs with mixed endpoint patterns.<Cite n={4} /><Cite n={6} /></td><td className="p-4">Industry funding/product specificity matters.</td><td className="p-4"><strong className="text-ink">Interesting, premium price not evidence of superiority.</strong></td></tr>
-                <tr><td className="p-4 font-semibold text-ink">Citrate</td><td className="p-4">Sparse form-specific sleep data.</td><td className="p-4">Better bioavailability than oxide in small studies.<Cite n={10} /><Cite n={11} /></td><td className="p-4"><strong className="text-ink">Good absorption ≠ proven better sleep.</strong></td></tr>
-                <tr><td className="p-4 font-semibold text-ink">Oxide</td><td className="p-4">Older positive insomnia RCT exists.<Cite n={7} /></td><td className="p-4">Lower bioavailability than several soluble forms.<Cite n={9} /></td><td className="p-4"><strong className="text-ink">Not a winner; not evidence-free either.</strong></td></tr>
-                <tr><td className="p-4 font-semibold text-ink">Malate / taurate</td><td className="p-4">Very sparse direct sleep evidence.</td><td className="p-4">Mechanistic/carrier stories dominate marketing.</td><td className="p-4"><strong className="text-ink">Insufficient evidence for a sleep ranking.</strong></td></tr>
-              </tbody>
-            </table>
-          </ResponsiveTable>
-        </section>
+
 
         <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
           <h2 className="text-2xl font-semibold text-ink">What would actually prove one form is better?</h2>
@@ -244,10 +276,30 @@ export default function MagnesiumTypesForSleepPage() {
 
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Frequently asked questions</h2>
-          <div className="space-y-3">{FAQS.map((faq) => (<details key={faq.question} className="rounded-[1.25rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm"><summary className="cursor-pointer font-semibold text-ink">{faq.question}</summary><p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p></details>))}</div>
+          <div className="space-y-3">{FAQS.map((faq) => (<section key={faq.question} className="rounded-[1.25rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm"><h2 className="text-lg font-semibold text-ink">{faq.question}</h2><p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p></section>))}</div>
         </section>
 
-        <RecommendationSection products={getRevenueProductSet('magnesium')?.products ?? []} />
+        <section id="buying-checklist" className="rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <p className="eyebrow-label">How to choose without marketing shortcuts</p>
+          <h2 className="mt-2 text-2xl font-semibold text-ink">What should you check before buying magnesium for sleep?</h2>
+          <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-7 text-muted">
+            <li>Read the <strong>elemental magnesium</strong> amount and serving size on Supplement Facts; it is not the same as the compound weight.<Cite n={9} /></li>
+            <li>Add magnesium from supplements and medications. The NIH adult tolerable upper limit is <strong>350 mg/day from those sources</strong> unless a clinician advises otherwise; food does not count.<Cite n={9} /></li>
+            <li>Consider diarrhea, constipation, kidney disease, and antibiotic or bisphosphonate interactions before comparing price.<Cite n={9} /></li>
+            <li>Compare cost per 100 mg elemental magnesium, added ingredients, independent testing evidence, and realistic return terms rather than promises of deep sleep.</li>
+            <li>Expect gradual, small or absent effects rather than a same-night sleeping pill; magnesium has not been proven to cure chronic insomnia.<Cite n={3} /><Cite n={14} /></li>
+          </ol>
+          <h2 className="mt-5 text-xl font-semibold text-ink">Which form fits your shopping constraint?</h2>
+          <p className="mt-2 text-sm leading-7 text-muted">For GI sensitivity, compare glycinate; for lower cost or constipation, consider citrate's stool-softening tradeoff; for L-threonate, weigh a premium against mixed, commercially funded studies. Malate and taurate lack verified form-only sleep RCTs; oxide is inexpensive but can be laxative and less efficiently absorbed. This is a shopping framework, not a prescription.</p>
+          <AffiliateDisclosure />
+          <p className="mt-4 text-sm leading-7 text-muted">No product-specific Amazon ASIN currently meets this guide's HIGH-confidence verification gate. Direct product offers and affiliate search shortcuts are withheld until a curated set passes source and product-quality checks.</p>
+          <RecommendationSection
+            title="Magnesium sourcing — verification pending"
+            description="We are not endorsing a specific brand or product. Use the ingredient and label checklist above; verified examples will appear only after independent product-level review."
+            products={[]}
+            trackingProductSlug="magnesium"
+          />
+        </section>
 
         <EmailCapture headline="Get future research notes by email" description="Evidence-first supplement updates, safety context, and new guide announcements." location={`article-${SLUG}`} />
         <NewsletterCtaBlock title="Continue with the newsletter archive" description="Short notes built for cautious supplement decisions." location={`article-${SLUG}-newsletter`} />

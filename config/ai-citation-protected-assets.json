@@ -1,8 +1,380 @@
 {
-  "version": 1,
-  "status": "awaiting-fresh-ingest",
+  "version": 2,
+  "status": "ready",
   "generatedAt": null,
-  "snapshotLabel": null,
+  "snapshotLabel": "2026-10-12",
   "sourceReportGeneratedAt": null,
-  "assets": []
+  "sourceManifest": "config/ai-citation-swarm-priorities.json",
+  "sourceTotals": {
+    "citations": 49177,
+    "citedUrls": 180,
+    "topTwoCitationSharePct": 40.73
+  },
+  "policy": {
+    "version": 1,
+    "minCitations": 100,
+    "minCitationSharePct": 5,
+    "cumulativeCoveragePct": 60,
+    "maxAssets": 25,
+    "staleAfterDays": 45
+  },
+  "assets": [
+    {
+      "url": "/guides/sleep/best-natural-sleep-aids-that-work/",
+      "sourceFile": "app/guides/sleep/best-natural-sleep-aids-that-work/page.tsx",
+      "citations": 10496,
+      "citationSharePct": 21.34,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "tsx-static-declaration",
+        "title": "Best Natural Sleep Aids That Work: 2026 Evidence Guide",
+        "slug": null,
+        "canonical": "/guides/sleep/best-natural-sleep-aids-that-work/"
+      },
+      "redirect": null
+    },
+    {
+      "url": "/guides/best/supplements-for-stress/",
+      "sourceFile": "app/guides/best/supplements-for-stress/page.tsx",
+      "citations": 9533,
+      "citationSharePct": 19.39,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "tsx-static-declaration",
+        "title": "Best Supplements for Stress: Evidence-Ranked Guide (2026)",
+        "slug": null,
+        "canonical": "/guides/best/supplements-for-stress/"
+      },
+      "redirect": null
+    },
+    {
+      "url": "/articles/mitragynine/",
+      "sourceFile": "content/articles/mitragynine.mdx",
+      "citations": 3323,
+      "citationSharePct": 6.76,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "markdown-frontmatter",
+        "title": "Mitragynine: Pharmacology, Human Evidence, Safety & 2026 Research Status",
+        "slug": "mitragynine",
+        "canonical": null
+      },
+      "redirect": null
+    },
+    {
+      "url": "/articles/how-to-choose-supplement-quality/",
+      "sourceFile": "content/articles/how-to-choose-supplement-quality.md",
+      "citations": 1973,
+      "citationSharePct": 4.01,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "markdown-frontmatter",
+        "title": "How to Choose a Quality Supplement: Testing, Labels, and Red Flags",
+        "slug": "how-to-choose-supplement-quality",
+        "canonical": null
+      },
+      "redirect": null
+    },
+    {
+      "url": "/guides/mental-health/antisocial-personality-disorder/",
+      "sourceFile": "app/guides/mental-health/antisocial-personality-disorder/page.tsx",
+      "citations": 1916,
+      "citationSharePct": 3.9,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "tsx-static-declaration",
+        "title": "ASPD Diagnosis: Criteria, Conduct Disorder & Assessment",
+        "slug": null,
+        "canonical": "/guides/mental-health/antisocial-personality-disorder/"
+      },
+      "redirect": null
+    },
+    {
+      "url": "/guides/sleep/best-herbs-for-sleep/",
+      "sourceFile": "app/guides/sleep/best-herbs-for-sleep/page.tsx",
+      "citations": 1352,
+      "citationSharePct": 2.75,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "tsx-static-declaration",
+        "title": "Best Herbs for Sleep: What Human Evidence Supports in 2026",
+        "slug": null,
+        "canonical": "/guides/sleep/best-herbs-for-sleep/"
+      },
+      "redirect": null
+    },
+    {
+      "url": "/guides/sleep/best-supplements-for-sleep/",
+      "sourceFile": "app/guides/sleep/best-supplements-for-sleep/page.tsx",
+      "citations": 1351,
+      "citationSharePct": 2.75,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "tsx-static-declaration",
+        "title": "Best Supplements for Sleep: Evidence-Ranked Shortlist",
+        "slug": null,
+        "canonical": "/guides/sleep/best-supplements-for-sleep/"
+      },
+      "redirect": null
+    },
+    {
+      "url": "/guides/anxiety/best-herbs-for-anxiety/",
+      "sourceFile": "app/guides/anxiety/best-herbs-for-anxiety/page.tsx",
+      "citations": 1299,
+      "citationSharePct": 2.64,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "tsx-static-declaration",
+        "title": "Best Herbs for Anxiety: Evidence-Ranked Guide (2026)",
+        "slug": null,
+        "canonical": "/guides/anxiety/best-herbs-for-anxiety/"
+      },
+      "redirect": null
+    },
+    {
+      "url": "/articles/mushroom-coffee-benefits-review/",
+      "sourceFile": "content/articles/mushroom-coffee-benefits-review.md",
+      "citations": 1161,
+      "citationSharePct": 2.36,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "markdown-frontmatter",
+        "title": "Mushroom Coffee Benefits: What the Science Actually Says",
+        "slug": "mushroom-coffee-benefits-review",
+        "canonical": null
+      },
+      "redirect": null
+    },
+    {
+      "url": "/articles/valerian-root/",
+      "sourceFile": "content/articles/valerian-root.md",
+      "citations": 1156,
+      "citationSharePct": 2.35,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "markdown-frontmatter",
+        "title": "Valerian Root for Sleep: Does It Work? Evidence Review (2026)",
+        "slug": "valerian-root",
+        "canonical": null
+      },
+      "redirect": null
+    },
+    {
+      "url": "/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/",
+      "sourceFile": "content/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide.md",
+      "citations": 907,
+      "citationSharePct": 1.84,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "markdown-frontmatter",
+        "title": "Lion's Mane Mushroom: Cognition, Mood, Dose & Evidence — 2026 Review",
+        "slug": "lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide",
+        "canonical": null
+      },
+      "redirect": null
+    },
+    {
+      "url": "/articles/2c-b-effects/",
+      "sourceFile": "content/blog/2c-b-effects.mdx",
+      "citations": 748,
+      "citationSharePct": 1.52,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "markdown-frontmatter",
+        "title": "2C-B Effects: Human Evidence, Risks, Pharmacology & What We Still Don't Know",
+        "slug": "2c-b-effects",
+        "canonical": null
+      },
+      "redirect": null
+    },
+    {
+      "url": "/guides/other/protein-powder-guide/",
+      "sourceFile": "app/guides/other/protein-powder-guide/page.tsx",
+      "citations": 711,
+      "citationSharePct": 1.45,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "tsx-static-declaration",
+        "title": "Whey vs Casein vs Plant Protein: What Actually Differs? (2026)",
+        "slug": null,
+        "canonical": "/guides/other/protein-powder-guide/"
+      },
+      "redirect": null
+    },
+    {
+      "url": "/guides/anxiety/best-supplements-for-overthinking/",
+      "sourceFile": "app/guides/anxiety/best-supplements-for-overthinking/page.tsx",
+      "citations": 608,
+      "citationSharePct": 1.24,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "tsx-static-declaration",
+        "title": "Racing Thoughts at Night: Supplements, Evidence & What Works",
+        "slug": null,
+        "canonical": "/guides/anxiety/best-supplements-for-overthinking/"
+      },
+      "redirect": null
+    },
+    {
+      "url": "/articles/kava/",
+      "sourceFile": "content/articles/kava.md",
+      "citations": 607,
+      "citationSharePct": 1.23,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "markdown-frontmatter",
+        "title": "Kava for Anxiety: Does It Work for Social Anxiety? Evidence & Liver Safety",
+        "slug": "kava",
+        "canonical": null
+      },
+      "redirect": null
+    },
+    {
+      "url": "/guides/other/anti-inflammatory-supplements/",
+      "sourceFile": "app/guides/other/anti-inflammatory-supplements/page.tsx",
+      "citations": 493,
+      "citationSharePct": 1,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "tsx-static-declaration",
+        "title": "Anti-Inflammatory Supplements: Evidence Review (2026)",
+        "slug": null,
+        "canonical": "/guides/other/anti-inflammatory-supplements/"
+      },
+      "redirect": null
+    },
+    {
+      "url": "/guides/other/magnesium-types-guide/",
+      "sourceFile": "app/guides/other/magnesium-types-guide/page.tsx",
+      "citations": 480,
+      "citationSharePct": 0.98,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "tsx-static-declaration",
+        "title": "Magnesium Types Compared: Absorption & Evidence (2026 Guide)",
+        "slug": null,
+        "canonical": "/guides/other/magnesium-types-guide/"
+      },
+      "redirect": null
+    },
+    {
+      "url": "/articles/mitragynine-pseudoindoxyl/",
+      "sourceFile": "content/articles/mitragynine-pseudoindoxyl.mdx",
+      "citations": 457,
+      "citationSharePct": 0.93,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "markdown-frontmatter",
+        "title": "Mitragynine Pseudoindoxyl: Complete Evidence, Toxicology, Dependence, Withdrawal & Safety Monograph",
+        "slug": "mitragynine-pseudoindoxyl",
+        "canonical": null
+      },
+      "redirect": null
+    },
+    {
+      "url": "/articles/elderberry/",
+      "sourceFile": "content/articles/elderberry.md",
+      "citations": 406,
+      "citationSharePct": 0.83,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "markdown-frontmatter",
+        "title": "Elderberry for Colds & Flu: What Human Trials Actually Show",
+        "slug": "elderberry",
+        "canonical": null
+      },
+      "redirect": null
+    },
+    {
+      "url": "/guides/other/collagen-supplements/",
+      "sourceFile": "app/guides/other/collagen-supplements/page.tsx",
+      "citations": 392,
+      "citationSharePct": 0.8,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "tsx-static-declaration",
+        "title": "Collagen Supplements: Benefits, Risks & What the Evidence Really Shows (2026)",
+        "slug": null,
+        "canonical": "/guides/other/collagen-supplements/"
+      },
+      "redirect": null
+    },
+    {
+      "url": "/articles/magnesium-types-for-sleep/",
+      "sourceFile": "app/guides/sleep/magnesium-types-for-sleep/page.tsx",
+      "redirect": {
+        "to": "/guides/sleep/magnesium-types-for-sleep/",
+        "status": 301,
+        "rulesFile": "public/_redirects"
+      },
+      "citations": 382,
+      "citationSharePct": 0.78,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "tsx-static-declaration",
+        "title": "Magnesium Types for Sleep: Glycinate vs Threonate vs Citrate",
+        "slug": null,
+        "canonical": "/guides/sleep/magnesium-types-for-sleep/"
+      }
+    },
+    {
+      "url": "/articles/7-hydroxymitragynine/",
+      "sourceFile": "content/articles/7-hydroxymitragynine.mdx",
+      "citations": 379,
+      "citationSharePct": 0.77,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "markdown-frontmatter",
+        "title": "7-Hydroxymitragynine (7-OH): Complete Evidence, Toxicology, Dependence, Withdrawal & Safety Monograph",
+        "slug": "7-hydroxymitragynine",
+        "canonical": null
+      },
+      "redirect": null
+    },
+    {
+      "url": "/guides/anxiety/best-adaptogens-for-stress/",
+      "sourceFile": "app/guides/anxiety/best-adaptogens-for-stress/page.tsx",
+      "citations": 333,
+      "citationSharePct": 0.68,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "tsx-static-declaration",
+        "title": "Best Adaptogens for Stress: Evidence, Safety & Ranking",
+        "slug": null,
+        "canonical": "/guides/anxiety/best-adaptogens-for-stress/"
+      },
+      "redirect": null
+    },
+    {
+      "url": "/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/",
+      "sourceFile": "app/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/page.tsx",
+      "citations": 331,
+      "citationSharePct": 0.67,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "tsx-static-declaration",
+        "title": "Best Herbs for Stress and Anxiety at Night: Evidence & Safety",
+        "slug": null,
+        "canonical": "/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/"
+      },
+      "redirect": null
+    },
+    {
+      "url": "/guides/adhd/l-theanine-for-adhd/",
+      "sourceFile": "app/guides/adhd/l-theanine-for-adhd/page.tsx",
+      "citations": 324,
+      "citationSharePct": 0.66,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "tsx-static-declaration",
+        "title": "L-Theanine for ADHD: Does It Help Focus or Sleep?",
+        "slug": null,
+        "canonical": "/guides/adhd/l-theanine-for-adhd/"
+      },
+      "redirect": null
+    }
+  ],
+  "unresolved": [],
+  "coveredCitations": 41118,
+  "coveragePct": 83.61
 }

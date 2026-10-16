@@ -1,0 +1,794 @@
+{
+  "schema_version": 1,
+  "created_on": "2026-10-12",
+  "purpose": "Research to public evidence closure audit for DE10-DE13",
+  "disclaimer": "Research-only intake is not human/scientific clinical approval and is not proof of new source publication. The statuses are conservative and do not authorize promotion.",
+  "issues": [
+    "https://github.com/Razzleberrytt/hippie-scientist-site/issues/6600",
+    "https://github.com/Razzleberrytt/hippie-scientist-site/issues/6672"
+  ],
+  "summary": {
+    "investigations": 40,
+    "p0_review_candidates": 15,
+    "staged_pilots": 4,
+    "approved_publications_from_this_queue": 0,
+    "fully_audited_claims": 0
+  },
+  "records": [
+    {
+      "id": "DE10-01",
+      "topic": "St John's wort × hormonal contraception",
+      "research_dossier": "docs/research/deep-enrichment-10-2026-10-11.md",
+      "source_pmid_candidates": [
+        "14663455",
+        "14616430",
+        "19015839"
+      ],
+      "editorial_priority": "P0_review",
+      "publication_audit_state": "PILOT_DRAFT_STAGED_HUMAN_APPROVAL_REQUIRED",
+      "known_coverage_clue": {
+        "kind": "generated_profile_checked",
+        "note": "Existing St. John's wort generated profile is NOINDEX with broad interaction warning; does not include contraception primary evidence in displayed sources; verify route/claim scope, do not auto-promote."
+      },
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Independent scientific/editorial review; record exact human approval before public content; canonical source deduplication and evaluate existing profile vs new article; implement separately with exact-head release proof.",
+      "pilot_path": "ops/editorial-runtime/publication-pilots/st-johns-wort-contraception-interaction-2026-10-12.md",
+      "pilot_source_pmids": [
+        "14663455",
+        "14616430",
+        "15914127",
+        "19015839",
+        "27444983"
+      ],
+      "publication_control": {
+        "artifact_class": "NONPUBLIC_EDITORIAL_STAGING_ONLY",
+        "exact_copy_human_publication_approval": "NOT_RECORDED",
+        "independent_scientific_review": "NOT_RECORDED",
+        "canonical_source_identity_admission": "NOT_VERIFIED",
+        "public_content_pr": "NOT_CREATED",
+        "production_deployment_receipt": "NOT_AVAILABLE",
+        "ci_for_publishing": "NOT_RUN",
+        "authorization_to_publish": false
+      }
+    },
+    {
+      "id": "DE10-02",
+      "topic": "Licorice and potassium-losing diuretics",
+      "research_dossier": "docs/research/deep-enrichment-10-2026-10-11.md",
+      "source_pmid_candidates": [
+        "19562574",
+        "12574791"
+      ],
+      "editorial_priority": "P0_review",
+      "publication_audit_state": "PILOT_DRAFT_STAGED_HUMAN_APPROVAL_REQUIRED",
+      "known_coverage_clue": {
+        "kind": "generated_profile_checked",
+        "note": "Licorice herb profile is PUBLISH-eligible with review-based sources and generic hypertension/kidney note; specialized thiazide-potassium risk absent in displayed source list; legal path may be existing page correction rather than duplicate article."
+      },
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Independent scientific/editorial review; record exact human approval before public content; canonical source deduplication and evaluate existing profile vs new article; implement separately with exact-head release proof.",
+      "pilot_path": "ops/editorial-runtime/publication-pilots/licorice-diuretic-hypokalemia-safety-2026-10-12.md",
+      "pilot_source_pmids": [
+        "19562574",
+        "12574791"
+      ],
+      "publication_control": {
+        "artifact_class": "NONPUBLIC_EDITORIAL_STAGING_ONLY",
+        "exact_copy_human_publication_approval": "NOT_RECORDED",
+        "independent_scientific_review": "NOT_RECORDED",
+        "canonical_source_identity_admission": "NOT_VERIFIED",
+        "public_content_pr": "NOT_CREATED",
+        "production_deployment_receipt": "NOT_AVAILABLE",
+        "ci_for_publishing": "NOT_RUN",
+        "authorization_to_publish": false
+      }
+    },
+    {
+      "id": "DE10-03",
+      "topic": "Kelp iodine variability",
+      "research_dossier": "docs/research/deep-enrichment-10-2026-10-11.md",
+      "source_pmid_candidates": [
+        "15588380",
+        "30266075"
+      ],
+      "editorial_priority": "P0_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE10-04",
+      "topic": "Red yeast rice strength and contamination",
+      "research_dossier": "docs/research/deep-enrichment-10-2026-10-11.md",
+      "source_pmid_candidates": [
+        "28641460",
+        "20975018"
+      ],
+      "editorial_priority": "P0_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE10-05",
+      "topic": "Saw palmetto for BPH/LUTS",
+      "research_dossier": "docs/research/deep-enrichment-10-2026-10-11.md",
+      "source_pmid_candidates": [
+        "16467543",
+        "21954478"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": {
+        "kind": "existing_public_profile",
+        "path": "public/data/herbs-detail/saw-palmetto.json",
+        "note": "Existing saw-palmetto summary already states negative RCT. Check published eligibility and full source mapping before changing."
+      },
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE10-06",
+      "topic": "Rhodiola for depressive symptoms",
+      "research_dossier": "docs/research/deep-enrichment-10-2026-10-11.md",
+      "source_pmid_candidates": [
+        "25837277"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE10-07",
+      "topic": "Lion's mane cognition and population transfer",
+      "research_dossier": "docs/research/deep-enrichment-10-2026-10-11.md",
+      "source_pmid_candidates": [
+        "18844328",
+        "40276537"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE10-08",
+      "topic": "L-theanine stress and cognitive endpoints",
+      "research_dossier": "docs/research/deep-enrichment-10-2026-10-11.md",
+      "source_pmid_candidates": [
+        "31623400",
+        "38758503"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": {
+        "kind": "existing_article",
+        "path": "content/articles/l-theanine.md",
+        "note": "Review article for study-specific correction; avoid new duplicate page."
+      },
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Review existing article claim and sources before creating any new page."
+    },
+    {
+      "id": "DE10-09",
+      "topic": "Psyllium and LDL cholesterol",
+      "research_dossier": "docs/research/deep-enrichment-10-2026-10-11.md",
+      "source_pmid_candidates": [
+        "10837282",
+        "9497178"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE10-10",
+      "topic": "Cranberry prevention: contradictory RCT outcomes",
+      "research_dossier": "docs/research/deep-enrichment-10-2026-10-11.md",
+      "source_pmid_candidates": [
+        "21148516",
+        "22305026",
+        "27251185"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE11-01",
+      "topic": "Glucosamine/chondroitin for knee osteoarthritis",
+      "research_dossier": "docs/research/deep-enrichment-11-2026-10-11.md",
+      "source_pmid_candidates": [
+        "16495392"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE11-02",
+      "topic": "Coenzyme Q10 for statin-associated muscle symptoms",
+      "research_dossier": "docs/research/deep-enrichment-11-2026-10-11.md",
+      "source_pmid_candidates": [
+        "25545331",
+        "25375075"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE11-03",
+      "topic": "Selenium and vitamin E: SELECT, cancer endpoints",
+      "research_dossier": "docs/research/deep-enrichment-11-2026-10-11.md",
+      "source_pmid_candidates": [
+        "19066370",
+        "21990298"
+      ],
+      "editorial_priority": "P0_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE11-04",
+      "topic": "AREDS2 lutein/zeaxanthin addition versus substitution",
+      "research_dossier": "docs/research/deep-enrichment-11-2026-10-11.md",
+      "source_pmid_candidates": [
+        "23644932",
+        "35653117"
+      ],
+      "editorial_priority": "P0_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE11-05",
+      "topic": "Enteric/sustained-release peppermint oil for IBS",
+      "research_dossier": "docs/research/deep-enrichment-11-2026-10-11.md",
+      "source_pmid_candidates": [
+        "26319955",
+        "31470006"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE11-06",
+      "topic": "Bacopa monnieri memory versus instant “focus” claims",
+      "research_dossier": "docs/research/deep-enrichment-11-2026-10-11.md",
+      "source_pmid_candidates": [
+        "11498727",
+        "20590480"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE11-07",
+      "topic": "Tart cherry juice and insomnia",
+      "research_dossier": "docs/research/deep-enrichment-11-2026-10-11.md",
+      "source_pmid_candidates": [
+        "20438325"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": {
+        "kind": "existing_article",
+        "path": "content/articles/tart-cherry-for-sleep.md",
+        "note": "A tart-cherry sleep article already exists; check content first."
+      },
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Review existing article claim and sources before creating any new page."
+    },
+    {
+      "id": "DE11-08",
+      "topic": "D-mannose for recurrent UTI: stronger trial conflicts with prior promise",
+      "research_dossier": "docs/research/deep-enrichment-11-2026-10-11.md",
+      "source_pmid_candidates": [
+        "23633128",
+        "38587819"
+      ],
+      "editorial_priority": "P0_review",
+      "publication_audit_state": "PILOT_DRAFT_STAGED_HUMAN_APPROVAL_REQUIRED",
+      "known_coverage_clue": {
+        "kind": "noindex_research_profile",
+        "path": "public/data/compounds-detail/d-mannose.json",
+        "note": "Generated D-mannose profile is noindex with sourced_pending_review evidence; publication pilot staged separately."
+      },
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Verify publication pilot, obtain recorded human safety/interpretation approval, reconcile source IDs, then separately submit approved live-content PR.",
+      "pilot_path": "ops/editorial-runtime/publication-pilots/d-mannose-uti-prevention-evidence-2026-10-12.md",
+      "pilot_source_pmids": [
+        "38587819",
+        "23633128",
+        "36041061",
+        "41195062",
+        "41942398"
+      ],
+      "publication_control": {
+        "artifact_class": "NONPUBLIC_EDITORIAL_STAGING_ONLY",
+        "exact_copy_human_publication_approval": "NOT_RECORDED",
+        "independent_scientific_review": "NOT_RECORDED",
+        "canonical_source_identity_admission": "NOT_VERIFIED",
+        "public_content_pr": "NOT_CREATED",
+        "production_deployment_receipt": "NOT_AVAILABLE",
+        "ci_for_publishing": "NOT_RUN",
+        "authorization_to_publish": false
+      }
+    },
+    {
+      "id": "DE11-09",
+      "topic": "Melatonin supplements: measured-dose and contaminant quality",
+      "research_dossier": "docs/research/deep-enrichment-11-2026-10-11.md",
+      "source_pmid_candidates": [
+        "27855744",
+        "37097362"
+      ],
+      "editorial_priority": "P0_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE11-10",
+      "topic": "Pyridoxine (vitamin B6) exposure and peripheral neuropathy",
+      "research_dossier": "docs/research/deep-enrichment-11-2026-10-11.md",
+      "source_pmid_candidates": [
+        "29737502"
+      ],
+      "editorial_priority": "P0_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE12-01",
+      "topic": "Butterbur: migraine benefit does not cancel pyrrolizidine-alkaloid risk",
+      "research_dossier": "docs/research/deep-enrichment-12-2026-10-12.md",
+      "source_pmid_candidates": [
+        "15623680"
+      ],
+      "editorial_priority": "P0_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE12-02",
+      "topic": "Feverfew: a positive replication attempt and an earlier primary null",
+      "research_dossier": "docs/research/deep-enrichment-12-2026-10-12.md",
+      "source_pmid_candidates": [
+        "16232154",
+        "12230594"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE12-03",
+      "topic": "American ginseng for cancer-related fatigue: primary 4-week null",
+      "research_dossier": "docs/research/deep-enrichment-12-2026-10-12.md",
+      "source_pmid_candidates": [
+        "23853057"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE12-04",
+      "topic": "Passionflower: preoperative anxiety versus chronic anxiety disorder",
+      "research_dossier": "docs/research/deep-enrichment-12-2026-10-12.md",
+      "source_pmid_candidates": [
+        "18499602"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": {
+        "kind": "existing_article",
+        "path": "content/articles/passionflower.md",
+        "note": "Already has a passionflower article; content gap unverified."
+      },
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Review existing article claim and sources before creating any new page."
+    },
+    {
+      "id": "DE12-05",
+      "topic": "Alpha-lipoic acid: short-term symptom scores vs four-year progression composite",
+      "research_dossier": "docs/research/deep-enrichment-12-2026-10-12.md",
+      "source_pmid_candidates": [
+        "17065669",
+        "21775755"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE12-06",
+      "topic": "Aged garlic extract and blood pressure: product- and baseline-dependent",
+      "research_dossier": "docs/research/deep-enrichment-12-2026-10-12.md",
+      "source_pmid_candidates": [
+        "20594781"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE12-07",
+      "topic": "Green tea extract: significant ALT risk in randomized safety data",
+      "research_dossier": "docs/research/deep-enrichment-12-2026-10-12.md",
+      "source_pmid_candidates": [
+        "26051348",
+        "28765194"
+      ],
+      "editorial_priority": "P0_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE12-08",
+      "topic": "Beetroot dietary nitrate and hypertension: opposite controlled-trial findings",
+      "research_dossier": "docs/research/deep-enrichment-12-2026-10-12.md",
+      "source_pmid_candidates": [
+        "25421976",
+        "26135348"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE12-09",
+      "topic": "L-methylfolate added to SSRIs: first randomized study null",
+      "research_dossier": "docs/research/deep-enrichment-12-2026-10-12.md",
+      "source_pmid_candidates": [
+        "23212058"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE12-10",
+      "topic": "Oral Silexan lavender oil and GAD: branded formulation firewall",
+      "research_dossier": "docs/research/deep-enrichment-12-2026-10-12.md",
+      "source_pmid_candidates": [
+        "24456909"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE13-01",
+      "topic": "Extended-release niacin + background statin: surrogate gains are not fewer events",
+      "research_dossier": "docs/research/deep-enrichment-13-2026-10-12.md",
+      "source_pmid_candidates": [
+        "22085343",
+        "25014686"
+      ],
+      "editorial_priority": "P0_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE13-02",
+      "topic": "Calcium carbonate + vitamin D in the WHI: fracture endpoints vs kidney stones",
+      "research_dossier": "docs/research/deep-enrichment-13-2026-10-12.md",
+      "source_pmid_candidates": [
+        "16481635",
+        "21525191"
+      ],
+      "editorial_priority": "P0_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE13-03",
+      "topic": "Vitamin D-only fracture prevention in VITAL general population",
+      "research_dossier": "docs/research/deep-enrichment-13-2026-10-12.md",
+      "source_pmid_candidates": [
+        "35939577"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE13-04",
+      "topic": "Ginkgo biloba GEM study: dementia prevention null",
+      "research_dossier": "docs/research/deep-enrichment-13-2026-10-12.md",
+      "source_pmid_candidates": [
+        "19017911"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": {
+        "kind": "existing_article",
+        "path": "content/articles/ginkgo-biloba.md",
+        "note": "Original GEM null already public; no duplicate evidence addition."
+      },
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Review existing article claim and sources before creating any new page."
+    },
+    {
+      "id": "DE13-05",
+      "topic": "Omega-3 fish oil for diagnosed dry-eye disease: DREAM trial",
+      "research_dossier": "docs/research/deep-enrichment-13-2026-10-12.md",
+      "source_pmid_candidates": [
+        "29652551"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE13-06",
+      "topic": "PLACIDE four-strain probiotics: antibiotic-associated diarrhea null",
+      "research_dossier": "docs/research/deep-enrichment-13-2026-10-12.md",
+      "source_pmid_candidates": [
+        "24309198"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE13-07",
+      "topic": "Echinacea angustifolia root in experimental rhinovirus challenge",
+      "research_dossier": "docs/research/deep-enrichment-13-2026-10-12.md",
+      "source_pmid_candidates": [
+        "16049208"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE13-08",
+      "topic": "Magnesium oxide for nocturnal leg cramps: both arms got better",
+      "research_dossier": "docs/research/deep-enrichment-13-2026-10-12.md",
+      "source_pmid_candidates": [
+        "28241153"
+      ],
+      "editorial_priority": "P1_review",
+      "publication_audit_state": "PILOT_DRAFT_STAGED_HUMAN_APPROVAL_REQUIRED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Independent full-paper review and human approval on exact safety/interpretation wording; verify overlap and published coverage, then approved implementation PR.",
+      "pilot_path": "ops/editorial-runtime/publication-pilots/magnesium-for-night-leg-cramps-evidence-2026-10-12.md",
+      "pilot_source_pmids": [
+        "28241153",
+        "32956536",
+        "24280947"
+      ],
+      "publication_control": {
+        "artifact_class": "NONPUBLIC_EDITORIAL_STAGING_ONLY",
+        "exact_copy_human_publication_approval": "NOT_RECORDED",
+        "independent_scientific_review": "NOT_RECORDED",
+        "canonical_source_identity_admission": "NOT_VERIFIED",
+        "public_content_pr": "NOT_CREATED",
+        "production_deployment_receipt": "NOT_AVAILABLE",
+        "ci_for_publishing": "NOT_RUN",
+        "authorization_to_publish": false
+      }
+    },
+    {
+      "id": "DE13-09",
+      "topic": "Iron supplementation and fatigue: only for documented low-ferritin population",
+      "research_dossier": "docs/research/deep-enrichment-13-2026-10-12.md",
+      "source_pmid_candidates": [
+        "22777991"
+      ],
+      "editorial_priority": "P0_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": {
+        "kind": "existing_governance_draft",
+        "path": "ops/enrichment-submissions/sessions/session-c/2026-08-30-iron-fatigue-source-integrity.json",
+        "note": "Existing draft and quarantined incorrect source IDs; do not self-admit."
+      },
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    },
+    {
+      "id": "DE13-10",
+      "topic": "S-adenosylmethionine (SAMe): small adjunctive trial, not an OTC antidepressant equivalence study",
+      "research_dossier": "docs/research/deep-enrichment-13-2026-10-12.md",
+      "source_pmid_candidates": [
+        "20595412"
+      ],
+      "editorial_priority": "P0_review",
+      "publication_audit_state": "NOT_COMPLETED",
+      "known_coverage_clue": null,
+      "independent_scientific_review": "NOT_DOCUMENTED",
+      "human_publication_approval": "NOT_DOCUMENTED",
+      "canonical_source_admission": "NOT_VERIFIED",
+      "live_publication_claim": "NOT_VERIFIED",
+      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+    }
+  ],
+  "staging_policy": {
+    "version": "canonical-publication-approval-v1",
+    "source": "docs/governance/canonical-automatic-publication-approval.md",
+    "governance_pr": 6709,
+    "staging_pr": 6703,
+    "classification": "AUTO_STAGING",
+    "scope": "Research/editorial files only; no article routes or indexed public claims",
+    "promotion_requires": "Human owner exact-head approval AND scientific/source review AND approved separate public content PR with green release checks",
+    "approval_inferred_from_merging": false
+  }
+}

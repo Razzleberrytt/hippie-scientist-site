@@ -9,7 +9,7 @@ import {
   trackNavigationClick,
   trackPageView,
 } from '@/lib/analytics'
-import { CONSENT_CHANGE_EVENT, getConsent } from '@/lib/consent'
+import { CONSENT_CHANGE_EVENT, canLoadGa4, getConsent } from '@/lib/consent'
 import {
   trackCollectionDetailClick,
   trackDetailBuilderClick,
@@ -170,7 +170,7 @@ export default function ClickTracker() {
 
   useEffect(() => {
     const trackCurrentPage = () => {
-      if (getConsent() !== 'granted' || lastTrackedPagePath.current === pathname) return
+      if (!canLoadGa4() || lastTrackedPagePath.current === pathname) return
       loadAnalytics()
       if (trackPageView({ pagePath: pathname })) {
         lastTrackedPagePath.current = pathname
@@ -306,6 +306,29 @@ export default function ClickTracker() {
       const leadMagnetMatch = href.match(/^\/lead-magnets\/([^/?#]+)/)
       if (leadMagnetMatch && consentGranted) {
         trackLeadMagnetClick({ slug: leadMagnetMatch[1], sourcePath: window.location.pathname })
+      }
+
+      // Deliberately tagged internal evidence handoffs are not affiliate clicks.
+      // Capture their decision intent only after affirmative analytics consent.
+      // Never block navigation or collect the visitor's query parameters.
+      if (consentGranted && link.dataset.decisionCta === 'true') {
+        const destination = internalPathFromHref(href)
+        if (destination) {
+          void loadRevenueTracking()
+            .then(({ trackRevenueEvent }) => {
+              trackRevenueEvent({
+                kind: 'cta_click',
+                location: journeyPlacement(link),
+                label: 'Evidence next step',
+                target: destination,
+                ctaVariant: link.dataset.ctaVariant || 'evidence-next-step',
+                modulePosition: 'post-evidence',
+              })
+            })
+            .catch(() => {
+              // Measurement cannot interfere with navigating to the evidence.
+            })
+        }
       }
 
       if (!isAffiliateLink(link) || link.dataset.revenueTracked === 'true' || !consentGranted) return
