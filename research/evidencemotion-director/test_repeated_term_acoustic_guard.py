@@ -13,7 +13,7 @@ import numpy as np
 from repeated_term_acoustic_guard import (
     SOURCE_ARCHIVE_SHA, audit, compare, decode_pcm, digest, distance, trajectory,
     source_clip_sample_offsets, audit_original_source,
-    audit_pose_poles_conflict, audit_pose_files,
+    audit_pose_poles_conflict, audit_pose_files, audit_pose_internal_reference_set,
 )
 
 ARCHIVE=Path(os.getenv("EM_LANE2_PREVIOUS_PACKET",
@@ -286,6 +286,85 @@ class ActualPoseConflictTests(unittest.TestCase):
             "--pose-asr-receipt", str(ASR_SOURCE)],
             capture_output=True, text=True, timeout=20)
         self.assertEqual(completed.returncode, 3, completed.stderr)
+        self.assertIn('"lexicalWinner": null', completed.stdout)
+        self.assertIn('"mayPublish": false', completed.stdout)
+
+
+
+class PoseInternalContrastNegativeTests(unittest.TestCase):
+    def test_incomplete_contrast_cli_must_hold_not_auto_approve(self):
+        script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
+        for args in (
+            ["--pose-internal-contrasts"],
+            ["--pose-internal-contrasts", "--original-wav", "/nonexistent/voice.wav",
+             "--mfa-alignment", "/nonexistent/alignment.json",
+             "--pose-asr-receipt", "/nonexistent/asr.json"],
+        ):
+            result = subprocess.run([sys.executable, script, *args],
+                                    capture_output=True, text=True, timeout=20)
+            self.assertEqual(result.returncode, 2, result.stderr)
+            self.assertIn('"mayPublish": false', result.stdout)
+            self.assertIn('"status": "HOLD"', result.stdout)
+
+    def test_fake_source_never_promotes_lateral_evidence(self):
+        result = audit_pose_internal_reference_set(b"synthetic source", b"{}",
+                                                    b"synthetic ASR")
+        self.assertEqual(result["status"], "HOLD")
+        self.assertFalse(result["pronunciationVerified"])
+        self.assertFalse(result["mayPublish"])
+
+    def test_unprovided_archive_cannot_supply_calibration(self):
+        result = audit_pose_files("/nonexistent/voice.wav",
+                                  "/nonexistent/alignment.json",
+                                  "/nonexistent/asr.json",
+                                  include_internal_controls=True)
+        self.assertEqual(result["status"], "HOLD")
+        self.assertFalse(result["sourceWavIndependentlyRehashed"])
+
+
+@unittest.skipUnless(all(x.is_file() for x in (MASTER, MFA_ALIGNMENT, ASR_SOURCE)),
+    "Exact original media and model receipts absent from hosted CI; no fake controls PASS")
+class ActualPoseInternalContrastTests(unittest.TestCase):
+    def test_all_five_same_narrator_clips_source_sha_verified_without_phoneme_claim(self):
+        result = audit_pose_files(MASTER, MFA_ALIGNMENT, ASR_SOURCE,
+                                  include_internal_controls=True)
+        self.assertEqual(result["status"], "RESEARCH_POSE_INTERNAL_CONTRAST_REVIEW_ONLY",
+                         result)
+        self.assertEqual(result["comparisonCount"], 5)
+        self.assertEqual([x["mfaWordIndex"] for x in result["sameNarratorSourceBoundControls"]],
+                         [37, 38, 61, 68, 71])
+        self.assertTrue(all(x["physicalSameNarrationSourceVerified"]
+                            for x in result["sameNarratorSourceBoundControls"]))
+        self.assertFalse(any(x["authoredLabelIsCalibratedPhoneticTruth"]
+                             for x in result["sameNarratorSourceBoundControls"]))
+        for key in ("lateralPresenceClassified", "phonemeReferenceCalibrated",
+                    "mayPublish", "pronunciationVerified", "phonemeIdentityVerified",
+                    "wordTimingCalibrated"):
+            self.assertFalse(result[key], key)
+        self.assertIsNone(result["lexicalWinner"])
+
+    def test_changed_real_source_models_are_not_accepted_as_calibrated_evidence(self):
+        original = [MASTER.read_bytes(), MFA_ALIGNMENT.read_bytes(),
+                    ASR_SOURCE.read_bytes()]
+        for index, payload in enumerate(original):
+            with self.subTest(input_index=index):
+                modified = bytearray(payload)
+                modified[-1] ^= 1
+                inputs = list(original)
+                inputs[index] = bytes(modified)
+                result = audit_pose_internal_reference_set(*inputs)
+                self.assertEqual(result["status"], "HOLD")
+                self.assertFalse(result["mayPublish"])
+
+    def test_cli_same_source_comparators_return_research_hold_exit_three(self):
+        completed = subprocess.run([
+            sys.executable, str(Path(__file__).with_name("repeated_term_acoustic_guard.py")),
+            "--original-wav", str(MASTER),
+            "--mfa-alignment", str(MFA_ALIGNMENT),
+            "--pose-asr-receipt", str(ASR_SOURCE),
+            "--pose-internal-contrasts"], capture_output=True, text=True, timeout=20)
+        self.assertEqual(completed.returncode, 3, completed.stderr)
+        self.assertIn('"comparisonCount": 5', completed.stdout)
         self.assertIn('"lexicalWinner": null', completed.stdout)
         self.assertIn('"mayPublish": false', completed.stdout)
 
