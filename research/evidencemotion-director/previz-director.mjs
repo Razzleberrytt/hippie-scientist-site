@@ -21,7 +21,7 @@ const INTENTS=Object.freeze({
   'source-bound-scale':'G6',
 });
 const clean=v=>String(v??'').trim();
-const uniqueIds=a=>Array.isArray(a)&&a.every(x=>typeof x==='string'&&x.trim()!=='')&&new Set(a).size===a.length;
+const uniqueIds=a=>Array.isArray(a)&&a.length>0&&a.every(x=>typeof x==='string'&&x.trim()!=='')&&new Set(a).size===a.length;
 const fail=(code)=>({status:'HOLD',code,candidates:[],productionEligible:false});
 
 export function proposeShots(beat,{previousGrammar=null,previousCamera=null}={}){
@@ -68,8 +68,29 @@ export function proposeShots(beat,{previousGrammar=null,previousCamera=null}={})
  * storyboard). This API is a *contract*, not a pixel decoder. Receipts alone
  * are not cryptographic proof; final review requires independent media checks.
  */
+const sameList=(left,right)=>Array.isArray(left)&&Array.isArray(right)&&left.length>0&&
+  left.length===right.length&&left.every((value,index)=>value===right[index]);
+
+/**
+ * Tie an independently decoded preview receipt to its exact authored shot.
+ * These equalities detect stale/swapped review files; they DO NOT prove that
+ * receipt contents came from the media. The independent byte decoder must
+ * still establish that separately.
+ */
 export function evaluatePreviz(candidate,receipt){
   const reasons=[];
+  const bound=Boolean(candidate&&receipt&&
+    typeof candidate.id==='string'&&candidate.id.length>0&&
+    receipt.candidateId===candidate.id&&
+    receipt.beatId===candidate.beatId&&
+    receipt.grammarId===candidate.grammarId&&
+    receipt.camera===candidate.camera&&
+    Number.isFinite(candidate.originalBeatDurationSec)&&candidate.originalBeatDurationSec>0&&
+    receipt.originalBeatDurationSec===candidate.originalBeatDurationSec&&
+    sameList(candidate.sourceClaimIds,receipt.sourceClaimIds)&&
+    sameList(candidate.scientificAssetIds,receipt.scientificAssetIds)&&
+    sameList(candidate.anchorTimes,receipt.anchorTimes));
+  if(!bound)reasons.push('SHOT_REVIEW_SOURCE_OR_TIMING_IDENTITY_MISMATCH');
   const decoded=inspectDecodedProof(receipt);
   for(const code of decoded.errors){
     reasons.push(code==='STATIC_COMPOSITION_KILL'?code:'DECODED_PROOF_'+code);
