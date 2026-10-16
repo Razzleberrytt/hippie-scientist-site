@@ -154,7 +154,7 @@ No new atomic cards, independent approval, protected merge or publication.
 ## Lane 6 continuation — final destination verification
 
 Starting source `95fa2dd98abf184747733fadb50583fd98947ad0`, existing draft #6847.
-Status: repair implemented, focused tests PASS, fresh production build running.
+Status: repair in draft review; focused tests and fresh production build PASS.
 No actual revised combined film has become available in latest Lane 3 comments.
 
 Observed defect: destination hashes were checked immediately after each copy;
@@ -176,3 +176,23 @@ checks SUCCESS (one superseded release run cancelled); generic hosted tests,
 production build, content and site-health SKIPPED. Fresh-head results remain
 separate. No new actual-film/voice/science/craft/phone acceptance, atomic credit,
 excellent first render or varied streak. `mayPublish=false`.
+
+
+Final destination repair implementation: `071cf4c128b02c42835fecd28b3082cebcea47b2`,
+verified pushed to existing draft #6847. Fresh **production build PASS, exit 0**:
+36 steps in **877.19 seconds**, 1,722 generated routes, language audit 1,708 HTML
+pages / zero findings, structured-data regression 9,240 JSON-LD blocks / 1,652
+routes, Pagefind 1,605 pages. Machine summary:
+`receipts/final-transfer-build-summary.json`. Tracked build-generated changes were
+restored; pre-existing untracked generated profiles preserved. Local build evidence
+only, not clean-checkout reproducibility or deployment. Tested source/test bytes
+verified unchanged after build. Doc-links/whitespace PASS after final receipt edit.
+No user-facing UI or visual/theme change. Next: deliver the real revised combined
+film and source sidecars, independently reconcile COMPLETE pin, run sender/receiver
+intake and Lane 4 actual-film review. No other lane-owned changes or new credit.
+
+Exact implementation-head hosted checks observed: atomic contract, controller
+monitor, generated quality comparison and generator release suite **SUCCESS**.
+Generic hosted tests, production build, content and site-health **SKIPPED**;
+Lane 6 test execution remains local. Final receipt-only head needs separate hosted
+observation; implementation/build results are not relabeled as that head's CI.
