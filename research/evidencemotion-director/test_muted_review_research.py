@@ -19,7 +19,7 @@ class RealMutedReviewPacketTests(unittest.TestCase):
         self.claim = root / "claim.json"
         self.movie.write_bytes(b"fake film: contract-only test not a real MP4")
         names = SCENE_IDS
-        bounds = (0, 1.5, 3.5, 10.5, 16.5, 23.3, 25.7, 27.35, 31.25, 34.35)
+        bounds = (0, 1.5, 3.5, 10.5, 16.5, 23.3, 25.7, 27.35, 31.25, 34.367)
         self.plan = {
             "status": "RESEARCH_ONLY",
             "releaseApproved": False,
@@ -63,6 +63,13 @@ class RealMutedReviewPacketTests(unittest.TestCase):
         self.assertEqual(len(plan["shots"]), 9)
         self.assertEqual(video_sha, sha(self.movie))
         self.assertFalse(receipt["mayPublish"])
+
+    def test_final_tail_gap_is_rejected_even_with_matching_hashes(self):
+        # This negative protects the new 1ms frame-coverage contract.
+        # The synthetic full-duration fixture above is deliberately valid.
+        self.plan["shots"][-1]["endSec"] -= 0.017
+        with self.assertRaisesRegex(ValueError, "INCOMPLETE_FILM_COVERAGE"):
+            self.examine()
 
     def test_corrupted_actual_video_cannot_reuse_old_receipts(self):
         self.movie.write_bytes(b"wrong revision")
