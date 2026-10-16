@@ -37,7 +37,7 @@ Environment: Windows, Python 3.14.5, FFmpeg/ffprobe 8.1.1, Node v24.16.0.
 | `git diff --check` / staged check | **PASS** at execution; rerun before final commit. |
 | Missing bundle CLI with checked-in reported expectation | **HOLD**, exit **2**, `MISSING_INPUT:BUNDLE_UNAVAILABLE`; all approvals false, zero atomic credit. Actual output retained in `receipts/shot5-missing-bundle-hold.json`. |
 | `npm ci --ignore-scripts --no-audit --no-fund` | **PASS**, 917 packages installed in isolated worktree; package manifest/lockfile unchanged. |
-| `npm run build` | **RUNNING** at initial draft preparation; pipeline reached Next.js optimized production compilation. Final outcome must be appended before treating the build as verified. |
+| `npm run build` | **PASS, exit 0**. Full production pipeline completed **36 steps in 1,216.84 seconds**, including Next.js compilation/type checking/static generation, export audits and Pagefind (1,604 indexed pages). Production-visible language audit scanned 1,707 HTML pages with zero findings; structured-data regression check passed 9,243 JSON-LD blocks across 1,651 routes. No deployment was attempted. Actual summary retained in `receipts/production-build-summary.json`. |
 | GitHub Actions artifact-list lookup | CLI returned `unexpected end of JSON input`; artifact registry availability is **Unknown**. No assertion that an artifact does not exist globally. No film downloaded or inspected through this path. |
 
 The missing-bundle CLI invocation used local expected path
@@ -72,3 +72,18 @@ pin using original source receipts, then run sender and receiver intake as in
 same-shot inequality, CIDs, caveats, mobile text and muted comprehension. Qualified
 science, original voice listening, independent craft, real-phone playback and
 publication decisions remain separate HOLDs. No protected merge is attempted.
+
+## Draft and hosted validation snapshot
+
+Implementation commit: `41f656b506906c70fff8f2a865bcd5ac72fbabb3`.
+Draft [PR #6847](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6847).
+Coordination [receipt](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6743#issuecomment-6222747803).
+At that exact source head, hosted [quality comparison](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/38952407027)
+and [atomic contract/release-suite workflow](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/38952407126)
+returned SUCCESS. Hosted validation/tests/data, production build/output/SEO,
+content lint and site-health checks were **SKIPPED**, not executed PASS. No
+Lane 6-specific hosted test execution is claimed; its 32-test result is local.
+Final documentation-only head still needs its own protected controller review
+and current checks; no earlier head is silently relabeled as final-head CI.
+The final update changes validation evidence only; implementation/test sources
+remain byte-identical to the locally tested source commit.
