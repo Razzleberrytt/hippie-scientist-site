@@ -8,6 +8,7 @@ on:
       - 'research/evidencemotion-director/test_five_render_attempt_guard.py'
       - 'research/evidencemotion-director/native_stdin_capture_guard.py'
       - 'research/evidencemotion-director/original_replay_admission.py'
+      - 'research/evidencemotion-director/original_replay_source_restore.py'
       - 'research/evidencemotion-director/test_native_stdin_capture_guard.py'
       - 'research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md'
       - '.github/workflows/evidencemotion-operator-rehearsal.yml'
@@ -20,6 +21,17 @@ jobs:
     steps:
       - name: Checkout exact proposed research code
         uses: actions/checkout@v4
+      - name: Recover 11 exact original research renderer sources without production edits
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin ecc249f5f460ca38be8850375b8b4f4a4d98b448
+          git fetch --no-tags --depth=1 origin 5fde6994c09e8464606074e5a1f21b06385b95e5
+          TEMP_ROOT="$(mktemp -d)"
+          trap 'rm -rf "$TEMP_ROOT"' EXIT
+          python3 research/evidencemotion-director/original_replay_source_restore.py \
+            --repo "$PWD" --out "$TEMP_ROOT/original-eleven"
+          test "$(find "$TEMP_ROOT/original-eleven" -type f | wc -l)" -eq 11
+          echo 'Original 11 SHA-pinned archived renderer source bytes recovered; NO renderer launched.'
       - name: Compile and test offline operator handoff and negative controls
         run: |
           set -euo pipefail
@@ -40,6 +52,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 -m py_compile research/evidencemotion-director/original_replay_admission.py
+          python3 -m py_compile research/evidencemotion-director/original_replay_source_restore.py
           python3 -m unittest discover -s research/evidencemotion-director -p 'test_native_stdin_capture_guard.py' -v
       - name: Ensure no production publishing privileges are implied
         run: |
