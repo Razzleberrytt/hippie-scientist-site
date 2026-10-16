@@ -310,6 +310,121 @@ def validate_critical_ink_receipt_join(receipt, *, film_sha, plan_sha):
     }
 
 
+
+# Fixed nine-scene factual text corpus for this research film. The OCR join
+# must not trust a self-authored receipt to redefine the expected science.
+OCR_SOURCE_LABELS = {
+    "sentence_1_part0": ("MITRAGYNINE", "No reaction"),
+    "sentence_1_part1": ("7-OH", "No reaction"),
+    "sentence_2": ("\u2013OH group: oxygen + hydrogen",),
+    "sentence_3": ("Dots mark atoms. Lines mark bonds.",),
+    "sentence_4": ("A possible\n3D shape.", "Computed 3D illustration \u2022 not filmed"),
+    "sentence_5_part0": ("STRUCTURE",),
+    "sentence_5_part1": ("HUMAN EXPERIENCE",),
+    "source_hold": ("7-OH \u2022 CID 44301524",
+                    "Mitragynine \u2022 CID 3034396",
+                    "CID = compound record number"),
+    "sentence_6": ("Look closer.", "Computed detail", "Hydrogens omitted"),
+}
+
+
+def ocr_words(text):
+    return re.findall(r"[a-z0-9]+", text.casefold()) if isinstance(text, str) else []
+
+
+def validate_exact_film_ocr_join(proof, ink, plan, *, film_sha, plan_sha):
+    """Reject falsely imported 48-sample OCR receipts for this exact film.
+
+    The verdict is provenance + machine-readable lexical comparison only.
+    It does NOT rerun Tesseract, inspect phone pixels, or approve publishing.
+    """
+    if not isinstance(proof, dict) or proof.get("schema") != "ths-lane4-actual-decoded-ocr-research-v1":
+        hold("UNSUPPORTED_ACTUAL_GLYPH_OCR_SCHEMA")
+    if proof.get("movieSha256") != film_sha or proof.get("phonePlanSha256") != plan_sha:
+        hold("GLYPH_OCR_DIFFERENT_FILM_OR_PLAN")
+    for k in ("mayPublish", "physicalHandsetApproved", "viewerComprehensionApproved",
+              "scienceApproved", "filmExcellentApproved"):
+        if proof.get(k) is not False:
+            hold("GLYPH_OCR_FORGED_APPROVAL")
+    if (type(proof.get("framesPhysicallyExtracted")) is not int or
+        proof["framesPhysicallyExtracted"] != 27 or
+        type(proof.get("labelInstancesTested")) is not int or
+        proof["labelInstancesTested"] != 48 or
+        type(proof.get("wordSequenceRecovered")) is not int or
+        proof["wordSequenceRecovered"] != 48 or
+        proof.get("allThreePhasesLexicallyRecovered") is not True or
+        not isinstance(proof.get("ocrEngineVersion"), str) or
+        not proof["ocrEngineVersion"].startswith("tesseract ")):
+        hold("GLYPH_OCR_INCOMPLETE_MACHINE_PROOF")
+    if (not isinstance(ink, dict) or
+        ink.get("schema") != "ths-lane4-timed-variant-ink-probe-research-v1"):
+        hold("TIMED_INK_PROOF_REQUIRED_FOR_OCR_JOIN")
+    sample_list = ink.get("actualEncodedSamples")
+    if not isinstance(sample_list, list) or len(sample_list) != 27:
+        hold("TIMED_INK_PROOF_REQUIRED_FOR_OCR_JOIN")
+    sample_indices = {}
+    for item in sample_list:
+        if not isinstance(item, dict) or type(item.get("index")) is not int:
+            hold("INVALID_REAL_FRAME_SAMPLE_FOR_OCR")
+        key = (item.get("shot"), item.get("phase"))
+        if key in sample_indices:
+            hold("DUPLICATE_REAL_FRAME_SAMPLE_FOR_OCR")
+        sample_indices[key] = item["index"]
+    if len(sample_indices) != 27:
+        hold("TIMED_INK_PROOF_REQUIRED_FOR_OCR_JOIN")
+    if not isinstance(plan, dict) or not isinstance(plan.get("shots"), list):
+        hold("ACTUAL_OCR_PHONE_PLAN_REQUIRED")
+    by_scene = {s.get("id"): s for s in plan["shots"] if isinstance(s, dict)}
+    if set(by_scene) != set(OCR_SOURCE_LABELS) or len(plan["shots"]) != 9:
+        hold("NINE_ACTUAL_OCR_SCENES_REQUIRED")
+    expected = {}
+    for scene, terms in OCR_SOURCE_LABELS.items():
+        annotations = by_scene[scene].get("annotations")
+        if not isinstance(annotations, list):
+            hold("ACTUAL_OCR_SOURCE_ANNOTATIONS_REQUIRED")
+        for term in terms:
+            matches = [a for a in annotations if isinstance(a, dict) and
+                       a.get("role") in ("hook", "science", "disclosure", "source")
+                       and ocr_words(a.get("text")) == ocr_words(term)]
+            if len(matches) != 1:
+                hold("GLYPH_OCR_RECORDED_SOURCE_WORDS_CHANGED")
+            for phase in ("early", "middle", "late"):
+                expected[(scene, term, phase)] = sample_indices.get((scene, phase))
+    rows = proof.get("observations")
+    if not isinstance(rows, list) or len(rows) != 48:
+        hold("FORTY_EIGHT_REAL_OCR_ROWS_REQUIRED")
+    seen = set()
+    for row in rows:
+        if not isinstance(row, dict) or not isinstance(row.get("expected"), str):
+            hold("INVALID_ACTUAL_OCR_ROW")
+        scene, term, phase = row.get("scene"), row.get("expected"), row.get("phase")
+        key = (scene, term, phase)
+        if key not in expected or key in seen:
+            hold("GLYPH_OCR_UNKNOWN_OR_DUPLICATE_LABEL")
+        seen.add(key)
+        if (type(row.get("frameIndex")) is not int or
+            row["frameIndex"] != expected[key]):
+            hold("GLYPH_OCR_WRONG_DECODED_FRAME")
+        if (row.get("wordSequenceRecovered") is not True or
+            row.get("expectedTokens") != ocr_words(term) or
+            row.get("recognizedTokens") != ocr_words(row.get("recognized")) or
+            row["recognizedTokens"] != ocr_words(term)):
+            hold("GLYPH_OCR_WORDS_NOT_RECOVERED")
+        if not is_hash(row.get("cropSha256")):
+            hold("GLYPH_OCR_CROP_PROVENANCE_MISSING")
+    if set(expected) != seen:
+        hold("GLYPH_OCR_INCOMPLETE_LABEL_PHASE_COVERAGE")
+    return {
+        "status": "EXACT_FILM_OCR_LEXICAL_PROVENANCE_RESEARCH_ONLY",
+        "filmSha256": film_sha, "phonePlanSha256": plan_sha,
+        "observationsClaimed": 48, "labelsClaimed": 16, "scenesClaimed": 9,
+        "ocrRerunByThisJoin": False, "exactPunctuationVerified": False,
+        "physicalHandsetVerified": False, "viewerComprehensionApproved": False,
+        "sourceScienceApproved": False, "mayPublish": False,
+    }
+
+
+
 def probe_movie(movie):
     cmd = ["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
            "stream=width,height,avg_frame_rate", "-show_entries", "format=duration",
@@ -398,10 +513,13 @@ def decoded_overlay(movie, frame_index, shot, destination, width, height):
     if not destination.is_file() or destination.stat().st_size == 0:
         hold("REAL_FRAME_EXTRACTION_FAILED")
 
-def audit(movie, manifest, output, ink_receipt=None):
+def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
     movie, manifest, output = Path(movie), Path(manifest), Path(output)
     ink_receipt = Path(ink_receipt) if ink_receipt is not None else None
-    sources = (movie, manifest) + ((ink_receipt,) if ink_receipt is not None else ())
+    glyph_receipt = Path(glyph_receipt) if glyph_receipt is not None else None
+    if glyph_receipt is not None and ink_receipt is None:
+        hold("TIMED_INK_PROOF_REQUIRED_FOR_OCR_JOIN")
+    sources = (movie, manifest) + ((ink_receipt,) if ink_receipt is not None else ()) + ((glyph_receipt,) if glyph_receipt is not None else ())
     report_path = output / "research-report.json"
     # A caller can put its input manifest/movie at this same path, including
     # through a symlink or .. alias. Never unlink a source while invalidating
@@ -430,13 +548,22 @@ def audit(movie, manifest, output, ink_receipt=None):
     manifest_hash = hashlib.sha256(manifest_bytes).hexdigest()
     movie_hash = sha256_file(movie)
     linked_ink = None
+    linked_glyph = None
     ink_hash = None
+    glyph_hash = None
+    ink_data = None
     if ink_receipt is not None:
         ink_bytes = ink_receipt.read_bytes()
         ink_hash = hashlib.sha256(ink_bytes).hexdigest()
+        ink_data = json.loads(ink_bytes.decode("utf-8"))
         linked_ink = validate_critical_ink_receipt_join(
-            json.loads(ink_bytes.decode("utf-8")), film_sha=movie_hash,
-            plan_sha=manifest_hash)
+            ink_data, film_sha=movie_hash, plan_sha=manifest_hash)
+    if glyph_receipt is not None:
+        glyph_bytes = glyph_receipt.read_bytes()
+        glyph_hash = hashlib.sha256(glyph_bytes).hexdigest()
+        linked_glyph = validate_exact_film_ocr_join(
+            json.loads(glyph_bytes.decode("utf-8")), ink_data, plan,
+            film_sha=movie_hash, plan_sha=manifest_hash)
     width, height, duration, decoded_count = probe_movie(movie)
     receipt = validate_manifest(plan, width=width, height=height,
                                 duration=duration, actual_sha=movie_hash)
@@ -481,8 +608,12 @@ def audit(movie, manifest, output, ink_receipt=None):
             hold("SOURCE_MANIFEST_CHANGED_DURING_AUDIT")
         if ink_receipt is not None and sha256_file(ink_receipt) != ink_hash:
             hold("SOURCE_INK_RECEIPT_CHANGED_DURING_AUDIT")
+        if glyph_receipt is not None and sha256_file(glyph_receipt) != glyph_hash:
+            hold("SOURCE_GLYPH_RECEIPT_CHANGED_DURING_AUDIT")
         if linked_ink is not None:
             receipt["linkedCriticalTextProxy"] = linked_ink
+        if linked_glyph is not None:
+            receipt["linkedCriticalTextOCR"] = linked_glyph
         receipt.update({"videoSha256": movie_hash, "manifestSha256": manifest_hash,
                         "videoResolution": [width, height], "durationSec": duration,
                         "decodedFrameCount": decoded_count,
@@ -509,10 +640,13 @@ if __name__ == "__main__":
     parser.add_argument("--output", required=True)
     parser.add_argument("--ink-receipt", default=None,
                         help="Optional exact-film 27-sample research ink proxy; no approval")
+    parser.add_argument("--glyph-receipt", default=None,
+                        help="Optional exact-film 48-observation OCR receipt, requires ink; no approval")
     args = parser.parse_args()
     try:
         print(json.dumps(audit(args.movie, args.manifest, args.output,
-                               ink_receipt=args.ink_receipt), indent=2))
+                               ink_receipt=args.ink_receipt,
+                               glyph_receipt=args.glyph_receipt), indent=2))
     except (ValueError, OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired,
             KeyError, IndexError, TypeError) as error:
         raise SystemExit("PHONE_UI_HOLD:" + str(error)) from error
