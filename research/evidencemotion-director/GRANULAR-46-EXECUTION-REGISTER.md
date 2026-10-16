@@ -124,9 +124,9 @@
 
 ### EM-007 — Primary-source claim and visual audit
 
-**Canonical state (2026-10-15):** OPEN. **Child evidence audit:** NOT_AUDITED (8 subtasks). **Owning source:** [canonical #7](COMPLETION-CHECKLIST.md).
+**Canonical state:** OPEN. **Child evidence audit:** 1/8 inventory proofs DONE; scientific acceptance remains OPEN. [EM-007.01 receipt](EM00701-ATOMIC-SPOKEN-INVENTORY-20261016.md). **Owning source:** [canonical #7](COMPLETION-CHECKLIST.md).
 
-- [ ] **EM-007.01** Enumerate every spoken assertion and qualifier, word by word — **Pass/receipt:** frozen claim ledger
+- [x] **EM-007.01** Enumerate every spoken assertion and qualifier, word by word — **Pass/receipt:** frozen claim ledger
 - [ ] **EM-007.02** Extract text, implied effects, labels and diagrams from each exact scene — **Pass/receipt:** visual-claim ledger
 - [ ] **EM-007.03** Attach retrievable primary-source and study-context IDs to every material claim — **Pass/receipt:** no orphan claim
 - [ ] **EM-007.04** Record null, conflicting and absent-human evidence separately from mechanism/speculation — **Pass/receipt:** uncertainty ledger
