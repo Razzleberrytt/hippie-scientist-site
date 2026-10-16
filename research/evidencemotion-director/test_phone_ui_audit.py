@@ -342,7 +342,7 @@ class MobileAuditContract(unittest.TestCase):
             self.check(fixture(), size=(540, 960))
 
 
-def create_directory_alias_for_test(alias, target):
+def create_directory_alias_for_test(alias, target, *, platform=None):
     """Exercise the real alias guard on Windows without symlink privilege.
 
     Native directory symlinks remain the primary case. Hosted Windows
@@ -351,10 +351,12 @@ def create_directory_alias_for_test(alias, target):
     Never skip the safety assertion: a fallback must resolve to the SAME
     directory or the test fails before invoking the audited operation.
     """
+    if platform is None:
+        platform = sys.platform
     try:
         alias.symlink_to(target, target_is_directory=True)
     except OSError as exc:
-        if (sys.platform != "win32" or
+        if (platform != "win32" or
                 getattr(exc, "winerror", None) not in (5, 1314)):
             raise
         subprocess.run(
@@ -363,6 +365,42 @@ def create_directory_alias_for_test(alias, target):
     if not alias.is_dir() or alias.resolve() != target.resolve():
         raise AssertionError("DIRECTORY_ALIAS_SETUP_FAILED")
 
+
+
+class DirectoryAliasSetupContract(unittest.TestCase):
+    def test_windows_privilege_denial_invokes_junction_not_skip(self):
+        # Control-flow test only; two following real path-alias tests must
+        # exercise the actual junction on a Windows runner. Never call this
+        # simulation real Windows junction or actual filesystem proof.
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            target = root / "inputs"
+            target.mkdir()
+            alias = root / "alias"
+            denied = PermissionError("symbolic-link privilege absent")
+            denied.winerror = 1314
+            with (patch.object(Path, "symlink_to", side_effect=denied),
+                  patch("test_phone_ui_audit.subprocess.run") as mklink,
+                  patch.object(Path, "is_dir", return_value=True),
+                  patch.object(Path, "resolve", return_value=target)):
+                create_directory_alias_for_test(alias, target, platform="win32")
+            self.assertEqual(
+                mklink.call_args.args[0],
+                ["cmd", "/c", "mklink", "/J", str(alias), str(target)])
+            self.assertTrue(mklink.call_args.kwargs["check"])
+
+    def test_unrelated_symlink_error_is_not_bypassed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            target = root / "inputs"
+            target.mkdir()
+            alias = root / "alias"
+            error = OSError("not a permission denial")
+            with (patch.object(Path, "symlink_to", side_effect=error),
+                  patch("test_phone_ui_audit.subprocess.run") as mklink):
+                with self.assertRaisesRegex(OSError, "not a permission denial"):
+                    create_directory_alias_for_test(alias, target, platform="win32")
+            mklink.assert_not_called()
 
 
 class ReportOutputAliasSafety(unittest.TestCase):
