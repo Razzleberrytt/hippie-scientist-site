@@ -2,7 +2,7 @@
   "schema": "ths-atomic-workcard-proof-ledger-v1",
   "recordedDate": "2026-10-16",
   "authoritativePlanningIndex": "https://github.com/Razzleberrytt/hippie-scientist-site/blob/main/research/evidencemotion-director/ATOMIC-EXECUTION-INDEX.md",
-  "note": "Research-only bounded proof ledger: 14 named, individually evidenced machine source groups including three actual hosted CPU runs. This is not blanket canonical milestone, phone, reviewer, craft or final-render acceptance.",
+  "note": "Research-only bounded proof ledger: 15 machine-audited evidence groups, including three dated hosted CPU jobs and a separately audited actual CPU-only decoded MP4 candidate. Not canonical milestone, human science, phone, premium film or release acceptance.",
   "denominator": 1590,
   "inheritedMappedToAcceptedFoundationsNotIndividuallyAudited": 707,
   "status": "PROVISIONAL_COVERAGE_NOT_FINAL_ACCEPTANCE",
@@ -187,11 +187,23 @@
         "EM-001.01.T",
         "EM-001.01.R"
       ]
+    },
+    {
+      "group": "EM-001.02",
+      "source": "EM00102-CPU-ONLY-PLAYABLE-ARTIFACT-20261016.md",
+      "cards": [
+        "EM-001.02.U",
+        "EM-001.02.S",
+        "EM-001.02.O",
+        "EM-001.02.X",
+        "EM-001.02.T",
+        "EM-001.02.R"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 95,
-  "provisionalCoverageCardCount": 802,
-  "provisionalCoveragePercent": 50.4403,
+  "individualMachineVerifiedResearchCardCount": 101,
+  "provisionalCoverageCardCount": 808,
+  "provisionalCoveragePercent": 50.8176,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }
