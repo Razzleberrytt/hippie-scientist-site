@@ -2,6 +2,7 @@
 import copy
 import hashlib
 import json
+from decimal import Decimal
 from pathlib import Path
 import subprocess
 import sys
@@ -9,7 +10,7 @@ import tempfile
 import unittest
 
 sys.path.insert(0, str(Path(__file__).parent))
-from phone_ui_audit import audit, validate_manifest
+from phone_ui_audit import audit, validate_manifest, verify_decoded_shot_coverage
 
 H = "a" * 64
 
@@ -30,6 +31,11 @@ class MobileAuditContract(unittest.TestCase):
     def check(self, plan, *, sha=H, size=(1080, 1920), duration=3.):
         return validate_manifest(plan, width=size[0], height=size[1], duration=duration, actual_sha=sha)
 
+    def test_single_actual_frame_can_cover_a_short_shot(self):
+        stamps = [Decimal("0"), Decimal("1.0"), Decimal("1.033333")]
+        shots = [{"id": "short", "startSec": 1.0, "endSec": 1.008}]
+        self.assertIsNone(verify_decoded_shot_coverage(stamps, shots))
+
     def test_good_research_metadata_does_not_publish(self):
         receipt = self.check(fixture())
         self.assertEqual(receipt["status"], "OVERLAY_PREFLIGHT_PASS_REVIEW_REQUIRED")
@@ -46,6 +52,40 @@ class MobileAuditContract(unittest.TestCase):
         m["shots"][0]["endSec"] = 2.6
         with self.assertRaisesRegex(ValueError, "INCOMPLETE_FILM_COVERAGE"):
             self.check(m)
+
+    def test_missing_native_frame_between_shots_is_rejected(self):
+        m = fixture()
+        m["shots"][0]["endSec"] = 1.0
+        m["shots"].append({
+            "id": "followup", "startSec": 1.04, "endSec": 3.0,
+            "assetKind": "editorial",
+            "annotations": [{"role": "caption", "text": "Follow-up explanation",
+                             "fontPx": 40, "boxPx": [100, 250, 700, 350]}],
+        })
+        # Prior 50-ms tolerance accepted a >1-frame gap at native 30 fps.
+        with self.assertRaisesRegex(ValueError, "NONCONTIGUOUS_SHOT_TIMELINE"):
+            self.check(m)
+
+    def test_short_tail_or_overrun_is_not_complete_movie_coverage(self):
+        for end, expected in [(2.92, "INCOMPLETE_FILM_COVERAGE"),
+                              (3.04, "NONCONTIGUOUS_SHOT_TIMELINE")]:
+            with self.subTest(endSec=end):
+                m = fixture()
+                m["shots"][0]["endSec"] = end
+                # Prior 100-ms tail slack or 50-ms overrun slack falsely passed.
+                with self.assertRaisesRegex(ValueError, expected):
+                    self.check(m)
+
+    def test_sub_millisecond_annotation_rounding_is_tolerated(self):
+        m = fixture()
+        m["shots"][0]["endSec"] = 1.0
+        m["shots"].append({
+            "id": "followup", "startSec": 1.0005, "endSec": 3.0,
+            "assetKind": "editorial",
+            "annotations": [{"role": "caption", "text": "Continues on time",
+                             "fontPx": 40, "boxPx": [100, 250, 700, 350]}],
+        })
+        self.assertEqual(self.check(m)["status"], "OVERLAY_PREFLIGHT_PASS_REVIEW_REQUIRED")
 
     def test_duplicate_and_unsafe_shot_id(self):
         m = fixture()
@@ -201,6 +241,26 @@ class ActualFilmSmoke(unittest.TestCase):
             self.assertGreater(png.stat().st_size, 1000)
             self.assertEqual(receipt["decodedOverlayFrames"][0]["frameSha256"], hashlib.sha256(png.read_bytes()).hexdigest())
             self.assertFalse(json.loads((root / "frames" / "research-report.json").read_text())["mayPublish"])
+            # The full 30fps PTS grid can be valid while an authored micro-shot
+            # (1.001–1.003s) contains ZERO actual presented video frames.
+            # Previous metadata-only validation falsely accepted this scene.
+            opening = m["shots"][0]
+            opening["endSec"] = 1.001
+            m["shots"] += [
+                {"id": "phantom", "startSec": 1.001, "endSec": 1.003,
+                 "assetKind": "editorial",
+                 "annotations": [{"role": "caption", "text": "Unshown scientific claim",
+                                  "fontPx": 40, "boxPx": [100, 250, 700, 350]}]},
+                {"id": "ending", "startSec": 1.003, "endSec": 3.0,
+                 "assetKind": "editorial",
+                 "annotations": [{"role": "caption", "text": "Closing explanation",
+                                  "fontPx": 40, "boxPx": [100, 250, 700, 350]}]},
+            ]
+            plan.write_text(json.dumps(m))
+            with self.assertRaisesRegex(ValueError, "SHOT_WITHOUT_PRESENTED_FRAME:phantom"):
+                audit(movie, plan, root / "frames")
+            self.assertFalse((root / "frames" / "research-report.json").exists(),
+                             "No stale PASS receipt may survive a phantom-shot rejection")
 
 if __name__ == "__main__":
     unittest.main()

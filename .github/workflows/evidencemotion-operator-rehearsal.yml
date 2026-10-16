@@ -20,6 +20,10 @@ jobs:
           set -euo pipefail
           python3 -m py_compile research/evidencemotion-director/operator_evidence_rehearsal.py
           python3 -m unittest discover -s research/evidencemotion-director -p 'test_operator_evidence_rehearsal.py' -v
+      - name: Reject forged five-render first-attempt streaks (research only)
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_five_render_attempt_guard.py' -v
       - name: Ensure no production publishing privileges are implied
         run: |
           set -euo pipefail
