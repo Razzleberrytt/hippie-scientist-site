@@ -1,6 +1,9 @@
 name: EvidenceMotion offline operator rehearsal tests
 on:
   pull_request:
+    # Fast research guard suite runs on pushes; full native A/B source renders
+    # require a deliberate controller label event, not every commit.
+    types: [opened, synchronize, reopened, labeled]
     paths:
       - 'research/evidencemotion-director/operator_evidence_rehearsal.py'
       - 'research/evidencemotion-director/test_operator_evidence_rehearsal.py'
@@ -91,7 +94,10 @@ jobs:
 
   archived-eight-frame-native-source-pixel-replay:
     # Bounded real original-source physical probe, NEVER publish or promote.
-    if: github.event.pull_request.number == 6846
+    # Explicit authorized-on-repo label action is required for costly source
+    # staging and native replay; a persistent label does not re-run on push.
+    # No publication or D/R/A admission is implied by scheduling research.
+    if: github.event.pull_request.number == 6846 && github.event.action == 'labeled' && github.event.label.name == 'em-lane5-native-replay-admitted'
     runs-on: ubuntu-latest
     timeout-minutes: 14
     steps:
