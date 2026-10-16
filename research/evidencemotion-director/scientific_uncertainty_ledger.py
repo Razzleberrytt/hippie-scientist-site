@@ -61,6 +61,30 @@ CONFLICT_STATUS = "UNASSESSED_NO_SYSTEMATIC_CONFLICT_ASSESSMENT"
 HUMAN_STATUS = "HUMAN_OUTCOME_DATA_NOT_SUPPLIED_IN_THIS_SOURCE_PACK"
 MECHANISM_STATUS = "CHEMICAL_AND_COMPUTED_MEDIA_DO_NOT_PROVE_BIOLOGICAL_MECHANISM"
 
+# Independent early-stage ceiling: a newly rehashed source-join JSON must not
+# smuggle human/clinical claims into otherwise nonclinical chemistry/media
+# records. The later EM-007.05 gate enforces the same ceiling separately.
+SOURCE_RECORD_FIELDS = {
+    "pubchem:3034396": frozenset((
+        "kind", "cid", "url", "inchiKey", "formula", "recordType",
+        "studyPopulation", "measuredHumanOutcome", "permittedMeaning")),
+    "pubchem:44301524": frozenset((
+        "kind", "cid", "url", "inchiKey", "formula", "recordType",
+        "studyPopulation", "measuredHumanOutcome", "permittedMeaning")),
+    "media:render": frozenset((
+        "kind", "artifactSha256", "renderReceiptSha256", "url",
+        "studyPopulation", "measuredHumanOutcome", "permittedMeaning")),
+    "media:story": frozenset((
+        "kind", "storyMapSha256", "url",
+        "studyPopulation", "measuredHumanOutcome", "permittedMeaning")),
+}
+SOURCE_PERMITTED_MEANING = {
+    "pubchem:3034396": "mitragynine chemical identity/connectivity only",
+    "pubchem:44301524": "7-hydroxymitragynine identity, O-H, connectivity only",
+    "media:render": "film is computed structure artwork, not receptor footage",
+    "media:story": "source-locked shot annotations and limits only",
+}
+
 def hold(code):
     raise ValueError("EM00704_UNCERTAINTY_HOLD:" + code)
 
@@ -101,6 +125,21 @@ def classify(join, *, source_sha):
         "pubchem:3034396", "pubchem:44301524", "media:render", "media:story"
     }:
         hold("EXACT_SOURCE_PACK_REQUIRED")
+    for ident, expected_fields in SOURCE_RECORD_FIELDS.items():
+        record = sources[ident]
+        if (not isinstance(record, dict)
+            or set(record) != expected_fields
+            or record.get("permittedMeaning") != SOURCE_PERMITTED_MEANING[ident]):
+            hold("NONCLINICAL_SOURCE_SCHEMA_OR_MEANING_DRIFT:" + ident)
+    for ident in ("pubchem:3034396", "pubchem:44301524"):
+        record = sources[ident]
+        if (not isinstance(record.get("formula"), str) or not record["formula"].strip()):
+            hold("CHEMICAL_FORMULA_IDENTITY_MISSING:" + ident)
+    if (sources["media:render"].get("url") is not None
+        or sources["media:story"].get("url") is not None):
+        hold("COMPUTED_MEDIA_CANNOT_POSE_AS_EXTERNAL_STUDY")
+    if not is_hash(sources["media:render"].get("renderReceiptSha256")):
+        hold("RENDER_RECEIPT_IDENTITY_MISSING")
     for ident, cid in (("pubchem:3034396", 3034396),
                        ("pubchem:44301524", 44301524)):
         record = sources[ident]

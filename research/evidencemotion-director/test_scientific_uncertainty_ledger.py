@@ -18,7 +18,11 @@ def fixture():
         "url":f"https://pubchem.ncbi.nlm.nih.gov/compound/{cid}",
         "inchiKey":"CHEMISTRY-SOURCE-TEST-ONLY",
         "recordType":"COMPUTED_STRUCTURE_DESCRIPTOR",
-        "studyPopulation":None,"measuredHumanOutcome":None,
+        "formula":"SYNTHETIC_TEST_FORMULA", "studyPopulation":None,
+        "measuredHumanOutcome":None,
+        "permittedMeaning":("mitragynine chemical identity/connectivity only"
+            if cid == 3034396 else
+            "7-hydroxymitragynine identity, O-H, connectivity only"),
     }
     return {
         "schema":"ths-em00703-source-context-join-v1","task":"EM-007.03",
@@ -33,11 +37,14 @@ def fixture():
             "pubchem:3034396":chemical(3034396),
             "pubchem:44301524":chemical(44301524),
             "media:render":{"kind":"SOURCE_FILM_ATTESTATION",
-                "artifactSha256":H("c"),"studyPopulation":None,
-                "measuredHumanOutcome":None},
+                "artifactSha256":H("c"),"renderReceiptSha256":H("f"),
+                "url":None, "studyPopulation":None,
+                "measuredHumanOutcome":None,
+                "permittedMeaning":"film is computed structure artwork, not receptor footage"},
             "media:story":{"kind":"SOURCE_SHOT_STORY_MAP",
-                "storyMapSha256":H("d"),"studyPopulation":None,
-                "measuredHumanOutcome":None},
+                "storyMapSha256":H("d"),"url":None,
+                "studyPopulation":None, "measuredHumanOutcome":None,
+                "permittedMeaning":"source-locked shot annotations and limits only"},
         },
         "claims":[{
             "claimId":f"spoken-{i+1:03d}","claimType":KINDS[i],
@@ -129,6 +136,41 @@ class UncertaintyLedgerContracts(unittest.TestCase):
         self.join=fixture()
         self.join["sources"]["pubchem:3034396"]["measuredHumanOutcome"]="proven cure"
         with self.assertRaisesRegex(ValueError,"CHEMICAL_RECORD"):
+            self.inspect()
+
+    def test_extra_clinical_and_unknown_fields_rejected_at_first_report(self):
+        # EM-007.04, not just downstream EM-007.05, must fail closed.
+        for sid, field, value in (
+            ("pubchem:44301524", "humanEffectiveDoseMg", 15),
+            ("pubchem:3034396", "clinicalTrial", {"n": 40}),
+            ("media:render", "receptorBindingObserved", True),
+            ("media:story", "unknownConfidence", 1.0),
+        ):
+            self.join=fixture()
+            self.join["sources"][sid][field]=value
+            with self.subTest(source=sid,field=field), self.assertRaisesRegex(
+                    ValueError,"NONCLINICAL_SOURCE_SCHEMA_OR_MEANING_DRIFT"):
+                self.inspect()
+
+    def test_rehashed_source_meaning_and_missing_fields_rejected(self):
+        for sid, claim in (
+            ("pubchem:3034396","human clinical efficacy proven"),
+            ("pubchem:44301524","7-OH safe for human dosing"),
+            ("media:render","actual filmed receptor binding"),
+            ("media:story","clinical outcome explained"),
+        ):
+            self.join=fixture()
+            self.join["sources"][sid]["permittedMeaning"]=claim
+            with self.subTest(source=sid), self.assertRaisesRegex(
+                    ValueError,"NONCLINICAL_SOURCE_SCHEMA_OR_MEANING_DRIFT"):
+                self.inspect()
+        self.join=fixture()
+        del self.join["sources"]["media:render"]["renderReceiptSha256"]
+        with self.assertRaisesRegex(ValueError,"NONCLINICAL_SOURCE_SCHEMA_OR_MEANING_DRIFT"):
+            self.inspect()
+        self.join=fixture()
+        self.join["sources"]["media:render"]["url"]="https://example.test/fake-study"
+        with self.assertRaisesRegex(ValueError,"COMPUTED_MEDIA_CANNOT_POSE_AS_EXTERNAL_STUDY"):
             self.inspect()
 
     def test_false_release_or_fabricated_pubmed_is_hold(self):
