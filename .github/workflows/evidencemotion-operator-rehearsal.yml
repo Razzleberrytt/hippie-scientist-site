@@ -14,6 +14,9 @@ on:
       - 'research/evidencemotion-director/test_native_stdin_capture_guard.py'
       - 'research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md'
       - '.github/workflows/evidencemotion-operator-rehearsal.yml'
+concurrency:
+  group: evidencemotion-operator-rehearsal-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 permissions:
   contents: read
   actions: read
