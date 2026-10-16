@@ -96,13 +96,31 @@ jobs:
             kaldi=*=cpu* pytorch=*=cpu*
           cache-environment: true
       - name: Restore original WAV, brief and immutable official MFA model bytes
+        id: original_source_restore
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/ths-mfa/source" "$RUNNER_TEMP/ths-mfa/models"
-          gh run download 38417454106 --repo "$GITHUB_REPOSITORY" --name ths-kokoro-narration --dir "$RUNNER_TEMP/ths-mfa/source"
+          # Capture both streams: the failed GitHub artifact redirect may include
+          # a temporary signed download URL. Never publish those query tokens.
+          source_log="$RUNNER_TEMP/ths-mfa/source-download-private.log"
+          if ! gh run download 38417454106 --repo "$GITHUB_REPOSITORY" --name ths-kokoro-narration --dir "$RUNNER_TEMP/ths-mfa/source" >"$source_log" 2>&1; then
+            if grep -Fq 'Egress is over the account limit' "$source_log"; then
+              echo "::error title=EXTERNAL_EGRESS_QUOTA_BLOCK::GitHub Actions artifact transfer quota exhausted; original WAV unavailable to this runner. Science and render remain HOLD. Do not rerun until quota access is restored or an approved pinned-source route exists."
+            else
+              echo "::error title=PINNED_SOURCE_DOWNLOAD_HOLD::First-party original-WAV artifact unavailable; source, science, and render remain HOLD. Artifact stdout/stderr withheld because it can contain signed URLs."
+            fi
+            rm -f "$source_log"
+            exit 2
+          fi
+          rm -f "$source_log"
+          original_wav="$(find "$RUNNER_TEMP/ths-mfa/source" -type f -name narration.wav -print -quit)"
+          if [ -z "$original_wav" ] || [ ! -f "$original_wav" ] || [ "$(sha256sum "$original_wav" | cut -d' ' -f1)" != '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435' ]; then
+            echo "::error title=PINNED_SOURCE_IDENTITY_HOLD::Restored original WAV is missing or has a wrong digest; science and render remain HOLD."
+            exit 2
+          fi
           cd "$RUNNER_TEMP/ths-mfa/models"
           curl --fail --location --retry 2 -o english_us_arpa.dict https://github.com/MontrealCorpusTools/mfa-models/releases/download/dictionary-english_us_arpa-v3.0.0/english_us_arpa.dict
           curl --fail --location --retry 2 -o acoustic.zip https://github.com/MontrealCorpusTools/mfa-models/releases/download/acoustic-english_us_arpa-v3.0.0/english_us_arpa.zip
@@ -779,7 +797,7 @@ jobs:
           print('Exact H264 silent review packet ready with 5 blind questions, sealed key, no responses and no release approval')
           PY
       - name: Preserve actual timing evidence without source audio or model copies
-        if: always()
+        if: ${{ always() && steps.original_source_restore.conclusion == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: evidencemotion-original-wav-mfa-acoustic-candidate
@@ -917,9 +935,19 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/ths-7oh-asr/voice"
-          gh run download 38417454106 --repo "$GITHUB_REPOSITORY" \
-            --name ths-kokoro-narration \
-            --dir "$RUNNER_TEMP/ths-7oh-asr/voice"
+          asr_source_log="$RUNNER_TEMP/ths-7oh-asr/source-download-private.log"
+          if ! gh run download 38417454106 --repo "$GITHUB_REPOSITORY" \
+              --name ths-kokoro-narration \
+              --dir "$RUNNER_TEMP/ths-7oh-asr/voice" >"$asr_source_log" 2>&1; then
+            if grep -Fq 'Egress is over the account limit' "$asr_source_log"; then
+              echo "::error title=EXTERNAL_EGRESS_QUOTA_BLOCK::GitHub Actions artifact transfer quota exhausted; ASR source is not available. Phonetic approval remains HOLD."
+            else
+              echo "::error title=PINNED_SOURCE_DOWNLOAD_HOLD::ASR source artifact unavailable. Do not display original redirect error containing signed URLs."
+            fi
+            rm -f "$asr_source_log"
+            exit 2
+          fi
+          rm -f "$asr_source_log"
           find "$RUNNER_TEMP/ths-7oh-asr/voice" -type f -maxdepth 3 -print
           WAV="$(find "$RUNNER_TEMP/ths-7oh-asr/voice" -type f -name '*.wav' | head -n 1)"
           test -n "$WAV"
