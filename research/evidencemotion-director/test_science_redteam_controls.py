@@ -156,6 +156,39 @@ class ScienceAdversarialMatrix(unittest.TestCase):
         self.assertFalse(report["clinicalSourceClaimsApproved"])
         self.assertFalse(report["claims"][0]["sourceLinksSupportClinicalEffect"])
 
+    def test_em008_unverified_botanical_absence_phrases_fail_closed(self):
+        # Rehashed visual metadata is not an assay. Both positive and
+        # *negative* botanical-content claims demand actual evidence.
+        for text in (
+            "Kratom leaf is 7-OH-free",
+            "Raw kratom leaves are free of 7-hydroxymitragynine",
+            "No 7-OH in kratom leaves",
+            "Leaf powder lacks 7OH",
+            "7-hydroxymitragynine is undetectable in kratom extract",
+            "Kratom plants without 7-OH",
+            "Kratom 7-OH-free illustration; not proof",
+        ):
+            with self.subTest(text=text):
+                self.setUp()
+                self.visual["rows"][0]["emittedSourceAnnotations"]["science"]=[text]
+                with self.assertRaisesRegex(ValueError, "UNVERIFIED_BOTANICAL_7OH_CONTENT"):
+                    self.source_join()
+
+    def test_em008_negated_content_split_across_shots_is_not_a_disclosure(self):
+        self.visual["rows"][0]["emittedSourceAnnotations"]["science"]=["Kratom leaf"]
+        self.visual["rows"][1]["emittedSourceAnnotations"]["science"]=["7-OH-free"]
+        with self.assertRaisesRegex(ValueError, "UNVERIFIED_BOTANICAL_7OH_CROSS_SHOT"):
+            self.source_join()
+
+    def test_em008_neutral_illustration_without_assay_claim_stays_unapproved(self):
+        self.visual["rows"][0]["emittedSourceAnnotations"]["disclosure"]=[
+            "Botanical illustration; not proof of 7-OH plant content."]
+        self.visual["rows"][1]["emittedSourceAnnotations"]["science"]=[
+            "7-OH is a chemical diagram label"]
+        receipt=self.source_join()
+        self.assertFalse(receipt["mayPublish"])
+        self.assertFalse(receipt["clinicalSourceClaimsApproved"])
+
     def test_swapped_source_join_study_identity_fails_even_with_fresh_sha(self):
         original = self.source_join()
         original["claims"][6]["humanStudyId"] = "PMID:00000000"

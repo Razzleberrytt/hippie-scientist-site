@@ -106,6 +106,18 @@ POSITIVE_CONTENT_LANGUAGE = re.compile(
     r"concentration|percent|present|absent|none|zero|rich|mg|µg|ppm)\b"
     r"|\d+(?:\.\d+)?\s*(?:%|mg|µg|ug|ppm)\b", re.I)
 
+# Negated quantity/presence is still an empirical content claim. A source
+# structure cannot establish an absence of 7-OH from a plant or product.
+# Keep the explicit illustration/no-proof exception ONLY for plain
+# disclosures with no positive OR negative assertion of measured content.
+BOTANICAL_ABSENCE_ASSERTION = re.compile(
+    r"\b(?:without|lacks?|lacking|undetectable|undetected|devoid|"
+    r"(?:not|never)\s+detected|free\s+of|free\s+from)\b"
+    r"|\bno\s+(?:detectable\s+)?7\s*[-–—‑]?\s*"
+    r"(?:OH|hydroxy\s*mitragynine)\b"
+    r"|\b7\s*[-–—‑]?\s*(?:OH|hydroxy\s*mitragynine)"
+    r"\s*[-–—‑]?\s*free\b", re.I)
+
 def asserts_unverified_botanical_7oh_content(text):
     """Flag plant/product 7-OH quantity, presence, absence or assay assertions.
 
@@ -115,8 +127,11 @@ def asserts_unverified_botanical_7oh_content(text):
     """
     if not (BOTANICAL_CONTEXT.search(text) and SEVEN_OH_REFERENCE.search(text)):
         return False
+    if BOTANICAL_ABSENCE_ASSERTION.search(text):
+        return True
     if ("illustration" in text.casefold() and "not proof" in text.casefold()
-            and not POSITIVE_CONTENT_LANGUAGE.search(text)):
+            and not POSITIVE_CONTENT_LANGUAGE.search(text)
+            and not BOTANICAL_CONTENT_ASSERTION.search(text)):
         return False
     return bool(BOTANICAL_CONTENT_ASSERTION.search(text))
 
