@@ -12,6 +12,7 @@ on:
       - 'research/evidencemotion-director/EM03412-ATOMIC-TIMED-SOUNDOFF-INSTRUMENT-20261016.md'
       - 'research/evidencemotion-director/EM00701-ATOMIC-SPOKEN-INVENTORY-20261016.md'
       - 'research/evidencemotion-director/EM01401-ORIGINAL-PCM-TERM-ISOLATION-20261016.md'
+      - 'research/evidencemotion-director/EM00702-VISUAL-CLAIM-INVENTORY-20261016.md'
       - '.github/workflows/evidencemotion-atomic-proof-ledger.yml'
   workflow_dispatch:
 permissions:
