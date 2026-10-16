@@ -417,6 +417,7 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes,
         "originalTargetInferred": False, "speakerIdentitiesAuthenticated": False,
         "referenceAnnotationsAuthenticated": False, "calibrationComplete": False,
         "originalMasterPcmContainmentScreened": False,
+        "originalMasterSignTrajectoryScreened": False,
     }
     def refuse(reason, **extras):
         return {**base, "status": "HOLD", "errors": [reason], **extras}
@@ -435,6 +436,7 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes,
     # with different chunk metadata or trailing bytes and cross the split.
     seen_ids, seen_hashes, seen_pcm_hashes, seen_polarity_signatures = set(), set(), set(), set()
     target_pcm = None
+    target_sign_trajectory = None
     if target_original_wav is not None:
         if (not isinstance(target_original_wav, bytes)
                 or digest(target_original_wav) != SOURCE_WAV_REFERENCE):
@@ -451,6 +453,13 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes,
         except (OSError, ValueError, EOFError, wave.Error):
             return refuse("REFERENCE_TARGET_ORIGINAL_WAV_UNREADABLE")
         base["originalMasterPcmContainmentScreened"] = True
+        # Conservative negative-only gain/polarity containment across the
+        # ENTIRE authenticated original narrator: one signed symbol/sample.
+        # A matching sign trajectory can also be an unrelated recording;
+        # REVIEW HOLD is deliberately not a definitive duplicate verdict.
+        target_sign_trajectory = np.sign(np.frombuffer(
+            target_pcm, dtype="<i2")).astype(np.int8).tobytes()
+        base["originalMasterSignTrajectoryScreened"] = True
     groups = {"train": {}, "test": {}}
     samples = []
     try:
@@ -498,6 +507,11 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes,
                 return refuse("REFERENCE_GAIN_OR_POLARITY_REUSED_ACROSS_RECORDINGS")
             if target_pcm is not None and target_pcm.find(pcm) != -1:
                 return refuse("REFERENCE_EXCERPT_REUSED_FROM_ORIGINAL_MASTER")
+            if target_sign_trajectory is not None:
+                symbols = np.sign(signed_pcm).astype(np.int8)
+                if (target_sign_trajectory.find(symbols.tobytes()) != -1
+                        or target_sign_trajectory.find((-symbols).tobytes()) != -1):
+                    return refuse("REFERENCE_GAIN_OR_POLARITY_EXCERPT_FROM_ORIGINAL_MASTER")
             spectral = spectral_band_trace(pcm)
             observed = groups[split].setdefault(speaker, set())
             observed.add(label)
