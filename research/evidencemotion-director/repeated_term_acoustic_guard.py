@@ -30,6 +30,8 @@ ORIGINAL_MFA_WINDOWS = {
     3: ("7-hydroxymitragynine", (16, 17)),
     4: ("mitragynine", (19,)),
 }
+POSE_ASR_RECEIPT_SHA = "87a9c5fd757f269967dfc751ea322f8b33e774b9c0a41016f94e90b6b829cdaa"
+POSE_SOURCE_CLIP_SHA = "43c010d2d0cc1a400e05423abebfb917562b2cd51ed70eb02b73b84f3493e149"
 SCHEMA = "ths-lane2-source-repeated-term-research-v1"
 
 
@@ -157,6 +159,81 @@ def compare(first, second, unrelated):
             "heuristicIsSourceSpecific":True,
             "phonesOrWordIdentityProven":False}
 
+
+
+
+def audit_pose_poles_conflict(source_raw, alignment_raw, asr_raw):
+    """Pin real pose/poles source disagreement; never select a phonetic winner."""
+    base = {"mayPublish": False, "pronunciationVerified": False,
+            "phonemeIdentityVerified": False, "wordTimingCalibrated": False,
+            "lexicalWinner": None}
+    def fail(reason):
+        return {**base, "status": "HOLD", "errors": [reason]}
+    if not all(isinstance(x, bytes) for x in (source_raw, alignment_raw, asr_raw)):
+        return fail("POSE_SOURCE_BYTES_REQUIRED")
+    if digest(source_raw) != SOURCE_WAV_REFERENCE:
+        return fail("POSE_ORIGINAL_WAV_CHANGED")
+    if digest(alignment_raw) != MFA_SOURCE_ALIGNMENT_SHA:
+        return fail("POSE_MFA_ALIGNMENT_CHANGED")
+    if digest(asr_raw) != POSE_ASR_RECEIPT_SHA:
+        return fail("POSE_ASR_RESEARCH_RECEIPT_CHANGED")
+    try:
+        alignment, asr = json.loads(alignment_raw), json.loads(asr_raw)
+        if (asr.get("sourceWavSha256") != SOURCE_WAV_REFERENCE
+                or asr.get("mayPublish") is not False
+                or alignment.get("inputSha256", {}).get("wav") != SOURCE_WAV_REFERENCE
+                or alignment.get("pronunciationVerified") is not False
+                or alignment.get("mayPublish") is not False):
+            return fail("POSE_SOURCE_OR_AUTHORITY_INCONSISTENT")
+        forced, guessed = alignment["wordAlignment"][37], asr["recognizedWords"][35]
+        if (forced["word"] != "pose"
+                or guessed["word"].strip().casefold() != "poles"
+                or [p["phone"] for p in forced["phones"]] != ["P", "OW1", "Z"]
+                or abs(forced["startMs"] - 17870.001) > .01
+                or abs(forced["endMs"] - 18340) > .01
+                or abs(guessed["start"] - 17.8) > .001
+                or abs(guessed["end"] - 18.34) > .001
+                or abs(guessed["probability"] - .9489) > .00001):
+            return fail("POSE_MFA_ASR_CANDIDATES_CHANGED")
+        with wave.open(io.BytesIO(source_raw), "rb") as src:
+            if (src.getnchannels(), src.getsampwidth(), src.getframerate(),
+                    src.getcomptype()) != (1, 2, 24000, "NONE"):
+                return fail("POSE_SOURCE_WAV_FORMAT_INVALID")
+            pcm = src.readframes(src.getnframes())
+        clip = pcm[round(forced["startMs"]*24)*2:round(forced["endMs"]*24)*2]
+        buf = io.BytesIO()
+        with wave.open(buf, "wb") as out:
+            out.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            out.writeframes(clip)
+        if len(clip) != 22560 or digest(buf.getvalue()) != POSE_SOURCE_CLIP_SHA:
+            return fail("POSE_EXACT_SOURCE_PCM_CHANGED")
+        return {**base, "schema": SCHEMA,
+                "status": "RESEARCH_LEXICAL_DISAGREEMENT_REVIEW_HOLD",
+                "sourceWavSha256": SOURCE_WAV_REFERENCE,
+                "alignmentSha256": MFA_SOURCE_ALIGNMENT_SHA,
+                "asrReceiptSha256": POSE_ASR_RECEIPT_SHA,
+                "sourcePoseClipSha256": POSE_SOURCE_CLIP_SHA,
+                "forcedAlignmentWordHypothesis": "pose",
+                "asrWordHypothesis": "poles",
+                "asrProbabilityNotPhoneticProof": guessed["probability"],
+                "forcedPhoneLabelsNotObservedPhoneticTruth": ["P", "OW1", "Z"],
+                "frozenSourceWindowMs": [forced["startMs"], forced["endMs"]],
+                "originalSourceSamples": 11280,
+                "caution": "Both spellings remain unverified: forced phones assume script, and ASR confidence is not ground truth."}
+    except (ValueError, TypeError, IndexError, KeyError, EOFError, OSError, wave.Error):
+        return fail("POSE_INPUT_PARSING_FAILED")
+
+
+def audit_pose_files(source_path, alignment_path, asr_path):
+    try:
+        files = [(Path(source_path), 3000000), (Path(alignment_path), 100000),
+                 (Path(asr_path), 20000)]
+        if any(p.is_symlink() or not p.is_file() or not 0 < p.stat().st_size <= cap
+               for p, cap in files):
+            return hold("POSE_FILES_MISSING_OR_UNSAFE")
+        return audit_pose_poles_conflict(*(p.read_bytes() for p, _ in files))
+    except (OSError, TypeError, ValueError):
+        return hold("POSE_FILES_UNREADABLE")
 
 
 def audit_original_source(original_wav, mfa_receipt, mfa_alignment):
@@ -329,8 +406,14 @@ def main(argv=None):
     p.add_argument("--original-wav", help="Pinned original full 24 kHz source WAV")
     p.add_argument("--mfa-receipt", help="Pinned first-party original MFA run receipt")
     p.add_argument("--mfa-alignment", help="Pinned original MFA word alignment candidate")
+    p.add_argument("--pose-asr-receipt", help="Research-only frozen original ASR receipt, pose/poles contrast")
     a=p.parse_args(argv)
-    if a.mfa_receipt is not None or a.mfa_alignment is not None:
+    if a.pose_asr_receipt is not None:
+        if not (a.original_wav and a.mfa_alignment) or a.mfa_receipt or a.source_archive:
+            result=hold("POSE_MODE_REQUIRES_EXACTLY_SOURCE_ALIGNMENT_ASR")
+        else:
+            result=audit_pose_files(a.original_wav, a.mfa_alignment, a.pose_asr_receipt)
+    elif a.mfa_receipt is not None or a.mfa_alignment is not None:
         if not (a.original_wav and a.mfa_receipt and a.mfa_alignment) or a.source_archive:
             result=hold("ORIGINAL_MFA_MODE_REQUIRES_EXACTLY_THREE_SOURCE_INPUTS")
         else:
@@ -340,7 +423,7 @@ def main(argv=None):
     else:
         result=hold("SOURCE_ARCHIVE_OR_ORIGINAL_WAV_MFA_INPUTS_REQUIRED")
     print(json.dumps(result, indent=2, sort_keys=True, allow_nan=False))
-    return 3 if result["status"]=="RESEARCH_REPEATED_TERM_PATTERN_ONLY" else 2
+    return 3 if result["status"].startswith("RESEARCH_") else 2
 
 
 if __name__=="__main__":
