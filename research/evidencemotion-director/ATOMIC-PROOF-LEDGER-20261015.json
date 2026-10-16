@@ -123,11 +123,24 @@
         "EM-007.03.N",
         "EM-007.03.R"
       ]
+    },
+    {
+      "group": "EM-007.04",
+      "source": "EM00704-FILM-SOURCE-UNCERTAINTY-20261016.md",
+      "cards": [
+        "EM-007.04.U",
+        "EM-007.04.S",
+        "EM-007.04.O",
+        "EM-007.04.X",
+        "EM-007.04.T",
+        "EM-007.04.N",
+        "EM-007.04.R"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 61,
-  "provisionalCoverageCardCount": 768,
-  "provisionalCoveragePercent": 48.3019,
+  "individualMachineVerifiedResearchCardCount": 68,
+  "provisionalCoverageCardCount": 775,
+  "provisionalCoveragePercent": 48.7421,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }
