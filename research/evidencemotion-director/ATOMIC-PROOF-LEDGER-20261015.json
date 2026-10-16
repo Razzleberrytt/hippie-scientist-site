@@ -136,11 +136,24 @@
         "EM-007.04.N",
         "EM-007.04.R"
       ]
+    },
+    {
+      "group": "EM-007.06",
+      "source": "EM00706-SCIENCE-ADVERSARIAL-RECEIPT-20261016.md",
+      "cards": [
+        "EM-007.06.U",
+        "EM-007.06.S",
+        "EM-007.06.O",
+        "EM-007.06.X",
+        "EM-007.06.T",
+        "EM-007.06.N",
+        "EM-007.06.R"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 68,
-  "provisionalCoverageCardCount": 775,
-  "provisionalCoveragePercent": 48.7421,
+  "individualMachineVerifiedResearchCardCount": 75,
+  "provisionalCoverageCardCount": 782,
+  "provisionalCoveragePercent": 49.1824,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }
