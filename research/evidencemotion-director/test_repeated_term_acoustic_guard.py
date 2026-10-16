@@ -890,6 +890,61 @@ class BlindReferenceBenchmarkTests(unittest.TestCase):
         self.assertFalse(result["mayPublish"])
 
 
+    def test_cropped_reference_same_recording_cannot_cross_speaker_or_split(self):
+        # A crop changes both length and PCM/WAV hashes. It must not appear
+        # as a new recording in train or independently held-out data.
+        for destination in (2, -2):  # same label, train vs held-out test
+            for invert in (False, True):
+                with self.subTest(destination=destination, invert=invert):
+                    rows, samples = self.fixture()
+                    first, duplicate = rows[0], rows[destination]
+                    with wave.open(io.BytesIO(samples[first["sampleId"]]), "rb") as original:
+                        full = np.frombuffer(
+                            original.readframes(original.getnframes()),
+                            dtype="<i2").astype(np.int32)
+                    cropped = full[500:9000]
+                    if invert:
+                        cropped = -cropped
+                    cropped_bytes = cropped.astype("<i2").tobytes()
+                    self.assertEqual(len(cropped_bytes), 8500 * 2)
+                    replacement = io.BytesIO()
+                    with wave.open(replacement, "wb") as changed:
+                        changed.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+                        changed.writeframes(cropped_bytes)
+                    raw = replacement.getvalue()
+                    self.assertNotEqual(digest(raw), first["wavSha256"])
+                    samples[duplicate["sampleId"]] = raw
+                    duplicate["wavSha256"] = digest(raw)
+                    result = evaluate_blind_reference_pairs(rows, samples, set())
+                    self.assertEqual(result["status"], "HOLD", result)
+                    self.assertIn(
+                        "REFERENCE_CROPPED_OR_POLARITY_REUSED_ACROSS_RECORDINGS",
+                        result["errors"])
+                    self.assertFalse(result["calibrationComplete"])
+                    self.assertIsNone(result["lexicalWinner"])
+                    self.assertFalse(result["mayPublish"])
+
+    def test_distinct_shorter_reference_is_not_a_cropped_source(self):
+        # An independent synthetically generated shorter clip is permitted to
+        # enter *unattested* research; it remains no proof of gold labels.
+        rows, samples = self.fixture()
+        target = rows[-2]
+        independent = self.wav(810, 31)
+        with wave.open(io.BytesIO(independent), "rb") as source:
+            pcm = source.readframes(source.getnframes())
+        replacement = io.BytesIO()
+        with wave.open(replacement, "wb") as changed:
+            changed.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            changed.writeframes(pcm[500*2:9000*2])
+        samples[target["sampleId"]] = replacement.getvalue()
+        target["wavSha256"] = digest(samples[target["sampleId"]])
+        result = evaluate_blind_reference_pairs(rows, samples, set())
+        self.assertNotIn("REFERENCE_CROPPED_OR_POLARITY_REUSED_ACROSS_RECORDINGS",
+                         result.get("errors", []), result)
+        self.assertFalse(result["mayPublish"])
+        self.assertFalse(result["phonemeIdentityVerified"])
+
+
 class BlindReferenceArchiveTests(unittest.TestCase):
     @staticmethod
     def make_zip(path, rows, clips, altered=None, add_extra=False):
