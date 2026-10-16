@@ -413,6 +413,60 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes):
                        "approve the original voice or its /l/ pronunciation."}
 
 
+
+def audit_reference_archive(archive_file):
+    """CLI-ready research-only case bundle; never signs labels or authenticates a speaker."""
+    def fail(reason):
+        return {**hold(reason), "calibrationComplete": False,
+                "referenceAnnotationsAuthenticated": False,
+                "speakerIdentitiesAuthenticated": False,
+                "lexicalWinner": None}
+    try:
+        path = Path(archive_file)
+        if (path.is_symlink() or not path.is_file()
+                or not 0 < path.stat().st_size <= 40000000):
+            return fail("REFERENCE_BENCHMARK_ZIP_UNAVAILABLE_OR_UNSAFE")
+        with zipfile.ZipFile(path, "r") as archive:
+            infos = archive.infolist()
+            names = [part.filename for part in infos]
+            if (not 33 <= len(infos) <= 257
+                    or len(set(names)) != len(names)
+                    or any(part.is_dir() or part.file_size > 300000
+                           or part.filename.startswith("/")
+                           or ".." in Path(part.filename).parts
+                           for part in infos)
+                    or sum(part.file_size for part in infos) > 32000000
+                    or "manifest.json" not in names):
+                return fail("REFERENCE_ZIP_INVENTORY_OR_FILE_SIZE_UNSAFE")
+            if archive.getinfo("manifest.json").file_size > 100000:
+                return fail("REFERENCE_ZIP_MANIFEST_OVERSIZE")
+            manifest = json.loads(archive.read("manifest.json"))
+            if (not isinstance(manifest, dict)
+                    or manifest.get("schema") != "ths-lane2-blind-contrast-benchmark-v1"
+                    or manifest.get("mayPublish") is not False
+                    or not isinstance(manifest.get("cases"), list)):
+                return fail("REFERENCE_BENCHMARK_SCHEMA_OR_RELEASE_INVALID")
+            rows = manifest["cases"]
+            sample_names = []
+            for case in rows:
+                if not isinstance(case, dict):
+                    return fail("REFERENCE_BENCHMARK_CASE_SCHEMA_INVALID")
+                identity = case.get("sampleId")
+                if (not isinstance(identity, str) or not 1 <= len(identity) <= 64
+                        or not identity.isascii()
+                        or not all(x.isalnum() or x in "_-" for x in identity)):
+                    return fail("REFERENCE_CASE_FILENAME_INVALID")
+                sample_names.append(f"clips/{identity}.wav")
+            if set(names) != (set(sample_names) | {"manifest.json"}):
+                return fail("REFERENCE_ZIP_UNDECLARED_OR_MISSING_CLIPS")
+            samples = {case["sampleId"]: archive.read(name)
+                       for case, name in zip(rows, sample_names)}
+        return evaluate_blind_reference_pairs(rows, samples, set())
+    except (OSError, ValueError, TypeError, KeyError, EOFError,
+            zipfile.BadZipFile, UnicodeError) as exc:
+        return fail("REFERENCE_BENCHMARK_ZIP_READ_FAILED:" + str(exc)[:80])
+
+
 def audit_pose_internal_reference_set(source_raw, alignment_raw, asr_raw):
     """Exact source-linked auditory comparators; no inferred /l/ classification."""
     prior = audit_pose_poles_conflict(source_raw, alignment_raw, asr_raw)
@@ -658,10 +712,18 @@ def main(argv=None):
     p.add_argument("--mfa-receipt", help="Pinned first-party original MFA run receipt")
     p.add_argument("--mfa-alignment", help="Pinned original MFA word alignment candidate")
     p.add_argument("--pose-asr-receipt", help="Research-only frozen original ASR receipt, pose/poles contrast")
+    p.add_argument("--reference-benchmark-zip",
+                   help="Optional external source-WAV reference minimal-pair ZIP (research ONLY)")
     p.add_argument("--pose-internal-contrasts", action="store_true",
                    help="Produce source-pinned same-narrator comparisons; NEVER a phoneme verdict")
     a=p.parse_args(argv)
-    if a.pose_internal_contrasts and a.pose_asr_receipt is None:
+    if a.reference_benchmark_zip is not None:
+        if any((a.original_wav, a.mfa_receipt, a.mfa_alignment,
+                a.pose_asr_receipt, a.source_archive, a.pose_internal_contrasts)):
+            result=hold("REFERENCE_BENCHMARK_MUST_RUN_IN_EXCLUSIVE_NON_TARGET_MODE")
+        else:
+            result=audit_reference_archive(a.reference_benchmark_zip)
+    elif a.pose_internal_contrasts and a.pose_asr_receipt is None:
         result=hold("POSE_INTERNAL_CONTRAST_REQUIRES_ASR_SOURCE")
     elif a.pose_asr_receipt is not None:
         if not (a.original_wav and a.mfa_alignment) or a.mfa_receipt or a.source_archive:
