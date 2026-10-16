@@ -845,6 +845,16 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
     # never survive a new failed attempt against changed inputs.
     report_path.unlink(missing_ok=True)
     previously_owned = verified_prior_review_images(output, previous_report_bytes)
+    # Once the old report is invalidated, its generated images must not
+    # survive a failed rerun as misleading orphaned evidence. Retire only
+    # byte-verified owned images. All unrelated files remain untouched.
+    for name, digest in previously_owned.items():
+        image = output / name
+        if image.is_symlink() or not image.is_file() or sha256_file(image) != digest:
+            hold("PREVIOUS_REVIEW_IMAGE_CHANGED_BEFORE_RETIREMENT")
+    for name in previously_owned:
+        (output / name).unlink()
+    previously_owned = {}
     # Bind both input identities to the exact bytes actually parsed/decoded.
     # Recheck them after FFmpeg completes so mid-audit edits cannot yield a
     # successful receipt for media or annotations that were never reviewed.
