@@ -2,7 +2,7 @@
 import copy
 import unittest
 from em00801_actual_botanical_frame_inventory import (
-    FILM_SHA,WAV_SHA,SHOT_IDS,FRAME_COUNT,FPS,SourceHold,contract
+    FILM_SHA,WAV_SHA,SHOT_IDS,FRAME_COUNT,FPS,SourceHold,contract,parse_framehash
 )
 
 ENDS=[1.61,3.47,10.85,16.58,23.379999,25.709999,27.35,31.25,FRAME_COUNT/FPS]
@@ -80,6 +80,45 @@ class RealFilmBotanicalInventoryContractTests(unittest.TestCase):
         p,r,i=fixture();r["resolution"]=[540,960]
         with self.assertRaisesRegex(SourceHold,"NOT_EXPECTED_NATIVE"):
             contract(p,r,i,FILM_SHA)
+
+class RealRgbFramehashProtocolTests(unittest.TestCase):
+    HEADER=("\n".join(("#format: frame checksums",
+        "#version: 2", "#hash: SHA256", "#tb 0: 1/30",
+        "#media_type 0: video", "#codec_id 0: rawvideo",
+        "#dimensions 0: 1080x1920", "#sar 0: 0/1",
+        "#stream#, dts, pts, duration, size, hash"))+"\n")
+    ORIGINAL_PIXEL_SHA="91b8ac6fe5d732d9c89f5c8d644575dad31769f6a5b56c13df677cc36485df32"
+
+    def frame(self,number=24,hash_value=None,size=6220800):
+        return f"0, {number}, {number}, 1, {size}, {hash_value or self.ORIGINAL_PIXEL_SHA}\n"
+
+    def test_real_original_frame24_checksum_matches_previous_decoder(self):
+        checksums=parse_framehash(self.HEADER+self.frame(),[24])
+        self.assertEqual(checksums,[self.ORIGINAL_PIXEL_SHA])
+
+    def test_swapped_frame_index_is_rejected(self):
+        with self.assertRaisesRegex(SourceHold,"SWAPPED_TRUNCATED"):
+            parse_framehash(self.HEADER+self.frame(number=25),[24])
+
+    def test_missing_frame_is_rejected(self):
+        with self.assertRaisesRegex(SourceHold,"MISSING_OR_EXTRA"):
+            parse_framehash(self.HEADER, [24])
+
+    def test_duplicate_frame_is_rejected(self):
+        with self.assertRaisesRegex(SourceHold,"MISSING_OR_EXTRA"):
+            parse_framehash(self.HEADER+self.frame()+self.frame(),[24])
+
+    def test_framehash_metadata_cannot_use_different_pixel_size(self):
+        with self.assertRaisesRegex(SourceHold,"SWAPPED_TRUNCATED"):
+            parse_framehash(self.HEADER+self.frame(size=2073600),[24])
+
+    def test_unsupported_or_missing_sha256_protocol_is_rejected(self):
+        with self.assertRaisesRegex(SourceHold,"PROTOCOL"):
+            parse_framehash(self.HEADER.replace("#hash: SHA256","#hash: MD5")+self.frame(),[24])
+
+    def test_invalid_digest_is_rejected(self):
+        with self.assertRaisesRegex(SourceHold,"SWAPPED_TRUNCATED"):
+            parse_framehash(self.HEADER+self.frame(hash_value="z"*64),[24])
 
 if __name__=="__main__":
     unittest.main()
