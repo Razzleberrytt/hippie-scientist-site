@@ -18,6 +18,8 @@ from native_master_audit import frame_timestamps
 
 TOP, RIGHT, BOTTOM = .10, .20, .18
 MAX_SHOTS = 24
+# Sub-frame authoring precision; old 50/100-ms slack hid real missing frames.
+TIMELINE_TOLERANCE_SEC = 0.001
 ROLES = {"hook", "caption", "source", "science", "disclosure"}
 
 def sha256_file(path):
@@ -49,10 +51,10 @@ def verify_shots(shots, duration):
             hold("INVALID_OR_DUPLICATE_SHOT_ID")
         seen.add(shot["id"])
         begin, end = shot.get("startSec"), shot.get("endSec")
-        if not number(begin) or not number(end) or abs(begin - cursor) > .05 or end <= begin or end > duration + .05:
+        if not number(begin) or not number(end) or abs(begin - cursor) > TIMELINE_TOLERANCE_SEC or end <= begin or end > duration + TIMELINE_TOLERANCE_SEC:
             hold("NONCONTIGUOUS_SHOT_TIMELINE")
         cursor = end
-    if abs(cursor - duration) > .10:
+    if abs(cursor - duration) > TIMELINE_TOLERANCE_SEC:
         hold("INCOMPLETE_FILM_COVERAGE")
 
 def validate_manifest(m, *, width, height, duration, actual_sha):
