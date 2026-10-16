@@ -145,6 +145,38 @@ def sample_treatment(base_frame,graph_image,science_bg,frame_no):
         # Original source movie's lower caption-zone pixels remain unchanged.
     return frame
 
+
+def verify_native_silent_clip(path, *, width=W, height=H, fps=FPS, frames=END-START):
+    """Read back the *encoded* preview, not just the writer's exit status.
+
+    Width/height/frame overrides exist only for tiny physical negative fixtures.
+    render() always uses the locked 1080x1920, 30fps, 119-frame contract.
+    """
+    path=Path(path)
+    if not path.is_file() or path.stat().st_size==0:
+        raise ResearchHold('ENCODED_SCENE_MISSING_OR_EMPTY')
+    try:
+        probe=subprocess.run(['ffprobe','-v','error','-count_frames','-show_entries',
+          'stream=codec_name,codec_type,width,height,avg_frame_rate,nb_read_frames',
+          '-of','json',str(path)],capture_output=True,text=True,check=True)
+        streams=json.loads(probe.stdout)['streams']
+        if len(streams)!=1 or streams[0].get('codec_type')!='video':
+            raise ResearchHold('SILENT_SCENE_STREAMS_CHANGED')
+        stream=streams[0]
+        actual=(stream.get('codec_name'),stream.get('width'),stream.get('height'),
+                stream.get('avg_frame_rate'),int(stream.get('nb_read_frames',-1)))
+        expected=('h264',width,height,f'{fps}/1',frames)
+        if actual!=expected:
+            raise ResearchHold('ENCODED_SCENE_FRAME_GRID_CHANGED')
+        subprocess.run(['ffmpeg','-nostdin','-v','error','-xerror','-i',str(path),
+          '-map','0:v:0','-f','null','-'],capture_output=True,check=True)
+    except ResearchHold:
+        raise
+    except (OSError,ValueError,KeyError,subprocess.CalledProcessError) as exc:
+        raise ResearchHold('ENCODED_SCENE_DECODE_OR_PROBE_FAILED') from exc
+    return True
+
+
 def render(source,molecule,output):
     source=Path(source);output=Path(output);molecule=Path(molecule)
     if output.resolve() in (source.resolve(),molecule.resolve()):
@@ -183,6 +215,13 @@ def render(source,molecule,output):
     finally:
         for pipe in (dec.stdout,dec.stderr,enc.stderr):
             if pipe:pipe.close()
+    # Producer-side exact readback. A nominal FFmpeg exit 0 is not evidence
+    # that a valid, complete and silent native scene was encoded.
+    try:
+        verify_native_silent_clip(output)
+    except ResearchHold:
+        if output.exists(): output.unlink()
+        raise
     return {'schema':SCHEMA,'sourceFilmSha256':SOURCE_SHA,'silentSceneSha256':digest(output),
        'originalNarrationSha256':ORIGINAL_WAV_SHA,'moleculeSha256':MOL_SHA,'width':W,'height':H,'fps':FPS,
        'startFrame':START,'endFrameExclusive':END,'negationFirstFrame':NEGATION,
