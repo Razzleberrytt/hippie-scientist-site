@@ -347,11 +347,15 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
         if idx==2:
             draw=ImageDraw.Draw(image)
             text(pos(72,520),'Dots mark atoms. Lines mark bonds.',font=f(36,True),fill=accent)
-            for x,y in hero['diagramAtomXY'][:round(p*len(hero['diagramAtomXY']))]:
-                x=dx*scale+x*diagram.width/1200
-                y=dy*scale+y*diagram.height/900
-                radius=10*scale
-                draw.ellipse((x-radius,y-radius,x+radius,y+radius),outline=accent,width=max(1,round(2*scale)))
+            # Legacy preview may display all atom markers; the opt-in timed
+            # source-teaching film instead reveals ONLY six actual connected
+            # atom endpoints via draw_existing_bond_connections below.
+            if caption_mode != 'timed_research':
+                for x,y in hero['diagramAtomXY'][:round(p*len(hero['diagramAtomXY']))]:
+                    x=dx*scale+x*diagram.width/1200
+                    y=dy*scale+y*diagram.height/900
+                    radius=10*scale
+                    draw.ellipse((x-radius,y-radius,x+radius,y+radius),outline=accent,width=max(1,round(2*scale)))
             # Teaching progression: light up only *existing verified bonds*
             # while the narrator describes the connected-atom source record.
             # The primary RDKit drawing and its stereo/bond-order remain intact.
