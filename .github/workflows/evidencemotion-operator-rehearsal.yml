@@ -7,6 +7,7 @@ on:
       - 'research/evidencemotion-director/five_render_attempt_guard.py'
       - 'research/evidencemotion-director/test_five_render_attempt_guard.py'
       - 'research/evidencemotion-director/native_stdin_capture_guard.py'
+      - 'research/evidencemotion-director/original_replay_admission.py'
       - 'research/evidencemotion-director/test_native_stdin_capture_guard.py'
       - 'research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md'
       - '.github/workflows/evidencemotion-operator-rehearsal.yml'
@@ -38,6 +39,7 @@ jobs:
       - name: Reject incomplete original-RGB24-stdin captures (research only)
         run: |
           set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/original_replay_admission.py
           python3 -m unittest discover -s research/evidencemotion-director -p 'test_native_stdin_capture_guard.py' -v
       - name: Ensure no production publishing privileges are implied
         run: |
