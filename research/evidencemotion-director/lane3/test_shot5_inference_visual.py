@@ -166,6 +166,36 @@ class ResearchProtocolTests(unittest.TestCase):
             with self.assertRaisesRegex(craft.ResearchHold,'STREAMS_CHANGED'):
                 craft.verify_native_silent_clip(mixed,width=64,height=96,frames=3)
 
+    def test_decoded_native_pts_contract_and_adversarial_grid(self):
+        good=[{'best_effort_timestamp':x} for x in (0,512,1024)]
+        self.assertTrue(craft.verify_decoded_presentation_grid(
+            good,'1/15360',fps=30,expected_frames=3))
+        bad=[
+            (good[:2],'TIMESTAMP_COUNT_CHANGED'),
+            ([{'best_effort_timestamp':0},{'best_effort_timestamp':512},
+              {'best_effort_timestamp':512}],'NOT_STRICTLY_INCREASING'),
+            ([{'best_effort_timestamp':0},{'best_effort_timestamp':1024},
+              {'best_effort_timestamp':512}],'NOT_STRICTLY_INCREASING'),
+            ([{'best_effort_timestamp':512},{'best_effort_timestamp':1024},
+              {'best_effort_timestamp':1536}],'PRESENTATION_GRID_CHANGED'),
+            ([{'best_effort_timestamp':0},{'best_effort_timestamp':513},
+              {'best_effort_timestamp':1024}],'PRESENTATION_GRID_CHANGED'),
+            ([{'best_effort_timestamp':0},{'best_effort_timestamp':True},
+              {'best_effort_timestamp':1024}],'MISSING_OR_INVALID'),
+            ([{'best_effort_timestamp':0},{'best_effort_timestamp':None},
+              {'best_effort_timestamp':1024}],'MISSING_OR_INVALID'),
+        ]
+        for samples,reason in bad:
+            with self.subTest(reason=reason,samples=samples):
+                with self.assertRaisesRegex(craft.ResearchHold,reason):
+                    craft.verify_decoded_presentation_grid(
+                        samples,'1/15360',fps=30,expected_frames=3)
+        for time_base in ('0/1','1/0','garbage',None):
+            with self.subTest(time_base=time_base):
+                with self.assertRaisesRegex(craft.ResearchHold,'TIME_BASE_INVALID'):
+                    craft.verify_decoded_presentation_grid(
+                        good,time_base,fps=30,expected_frames=3)
+
     def test_transition_interpolation_is_monotonic_and_bounded(self):
         data=[craft.smoothstep(i/20) for i in range(21)]
         self.assertEqual(data[0],0.)
