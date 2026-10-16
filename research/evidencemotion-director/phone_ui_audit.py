@@ -247,9 +247,13 @@ def probe_movie(movie):
         if not stamps or len(stamps) > 18000 or any(not t.is_finite() for t in stamps):
             hold("DECODED_FRAME_TIMESTAMPS_MISSING")
         origin = stamps[0]
-        if (origin < -tolerance or origin > nominal_step + tolerance or
-            any(abs((stamp - origin) - nominal_step * index) > tolerance
-                for index, stamp in enumerate(stamps))):
+        # A regular 30fps grid may still begin a frame late. That silently
+        # loses the first screen instant and weakens first-frame hook proof.
+        # Bind display-frame zero to actual PTS zero, not just relative CFR.
+        if abs(origin) > tolerance:
+            hold("NONZERO_FIRST_DECODED_FRAME_PTS")
+        if any(abs(stamp - nominal_step * index) > tolerance
+               for index, stamp in enumerate(stamps)):
             hold("NONCONSTANT_DECODED_FRAME_TIMING")
         duration = len(stamps) / 30
         if not math.isfinite(container_duration) or abs(duration - container_duration) > .12:
