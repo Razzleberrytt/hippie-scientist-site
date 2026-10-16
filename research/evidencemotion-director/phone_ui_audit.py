@@ -439,10 +439,15 @@ def validate_exact_film_ocr_join(proof, ink, plan, *, film_sha, plan_sha):
             row.get("recognizedTokens") != ocr_words(row.get("recognized")) or
             row["recognizedTokens"] != ocr_words(term)):
             hold("GLYPH_OCR_WORDS_NOT_RECOVERED")
-        if (schema == OCR_SCHEMA_REPAIRED and scene == "sentence_5_part1"
-            and (not isinstance(row.get("recognized"), str)
-                 or "≠" not in row["recognized"])):
-            hold("GLYPH_OCR_NEGATION_OPERATOR_NOT_RECOVERED")
+        if schema == OCR_SCHEMA_REPAIRED and scene == "sentence_5_part1":
+            raw = row.get("recognized")
+            if not isinstance(raw, str) or "≠" not in raw:
+                hold("GLYPH_OCR_NEGATION_OPERATOR_NOT_RECOVERED")
+            # Word tokens deliberately omit mathematical operators. Never
+            # allow an OCR receipt such as "≠ STRUCTURE HUMAN EXPERIENCE"
+            # or "STRUCTURE HUMAN ≠ EXPERIENCE" to prove the assertion.
+            if re.sub(r"\s+", " ", raw.strip()).casefold() != "structure ≠ human experience":
+                hold("GLYPH_OCR_COMPLETE_NEGATION_SEQUENCE_NOT_RECOVERED")
         if not is_hash(row.get("cropSha256")):
             hold("GLYPH_OCR_CROP_PROVENANCE_MISSING")
     if set(expected) != seen:
