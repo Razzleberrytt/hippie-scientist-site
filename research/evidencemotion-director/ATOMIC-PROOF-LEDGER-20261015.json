@@ -97,11 +97,24 @@
         "EM-014.01.N",
         "EM-014.01.R"
       ]
+    },
+    {
+      "group": "EM-007.02",
+      "source": "EM00702-VISUAL-CLAIM-INVENTORY-20261016.md",
+      "cards": [
+        "EM-007.02.U",
+        "EM-007.02.S",
+        "EM-007.02.O",
+        "EM-007.02.X",
+        "EM-007.02.T",
+        "EM-007.02.N",
+        "EM-007.02.R"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 47,
-  "provisionalCoverageCardCount": 754,
-  "provisionalCoveragePercent": 47.4214,
+  "individualMachineVerifiedResearchCardCount": 54,
+  "provisionalCoverageCardCount": 761,
+  "provisionalCoveragePercent": 47.8616,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }
