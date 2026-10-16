@@ -7,6 +7,8 @@ film and runner attestation before any reproducibility claim.
 """
 import hashlib
 import re
+import subprocess
+from pathlib import Path
 
 SCHEMA = "ths-em-original-rgb24-stdin-receipt-v1"
 SHA = re.compile(r"^[0-9a-f]{64}$")
@@ -111,6 +113,35 @@ class Capture:
             self.broken = True
             hold("PIPE_FLUSH_CLOSE_FAILED")
         self.closed = True
+
+    def receipt_from_completed_encoder(self, process, film_path):
+        """Read the real child's exit and actual encoded film bytes.
+
+        No self-supplied exit status or output digest. This is NOT an
+        independently authenticated original renderer, film-quality review or
+        repeatability approval. Call only after close() and process.wait().
+        """
+        if not isinstance(process, subprocess.Popen) or process.stdin is not self.sink:
+            hold("ENCODER_PROCESS_STDIN_NOT_BOUND")
+        if self.broken or not self.closed:
+            hold("CAPTURE_NOT_CLEANLY_CLOSED")
+        actual_code = process.poll()
+        if actual_code is None:
+            hold("ENCODER_STILL_RUNNING")
+        if actual_code != 0:
+            hold("ENCODER_PROCESS_FAILED")
+        path = Path(film_path)
+        if path.is_symlink() or not path.is_file():
+            hold("FILM_OUTPUT_NOT_REGULAR_FILE")
+        hasher = hashlib.sha256()
+        n = 0
+        with path.open("rb") as handle:
+            for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+                n += len(chunk)
+                hasher.update(chunk)
+        if not n:
+            hold("ENCODER_OUTPUT_EMPTY")
+        return self.receipt(exit_code=actual_code, film_sha=hasher.hexdigest())
 
     def receipt(self, *, exit_code, film_sha):
         sha_check(film_sha, "FILM_SHA")
