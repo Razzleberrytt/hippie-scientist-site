@@ -2,7 +2,7 @@
   "schema": "ths-atomic-workcard-proof-ledger-v1",
   "recordedDate": "2026-10-16",
   "authoritativePlanningIndex": "https://github.com/Razzleberrytt/hippie-scientist-site/blob/main/research/evidencemotion-director/ATOMIC-EXECUTION-INDEX.md",
-  "note": "Research branch predates main's 1,590-card planning index. This is a bounded proof ledger, not a blanket main-branch tracker promotion.",
+  "note": "Research-only bounded proof ledger: 14 named, individually evidenced machine source groups including three actual hosted CPU runs. This is not blanket canonical milestone, phone, reviewer, craft or final-render acceptance.",
   "denominator": 1590,
   "inheritedMappedToAcceptedFoundationsNotIndividuallyAudited": 707,
   "status": "PROVISIONAL_COVERAGE_NOT_FINAL_ACCEPTANCE",
@@ -175,11 +175,23 @@
         "EM-007.08.N",
         "EM-007.08.R"
       ]
+    },
+    {
+      "group": "EM-001.01",
+      "source": "EM00101-THREE-HOSTED-CPU-RUNS-20261016.md",
+      "cards": [
+        "EM-001.01.U",
+        "EM-001.01.S",
+        "EM-001.01.O",
+        "EM-001.01.X",
+        "EM-001.01.T",
+        "EM-001.01.R"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 89,
-  "provisionalCoverageCardCount": 796,
-  "provisionalCoveragePercent": 50.0629,
+  "individualMachineVerifiedResearchCardCount": 95,
+  "provisionalCoverageCardCount": 802,
+  "provisionalCoveragePercent": 50.4403,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }
