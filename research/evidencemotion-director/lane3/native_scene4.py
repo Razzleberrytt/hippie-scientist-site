@@ -96,7 +96,7 @@ def background(light):
         rgb=np.stack([7+12*glow,21+30*glow,30+37*glow],axis=-1)
     return Image.fromarray(np.uint8(rgb),'RGB').convert('RGBA')
 
-def model(mol,t):
+def model(mol,t,*,camera="baseline"):
     import numpy as np
     from PIL import Image,ImageDraw
     from rdkit import Chem
@@ -105,11 +105,24 @@ def model(mol,t):
     p-=p.mean(axis=0)
     alpha=max(0,min(1,(t-COMPUTED_AT)/(END_FRAME/FPS-COMPUTED_AT)))
     alpha=alpha*alpha*(3-2*alpha)
-    angle=.05+.24*alpha;c,s=math.cos(angle),math.sin(angle)
-    rot=np.array([[c,0,s],[0,1,0],[-s,0,c]])
-    q=p@rot.T;wide,tall=930,585
-    span=np.ptp(q[:,:2],axis=0)+1.1
-    scale=min((wide-75)/span[0],(tall-90)/span[1])
+    if camera=="baseline":
+        angle=.05+.24*alpha;c,s=math.cos(angle),math.sin(angle)
+        rot=np.array([[c,0,s],[0,1,0],[-s,0,c]])
+        wide,tall=930,585; margin=75; padding=90; slack=1.1
+    elif camera=="depth_study":
+        # A stronger but still rigid, right-handed authored camera motion.
+        # Source atom and bond coordinates remain unchanged (no effect simulation).
+        yaw=.17+.42*alpha; pitch=.12+.18*alpha
+        cy,sy=math.cos(yaw),math.sin(yaw)
+        cx,sx=math.cos(pitch),math.sin(pitch)
+        ry=np.array([[cy,0,sy],[0,1,0],[-sy,0,cy]])
+        rx=np.array([[1,0,0],[0,cx,-sx],[0,sx,cx]])
+        rot=rx@ry
+        wide,tall=1000,725; margin=65; padding=85; slack=1.0
+    else:raise SceneHold('UNKNOWN_CINEMATIC_CAMERA')
+    q=p@rot.T
+    span=np.ptp(q[:,:2],axis=0)+slack
+    scale=min((wide-margin)/span[0],(tall-padding)/span[1])
     xy=np.column_stack([wide/2+q[:,0]*scale,tall/2-q[:,1]*scale])
     img=Image.new('RGBA',(wide,tall));objects=[]
     for bond in heavy.GetBonds():
@@ -130,9 +143,11 @@ def model(mol,t):
             img.alpha_composite(sphere(rad,sym),(point[0]-rad,point[1]-rad))
     return img
 
-def render_frame(frame_no,mol,diagram):
+def render_frame(frame_no,mol,diagram,*,treatment="baseline"):
     from PIL import Image,ImageDraw
     if not START_FRAME<=frame_no<END_FRAME:raise SceneHold('FRAME_OUTSIDE_SCENE')
+    if treatment not in ('baseline','depth_study'):raise SceneHold('UNKNOWN_CINEMATIC_TREATMENT')
+    depth=(treatment=='depth_study')
     t=frame_no/FPS;phase=state(t);light=phase=='SOURCE'
     out=background(light).copy();d=ImageDraw.Draw(out)
     def line(x,y,v,sz,color,bold=False):d.text((x,y),v,font=font(sz,bold),fill=color)
@@ -154,14 +169,24 @@ def render_frame(frame_no,mol,diagram):
         line(68,189,'THE 3D VIEW',80,(239,247,238),True)
         line(69,294,'A mathematical illustration' if phase=='COMPUTED' else 'A calculated pose, not recorded footage',32,(158,193,199))
         d.line((69,378,1008,378),fill=(66,119,129),width=3)
-        d.rounded_rectangle((65,420,512,742),radius=16,fill=(232,232,219))
-        out.alpha_composite(diagram.resize((390,233),Image.Resampling.LANCZOS),(92,465));d=ImageDraw.Draw(out)
-        line(91,680,'SOURCE DRAWING',21,(22,78,87),True)
-        line(553,518,'→',68,(107,218,203),True)
-        line(633,500,'COMPUTED',29,(116,233,222),True)
-        line(633,553,'3D MODEL',32,(241,246,240),True)
-        out.alpha_composite(model(mol,t),(75,738));d=ImageDraw.Draw(out)
-        line(78,1323,'COMPUTED CONFORMER  •  H OMITTED',28,(144,219,216),True)
+        if depth:
+            d.rounded_rectangle((65,422,410,666),radius=16,fill=(232,232,219))
+            out.alpha_composite(diagram.resize((306,183),Image.Resampling.LANCZOS),(86,449));d=ImageDraw.Draw(out)
+            line(86,619,'SOURCE-LOCKED',20,(22,78,87),True)
+            line(475,476,'→',80,(107,218,203),True)
+            line(610,464,'CALCULATED',38,(116,233,222),True)
+            line(612,522,'3D STRUCTURE',31,(241,246,240),True)
+            out.alpha_composite(model(mol,t,camera='depth_study'),(40,670));d=ImageDraw.Draw(out)
+            line(78,1373,'COMPUTED CONFORMER  •  H OMITTED',28,(144,219,216),True)
+        else:
+            d.rounded_rectangle((65,420,512,742),radius=16,fill=(232,232,219))
+            out.alpha_composite(diagram.resize((390,233),Image.Resampling.LANCZOS),(92,465));d=ImageDraw.Draw(out)
+            line(91,680,'SOURCE DRAWING',21,(22,78,87),True)
+            line(553,518,'→',68,(107,218,203),True)
+            line(633,500,'COMPUTED',29,(116,233,222),True)
+            line(633,553,'3D MODEL',32,(241,246,240),True)
+            out.alpha_composite(model(mol,t),(75,738));d=ImageDraw.Draw(out)
+            line(78,1323,'COMPUTED CONFORMER  •  H OMITTED',28,(144,219,216),True)
         if phase=='LIMIT':
             d.line((73,1425,73,1582),fill=(255,138,99),width=9)
             line(110,1434,'NOT FOOTAGE',70,(255,242,220),True)
@@ -175,8 +200,9 @@ def render_frame(frame_no,mol,diagram):
     line(70,1755,caption(t),48,(251,249,240),True)
     return out.convert('RGB')
 
-def render(source,mol_path,output,*,expected_film_sha=SAMPLE_FILM_SHA):
+def render(source,mol_path,output,*,expected_film_sha=SAMPLE_FILM_SHA,treatment="baseline"):
     mol,diagram=material(source,mol_path,expected_film_sha=expected_film_sha)
+    if treatment not in ("baseline","depth_study"):raise SceneHold("UNKNOWN_CINEMATIC_TREATMENT")
     output=Path(output)
     if output.resolve() in (Path(source).resolve(),Path(mol_path).resolve()):
         raise SceneHold('OUTPUT_OVERWRITES_SOURCE')
@@ -186,7 +212,7 @@ def render(source,mol_path,output,*,expected_film_sha=SAMPLE_FILM_SHA):
           '-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',str(output)]
     pipe=subprocess.Popen(args,stdin=subprocess.PIPE,stderr=subprocess.PIPE)
     try:
-        for n in range(START_FRAME,END_FRAME):pipe.stdin.write(render_frame(n,mol,diagram).tobytes())
+        for n in range(START_FRAME,END_FRAME):pipe.stdin.write(render_frame(n,mol,diagram,treatment=treatment).tobytes())
         pipe.stdin.close();err=pipe.stderr.read();code=pipe.wait()
         if code:raise SceneHold('FFMPEG_RENDER_FAILED: '+err.decode(errors='replace')[:500])
     except BaseException:
@@ -200,7 +226,7 @@ def render(source,mol_path,output,*,expected_film_sha=SAMPLE_FILM_SHA):
             'firstFrame':START_FRAME,'lastFrame':END_FRAME-1,
             'computedFirstFrame':math.ceil(COMPUTED_AT*FPS),
             'notFootageFirstFrame':math.ceil(NOT_AT*FPS),
-            'containsAudio':False,'scienceApproved':False,'craftApproved':False,
+            'treatment':treatment,'containsAudio':False,'scienceApproved':False,'craftApproved':False,
             'phonePlaybackApproved':False,'mayPublish':False}
 
 if __name__=='__main__':
@@ -209,5 +235,6 @@ if __name__=='__main__':
     a.add_argument('--mol',type=Path,required=True)
     a.add_argument('--output',type=Path,required=True)
     a.add_argument('--source-sha',required=True)
+    a.add_argument('--treatment',choices=['baseline','depth_study'],default='baseline')
     x=a.parse_args()
-    print(json.dumps(render(x.source_film,x.mol,x.output,expected_film_sha=x.source_sha),indent=2))
+    print(json.dumps(render(x.source_film,x.mol,x.output,expected_film_sha=x.source_sha,treatment=x.treatment),indent=2))
