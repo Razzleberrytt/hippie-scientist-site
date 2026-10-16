@@ -393,9 +393,30 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
         # computed depth orbit, then "look closer" returning to the real OH.
         detail=1-p if idx==1 else p*.65 if idx==6 else 0
         angle=(-.40+.85*p) if idx==3 else -.10
-        model_height=600 if idx==3 and not light else 730
-        model = spatial(hero, angle, (round(830*scale),round(model_height*scale)), detail=detail)
-        image.alpha_composite(model,pos(20,540))
+        if idx==3 and not light:
+            # Distinct source-to-computation grammar for the narrated 3D caveat.
+            # The left reference is the SAME verified 7-OH RDKit structure,
+            # not a second compound or an imagined molecular transformation.
+            # No arrow or motion connects the graphics: the right-hand pose
+            # is one calculated illustration, not filmed receptor binding.
+            draw.rounded_rectangle((*pos(68,514),*pos(430,812)),
+                                   radius=round(20*scale),fill=(14,39,51,255),
+                                   outline=(65,126,133,255),
+                                   width=max(2,round(3*scale)))
+            flat=hero['diagram'].resize(
+                (round(330*scale),round(248*scale)))
+            image.alpha_composite(flat,pos(84,537))
+            # Diagonally opposed source/reference and larger computed subject
+            # break the repeated centered-molecule-card presentation. Still
+            # leave the entire original scientific disclosure/caption clear.
+            model_size=(round(720*scale),round(510*scale))
+            model_pos=pos(310,640)
+        else:
+            model_height=600 if idx==3 and not light else 730
+            model_size=(round(830*scale),round(model_height*scale))
+            model_pos=pos(20,540)
+        model = spatial(hero, angle, model_size, detail=detail)
+        image.alpha_composite(model,model_pos)
         draw = ImageDraw.Draw(image)
         disclosure = 'DETAIL REVEAL • computed model' if idx in (1,6) else 'Computed 3D illustration • not filmed'
         if idx == 6:
