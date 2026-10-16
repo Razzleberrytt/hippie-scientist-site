@@ -31,7 +31,7 @@ class OneCommandControlFlow(TestCase):
             mol=Path(tmp)/'science.mol'; mol.write_bytes(b'synthetic molecule')
             output=Path(tmp)/'result.mp4'
             calls=[]
-            def fake_render(film, chemical, scene, *, expected_film_sha):
+            def fake_render(film, chemical, scene, *, expected_film_sha, treatment="baseline"):
                 calls.append(('render',film,chemical,scene,expected_film_sha))
                 scene.write_bytes(b'synthetic clip')
                 return {'clipSha256':m['craftSceneSha256'],'mayPublish':False}
