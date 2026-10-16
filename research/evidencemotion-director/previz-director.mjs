@@ -64,6 +64,51 @@ export function proposeShots(beat,{previousGrammar=null,previousCamera=null}={})
 }
 
 /**
+ * Research-only negative filter for the same picture endlessly repeated.
+ * Three adjacent shots using the same source assets under the same visual
+ * grammar need a specifically redesigned idea, even if the camera moves,
+ * subtitles, palette, claims or wording change. Those changes alone are not
+ * meaningful visual variety. Use the actual decoded film for final critique.
+ *
+ * This is deliberately NOT an autonomous art score. Alternating grammars or
+ * assets merely removes this one mechanical warning; it never passes craft.
+ */
+export function auditShotRepetition(shots){
+  const refusal=code=>({status:'HOLD',errors:[code],findings:[],
+    craftRemediationRequired:true,excellentCertified:false});
+  if(!Array.isArray(shots)||shots.length<2)
+    return refusal('SHOT_SEQUENCE_REQUIRED');
+  const keys=[];
+  const ids=new Set();
+  for(const shot of shots){
+    if(!shot||typeof shot!=='object'||!clean(shot.beatId)||
+       ids.has(shot.beatId)||!Object.hasOwn(GRAMMAR,shot.grammarId)||
+       !uniqueIds(shot.scientificAssetIds)||
+       !Number.isFinite(shot.startSec)||!Number.isFinite(shot.endSec)||
+       shot.endSec<=shot.startSec)
+      return refusal('INCOMPLETE_OR_DUPLICATE_SHOT_SEQUENCE');
+    ids.add(shot.beatId);
+    keys.push(JSON.stringify([shot.grammarId,[...shot.scientificAssetIds].sort()]));
+  }
+  const findings=[];
+  let runStart=0;
+  for(let i=1;i<=shots.length;i++){
+    if(i!==shots.length&&keys[i]===keys[runStart])continue;
+    if(i-runStart>=3){
+      findings.push({reason:'THREE_PLUS_REPEATED_GRAMMAR_AND_SOURCE_SHOTS',
+        firstBeatId:shots[runStart].beatId,lastBeatId:shots[i-1].beatId,
+        consecutiveCount:i-runStart,grammarId:shots[runStart].grammarId,
+        scientificAssetIds:[...shots[runStart].scientificAssetIds].sort()});
+    }
+    runStart=i;
+  }
+  return {status:findings.length?'CRAFT_REDIRECTION_REQUIRED':'SEQUENCE_REVIEW_REQUIRED',
+    errors:[],findings,craftRemediationRequired:findings.length>0,
+    excellentCertified:false,mayPublish:false,
+    caveat:'Source-bound sequence metadata alone cannot establish composition novelty or film quality. Inspect actual preview frames and reference clips.'};
+}
+
+/**
  * Critique evidence collected from actual preview rendering (not the authored
  * storyboard). This API is a *contract*, not a pixel decoder. Receipts alone
  * are not cryptographic proof; final review requires independent media checks.
