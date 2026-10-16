@@ -54,8 +54,12 @@ def timeline(alignment):
                      'startSec': scenes[4]['speechEndSec'],
                      'speechEndSec': scenes[5]['startSec']})
     scenes[0]['startSec'] = 0
+    # PCM audio can end within a 30-fps frame. Last H.264 frame occupies the
+    # full remaining video-frame interval; this tail is visually accounted
+    # for without trimming/stretching the original WAV or any word cue.
+    frame_locked_end = math.ceil(alignment['sampleCount'] * FPS / 24000) / FPS
     for i, scene in enumerate(scenes):
-        scene['endSec'] = scenes[i+1]['startSec'] if i+1 < len(scenes) else alignment['sampleCount']/24000
+        scene['endSec'] = scenes[i+1]['startSec'] if i+1 < len(scenes) else frame_locked_end
     return scenes
 
 
