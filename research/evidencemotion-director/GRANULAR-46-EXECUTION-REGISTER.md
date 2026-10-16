@@ -124,10 +124,10 @@
 
 ### EM-007 — Primary-source claim and visual audit
 
-**Canonical state:** OPEN. **Child evidence audit:** 1/8 inventory proofs DONE; scientific acceptance remains OPEN. [EM-007.01 receipt](EM00701-ATOMIC-SPOKEN-INVENTORY-20261016.md). **Owning source:** [canonical #7](COMPLETION-CHECKLIST.md).
+**Canonical state:** OPEN. **Child evidence audit:** 2/8 inventory proofs DONE; scientific acceptance remains OPEN. [EM-007.01 receipt](EM00701-ATOMIC-SPOKEN-INVENTORY-20261016.md). **Owning source:** [canonical #7](COMPLETION-CHECKLIST.md).
 
 - [x] **EM-007.01** Enumerate every spoken assertion and qualifier, word by word — **Pass/receipt:** frozen claim ledger
-- [ ] **EM-007.02** Extract text, implied effects, labels and diagrams from each exact scene — **Pass/receipt:** visual-claim ledger
+- [x] **EM-007.02** Extract text, implied effects, labels and diagrams from each exact scene — **Pass/receipt:** [real encoded nine-shot / 71-cue visual claim ledger](EM00702-VISUAL-CLAIM-INVENTORY-20261016.md); research inventory only, not primary science, complete-frame OCR, independent viewer or final EM-007 approval.
 - [ ] **EM-007.03** Attach retrievable primary-source and study-context IDs to every material claim — **Pass/receipt:** no orphan claim
 - [ ] **EM-007.04** Record null, conflicting and absent-human evidence separately from mechanism/speculation — **Pass/receipt:** uncertainty ledger
 - [ ] **EM-007.05** Compare claim strength with source population/outcome/dose/timing without extrapolation — **Pass/receipt:** per-claim pass/fail
