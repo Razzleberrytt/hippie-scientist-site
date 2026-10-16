@@ -220,6 +220,7 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
     # Adjacent shot annotations may imply an unsupported botanical assay.
     # This is authored metadata, not actual encoded pixel classification.
     adjacent_ink=[]
+    adjacent_role_ink=[]
     for shot in shots:
         roles=shot.get("emittedSourceAnnotations")
         if (not isinstance(roles,dict)
@@ -235,6 +236,8 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
         written_ink = " ".join(t for role in ANNOTATION_ROLES
                                for t in roles[role])
         adjacent_ink.append((shot["shot"],written_ink))
+        adjacent_role_ink.append((shot["shot"],{
+            role:" ".join(roles[role]) for role in ANNOTATION_ROLES}))
         if EFFECT_CLAIMS.search(written_ink):
             hold("UNSUPPORTED_TREATMENT_OR_EFFECT_TEXT:"+shot["shot"])
         # Even separately split annotation labels must not present imagined
@@ -250,7 +253,14 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
         for offset in range(len(adjacent_ink)-width+1):
             window=adjacent_ink[offset:offset+width]
             joined=" ".join(ink for _,ink in window)
-            if EFFECT_CLAIMS.search(joined):
+            # Intervening caption/source labels can break a sentence that is
+            # deliberately split across consecutive SCIENCE overlays. Scan
+            # corresponding role streams in addition to all-role shot text.
+            role_window=adjacent_role_ink[offset:offset+width]
+            role_texts=(" ".join(role_map[role] for _,role_map in role_window)
+                        for role in ANNOTATION_ROLES)
+            if EFFECT_CLAIMS.search(joined) or any(
+                    EFFECT_CLAIMS.search(t) for t in role_texts):
                 hold("UNSUPPORTED_TREATMENT_OR_EFFECT_CROSS_SHOT:"
                      +":".join(name for name,_ in window))
     # A sequence of three or four neighboring shots can complete a botanical
@@ -261,8 +271,13 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
     for width in (2, 3, 4):
         for offset in range(len(adjacent_ink)-width+1):
             window=adjacent_ink[offset:offset+width]
-            if asserts_unverified_botanical_7oh_content(
-                    " ".join(ink for _,ink in window)):
+            role_window=adjacent_role_ink[offset:offset+width]
+            role_texts=(" ".join(role_map[role] for _,role_map in role_window)
+                        for role in ANNOTATION_ROLES)
+            if (asserts_unverified_botanical_7oh_content(
+                    " ".join(ink for _,ink in window)) or any(
+                    asserts_unverified_botanical_7oh_content(t)
+                    for t in role_texts)):
                 label=("UNVERIFIED_BOTANICAL_7OH_CROSS_SHOT:"
                        if width==2 else
                        "UNVERIFIED_BOTANICAL_7OH_THREE_SHOT:" if width==3 else
