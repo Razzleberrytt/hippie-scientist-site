@@ -425,6 +425,100 @@ def validate_exact_film_ocr_join(proof, ink, plan, *, film_sha, plan_sha):
 
 
 
+
+def mute_story_negative_screen(plan, glyph_proof):
+    """Screen source-bound mute-first teaching continuity, not understanding.
+
+    Call ONLY after an independently pinned exact-film OCR receipt joined
+    successfully. Detection finds semantic gaps; absence of a finding is
+    never a real audience, handset, voice, science, or publishing approval.
+    """
+    if not isinstance(plan, dict) or not isinstance(plan.get("shots"), list):
+        hold("MUTED_STORY_PLAN_REQUIRED")
+    shots = plan["shots"]
+    order = list(OCR_SOURCE_LABELS)
+    if [s.get("id") if isinstance(s, dict) else None for s in shots] != order:
+        hold("MUTED_STORY_EXACT_SHOT_ORDER_REQUIRED")
+    if not isinstance(glyph_proof, dict) or not isinstance(glyph_proof.get("observations"), list):
+        hold("MUTED_STORY_ACTUAL_OCR_OBSERVATIONS_REQUIRED")
+    byid = {s["id"]: s for s in shots}
+    raw_rows = glyph_proof["observations"]
+    # The caller's join has already checked exact film+plan hashes, 48 rows,
+    # decoded-frame indices, claim words, crop SHA shape and approval flags.
+    required = {
+        "comparison_named": (("sentence_1_part0", "MITRAGYNINE"),
+                             ("sentence_1_part1", "7-OH")),
+        "chemical_group_explained": (("sentence_2", "–OH group: oxygen + hydrogen"),),
+        "computed_not_filmed": (("sentence_4", "Computed 3D illustration • not filmed"),),
+        "two_source_cids": (("source_hold", "7-OH • CID 44301524"),
+                            ("source_hold", "Mitragynine • CID 3034396")),
+    }
+    recognized = set()
+    for row in raw_rows:
+        if not isinstance(row, dict):
+            hold("MUTED_STORY_INVALID_OCR_OBSERVATION")
+        tokens = ocr_words(row.get("recognized"))
+        if (row.get("recognizedTokens") != tokens or
+            row.get("expectedTokens") != ocr_words(row.get("expected")) or
+            row.get("wordSequenceRecovered") is not True):
+            hold("MUTED_STORY_OCR_WORDS_MUST_MATCH_ACTUAL_RECOGNIZED_TEXT")
+        recognized.add((row.get("scene"), row.get("phase"),
+                        tuple(tokens)))
+    facts = {key: all((scene, phase, tuple(ocr_words(term))) in recognized
+                      for scene, term in pairs
+                      for phase in ("early", "middle", "late"))
+             for key, pairs in required.items()}
+    findings = []
+    for name, verified in facts.items():
+        if not verified:
+            findings.append("MISSING_MUTED_SCIENCE_FACT_" + name.upper())
+    part = byid["sentence_5_part1"]
+    annotations = part.get("annotations")
+    if not isinstance(annotations, list):
+        hold("MUTED_STORY_SHOT_5_ANNOTATIONS_REQUIRED")
+    texts = [a.get("text", "") for a in annotations
+             if isinstance(a, dict) and a.get("role") == "science"]
+    words_in_shot = [ocr_words(t) for t in texts]
+    subject = any("structure" in w for w in words_in_shot)
+    human = any("human" in w and "experience" in w for w in words_in_shot)
+    negate = any("≠" in t for t in texts)
+    same_shot_declared = subject and human and negate
+    if not same_shot_declared:
+        findings.append("NEGATION_ANTECEDENT_SPLIT_ACROSS_CUT")
+    # Require words within ONE independently decoded text crop, not one word
+    # in each of two consecutive shots and not a union of distinct text crops.
+    same_shot_ocr = all(
+        any(row.get("scene") == "sentence_5_part1"
+            and row.get("phase") == phase
+            and "structure" in ocr_words(row.get("recognized"))
+            and "human" in ocr_words(row.get("recognized"))
+            and "experience" in ocr_words(row.get("recognized"))
+            for row in raw_rows if isinstance(row, dict))
+        for phase in ("early", "middle", "late"))
+    if not same_shot_ocr:
+        findings.append("NO_EXACT_ENCODED_SAME_SHOT_NEGATION_OCR_PROOF")
+    review = any(a.get("text") == "No reaction"
+                 for scene in ("sentence_1_part0", "sentence_1_part1")
+                 for a in byid[scene].get("annotations", [])
+                 if isinstance(a, dict))
+    return {
+        "schema": "ths-lane4-mute-continuity-negative-screen-v1",
+        "verdict": "HOLD" if findings else "MECHANICAL_WORD_SCREEN_ONLY_REVIEW_REQUIRED",
+        "actualOCRRequiredScienceFacts": facts,
+        "negationSubjectObjectAndOperatorDeclaredSameShot": same_shot_declared,
+        "subjectAndObjectOCRWithinSameShotAllThreeTimes": same_shot_ocr,
+        "blockingFindings": findings,
+        "advisoryFindings": (["NO_REACTION_WORDING_NEEDS_SEMANTIC_REVIEW"]
+                             if review else []),
+        "inequalitySymbolDecodedAndIndependentlyVerified": False,
+        "mutedAudienceComprehensionApproved": False,
+        "realHandsetPlaybackApproved": False,
+        "qualifiedScienceApproved": False,
+        "mayPublish": False,
+    }
+
+
+
 def probe_movie(movie):
     cmd = ["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
            "stream=width,height,avg_frame_rate", "-show_entries", "format=duration",
@@ -549,6 +643,7 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
     movie_hash = sha256_file(movie)
     linked_ink = None
     linked_glyph = None
+    muted_screen = None
     ink_hash = None
     glyph_hash = None
     ink_data = None
@@ -561,9 +656,11 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
     if glyph_receipt is not None:
         glyph_bytes = glyph_receipt.read_bytes()
         glyph_hash = hashlib.sha256(glyph_bytes).hexdigest()
+        glyph_data = json.loads(glyph_bytes.decode("utf-8"))
         linked_glyph = validate_exact_film_ocr_join(
-            json.loads(glyph_bytes.decode("utf-8")), ink_data, plan,
+            glyph_data, ink_data, plan,
             film_sha=movie_hash, plan_sha=manifest_hash)
+        muted_screen = mute_story_negative_screen(plan, glyph_data)
     width, height, duration, decoded_count = probe_movie(movie)
     receipt = validate_manifest(plan, width=width, height=height,
                                 duration=duration, actual_sha=movie_hash)
@@ -614,6 +711,7 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
             receipt["linkedCriticalTextProxy"] = linked_ink
         if linked_glyph is not None:
             receipt["linkedCriticalTextOCR"] = linked_glyph
+            receipt["muteStoryNegativeScreen"] = muted_screen
         receipt.update({"videoSha256": movie_hash, "manifestSha256": manifest_hash,
                         "videoResolution": [width, height], "durationSec": duration,
                         "decodedFrameCount": decoded_count,
