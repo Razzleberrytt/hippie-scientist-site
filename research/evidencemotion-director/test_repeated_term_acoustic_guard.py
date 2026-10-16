@@ -253,6 +253,28 @@ class PhysicallyRecoveredOriginalPcmBlacklistTests(unittest.TestCase):
         self.assertEqual({digest(x) for x in excerpts},
                          ORIGINAL_PCM_EXCERPT_SHA256)
 
+    def test_actual_original_rejects_trimmed_unlisted_pcm_window(self):
+        with wave.open(str(MASTER), "rb") as source:
+            original = source.readframes(source.getnframes())
+        start, end = 429000, 436000  # inside 17.87-18.34 sec pose/poles dispute
+        trimmed = original[start*2:end*2]
+        self.assertEqual(len(trimmed), 7000*2)
+        self.assertNotIn(digest(trimmed), ORIGINAL_PCM_EXCERPT_SHA256)
+        out_wav = io.BytesIO()
+        with wave.open(out_wav, "wb") as f:
+            f.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            f.writeframes(trimmed)
+        rows, clips = BlindReferenceBenchmarkTests.fixture()
+        row = rows[-1]
+        clips[row["sampleId"]] = out_wav.getvalue() + b"JUNK"
+        row["wavSha256"] = digest(clips[row["sampleId"]])
+        report = evaluate_blind_reference_pairs(rows, clips, set(), MASTER.read_bytes())
+        self.assertEqual(report["status"], "HOLD", report)
+        self.assertIn("REFERENCE_EXCERPT_REUSED_FROM_ORIGINAL_MASTER",
+                      report["errors"])
+        self.assertTrue(report["originalMasterPcmContainmentScreened"])
+        self.assertFalse(report["mayPublish"])
+
     def test_original_pose_audio_rewrapped_with_new_wav_sha_is_excluded(self):
         target_pcm = self.source_pcm()[4]
         stream = io.BytesIO()
@@ -491,6 +513,53 @@ class BlindReferenceBenchmarkTests(unittest.TestCase):
         self.assertEqual(evaluate_blind_reference_pairs(
             rows, samples, set())["status"], "HOLD")
 
+    @classmethod
+    def embedded_reference_fixture(cls):
+        """Full-size synthetic target WAV, with an interior 8k-sample reference crop."""
+        rows, samples = cls.fixture()
+        last = rows[-1]
+        with wave.open(io.BytesIO(samples[last["sampleId"]]), "rb") as existing:
+            source_pcm = existing.readframes(existing.getnframes())
+        assert len(source_pcm) == 9600 * 2
+        crop = source_pcm[800 * 2:8800 * 2]
+        master_pcm = bytearray(824336 * 2)
+        master_pcm[250000 * 2:(250000 + 9600) * 2] = source_pcm
+        master = io.BytesIO()
+        with wave.open(master, "wb") as audio:
+            audio.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            audio.writeframes(bytes(master_pcm))
+        excerpt = io.BytesIO()
+        with wave.open(excerpt, "wb") as audio:
+            audio.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            audio.writeframes(crop)
+        raw_excerpt = excerpt.getvalue()
+        assert digest(crop) not in ORIGINAL_PCM_EXCERPT_SHA256
+        samples[last["sampleId"]] = raw_excerpt + b"JUNK"
+        last["wavSha256"] = digest(samples[last["sampleId"]])
+        return rows, samples, master.getvalue()
+
+    def test_full_master_containment_rejects_trimmed_original_pcm_without_known_hash(self):
+        rows, samples, master = self.embedded_reference_fixture()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(master)):
+            without_master = evaluate_blind_reference_pairs(rows, samples, set())
+            with_master = evaluate_blind_reference_pairs(rows, samples, set(), master)
+        self.assertEqual(without_master["status"],
+                         "RESEARCH_UNATTESTED_REFERENCE_BENCHMARK_ONLY", without_master)
+        self.assertFalse(without_master["originalMasterPcmContainmentScreened"])
+        self.assertEqual(with_master["status"], "HOLD", with_master)
+        self.assertIn("REFERENCE_EXCERPT_REUSED_FROM_ORIGINAL_MASTER",
+                      with_master["errors"])
+        self.assertTrue(with_master["originalMasterPcmContainmentScreened"])
+        self.assertFalse(with_master["mayPublish"])
+
+    def test_full_master_containment_rejects_unpinned_master(self):
+        rows, samples, master = self.embedded_reference_fixture()
+        result = evaluate_blind_reference_pairs(rows, samples, set(), master)
+        self.assertEqual(result["status"], "HOLD")
+        self.assertIn("REFERENCE_TARGET_ORIGINAL_WAV_HASH_INVALID", result["errors"])
+        self.assertFalse(result["originalMasterPcmContainmentScreened"])
+        self.assertFalse(result["mayPublish"])
+
     def test_same_exact_audio_disguised_as_separate_reference_rejected(self):
         rows, samples = self.fixture()
         first, last = rows[0], rows[-1]
@@ -608,6 +677,27 @@ class BlindReferenceArchiveTests(unittest.TestCase):
                           report["errors"])
             self.assertFalse(report["mayPublish"])
             self.assertFalse(report["calibrationComplete"])
+
+    def test_reference_target_argument_cannot_run_without_benchmark_zip(self):
+        script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
+        result = subprocess.run([sys.executable, script,
+                                 "--reference-target-wav", "/nonexistent/source.wav"],
+                                capture_output=True, text=True, timeout=20)
+        self.assertEqual(result.returncode, 2, result.stderr)
+        self.assertIn("REFERENCE_TARGET_WAV_REQUIRES_REFERENCE_BENCHMARK_ZIP",
+                      result.stdout)
+        self.assertIn('"mayPublish": false', result.stdout)
+
+    def test_benchmark_archive_requires_actual_target_file_when_requested(self):
+        rows, samples = BlindReferenceBenchmarkTests.fixture()
+        with tempfile.TemporaryDirectory() as td:
+            zipped = Path(td)/"refs.zip"
+            self.make_zip(zipped, rows, samples)
+            out = audit_reference_archive(zipped, Path(td)/"missing.wav")
+            self.assertEqual(out["status"], "HOLD")
+            self.assertIn("REFERENCE_TARGET_ORIGINAL_WAV_UNSAFE_OR_MISSING",
+                          out["errors"])
+            self.assertFalse(out["mayPublish"])
 
     def test_cli_rejects_mixing_benchmark_with_original_target_mode(self):
         script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
