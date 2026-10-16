@@ -293,7 +293,8 @@ def render(source,molecule,output):
         # before exposing a verified clip, then link atomically with NO overwrite.
         if digest(source)!=SOURCE_SHA or digest(molecule)!=MOL_SHA:
             raise ResearchHold('SOURCE_IDENTITY_CHANGED_DURING_RENDER')
-        final_sha=commit_verified_silent_scene(stage,output)
+        final_sha=commit_verified_silent_scene(stage,output,
+            width=W,height=H,fps=FPS,frames=END-START)
     return {'schema':SCHEMA,'sourceFilmSha256':SOURCE_SHA,'silentSceneSha256':final_sha,
        'originalNarrationSha256':ORIGINAL_WAV_SHA,'moleculeSha256':MOL_SHA,'width':W,'height':H,'fps':FPS,
        'startFrame':START,'endFrameExclusive':END,'negationFirstFrame':NEGATION,
