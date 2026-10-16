@@ -215,13 +215,71 @@ def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
         sys.path.pop(0)
 
 
+
+# Freeze exactly the v1 data that originally went into environmentSha256.
+# Neither an extra field, an added self-approval, nor an edited nested source
+# may be smuggled into a pair-comparison receipt without deliberate v2 review.
+ENVIRONMENT_V1_IDENTITY_FIELDS = frozenset((
+    "schema", "archivedOriginalReceiptSha256", "alignmentCandidateSha256",
+    "wavSha256", "sourceHashesSha256", "fontHashesSha256",
+    "pillowVersion", "rdkitVersion", "pythonVersion",
+    "ffmpegExecutableSha256", "ffmpegVersion", "encoderMode",
+))
+ENVIRONMENT_V1_FIELDS = ENVIRONMENT_V1_IDENTITY_FIELDS | frozenset((
+    "environmentSha256", "originalArchivedFFmpegBinarySha256Verified",
+    "releaseAuthorized",
+))
+ORIGINAL_FONT_PINS = {
+    "DejaVuSans.ttf": "ae7b7855e115a5966d8b1b3f80f254ccc117ec86f9965e202ee2940453837280",
+    "DejaVuSans-Bold.ttf": "5c1247acef7f2b8522a31742c76d6adcb5569bacc0be7ceaa4dc39dd252ce895",
+}
+
+
+def validate_environment_report_v1(environment):
+    """Independently verify exact frozen environmental identity, research only.
+
+    A matching whole JSON SHA from the same producer cannot prove its inner
+    environmentSha256 was calculated correctly. Recompute the canonical v1
+    fingerprint, verify independently pinned sources/fonts/WAV/receipts, and
+    forbid unknown fields that could masquerade as reviewer approvals.
+    """
+    from original_replay_source_restore import PINNED
+
+    if not isinstance(environment, dict) or set(environment) != ENVIRONMENT_V1_FIELDS:
+        raise ValueError("NATIVE_ORIGINAL_HOLD:ENVIRONMENT_FIELDS_OR_SCHEMA_DRIFT")
+    if (environment["schema"] != "ths-em-original-stdin-env-v1"
+            or environment["originalArchivedFFmpegBinarySha256Verified"] is not False
+            or environment["releaseAuthorized"] is not False):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:INVALID_ENVIRONMENT_REPORT")
+    if (environment["archivedOriginalReceiptSha256"] != ORIGINAL_TIMED_RECEIPT_SHA256
+            or environment["alignmentCandidateSha256"] != CANDIDATE_SHA
+            or environment["wavSha256"] != ORIGINAL_WAV_SHA256
+            or environment["sourceHashesSha256"] != PINNED
+            or environment["fontHashesSha256"] != ORIGINAL_FONT_PINS):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:ENVIRONMENT_SOURCE_IDENTITY_DRIFT")
+    hashes = ("archivedOriginalReceiptSha256", "alignmentCandidateSha256",
+              "wavSha256", "ffmpegExecutableSha256", "environmentSha256")
+    if any(not isinstance(environment[k], str) or len(environment[k]) != 64
+           or any(ch not in "0123456789abcdef" for ch in environment[k])
+           for k in hashes):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:INVALID_ENVIRONMENT_SHA")
+    strings = ("pillowVersion", "rdkitVersion", "pythonVersion",
+               "ffmpegVersion", "encoderMode")
+    if any(not isinstance(environment[k], str) or not environment[k].strip()
+           for k in strings):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:INVALID_ENVIRONMENT_IDENTITY")
+    identity = {name: environment[name] for name in ENVIRONMENT_V1_IDENTITY_FIELDS}
+    recomputed = sha(json.dumps(
+        identity, sort_keys=True, separators=(",", ":")).encode("utf-8"))
+    if recomputed != environment["environmentSha256"]:
+        raise ValueError("NATIVE_ORIGINAL_HOLD:ENVIRONMENT_FINGERPRINT_MISMATCH")
+    return recomputed
+
+
 def inspect_both(first, second, environment_first, environment_second):
     """Strict physical pair comparator; no self-granted executor attestation."""
     for e in (environment_first, environment_second):
-        if (e.get("schema") != "ths-em-original-stdin-env-v1"
-                or e.get("originalArchivedFFmpegBinarySha256Verified") is not False
-                or e.get("releaseAuthorized") is not False):
-            raise ValueError("NATIVE_ORIGINAL_HOLD:INVALID_ENVIRONMENT_REPORT")
+        validate_environment_report_v1(e)
     for d, e in ((first, environment_first), (second, environment_second)):
         if d.get("status") != "ONE_ORIGINAL_SOURCE_RENDER_RESEARCH_ONLY":
             raise ValueError("NATIVE_ORIGINAL_HOLD:NOT_ORIGINAL_SOURCE_JOB")
