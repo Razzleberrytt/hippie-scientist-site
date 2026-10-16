@@ -16,9 +16,11 @@ def fixture():
     chemical=lambda cid: {
         "kind":"PRIMARY_CHEMICAL_RECORD","cid":cid,
         "url":f"https://pubchem.ncbi.nlm.nih.gov/compound/{cid}",
-        "inchiKey":"CHEMISTRY-SOURCE-TEST-ONLY",
+        "inchiKey":("LELBFTMXCIIKKX-QVRQZEMUSA-N" if cid == 3034396
+                    else "RYENLSMHLCNXJT-CYXFISRXSA-N"),
         "recordType":"COMPUTED_STRUCTURE_DESCRIPTOR",
-        "formula":"SYNTHETIC_TEST_FORMULA", "studyPopulation":None,
+        "formula":("C23H30N2O4" if cid == 3034396 else "C23H30N2O5"),
+        "studyPopulation":None,
         "measuredHumanOutcome":None,
         "permittedMeaning":("mitragynine chemical identity/connectivity only"
             if cid == 3034396 else
@@ -128,6 +130,21 @@ class UncertaintyLedgerContracts(unittest.TestCase):
         self.join["spokenLedgerSha256"]=H("a")
         with self.assertRaisesRegex(ValueError,"SOURCE_JOIN_IDENTITY"):
             self.inspect()
+
+    def test_rehashed_wrong_formula_or_inchikey_cannot_pass_source_identity(self):
+        # Preserve correct CID/URL and rehashable JSON while corrupting its
+        # structural descriptor: first-stage uncertainty audit must HOLD.
+        for sid, field, corrupted in (
+            ("pubchem:3034396", "formula", "C23H30N2O5"),
+            ("pubchem:44301524", "formula", "C23H30N2O4"),
+            ("pubchem:3034396", "inchiKey", "RYENLSMHLCNXJT-CYXFISRXSA-N"),
+            ("pubchem:44301524", "inchiKey", "LELBFTMXCIIKKX-QVRQZEMUSA-N"),
+        ):
+            self.join = fixture()
+            self.join["sources"][sid][field] = corrupted
+            with self.subTest(source=sid, field=field), self.assertRaisesRegex(
+                    ValueError, "CHEMICAL_RECORD_CANNOT_BECOME_HUMAN_STUDY"):
+                self.inspect()
 
     def test_swapped_source_cids_are_not_film_evidence(self):
         self.join["sources"]["pubchem:44301524"]["cid"]=3034396

@@ -78,6 +78,12 @@ SOURCE_RECORD_FIELDS = {
         "kind", "storyMapSha256", "url",
         "studyPopulation", "measuredHumanOutcome", "permittedMeaning")),
 }
+# Exact values are pinned by verified_molecular_comparison.py's validated
+# PubChem/RDKit source graphs, not user-editable hash-bearing source JSON.
+PINNED_CHEMICAL_IDENTITY = {
+    "pubchem:3034396": ("C23H30N2O4", "LELBFTMXCIIKKX-QVRQZEMUSA-N"),
+    "pubchem:44301524": ("C23H30N2O5", "RYENLSMHLCNXJT-CYXFISRXSA-N"),
+}
 SOURCE_PERMITTED_MEANING = {
     "pubchem:3034396": "mitragynine chemical identity/connectivity only",
     "pubchem:44301524": "7-hydroxymitragynine identity, O-H, connectivity only",
@@ -148,8 +154,8 @@ def classify(join, *, source_sha):
             or record.get("cid") != cid
             or record.get("recordType") != "COMPUTED_STRUCTURE_DESCRIPTOR"
             or record.get("url") != f"https://pubchem.ncbi.nlm.nih.gov/compound/{cid}"
-            or not isinstance(record.get("inchiKey"), str)
-            or not record["inchiKey"]
+            or (record.get("formula"), record.get("inchiKey"))
+                != PINNED_CHEMICAL_IDENTITY[ident]
             or record.get("studyPopulation") is not None
             or record.get("measuredHumanOutcome") is not None):
             hold("CHEMICAL_RECORD_CANNOT_BECOME_HUMAN_STUDY")
