@@ -23,7 +23,7 @@ from original_frame_replay_probe import (
 )
 from original_replay_admission import (
     inspect_replay_inputs, ORIGINAL_TIMED_RECEIPT_SHA256,
-    ORIGINAL_WAV_SHA256
+    ORIGINAL_WAV_SHA256, strict_json
 )
 
 EXPECTED_FRAME_COUNT = 1031
@@ -276,18 +276,94 @@ def validate_environment_report_v1(environment):
     return recomputed
 
 
+
+# v1 is a closed research receipt schema. A producer may not invent a new
+# approval field without a separately reviewed versioned contract.
+ORIGINAL_JOB_V1_FIELDS = frozenset((
+    "schema", "status", "encoderMode", "runId", "runnerJobId", "runnerName",
+    "githubRunId", "originalRendererGitSourcesRecovered",
+    "allEightArchivedOriginalPixelSamplesBitwiseMatched",
+    "nativeEncodedFilmFullDecode", "originalRendererFullRenderExecuted",
+    "x264CpuAsmDisabledMachineLogObserved", "sourceToEncoderStdinReceipt",
+    "sha256EnvironmentJson", "wallSeconds", "mayPublish",
+    "firstExcellentMasterAccepted", "fiveRenderStreakAccepted",
+    "independentJobProvenanceExternallyAuthenticated",
+    "originalArchivedFFmpegBinaryAuthenticated",
+))
+JOB_V1_TRUE_MACHINE_ASSERTIONS = (
+    "originalRendererGitSourcesRecovered",
+    "allEightArchivedOriginalPixelSamplesBitwiseMatched",
+    "nativeEncodedFilmFullDecode", "originalRendererFullRenderExecuted",
+    "x264CpuAsmDisabledMachineLogObserved",
+)
+JOB_V1_FALSE_UNAUTHORIZED_ASSERTIONS = (
+    "mayPublish", "firstExcellentMasterAccepted", "fiveRenderStreakAccepted",
+    "independentJobProvenanceExternallyAuthenticated",
+    "originalArchivedFFmpegBinaryAuthenticated",
+)
+
+
+def validate_original_job_v1(job):
+    """Enforce bounded machine facts and ALL withheld creative/trust approvals."""
+    if not isinstance(job, dict) or set(job) != ORIGINAL_JOB_V1_FIELDS:
+        raise ValueError("NATIVE_ORIGINAL_HOLD:NONCANONICAL_JOB_RECEIPT_FIELDS")
+    if (job["schema"] != "ths-em-original-stdin-full-native-replay-job-v1"
+            or job["status"] != "ONE_ORIGINAL_SOURCE_RENDER_RESEARCH_ONLY"):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:NOT_ORIGINAL_SOURCE_JOB")
+    if any(job[k] is not True for k in JOB_V1_TRUE_MACHINE_ASSERTIONS):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:ORIGINAL_FRAME_OR_DECODE_CHECK_FAILED")
+    if any(job[k] is not False for k in JOB_V1_FALSE_UNAUTHORIZED_ASSERTIONS):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:FORGED_CREATIVE_OR_TRUST_APPROVAL")
+    if (not isinstance(job["sourceToEncoderStdinReceipt"], dict)
+            or not isinstance(job["sha256EnvironmentJson"], str)
+            or len(job["sha256EnvironmentJson"]) != 64
+            or any(x not in "0123456789abcdef" for x in job["sha256EnvironmentJson"])):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:INVALID_JOB_EVIDENCE_IDENTITY")
+    if any(not isinstance(job[k], str) or not job[k].strip()
+           for k in ("encoderMode", "runId", "runnerJobId", "runnerName", "githubRunId")):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:INVALID_JOB_IDENTITY")
+    if (type(job["wallSeconds"]) not in (float, int)
+            or not math.isfinite(job["wallSeconds"]) or job["wallSeconds"] <= 0):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:INVALID_JOB_DURATION")
+    return True
+
+
+def read_original_pair_dir(directory):
+    """Read physical producer bytes with strict JSON, no links or self-approval."""
+    path = Path(directory)
+    if not path.is_dir() or path.is_symlink():
+        raise ValueError("NATIVE_ORIGINAL_HOLD:PAIR_ARTIFACT_DIRECTORY_UNSAFE")
+    records = []
+    for name in ("full-original-replay.json", "environment.json"):
+        candidate = path / name
+        if (not candidate.is_file() or candidate.is_symlink()
+                or candidate.stat().st_size == 0
+                or candidate.stat().st_size > 2_000_000):
+            raise ValueError("NATIVE_ORIGINAL_HOLD:PAIR_REPORT_MISSING_OR_UNSAFE:" + name)
+        try:
+            parsed = strict_json(candidate.read_text(encoding="utf-8"))
+        except (ValueError, UnicodeError) as exc:
+            raise ValueError("NATIVE_ORIGINAL_HOLD:PAIR_REPORT_MALFORMED:" + name) from exc
+        if not isinstance(parsed, dict):
+            raise ValueError("NATIVE_ORIGINAL_HOLD:PAIR_REPORT_NOT_OBJECT:" + name)
+        records.append(parsed)
+    report, environment = records
+    validate_original_job_v1(report)
+    validate_environment_report_v1(environment)
+    if report["sha256EnvironmentJson"] != sha_file(path / "environment.json"):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:PHYSICAL_ENV_FILE_SHA_MISMATCH")
+    verify_uploaded_movie(path, report)
+    return report, environment
+
+
 def inspect_both(first, second, environment_first, environment_second):
     """Strict physical pair comparator; no self-granted executor attestation."""
     for e in (environment_first, environment_second):
         validate_environment_report_v1(e)
     for d, e in ((first, environment_first), (second, environment_second)):
-        if d.get("status") != "ONE_ORIGINAL_SOURCE_RENDER_RESEARCH_ONLY":
-            raise ValueError("NATIVE_ORIGINAL_HOLD:NOT_ORIGINAL_SOURCE_JOB")
-        if not d.get("allEightArchivedOriginalPixelSamplesBitwiseMatched") or not d.get("nativeEncodedFilmFullDecode"):
-            raise ValueError("NATIVE_ORIGINAL_HOLD:ORIGINAL_FRAME_OR_DECODE_CHECK_FAILED")
-        if d.get("mayPublish") is not False or d.get("firstExcellentMasterAccepted") is not False:
-            raise ValueError("NATIVE_ORIGINAL_HOLD:FORGED_CREATIVE_APPROVAL")
-        if d.get("sha256EnvironmentJson") != sha((json.dumps(e,indent=2)+"\n").encode()):
+        validate_original_job_v1(d)
+        if d["sha256EnvironmentJson"] != sha(
+                (json.dumps(e, indent=2) + "\\n").encode()):
             raise ValueError("NATIVE_ORIGINAL_HOLD:ENV_REPORT_BYTES_DIFFER")
     if (first.get("encoderMode") != "CPU_ASM_DISABLED_X264_AND_SWSCALE_RESEARCH"
             or second.get("encoderMode") != first["encoderMode"]
@@ -383,16 +459,8 @@ if __name__ == "__main__":
                           "rawInputSha256": report["sourceToEncoderStdinReceipt"]["rawStdinSha256"],
                           "mayPublish": False}, indent=2))
     else:
-        def read_pair(path):
-            p = Path(path)
-            report = json.loads((p / "full-original-replay.json").read_text())
-            env = json.loads((p / "environment.json").read_text())
-            if report.get("sha256EnvironmentJson") != sha_file(p / "environment.json"):
-                raise ValueError("NATIVE_ORIGINAL_HOLD:PHYSICAL_ENV_FILE_SHA_MISMATCH")
-            verify_uploaded_movie(p, report)
-            return report, env
-        a, ae = read_pair(args.first)
-        b, be = read_pair(args.second)
+        a, ae = read_original_pair_dir(args.first)
+        b, be = read_original_pair_dir(args.second)
         report = inspect_both(a, b, ae, be)
         report["downloadedMovieBytesRehashedAgainstBothEncoderReceipts"] = True
         Path(args.out).write_text(json.dumps(report, indent=2) + "\n")
