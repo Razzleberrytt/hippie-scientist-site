@@ -8,13 +8,16 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 import wave
+import repeated_term_acoustic_guard as original_guard
 
 import numpy as np
 
 from repeated_term_acoustic_guard import (
     SOURCE_ARCHIVE_SHA, audit, compare, decode_pcm, digest, distance, trajectory,
     source_clip_sample_offsets, audit_original_source,
+    SOURCE_WAV_REFERENCE, MFA_SOURCE_ALIGNMENT_SHA, ORIGINAL_PCM_EXCERPT_SHA256,
     audit_pose_poles_conflict, audit_pose_files, audit_pose_internal_reference_set,
     spectral_band_trace, evaluate_blind_reference_pairs, audit_reference_archive,
 )
@@ -215,6 +218,59 @@ class OriginalMasterMfaTests(unittest.TestCase):
             self.assertEqual(report["status"], "HOLD")
             self.assertIn("ORIGINAL_MFA_ALIGNMENT_SHA_CHANGED", report["errors"])
 
+
+
+@unittest.skipUnless(all(x.is_file() for x in (MASTER, MFA_ALIGNMENT)),
+    "Original source WAV and MFA word windows unavailable in hosted checkout")
+class PhysicallyRecoveredOriginalPcmBlacklistTests(unittest.TestCase):
+    """Physical original-source hash oracle. No phonetic inference."""
+
+    @staticmethod
+    def source_pcm():
+        wav_raw = MASTER.read_bytes()
+        alignment_raw = MFA_ALIGNMENT.read_bytes()
+        assert digest(wav_raw) == SOURCE_WAV_REFERENCE
+        assert digest(alignment_raw) == MFA_SOURCE_ALIGNMENT_SHA
+        with wave.open(io.BytesIO(wav_raw), "rb") as src:
+            assert (src.getnchannels(), src.getsampwidth(),
+                    src.getframerate(), src.getnframes()) == (1, 2, 24000, 824336)
+            pcm = src.readframes(src.getnframes())
+        words = json.loads(alignment_raw)["wordAlignment"]
+        assert len(words) == 73
+        windows = [(2, 3, 4), (7,), (16, 17), (19,), (37,), (38,),
+                   (61,), (68,), (71,)]
+        excerpts = []
+        for indices in windows:
+            a = round(words[indices[0]]["startMs"]*24)
+            b = round(words[indices[-1]]["endMs"]*24)
+            assert 0 <= a < b <= 824336
+            excerpts.append(pcm[a*2:b*2])
+        return excerpts
+
+    def test_nine_source_word_excerpts_rehash_to_exact_blacklist(self):
+        excerpts = self.source_pcm()
+        self.assertEqual(len(excerpts), 9)
+        self.assertEqual({digest(x) for x in excerpts},
+                         ORIGINAL_PCM_EXCERPT_SHA256)
+
+    def test_original_pose_audio_rewrapped_with_new_wav_sha_is_excluded(self):
+        target_pcm = self.source_pcm()[4]
+        stream = io.BytesIO()
+        with wave.open(stream, "wb") as audio:
+            audio.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            audio.writeframes(target_pcm)
+        original = stream.getvalue()
+        rewrapped = original + b"JUNK"
+        self.assertNotEqual(digest(original), digest(rewrapped))
+        rows, clips = BlindReferenceBenchmarkTests.fixture()
+        last = rows[-1]
+        last["wavSha256"] = digest(rewrapped)
+        clips[last["sampleId"]] = rewrapped
+        result = evaluate_blind_reference_pairs(rows, clips, set())
+        self.assertEqual(result["status"], "HOLD", result)
+        self.assertIn("REFERENCE_ORIGINAL_TARGET_PCM_REUSE", result["errors"])
+        self.assertFalse(result["calibrationComplete"])
+        self.assertFalse(result["mayPublish"])
 
 
 class PoseConflictNegativeTests(unittest.TestCase):
@@ -442,6 +498,27 @@ class BlindReferenceBenchmarkTests(unittest.TestCase):
         samples[last["sampleId"]] = samples[first["sampleId"]]
         self.assertEqual(evaluate_blind_reference_pairs(
             rows, samples, set())["status"], "HOLD")
+
+    def test_source_pcm_exclusion_survives_rewrapped_wav_file_hash(self):
+        rows, samples = self.fixture()
+        case = rows[-1]
+        original = samples[case["sampleId"]]
+        with wave.open(io.BytesIO(original), "rb") as audio:
+            pcm_hash = digest(audio.readframes(audio.getnframes()))
+        self.assertNotIn(pcm_hash, ORIGINAL_PCM_EXCERPT_SHA256)
+        repackaged = original + b"JUNK"
+        self.assertNotEqual(digest(original), digest(repackaged))
+        samples[case["sampleId"]] = repackaged
+        case["wavSha256"] = digest(repackaged)
+        # Deterministically substitute the banned physical PCM digest without
+        # pretending the synthetic sine is the original target recording.
+        with patch.object(original_guard, "ORIGINAL_PCM_EXCERPT_SHA256",
+                          frozenset({pcm_hash})):
+            report = evaluate_blind_reference_pairs(rows, samples, set())
+        self.assertEqual(report["status"], "HOLD", report)
+        self.assertIn("REFERENCE_ORIGINAL_TARGET_PCM_REUSE", report["errors"])
+        self.assertFalse(report["mayPublish"])
+        self.assertFalse(report["calibrationComplete"])
 
     def test_same_pcm_rewrapped_to_new_file_sha_rejected_within_and_across_splits(self):
         for changed_index in (1, -1):
