@@ -306,7 +306,8 @@ def spectral_band_trace(pcm):
 
 
 
-def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes):
+def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes,
+                                   target_original_wav=None):
     """Measure an UNATTESTED pose/poles reference benchmark, not pronunciation.
 
     No data supplied to this function can authenticate human labels, speakers,
@@ -319,6 +320,7 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes):
         "wordTimingCalibrated": False, "lexicalWinner": None,
         "originalTargetInferred": False, "speakerIdentitiesAuthenticated": False,
         "referenceAnnotationsAuthenticated": False, "calibrationComplete": False,
+        "originalMasterPcmContainmentScreened": False,
     }
     def refuse(reason, **extras):
         return {**base, "status": "HOLD", "errors": [reason], **extras}
@@ -336,6 +338,23 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes):
     # WAV-container identity is insufficient: the same PCM can be repackaged
     # with different chunk metadata or trailing bytes and cross the split.
     seen_ids, seen_hashes, seen_pcm_hashes = set(), set(), set()
+    target_pcm = None
+    if target_original_wav is not None:
+        if (not isinstance(target_original_wav, bytes)
+                or digest(target_original_wav) != SOURCE_WAV_REFERENCE):
+            return refuse("REFERENCE_TARGET_ORIGINAL_WAV_HASH_INVALID")
+        try:
+            with wave.open(io.BytesIO(target_original_wav), "rb") as original:
+                if ((original.getnchannels(), original.getsampwidth(),
+                     original.getframerate(), original.getcomptype(),
+                     original.getnframes()) != (1, 2, 24000, "NONE", 824336)):
+                    return refuse("REFERENCE_TARGET_ORIGINAL_WAV_FORMAT_INVALID")
+                target_pcm = original.readframes(original.getnframes())
+            if len(target_pcm) != 824336 * 2:
+                return refuse("REFERENCE_TARGET_ORIGINAL_WAV_TRUNCATED")
+        except (OSError, ValueError, EOFError, wave.Error):
+            return refuse("REFERENCE_TARGET_ORIGINAL_WAV_UNREADABLE")
+        base["originalMasterPcmContainmentScreened"] = True
     groups = {"train": {}, "test": {}}
     samples = []
     try:
@@ -370,6 +389,8 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes):
                 return refuse("REFERENCE_ORIGINAL_TARGET_PCM_REUSE")
             if pcm_sha in seen_pcm_hashes:
                 return refuse("REFERENCE_PCM_DUPLICATE_DESPITE_DIFFERENT_WAV_SHA")
+            if target_pcm is not None and target_pcm.find(pcm) != -1:
+                return refuse("REFERENCE_EXCERPT_REUSED_FROM_ORIGINAL_MASTER")
             spectral = spectral_band_trace(pcm)
             observed = groups[split].setdefault(speaker, set())
             observed.add(label)
@@ -440,8 +461,8 @@ def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes):
 
 
 
-def audit_reference_archive(archive_file):
-    """CLI-ready research-only case bundle; never signs labels or authenticates a speaker."""
+def audit_reference_archive(archive_file, target_original_wav_path=None):
+    """Research-only case ZIP, optionally screened against the pinned full target WAV."""
     def fail(reason):
         return {**hold(reason), "calibrationComplete": False,
                 "referenceAnnotationsAuthenticated": False,
@@ -452,6 +473,13 @@ def audit_reference_archive(archive_file):
         if (path.is_symlink() or not path.is_file()
                 or not 0 < path.stat().st_size <= 40000000):
             return fail("REFERENCE_BENCHMARK_ZIP_UNAVAILABLE_OR_UNSAFE")
+        target_raw = None
+        if target_original_wav_path is not None:
+            target_path = Path(target_original_wav_path)
+            if (target_path.is_symlink() or not target_path.is_file()
+                    or not 0 < target_path.stat().st_size <= 3000000):
+                return fail("REFERENCE_TARGET_ORIGINAL_WAV_UNSAFE_OR_MISSING")
+            target_raw = target_path.read_bytes()
         with zipfile.ZipFile(path, "r") as archive:
             infos = archive.infolist()
             names = [part.filename for part in infos]
@@ -487,7 +515,7 @@ def audit_reference_archive(archive_file):
                 return fail("REFERENCE_ZIP_UNDECLARED_OR_MISSING_CLIPS")
             samples = {case["sampleId"]: archive.read(name)
                        for case, name in zip(rows, sample_names)}
-        return evaluate_blind_reference_pairs(rows, samples, set())
+        return evaluate_blind_reference_pairs(rows, samples, set(), target_raw)
     except (OSError, ValueError, TypeError, KeyError, EOFError,
             zipfile.BadZipFile, UnicodeError) as exc:
         return fail("REFERENCE_BENCHMARK_ZIP_READ_FAILED:" + str(exc)[:80])
@@ -740,6 +768,8 @@ def main(argv=None):
     p.add_argument("--pose-asr-receipt", help="Research-only frozen original ASR receipt, pose/poles contrast")
     p.add_argument("--reference-benchmark-zip",
                    help="Optional external source-WAV reference minimal-pair ZIP (research ONLY)")
+    p.add_argument("--reference-target-wav",
+                   help="Screen every benchmark PCM clip against the exact original full narrator WAV")
     p.add_argument("--pose-internal-contrasts", action="store_true",
                    help="Produce source-pinned same-narrator comparisons; NEVER a phoneme verdict")
     a=p.parse_args(argv)
@@ -748,7 +778,10 @@ def main(argv=None):
                 a.pose_asr_receipt, a.source_archive, a.pose_internal_contrasts)):
             result=hold("REFERENCE_BENCHMARK_MUST_RUN_IN_EXCLUSIVE_NON_TARGET_MODE")
         else:
-            result=audit_reference_archive(a.reference_benchmark_zip)
+            result=audit_reference_archive(a.reference_benchmark_zip,
+                                           a.reference_target_wav)
+    elif a.reference_target_wav is not None:
+        result=hold("REFERENCE_TARGET_WAV_REQUIRES_REFERENCE_BENCHMARK_ZIP")
     elif a.pose_internal_contrasts and a.pose_asr_receipt is None:
         result=hold("POSE_INTERNAL_CONTRAST_REQUIRES_ASR_SOURCE")
     elif a.pose_asr_receipt is not None:
