@@ -148,6 +148,11 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core
           python -m pip install 'rdkit==2025.9.4' 'pillow==12.0.0'
+          # Fail fast on scientific data-contract regressions before slow FFmpeg renders.
+          # Positive/negative REAL-film CLI checks still execute after video generation.
+          for unit in test_claim_source_context_join.py test_scientific_uncertainty_ledger.py test_claim_strength_source_limits.py test_timed_caption_windows.py; do
+            python -m unittest discover -s research/evidencemotion-director -p "$unit" -v
+          done
           python -m unittest discover -s research/evidencemotion-director -p test_narration_locked_treatments.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_source_locked_visual_direction.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_source_bond_trace_direction.py -v
