@@ -13,7 +13,7 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).parent))
 from phone_ui_audit import (audit, probe_movie, validate_manifest,
                             verify_decoded_shot_coverage, choose_decoded_sample,
-                            decoded_overlay)
+                            decoded_overlay, validate_critical_ink_receipt_join)
 
 H = "a" * 64
 
@@ -408,6 +408,155 @@ class ReportOutputAliasSafety(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "REPORT_OUTPUT_ALIASES_SOURCE_INPUT"):
                 audit(movie, plan, root / "output-alias")
             self.assertEqual(plan.read_bytes(), original)
+
+
+class ExactVariantCriticalInkJoinTests(unittest.TestCase):
+    FILM_SHA = "a" * 64
+    PLAN_SHA = "b" * 64
+
+    @classmethod
+    def timed_receipt(cls):
+        scenes = [
+            "sentence_1_part0", "sentence_1_part1", "sentence_2",
+            "sentence_3", "sentence_4", "sentence_5_part0",
+            "sentence_5_part1", "source_hold", "sentence_6",
+        ]
+        return {
+            "schema": "ths-lane4-timed-variant-ink-probe-research-v1",
+            "filmSha256": cls.FILM_SHA,
+            "phonePlanSha256": cls.PLAN_SHA,
+            "previousVariantScoreEligible": False,
+            "actualCriticalLabels": 16,
+            "contrastProxyPass": True,
+            "persistenceProxyPass": True,
+            "actualEncodedSamples": [
+                {"shot": shot, "phase": phase, "index": i}
+                for i, (shot, phase) in enumerate(
+                    (shot, phase) for shot in scenes
+                    for phase in ("early", "middle", "late")
+                )
+            ],
+            "mayPublish": False,
+            "realHandsetApproved": False,
+            "viewerComprehensionApproved": False,
+        }
+
+    def join(self, receipt):
+        return validate_critical_ink_receipt_join(
+            receipt, film_sha=self.FILM_SHA, plan_sha=self.PLAN_SHA
+        )
+
+    def test_exact_timed_variant_receipt_only_joins_as_proxy(self):
+        joined = self.join(self.timed_receipt())
+        self.assertEqual(joined["sourceFramesClaimed"], 27)
+        self.assertEqual(joined["criticalLabelsClaimed"], 16)
+        self.assertFalse(joined["receiptMeasurementsIndependentlyReplayedHere"])
+        self.assertFalse(joined["actualGlyphsVerifiedByThisJoin"])
+        self.assertFalse(joined["actualPhoneComprehensionVerified"])
+        self.assertFalse(joined["mayPublish"])
+
+    def test_other_film_positive_receipt_cannot_certify_timed_variant(self):
+        receipt = self.timed_receipt()
+        receipt["filmSha256"] = "c" * 64
+        with self.assertRaisesRegex(ValueError, "CRITICAL_INK_RECEIPT_DIFFERENT_FILM"):
+            self.join(receipt)
+
+    def test_other_phone_plan_receipt_cannot_cross_treatment(self):
+        receipt = self.timed_receipt()
+        receipt["phonePlanSha256"] = "c" * 64
+        with self.assertRaisesRegex(ValueError, "CRITICAL_INK_RECEIPT_DIFFERENT_PHONE_PLAN"):
+            self.join(receipt)
+
+    def test_false_publication_claim_and_wrong_count_rejected(self):
+        for key, bad, code in (
+            ("mayPublish", True, "FORGED_APPROVAL"),
+            ("realHandsetApproved", True, "FORGED_APPROVAL"),
+            ("viewerComprehensionApproved", True, "FORGED_APPROVAL"),
+            ("actualCriticalLabels", 15, "SIXTEEN_ACTUAL"),
+            ("persistenceProxyPass", False, "TIMED_CRITICAL"),
+            ("previousVariantScoreEligible", True, "TIMED_CRITICAL"),
+        ):
+            with self.subTest(key=key):
+                receipt = self.timed_receipt()
+                receipt[key] = bad
+                with self.assertRaisesRegex(ValueError, code):
+                    self.join(receipt)
+
+    def test_missing_or_duplicate_real_sample_proof_rejected(self):
+        receipt = self.timed_receipt()
+        receipt["actualEncodedSamples"].pop()
+        with self.assertRaisesRegex(ValueError, "TWENTY_SEVEN_EXACT"):
+            self.join(receipt)
+        receipt = self.timed_receipt()
+        receipt["actualEncodedSamples"][-1] = copy.deepcopy(receipt["actualEncodedSamples"][0])
+        with self.assertRaisesRegex(ValueError, "DUPLICATE_CRITICAL_INK_SAMPLE"):
+            self.join(receipt)
+
+    def test_unsupported_or_forged_schema_rejected(self):
+        r = self.timed_receipt()
+        r["schema"] = "ths-superhuman-approval"
+        with self.assertRaisesRegex(ValueError, "UNSUPPORTED_CRITICAL_INK_RECEIPT_SCHEMA"):
+            self.join(r)
+
+    def test_previous_native_variant_requires_exact_source_proof(self):
+        old = self.timed_receipt()
+        old["schema"] = "ths-actual-native-teaching-ink-audit-v1"
+        old["actualFilmSha256"] = old.pop("filmSha256")
+        old["actualPhonePlanSha256"] = old.pop("phonePlanSha256")
+        old["testedCriticalVisibleLabels"] = 16
+        old["additionalObjectivePoints"] = 2
+        old["exactSourceFrameSamplingVerified"] = True
+        old["criteria"] = [
+            {"code": "actual_full_hd_text_ink_contrast", "passed": True},
+            {"code": "meaningful_instruction_text_persistence", "passed": True},
+        ]
+        old["exactDecodedSampleFrames"] = [
+            {"sampleKey": [v["shot"], v["phase"]], "frameIndex": v["index"]}
+            for v in old["actualEncodedSamples"]
+        ]
+        self.assertFalse(self.join(old)["mayPublish"])
+        old["criteria"][0]["passed"] = False
+        with self.assertRaisesRegex(ValueError, "CRITICAL_INK_PROXY_CRITERIA_NOT_PROVEN"):
+            self.join(old)
+
+    def test_failed_new_variant_join_clears_old_success_before_decoder(self):
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            movie = root / "actual-timed.mp4"
+            movie.write_bytes(b"not a media test; preflight only")
+            plan = root / "phone-plan.json"
+            plan.write_text("{}")
+            ink = root / "stale-ink.json"
+            receipt = self.timed_receipt()
+            receipt["filmSha256"] = "c" * 64
+            ink.write_text(json.dumps(receipt))
+            output = root / "frames"
+            output.mkdir()
+            prior = output / "research-report.json"
+            prior.write_text('{"old_success":true}')
+            with self.assertRaisesRegex(ValueError, "CRITICAL_INK_RECEIPT_DIFFERENT_FILM"):
+                audit(movie, plan, output, ink_receipt=ink)
+            self.assertFalse(prior.exists())
+            self.assertTrue(ink.is_file())
+
+    def test_optional_ink_receipt_cannot_be_a_generated_image_or_report(self):
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            output = root / "frames"
+            output.mkdir()
+            for name in ("research-report.json", "opening-0_25.png"):
+                candidate = output / name
+                original = b"protected ink audit source receipt"
+                candidate.write_bytes(original)
+                with self.subTest(name=name):
+                    with self.assertRaisesRegex(
+                        ValueError,
+                        "REPORT_OUTPUT_ALIASES_SOURCE_INPUT" if name.endswith(".json")
+                        else "GENERATED_OUTPUT_ALIASES_SOURCE_INPUT"
+                    ):
+                        audit(root / "movie.mp4", root / "plan.json",
+                              output, ink_receipt=candidate)
+                self.assertEqual(candidate.read_bytes(), original)
 
 
 class ActualFilmSmoke(unittest.TestCase):
