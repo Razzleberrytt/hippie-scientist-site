@@ -12,6 +12,7 @@ import numpy as np
 
 from repeated_term_acoustic_guard import (
     SOURCE_ARCHIVE_SHA, audit, compare, decode_pcm, digest, distance, trajectory,
+    source_clip_sample_offsets,
 )
 
 ARCHIVE=Path(os.getenv("EM_LANE2_PREVIOUS_PACKET",
@@ -69,6 +70,67 @@ class SpectralNegativeTests(unittest.TestCase):
             "/nonexistent/voice.zip"],capture_output=True,text=True,timeout=20)
         self.assertEqual(p.returncode,2)
         self.assertIn('"mayPublish": false',p.stdout)
+
+
+
+class SyntheticMasterLinkTests(unittest.TestCase):
+    """Synthetic controls only; original 34.35s master is NOT in hosted checkout."""
+
+    @staticmethod
+    def wav(pcm, channels=1):
+        stream = io.BytesIO()
+        with wave.open(stream, "wb") as out:
+            out.setnchannels(channels)
+            out.setsampwidth(2)
+            out.setframerate(24000)
+            out.writeframes(pcm)
+        return stream.getvalue()
+
+    @classmethod
+    def fixture(cls):
+        samples = np.random.default_rng(417).integers(
+            -16000, 16000, size=36000, dtype=np.int16).astype("<i2").tobytes()
+        master = cls.wav(samples)
+        clips = {2: cls.wav(samples[4800:16800]),
+                 4: cls.wav(samples[38000:50000])}
+        return master, clips
+
+    def test_source_provenance_exact_pcm_offsets(self):
+        master, clips = self.fixture()
+        offsets = source_clip_sample_offsets(master, clips, digest(master))
+        self.assertEqual(offsets, {2: 2400, 4: 19000})
+
+    def test_source_provenance_rejects_changed_master_hash(self):
+        master, clips = self.fixture()
+        with self.assertRaisesRegex(ValueError, "ORIGINAL_MASTER_WAV_SHA_CHANGED"):
+            source_clip_sample_offsets(master, clips, "0"*64)
+
+    def test_source_provenance_rejects_modified_excerpt(self):
+        master, clips = self.fixture()
+        with wave.open(io.BytesIO(clips[4]), "rb") as w:
+            data = bytearray(w.readframes(w.getnframes()))
+        data[17] ^= 1
+        clips[4] = self.wav(bytes(data))
+        with self.assertRaisesRegex(ValueError,
+                                    "ORIGINAL_CLIP_NOT_UNIQUELY_EXTRACTED_FROM_MASTER"):
+            source_clip_sample_offsets(master, clips, digest(master))
+
+    def test_source_provenance_rejects_reused_identical_excerpt(self):
+        master, clips = self.fixture()
+        with wave.open(io.BytesIO(master), "rb") as w:
+            original = w.readframes(w.getnframes())
+        doubled = self.wav(original + original)
+        with self.assertRaisesRegex(ValueError,
+                                    "ORIGINAL_CLIP_NOT_UNIQUELY_EXTRACTED_FROM_MASTER"):
+            source_clip_sample_offsets(doubled, clips, digest(doubled))
+
+    def test_source_provenance_rejects_wrong_master_audio_format(self):
+        master, clips = self.fixture()
+        with wave.open(io.BytesIO(master), "rb") as w:
+            samples = w.readframes(w.getnframes())
+        stereo = self.wav(samples, channels=2)
+        with self.assertRaisesRegex(ValueError, "ORIGINAL_MASTER_WAV_FORMAT_INVALID"):
+            source_clip_sample_offsets(stereo, clips, digest(stereo))
 
 
 @unittest.skipUnless(ARCHIVE.is_file(),
