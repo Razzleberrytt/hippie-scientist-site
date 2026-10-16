@@ -55,6 +55,19 @@ SUPPORT={
                   "HUMAN_OUTCOME_STUDY_NOT_IN_THIS_ASSET"),
     "spoken-008":((),"NONFACTUAL_EDITORIAL_INVITATION","NOT_A_STUDY_CLAIM"),
 }
+# Independent fail-closed ceiling: metadata/animation never becomes a study.
+# This semantic allowlist is deliberately separate from the source mapping.
+SCOPE_CONTEXT_ORACLE={
+    "spoken-001":("CHEMICAL_IDENTITY_ONLY","NOT_A_STUDY_QUESTION"),
+    "spoken-002":("CHEMICAL_GRAPH_ONLY","NOT_A_HUMAN_STUDY"),
+    "spoken-003":("CHEMICAL_GRAPH_AND_RENDER_PROVENANCE","NOT_A_HUMAN_STUDY"),
+    "spoken-004":("COMPUTED_ARTIFACT_PROVENANCE_ONLY","NOT_A_RECEPTOR_STUDY"),
+    "spoken-005":("FILM_FOOTAGE_SCOPE_ONLY","NOT_A_RECEPTOR_STUDY"),
+    "spoken-006":("CHEMICAL_DEPICTION_ONLY","NOT_A_HUMAN_STUDY"),
+    "spoken-007":("LIMIT_OF_DEPICTION_NOT_ABSENCE_OF_EFFECT",
+                  "HUMAN_OUTCOME_STUDY_NOT_IN_THIS_ASSET"),
+    "spoken-008":("NONFACTUAL_EDITORIAL_INVITATION","NOT_A_STUDY_CLAIM"),
+}
 MATERIAL_IDS=tuple(f"spoken-{i:03}" for i in range(2,8))
 BLOCKED_HUMAN_CONTEXT="HUMAN_OUTCOME_STUDY_NOT_IN_THIS_ASSET"
 
@@ -168,6 +181,8 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
     for a in assertions:
         identity=a["id"]
         ids,scope,context=SUPPORT[identity]
+        if (scope,context)!=SCOPE_CONTEXT_ORACLE[identity]:
+            hold("SOURCE_SCOPE_EXCEEDS_CHEMISTRY_OR_MEDIA:"+identity)
         if identity in MATERIAL_IDS and not ids:
             hold("MATERIAL_CLAIM_NO_SOURCE:"+identity)
         if any(k not in sources for k in ids):
