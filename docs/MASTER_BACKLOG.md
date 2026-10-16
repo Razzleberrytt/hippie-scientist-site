@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-12 (P0 AI citation/evidence expansion program appended as unadmitted candidates; existing D/R/A work unchanged)
+**Updated:** 2026-10-15 (bounded #6810 R admission proposed, preserving D #6685 and A #6769; other P0 work unchanged)
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -35,6 +35,24 @@
 **Non-duplicative first dependencies:** retain existing **#6690** for Bing query→page attribution, **#6685** for production winner-identity protection, **#6670** for editorial verification, and **#6431** for source/evidence integration. A dated Bing Overview export is still required for true 7-/30-day daily trends. Citation Page and Grounding Query totals are overlapping, not additive.
 
 **Admission status:** **1/18 program candidate tasks admitted**: P0-AIC-03 via existing D #6685 only; the other 17 candidates remain unadmitted. This is not a replacement for the existing generational engineering P0 or the unrecovered original 150-item directive. Do not add these as active Now/Next ownership merely for being P0. Each candidate requires fresh scored admission, nonoverlap, exact-source safety/editorial checks, D/R/A WIP space and sole-controller merge; the program and its score are not an additional governance lane. Actual cross-engine leadership, growth ROI, clicks and revenue remain **Unknown**.
+
+### Scoped implementation candidate #6810 — Publisher-to-flywheel identity bridge (2026-10-15)
+
+**Status:** Proposed active R admission on this PR head; effective only upon protected controller merge. Other AO stages remain unadmitted. Research proof: [Phase 0 audit](algorithm-observatory-phase0-audit-2026-10-15.md); open [issue #6810](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6810). **Workstream R / L3 observation identity**; existing score **45.0 = 3 × 4 × 3 × 5 × 0.75 ÷ 3** (Business Impact 3, User Value 4, Traffic Potential 3, Strategic Leverage 5, Confidence 0.75, Effort 3). This is an **estimated relative priority**, not field-measured ROI. `last_verified`: 2026-10-15, repo source implementation and manually inspected connected provider metric coverage; zero verified cross-system field joins.
+
+**Smallest admitted slice:** Consume one exact and verifiably `PUBLISHED` THS Publisher state/receipt and the exact approved media hash, attach to **existing** R8.10 immutable video record and one genuine timestamped metric observation (or return blocked/Unknown when receipts missing). Reuse R8.11 for later experiments. Negative tests must reject draft/ambiguous status, hash/platform/post-ID mismatch, duplicate/conflicting records and synthetic field proof. No new experiment ledger, metric conflation, scientific editing, mass publishing, private-account export or platform algorithm claims. Admit separately via `CURRENT_SPRINT` under normal R WIP, preserving EvidenceMotion's 46-item priority.
+
+## Additive candidate — THS Algorithm Observatory 1.0 (owner-approved spec, 2026-10-15)
+
+**Status:** Approved Observatory direction; narrow #6810 bridge alone has an active R admission proposal on this PR head (effective only after protected merge). The rest remains unadmitted; no claimed code, field lift, additional EvidenceMotion checklist credit or new workstream. [Acceptance and implementation specification](THS_ALGORITHM_OBSERVATORY_V1_SPEC.md).
+
+**Opportunity:** Identify and test platform-specific creative performance relationships using legitimate, timestamped, published-video observations and source-linked Creative DNA; produce statistically restrained, auditable, future-only production suggestions for EvidenceMotion. This is black-box system identification, **not** disclosure of proprietary TikTok/YouTube algorithms.
+
+**Must reuse:** R8.10 first-class learning flywheel (issue #6654), existing SocialOS Publisher/Observer publication receipts, #4414 durable experiment history, #4407 governed outcome ingestion, canonical creative manifests and existing trust/quality controls. No duplicate ledger, recommendation engine with separate priority scoring, paid critical-path dependency, bypass of publisher permissions, or synthetic engagement.
+
+**Potential execution sequence (not tickets):** (0) audit overlapping systems and authorized provider metric coverage, (1) one verified publication+manifest+metric report, (2) TikTok/YouTube separate metric adapters and negative tests, (3) pre-registered and adequately exposed matched hook/format pilot, (4) transparent confidence-scored predictor and future-only suggestions, (5) repeated measured quality/safety-preserving improvement. Missing metrics and business impact are **Unknown**; do not claim algorithm discovery, causality, ROI or first-render excellence without real proof.
+
+**Admission constraint:** Existing EvidenceMotion 46-item completion and first-render craft remain priority. New implementation requires existing priority formula, fresh overlap assessment, evidence/permissions, a scoped ticket listed in CURRENT_SPRINT, available D/R/A WIP capacity, exact-head checks and protected merge. This backlog candidate does **not** start work.
 
 ## Scoring and gates
 
@@ -78,6 +96,12 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
+| #6810 | Read-only Publisher-verified published-video → R8.10 Flywheel integration | R | Active — scoped R admission proposed, effective on protected merge | P2 | 3/4/3/5/0.75/3 | 45.0 | 2026-10-15 code/Metricool coverage audit; independent field link Unknown | No publisher duplicate, scientific claims or posting; T0/T1 negative tests and T2 exact-head checks; verified PUBLISHED post and accurate matching media hash |
+
+**2026-10-15 bounded R #6810 admission proposal:** Scope is the exact read-only Publisher PUBLISHED → existing R8.10 flywheel join from [Phase 0](algorithm-observatory-phase0-audit-2026-10-15.md) and [issue #6810](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6810). Score remains **45.0** under the only approved formula; actual revenue and retention results Unknown. No independent EvidenceMotion 46 quality task is completed, no publishing/clinical authority granted. Active D #6685 and A #6769 unchanged. This must merge through the protected controller before implementation starts; future owner retirement must follow proof.
+
+**2026-10-13 historical A #6766 admission (now deferred by protected PR #6784):** The five-article release review previously scored **100.0** (4×5×4×5×0.75÷3; ordinal priority, not actual traffic/revenue). Five full drafts remain in inert merged staging and held article PR #6774 remains OPEN and unmerged. Independent source/lay-comprehension, clinical-caution and verifiable human owner approval remain prerequisites to future new A admission and production release. On this new exact-main admission transaction, active owners are D #6685 and research-only A #6769; no publication occurred.
+
 **#6427 / PR #6428 — Scientific Intelligence 1.08–1.14, in review (2026-10-08):** Build twelve source-bound analysis/review instruments on the existing exact PMID research graph and eight-instrument relay after #6420. Acceptance: 12 distinct inspectable receipts, valid source identity, 13 calibration invariants on 500 verified intake PMIDs, 0 automatic medical promotions/publications, stable route, static export and UI/CI gates. Available source data cannot prove underlying trial independence, live correction status or full-text efficacy. Consumer/scientific performance impact and revenue ROI remain **Unknown**. This in-review entry does not grant another WIP slot or override machine-managed admission.
 
 **#6420 / PR #6422 — Research Intelligence 1.06/1.07, in review (2026-10-08):** Exact source identity is preserved across all eight existing instruments; explicit semantic handoffs require real title-backed traceable concept pairs. The 1.07 downstream review fabric uses exact DOI and claim/source IDs and cannot publish. Prerequisite #6419 (1.05) merged. #6423/#6424's review-only fabric is included on #6422's head, not yet a separate main-branch release. Continue required PR checks and resolve P1/P2 review threads before merge. Value: safer source navigation/editorial audit; business ROI, retention and time savings **Unknown**. No additional normal D/R/A WIP admission implied.
@@ -87,11 +111,16 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 **#6382 — R8.05 creative-quality control, active:** make attention and audiovisual coherence release gates rather than optional polish. Acceptance requires pre-render premise-interest and one-mental-job gates, payoff-before-method, natural-duration editing, narration-first semantic beat mapping, semantic clip ownership, cut-on-meaning, internal-motion synchronization, cognitive-load ceiling, whole-piece cohesion, and a one-macro-rebuild rescue limit. Preserve all R8.04 zero-credit sovereignty and R8.03 evidence/trust invariants.
 
 
+**Research-only review register #6743 / evidence PR #6747 (2026-10-13):** Passive EvidenceMotion source-verified 7-OH director and locked Kokoro research, not production. Previously merged source and provenance safeguards: **#6742 and #6744**. Native exact-video audit **#6745 MERGED**; director/evidence checklist update **#6747 MERGED**; semantic visual guard and actual-shot research **#6753 MERGED**. Currently merged foundation baseline **23/46 (23 open)** after source-preserving research **CPU benchmark PR #6756 MERGED**; the passive 63-PNG index/2-video-loop research escrow (source/ZIP SHA pinned in [7OH reuse escrow](../research/evidencemotion-director/7OH-REUSABLE-ASSET-ESCROW-2026-10-13.md)) has **no additional checkbox credit or production authorization**. Previous foundation proof followed an actual 15-shot/cut plan, directly verified 19.76s source→computed-model hard cut, bounded PubChem reading hold, exact full-media/caption audit and 63/63 intermediate SHA reproduction with a fail-closed 72-file actual-byte manifest. The *historical film revision* did not match the earlier edited film bytes; **three same-source cold CPU rerenders independently produced identical SHA-256 silent picture MP4s** with 0/3 observed local failures. Real machine-provider costs and production failure rate remain Unknown. Human science/craft/phone/voice verdicts, premium cinematic quality and 1+5 first-final-render milestone remain OPEN. **Status: research-only PR review; no D/R/A slot, automatic publishing, version-freeze lift, production authority or V_VERIFIED designation.** Merge requires green latest-head CI and resolved review findings. Any real integration or canonical adoption requires a separate scored WIP admission, owner decision, and independent evidence; closed #6382 is historical. Baseline admitted D #6685 unchanged.
+
+**2026-10-14 #6743 bounded continuation — research implementation in review:** Merged PR #6792 (`735e047ef580b7ff9ffc14180dc08ff398088dcf`) established **26/46 verified / 20 open** after actual two-treatment reference comparison and protected exact-head gates. Excellent native master remains 0/1 and varied first-render streak 0/5. Owner lifted the version freeze; quality/publication gates remain. [Remaining 20 open requirements and one completed previz comparison](../research/evidencemotion-director/OPEN-REQUIREMENTS-2026-10-14.md) and [exact-WAV word timing evidence](../research/evidencemotion-director/EXACT-WAV-ALIGNMENT-2026-10-14.md) record the recovered original GitHub WAV, actual original-WAV CPU MFA (73 words), byte-bound timing, stale-cut invalidation and two full-narration rendered research treatments. Original V5 MP4/ZIP were recovered Oct 15 with exact historical hashes, all 27 manifest payloads verified and seven original replay tests passing. Scientific lexicon/boundary calibration and independent craft/science/device acceptance remain open. Native continuation repairs the edge-on teaching view and tiny disclosure type, binds annotations to actual draw calls and reuses #6790 on a real 1080x1920/30fps candidate; no additional checkbox credit or final-quality approval. No production imports, new normal WIP slot, publication, or additional checkbox credit. Exact-head CI/build and sole-controller merge remain required.
+
 **Research-only admitted work #6349 / PR #6350:** In review — deep research enrichment Waves 4001–4500. This does not consume a normal implementation WIP slot; it is research-only, fail-closed from runtime/publication/recommendation/dose promotion, and merge remains contingent on repository validation and review.
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
 | #6685 | Activate durable protected identities for citation-leading pages | D | Active — admitted | P0 | 4/4/4/5/0.75/2 | 120.0 | 2026-10-12 |
+| #6769 | Semantic Opportunity Compiler: source-bound cross-system review pilot | A | Active — admitted (source-bound research-only pilot; no scientific or publication authority) | P1 | 4/5/3/5/0.75/3 | 75.0 | 2026-10-13 |
 
 
 
@@ -138,7 +167,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO is occupied by admitted P0 #6685 (1/3 normal WIP); R/A are free. No other candidate is admitted by vacancy alone.
+**Current ordered queue after proposed #6810 admission:** D #6685, A #6769 and narrowly-scoped R #6810 occupy 3/3 normal WIP on the protected admission head; no additional owner permitted. Former A #6766 is externally review-blocked, preserved in the deferred queue with its unpublished PR #6774. The compiler's implementation is a separate PR after admission through the sole controller; no source/claim authority, publishing or observed business impact is implied.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
@@ -151,6 +180,7 @@ Discovery/SEO is occupied by admitted P0 #6685 (1/3 normal WIP); R/A are free. N
 
 | ID | Title | WS | Status | Score | Blocker / next legal action |
 |---|---|---|---|---:|---|
+| #6766 / PR #6774 | Five EvidenceMotion companion articles | A | Deferred — external independent review / secure owner publication approval; PR open but HELD | 100.0 (historic ordinal priority) | Original manuscripts on merged inert staging; publication candidate PR remains OPEN and unmerged. Obtain named human scientific/editorial and beginner-comprehension reviews, secure verifiable owner approval, then new scored A admission and complete CI/Cloudflare release; never count draft as published. |
 | REV-001 / #4280 | Verify production analytics and governed funnel events | R | Blocked external access | 400.0 | Authorized production environment + GA4/Ahrefs receipt evidence; code readiness already merged, but production receipt remains Unknown |
 | SEO-004 | Import aligned 28-day GSC opportunity baseline | D | Blocked external access | 375.0 | Search Console/service-account access or dated export |
 | REV-002 | Establish aligned funnel/revenue baseline | R | Blocked external access | 375.0 | REV-001 plus GA4/GSC/Amazon/Mailchimp data; partial source-level observations may still be recorded honestly |

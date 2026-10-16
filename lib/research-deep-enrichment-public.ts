@@ -40,6 +40,25 @@ export type DeepEnrichmentRound = {
   file: string
   sourceHref: string
   investigations: DeepEnrichmentInvestigation[]
+  sharedDossierNotes: string
+}
+
+/**
+ * Exact PMID occurrence links across the research-only archive.
+ * These are citation reuses, never independent studies or ledger admissions.
+ */
+export function getDeepEnrichmentSourceOccurrences(rounds: DeepEnrichmentRound[]) {
+  const uses = new Map<string, Array<{ id: string; round: number }>>()
+  for (const { investigations } of rounds) {
+    for (const { id, round, sourcePmids } of investigations) {
+      for (const pmid of sourcePmids) {
+        const entries = uses.get(pmid) ?? []
+        entries.push({ id, round })
+        uses.set(pmid, entries)
+      }
+    }
+  }
+  return uses
 }
 
 export const DEEP_ENRICHMENT_ROUND_NUMBERS: number[] = DEEP_ENRICHMENT_DOCUMENTS.map((doc) => doc.round)
@@ -54,11 +73,31 @@ export function getDeepEnrichmentRounds(): DeepEnrichmentRound[] {
       throw new Error(`Deep Enrichment ${round}: expected 10 investigations, found ${headings.length}`)
     }
 
+    // Keep end-of-round QA and admission notes distinct from DE##-10.
+    // The original source text stays accessible on the public round page.
+    const lastInvestigationOffset = headings[headings.length - 1].index ?? -1
+    const sharedNotesHeading = [...fullText.matchAll(/^## (?!DE\d+-\d+\s+[—–-]).+$/gm)]
+      .find((match) => (match.index ?? -1) > lastInvestigationOffset)
+    const sharedNotesStart = sharedNotesHeading?.index ?? fullText.length
+    // Some rounds place shared QA *before* DE##-01 rather than after DE##-10.
+    // Both layouts must remain visible, without assigning round-level notes
+    // to any individual source/study.
+    const firstInvestigationOffset = headings[0].index ?? fullText.length
+    const prefaceHeading = [...fullText.matchAll(/^### Whole-round research QA.*$/gm)]
+      .find((match) => (match.index ?? -1) < firstInvestigationOffset)
+    const prefacedGovernanceNotes = prefaceHeading
+      ? fullText.slice(prefaceHeading.index, firstInvestigationOffset).trim()
+      : ''
+    const sharedDossierNotes = [
+      prefacedGovernanceNotes,
+      fullText.slice(sharedNotesStart).trim(),
+    ].filter(Boolean).join('\n\n')
+
     const investigations = headings.map((heading, index) => {
       const id = heading[1]
       if (id !== `DE${round}-${String(index + 1).padStart(2, '0')}`) throw new Error(`Deep Enrichment ${round}: mismatched ${id}`)
       const start = heading.index! + heading[0].length
-      const end = headings[index + 1]?.index ?? fullText.length
+      const end = headings[index + 1]?.index ?? sharedNotesStart
       const body = fullText.slice(start, end).trim()
       const sourcePmids = [...new Set(
         [...body.matchAll(/pubmed\.ncbi\.nlm\.nih\.gov\/(\d{7,9})\/?/g)].map((match) => match[1])
@@ -82,6 +121,7 @@ export function getDeepEnrichmentRounds(): DeepEnrichmentRound[] {
       file,
       sourceHref: `https://github.com/Razzleberrytt/hippie-scientist-site/blob/main/${file}`,
       investigations,
+      sharedDossierNotes,
     }
   })
 }

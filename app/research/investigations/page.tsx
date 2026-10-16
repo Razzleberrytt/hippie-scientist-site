@@ -4,8 +4,8 @@ import { buildPageMetadata } from '@/lib/seo'
 import { getDeepEnrichmentRounds } from '@/lib/research-deep-enrichment-public'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Research Investigations | Primary-Study Source Trails',
-  description: 'Browse the complete merged Deep Enrichment investigation archive, with original PubMed links and explicit independent-review status.',
+  title: 'Research Investigations | PubMed Research Source Trails',
+  description: 'Browse the Deep Enrichment research archive with linked PubMed trials, reviews, and explicit independent-review status.',
   path: '/research/investigations/',
 })
 
@@ -23,7 +23,7 @@ export default function ResearchInvestigationsPage() {
       </nav>
 
       <header className='rounded-[2rem] border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8 lg:p-10'>
-        <p className='eyebrow-label'>Primary-source transparency · Living research archive</p>
+        <p className='eyebrow-label'>PubMed source transparency · Living research archive</p>
         <h1 className='mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-5xl'>Open research investigations</h1>
         <p className='mt-5 max-w-3xl text-base leading-8 text-muted'>
           See what our researchers are investigating, including null findings, contradictory trials, formulation questions and safety flags.
@@ -47,6 +47,7 @@ export default function ResearchInvestigationsPage() {
           they are <strong>not</strong> additional admitted studies or new canonical citations.
         </p>
         <div className='mt-6 flex flex-wrap gap-x-5 gap-y-3 text-sm font-semibold'>
+          <a href='/research/investigations/sources.json' className='text-brand-700 hover:underline'>Download source inventory (JSON) →</a>
           <Link href='/research/source-register/' className='text-brand-700 hover:underline'>Research source register →</Link>
           <Link href='/info/methodology/' className='text-brand-700 hover:underline'>Methodology and review standards →</Link>
           <Link href='/research/operations/' className='text-brand-700 hover:underline'>Research operations →</Link>
@@ -87,7 +88,7 @@ export default function ResearchInvestigationsPage() {
               <article key={entry.id} className='flex flex-col rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm'>
                 <p className='text-xs font-bold uppercase tracking-wide text-brand-700'>{entry.id} · Research-only</p>
                 <h3 className='mt-2 text-lg font-semibold leading-7 text-ink'>{entry.title}</h3>
-                <p className='mt-2 text-xs text-muted'>{entry.sourcePmids.length} original-source link{entry.sourcePmids.length === 1 ? '' : 's'} in dossier · Independent review pending</p>
+                <p className='mt-2 text-xs text-muted'>{entry.sourcePmids.length} PubMed source link{entry.sourcePmids.length === 1 ? '' : 's'} in dossier · Study or synthesis type described in original notes · Independent review pending</p>
                 <div className='mt-auto flex flex-wrap gap-x-4 gap-y-2 pt-4 text-sm font-semibold'>
                   <Link href={`/research/investigations/${round}/#${entry.id.toLowerCase()}`} className='text-brand-700 hover:underline'>Investigation notes →</Link>
                   <a href={`https://pubmed.ncbi.nlm.nih.gov/${entry.sourcePmids[0]}/`} target='_blank' rel='noopener noreferrer' className='text-brand-700 hover:underline'>First PubMed record ↗</a>

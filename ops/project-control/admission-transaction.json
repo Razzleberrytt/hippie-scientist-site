@@ -1,19 +1,18 @@
 {
   "version": 1,
   "mode": "fresh-admission",
-  "base_revision": "4740e74081a1c62ca396fd8aa9a100a7b39951b9",
-  "last_verified": "2026-10-12",
-  "ticket": 6685,
-  "lane": "D",
-  "title": "Activate durable protected identities for citation-leading pages",
-  "priority": "P0",
+  "base_revision": "4f220b8223e6b1e1392c7f3f770cc5cbe3b3c9f8",
+  "last_verified": "2026-10-15",
+  "ticket": 6810,
+  "lane": "R",
+  "priority": "P2",
   "score_inputs": {
-    "businessImpact": 4,
+    "businessImpact": 3,
     "userValue": 4,
-    "trafficPotential": 4,
+    "trafficPotential": 3,
     "strategicLeverage": 5,
     "confidence": 0.75,
-    "effort": 2
+    "effort": 3
   },
-  "score": 120
+  "score": 45
 }

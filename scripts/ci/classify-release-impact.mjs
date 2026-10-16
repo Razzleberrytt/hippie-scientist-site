@@ -4,6 +4,8 @@ import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 
 export const RELEASE_SENSITIVE_PATTERNS = [
+  // DE dossiers feed live research archive routes and canonical citation audits.
+  /^docs\/research\/deep-enrichment-\d+-\d{4}-\d{2}-\d{2}\.md$/,
   /^scripts\/(?:data|build|pipeline|ci)\//,
   /^scripts\/(?:build|orchestrate|profile-build|generate-|create-content)/,
   /^app\/(?:.+\/)?(?:page|layout|template|default|error|global-error|not-found|loading)\.[^/]+$/,
@@ -121,6 +123,8 @@ export const UI_ONLY_COMPANION_PATTERNS = [
  */
 export function isDocsOnlyPath(file) {
   const normalized = String(file || '').trim().replaceAll('\\', '/')
+  // Public Deep Enrichment dossiers are build inputs, not inert documentation.
+  if (/^docs\/research\/deep-enrichment-\d+-\d{4}-\d{2}-\d{2}\.md$/.test(normalized)) return false
   return Boolean(normalized) && DOCS_ONLY_PATTERNS.some((pattern) => pattern.test(normalized))
 }
 
