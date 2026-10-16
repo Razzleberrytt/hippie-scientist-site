@@ -1,0 +1,76 @@
+name: EvidenceMotion EM-008.01 original archive botanical research gate
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/em00801_actual_botanical_frame_inventory.py'
+      - 'research/evidencemotion-director/test_em00801_actual_botanical_frame_inventory.py'
+      - 'research/evidencemotion-director/EM00801-NATIVE-NINE-SHOT-PROVENANCE-20261016.md'
+      - 'research/evidencemotion-director/EM00801-ACTUAL-FILM-BOTANICAL-INVENTORY-20261016.md'
+      - '.github/workflows/evidencemotion-em00801-original-archive-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original-nine-frame-botanical-source-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Restore only exact prior first-party research movie, NOT latest rerender
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/em00801-prior"
+          # This artifact was independently downloaded and rehashed before coding.
+          # It is historical research media, never assumed identical to a fresh candidate.
+          gh run download 38975933992 --repo "$GITHUB_REPOSITORY" \
+            --name evidencemotion-original-wav-mfa-acoustic-candidate \
+            --dir "$RUNNER_TEMP/em00801-prior"
+          test -s "$RUNNER_TEMP/em00801-prior/specimen-timed-native/specimen_NEW_RESEARCH_CANDIDATE.mp4"
+          test -s "$RUNNER_TEMP/em00801-prior/specimen-timed-native/phone-ui-plan.json"
+          test -s "$RUNNER_TEMP/em00801-prior/specimen-timed-native/render-receipt.json"
+          test -s "$RUNNER_TEMP/em00801-prior/specimen-timed-native/visual-claim-inventory.json"
+      - name: Execute strict negative tests and physically decode nine exact source frames
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_em00801_actual_botanical_frame_inventory.py' -v
+          python research/evidencemotion-director/em00801_actual_botanical_frame_inventory.py \
+            --movie "$RUNNER_TEMP/em00801-prior/specimen-timed-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --plan "$RUNNER_TEMP/em00801-prior/specimen-timed-native/phone-ui-plan.json" \
+            --receipt "$RUNNER_TEMP/em00801-prior/specimen-timed-native/render-receipt.json" \
+            --inventory "$RUNNER_TEMP/em00801-prior/specimen-timed-native/visual-claim-inventory.json" \
+            --out "$RUNNER_TEMP/em00801-actual-archived-nine-frames.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'em00801-actual-archived-nine-frames.json'
+          r=json.loads(p.read_text())
+          assert r['status']=='ACTUAL_NINE_SHOT_SAMPLES_VERIFIED_BOTANICAL_CONTENT_HOLD'
+          assert r['actualDecodedShotsSampled']==9 and len(r['sampledDecodedPixelHashes'])==9
+          assert r['declaredBotanicalArtShots']==0 and r['declaredDeterministicScienceShots']==9
+          assert r['actualBotanicalAbsenceFromAllFramesEstablished'] is False
+          assert r['actualFullFrameContentBotanicallyClassified'] is False
+          assert r['sourceArtPixelProvenanceIndependentlyEstablished'] is False
+          assert r['qualifiedScienceApproved'] is False
+          assert r['mayPublish'] is False and r['publicationApproved'] is False
+          print('PASS_ORIGINAL_ARCHIVE_FRAMEHASH_ONLY; full botanical scene review remains HOLD')
+          PY
+      - name: Preserve no-video, no-WAV machine-only source receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: em00801-original-h264-nine-shot-hashes-research-only
+          path: ${{ runner.temp }}/em00801-actual-archived-nine-frames.json
+          retention-days: 14
+          if-no-files-found: error
+      - name: Prevent mistaken art, science, real-phone or release acceptance
+        if: always()
+        run: |
+          echo 'EM-008.01 uses exact prior archived H264, not current generator film.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Nine real frame SHA-256 samples are NOT all-frame botanical absence or visual approval.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No qualified science, species identity, plant analyte measurement, real phone or publication authority; mayPublish=false.' >> "$GITHUB_STEP_SUMMARY"
