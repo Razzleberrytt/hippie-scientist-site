@@ -123,11 +123,50 @@
         "EM-007.03.N",
         "EM-007.03.R"
       ]
+    },
+    {
+      "group": "EM-007.04",
+      "source": "EM00704-FILM-SOURCE-UNCERTAINTY-20261016.md",
+      "cards": [
+        "EM-007.04.U",
+        "EM-007.04.S",
+        "EM-007.04.O",
+        "EM-007.04.X",
+        "EM-007.04.T",
+        "EM-007.04.N",
+        "EM-007.04.R"
+      ]
+    },
+    {
+      "group": "EM-007.06",
+      "source": "EM00706-SCIENCE-ADVERSARIAL-RECEIPT-20261016.md",
+      "cards": [
+        "EM-007.06.U",
+        "EM-007.06.S",
+        "EM-007.06.O",
+        "EM-007.06.X",
+        "EM-007.06.T",
+        "EM-007.06.N",
+        "EM-007.06.R"
+      ]
+    },
+    {
+      "group": "EM-007.05",
+      "source": "EM00705-REAL-ARCHIVE-SOURCE-STRENGTH-20261016.md",
+      "cards": [
+        "EM-007.05.U",
+        "EM-007.05.S",
+        "EM-007.05.O",
+        "EM-007.05.X",
+        "EM-007.05.T",
+        "EM-007.05.N",
+        "EM-007.05.R"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 61,
-  "provisionalCoverageCardCount": 768,
-  "provisionalCoveragePercent": 48.3019,
+  "individualMachineVerifiedResearchCardCount": 82,
+  "provisionalCoverageCardCount": 789,
+  "provisionalCoveragePercent": 49.6226,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }
