@@ -231,3 +231,110 @@ def compare_pair(first, second, *, expected_source, expected_wav,
         "firstExcellentMasterAccepted": False, "fiveRenderStreakAccepted": False,
         "status": "HOLD_INDEPENDENT_RUNNER_AND_ORIGINAL_MEDIA_PROOF_REQUIRED"
     }
+
+
+def capture_renderer_encoder_call(render_fn, *, run_id, source_sha, wav_path,
+                                  environment_sha, film_path, expected_wav_sha,
+                                  geometry=NATIVE):
+    """Opt-in RESEARCH interception of actual original renderer->FFmpeg writes.
+
+    No original renderer edits. The caller must independently pin the exact
+    source+font+runtime+runner provenance: this wrapper cannot authenticate it.
+    It verifies the WAV's physical bytes before/after and the movie's physical
+    bytes after encoder exit; these do not imply science/craft approval.
+    """
+    import os
+    import subprocess
+    from pathlib import Path
+    from unittest.mock import patch
+
+    wav, film = Path(wav_path), Path(film_path)
+    for name, value in (("SOURCE_SHA", source_sha),
+                        ("ENVIRONMENT_SHA", environment_sha),
+                        ("WAV_SHA", expected_wav_sha)):
+        sha_check(value, name)
+    w, h, frames = geometry
+    if (not isinstance(geometry, tuple) or len(geometry) != 3 or
+            any(type(v) is not int or v < 1 for v in geometry)):
+        hold("INVALID_GEOMETRY")
+    if not wav.is_file() or wav.is_symlink() or not film.parent.is_dir():
+        # Newly generated renderer output directory can be created by the
+        # original render function; its parent must already be real.
+        if not wav.is_file() or wav.is_symlink() or not film.parent.parent.is_dir():
+            hold("SOURCE_WAV_OR_RENDER_PARENT_UNAVAILABLE")
+    if film.is_symlink() or film.exists():
+        hold("STALE_OR_SYMLINKED_FILM_DESTINATION")
+    if _hash_file(wav) != expected_wav_sha:
+        hold("ORIGINAL_WAV_BYTES_DRIFT")
+    original = subprocess.Popen
+    matched = []
+
+    def intercept(argv, *args, **kwargs):
+        command = [str(v) for v in argv] if isinstance(argv, (list, tuple)) else None
+        is_rawvideo_encoder = (
+            command is not None
+            and os.path.basename(command[0]) == "ffmpeg"
+            and "pipe:0" in command
+            and "rawvideo" in command
+        )
+        if not is_rawvideo_encoder:
+            return original(argv, *args, **kwargs)
+        if matched:
+            hold("MULTIPLE_ORIGINAL_ENCODERS_UNEXPECTED")
+        def value_after(flag):
+            try:
+                return command[command.index(flag) + 1]
+            except (IndexError, ValueError):
+                hold("MISSING_ENCODER_ARGUMENT_" + flag)
+        if (value_after("-video_size") != f"{w}x{h}"
+                or value_after("-framerate") != "30"
+                or value_after("-pixel_format") != "rgb24"
+                or value_after("-frames:v") != str(frames)
+                or value_after("-c:v") != "libx264"):
+            hold("ENCODER_CONFIGURATION_DRIFT")
+        if kwargs.get("stdin") is not subprocess.PIPE:
+            hold("RENDERER_MUST_USE_PIPE")
+        # FFmpeg source soundtrack argument must point at the pinned WAV.
+        input_paths = [command[i+1] for i, v in enumerate(command[:-1]) if v == "-i"]
+        if len(input_paths) != 2 or input_paths[0] != "pipe:0" or (
+                Path(input_paths[1]).resolve() != wav.resolve()):
+            hold("ENCODER_SOURCE_WAV_PATH_DRIFT")
+        if Path(command[-1]).resolve() != film.resolve():
+            hold("ENCODER_FILM_OUTPUT_PATH_DRIFT")
+        process = original(argv, *args, **kwargs)
+        writer = Capture(process.stdin, run_id=run_id,
+                         source_sha=source_sha, wav_sha=expected_wav_sha,
+                         environment_sha=environment_sha,
+                         width=w, height=h, frames=frames)
+        process.stdin = writer
+        matched.append((process, writer))
+        return process
+
+    try:
+        with patch.object(subprocess, "Popen", side_effect=intercept):
+            render_fn()
+    except BaseException:
+        for process, _ in matched:
+            if process.poll() is None:
+                process.kill()
+                process.wait()
+        raise
+    if len(matched) != 1:
+        hold("ORIGINAL_ENCODER_NOT_OBSERVED")
+    process, writer = matched[0]
+    if process.poll() is None or process.returncode != 0:
+        hold("ORIGINAL_ENCODER_NOT_SUCCESSFULLY_WAITED")
+    if not film.is_file() or film.is_symlink() or _hash_file(wav) != expected_wav_sha:
+        hold("ENCODED_FILM_MISSING_OR_WAV_CHANGED")
+    report = writer.receipt(exit_code=process.returncode, film_sha=_hash_file(film))
+    report["physicalMovieBytesHashedAfterEncoderExit"] = True
+    report["sourceRendererOriginalAndUnmodifiedExternallyVerified"] = False
+    return report
+
+
+def _hash_file(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            h.update(block)
+    return h.hexdigest()
