@@ -145,6 +145,58 @@ class RealEncodedTextInkTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"MISSING_OR_DUPLICATE_CRITICAL_LABEL"):
             get_boxes(self.plan)
 
+    def test_real_renderer_line_break_metadata_preserves_scientific_claims(self):
+        # Lane 3 uses immutable metadata 'text' plus emitted layout lines;
+        # both need to agree on the actual science and not-filmed disclaimer.
+        actual={
+            "sentence_3":("Dots mark atoms. Lines mark bonds.",
+                          ["Dots mark atoms.","Lines mark bonds."]),
+            "sentence_4":("Computed 3D illustration • not filmed",
+                          ["Computed 3D illustration","• not filmed"]),
+        }
+        for scene,(label,lines) in actual.items():
+            shot=next(s for s in self.plan["shots"] if s["id"]==scene)
+            target=next(a for a in shot["annotations"] if a["text"]==label)
+            target["renderedLineBreaks"]=lines
+        r=score_samples(self.plan,self.samples)
+        self.assertEqual(r["testedCriticalVisibleLabels"],16)
+        self.assertEqual(r["additionalObjectivePoints"],2)
+        self.assertIs(r["mayPublish"],False)
+
+    def test_forged_rendered_disclosure_cannot_omit_not_filmed(self):
+        shot=next(s for s in self.plan["shots"] if s["id"]=="sentence_4")
+        target=next(a for a in shot["annotations"]
+                    if a["text"]=="Computed 3D illustration • not filmed")
+        # The canonical source statement remains intact; only visual lines
+        # are tampered. The old word-preserving source matcher let this pass.
+        target["renderedLineBreaks"]=["Computed 3D","illustration"]
+        with self.assertRaisesRegex(ValueError,"RENDERED_LINES_MISMATCH_DECLARED_TEXT"):
+            score_samples(self.plan,self.samples)
+
+    def test_forged_rendered_science_reorder_or_duplication_fails(self):
+        shot=next(s for s in self.plan["shots"] if s["id"]=="sentence_3")
+        target=next(a for a in shot["annotations"]
+                    if a["text"]=="Dots mark atoms. Lines mark bonds.")
+        for lines in (["Lines mark bonds.","Dots mark atoms."],
+                      ["Dots mark atoms.","Lines mark bonds.","Lines mark bonds."]):
+            target["renderedLineBreaks"]=lines
+            with self.subTest(lines=lines):
+                with self.assertRaisesRegex(ValueError,"RENDERED_LINES_MISMATCH_DECLARED_TEXT"):
+                    get_boxes(self.plan)
+
+    def test_malformed_or_empty_rendered_line_cannot_fake_mobile_reflow(self):
+        shot=next(s for s in self.plan["shots"] if s["id"]=="sentence_3")
+        target=next(a for a in shot["annotations"]
+                    if a["text"]=="Dots mark atoms. Lines mark bonds.")
+        for malformed in (None,"Dots mark atoms. Lines mark bonds.",
+                          ["Dots mark atoms.","","Lines mark bonds."],
+                          ["Dots mark atoms.\nLines mark bonds."],
+                          ["Dots mark atoms.",42,"Lines mark bonds."]):
+            target["renderedLineBreaks"]=malformed
+            with self.subTest(value=malformed):
+                with self.assertRaisesRegex(ValueError,"RENDERED_LINES_MISMATCH_DECLARED_TEXT"):
+                    get_boxes(self.plan)
+
     def test_missing_first_use_definition_rejected(self):
         shot=next(s for s in self.plan["shots"] if s["id"]=="source_hold")
         shot["annotations"]=[a for a in shot["annotations"]
