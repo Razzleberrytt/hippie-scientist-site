@@ -273,6 +273,90 @@ def audit_original_asr_digital_zero_onsets(source_raw, asr_raw):
         return hold("DIGITAL_ZERO_ORIGINAL_ASR_PARSE_FAILED")
 
 
+def audit_original_mfa_word_signal_windows(source_raw, alignment_raw):
+    """SHA-pinned original narration versus 73 forced word intervals, negative-only.
+
+    An active waveform cannot validate any lexical phone or actual word boundary.
+    """
+    if not isinstance(source_raw, bytes) or not isinstance(alignment_raw, bytes):
+        return hold("MFA_SIGNAL_SOURCE_BYTES_REQUIRED")
+    if digest(source_raw) != SOURCE_WAV_REFERENCE:
+        return hold("MFA_SIGNAL_ORIGINAL_WAV_SHA_CHANGED")
+    if digest(alignment_raw) != MFA_SOURCE_ALIGNMENT_SHA:
+        return hold("MFA_SIGNAL_ALIGNMENT_SHA_CHANGED")
+    try:
+        report = json.loads(alignment_raw)
+        words = report.get("wordAlignment")
+        if (report.get("inputSha256", {}).get("wav") != SOURCE_WAV_REFERENCE
+                or report.get("sampleRate") != 24000
+                or report.get("sampleCount") != 824336
+                or report.get("mayPublish") is not False
+                or report.get("pronunciationVerified") is not False
+                or report.get("timingAccuracyCalibrated") is not False
+                or not isinstance(words, list) or len(words) != 73):
+            return hold("MFA_SIGNAL_ALIGNMENT_AUTHORITY_OR_INVENTORY_INVALID")
+        with wave.open(io.BytesIO(source_raw), "rb") as w:
+            if (w.getnchannels(), w.getsampwidth(), w.getframerate(),
+                    w.getcomptype(), w.getnframes()) != (1, 2, 24000, "NONE", 824336):
+                return hold("MFA_SIGNAL_ORIGINAL_WAV_FORMAT_INVALID")
+            pcm = w.readframes(w.getnframes())
+        if len(pcm) != 824336 * 2:
+            return hold("MFA_SIGNAL_ORIGINAL_PCM_TRUNCATED")
+        samples = np.frombuffer(pcm, dtype="<i2")
+        prior_start = -1
+        conflicts = []
+        for i, word in enumerate(words):
+            if not isinstance(word, dict):
+                return hold("MFA_SIGNAL_WORD_SCHEMA_INVALID")
+            begin, end, spelling = (word.get("startMs"), word.get("endMs"),
+                                    word.get("word"))
+            if (not isinstance(begin, (int, float)) or isinstance(begin, bool)
+                    or not isinstance(end, (int, float)) or isinstance(end, bool)
+                    or not np.isfinite(begin) or not np.isfinite(end)
+                    or not isinstance(spelling, str) or not spelling.strip()
+                    or not 0 <= begin < end <= 824336 / 24
+                    or begin < prior_start):
+                return hold("MFA_SIGNAL_WORD_BOUNDS_OR_ORDER_INVALID")
+            prior_start = begin
+            first, last = round(begin * 24), round(end * 24)
+            if first >= len(samples) or last <= first:
+                return hold("MFA_SIGNAL_ZERO_SAMPLE_WORD_INTERVAL_INVALID")
+            if not np.any(samples[first:last]):
+                conflicts.append({"wordIndex": i, "forcedWordHypothesis": spelling,
+                                  "startSample": first, "endSample": last,
+                                  "wholeCandidateWindowIsExactDigitalZero": True})
+        return {"schema": SCHEMA,
+                "status": ("RESEARCH_MFA_WHOLE_WORD_ZERO_HOLD" if conflicts
+                           else "RESEARCH_MFA_NO_FULL_ZERO_WORD_HOLD"),
+                "sourceWavSha256": SOURCE_WAV_REFERENCE,
+                "mfaAlignmentSha256": MFA_SOURCE_ALIGNMENT_SHA,
+                "sourceWavIndependentlyRehashed": True,
+                "mfaWordWindowsScreened": 73,
+                "wholeWordDigitalZeroCount": len(conflicts),
+                "wholeWordDigitalZeroContradictions": conflicts,
+                "digitalNonzeroNotLexicalOrTimingProof": True,
+                "wordOnsetsApproved": False, "wordOffsetsApproved": False,
+                "phonemeIdentityVerified": False, "pronunciationVerified": False,
+                "wordTimingCalibrated": False, "mayPublish": False,
+                "caution": "Nonzero sound within a forced word window never "
+                           "proves the uttered word, phones, onset or offset."}
+    except (ValueError, TypeError, OSError, EOFError, wave.Error):
+        return hold("MFA_SIGNAL_ORIGINAL_SOURCE_PARSE_FAILED")
+
+
+def audit_mfa_signal_files(source_path, alignment_path):
+    """Read-only audit; exact input SHA and format checked in core function."""
+    try:
+        paths = ((Path(source_path), 3000000), (Path(alignment_path), 100000))
+        if any(p.is_symlink() or not p.is_file()
+               or not 0 < p.stat().st_size <= cap for p, cap in paths):
+            return hold("MFA_SIGNAL_FILES_MISSING_OR_UNSAFE")
+        return audit_original_mfa_word_signal_windows(
+            *(p.read_bytes() for p, _ in paths))
+    except (OSError, TypeError, ValueError):
+        return hold("MFA_SIGNAL_FILES_UNREADABLE")
+
+
 def audit_asr_zero_onsets_files(source_path, asr_path):
     """Read only the two exact original first-party assets. Never substitute."""
     try:
@@ -915,6 +999,8 @@ def main(argv=None):
     p.add_argument("--original-wav", help="Pinned original full 24 kHz source WAV")
     p.add_argument("--mfa-receipt", help="Pinned first-party original MFA run receipt")
     p.add_argument("--mfa-alignment", help="Pinned original MFA word alignment candidate")
+    p.add_argument("--mfa-zero-interval-audit", action="store_true",
+                   help="Screen all 73 frozen original MFA word windows for whole digital zeros")
     p.add_argument("--asr-zero-onset-audit", action="store_true",
                    help="Negative-only: detect original ASR starts inside digital zeros")
     p.add_argument("--pose-asr-receipt", help="Research-only frozen original ASR receipt, pose/poles contrast")
@@ -925,9 +1011,18 @@ def main(argv=None):
     p.add_argument("--pose-internal-contrasts", action="store_true",
                    help="Produce source-pinned same-narrator comparisons; NEVER a phoneme verdict")
     a=p.parse_args(argv)
-    if a.asr_zero_onset_audit:
+    if a.mfa_zero_interval_audit:
+        if (not a.original_wav or not a.mfa_alignment
+                or any((a.asr_zero_onset_audit, a.pose_asr_receipt,
+                        a.mfa_receipt, a.source_archive, a.reference_target_wav,
+                        a.reference_benchmark_zip, a.pose_internal_contrasts))):
+            result = hold("MFA_SIGNAL_MODE_REQUIRES_EXACT_WAV_AND_ALIGNMENT_ONLY")
+        else:
+            result = audit_mfa_signal_files(a.original_wav, a.mfa_alignment)
+    elif a.asr_zero_onset_audit:
         if (not a.original_wav or not a.pose_asr_receipt
-                or any((a.mfa_alignment, a.mfa_receipt, a.source_archive,
+                or any((a.mfa_zero_interval_audit, a.mfa_alignment,
+                        a.mfa_receipt, a.source_archive,
                         a.reference_target_wav, a.reference_benchmark_zip,
                         a.pose_internal_contrasts))):
             result=hold("DIGITAL_ZERO_MODE_REQUIRES_EXACT_WAV_AND_ASR_ONLY")
