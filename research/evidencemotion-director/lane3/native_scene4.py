@@ -36,13 +36,13 @@ def sha(path):
     return d.hexdigest()
 
 def material(source_film,mol_path,*,expected_film_sha=SAMPLE_FILM_SHA):
+    if expected_film_sha not in KNOWN_SOURCE_FILMS:raise SceneHold('UNKNOWN_NARRATION_SOURCE_REVISION')
+    if sha(source_film)!=expected_film_sha:raise SceneHold('SOURCE_FILM_SHA_MISMATCH')
+    if sha(mol_path)!=MOL_SHA:raise SceneHold('SOURCE_MOL_SHA_MISMATCH')
     from rdkit import Chem
     from rdkit.Chem import AllChem
     from rdkit.Chem.Draw import rdMolDraw2D
     from PIL import Image
-    if expected_film_sha not in KNOWN_SOURCE_FILMS:raise SceneHold('UNKNOWN_NARRATION_SOURCE_REVISION')
-    if sha(source_film)!=expected_film_sha:raise SceneHold('SOURCE_FILM_SHA_MISMATCH')
-    if sha(mol_path)!=MOL_SHA:raise SceneHold('SOURCE_MOL_SHA_MISMATCH')
     mol=Chem.MolFromMolBlock(Path(mol_path).read_text(),removeHs=False)
     if mol is None or not mol.GetConformer().Is3D() or Chem.MolToInchiKey(Chem.RemoveHs(mol))!=INCHIKEY:
         raise SceneHold('STRUCTURE_OR_STEREO_MISMATCH')
