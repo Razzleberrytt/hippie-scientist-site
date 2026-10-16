@@ -261,7 +261,10 @@ class CraftSourceLockedContractTests(unittest.TestCase):
         return ''
       manifest={'startFrame':1,'endFrameExclusive':2,
                 'sourceFilmSha256':S.digest(source),'craftSceneSha256':S.digest(scene)}
-      verdict={'mayPublish':False,'status':'MOCK_CODEC_CONTRACT_ONLY'}
+      verdict={'mayPublish':False,'status':'MOCK_CODEC_CONTRACT_ONLY',
+               'outputFilmSha256':hashlib.sha256(b'RESEARCH FILM').hexdigest(),
+               'scienceApproved':False,'craftApproved':False,
+               'phonePlaybackApproved':False}
       with patch.object(S,'preflight',return_value=True), \
            patch.object(S,'run',side_effect=fake_ffmpeg), \
            patch.object(S,'verify_result',return_value=verdict):
@@ -412,6 +415,82 @@ class CraftSourceLockedContractTests(unittest.TestCase):
       self.assertEqual((movie.stat().st_dev,movie.stat().st_ino),
                        (stage.stat().st_dev,stage.stat().st_ino))
       self.assertFalse(json.loads(sidecar.read_text())['mayPublish'])
+
+
+  def test_staged_research_receipt_must_bind_exact_unchanged_film(self):
+    with tempfile.TemporaryDirectory() as td:
+      folder=Path(td)
+      stage=folder/'stage.mp4';stage.write_bytes(b'PINNED MOVIE')
+      sidecar=folder/'stage.receipt.json'
+      out=folder/'movie.mp4';out_receipt=folder/'movie.receipt.json'
+      trusted={'outputFilmSha256':S.digest(stage),'mayPublish':False,
+        'scienceApproved':False,'craftApproved':False,'phonePlaybackApproved':False}
+      sidecar.write_text(json.dumps(trusted,indent=2)+'\n')
+      stage.write_bytes(b'CHANGED AFTER QA')
+      with self.assertRaisesRegex(S.CraftHold,'STAGED_FILM_RECEIPT_SHA_MISMATCH'):
+        S.publish_verified_pair_no_clobber(stage,sidecar,out,out_receipt,
+          trusted_receipt=trusted)
+      self.assertFalse(out.exists());self.assertFalse(out_receipt.exists())
+      stage.write_bytes(b'PINNED MOVIE')
+      sidecar.write_text(json.dumps(trusted,indent=2)+'\n'+'{"mayPublish":true}')
+      with self.assertRaisesRegex(S.CraftHold,'STAGED_RECEIPT_CONTENT_CHANGED'):
+        S.publish_verified_pair_no_clobber(stage,sidecar,out,out_receipt,
+          trusted_receipt=trusted)
+      self.assertFalse(out.exists());self.assertFalse(out_receipt.exists())
+      sidecar.write_text(json.dumps(trusted,indent=2)+'\n')
+      self.assertTrue(S.publish_verified_pair_no_clobber(stage,sidecar,out,out_receipt,
+        trusted_receipt=trusted))
+      self.assertEqual(S.digest(out),trusted['outputFilmSha256'])
+      self.assertEqual(out_receipt.read_bytes(),sidecar.read_bytes())
+
+  def test_staged_receipt_release_authorization_cannot_be_claimed(self):
+    with tempfile.TemporaryDirectory() as td:
+      folder=Path(td)
+      stage=folder/'stage.mp4';stage.write_bytes(b'FILM')
+      sidecar=folder/'stage.receipt.json'
+      out=folder/'movie.mp4';out_receipt=folder/'movie.receipt.json'
+      base={'outputFilmSha256':S.digest(stage),'mayPublish':False,
+        'scienceApproved':False,'craftApproved':False,'phonePlaybackApproved':False}
+      for field in ('mayPublish','scienceApproved','craftApproved','phonePlaybackApproved'):
+        dishonest=dict(base);dishonest[field]=True
+        sidecar.write_text(json.dumps(dishonest,indent=2)+'\n')
+        with self.subTest(field=field),self.assertRaisesRegex(
+            S.CraftHold,'STAGED_RESEARCH_RELEASE_HOLD_CHANGED'):
+          S.publish_verified_pair_no_clobber(stage,sidecar,out,out_receipt,
+            trusted_receipt=dishonest)
+      self.assertFalse(out.exists());self.assertFalse(out_receipt.exists())
+
+  def test_splice_refuses_mutated_video_between_qa_and_publication(self):
+    with tempfile.TemporaryDirectory() as td:
+      folder=Path(td)
+      source=folder/'source.mp4';source.write_bytes(b'SOURCE')
+      scene=folder/'scene.mp4';scene.write_bytes(b'SCENE')
+      output=folder/'new.mp4'
+      manifest={'startFrame':1,'endFrameExclusive':2,
+        'sourceFilmSha256':S.digest(source),'craftSceneSha256':S.digest(scene)}
+      validated={'outputFilmSha256':hashlib.sha256(b'ENCODED APPROVED').hexdigest(),
+        'mayPublish':False,'scienceApproved':False,
+        'craftApproved':False,'phonePlaybackApproved':False}
+      def fake_encode(args,**_):
+        Path(args[-1]).write_bytes(b'ENCODED APPROVED')
+        return ''
+      real_publish=S.publish_verified_pair_no_clobber
+      def changed_after_qa(stage,receipt,movie,sidecar,**kw):
+        Path(stage).write_bytes(b'ENCODED MODIFIED')
+        return real_publish(stage,receipt,movie,sidecar,**kw)
+      with (
+        patch.object(S,'preflight',return_value=True),
+        patch.object(S,'run',side_effect=fake_encode),
+        patch.object(S,'verify_result',return_value=validated),
+        patch.object(S,'publish_verified_pair_no_clobber',side_effect=changed_after_qa),
+      ):
+        with self.assertRaisesRegex(S.CraftHold,'STAGED_FILM_RECEIPT_SHA_MISMATCH'):
+          S.splice(source,scene,output,manifest)
+      self.assertEqual(source.read_bytes(),b'SOURCE')
+      self.assertEqual(scene.read_bytes(),b'SCENE')
+      self.assertFalse(output.exists())
+      self.assertFalse(output.with_suffix('.receipt.json').exists())
+      self.assertEqual(list(folder.glob('.lane3-splice-*')),[])
 
   def test_receipt_collision_after_movie_link_rolls_back_without_clobber(self):
     with tempfile.TemporaryDirectory() as td:
