@@ -5,6 +5,9 @@ from pathlib import Path
 
 FILM_SHA="4a36305c08e422d85a006332c4e83d39dac4a8f12c87502ad842cb99b8f874e3"
 WAV_SHA="9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435"
+PLAN_SHA="2233605fdbfe92ef2923ae8d6785dbd18216e3b49eea0cf872b2c5b2c5fc0d1d"
+RECEIPT_SHA="06f5be0414e2d7576ee7819ed085e5f4ecdbbe3e4fb5d3c71dcbb86080bb23e5"
+INVENTORY_SHA="cdfe8295fce6fc73c42aea36897897b7b1a710d3e12fc92008cf74e0f71ea4b6"
 SHOT_IDS=("sentence_1_part0","sentence_1_part1","sentence_2",
           "sentence_3","sentence_4","sentence_5_part0",
           "sentence_5_part1","source_hold","sentence_6")
@@ -97,6 +100,8 @@ def audit(movie,plan_path,receipt_path,inventory_path):
     paths=[Path(x) for x in (plan_path,receipt_path,inventory_path)]
     if any(not p.is_file() or p.is_symlink() for p in paths):
         raise SourceHold("ORIGINAL_FILM_INPUT_JSON_MISSING")
+    if tuple(digest_file(p) for p in paths)!=(PLAN_SHA,RECEIPT_SHA,INVENTORY_SHA):
+        raise SourceHold("ARCHIVED_ORIGINAL_SOURCE_MANIFEST_SHA_DRIFT")
     plan,receipt,inventory=[json.loads(p.read_text(encoding="utf-8")) for p in paths]
     indices=contract(plan,receipt,inventory,film_sha)
     probe=json.loads(subprocess.run(
