@@ -9,11 +9,13 @@ on:
       - 'research/evidencemotion-director/native_stdin_capture_guard.py'
       - 'research/evidencemotion-director/original_replay_admission.py'
       - 'research/evidencemotion-director/original_replay_source_restore.py'
+      - 'research/evidencemotion-director/original_frame_replay_probe.py'
       - 'research/evidencemotion-director/test_native_stdin_capture_guard.py'
       - 'research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md'
       - '.github/workflows/evidencemotion-operator-rehearsal.yml'
 permissions:
   contents: read
+  actions: read
 jobs:
   offline-operator-contract:
     runs-on: ubuntu-latest
@@ -82,3 +84,78 @@ jobs:
           assert 'Do not mark EvidenceMotion checklist #46 complete' in t
           print('Operator pass is research-only, no deployment or publication authorization.')
           PY
+
+  archived-eight-frame-native-source-pixel-replay:
+    # Bounded real original-source physical probe, NEVER publish or promote.
+    if: github.event.pull_request.number == 6846
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Restore all exact 11 historical renderer source files
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin ecc249f5f460ca38be8850375b8b4f4a4d98b448
+          git fetch --no-tags --depth=1 origin 5fde6994c09e8464606074e5a1f21b06385b95e5
+          mkdir -p "$RUNNER_TEMP/em-original-source"
+          python research/evidencemotion-director/original_replay_source_restore.py \
+            --repo "$PWD" --out "$RUNNER_TEMP/em-original-source/eleven"
+      - name: Restore original, immutable WAV and original-source research archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/em-archive/source" "$RUNNER_TEMP/em-archive/voice"
+          gh run download 38918216741 --repo "$GITHUB_REPOSITORY" \
+            --name evidencemotion-original-wav-mfa-acoustic-candidate \
+            --dir "$RUNNER_TEMP/em-archive/source"
+          gh run download 38417454106 --repo "$GITHUB_REPOSITORY" \
+            --name ths-kokoro-narration \
+            --dir "$RUNNER_TEMP/em-archive/voice"
+          test -s "$RUNNER_TEMP/em-archive/voice/narration.wav"
+          printf '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435  %s\n' \
+            "$RUNNER_TEMP/em-archive/voice/narration.wav" | sha256sum -c -
+      - name: Match archived Pillow RDKit and original Ubuntu font bytes
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends fonts-dejavu-core
+          python -m pip install --disable-pip-version-check 'pillow==12.0.0' 'rdkit==2025.9.4'
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          import PIL, rdkit
+          assert PIL.__version__ == "12.0.0" and rdkit.__version__ == "2025.09.4"
+          pins = {
+              'DejaVuSans.ttf': 'ae7b7855e115a5966d8b1b3f80f254ccc117ec86f9965e202ee2940453837280',
+              'DejaVuSans-Bold.ttf': '5c1247acef7f2b8522a31742c76d6adcb5569bacc0be7ceaa4dc39dd252ce895',
+          }
+          for name, sha in pins.items():
+              real = Path('/usr/share/fonts/truetype/dejavu') / name
+              assert hashlib.sha256(real.read_bytes()).hexdigest() == sha, name
+          print('All 11 original code source pins, source WAV, Pillow/RDKit versions and both font pins are locally checkable.')
+          PY
+      - name: Execute eight actual original pre-encoder RGB24 frames and compare original PNG pixel bytes
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/original_frame_replay_probe.py \
+            --source-dir "$RUNNER_TEMP/em-original-source/eleven" \
+            --font-dir /usr/share/fonts/truetype/dejavu \
+            --wav "$RUNNER_TEMP/em-archive/voice/narration.wav" \
+            --archive-dir "$RUNNER_TEMP/em-archive/source" \
+            --out "$RUNNER_TEMP/em-archive/eight-native-original-frame-replay.json"
+      - name: Preserve research-only physical eight-frame receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: em-lane5-original-eight-frame-rgb-replay
+          path: ${{ runner.temp }}/em-archive/eight-native-original-frame-replay.json
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Explicit no native or creative approval from eight samples
+        if: always()
+        run: |
+          echo 'Eight restored original-source RGB frames are a diagnostic only. This job does NOT encode the full original film or authenticate two independent original 1031-frame stdin streams. No release, excellence or five-render streak credit.' >> "$GITHUB_STEP_SUMMARY"
