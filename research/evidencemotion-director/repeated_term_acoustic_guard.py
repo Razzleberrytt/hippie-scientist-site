@@ -21,6 +21,15 @@ ORIGINAL_CLIP_HASHES = {
     3: "c470eb126766ed42bf5fc4e6d3797b489efb6679c928d69ee41d99df592dbfae",
     4: "7e6887d28f9b96aa61db09865449c299c6a14a0c141165574b6c1f6f004476d3",
 }
+MFA_SOURCE_RECEIPT_SHA = "1b27276bfed4134ad8d2becd9b782fb7072ff2e88943da1776c8b1c99094e371"
+MFA_SOURCE_ALIGNMENT_SHA = "a034f00c4fdffaa3574058093e506f184c6b347a5b5561556005c28ec86db626"
+# Source-order window indices in the first-party original MFA research receipt.
+ORIGINAL_MFA_WINDOWS = {
+    1: ("7-OH", (2, 3, 4)),
+    2: ("mitragynine", (7,)),
+    3: ("7-hydroxymitragynine", (16, 17)),
+    4: ("mitragynine", (19,)),
+}
 SCHEMA = "ths-lane2-source-repeated-term-research-v1"
 
 
@@ -149,6 +158,106 @@ def compare(first, second, unrelated):
             "phonesOrWordIdentityProven":False}
 
 
+
+def audit_original_source(original_wav, mfa_receipt, mfa_alignment):
+    """Re-extract four SHA-pinned research excerpts from full first-party WAV.
+
+    This is physical sample identity and within-narration similarity only.
+    MFA boundaries are source-pinned but not acoustically calibrated.
+    No private prior review ZIP is required in this mode.
+    """
+    try:
+        paths = [(Path(original_wav), 3000000), (Path(mfa_receipt), 20000),
+                 (Path(mfa_alignment), 100000)]
+        raw_files = []
+        for path, limit in paths:
+            if (not path.is_file() or path.is_symlink()
+                    or not 0 < path.stat().st_size <= limit):
+                return hold("ORIGINAL_SOURCE_INPUT_UNAVAILABLE_OR_UNSAFE")
+            raw_files.append(path.read_bytes())
+        source_raw, receipt_raw, alignment_raw = raw_files
+        if digest(source_raw) != SOURCE_WAV_REFERENCE:
+            return hold("ORIGINAL_MASTER_WAV_SHA_CHANGED")
+        if digest(receipt_raw) != MFA_SOURCE_RECEIPT_SHA:
+            return hold("ORIGINAL_MFA_RECEIPT_SHA_CHANGED")
+        if digest(alignment_raw) != MFA_SOURCE_ALIGNMENT_SHA:
+            return hold("ORIGINAL_MFA_ALIGNMENT_SHA_CHANGED")
+        receipt = json.loads(receipt_raw)
+        candidate = json.loads(alignment_raw)
+        if (receipt.get("originalWavSha256") != SOURCE_WAV_REFERENCE
+                or receipt.get("alignmentCandidateSha256") != MFA_SOURCE_ALIGNMENT_SHA
+                or receipt.get("alignedWordCount") != 73
+                or receipt.get("phoneticPronunciationVerified") is not False
+                or receipt.get("timingAccuracyCalibrated") is not False
+                or receipt.get("mayPublish") is not False
+                or candidate.get("inputSha256", {}).get("wav") != SOURCE_WAV_REFERENCE
+                or candidate.get("sampleRate") != 24000
+                or candidate.get("sampleCount") != 824336
+                or candidate.get("pronunciationVerified") is not False
+                or candidate.get("timingAccuracyCalibrated") is not False
+                or candidate.get("mayPublish") is not False):
+            return hold("ORIGINAL_MFA_SOURCE_OR_AUTHORITY_INCONSISTENT")
+        windows = receipt.get("termReviewWindows")
+        words = candidate.get("wordAlignment")
+        if not isinstance(windows, list) or len(windows) != 5 or not isinstance(words, list) or len(words) != 73:
+            return hold("ORIGINAL_MFA_WINDOW_INVENTORY_INCONSISTENT")
+        with wave.open(io.BytesIO(source_raw), "rb") as source:
+            if (source.getnchannels(), source.getsampwidth(), source.getframerate(),
+                    source.getcomptype(), source.getnframes()) != (1, 2, 24000, "NONE", 824336):
+                return hold("ORIGINAL_MASTER_FORMAT_OR_FRAME_COUNT_CHANGED")
+            full_pcm = source.readframes(source.getnframes())
+        if len(full_pcm) != 824336 * 2:
+            return hold("ORIGINAL_MASTER_PCM_TRUNCATED")
+        clips, offsets = {}, {}
+        for clip_id, (expected_term, expected_indices) in ORIGINAL_MFA_WINDOWS.items():
+            # Original MFA receipt has five windows: 7-OH, hydroxyl,
+            # mitragynine, mitragynine, 7-hydroxymitragynine.
+            lookup = {1: 0, 2: 2, 3: 4, 4: 3}[clip_id]
+            window = windows[lookup]
+            if (window.get("term") != expected_term
+                    or window.get("wordIndices") != list(expected_indices)
+                    or window.get("pronunciationVerified") is not False):
+                return hold("ORIGINAL_MFA_TERM_WINDOW_CHANGED")
+            rows = [words[i] for i in expected_indices]
+            start_ms = rows[0]["startMs"]
+            end_ms = rows[-1]["endMs"]
+            if (window.get("startMs") != start_ms
+                    or window.get("endMs") != end_ms
+                    or not isinstance(start_ms, (int, float))
+                    or not isinstance(end_ms, (int, float))
+                    or not 0 <= start_ms < end_ms <= 34348):
+                return hold("ORIGINAL_MFA_WINDOW_BOUNDS_CHANGED")
+            start_sample, end_sample = round(start_ms * 24), round(end_ms * 24)
+            audio = full_pcm[start_sample * 2:end_sample * 2]
+            excerpt = io.BytesIO()
+            with wave.open(excerpt, "wb") as out:
+                out.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+                out.writeframes(audio)
+            clip_raw = excerpt.getvalue()
+            if digest(clip_raw) != ORIGINAL_CLIP_HASHES[clip_id]:
+                return hold("ORIGINAL_MFA_EXCERPT_PCM_HASH_CHANGED")
+            clips[clip_id] = decode_pcm(clip_raw)
+            offsets[clip_id] = start_sample
+        measured = compare(clips[2], clips[4], [clips[1], clips[3]])
+        if not measured["repeatPatternConsistent"]:
+            return {**hold("ORIGINAL_WAV_REPEATED_TERM_NEGATIVE_CONTROL_FAILED"), **measured}
+        return {"schema": SCHEMA, "status": "RESEARCH_REPEATED_TERM_PATTERN_ONLY",
+                "sourceMode": "PINNED_ORIGINAL_WAV_MFA_EXCERPTS",
+                "originalWavSha256": SOURCE_WAV_REFERENCE,
+                "sourceMfaReceiptSha256": MFA_SOURCE_RECEIPT_SHA,
+                "sourceMfaAlignmentSha256": MFA_SOURCE_ALIGNMENT_SHA,
+                "originalClipHashes": ORIGINAL_CLIP_HASHES,
+                "sourceClipSampleOffsetsInOriginalWav": offsets,
+                **measured, "sourceWavIndependentlyRehashed": True,
+                "mayPublish": False, "pronunciationVerified": False,
+                "phonemeIdentityVerified": False, "wordTimingCalibrated": False,
+                "caution": "This validates source clips and within-voice acoustic patterns; "
+                           "both repeated terms may still be incorrectly pronounced."}
+    except (ValueError, TypeError, IndexError, KeyError, OSError,
+            EOFError, UnicodeError, wave.Error, json.JSONDecodeError) as exc:
+        return hold("ORIGINAL_SOURCE_AUDIT_ERROR:" + str(exc)[:120])
+
+
 def audit(packet, original_wav=None):
     try:
         packet=Path(packet)
@@ -216,10 +325,20 @@ def audit(packet, original_wav=None):
 
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--source-archive", required=True)
-    p.add_argument("--original-wav", help="Optional original, full 24 kHz WAV; exact hash and PCM excerpt proof")
+    p.add_argument("--source-archive", help="Pinned earlier review ZIP (optional legacy mode)")
+    p.add_argument("--original-wav", help="Pinned original full 24 kHz source WAV")
+    p.add_argument("--mfa-receipt", help="Pinned first-party original MFA run receipt")
+    p.add_argument("--mfa-alignment", help="Pinned original MFA word alignment candidate")
     a=p.parse_args(argv)
-    result=audit(Path(a.source_archive), a.original_wav)
+    if a.mfa_receipt is not None or a.mfa_alignment is not None:
+        if not (a.original_wav and a.mfa_receipt and a.mfa_alignment) or a.source_archive:
+            result=hold("ORIGINAL_MFA_MODE_REQUIRES_EXACTLY_THREE_SOURCE_INPUTS")
+        else:
+            result=audit_original_source(a.original_wav, a.mfa_receipt, a.mfa_alignment)
+    elif a.source_archive:
+        result=audit(Path(a.source_archive), a.original_wav)
+    else:
+        result=hold("SOURCE_ARCHIVE_OR_ORIGINAL_WAV_MFA_INPUTS_REQUIRED")
     print(json.dumps(result, indent=2, sort_keys=True, allow_nan=False))
     return 3 if result["status"]=="RESEARCH_REPEATED_TERM_PATTERN_ONLY" else 2
 
