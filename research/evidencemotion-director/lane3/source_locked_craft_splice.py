@@ -220,6 +220,42 @@ def verify_result(source,output,manifest):
                 'No external craft reference shelf or viewer-comprehension authority',
                 'Video outside inserted scene was re-encoded, not byte-identical']}
 
+
+def publish_verified_pair_no_clobber(stage_film,stage_receipt,output,receipt_path):
+    """Publish research film+receipt only to fresh names, retaining old files.
+
+    Two files are not an atomic transaction. If receipt publication conflicts
+    after the film link, retract only OUR unmodified hard link. A modified or
+    replaced film is never deleted, and the failure is reported as a HOLD.
+    """
+    stage_film,stage_receipt,output,receipt_path=map(Path,
+        (stage_film,stage_receipt,output,receipt_path))
+    if output.resolve()==stage_film.resolve() or receipt_path.resolve()==stage_receipt.resolve():
+        raise CraftHold('REFUSE_STAGING_OUTPUT_ALIAS')
+    if output.exists() or output.is_symlink() or receipt_path.exists() or receipt_path.is_symlink():
+        raise CraftHold('FRESH_OUTPUT_AND_RECEIPT_REQUIRED')
+    staged_sha=digest(stage_film)
+    linked_film=False
+    try:
+        os.link(stage_film,output)
+        linked_film=True
+        os.link(stage_receipt,receipt_path)
+    except OSError as exc:
+        reason=('OUTPUT_OR_RECEIPT_APPEARED_AFTER_PREFLIGHT'
+                if isinstance(exc,FileExistsError) else 'ATOMIC_PAIR_LINK_FAILED')
+        if linked_film:
+            try:
+                a=stage_film.stat()
+                b=output.lstat()
+                if (a.st_dev,a.st_ino)!=(b.st_dev,b.st_ino) or digest(output)!=staged_sha:
+                    raise CraftHold('PARTIAL_FILM_CHANGED_CANNOT_ROLL_BACK') from exc
+                output.unlink()
+            except OSError as rollback_exc:
+                raise CraftHold('PARTIAL_FILM_ROLLBACK_FAILED') from rollback_exc
+        raise CraftHold(reason) from exc
+    return True
+
+
 def splice(source,scene,output,manifest):
     preflight(source,scene,manifest)
     output=Path(output)
@@ -227,6 +263,8 @@ def splice(source,scene,output,manifest):
     receipt_path=output.with_suffix('.receipt.json')
     if output.resolve() in protected or receipt_path.resolve() in protected:
         raise CraftHold('REFUSE_OVERWRITE_INPUT')
+    if output.exists() or output.is_symlink() or receipt_path.exists() or receipt_path.is_symlink():
+        raise CraftHold('FRESH_OUTPUT_AND_RECEIPT_REQUIRED')
     output.parent.mkdir(parents=True,exist_ok=True)
     start,end=manifest['startFrame'],manifest['endFrameExclusive']
     graph=(f'[0:v]trim=end_frame={start},setpts=PTS-STARTPTS,setsar=1[a];'
@@ -244,13 +282,12 @@ def splice(source,scene,output,manifest):
            '-c:v','libx264','-preset','veryfast','-crf','18','-pix_fmt','yuv420p',
            '-c:a','copy','-movflags','+faststart',str(temp)])
         receipt=verify_result(source,temp,manifest)
-        staged_receipt.write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
-        # Remove any earlier receipt BEFORE film promotion. A crash between
-        # replacements then leaves an unapproved film with NO stale PASS receipt.
-        if receipt_path.exists() or receipt_path.is_symlink():
-            receipt_path.unlink()
-        os.replace(temp,output)
-        os.replace(staged_receipt,receipt_path)
+        # Recheck both exact external inputs AFTER encoding and verification.
+        if (digest(source)!=manifest['sourceFilmSha256'] or
+                digest(scene)!=manifest['craftSceneSha256']):
+            raise CraftHold('PINNED_SOURCE_CHANGED_DURING_SPLICE')
+        staged_receipt.write_text(json.dumps(receipt,indent=2)+'\\n',encoding='utf-8')
+        publish_verified_pair_no_clobber(temp,staged_receipt,output,receipt_path)
         return receipt
 
 if __name__=='__main__':
