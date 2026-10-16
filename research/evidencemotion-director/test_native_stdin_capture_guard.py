@@ -6,9 +6,12 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import wave
 from pathlib import Path
 
-from native_stdin_capture_guard import Capture, check_one, compare_pair, hold, digest
+from native_stdin_capture_guard import (
+    Capture, check_one, compare_pair, digest, capture_renderer_encoder_call
+)
 
 SOURCE = digest(b"real-source-manifest-placeholder")
 WAV = digest(b"real-WAV-identity-placeholder")
@@ -62,6 +65,85 @@ class Tests(unittest.TestCase):
         self.assertEqual(r["capturedBytes"],18)
         self.assertEqual(r["rawStdinSha256"],digest(FRAME*3))
         self.assertEqual(r["frameSha256"],[digest(FRAME)]*3)
+
+    def test_original_renderer_unmodified_call_intercept_real_ffmpeg(self):
+        # Opt-in from calling control runner, original producer function untouched.
+        # This small real encoded fixture is NOT original source, full resolution,
+        # or independent publisher approval.
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d)
+            wav=base/"narration.wav"
+            with wave.open(str(wav),"wb") as file:
+                file.setnchannels(1)
+                file.setsampwidth(2)
+                file.setframerate(24000)
+                file.writeframes(b"\0"*48000)
+            wav_sha=hashlib.sha256(wav.read_bytes()).hexdigest()
+            frames=[bytes([30])*12,bytes([150])*12,bytes([230])*12]
+            def emit(run_name):
+                movie=base/(run_name+".mp4")
+                def original_renderer():
+                    command=["ffmpeg","-hide_banner","-v","error","-nostdin",
+                             "-y","-f","rawvideo","-pixel_format","rgb24",
+                             "-video_size","2x2","-framerate","30","-i","pipe:0",
+                             "-i",str(wav),"-map","0:v","-map","1:a",
+                             "-c:v","libx264","-pix_fmt","yuv420p","-frames:v","3",
+                             str(movie)]
+                    process=subprocess.Popen(command,stdin=subprocess.PIPE,
+                                             stderr=subprocess.PIPE)
+                    for frame in frames:
+                        process.stdin.write(frame)
+                    process.stdin.close()
+                    code=process.wait(timeout=20)
+                    error=process.stderr.read()
+                    process.stderr.close()
+                    self.assertEqual(code,0,error.decode("utf-8","replace"))
+                report=capture_renderer_encoder_call(
+                    original_renderer,run_id=run_name,source_sha=SOURCE,
+                    wav_path=wav,expected_wav_sha=wav_sha,
+                    environment_sha=ENV,film_path=movie,geometry=(2,2,3))
+                self.assertEqual(report["filmSha256"],
+                                 hashlib.sha256(movie.read_bytes()).hexdigest())
+                self.assertEqual(report["rawStdinSha256"],digest(b"".join(frames)))
+                self.assertEqual(report["frameSha256"],[digest(f) for f in frames])
+                self.assertFalse(report["mayPublish"])
+                return report
+            a,b=emit("separate-run-a"),emit("separate-run-b")
+            result=compare_pair(a,b,expected_source=SOURCE,
+                                expected_wav=wav_sha,
+                                expected_environment=ENV,geometry=(2,2,3))
+            self.assertTrue(result["sourceFrameDigestsMatchAcrossTwoDeclaredRuns"])
+            self.assertFalse(result["twoActualIndependentJobExecutionsAuthenticated"])
+
+    def test_renderer_hook_requires_observed_real_encoder(self):
+        with tempfile.TemporaryDirectory() as d:
+            wav=Path(d)/"wav"; wav.write_bytes(b"valid-pinned-research-fixture")
+            with self.assertRaisesRegex(ValueError,"ORIGINAL_ENCODER_NOT_OBSERVED"):
+                capture_renderer_encoder_call(
+                    lambda: None,run_id="absent-encoder",source_sha=SOURCE,
+                    wav_path=wav,expected_wav_sha=digest(wav.read_bytes()),
+                    environment_sha=ENV,film_path=Path(d)/"not-made.mp4",
+                    geometry=(2,2,3))
+
+    def test_renderer_hook_rejects_stale_movie_even_if_film_is_valid(self):
+        with tempfile.TemporaryDirectory() as d:
+            wav=Path(d)/"wav"; wav.write_bytes(b"fixture")
+            movie=Path(d)/"output.mp4";movie.write_bytes(b"old bytes")
+            with self.assertRaisesRegex(ValueError,"STALE_OR_SYMLINKED_FILM_DESTINATION"):
+                capture_renderer_encoder_call(
+                    lambda: None,run_id="stale-film",source_sha=SOURCE,
+                    wav_path=wav,expected_wav_sha=digest(wav.read_bytes()),
+                    environment_sha=ENV,film_path=movie,geometry=(2,2,3))
+
+    def test_renderer_hook_rejects_wrong_original_wav_bytes(self):
+        with tempfile.TemporaryDirectory() as d:
+            wav=Path(d)/"wav"; wav.write_bytes(b"fixture")
+            with self.assertRaisesRegex(ValueError,"ORIGINAL_WAV_BYTES_DRIFT"):
+                capture_renderer_encoder_call(
+                    lambda: None,run_id="bad-wav",source_sha=SOURCE,
+                    wav_path=wav,expected_wav_sha=digest(b"other"),
+                    environment_sha=ENV,film_path=Path(d)/"new.mp4",
+                    geometry=(2,2,3))
 
     def test_real_ffmpeg_pipe_and_decoded_fixture(self):
         # Live FFmpeg with three tiny REAL frames; never represents the 7-OH
