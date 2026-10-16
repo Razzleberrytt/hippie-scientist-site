@@ -288,6 +288,131 @@ def spectral_band_trace(pcm):
     }
 
 
+
+def evaluate_blind_reference_pairs(rows, audio_by_id, excluded_source_hashes):
+    """Measure an UNATTESTED pose/poles reference benchmark, not pronunciation.
+
+    No data supplied to this function can authenticate human labels, speakers,
+    listening ground truth or target narration.  Honest perfect heldout scores
+    therefore remain research reports. Never run a target lexical inference.
+    """
+    base = {
+        "schema": SCHEMA, "mayPublish": False,
+        "pronunciationVerified": False, "phonemeIdentityVerified": False,
+        "wordTimingCalibrated": False, "lexicalWinner": None,
+        "originalTargetInferred": False, "speakerIdentitiesAuthenticated": False,
+        "referenceAnnotationsAuthenticated": False, "calibrationComplete": False,
+    }
+    def refuse(reason, **extras):
+        return {**base, "status": "HOLD", "errors": [reason], **extras}
+    if (not isinstance(rows, list) or not isinstance(audio_by_id, dict)
+            or not 32 <= len(rows) <= 256):
+        return refuse("REFERENCE_PAIRED_BENCHMARK_INVENTORY_REQUIRED")
+    if (not isinstance(excluded_source_hashes, (set, frozenset))
+            or any(not isinstance(v, str) for v in excluded_source_hashes)):
+        return refuse("REFERENCE_EXCLUDED_TARGET_SOURCES_REQUIRED")
+    prohibited = set(excluded_source_hashes) | {
+        SOURCE_WAV_REFERENCE, POSE_SOURCE_CLIP_SHA,
+        *(sha for _, _, sha in POSE_INTERNAL_CONTRAST_WINDOWS.values()),
+    }
+    seen_ids, seen_hashes = set(), set()
+    groups = {"train": {}, "test": {}}
+    samples = []
+    try:
+        for row in rows:
+            if not isinstance(row, dict):
+                return refuse("REFERENCE_ROW_INVALID")
+            identity, split, speaker, label, claimed_sha = (
+                row["sampleId"], row["split"], row["speakerId"],
+                row["word"], row["wavSha256"])
+            if (not isinstance(identity, str) or not 1 <= len(identity) <= 64
+                    or identity in seen_ids or split not in groups
+                    or not isinstance(speaker, str) or not 1 <= len(speaker) <= 64
+                    or label not in ("pose", "poles")
+                    or not isinstance(claimed_sha, str) or len(claimed_sha) != 64
+                    or claimed_sha in seen_hashes or claimed_sha in prohibited):
+                return refuse("REFERENCE_SOURCE_ID_LABEL_OR_DUPLICATE_INVALID")
+            raw = audio_by_id.get(identity)
+            if not isinstance(raw, bytes) or digest(raw) != claimed_sha:
+                return refuse("REFERENCE_EXACT_WAV_SHA_MISMATCH")
+            if not 44 <= len(raw) <= 300000:
+                return refuse("REFERENCE_WAV_SIZE_INVALID")
+            with wave.open(io.BytesIO(raw), "rb") as audio:
+                if (audio.getnchannels(), audio.getsampwidth(), audio.getframerate(),
+                        audio.getcomptype()) != (1, 2, 24000, "NONE"):
+                    return refuse("REFERENCE_AUDIO_FORMAT_INVALID")
+                num = audio.getnframes()
+                pcm = audio.readframes(num)
+            if not 2400 <= num <= 120000 or len(pcm) != num*2:
+                return refuse("REFERENCE_WAV_DURATION_OR_BYTES_INVALID")
+            spectral = spectral_band_trace(pcm)
+            observed = groups[split].setdefault(speaker, set())
+            observed.add(label)
+            samples.append((split, label, spectral["activeRatioDbMedian"]))
+            seen_ids.add(identity)
+            seen_hashes.add(claimed_sha)
+    except (KeyError, TypeError, ValueError, OSError, wave.Error, EOFError) as exc:
+        return refuse("REFERENCE_WAV_OR_SCHEMA_PARSE_FAILED:" + str(exc)[:80])
+    if set(audio_by_id) != seen_ids:
+        return refuse("REFERENCE_UNDECLARED_WAV_INVENTORY")
+    train_speakers, heldout_speakers = set(groups["train"]), set(groups["test"])
+    if (len(train_speakers) < 8 or len(heldout_speakers) < 8
+            or train_speakers.intersection(heldout_speakers)
+            or any(labels != {"pose", "poles"} for split in groups.values()
+                   for labels in split.values())):
+        return refuse("REFERENCE_BALANCED_DISJOINT_SPEAKER_PAIRS_REQUIRED")
+    train = [(word, val) for split, word, val in samples if split == "train"]
+    heldout = [(word, val) for split, word, val in samples if split == "test"]
+    candidate_values = sorted({value for _, value in train})
+    if len(candidate_values) < 2:
+        return refuse("REFERENCE_TRAINING_FEATURES_INDISTINGUISHABLE")
+
+    def recall(data, threshold, pose_high):
+        count = {"pose": 0, "poles": 0}
+        correct = {"pose": 0, "poles": 0}
+        for actual, feature in data:
+            inferred = "pose" if (feature > threshold) == pose_high else "poles"
+            count[actual] += 1
+            correct[actual] += int(inferred == actual)
+        return [correct[word]/count[word] if count[word] else 0.0
+                for word in ("pose", "poles")]
+
+    candidates = []
+    for a, b in zip(candidate_values, candidate_values[1:]):
+        threshold = (a+b)/2
+        for direction in (True, False):
+            metrics = recall(train, threshold, direction)
+            candidates.append((sum(metrics)/2, -abs(threshold),
+                               direction, threshold, metrics))
+    selected = max(candidates, key=lambda v: (v[0], v[1], v[2]))
+    test_recall = recall(heldout, selected[3], selected[2])
+    metrics = {
+        "benchmarkMethod": "UNATTESTED_SAME_CONTRAST_BAND_RATIO_TRAIN_TEST",
+        "declaredTrainSpeakerCount": len(train_speakers),
+        "declaredHeldoutSpeakerCount": len(heldout_speakers),
+        "trainingExampleCount": len(train),
+        "heldoutExampleCount": len(heldout),
+        "candidateThresholdDb": round(selected[3], 3),
+        "poseHasHigherBandRatio": selected[2],
+        "trainPerClassRecall": dict(zip(("pose", "poles"),
+                                        [round(v, 4) for v in selected[4]])),
+        "heldoutPerClassRecall": dict(zip(("pose", "poles"),
+                                          [round(v, 4) for v in test_recall])),
+        "heldoutBalancedAccuracy": round(sum(test_recall)/2, 4),
+        "heldoutPhonemeGroundTruthVerified": False,
+        "declaredSpeakerSplitVerifiedByRecordingIdentity": False,
+        "originalNarrationJudged": False,
+        "phonemeConfidenceCalibrated": False,
+    }
+    if min(*selected[4], *test_recall) < .90:
+        return refuse("REFERENCE_HELDOUT_CLASS_RECALL_BELOW_90_PERCENT", **metrics)
+    return {**base, **metrics,
+            "status": "RESEARCH_UNATTESTED_REFERENCE_BENCHMARK_ONLY",
+            "caution": "Self-declared labels and speaker IDs are NOT independent "
+                       "ground truth. Even a perfect heldout result does not "
+                       "approve the original voice or its /l/ pronunciation."}
+
+
 def audit_pose_internal_reference_set(source_raw, alignment_raw, asr_raw):
     """Exact source-linked auditory comparators; no inferred /l/ classification."""
     prior = audit_pose_poles_conflict(source_raw, alignment_raw, asr_raw)
