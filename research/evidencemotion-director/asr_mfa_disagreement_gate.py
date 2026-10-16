@@ -163,6 +163,19 @@ def assess_original_asr_mfa(wav_bytes, approved_source_sha256, asr, mfa,
                     'zeroPcmIntervalMs': [round(silent_start, 3), round(silent_end, 3)],
                     'onsetPrecedesAnyNonzeroSourceSampleMs': round(silent_end-onset, 3)})
                 break
+    # Check original TextGrid/MFA candidates independently as well: model
+    # agreement within 150 ms must not override impossible source timing.
+    physically_impossible_mfa_onsets = []
+    for index, token in enumerate(words):
+        onset = token['startMs']
+        for silent_start, silent_end in digital_silence_runs:
+            if silent_start <= onset and silent_end-onset >= 100:
+                physically_impossible_mfa_onsets.append({
+                    'mfaIndex': index, 'authoredWord': token['word'],
+                    'onsetMs': round(onset, 3),
+                    'zeroPcmIntervalMs': [round(silent_start, 3), round(silent_end, 3)],
+                    'onsetPrecedesAnyNonzeroSourceSampleMs': round(silent_end-onset, 3)})
+                break
     matches, disagreements = [], []
     matcher = difflib.SequenceMatcher(None, [normalize(w['word']) for w in words],
                                       [normalize(w['word']) for w in recognized], autojunk=False)
@@ -194,15 +207,17 @@ def assess_original_asr_mfa(wav_bytes, approved_source_sha256, asr, mfa,
     review_count = sum(d['requiresAcousticReview'] for d in disagreements)
     return {
         'schema': SCHEMA,
-        'status': 'RESEARCH_REVIEW_HOLD' if review_count or first_count or last_count or physically_impossible_asr_onsets else 'RESEARCH_MODEL_CONSENSUS_ONLY',
+        'status': 'RESEARCH_REVIEW_HOLD' if review_count or first_count or last_count or physically_impossible_asr_onsets or physically_impossible_mfa_onsets else 'RESEARCH_MODEL_CONSENSUS_ONLY',
         'sourceWavSha256': approved_source_sha256, 'alignmentCandidateSha256': sha(alignment_bytes),
         'transcriptSha256': sha(transcript_bytes), 'asrModelSha256': model['modelBinarySha256'],
         'counts': {'mfaWords': len(words), 'asrEntries': len(recognized),
                    'matchedWords': len(matches), 'disagreementBlocks': len(disagreements),
                    'reviewBlocks': review_count, 'orthographicOnlyBlocks': len(disagreements)-review_count,
                    'matchedStartsOver150ms': first_count, 'matchedEndsOver150ms': last_count,
-                   'asrOnsetsInsideProvenDigitalSilence': len(physically_impossible_asr_onsets)},
+                   'asrOnsetsInsideProvenDigitalSilence': len(physically_impossible_asr_onsets),
+                   'mfaOnsetsInsideProvenDigitalSilence': len(physically_impossible_mfa_onsets)},
         'digitalSilenceOnsetContradictions': physically_impossible_asr_onsets,
+        'mfaDigitalSilenceOnsetContradictions': physically_impossible_mfa_onsets,
         'disagreements': disagreements, 'matchedWordTiming': matches,
         'originalNarrationModified': False, 'mayPublish': False,
         'pronunciationVerified': False, 'wordTimingCalibrated': False,
