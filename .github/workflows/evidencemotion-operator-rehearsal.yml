@@ -165,7 +165,7 @@ jobs:
     # Original SOURCE-ALGORITHM replays, not original historical CPU/x264 proof.
     # Matrix jobs execute on separately provisioned Ubuntu GitHub runners.
     if: github.event.pull_request.number == 6846 && needs.archived-eight-frame-native-source-pixel-replay.result == 'success'
-    needs: [archived-eight-frame-native-source-pixel-replay]
+    needs: [archived-eight-frame-native-source-pixel-replay, offline-operator-contract]
     runs-on: ubuntu-latest
     timeout-minutes: 18
     strategy:
@@ -260,6 +260,8 @@ jobs:
         if: failure()
         run: |
           set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
           for attempt in a b; do
             movie="$RUNNER_TEMP/em-original-pair/em-lane5-native-full-$attempt/specimen_NEW_RESEARCH_CANDIDATE.mp4"
             test -s "$movie"

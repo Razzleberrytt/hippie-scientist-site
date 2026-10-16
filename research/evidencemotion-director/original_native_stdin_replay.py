@@ -93,7 +93,7 @@ def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
         raise ValueError("NATIVE_ORIGINAL_HOLD:ARCHIVED_TIMING_DRIFT")
     # Research A/B: force one x264 worker and disable parallel lookahead.
     # The earlier default-thread two-run CI remains immutably recorded.
-    encoder_mode = "SINGLE_THREAD_NO_SYNC_LOOKAHEAD_RESEARCH"
+    encoder_mode = "CPU_ASM_DISABLED_X264_AND_SWSCALE_RESEARCH"
     environment = physical_environment(
         sources=source_dir, fonts=font_dir, wav=wav_path, candidate=align_path,
         encoder_mode=encoder_mode)
@@ -116,13 +116,13 @@ def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
         assets["dark_diagram"] = r.chemistry_assets(light=False)["7_hydroxymitragynine"]["diagram"]
         movie = out_dir / ORIGINAL_NAME
         cmd = [
-            "ffmpeg", "-v", "error", "-nostdin", "-y",
+            "ffmpeg", "-v", "info", "-cpuflags", "0", "-nostdin", "-y",
             "-f", "rawvideo", "-pixel_format", "rgb24",
             "-video_size", "1080x1920", "-framerate", "30",
             "-i", "pipe:0", "-i", str(wav_path),
             "-map", "0:v", "-map", "1:a",
             "-c:v", "libx264", "-threads:v", "1",
-            "-x264-params", "sync-lookahead=0",
+            "-x264-params", "asm=0:sync-lookahead=0",
             "-preset", "fast", "-crf", "18",
             "-pix_fmt", "yuv420p", "-af", r.AUDIO_FILTER,
             "-c:a", "aac", "-b:a", "192k",
@@ -154,6 +154,7 @@ def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
             writer.close()
             process.wait(timeout=120)
             receipt = writer.receipt_from_completed_encoder(process, movie)
+            validate_disabled_x264_cpu_asm(out_dir / "encoder.log")
         if tuple(archived_samples_match) != tuple(sorted(SAMPLE_INDEX_SET)):
             raise ValueError("NATIVE_ORIGINAL_HOLD:ARCHIVED_FRAME_INVENTORY_INCOMPLETE")
         if not movie.is_file():
@@ -181,6 +182,7 @@ def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
             "allEightArchivedOriginalPixelSamplesBitwiseMatched": True,
             "nativeEncodedFilmFullDecode": True,
             "originalRendererFullRenderExecuted": True,
+            "x264CpuAsmDisabledMachineLogObserved": True,
             "sourceToEncoderStdinReceipt": receipt,
             "sha256EnvironmentJson": sha_file(out_dir / "environment.json"),
             "wallSeconds": round(time.monotonic() - start, 3),
@@ -216,7 +218,7 @@ def inspect_both(first, second, environment_first, environment_second):
             raise ValueError("NATIVE_ORIGINAL_HOLD:FORGED_CREATIVE_APPROVAL")
         if d.get("sha256EnvironmentJson") != sha((json.dumps(e,indent=2)+"\n").encode()):
             raise ValueError("NATIVE_ORIGINAL_HOLD:ENV_REPORT_BYTES_DIFFER")
-    if (first.get("encoderMode") != "SINGLE_THREAD_NO_SYNC_LOOKAHEAD_RESEARCH"
+    if (first.get("encoderMode") != "CPU_ASM_DISABLED_X264_AND_SWSCALE_RESEARCH"
             or second.get("encoderMode") != first["encoderMode"]
             or environment_first.get("encoderMode") != first["encoderMode"]
             or environment_second.get("encoderMode") != second["encoderMode"]):
@@ -250,6 +252,22 @@ def inspect_both(first, second, environment_first, environment_second):
         "mayPublish": False,
         "status": "SINGLE_THREAD_ORIGINAL_SOURCE_H264_BITWISE_REPLAY_RESEARCH_HOLD",
     }
+
+
+def validate_disabled_x264_cpu_asm(encoder_log):
+    """Refuse FFmpeg's silent x264 parameter parse errors.
+
+    A successful process can still log "Error parsing option" while ignoring
+    an x264-params setting. This proof is a *machine encoder check only*.
+    """
+    p = Path(encoder_log)
+    if not p.is_file() or p.is_symlink() or p.stat().st_size == 0:
+        raise ValueError("NATIVE_ORIGINAL_HOLD:X264_CPU_ASM_PROOF_LOG_MISSING")
+    log = p.read_bytes()
+    if (b"using cpu capabilities: none!" not in log
+            or b"Error parsing option" in log):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:X264_CPU_ASM_CONTROL_NOT_PROVEN")
+    return True
 
 
 def verify_uploaded_movie(artifact_dir, report):

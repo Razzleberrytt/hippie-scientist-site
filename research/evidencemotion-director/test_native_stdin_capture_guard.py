@@ -108,6 +108,44 @@ class ZeroSink(ShortSink):
 
 
 class Tests(unittest.TestCase):
+    def test_x264_cpu_asm_0_physically_confirmed_on_small_ffmpeg_fixture(self):
+        from original_native_stdin_replay import validate_disabled_x264_cpu_asm
+        with tempfile.TemporaryDirectory() as d:
+            movie = Path(d) / "tiny-asm-disabled.mp4"
+            logfile = Path(d) / "encoder.log"
+            cmd = ["ffmpeg", "-hide_banner", "-v", "info", "-cpuflags", "0",
+                   "-nostdin", "-f", "lavfi",
+                   "-i", "testsrc2=size=32x32:rate=30:duration=0.1",
+                   "-c:v", "libx264", "-threads:v", "1",
+                   "-x264-params", "asm=0:sync-lookahead=0",
+                   "-pix_fmt", "yuv420p", "-y", str(movie)]
+            proc = subprocess.run(cmd, capture_output=True, timeout=35)
+            self.assertEqual(proc.returncode, 0, proc.stderr[-300:])
+            self.assertTrue(movie.is_file() and movie.stat().st_size > 0)
+            logfile.write_bytes(proc.stderr)
+            self.assertTrue(validate_disabled_x264_cpu_asm(logfile))
+
+    def test_reject_ignored_x264_cpu_asm_param_and_invalid_encoder_log(self):
+        from original_native_stdin_replay import validate_disabled_x264_cpu_asm
+        with tempfile.TemporaryDirectory() as d:
+            logfile = Path(d) / "encoder.log"
+            with self.assertRaisesRegex(ValueError, "PROOF_LOG_MISSING"):
+                validate_disabled_x264_cpu_asm(logfile)
+            logfile.write_bytes(b"Error parsing option 'asm = invalid'!\\n"
+                                b"using cpu capabilities: none!\\n")
+            with self.assertRaisesRegex(ValueError, "CONTROL_NOT_PROVEN"):
+                validate_disabled_x264_cpu_asm(logfile)
+            logfile.write_bytes(b"using cpu capabilities: SSE2 AVX2\\n")
+            with self.assertRaisesRegex(ValueError, "CONTROL_NOT_PROVEN"):
+                validate_disabled_x264_cpu_asm(logfile)
+            other = Path(d) / "other"
+            other.write_bytes(b"using cpu capabilities: none!\\n")
+            logfile.unlink()
+            logfile.symlink_to(other)
+            with self.assertRaisesRegex(ValueError, "PROOF_LOG_MISSING"):
+                validate_disabled_x264_cpu_asm(logfile)
+
+
     def test_uploaded_original_movie_identity_matches_actual_bytes(self):
         from original_native_stdin_replay import verify_uploaded_movie, ORIGINAL_NAME
         with tempfile.TemporaryDirectory() as directory:
