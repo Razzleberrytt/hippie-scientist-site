@@ -1493,6 +1493,68 @@ class ActualMediaStreamIdentityTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "EXPECTED_SQUARE_VIDEO_SAMPLE_PIXELS"):
                 probe_movie(movie)
 
+    def with_mp4_display_matrix(self, movie, output, coefficients):
+        # Write the real ISO-BMFF tkhd display matrix of an FFmpeg-encoded
+        # physical H.264 clip. No dependence on version-specific FFmpeg
+        # -metadata rotate / -display_rotation output behavior.
+        import struct
+        payload = bytearray(movie.read_bytes())
+        marker = payload.find(b"tkhd")
+        self.assertGreater(marker, 4, "Encoded MP4 track header required")
+        self.assertIn(payload[marker + 4], (0, 1))
+        offset = marker + (44 if payload[marker + 4] == 0 else 56)
+        identity = (65536, 0, 0, 0, 65536, 0, 0, 0, 1073741824)
+        self.assertEqual(struct.unpack_from(">9i", payload, offset), identity)
+        struct.pack_into(">9i", payload, offset, *coefficients)
+        output.write_bytes(payload)
+        data = json.loads(subprocess.run([
+            "ffprobe", "-v", "error", "-select_streams", "v:0",
+            "-show_entries", "stream_side_data=side_data_type,rotation,displaymatrix",
+            "-of", "json", str(output)
+        ], capture_output=True, text=True, timeout=20, check=True).stdout)
+        matrices = [x for x in data["streams"][0].get("side_data_list", [])
+                    if x.get("side_data_type") == "Display Matrix"]
+        self.assertEqual(len(matrices), 1, "Actual MP4 transform must be independently decoded")
+        return matrices[0]
+
+    def test_rotated_portrait_mp4_rejected_before_phone_overlay_analysis(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = self.make_h264(root)
+            movie = root / "rotated90.mp4"
+            info = self.with_mp4_display_matrix(
+                source, movie,
+                (0, -65536, 0, 65536, 0, 0, 0, 0, 1073741824))
+            self.assertEqual(info["rotation"], 90)
+            with self.assertRaisesRegex(ValueError, "NONIDENTITY_VIDEO_DISPLAY_TRANSFORM"):
+                probe_movie(movie)
+
+    def test_zero_rotation_translation_still_fails_full_display_matrix_check(self):
+        # An angle-only detector falsely accepts this actual MP4 with
+        # rotation=0 yet a nonzero horizontal translation.
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = self.make_h264(root)
+            movie = root / "translated.mp4"
+            info = self.with_mp4_display_matrix(
+                source, movie,
+                (65536, 0, 1310720, 0, 65536, 0, 0, 0, 1073741824))
+            self.assertEqual(info["rotation"], 0)
+            with self.assertRaisesRegex(ValueError, "NONIDENTITY_VIDEO_DISPLAY_TRANSFORM"):
+                probe_movie(movie)
+
+    def test_mp4_horizontal_reflection_rejected_before_safe_area_verdict(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = self.make_h264(root)
+            movie = root / "mirrored.mp4"
+            info = self.with_mp4_display_matrix(
+                source, movie,
+                (-65536, 0, 0, 0, 65536, 0, 0, 0, 1073741824))
+            self.assertIn("displaymatrix", info)
+            with self.assertRaisesRegex(ValueError, "NONIDENTITY_VIDEO_DISPLAY_TRANSFORM"):
+                probe_movie(movie)
+
     def test_real_mpeg4_video_cannot_appear_as_h264_by_averaged_frame_rate(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
