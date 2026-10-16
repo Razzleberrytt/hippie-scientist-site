@@ -102,6 +102,69 @@ def aac_sha(path):
               '-c:a','copy','-f','adts','-'],binary=True)
     return hashlib.sha256(data).hexdigest()
 
+def _decoded_rgb_frames(path,width=96,height=170):
+    """Read each independently decoded original-resolution frame through RGB downscale.
+
+    This is a conservative negative filter, NOT pixel-identical proof or a
+    creative/clinical approval. Frame count and order are still checked.
+    """
+    command=['ffmpeg','-hide_banner','-loglevel','error','-i',str(path),
+             '-map','0:v:0','-vf',f'scale={width}:{height}:flags=area,format=rgb24',
+             '-fps_mode','passthrough','-f','rawvideo','-pix_fmt','rgb24','-']
+    process=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL)
+    frame_size=width*height*3
+    try:
+        while True:
+            payload=process.stdout.read(frame_size)
+            if not payload:break
+            if len(payload)!=frame_size:
+                raise CraftHold('INCOMPLETE_DECODED_FRAME')
+            yield payload
+        if process.wait()!=0:
+            raise CraftHold('DECODED_VIDEO_STREAM_FAILED')
+    finally:
+        if process.poll() is None:
+            process.kill()
+            process.wait()
+        if process.stdout:process.stdout.close()
+
+def audit_outside_scene_frames(source,output,manifest,*,decoder=_decoded_rgb_frames):
+    """Fail closed if ANY out-of-edit frame changes beyond measured tolerance.
+
+    Downsampled RGB is intentionally used only as a negative filter; a pass
+    cannot establish no semantic/caption change at native resolution.
+    """
+    start,end,count=(manifest[k] for k in ('startFrame','endFrameExclusive','frames'))
+    if not(0<=start<end<=count):raise CraftHold('UNTRUSTED_FRAME_INTERVAL')
+    originals=decoder(source)
+    result_frames=decoder(output)
+    outside_count=0;worst=0.0;sum_mean=0.0
+    try:
+        for frame_no in range(count):
+            original=next(originals,None);updated=next(result_frames,None)
+            if not isinstance(original,bytes) or not isinstance(updated,bytes) or len(original)!=len(updated) or len(original)==0:
+                raise CraftHold('INCOMPLETE_DECODED_FRAME_SEQUENCE')
+            if start<=frame_no<end:continue
+            diff=sum(abs(o-u) for o,u in zip(original,updated))/len(original)
+            outside_count+=1;sum_mean+=diff;worst=max(worst,diff)
+            if diff>0.5:
+                raise CraftHold('OUTSIDE_CRAFT_SCENE_VISUAL_DRIFT')
+        if next(originals,None) is not None or next(result_frames,None) is not None:
+            raise CraftHold('UNEXPECTED_EXTRA_DECODED_FRAMES')
+    finally:
+        for stream in (originals,result_frames):
+            if hasattr(stream,'close'):stream.close()
+    if outside_count!=count-(end-start):
+        raise CraftHold('INCOMPLETE_OUTSIDE_FRAME_COVERAGE')
+    mean=sum_mean/outside_count if outside_count else 0
+    if mean>0.25:
+        raise CraftHold('OUTSIDE_CRAFT_SCENE_MEAN_VISUAL_DRIFT')
+    return {'framesComparedOutsideScene':outside_count,
+      'decodedFramesEachFilm':count,'outsideFrameMeanAbsRgb255':round(mean,6),
+      'outsideFrameMaxMeanAbsRgb255':round(worst,6),
+      'metric':'sequential-full-decode-RGB24-area-resample-96x170',
+      'limits':'Low-resolution conservative visual change detector, not pixel identity or artistic approval'}
+
 def verify_result(source,output,manifest):
     v,a=media_info(output)
     if (v.get('codec_name')!='h264' or v.get('width')!=manifest['width'] or
@@ -111,14 +174,15 @@ def verify_result(source,output,manifest):
         raise CraftHold('SPLICED_OUTPUT_TECHNICAL_MISMATCH')
     original,updated=aac_sha(source),aac_sha(output)
     if original!=updated:raise CraftHold('ORIGINAL_AAC_BYTES_CHANGED')
-    return {'schema':SCHEMA,'status':'RESEARCH_ONLY_AAC_COPY_VERIFIED',
+    visual=audit_outside_scene_frames(source,output,manifest)
+    return {'schema':SCHEMA,'status':'RESEARCH_ONLY_AUDIO_AND_OUTSIDE_SCENE_VERIFIED',
       'sourceFilmSha256':digest(source),'sceneSha256':manifest['craftSceneSha256'],
       'outputFilmSha256':digest(output),'aacAdtsSha256':original,
       'frames':manifest['frames'],'startFrame':manifest['startFrame'],
-      'endFrameExclusive':manifest['endFrameExclusive'],
+      'endFrameExclusive':manifest['endFrameExclusive'],'outsideSceneVisualAudit':visual,
       'scienceApproved':False,'craftApproved':False,
       'phonePlaybackApproved':False,'mayPublish':False,
-      'limits':['AUDIO_ONLY_AND_TECHNICAL_CHECKS: not independent source-science or mobile QA',
+      'limits':['AUDIO_AND_OUTSIDE_SCENE_QA_ONLY: not independent source-science or mobile QA',
                 'No actual spoken-onset pixel/word audit; manifest times are not proof',
                 'No external craft reference shelf or viewer-comprehension authority',
                 'Video outside inserted scene was re-encoded, not byte-identical']}
