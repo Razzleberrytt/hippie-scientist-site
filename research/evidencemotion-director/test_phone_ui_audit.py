@@ -381,13 +381,15 @@ class StrictEvidenceJSONIntakeTests(unittest.TestCase):
 
     def test_nonfinite_json_number_is_rejected_in_nested_science_data(self):
         from phone_ui_audit import strict_json_bytes
-        for token in (b'NaN', b'Infinity', b'-Infinity'):
+        for token in (b'NaN', b'Infinity', b'-Infinity', b'1e999', b'-1e999'):
             with self.subTest(token=token):
                 with self.assertRaisesRegex(ValueError,
                                             "NONFINITE_EVIDENCE_JSON_VALUE"):
                     strict_json_bytes(b'{"science":{"measurement":' + token + b'}}')
         self.assertEqual(strict_json_bytes(b'{"science":{"measurement":null}}'),
                          {"science": {"measurement": None}})
+        self.assertEqual(strict_json_bytes(b'{"measurement":1.25e2}'),
+                         {"measurement": 125.0})
 
     def test_ambiguous_prior_report_never_authorizes_image_deletion(self):
         from phone_ui_audit import verified_prior_review_images
