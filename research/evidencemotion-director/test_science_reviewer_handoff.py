@@ -86,7 +86,7 @@ class IndependentScienceIntakeTests(unittest.TestCase):
             ):
                 mutated=copy.deepcopy(original)
                 mutate(mutated)
-                path.write_text(json.dumps(mutated)+"\\n")
+                path.write_text(json.dumps(mutated)+"\n")
                 with patch.object(handoff,"FROZEN_SPOKEN_LEDGER",path):
                     with self.subTest(mutation=mutate.__code__.co_firstlineno):
                         with self.assertRaises(ValueError):
