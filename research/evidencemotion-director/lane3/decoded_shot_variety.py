@@ -14,12 +14,17 @@ import json
 import math
 from pathlib import Path
 import subprocess
+import wave
+import struct
 
 THUMB_W, THUMB_H = 96, 170
 # Body-science field intentionally excludes the title and narration bands.
 SCIENCE_BOX = (.04, .27, .96, .70)
 MIN_ROI_MAE = 6.0
 MIN_EDGE_IOU = .55
+ORIGINAL_WAV_SHA256 = '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435'
+ORIGINAL_WAV_FRAMES = 824336
+ORIGINAL_SILENCE = (663600, 746160)  # independently identified by Lane 2
 
 
 class CraftHold(ValueError):
@@ -185,7 +190,7 @@ def similar(left, right):
             'nearDuplicateReviewCandidate':mae <= MIN_ROI_MAE and iou >= MIN_EDGE_IOU}
 
 
-def audit(film, story_file):
+def audit(film, story_file, *, original_wav=None):
     film = Path(film)
     digest = file_sha256(film)
     source = Path(story_file)
@@ -224,7 +229,7 @@ def audit(film, story_file):
                       'exitFrame':late, 'entryFrame':next_early,
                       **similar(frames[late], frames[next_early])}
         boundary_risk.append(transition)
-    return {'schema':'ths-lane3-decoded-visual-variety-negative-filter-v2',
+    result = {'schema':'ths-lane3-decoded-visual-variety-negative-filter-v2',
             'status':'DECODED_VISUAL_REVIEW_REQUIRED',
             'filmSha256':digest, 'storySha256':file_sha256(source),
             'fullDecodedFrames':frame_count, 'scienceArea':list(SCIENCE_BOX),
@@ -241,16 +246,106 @@ def audit(film, story_file):
             'sourceScienceVerified':False, 'voiceApproved':False,
             'phonePlaybackApproved':False, 'excellentCertified':False,
             'mayPublish':False}
+    if original_wav is not None:
+        result['originalVoiceSourceHoldPacing'] = audit_source_hold_silence(original_wav, story, result)
+    return result
 
+
+
+def audit_source_hold_silence(original_wav, story, decoded):
+    """Re-read exact original PCM, correlate its silent hold with decoded shots.
+
+    The source card can intentionally use silence. This is a director review
+    and *never* a permission to alter original narration or captions.
+    """
+    wav = Path(original_wav)
+    if not wav.is_file() or wav.is_symlink() or file_sha256(wav)!=ORIGINAL_WAV_SHA256:
+        raise CraftHold('ORIGINAL_WAV_HASH_OR_FILE_MISMATCH')
+    if (story.get('sourceWavSha256')!=ORIGINAL_WAV_SHA256 or
+            story.get('mayPublish') is not False or
+            decoded.get('filmSha256')!=story.get('encodedH264Sha256') or
+            decoded.get('fullDecodedFrames')!=1031 or
+            decoded.get('mayPublish') is not False):
+        raise CraftHold('ORIGINAL_SILENCE_FILM_AND_STORY_IDENTITY_REQUIRED')
+    try:
+        with wave.open(str(wav),'rb') as w:
+            if (w.getnchannels(),w.getsampwidth(),w.getframerate(),
+                    w.getnframes(),w.getcomptype())!=(1,2,24000,ORIGINAL_WAV_FRAMES,'NONE'):
+                raise CraftHold('ORIGINAL_WAV_PCM_FORMAT_CHANGED')
+            data=w.readframes(ORIGINAL_WAV_FRAMES)
+    except (OSError,wave.Error,EOFError) as exc:
+        raise CraftHold('ORIGINAL_WAV_DECODE_FAILED') from exc
+    if len(data)!=ORIGINAL_WAV_FRAMES*2:
+        raise CraftHold('ORIGINAL_WAV_TRUNCATED')
+    runs=[]
+    beginning=None
+    for i,(value,) in enumerate(struct.iter_unpack('<h',data)):
+        if value==0 and beginning is None: beginning=i
+        if value!=0 and beginning is not None:
+            if i-beginning>=28800: runs.append((beginning,i))
+            beginning=None
+    if beginning is not None and ORIGINAL_WAV_FRAMES-beginning>=28800:
+        runs.append((beginning,ORIGINAL_WAV_FRAMES))
+    if runs!=[ORIGINAL_SILENCE]:
+        raise CraftHold('SOURCE_DIGITAL_ZERO_INTERVAL_CHANGED')
+    a,z=ORIGINAL_SILENCE
+    if (struct.unpack_from('<h',data,2*(a-1))[0]==0 or
+            struct.unpack_from('<h',data,2*z)[0]==0):
+        raise CraftHold('SOURCE_SILENCE_BOUNDARY_SIGNAL_MISSING')
+    shots=story.get('shots')
+    if not isinstance(shots,list) or len(shots)!=9:
+        raise CraftHold('NINE_SOURCE_SHOTS_REQUIRED')
+    matching=[x for x in shots if isinstance(x,dict) and x.get('shot')=='source_hold']
+    if len(matching)!=1: raise CraftHold('SILENT_SOURCE_HOLD_NOT_UNIQUE')
+    try:
+        left=float(matching[0]['startSec'])
+        right=float(matching[0]['endSec'])
+    except (TypeError,ValueError,KeyError) as exc:
+        raise CraftHold('SILENT_HOLD_TIMING_INVALID') from exc
+    if not 27.30<=left<=27.40 or not 31.20<=right<=31.30 or not left<=a/24000<z/24000<=right:
+        raise CraftHold('SILENT_SOURCE_HOLD_TIMELINE_CHANGED')
+    visual=decoded.get('withinShotTemporalReview')
+    if not isinstance(visual,list): raise CraftHold('SILENT_HOLD_VISUAL_EVIDENCE_REQUIRED')
+    similar=[v for v in visual if isinstance(v,dict) and v.get('shot')=='source_hold']
+    if len(similar)!=1 or type(similar[0].get('nearStaticBodyReviewCandidate')) is not bool:
+        raise CraftHold('SILENT_HOLD_VISUAL_EVIDENCE_REQUIRED')
+    samples=similar[0].get('sampleFrameNumbers')
+    if (not isinstance(samples,list) or len(samples)!=3 or
+            any(type(x) is not int or not left<=x/30<right for x in samples)):
+        raise CraftHold('SILENT_HOLD_SAMPLE_GRID_MISMATCH')
+    return {
+        'schema':'ths-lane3-source-locked-silence-craft-review-v1',
+        'status':'ORIGINAL_SOURCE_HOLD_DIRECTOR_AUDITION_REQUIRED',
+        'sourceWavSha256':ORIGINAL_WAV_SHA256,
+        'encodedFilmSha256':decoded['filmSha256'],
+        'exactZeroSampleInterval':list(ORIGINAL_SILENCE),
+        'sampleRate':24000,'silenceDurationSec':(z-a)/24000,
+        'sourceHoldShotId':'source_hold',
+        'sourceHoldSec':[left,right],
+        'sourceHoldSilenceFraction':round(((z-a)/24000)/(right-left),6),
+        'wholeMovieSilenceFraction':round(((z-a)/24000)/(1031/30),6),
+        'decodedSourceHoldSampleFrames':samples,
+        'visualSamplesDuringSilence':all(a/24000<=v/30<z/24000 for v in samples),
+        'nearStaticBodyDuringSourceHold':similar[0]['nearStaticBodyReviewCandidate'],
+        'choicesForOwner':['KEEP_EXPLICIT_SOURCE_READ_PAUSE_AFTER_AUDITION',
+                           'REDIRECT_VISUALS_TO_LEGIBLE_SOURCE_CARDS_WITH_UNCHANGED_AUDIO',
+                           'SEPARATE_OWNER_APPROVAL_REQUIRED_FOR_AUDIO_OR_CAPTION_EDIT'],
+        'humanPacingApproved':False,
+        'automaticAudioTrimAllowed':False,
+        'automaticCaptionShiftAllowed':False,
+        'excellentCertified':False,'mayPublish':False,
+        'limits':'Actual source zero run plus 3 sampled decoded shots; no full temporal video-motion proof, phone review, or human creative approval'
+    }
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--film', type=Path, required=True)
     parser.add_argument('--story', type=Path, required=True)
+    parser.add_argument('--original-wav', type=Path, help='Optional original SHA-pinned PCM research pacing review')
     parser.add_argument('--output', type=Path)
     args = parser.parse_args()
     try:
-        result = audit(args.film, args.story)
+        result = audit(args.film, args.story, original_wav=args.original_wav)
     except (CraftHold, OSError, ValueError, json.JSONDecodeError) as exc:
         result = {'schema':'ths-lane3-decoded-visual-variety-negative-filter-v1',
                   'status':'HOLD', 'reason':str(exc), 'mayPublish':False}
