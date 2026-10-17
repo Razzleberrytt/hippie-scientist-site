@@ -8,6 +8,9 @@ on:
       - 'research/evidencemotion-director/EM-PROGRESS-OBSERVATIONS-20261017.json'
       - 'research/evidencemotion-director/validate_atomic_proof_ledger.py'
       - 'research/evidencemotion-director/test_validate_atomic_proof_ledger.py'
+      - 'research/evidencemotion-director/em_progress_reconcile.py'
+      - 'research/evidencemotion-director/test_em_progress_reconcile.py'
+      - 'research/evidencemotion-director/EM-PROGRESS-OBSERVATIONS-20261017.json'
       - 'research/evidencemotion-director/cpu_required_path_contract.py'
       - 'research/evidencemotion-director/test_cpu_required_path_contract.py'
       - 'research/evidencemotion-director/research_workflow_release_guard.py'
@@ -100,6 +103,11 @@ jobs:
           python research/evidencemotion-director/validate_em00201_decision_record.py
           node --test research/evidencemotion-director/illustrative-crop-gate.test.mjs
           node --test research/evidencemotion-director/test_em00604_botanical_caption_gate.mjs
+      - name: Reconcile dated verified merges against individually audited cards
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_em_progress_reconcile.py -v
+          python research/evidencemotion-director/em_progress_reconcile.py
       - name: Test atomic-progress stall detector and rejection cases
         run: |
           set -euo pipefail
