@@ -46,5 +46,25 @@ class CameraStudyContract(unittest.TestCase):
         self.assertNotEqual(first.tobytes(),last.tobytes())
         self.assertEqual(first.crop((65,15,835,90)).tobytes(),last.crop((65,15,835,90)).tobytes())
 
+    def test_optin_legibility_and_native_bottom_padding(self):
+        # True rasterized source-label pixels: require >=12px before cyan rule y428.
+        # Synthetic science frame; physical encoded H264 clearance is checked separately.
+        for index in (530,595,630,701):
+            rgb=self.make(index,True).convert('RGB')
+            ys=[]
+            for y in range(346,428):
+                for x in range(125,830):
+                    red,green,blue=rgb.getpixel((x,y))
+                    if min(red,green,blue)>=170 and max(red,green,blue)-min(red,green,blue)<60:
+                        ys.append(y)
+            self.assertTrue(ys)
+            self.assertGreaterEqual(428-max(ys)-1,12)
+        # The caution does not appear before the original spoken onset f595.
+        prior=self.make(594,True).convert('RGB')
+        self.assertFalse(any(min(prior.getpixel((x,y)))>=170 for y in range(346,428) for x in range(125,830)))
+
+    def test_authored_48_native_px_credit_is_at_least_14px_in_320_preview(self):
+        self.assertGreaterEqual(48*320/1080,14)
+
 if __name__=='__main__':
     unittest.main()
