@@ -259,5 +259,109 @@ class ActualFileMutationTests(unittest.TestCase):
                 run(no_story)
 
 
+
+class SourceCardGainTests(unittest.TestCase):
+    def create_ink(self, film, *, difference=0):
+        names = ("mitragynine_cid_line", "pubchem_heading",
+                 "seven_oh_cid_line", "cid_definition_line",
+                 "molecular_formula", "pubchem_source_url")
+        bands = [(717, 750), (775, 840), (890, 928),
+                 (947, 973), (1019, 1055), (1127, 1163)]
+        rows = []
+        for name, (start, end) in zip(names, bands):
+            if name == "mitragynine_cid_line":
+                end += difference
+            height = end - start + 1
+            projection = {str(w): round(height * w / 1080, 2)
+                          for w in (320, 375, 430)}
+            rows.append({
+                "lineIdentifier": name,
+                "rowBandsInFirstFrame": [start, end],
+                "observedHeightPxRange": [height, height],
+                "sourceCardFramesObserved": 116,
+                "nativePixelHeight": float(height),
+                "projectedGlyphInkHeightsPx": projection,
+                "sub14pxAt320": projection["320"] < 14,
+                "sub14pxAt375": projection["375"] < 14,
+            })
+        return {
+            "schema": "ths-lane4-source-card-native-ink-proxy-v1",
+            "filmSha256": film, "decodedFrameWindow": [822, 937],
+            "physicallyInspectedFrames": 116,
+            "nativeRegion": [60, 680, 750, 1200],
+            "pixelThreshold": "max(R,G,B)>=90; >=7 candidate columns per row; >=8 consecutive rows",
+            "criterionIsCalibratedHumanReadability": False,
+            "phoneViewportWidths": [320, 375, 430],
+            "reviewThresholdPx": 14, "lines": rows,
+            "sub14pxAt320Lines": sum(r["sub14pxAt320"] for r in rows),
+            "sub14pxAt375Lines": sum(r["sub14pxAt375"] for r in rows),
+            "physicalPhoneReviewed": False,
+            "independentHumanComprehensionReviewed": False,
+            "mayPublish": False
+        }
+
+    def test_focus_animation_cannot_pose_as_text_size_gain_and_scope_is_held(self):
+        from lane5_candidate_scorecard import assess_source_card_glyph_gain
+        first, second = h(b"real prior film"), h(b"new focus video")
+        with tempfile.TemporaryDirectory() as td:
+            old, new = Path(td) / "old.json", Path(td) / "new.json"
+            old.write_text(json.dumps(self.create_ink(first)))
+            new.write_text(json.dumps(self.create_ink(second)))
+            def check():
+                return assess_source_card_glyph_gain(
+                    previous_path=old, current_path=new,
+                    previous_sha=h(old.read_bytes()), current_sha=h(new.read_bytes()),
+                    previous_film_sha=first, current_film_sha=second)
+            result = check()
+            self.assertTrue(result["noMeasuredTypeSizeGain"])
+            self.assertEqual(result["researchDecision"],
+                             "STOP_NO_MEASURABLE_SOURCE_TEXT_SIZE_GAIN")
+            self.assertEqual(len(result["currentLinesBelow320px14pxProxy"]), 5)
+            self.assertFalse(result["mayPublish"])
+            self.assertFalse(result["actualMediaDecodedByThisFunction"])
+            self.assertFalse(result["firstExcellentMasterAccepted"])
+            changed = self.create_ink(second, difference=15)
+            new.write_text(json.dumps(changed))
+            result = check()
+            self.assertFalse(result["noMeasuredTypeSizeGain"])
+            self.assertEqual(result["researchDecision"],
+                             "REVIEW_SOURCE_CARD_SIZE_CHANGE_INDEPENDENTLY")
+            self.assertIn("mitragynine_cid_line", result["newLinesAbove320px14pxProxy"])
+            self.assertFalse(result["mayPublish"])
+
+    def test_source_card_gain_guards_rehashed_forgery_and_partial_scene(self):
+        from lane5_candidate_scorecard import assess_source_card_glyph_gain
+        a, b = h(b"candidate A"), h(b"candidate B")
+        with tempfile.TemporaryDirectory() as td:
+            old, new = Path(td) / "old.json", Path(td) / "new.json"
+            old.write_text(json.dumps(self.create_ink(a)))
+            def reject(report, code):
+                new.write_text(json.dumps(report))
+                with self.assertRaisesRegex(ValueError, code):
+                    assess_source_card_glyph_gain(
+                        previous_path=old, current_path=new,
+                        previous_sha=h(old.read_bytes()),
+                        current_sha=h(new.read_bytes()),
+                        previous_film_sha=a, current_film_sha=b)
+            value = self.create_ink(b)
+            value["lines"][0]["projectedGlyphInkHeightsPx"]["320"] = 99.0
+            reject(value, "SOURCE_CARD_FORGED_PROJECTED_SIZE")
+            value = self.create_ink(b)
+            value["sub14pxAt320Lines"] = 0
+            reject(value, "SOURCE_CARD_FORGED_SUMMARY_COUNT")
+            value = self.create_ink(b)
+            value["physicallyInspectedFrames"] = 115
+            reject(value, "SOURCE_CARD_REVIEW_SCOPE_OR_AUTHORITY_INVALID")
+            value = self.create_ink(b)
+            value["lines"][0]["lineIdentifier"] = "pubchem_heading"
+            reject(value, "SOURCE_CARD_LINE_IDENTITY_DUPLICATE_OR_UNKNOWN")
+            value = self.create_ink(b)
+            value["physicalPhoneReviewed"] = True
+            reject(value, "SOURCE_CARD_REVIEW_SCOPE_OR_AUTHORITY_INVALID")
+            value = self.create_ink(b)
+            value["filmSha256"] = a
+            reject(value, "SOURCE_CARD_REVIEW_SCOPE_OR_AUTHORITY_INVALID")
+
+
 if __name__ == "__main__":
     unittest.main()

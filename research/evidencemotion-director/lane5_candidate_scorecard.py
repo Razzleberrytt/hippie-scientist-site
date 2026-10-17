@@ -190,10 +190,135 @@ def _windows(indices):
              "frames": end - start + 1} for start, end in groups]
 
 
+
+SOURCE_CARD_LINES = frozenset((
+    "mitragynine_cid_line", "pubchem_heading", "seven_oh_cid_line",
+    "cid_definition_line", "molecular_formula", "pubchem_source_url"))
+SOURCE_CARD_FRAMES = 116
+SOURCE_CARD_SCHEMA = "ths-lane4-source-card-native-ink-proxy-v1"
+
+
+def _strict_source_card_ink(report, film_sha):
+    """Verify the L4 physical-review inventory before deriving any gain.
+
+    Values are externally measured research proxies, NOT OCR or a human
+    readability certificate. Actual decoded movie authenticity is established
+    separately by Lane4 and by score_candidate's exact-film media check.
+    """
+    if (not isinstance(report, dict) or report.get("schema") != SOURCE_CARD_SCHEMA
+            or report.get("filmSha256") != film_sha
+            or report.get("decodedFrameWindow") != [822, 937]
+            or type(report.get("physicallyInspectedFrames")) is not int
+            or report["physicallyInspectedFrames"] != SOURCE_CARD_FRAMES
+            or report.get("nativeRegion") != [60, 680, 750, 1200]
+            or report.get("phoneViewportWidths") != [320, 375, 430]
+            or type(report.get("reviewThresholdPx")) is not int
+            or report["reviewThresholdPx"] != 14
+            or report.get("criterionIsCalibratedHumanReadability") is not False
+            or report.get("physicalPhoneReviewed") is not False
+            or report.get("independentHumanComprehensionReviewed") is not False
+            or report.get("mayPublish") is not False):
+        hold("SOURCE_CARD_REVIEW_SCOPE_OR_AUTHORITY_INVALID")
+    rows = report.get("lines")
+    if not isinstance(rows, list) or len(rows) != len(SOURCE_CARD_LINES):
+        hold("SOURCE_CARD_SIX_LINES_REQUIRED")
+    heights = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            hold("SOURCE_CARD_ROW_INVALID")
+        name = row.get("lineIdentifier")
+        if name not in SOURCE_CARD_LINES or name in heights:
+            hold("SOURCE_CARD_LINE_IDENTITY_DUPLICATE_OR_UNKNOWN")
+        band = row.get("rowBandsInFirstFrame")
+        height = row.get("nativePixelHeight")
+        height_range = row.get("observedHeightPxRange")
+        if (not isinstance(band, list) or len(band) != 2
+                or any(type(x) is not int for x in band)
+                or not 680 <= band[0] <= band[1] < 1200
+                or type(height) not in (float, int)
+                or type(height) is bool or not 0 < height <= 520
+                or height != band[1] - band[0] + 1
+                or height_range != [height, height]
+                or type(row.get("sourceCardFramesObserved")) is not int
+                or row["sourceCardFramesObserved"] != SOURCE_CARD_FRAMES):
+            hold("SOURCE_CARD_PER_FRAME_BAND_INCONSISTENT")
+        projected = row.get("projectedGlyphInkHeightsPx")
+        if not isinstance(projected, dict) or set(projected) != {"320", "375", "430"}:
+            hold("SOURCE_CARD_PHONE_PROJECTION_INCOMPLETE")
+        for width in (320, 375, 430):
+            h = projected.get(str(width))
+            if (type(h) not in (int, float) or not 0 <= h < 520
+                    or abs(h - round(height * width / 1080, 2)) > 0.001):
+                hold("SOURCE_CARD_FORGED_PROJECTED_SIZE")
+        if (type(row.get("sub14pxAt320")) is not bool
+                or row["sub14pxAt320"] != (projected["320"] < 14)
+                or type(row.get("sub14pxAt375")) is not bool
+                or row["sub14pxAt375"] != (projected["375"] < 14)):
+            hold("SOURCE_CARD_FORGED_LINE_THRESHOLD")
+        heights[name] = height
+    if set(heights) != SOURCE_CARD_LINES:
+        hold("SOURCE_CARD_LINE_INVENTORY_MISSING")
+    for width in (320, 375):
+        counted = sum(round(h * width / 1080, 2) < 14 for h in heights.values())
+        if type(report.get("sub14pxAt{}Lines".format(width))) is not int or (
+                report["sub14pxAt{}Lines".format(width)] != counted):
+            hold("SOURCE_CARD_FORGED_SUMMARY_COUNT")
+    return heights
+
+
+def assess_source_card_glyph_gain(*, previous_path, current_path,
+                                  previous_sha, current_sha,
+                                  previous_film_sha, current_film_sha):
+    """Conservative research stop/go for two independently pinned L4 reports.
+
+    Must not elevate the underlying L4 ink proxy into actual-phone or
+    qualified human legibility evidence. Never counts a first render.
+    """
+    if (not isinstance(previous_film_sha, str)
+            or not isinstance(current_film_sha, str)
+            or not HEX.fullmatch(previous_film_sha)
+            or not HEX.fullmatch(current_film_sha)
+            or previous_film_sha == current_film_sha):
+        hold("SOURCE_CARD_PAIR_FILM_IDENTITY_INVALID")
+    previous, observed_previous_sha = _read_json(previous_path, previous_sha)
+    current, observed_current_sha = _read_json(current_path, current_sha)
+    old = _strict_source_card_ink(previous, previous_film_sha)
+    new = _strict_source_card_ink(current, current_film_sha)
+    size_gains = {name: new[name] - old[name] for name in sorted(SOURCE_CARD_LINES)}
+    proxy_now_below = sorted(name for name in SOURCE_CARD_LINES
+                             if round(new[name] * 320 / 1080, 2) < 14)
+    newly_above = sorted(name for name in SOURCE_CARD_LINES
+                         if round(old[name] * 320 / 1080, 2) < 14
+                         and round(new[name] * 320 / 1080, 2) >= 14)
+    unchanged = all(delta == 0 for delta in size_gains.values())
+    return {
+        "schema": "ths-em-lane5-source-card-gain-stop-v1",
+        "previousFilmSha256": previous_film_sha,
+        "currentFilmSha256": current_film_sha,
+        "previousPhysicalInkReceiptSha256": observed_previous_sha,
+        "currentPhysicalInkReceiptSha256": observed_current_sha,
+        "actualMediaDecodedByThisFunction": False,
+        "externalReviewScope": "L4_INTERNAL_PHYSICAL_PROXY_NOT_HUMAN_OR_PHONE",
+        "nativeLineHeightDeltasPx": size_gains,
+        "newLinesAbove320px14pxProxy": newly_above,
+        "currentLinesBelow320px14pxProxy": proxy_now_below,
+        "noMeasuredTypeSizeGain": unchanged,
+        "researchDecision": (
+            "STOP_NO_MEASURABLE_SOURCE_TEXT_SIZE_GAIN" if unchanged
+            else "REVIEW_SOURCE_CARD_SIZE_CHANGE_INDEPENDENTLY"),
+        "mayPublish": False,
+        "firstExcellentMasterAccepted": False,
+        "atomicCardsNewlyAccepted": 0,
+    }
+
+
 def score_candidate(*, film, wav, story_path, screen_path,
                     expected_film_sha, expected_wav_sha, expected_story_sha,
                     expected_screen_sha, previous_screen_path=None,
-                    expected_previous_screen_sha=None, dimensions=NATIVE):
+                    expected_previous_screen_sha=None, dimensions=NATIVE,
+                    previous_ink_path=None, current_ink_path=None,
+                    expected_previous_ink_sha=None, expected_current_ink_sha=None,
+                    previous_ink_film_sha=None):
     """Return an explicitly non-promotable scorecard for one physically decoded film."""
     film_sha = _same_pin(film, expected_film_sha)
     wav_sha = _same_pin(wav, expected_wav_sha)
@@ -239,7 +364,24 @@ def score_candidate(*, film, wav, story_path, screen_path,
         }
         previous["brightFrameDelta"] = len(bright) - previous["priorReportedBrightFrames"]
         previous["highlightFrameDelta"] = len(colors) - previous["priorReportedHighlightFrames"]
+    # Paired ink reports come from L4's physically decoded complete source-card
+    # scene; a digest-only or partial report must never award a gain.
+    source_card_gain = None
+    pair = (previous_ink_path, current_ink_path,
+            expected_previous_ink_sha, expected_current_ink_sha,
+            previous_ink_film_sha)
+    if any(value is not None for value in pair):
+        if any(value is None for value in pair):
+            hold("SOURCE_CARD_PAIR_INCOMPLETE")
+        source_card_gain = assess_source_card_glyph_gain(
+            previous_path=previous_ink_path, current_path=current_ink_path,
+            previous_sha=expected_previous_ink_sha,
+            current_sha=expected_current_ink_sha,
+            previous_film_sha=previous_ink_film_sha,
+            current_film_sha=film_sha)
     blockers = []
+    if source_card_gain is not None and source_card_gain["noMeasuredTypeSizeGain"]:
+        blockers.append("SOURCE_CARD_DECORATIVE_ITERATION_STOP_NO_TYPE_GAIN")
     if bright:
         blockers.append("BRIGHT_CRITICAL_CANDIDATES_RIGHT_APP_EXCLUSION")
     if colors:
@@ -272,6 +414,7 @@ def score_candidate(*, film, wav, story_path, screen_path,
             "measurementLimit": "Pixel-threshold proxy; no semantic OCR or actual platform UI"
         },
         "priorCandidateComparison": previous,
+        "sourceCardResearchGain": source_card_gain,
         "calibratedPremiumCraftScore": None,
         "hardAndReviewHolds": blockers,
         "nextDependency": "LANE6_SAME_FILM_AUTHENTICATED_PHONE_PLAN_AND_CROSS_LANE_RECEIPTS",
@@ -308,6 +451,11 @@ def main():
         p.add_argument("--" + key.replace("_", "-"), required=True)
     p.add_argument("--previous-screen-path")
     p.add_argument("--expected-previous-screen-sha")
+    p.add_argument("--previous-ink-path")
+    p.add_argument("--current-ink-path")
+    p.add_argument("--expected-previous-ink-sha")
+    p.add_argument("--expected-current-ink-sha")
+    p.add_argument("--previous-ink-film-sha")
     p.add_argument("--out", required=True)
     a = p.parse_args()
     result = score_candidate(**{
@@ -315,7 +463,10 @@ def main():
             "film", "wav", "story_path", "screen_path",
             "expected_film_sha", "expected_wav_sha",
             "expected_story_sha", "expected_screen_sha",
-            "previous_screen_path", "expected_previous_screen_sha"
+            "previous_screen_path", "expected_previous_screen_sha",
+            "previous_ink_path", "current_ink_path",
+            "expected_previous_ink_sha", "expected_current_ink_sha",
+            "previous_ink_film_sha"
         )
     })
     write_once(a.out, result)
