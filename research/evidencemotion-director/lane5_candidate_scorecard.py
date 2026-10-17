@@ -54,10 +54,19 @@ def _physical_sha(path):
             hold("FILE_CHANGED_BEFORE_READ")
         for chunk in iter(lambda: f.read(1024 * 1024), b""):
             d.update(chunk)
+        # Metadata can miss same-size writes with restored mtime within one tick.
+        f.seek(0)
+        confirmation = hashlib.sha256()
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            confirmation.update(chunk)
+        if d.digest() != confirmation.digest():
+            hold("FILE_CHANGED_DURING_REVIEW")
         after_fd = os.fstat(f.fileno())
     after = _safe_file(path)
     signature = lambda s: (s.st_dev, s.st_ino, s.st_size, s.st_mtime_ns, s.st_ctime_ns)
-    if signature(before) != signature(after_fd) or signature(before) != signature(after):
+    # Windows path stat and descriptor stat can expose different ctime semantics.
+    # Compare each surface with itself; retain both mutation checks.
+    if signature(fd) != signature(after_fd) or signature(before) != signature(after):
         hold("FILE_CHANGED_DURING_REVIEW")
     return d.hexdigest()
 
