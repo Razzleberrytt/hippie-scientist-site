@@ -2,6 +2,7 @@
 import unittest
 from atomic_progress_stall_watch import (
     SCHEMA, decide, trustworthy_previous, history_from_github,
+    authenticated_history_checkpoint,
 )
 
 CURRENT = {"schema":SCHEMA,"repository":"Razzleberrytt/hippie-scientist-site",
@@ -79,6 +80,44 @@ class AtomicProgressWatchTests(unittest.TestCase):
         self.assertFalse(trustworthy_previous(prior(99,runId="100"),CURRENT))
         self.assertFalse(trustworthy_previous(prior(99,atomicCount="875"),CURRENT))
         self.assertTrue(trustworthy_previous(prior(99),CURRENT))
+
+    def test_same_source_head_reruns_do_not_mimic_engineering_stall(self):
+        result=decide(CURRENT,[prior(99,headSha=CURRENT["headSha"]),
+                               prior(98,headSha=CURRENT["headSha"])])
+        self.assertEqual(result["status"],"INSUFFICIENT_VERIFIED_HISTORY")
+        self.assertEqual(result["verifiedHistoryLength"],0)
+        self.assertFalse(result["requiresRecovery"])
+
+    def test_only_unique_successful_source_revisions_count_for_stall(self):
+        result=decide(CURRENT,[prior(99),prior(98,headSha=prior(99)["headSha"]),
+                               prior(97)])
+        self.assertEqual(result["status"],"STALLED_THREE_VERIFIED_CHECKPOINTS")
+        self.assertEqual(result["verifiedHistoryLength"],2)
+
+    def test_github_completed_proof_run_identity_is_mandatory(self):
+        source={"id":99,"head_sha":prior(99)["headSha"]}
+        viewed={"workflowName":"EvidenceMotion atomic proof ledger gate",
+                "status":"completed","conclusion":"success",
+                "headBranch":CURRENT["branch"],"headSha":source["head_sha"]}
+        args=(prior(99),CURRENT["repository"],CURRENT["branch"],"99",source)
+        self.assertTrue(authenticated_history_checkpoint(*args,viewed))
+        for fault in ({"conclusion":"failure"},{"status":"in_progress"},
+                      {"workflowName":"CI"},{"headSha":"f"*40},
+                      {"headBranch":"main"}):
+            with self.subTest(fault=fault):
+                self.assertFalse(authenticated_history_checkpoint(
+                    *args,{**viewed,**fault}))
+        self.assertFalse(authenticated_history_checkpoint(
+            *args,{**viewed,"headSha":"not-a-sha"}))
+        self.assertFalse(authenticated_history_checkpoint(
+            prior(99,proofValidatorPassed=False),
+            CURRENT["repository"],CURRENT["branch"],"99",source,viewed))
+        self.assertFalse(authenticated_history_checkpoint(
+            prior(99),CURRENT["repository"],CURRENT["branch"],"99",
+            {**source,"id":98},viewed))
+        self.assertFalse(authenticated_history_checkpoint(
+            prior(99),CURRENT["repository"],CURRENT["branch"],"99",
+            {**source,"head_sha":"f"*40},viewed))
 
     def test_lack_of_github_token_cannot_fabricate_history(self):
         import os
