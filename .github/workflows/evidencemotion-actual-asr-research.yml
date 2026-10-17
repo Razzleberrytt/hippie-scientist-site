@@ -889,11 +889,15 @@ jobs:
           assert r['mayPublish'] is False
           print('EM00708 original-file attestation replay completed; all qualified-science, human and publish gates HOLD')
           PY
-      - name: Produce original-source eight-claim qualified-review intake with WAV timecodes
+      - name: Produce original-source scientific reviewer intake and 8 authentic H264 claim thumbnails
         env:
           THS_EM00705_ARCHIVE_ROOT: ${{ runner.temp }}/em00705-real
         run: |
           set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
           PYTHONPATH=research/evidencemotion-director python - <<'PY'
           import hashlib, json, os
           from pathlib import Path
@@ -901,7 +905,7 @@ jobs:
           from em00708_original_archive_hold_replay import replay as real_replay
           from science_gate_process_attestation import strict_json,canonical,attest
           from claim_strength_source_limits import evaluate
-          from science_reviewer_handoff import reviewer_packet,verify_packet,SCHEMA
+          from science_reviewer_handoff import reviewer_packet,verify_packet,SCHEMA,original_review_stills
           root=Path(os.environ['THS_EM00705_ARCHIVE_ROOT'])
           raw={name:(root/name).read_bytes() for name in EXPECTED}
           confirmed=real_replay(raw)
@@ -933,8 +937,27 @@ jobs:
           assert packet['mayPublish'] is False and packet['approvalToMerge'] is False
           out=Path(os.environ['RUNNER_TEMP'])/'em00707-original-wav-science-review-intake.json'
           out.write_text(json.dumps(packet,indent=2,sort_keys=True)+'\n')
+          thumb=Path(os.environ['RUNNER_TEMP'])/'em00707-original-archive-claim-stills'
+          film=root/FILM
+          data=original_review_stills(film,process,packet,thumb)
+          assert len(data['originalClaimFrameStills'])==8
+          assert all(r['sourceFilmSha256']==confirmed['originalArchivedFilmSha256']
+                     for r in data['originalClaimFrameStills'])
+          assert all((thumb/r['fileName']).is_file()
+                     for r in data['originalClaimFrameStills'])
+          assert data['allFilmFramesReviewedByHuman'] is False
+          assert data['qualifiedIndependentScienceReviewCompleted'] is False
+          assert data['mayPublish'] is False and data['approvalToMerge'] is False
+          print('PASS_REAL_ARCHIVED_H264_EIGHT_CLAIM_FRAMES_REVIEW_REQUEST_HOLD')
           print('PASS_EXACT_ORIGINAL_FILM_EIGHT_WAV_TIMECODED_REVIEW_REQUEST_ONLY_HUMAN_REVIEW_HOLD')
           PY
+      - name: Preserve eight actual source-locked film PNG science-review samples
+        uses: actions/upload-artifact@v4
+        with:
+          name: em00707-exact-original-H264-eight-review-samples-HOLD
+          path: ${{ runner.temp }}/em00707-original-archive-claim-stills/
+          retention-days: 14
+          if-no-files-found: error
       - name: Archive source-locked scientific reviewer intake only (no approval/media)
         uses: actions/upload-artifact@v4
         with:
