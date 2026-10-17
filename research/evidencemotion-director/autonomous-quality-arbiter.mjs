@@ -20,33 +20,54 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
       // The producer's decoded-pixel warning is only an advisory. Carry it
       // into the autonomous review queue without accepting craft quality.
       // Reject a substituted/empty receipt rather than silently blessing it.
+      const centerCode='CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION';
+      const alternateCode='TWO_STATE_LAYOUT_OSCILLATION_WITHOUT_VISUAL_PROGRESSION';
+      const blankCode='INTERLEAVED_NEAR_BLANK_VISUAL_PHASE';
       const named=decodedVisual.reviewCandidates;
-      const hero=Array.isArray(named)&&
-         named.includes('CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION');
-      const blank=Array.isArray(named)&&named.includes('INTERLEAVED_NEAR_BLANK_VISUAL_PHASE');
-      const onlyKnown=Array.isArray(named)&&named.length>0&&named.every(x=>
-        x==='CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION'||
-        x==='INTERLEAVED_NEAR_BLANK_VISUAL_PHASE');
-      const heroWindows=decodedVisual.centerHeroStasisPeripheralMotionWindowsSec;
-      const blankWindows=decodedVisual.interleavedBlankPhaseWindowsSec;
-      const credibleHero=!hero||(Array.isArray(heroWindows)&&heroWindows.length>0&&
-        heroWindows.every(w=>w&&Number.isFinite(w.startSec)&&w.startSec>=0&&
-          Number.isFinite(w.endSec)&&w.endSec>w.startSec&&
-          Number.isInteger(w.repeatedPairCount)&&w.repeatedPairCount>=3&&
-          w.endSec-w.startSec===w.repeatedPairCount*2));
-      const credibleBlank=!blank||(Array.isArray(blankWindows)&&blankWindows.length>0&&
-        blankWindows.every(w=>w&&Number.isInteger(w.startSec)&&w.startSec>=0&&
-          Number.isInteger(w.endSec)&&w.endSec>w.startSec&&
-          Number.isInteger(w.blankSamples)&&w.blankSamples>=4&&
-          (w.blankPhase===0||w.blankPhase===1)&&
-          w.startSec%2===w.blankPhase&&
-          w.endSec-w.startSec===2*w.blankSamples-1));
-      if(!onlyKnown||!credibleHero||!credibleBlank)
-        blockers.push('VISUAL_CRAFT_HOLD_EVIDENCE_MISSING');
-      else{
-        if(hero)needs.push('SOURCE_BOUND_CRAFT_REVIEW_FOR_STATIC_CENTER_HERO');
-        if(blank)needs.push('SOURCE_BOUND_CRAFT_REVIEW_FOR_INTERLEAVED_BLANK_INTERVALS');
+      const center=decodedVisual.centerHeroStasisPeripheralMotionWindowsSec??[];
+      const alternate=decodedVisual.twoStateAlternationWindowsSec??[];
+      const blank=decodedVisual.interleavedBlankPhaseWindowsSec??[];
+      const validNames=Array.isArray(named)&&named.length>0
+        &&new Set(named).size===named.length
+        &&named.every(code=>[centerCode,alternateCode,blankCode].includes(code));
+      const validCenter=Array.isArray(center)&&center.length>0&&center.every(w=>
+        w&&Number.isFinite(w.startSec)&&w.startSec>=0&&
+        Number.isFinite(w.endSec)&&w.endSec>w.startSec&&
+        Number.isInteger(w.repeatedPairCount)&&w.repeatedPairCount>=3&&
+        w.endSec-w.startSec===w.repeatedPairCount*2);
+      const validAlternate=Array.isArray(alternate)&&alternate.length>0&&alternate.every(w=>
+        w&&Number.isFinite(w.startSec)&&w.startSec>=0&&
+        Number.isFinite(w.endSec)&&w.endSec>w.startSec&&
+        Number.isInteger(w.lagTwoMatchedPairs)&&w.lagTwoMatchedPairs>=4&&
+        w.endSec-w.startSec===(w.lagTwoMatchedPairs+1)*2);
+      // 1Hz optical samples (including opposite phase) bind the blank window to
+      // actual measured film coverage. No impossible/out-of-range timecodes.
+      const n=decodedVisual.oneHzOpticalScreenSamples;
+      const validBlankGrid=Number.isInteger(n)&&n>=12&&
+        Number.isInteger(decodedVisual.samples)&&decodedVisual.samples===Math.ceil(n/2)&&
+        (decodedVisual.actualDurationSeconds===undefined||
+          Number.isFinite(decodedVisual.actualDurationSeconds)&&
+          Math.abs(n-decodedVisual.actualDurationSeconds)<=1.05);
+      const validBlank=validBlankGrid&&Array.isArray(blank)&&blank.length>0&&blank.every(w=>
+        w&&Number.isInteger(w.startSec)&&w.startSec>=0&&
+        Number.isInteger(w.endSec)&&w.endSec>w.startSec&&w.endSec<=n&&
+        Number.isInteger(w.blankSamples)&&w.blankSamples>=4&&
+        w.blankSamples<=Math.floor(n/2)&&
+        (w.blankPhase===0||w.blankPhase===1)&&
+        w.startSec%2===w.blankPhase&&
+        w.endSec-w.startSec===2*w.blankSamples-1);
+      const hasCenter=Array.isArray(named)&&named.includes(centerCode);
+      const hasAlternate=Array.isArray(named)&&named.includes(alternateCode);
+      const hasBlank=Array.isArray(named)&&named.includes(blankCode);
+      if(validNames&&
+        (hasCenter?validCenter:Array.isArray(center)&&center.length===0)&&
+        (hasAlternate?validAlternate:Array.isArray(alternate)&&alternate.length===0)&&
+        (hasBlank?validBlank:Array.isArray(blank)&&blank.length===0)){
+        if(hasCenter)needs.push('SOURCE_BOUND_CRAFT_REVIEW_FOR_STATIC_CENTER_HERO');
+        if(hasAlternate)needs.push('SOURCE_BOUND_CRAFT_REVIEW_FOR_TWO_STATE_LAYOUT_LOOP');
+        if(hasBlank)needs.push('SOURCE_BOUND_CRAFT_REVIEW_FOR_INTERLEAVED_BLANK_INTERVALS');
       }
+      else blockers.push('VISUAL_CRAFT_HOLD_EVIDENCE_MISSING');
    }
    else if(decodedVisual.decision!=='AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE')
       blockers.push('VISUAL_DECISION_UNRECOGNIZED');
