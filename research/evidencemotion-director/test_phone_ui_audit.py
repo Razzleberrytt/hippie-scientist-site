@@ -1658,6 +1658,18 @@ class ActualMediaStreamIdentityTests(unittest.TestCase):
                                         "NON_SDR_PHONE_COLOR_METADATA:color_primaries"):
                 probe_movie(movie)
 
+    def test_real_bt2020_color_matrix_cannot_hide_behind_bt709_primaries(self):
+        with tempfile.TemporaryDirectory() as directory:
+            movie, info = self.encoded_color_signaled_h264(
+                Path(directory), "bt2020nc",
+                "colorprim=bt709:transfer=bt709:colormatrix=bt2020nc")
+            self.assertEqual(info["color_space"], "bt2020nc")
+            self.assertEqual(info["color_primaries"], "bt709")
+            self.assertEqual(info["color_transfer"], "bt709")
+            with self.assertRaisesRegex(ValueError,
+                                        "NON_SDR_PHONE_COLOR_METADATA:color_space"):
+                probe_movie(movie)
+
     def test_actual_matroska_renamed_mp4_does_not_pass_container_gate(self):
         # The filename is deliberately .mp4 but the real multiplexed bytes
         # are Matroska. Codec, SAR, chroma and timestamps stay valid.
