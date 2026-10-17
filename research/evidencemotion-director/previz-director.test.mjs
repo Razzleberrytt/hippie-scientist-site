@@ -139,9 +139,9 @@ test('valid source-bound metadata still requires independent perceptual evaluati
 
 const stagedShot=(i,override={})=>({
   beatId:'shot-'+i,grammarId:'G5',startSec:2*i,endSec:2*(i+1),
-  scientificAssetIds:['molecule:verified'],primaryCamera:i%2?'LOCKED_HOLD':'FOCUS_TRANSFER',
+  scientificAssetIds:['molecule:verified'],sourceClaimIds:['claim:verified'],primaryCamera:i%2?'LOCKED_HOLD':'FOCUS_TRANSFER',
   transition:i%2?'HARD_CUT':'OCCLUSION_REVEAL',
-  viewerLearns:'Different sentence phrasing for the same source',
+  viewerLearns:'Distinct explanatory payoff for shot '+i,
   ...override
 });
 
@@ -208,4 +208,79 @@ test('whitespace aliases cannot hide repeated scientific assets',()=>{
     stagedShot(1,{scientificAssetIds:[' asset']}),stagedShot(2,{scientificAssetIds:['asset ']})]);
   assert.equal(r.status,'HOLD');
   assert.equal(r.craftRemediationRequired,true);
+});
+
+
+test('changing cameras and grammars does not mask three identical teaching payoffs',()=>{
+  const promise='What the same source actually measures';
+  const shots=[
+    stagedShot(0,{grammarId:'G1',viewerLearns:promise}),
+    stagedShot(1,{grammarId:'G3',viewerLearns:'what THE same source actually measures!'}),
+    stagedShot(2,{grammarId:'G5',viewerLearns:promise})
+  ];
+  const r=auditShotRepetition(shots);
+  assert.equal(r.status,'CRAFT_REDIRECTION_REQUIRED');
+  assert.equal(r.findings.length,1);
+  assert.equal(r.findings[0].reason,
+    'THREE_PLUS_IDENTICAL_TEACHING_PAYOFFS_DESPITE_VISUAL_CHURN');
+  assert.equal(r.findings[0].consecutiveCount,3);
+  assert.equal(r.mayPublish,false);
+  assert.equal(r.excellentCertified,false);
+});
+
+test('three full alternations of same two source-bound payoffs require review',()=>{
+  const shots=Array.from({length:8},(_,i)=>stagedShot(i,{
+    grammarId:i%2?'G4':'G2',
+    scientificAssetIds:[i%2?'asset:b':'asset:a'],
+    sourceClaimIds:[i%2?'claim:b':'claim:a'],
+    viewerLearns:i%2?'How B differs':'How A works',
+    transition:i%2?'SPATIAL_CONTINUITY':'MATCH_ON_ACTION',
+  }));
+  const r=auditShotRepetition(shots);
+  const loops=r.findings.filter(f=>
+    f.reason==='REPEATED_TWO_PAYOFF_TEACHING_CYCLE_REQUIRES_REVIEW');
+  assert.equal(loops.length,1); // maximal window, no overlapping spam
+  assert.equal(loops[0].consecutiveCount,8);
+  assert.equal(loops[0].alternatingPayoffCount,2);
+  assert.equal(r.mayPublish,false);
+});
+
+test('two A/B cycles and genuinely advancing source-linked lessons are not false blockers',()=>{
+  const four=Array.from({length:4},(_,i)=>stagedShot(i,{
+    grammarId:i%2?'G4':'G2',viewerLearns:i%2?'Compare B':'Compare A',
+    scientificAssetIds:[i%2?'b':'a']
+  }));
+  assert.equal(auditShotRepetition(four).findings.length,0);
+  const progressive=Array.from({length:6},(_,i)=>stagedShot(i,{
+    grammarId:i%2?'G4':'G2',
+    viewerLearns:'New measurable lesson '+i,
+    scientificAssetIds:['same:pinned-source']
+  }));
+  const r=auditShotRepetition(progressive);
+  assert.equal(r.findings.length,0);
+  assert.equal(r.status,'SEQUENCE_REVIEW_REQUIRED');
+  assert.equal(r.excellentCertified,false);
+});
+
+test('same wording with a genuinely different source does not imply identical evidence',()=>{
+  const shots=Array.from({length:3},(_,i)=>stagedShot(i,{
+    grammarId:['G1','G3','G5'][i],
+    viewerLearns:'How this measurement is supported',
+    scientificAssetIds:['asset:shared'],
+    sourceClaimIds:['claim:independent-'+i]
+  }));
+  assert.equal(auditShotRepetition(shots).findings.length,0);
+});
+
+test('missing scientific claim identity cannot be mistaken for matching teaching evidence',()=>{
+  const promise='An identical verbal promise';
+  const shots=[0,1,2].map((i)=>stagedShot(i,{
+    grammarId:['G1','G3','G5'][i],viewerLearns:promise,
+    sourceClaimIds:i===1?undefined:[],
+    scientificAssetIds:['asset:source']
+  }));
+  const r=auditShotRepetition(shots);
+  assert.equal(r.status,'SEQUENCE_REVIEW_REQUIRED');
+  assert.equal(r.findings.length,0);
+  assert.equal(r.mayPublish,false);
 });

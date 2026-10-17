@@ -1,39 +1,23 @@
 """Negative-controlled research directional spotlight, never an efficacy claim."""
 import math
 import unittest
-from dataclasses import dataclass
+from dataclasses import replace
 from PIL import Image
+from rdkit import Chem
 
 from source_locked_visual_direction import (
     CID_7OH, hydroxyl_ring_location, ring_radii, draw_verified_oxygen_locus)
-
-
-@dataclass
-class Source:
-    pubchem_cid: int
-
-
-class Atom:
-    def __init__(self, symbol="O", h=1):
-        self.symbol,self.h=symbol,h
-    def GetSymbol(self):
-        return self.symbol
-    def GetTotalNumHs(self):
-        return self.h
-
-
-class Molecule:
-    def GetNumAtoms(self):
-        return 1
-    def GetAtomWithIdx(self,index):
-        assert index==0
-        return Atom()
+from verified_molecular_comparison import HYDROXYMITRAGYNINE, verified_molecule
 
 
 class SourceLockedDirectionTests(unittest.TestCase):
     def fixture(self):
-        return {"source":Source(CID_7OH),"oh":[0],
-                "mol":Molecule(),"diagramAtomXY":[[620,320]]}
+        mol=verified_molecule(HYDROXYMITRAGYNINE)
+        free_oh=[a.GetIdx() for a in mol.GetAtoms()
+                 if a.GetSymbol()=="O" and a.GetTotalNumHs()==1]
+        self.assertEqual(len(free_oh),1)
+        return {"source":HYDROXYMITRAGYNINE,"oh":free_oh,
+                "mol":mol,"diagramAtomXY":[[620,320] for _ in range(mol.GetNumAtoms())]}
 
     def test_source_locked_locator_scales_at_real_native_pixels(self):
         asset=self.fixture()
@@ -59,16 +43,66 @@ class SourceLockedDirectionTests(unittest.TestCase):
 
     def test_wrong_molecule_or_invented_hydroxyl_cannot_be_highlighted(self):
         asset=self.fixture()
+        # Preserve the exact 30-atom coordinate inventory when testing just
+        # the selected OH position. A one-atom coordinate fixture rightfully
+        # fails the earlier inventory guard, not the intended geometry gate.
+        oxygen=asset["oh"][0]
+        offscreen=[list(xy) for xy in asset["diagramAtomXY"]]
+        offscreen[oxygen]=[1800,320]
+        nonfinite=[list(xy) for xy in asset["diagramAtomXY"]]
+        nonfinite[oxygen]=[620,float("nan")]
         for change,code in [
-            ({"source":Source(3034396)},"WRONG_CHEMICAL"),
+            ({"source":replace(HYDROXYMITRAGYNINE,pubchem_cid=3034396)},"WRONG_CHEMICAL"),
             ({"oh":[]},"UNVERIFIED_HYDROXYL"),
             ({"oh":[0,1]},"UNVERIFIED_HYDROXYL"),
-            ({"diagramAtomXY":[[1800,320]]},"GRAPH_COORDS_OFF"),
-            ({"diagramAtomXY":[[620,float('nan')]]},"INVALID_GRAPH"),
+            ({"diagramAtomXY":offscreen},"GRAPH_COORDS_OFF"),
+            ({"diagramAtomXY":nonfinite},"INVALID_GRAPH"),
         ]:
             with self.subTest(code=code):
                 with self.assertRaisesRegex(ValueError,code):
                     hydroxyl_ring_location({**asset,**change})
+
+    def test_em00404_substituted_and_disconnected_graphs_cannot_hide_under_right_cid(self):
+        asset=self.fixture()
+        actual=asset["mol"]
+        # Deliberate substitutions preserve the claimed CID and free OH index.
+        # The original CID string is insufficient to authenticate an RDKit graph.
+        replacement=Chem.RWMol(actual)
+        terminal_carbon=next(a.GetIdx() for a in replacement.GetAtoms()
+                             if a.GetSymbol()=="C" and a.GetDegree()==1)
+        replacement.GetAtomWithIdx(terminal_carbon).SetAtomicNum(7)
+        substituted=replacement.GetMol()
+        Chem.SanitizeMol(substituted)
+        self.assertNotEqual(
+            Chem.MolToSmiles(substituted),Chem.MolToSmiles(actual))
+        with self.assertRaisesRegex(ValueError,"PINNED_WHOLE_GRAPH_MISMATCH"):
+            hydroxyl_ring_location({**asset,"mol":substituted})
+
+        # Detach one terminal atom from the source molecular graph.
+        detached=Chem.RWMol(actual)
+        end=next(a.GetIdx() for a in detached.GetAtoms()
+                 if a.GetSymbol()=="C" and a.GetDegree()==1)
+        neighbour=detached.GetAtomWithIdx(end).GetNeighbors()[0].GetIdx()
+        detached.RemoveBond(end,neighbour)
+        disconnected=detached.GetMol()
+        self.assertGreater(len(Chem.GetMolFrags(disconnected)),1)
+        with self.assertRaisesRegex(ValueError,"PINNED_WHOLE_GRAPH_MISMATCH"):
+            hydroxyl_ring_location({**asset,"mol":disconnected})
+
+    def test_em00404_cid_only_forgeries_and_wrong_hydroxyl_refused(self):
+        asset=self.fixture()
+        # A counterfeit source may display the right CID but wrong chemistry.
+        forged=replace(HYDROXYMITRAGYNINE,formula="C23H30N2O4")
+        with self.assertRaisesRegex(ValueError,"SOURCE_RECORD_NOT_PINNED"):
+            hydroxyl_ring_location({**asset,"source":forged})
+        with self.assertRaisesRegex(ValueError,"ACTUAL_RDKIT_SOURCE_GRAPH_REQUIRED"):
+            hydroxyl_ring_location({**asset,"mol":object()})
+        wrong_oxygen=next(a.GetIdx() for a in asset["mol"].GetAtoms()
+                          if a.GetSymbol()=="O" and a.GetTotalNumHs()==0)
+        with self.assertRaisesRegex(ValueError,"HIGHLIGHT_NOT_FREE_HYDROXYL"):
+            hydroxyl_ring_location({**asset,"oh":[wrong_oxygen]})
+        with self.assertRaisesRegex(ValueError,"UNVERIFIED_HYDROXYL"):
+            hydroxyl_ring_location({**asset,"oh":[True]})
 
     def test_non_native_aspect_or_unsafe_acoustic_timestamps_are_holds(self):
         asset=self.fixture()
