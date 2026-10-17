@@ -39,17 +39,20 @@ def probe(path):
 
 def frame_pts(path):
     b=cmd(['ffprobe','-v','error','-select_streams','v:0','-show_entries','frame=best_effort_timestamp_time','-of','csv=p=0',str(path)])
-    lines=[x.strip().rstrip(',') for x in b.decode().splitlines() if x.strip()]
     try:
+        lines=[x.strip().rstrip(',') for x in b.decode('utf-8').splitlines() if x.strip()]
         stamps=[round(float(value),6) for value in lines]
     except (ValueError, UnicodeDecodeError, OverflowError):
         raise Hold('INVALID_ACTUAL_FRAME_PTS')
-    # float() accepts NaN and Infinity; an ordinary abs(a-b)>tolerance check
-    # silently accepts NaN. Reject these and duplicated/reversed timestamps
-    # BEFORE any positive compatibility report can be issued.
+    # NaN makes abs(a-b)>tolerance false; duplicate or reversed stamps
+    # can also appear superficially plausible when streams agree with each
+    # other. Require each actual presentation time on the 30fps clock.
     if (not stamps or any(not math.isfinite(t) or t<0 for t in stamps)
             or any(current<=previous for previous,current in zip(stamps,stamps[1:]))):
         raise Hold('INVALID_ACTUAL_FRAME_PTS')
+    if any(abs(t - (index/30))>0.001
+           for index,t in enumerate(stamps)):
+        raise Hold('NON_30FPS_PRESENTATION_TIMESTAMP_GRID')
     return stamps
 
 def faststart(path):
