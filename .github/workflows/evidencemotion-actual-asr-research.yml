@@ -41,6 +41,7 @@ on:
       - 'research/evidencemotion-director/gut_exact_film_science_crosswalk.py'
       - 'research/evidencemotion-director/test_gut_exact_film_science_crosswalk.py'
       - 'research/evidencemotion-director/gut_current_three_cue_six_scene_manifest.json'
+      - 'research/evidencemotion-director/GUT-LATEST-THREE-CUE-SIX-SCENE-SCIENCE-CROSSWALK-20261017.md'
       - 'research/evidencemotion-director/EM00701-FROZEN-SPOKEN-LEDGER-20261016.json'
       - 'research/evidencemotion-director/encoded_science_motion_audit.py'
       - 'research/evidencemotion-director/test_encoded_science_motion_audit.py'
