@@ -660,6 +660,18 @@ def verify_current_candidate_reviewer_packet(packet, gate, current_movie):
     return True
 
 
+def _same_output_as_source(source, output):
+    """Reject source/output aliases before stale-receipt cleanup can unlink media.
+
+    resolve() covers symlinked parent directories; samefile() also catches
+    hard links, whose differing path spellings resolve to the same inode.
+    """
+    source, output = Path(source), Path(output)
+    return (source.resolve() == output.resolve()
+            or (source.exists() and output.exists()
+                and os.path.samefile(source, output)))
+
+
 def main():
     parser = argparse.ArgumentParser(description="Build science review intake (HOLD only)")
     parser.add_argument("--gate", required=True)
@@ -667,13 +679,15 @@ def main():
     parser.add_argument("--candidate-movie", default=None,
                         help="Current rendered film to bind a distinct unapproved intake; never reuses the original H264 v2 packet")
     args = parser.parse_args()
-    if Path(args.gate).resolve() == Path(args.out).resolve():
+    # An output alias must be rejected BEFORE prepare_report_destination()
+    # unlinks a stale receipt. In particular never unlink the current movie.
+    if _same_output_as_source(args.gate, args.out):
         hold("INPUT_OUTPUT_PATH_ALIAS_NOT_ALLOWED")
+    if args.candidate_movie and _same_output_as_source(args.candidate_movie, args.out):
+        hold("CURRENT_MOVIE_OUTPUT_PATH_ALIAS_NOT_ALLOWED")
     out = prepare_report_destination(args.out)
     gate, _ = read_record(args.gate)
     if args.candidate_movie:
-        if Path(args.candidate_movie).resolve()==Path(args.out).resolve():
-            hold("CURRENT_MOVIE_OUTPUT_PATH_ALIAS_NOT_ALLOWED")
         packet=current_candidate_reviewer_packet(gate,args.candidate_movie)
         verify_current_candidate_reviewer_packet(packet,gate,args.candidate_movie)
         write_report_atomically(out,packet)
