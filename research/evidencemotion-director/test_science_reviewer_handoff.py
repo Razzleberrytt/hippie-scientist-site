@@ -164,7 +164,7 @@ class IndependentScienceIntakeTests(unittest.TestCase):
                                             isinstance(x,str) and x.startswith("select=")))
                 for n in range(8):
                     (Path(command[-1]).parent/f"original-claim-{n:02d}.png").write_bytes(
-                        b"\\x89PNG\\r\\n\\x1a\\n"+b"a"*130)
+                        b"\x89PNG\r\n\x1a\n"+b"a"*130)
                 return None
             with patch.object(handoff,"_hash_file",return_value=FILM_SHA):
                 with patch.object(handoff.subprocess,"run",side_effect=mock_ffmpeg) as subprocess_run:
@@ -195,7 +195,7 @@ class IndependentScienceIntakeTests(unittest.TestCase):
             film.write_bytes(b"mock-media")
             def incomplete(command,**kwargs):
                 (Path(command[-1]).parent/"original-claim-00.png").write_bytes(
-                    b"\\x89PNG\\r\\n\\x1a\\n"+b"a"*130)
+                    b"\x89PNG\r\n\x1a\n"+b"a"*130)
             with patch.object(handoff,"_hash_file",return_value=FILM_SHA):
                 with patch.object(handoff.subprocess,"run",side_effect=incomplete):
                     with self.assertRaisesRegex(ValueError,"ORIGINAL_REVIEW_STILL_COUNT_OR_SEQUENCE"):
