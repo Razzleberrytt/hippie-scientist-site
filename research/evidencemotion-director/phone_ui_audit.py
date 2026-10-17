@@ -870,6 +870,93 @@ def verify_complete_media_decode(movie):
     }
 
 
+
+def screen_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indices, roi):
+    """Fail closed on visible bright ink in a prequalified critical caption ROI.
+
+    This is a narrow, manually targeted encoded-pixel negative screen for
+    cases like the actual revised Shot5 NOT SHOWN UI-zone overflow. It uses
+    FFmpeg's real decoded display-order frames, NOT storyboard declarations
+    or earlier movies' ink/word receipts. The ROI must be prequalified as
+    containing critical light text; bright science art can otherwise trigger
+    a false alert. The absence of these pixels does NOT prove text position,
+    dark text visibility, OCR, phone legibility, science or release fitness.
+    """
+    movie = Path(movie)
+    if not is_hash(expected_film_sha) or sha256_file(movie) != expected_film_sha:
+        hold("TARGETED_UI_PROBE_EXACT_FILM_SHA_MISMATCH")
+    width, height, _, frames = probe_movie(movie)
+    if (not isinstance(frame_indices, list) or len(frame_indices) != 3 or
+        any(type(index) is not int or index < 0 or index >= frames
+            for index in frame_indices) or
+        frame_indices != sorted(set(frame_indices))):
+        hold("TARGETED_UI_PROBE_THREE_DISTINCT_PRESENTED_FRAMES_REQUIRED")
+    if (not isinstance(roi, list) or len(roi) != 4 or
+        any(type(value) is not int for value in roi)):
+        hold("TARGETED_UI_PROBE_NATIVE_TEXT_ROI_REQUIRED")
+    x0, y0, x1, y1 = roi
+    right_start = int((1 - RIGHT) * width)
+    if (not 0 <= x0 < right_start < x1 <= width or
+        not int(TOP * height) <= y0 < y1 <= int((1 - BOTTOM) * height) or
+        (x1 - x0) * (y1 - y0) > 150000):
+        hold("TARGETED_UI_PROBE_ROI_MUST_CROSS_RIGHT_EXCLUSION")
+    crop_width, crop_height = x1 - x0, y1 - y0
+    select = "+".join(f"eq(n\\,{index})" for index in frame_indices)
+    vf = (f"select={select},"
+          f"crop={crop_width}:{crop_height}:{x0}:{y0},format=bgr24")
+    cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
+           "-xerror", "-err_detect", "explode", "-i", str(movie), "-an",
+           "-vf", vf, "-fps_mode", "vfr", "-frames:v", "3",
+           "-f", "rawvideo", "-pix_fmt", "bgr24", "pipe:1"]
+    try:
+        result = subprocess.run(cmd, capture_output=True, timeout=90, check=True)
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired, OSError):
+        hold("TARGETED_UI_PROBE_DECODE_FAILED")
+    one_frame_bytes = crop_width * crop_height * 3
+    if len(result.stdout) != one_frame_bytes * 3:
+        hold("TARGETED_UI_PROBE_NOT_EXACTLY_THREE_DECODED_CROPS")
+    if sha256_file(movie) != expected_film_sha:
+        hold("TARGETED_UI_PROBE_VIDEO_CHANGED_DURING_DECODE")
+    observations = []
+    for phase, index in enumerate(frame_indices):
+        crop = memoryview(result.stdout)[
+            phase * one_frame_bytes:(phase + 1) * one_frame_bytes]
+        observed, xmax = 0, None
+        for y in range(crop_height):
+            for x in range(right_start - x0, crop_width):
+                at = (y * crop_width + x) * 3
+                blue, green, red = crop[at:at + 3]
+                # Conservative targeted white/light-neutral caption detector.
+                # Encoded YUV420P reconstitution is read at actual BGR pixels.
+                if min(blue, green, red) >= 160 and red - blue < 70:
+                    observed += 1
+                    xmax = x0 + x
+        observations.append({
+            "decodedFrameIndex": index,
+            "brightNeutralPixelsInRightExclusion": observed,
+            "rightmostDetectedX": xmax,
+        })
+    violations = [row for row in observations
+                  if row["brightNeutralPixelsInRightExclusion"]]
+    if violations:
+        first = violations[0]
+        hold("TARGETED_CRITICAL_INK_RIGHT_UI_EXCLUSION:"
+             + str(first["decodedFrameIndex"]) + ":"
+             + str(first["brightNeutralPixelsInRightExclusion"]))
+    return {
+        "status": "NO_TARGETED_BRIGHT_RIGHT_UI_INK_DETECTED_REVIEW_REQUIRED",
+        "filmSha256": expected_film_sha,
+        "targetedRoiPx": roi,
+        "rightUiExclusionBeginsNativeX": right_start,
+        "actualDecodedPixelObservations": observations,
+        "targetTextSemanticsVerified": False,
+        "darkOrColoredInkExcluded": False,
+        "actualPhoneLayoutVerified": False,
+        "viewerReadabilityVerified": False,
+        "mayPublish": False,
+    }
+
+
 def choose_decoded_sample(stamps, shot, requested_sec):
     """Select the closest actual presentation timestamp *within* the shot.
 
