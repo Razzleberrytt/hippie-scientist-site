@@ -95,6 +95,14 @@ class Lane5ScorecardTests(unittest.TestCase):
             self.assertFalse(report["physicalPhoneReviewed"])
             self.assertFalse(report["firstExcellentMasterAccepted"])
             self.assertFalse(report["mayPublish"])
+            # The five-lane development plan folds former Lane 6 receipt
+            # intake into Lane 5, without allowing self-issued quality proof.
+            self.assertIn("FIVE_LANE_INDEPENDENT_EXACT_BYTE_RECEIPTS_INCOMPLETE",
+                          report["hardAndReviewHolds"])
+            self.assertEqual(report["nextDependency"],
+                             "LANE5_SAME_FILM_AUTHENTICATED_PHONE_PLAN_AND_CROSS_LANE_RECEIPTS")
+            self.assertNotIn("SIX_LANE_INDEPENDENT_EXACT_BYTE_RECEIPTS_INCOMPLETE",
+                             report["hardAndReviewHolds"])
             self.assertIsNone(report["calibratedPremiumCraftScore"])
             self.assertEqual(report["rightExclusionProxy"]["coloredHighlightFrames"], 1)
             self.assertIn("AUTHENTICATED_CURRENT_PHONE_PLAN_MISSING",
