@@ -11,7 +11,35 @@ import zipfile
 from pathlib import Path
 
 from gut_followup_science_guard import inspect_followup, sha256
-from test_gut_release_science_guard import archive, ORIGINAL_SCENES
+from gut_release_science_guard import ORIGINAL_NARRATION
+
+ORIGINAL_SCENES = """STAGES=[dict(id='hook',title='DOSE',subtitle='SWALLOWED',text='Context',source='NIDDK'),
+ dict(id='dissolve',title='FIRST: DISSOLVE',subtitle='IN THE GUT',text='Many tablets or capsules release contents before uptake.',source='NIDDK digestive system'),
+ dict(id='intestine',title='INTESTINE',subtitle='LINING',text='Context',source='NIDDK'),
+ dict(id='vitamind',title='VITAMIN D',subtitle='FAT',text='Context',source='ODS'),
+ dict(id='iron',title='IRON',subtitle='CONTEXT',text='Context',source='ODS'),
+ dict(id='takeaway',title='TAKEAWAY',subtitle='CONTEXT',text='Context',source='NIDDK')]
+"""
+
+
+def archive(extra=None):
+    voice={'mayPublish':False,'master_sha256':'e'*64,
+           'scenes':[{'id':i,'text':ORIGINAL_NARRATION if i=='dissolve' else 'fixture'}
+                     for i in ('hook','dissolve','intestine','vitamind','iron','takeaway')]}
+    files={'REPRODUCE_SOURCE_RENDERER.py':ORIGINAL_SCENES.encode(),
+           'ORIGINAL_KOKORO_VOICE_RECEIPT.json':json.dumps(voice).encode(),
+           'SCIENCE_CLAIM_REVIEW.md':b'Research-only fixture',
+           'THS_Gut_Absorption_V8.mp4':b'FAKE_FILM',
+           'REPRODUCE_VOICE_LOCKED_VIDEO.py':b"source=Path('/mnt/data/fixture_renderer.py')"}
+    files.update(extra or {})
+    manifest={'schema':'ths.gut_absorption.delivery_review.v8','mayPublish':False,
+              'files':{n:{'sha256':sha256(v),'bytes':len(v)} for n,v in files.items()}}
+    buf=io.BytesIO()
+    with zipfile.ZipFile(buf,'w',zipfile.ZIP_STORED) as z:
+        for n,v in files.items():z.writestr(n,v)
+        z.writestr('DELIVERY_SHA_MANIFEST.json',json.dumps(manifest))
+    return buf.getvalue()
+
 
 PINNED_REAL_V8 = 'c7b12d671eab01ca08d1949a959d725248a378c06ad5e1e542bd1979e8724494'
 PINNED_REAL_V10 = 'b5863c81dd073bf49bc9c3889eee48ff13f96f8a494c9aadaf8a1c6c9126b0bd'
