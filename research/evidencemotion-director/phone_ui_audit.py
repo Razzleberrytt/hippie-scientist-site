@@ -63,8 +63,17 @@ def strict_json_bytes(raw):
     def invalid_constant(value):
         hold("NONFINITE_EVIDENCE_JSON_VALUE:" + value)
 
+    def checked_float(token):
+        # Exponent overflow (1e999) becomes infinity even with
+        # parse_constant disabled. Reject before a science/geometry reader
+        # can receive a non-finite float hidden behind valid JSON syntax.
+        value = float(token)
+        if not math.isfinite(value):
+            hold("NONFINITE_EVIDENCE_JSON_VALUE:" + token)
+        return value
+
     return json.loads(raw.decode("utf-8"), object_pairs_hook=unique_pairs,
-                      parse_constant=invalid_constant)
+                      parse_constant=invalid_constant, parse_float=checked_float)
 
 
 def is_hash(value):
