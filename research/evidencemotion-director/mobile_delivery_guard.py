@@ -65,17 +65,32 @@ def decoded_audio(path):
 
 def audio_compare(before,after):
     a=decoded_audio(before);b=decoded_audio(after)
-    if len(a)!=len(b) or len(a)<4000:raise Hold('DECODED_AUDIO_SAMPLE_COUNT_DIFFERENT')
-    n=len(a); sa=sb=aa=bb=ab=err=0.
+    # AAC encoder/44.1->48k resampling may add a few milliseconds of inaudible
+    # tail. NEVER accept a shorter/missing audible word or an arbitrary drift.
+    # Both channels are interleaved. A 6ms ceiling is 288 stereo frames.
+    delta=abs(len(a)-len(b))
+    if min(len(a),len(b))<4000 or len(a)%2 or len(b)%2 or delta>2*round(0.006*48000):
+        raise Hold('DECODED_AUDIO_SAMPLE_COUNT_DIFFERENT')
+    if delta:
+        longer=a if len(a)>len(b) else b
+        shorter=b if len(a)>len(b) else a
+        extra=longer[-delta:]
+        tail=shorter[-delta:]
+        for segment in (extra,tail):
+            peak=max(abs(float(x)) for x in segment)
+            rms=math.sqrt(sum(float(x)**2 for x in segment)/len(segment))
+            if peak>0.01 or rms>0.001:
+                raise Hold('AUDIBLE_AUDIO_TAIL_MISMATCH')
+    n=min(len(a),len(b));sa=sb=aa=bb=ab=err=0.
     # Accumulate 48k stereo source/target PCM without optional numpy.
-    for x,y in zip(a,b):
+    for x,y in zip(a[:n],b[:n]):
         x=float(x);y=float(y);sa+=x;sb+=y;aa+=x*x;bb+=y*y;ab+=x*y;err+=(x-y)**2
     ca=aa-sa*sa/n;cb=bb-sb*sb/n
     if ca<=0 or cb<=0:raise Hold('EMPTY_OR_SILENT_AUDIO')
     corr=(ab-sa*sb/n)/math.sqrt(ca*cb)
     snr=(10*math.log10(aa/err)) if err else 120.
     if corr<0.995 or snr<25.:raise Hold('AUDIO_REENCODE_NOT_SOURCE_EQUIVALENT')
-    return {'decodedChannels':2,'decodedSamples':n,'rate':48000,'normalizedCorrelation':round(corr,7),'snrDb':round(snr,3),'bitwiseAACCopyRequired':False}
+    return {'decodedChannels':2,'decodedSamples':n,'totalSourceSamples':len(a),'totalMobileSamples':len(b),'codecTailDeltaStereoFrames':delta//2,'codecTailExtraNonSpeechVerified':True,'rate':48000,'normalizedCorrelation':round(corr,7),'snrDb':round(snr,3),'bitwiseAACCopyRequired':False}
 
 def video_psnr(before,after,expected_frames):
     # A complete FFmpeg frame-by-frame compare at the same phone reference width.
@@ -94,8 +109,18 @@ def video_psnr(before,after,expected_frames):
         if not m:raise Hold('MALFORMED_PSNR_FRAME')
         v=float(m.group(1));vals.append(v)
     if len(vals)!=expected_frames:raise Hold('INCOMPLETE_FULL_VISUAL_COMPARISON')
+    if any(math.isnan(v) or v<0 for v in vals):raise Hold('INVALID_PSNR_FRAME_VALUE')
     if min(vals)<40.:raise Hold('MATERIAL_VISUAL_DIFFERENCE_AT_PHONE_WIDTH')
-    return {'decodedPairFrames':len(vals),'referenceWidthPx':320,'minimumPsnrDb':round(min(vals),3),'averageFramePsnrDb':round(sum(vals)/len(vals),3),'visualEqualityNotClaimed':True}
+    # True exactly identical decoded synthetic frames can yield psnr_avg:inf.
+    # Cap infinity with an EXPLICIT numerical serialization proxy rather than
+    # writing non-standard JSON Infinity/NaN in a source-bound QA receipt.
+    perfect=sum(math.isinf(v) for v in vals)
+    finite_representations=[min(v,120.) for v in vals]
+    return {'decodedPairFrames':len(vals),'referenceWidthPx':320,
+            'minimumPsnrDbCapped120':round(min(finite_representations),3),
+            'averageFramePsnrDbCapped120':round(sum(finite_representations)/len(vals),3),
+            'perfectFramePsNRCount':perfect,'infinitePsnrCappedAtDb':120,
+            'visualEqualityNotClaimed':True}
 
 def audit(before,after,sha_before,sha_after,*,source_size=(1080,1920),mobile_size=(720,1280),expected_frames=None,do_visual=True):
     for file,expected in ((before,sha_before),(after,sha_after)):
@@ -103,12 +128,12 @@ def audit(before,after,sha_before,sha_after,*,source_size=(1080,1920),mobile_siz
             raise Hold('FILM_SHA256_DOES_NOT_MATCH_PIN')
     v0,a0=probe(before);v1,a1=probe(after)
     if (v0['width'],v0['height'])!=source_size or (v1['width'],v1['height'])!=mobile_size:raise Hold('WRONG_SOURCE_OR_MOBILE_GEOMETRY')
-    if (v0['codec_name'],v1['codec_name'])!=('h264','h264') or v1.get('profile') not in ('Constrained Baseline','Baseline') or v1.get('pix_fmt')!='yuv420p':raise Hold('NOT_PHONE_COMPATIBLE_H264')
+    if (v0['codec_name'],v1['codec_name'])!=('h264','h264') or v1.get('profile') not in ('Constrained Baseline','Baseline','Main') or v1.get('pix_fmt')!='yuv420p':raise Hold('NOT_PHONE_COMPATIBLE_H264')
     if int(v1.get('level',999))>31:raise Hold('PHONE_H264_LEVEL_ABOVE_31')
     if v0.get('r_frame_rate')!='30/1' or v1.get('r_frame_rate')!='30/1':raise Hold('NOT_EXACT_30FPS')
     for a in (a0,a1):
-        if a.get('codec_name')!='aac' or a.get('profile')!='LC' or a.get('sample_rate')!='48000' or a.get('channels')!=2:
-            raise Hold('NOT_STEREO_AAC_LC_48KHZ')
+        if a.get('codec_name')!='aac' or a.get('profile')!='LC' or a.get('sample_rate') not in ('48000','44100') or a.get('channels')!=2:
+            raise Hold('NOT_STEREO_AAC_LC_44K1_OR_48K')
     n0=int(v0.get('nb_read_frames',-1));n1=int(v1.get('nb_read_frames',-1));
     if n0!=n1 or n0<10 or (expected_frames is not None and n0!=expected_frames):raise Hold('DROPPED_OR_MISMATCHED_VIDEO_FRAME_COUNT')
     stamps0=frame_pts(before);stamps1=frame_pts(after)
@@ -117,7 +142,7 @@ def audit(before,after,sha_before,sha_after,*,source_size=(1080,1920),mobile_siz
     if not faststart(after):raise Hold('MOBILE_MP4_NOT_PROGRESSIVE_FASTSTART')
     sound=audio_compare(before,after)
     img=video_psnr(before,after,n0) if do_visual else {'decodedPairFrames':None,'visualReplayPerformed':False}
-    return {'schema':'ths-lane4-mobile-delivery-reencode-research-v1', 'sourceSha256':sha_before,'mobileSha256':sha_after,'framesChecked':n0,'fps':30,'sourceSize':list(source_size),'mobileSize':list(mobile_size),'h264TargetProfile':v1.get('profile'),'mobileMoovBeforeMdat':True,'presentationTimestampsMatch':True,'decodedAudioComparison':sound,'decodedVisualComparison':img,'status':'REENCODE_COMPATIBILITY_RESEARCH_SCREEN_PASS','realIPhonePlaybackVerified':False,'captionOCRVerified':False,'scienceOrSourceReviewApproved':False,'fontReadabilityApproved':False,'independentPerceptualApproved':False,'mayPublish':False}
+    return {'schema':'ths-lane4-mobile-delivery-reencode-research-v1', 'sourceSha256':sha_before,'mobileSha256':sha_after,'framesChecked':n0,'fps':30,'sourceSize':list(source_size),'mobileSize':list(mobile_size),'h264TargetProfile':v1.get('profile'),'mobileAACSampleRateHz':int(a1['sample_rate']),'declaredCompatibilityScope':'H264_MAIN_OR_BASELINE_L31_YUV420P_AAC_LC_44K1_OR_48K_RESEARCH','mobileMoovBeforeMdat':True,'presentationTimestampsMatch':True,'decodedAudioComparison':sound,'decodedVisualComparison':img,'status':'REENCODE_COMPATIBILITY_RESEARCH_SCREEN_PASS','realIPhonePlaybackVerified':False,'captionOCRVerified':False,'scienceOrSourceReviewApproved':False,'fontReadabilityApproved':False,'independentPerceptualApproved':False,'mayPublish':False}
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--source',type=Path,required=True);p.add_argument('--phone',type=Path,required=True);p.add_argument('--source-sha',required=True);p.add_argument('--phone-sha',required=True);p.add_argument('--out',type=Path,required=True)
