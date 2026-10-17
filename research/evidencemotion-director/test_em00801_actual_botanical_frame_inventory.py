@@ -127,10 +127,10 @@ class RealRgbFramehashProtocolTests(unittest.TestCase):
 class CompleteOriginalH264FramehashContractTests(unittest.TestCase):
     """Mock parser negatives; real original 1031-frame decoding runs in hosted CI."""
 
-    HEADER=("\\n".join(("#format: frame checksums","#version: 2",
+    HEADER=("\n".join(("#format: frame checksums","#version: 2",
         "#hash: SHA256","#tb 0: 1/30","#media_type 0: video",
         "#codec_id 0: rawvideo","#dimensions 0: 1080x1920",
-        "#stream#, dts, pts, duration, size, hash"))+"\\n")
+        "#stream#, dts, pts, duration, size, hash"))+"\n")
 
     def corpus(self, missing=None, duplicate=None, swapped=None):
         hashes=["a"*64 for _ in range(FRAME_COUNT)]
@@ -140,9 +140,9 @@ class CompleteOriginalH264FramehashContractTests(unittest.TestCase):
         for i,code in enumerate(hashes):
             if i==missing:
                 continue
-            rows.append(f"0, {i}, {i}, 1, 6220800, {code}\\n")
+            rows.append(f"0, {i}, {i}, 1, 6220800, {code}\n")
             if i==duplicate:
-                rows.append(f"0, {i}, {i}, 1, 6220800, {code}\\n")
+                rows.append(f"0, {i}, {i}, 1, 6220800, {code}\n")
         return self.HEADER+"".join(rows)
 
     def invoke(self, text):
