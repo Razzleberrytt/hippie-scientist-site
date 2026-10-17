@@ -591,6 +591,52 @@ def audit_scientific_name_source_triage(source_raw, alignment_raw, asr_raw):
         after=score("compoundTailMfaHypothesis","19")
         negative=[score("compoundTailMfaHypothesis",control)
                   for control in ("9","28")]
+        # A forced-alignment /M/ timestamp is an ANNOTATION, not a detected
+        # phoneme. Independently perturb that boundary at fixed 40ms steps
+        # across +/-120ms. The real source changes its cosine-DTW score
+        # materially under small edits; surface uncertainty rather than
+        # implying a single score proves the chemical name was spoken right.
+        # No synthetic syllables, source edits or phonetic gold references.
+        tail_end = bounds["17"][1]
+        base_start_ms = m_starts[0]
+        boundary_sweep = []
+        for shift_ms in (-120, -80, -40, 0, 40, 80, 120):
+            start_ms = base_start_ms + shift_ms
+            lo = round(start_ms*24)
+            if (not bounds["17"][0] < lo < tail_end
+                    or not 2400 <= tail_end-lo <= 120000):
+                return refuse("SCIENTIFIC_NAMES_TAIL_SWEEP_OUTSIDE_SOURCE")
+            candidate_pcm = orig[lo:tail_end]
+            if float(np.sqrt(np.mean(candidate_pcm*candidate_pcm))) < .002:
+                return refuse("SCIENTIFIC_NAMES_TAIL_SWEEP_SIGNAL_MISSING")
+            features=trajectory(candidate_pcm)
+            d1=round(distance(features,f["7"]),6)
+            d2=round(distance(features,f["19"]),6)
+            boundary_sweep.append({
+                "startRelativeToForcedMfaMs":shift_ms,
+                "startSec":round(lo/24000,6),
+                "sourcePcmSha256":digest(pcm[2*lo:2*tail_end]),
+                "distanceToStandalone1":d1,
+                "distanceToStandalone2":d2,
+                "validatedPhonemeOnset":False,
+            })
+        # At the unchanged forced M boundary, the re-measured window must
+        # exactly reproduce the reported single-window score.
+        center=boundary_sweep[3]
+        if (center["sourcePcmSha256"]!=hashes["compoundTailMfaHypothesis"]
+                or center["distanceToStandalone1"]!=head
+                or center["distanceToStandalone2"]!=after):
+            return refuse("SCIENTIFIC_NAMES_BOUNDARY_BASELINE_DISAGREES")
+        ranges=[]
+        for key in ("distanceToStandalone1","distanceToStandalone2"):
+            values=[item[key] for item in boundary_sweep]
+            ranges.append({
+                "comparedWith":key,
+                "minDistance":min(values),
+                "maxDistance":max(values),
+                "distanceRange":round(max(values)-min(values),6),
+            })
+        instability=any(x["distanceRange"]>=.05 for x in ranges)
         norm=lambda s:re.sub(r"[^a-z0-9]","",s.lower())
         for position, asr_position, script in expected:
             item=mfa[position]
@@ -616,6 +662,12 @@ def audit_scientific_name_source_triage(source_raw, alignment_raw, asr_raw):
             "standaloneRepeatDistance":repeat,
             "embeddedMfaTailVsStandaloneDistances":[head,after],
             "embeddedTailVsUnrelatedSameNarratorControls":negative,
+            "forcedTailStartBoundarySweepMs":[-120,-80,-40,0,40,80,120],
+            "boundarySensitivitySourceOnly":boundary_sweep,
+            "boundarySensitivityDistanceRanges":ranges,
+            "sensitiveToHypothesizedOnset":bool(instability),
+            "singleBestDistanceCannotEstablishPhonemeIdentity":True,
+            "boundarySensitivitySpeechStartCalibrationAbsent":True,
             "embeddedTailMfaHypothesisStartSec":round(
                 bounds["compoundTailMfaHypothesis"][0]/24000,6),
             "embeddedTailPcmSha256":hashes["compoundTailMfaHypothesis"],

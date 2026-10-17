@@ -1722,6 +1722,51 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
             self.assertEqual(embedded["status"],"HOLD")
 
 
+    def test_scientific_name_onset_sweep_is_sha_bound_and_cannot_certify(self):
+        source, _, _, _=self.encoded_aac_screen_fixture()
+        _, mfa_raw, asr_raw, _, _=self.original_suffix_scene_fixture()
+        mfa=json.loads(mfa_raw); asr=json.loads(asr_raw)
+        mfa["inputSha256"]["wav"]=digest(source)
+        asr["sourceWavSha256"]=digest(source)
+        for idx,word in ((7,"mitragynine"),(9,"hydroxyl"),(16,"seven"),
+                         (17,"hydroxymitragynine"),(19,"mitragynine"),
+                         (28,"chemical")):
+            mfa["wordAlignment"][idx]["word"]=word
+        record=mfa["wordAlignment"][17]
+        record["phones"]=[{"phone":"M","startMs":record["startMs"]+120}]
+        for idx,word in ((5,"Mitrogenine"),(15,"hydroxometrogenine"),
+                         (17,"Mitrogenine")):
+            asr["recognizedWords"][idx]["word"]=word
+        frozen_mfa=json.dumps(mfa).encode()
+        frozen_asr=json.dumps(asr).encode()
+        with (patch.object(original_guard,"SOURCE_WAV_REFERENCE",digest(source)),
+              patch.object(original_guard,"MFA_SOURCE_ALIGNMENT_SHA",
+                           digest(frozen_mfa)),
+              patch.object(original_guard,"POSE_ASR_RECEIPT_SHA",
+                           digest(frozen_asr))):
+            out=original_guard.audit_scientific_name_source_triage(
+                source,frozen_mfa,frozen_asr)
+        self.assertEqual(out["status"],
+                         "RESEARCH_SCIENTIFIC_NAMES_ACOUSTIC_TRIAGE_HOLD",out)
+        analysis=out["spectralResearch"]
+        self.assertEqual(len(analysis["boundarySensitivitySourceOnly"]),7)
+        self.assertEqual(
+            [x["startRelativeToForcedMfaMs"] for x in
+             analysis["boundarySensitivitySourceOnly"]],
+            [-120,-80,-40,0,40,80,120])
+        self.assertEqual(
+            analysis["boundarySensitivitySourceOnly"][3]["sourcePcmSha256"],
+            analysis["embeddedTailPcmSha256"])
+        self.assertEqual(
+            analysis["boundarySensitivitySourceOnly"][3]["distanceToStandalone1"],
+            analysis["embeddedMfaTailVsStandaloneDistances"][0])
+        for r in analysis["boundarySensitivityDistanceRanges"]:
+            self.assertGreaterEqual(r["distanceRange"],0)
+            self.assertLessEqual(r["minDistance"],r["maxDistance"])
+        self.assertTrue(analysis["singleBestDistanceCannotEstablishPhonemeIdentity"])
+        self.assertFalse(out["pronunciationVerified"])
+        self.assertFalse(out["mayPublish"])
+
     def test_kind_broadband_two_window_event_is_not_phonetic_truth(self):
         source, _, _ = self.frame_native_plan_fixture()
         with wave.open(io.BytesIO(source),"rb") as w:
