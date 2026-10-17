@@ -272,10 +272,18 @@ def audit(film, story_file, *, original_wav=None):
     shots = validate_story(story, digest=digest, frame_count=frame_count)
     frame_bins = [(round(s['startSec'] * 30), round(s['endSec'] * 30)) for s in shots]
     samples = [sample_frame_triplet(a, b) for a, b in frame_bins]
-    frames = decode_samples(film, [n for shot in samples for n in shot], frame_count)
+    # Previous near-boundary comparisons sampled the last QUARTER of one
+    # shot and first QUARTER of the next, not the actual editorial cut.
+    # Pin both physically adjacent frames at all eight storyboard cuts.
+    actual_cut_frames = [(frame_bins[i][1]-1, frame_bins[i+1][0])
+                         for i in range(len(frame_bins)-1)]
+    requested = ([n for shot in samples for n in shot] +
+                 [n for pair in actual_cut_frames for n in pair])
+    frames = decode_samples(film, requested, frame_count)
     comparisons = []
     near = []
     boundary_risk = []
+    exact_cut_review = []
     within_shot = []
     for i, shot in enumerate(shots):
         early, mid, late = samples[i]
@@ -302,12 +310,23 @@ def audit(film, story_file, *, original_wav=None):
                       'exitFrame':late, 'entryFrame':next_early,
                       **similar(frames[late], frames[next_early])}
         boundary_risk.append(transition)
+        # Match the true encoded cut itself, not two late/early proxy frames.
+        # Keeping both measurements exposes a cut that seems different
+        # at quarter positions but repeats the same body at the splice.
+        cut_exit, cut_entry = actual_cut_frames[i]
+        cut_similarity = similar(frames[cut_exit], frames[cut_entry])
+        exact_cut_review.append({
+            'from':shot['shot'], 'to':shots[i+1]['shot'],
+            'exitFrame':cut_exit, 'entryFrame':cut_entry,
+            'adjacentEncodedFrames':cut_entry==cut_exit+1,
+            **cut_similarity,
+        })
     result = {'schema':'ths-lane3-decoded-visual-variety-negative-filter-v2',
             'status':'DECODED_VISUAL_REVIEW_REQUIRED',
             'filmSha256':digest, 'storySha256':story_sha,
             'fullDecodedFrames':frame_count, 'scienceArea':list(SCIENCE_BOX),
             'framesIndependentlyDecoded':True,
-            'sampling':'three independent early/middle/late actual frames per shot (27 samples total), full linear H264 decode',
+            'sampling':'three early/middle/late frames per shot PLUS both actual adjacent encoded cut frames at all 8 cuts; full linear H264 decode',
             'uniqueDecodedFramesSampled':len(frames),
             'methodLimit':'Small center-body grayscale and edge similarity are only visual risk proxies; they cannot tell purposeful scientific continuity from cheap repetition, or prove audience comprehension.',
             'comparisons':comparisons, 'nearDuplicateReviewCount':len(near),
@@ -315,6 +334,10 @@ def audit(film, story_file, *, original_wav=None):
             'nearStaticShotCount':sum(1 for item in within_shot if item['nearStaticBodyReviewCandidate']),
             'boundaryExitEntranceReview':boundary_risk,
             'nearDuplicateBoundaryCount':sum(1 for item in boundary_risk if item['nearDuplicateReviewCandidate']),
+            'boundaryActualCutAdjacentReview':exact_cut_review,
+            'nearDuplicateActualCutCount':sum(1 for item in exact_cut_review
+                                               if item['nearDuplicateReviewCandidate']),
+            'actualCutProbeLimit':'Consecutive 96x170 gray science-body H264 frames only; a deliberate matched cut/fade is possible and human creative review is required',
             'creativeExceptionsAutomaticallyGranted':False,
             'sourceScienceVerified':False, 'voiceApproved':False,
             'phonePlaybackApproved':False, 'excellentCertified':False,
