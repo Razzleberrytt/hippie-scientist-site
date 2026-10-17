@@ -436,6 +436,51 @@ class CraftSourceLockedContractTests(unittest.TestCase):
       self.assertFalse(output.with_suffix('.receipt.json').exists())
       self.assertEqual(list(folder.glob('.lane3-splice-*')),[])
 
+
+  def test_aac_packet_timeline_rejects_missing_duration_and_nonfinite(self):
+    baseline={'packets':[{'pts_time':'-0.042667','dts_time':'-0.042667',
+                           'duration_time':'0.042667'}]}
+    with patch.object(S,'run',return_value=json.dumps(baseline)):
+      result=S.original_aac_packet_timeline('fake.mp4')
+      self.assertEqual(len(result),1)
+    for change in ({'duration_time':'0'},
+                   {'duration_time':'-0.040'},
+                   {'duration_time':'NaN'},
+                   {'pts_time':'Infinity'},
+                   {'dts_time':'1e999'},
+                   {'duration_time':None}):
+      bad=json.loads(json.dumps(baseline))
+      bad['packets'][0].update(change)
+      with self.subTest(change=change),patch.object(S,'run',return_value=json.dumps(bad)):
+        with self.assertRaises(S.CraftHold):
+          S.original_aac_packet_timeline('bad.mp4')
+    with patch.object(S,'run',return_value=json.dumps({'packets':[]})):
+      with self.assertRaisesRegex(S.CraftHold,'AAC_PACKET_TIMELINE_UNAVAILABLE'):
+        S.original_aac_packet_timeline('empty.mp4')
+
+  def test_aac_packet_timeline_rejects_missing_shifted_or_resized_packet(self):
+    from decimal import Decimal as D
+    base=[(D('-0.042667'),D('-0.042667'),D('0.042667')),
+          (D('0.000000'),D('0.000000'),D('0.042667'))]
+    cases={
+      'missing_packet':base[:1],
+      'shifted_pts':[(base[0][0]+D('.100'),base[0][1],base[0][2]),base[1]],
+      'shifted_dts':[(base[0][0],base[0][1]+D('.100'),base[0][2]),base[1]],
+      'wrong_duration':[(base[0][0],base[0][1],D('.060')),base[1]],
+    }
+    for name,changed in cases.items():
+      def fake(path):return base if path=='original' else changed
+      with self.subTest(name=name),patch.object(S,'original_aac_packet_timeline',side_effect=fake):
+        reason=('ORIGINAL_AAC_PACKET_COUNT_CHANGED' if name=='missing_packet'
+                else 'ORIGINAL_AAC_PACKET_TIMING_CHANGED')
+        with self.assertRaisesRegex(S.CraftHold,reason):
+          S.audit_original_aac_timing('original','changed')
+    acceptable=[tuple(v+D('.0005') for v in packet) for packet in base]
+    with patch.object(S,'original_aac_packet_timeline',side_effect=lambda p:base if p=='original' else acceptable):
+      verdict=S.audit_original_aac_timing('original','rounded')
+    self.assertEqual(verdict['packetsCompared'],2)
+    self.assertEqual(verdict['maxTimestampOrDurationDriftMs'],0.5)
+
   def test_real_h264_aac_full_splice_preserves_unedited_frames_and_sound(self):
     """Exercise preflight, concat, encoded QA and handoff with *real* FFmpeg.
 
@@ -474,6 +519,8 @@ class CraftSourceLockedContractTests(unittest.TestCase):
       self.assertEqual(S.digest(output),result['outputFilmSha256'])
       self.assertEqual(S.aac_sha(output),audio_pin)
       self.assertEqual(result['aacAdtsSha256'],audio_pin)
+      self.assertGreater(result['aacPacketTimelineAudit']['packetsCompared'],0)
+      self.assertLessEqual(result['aacPacketTimelineAudit']['maxTimestampOrDurationDriftMs'],1.5)
       self.assertEqual(result['frames'],12)
       self.assertEqual(result['outsideSceneVisualAudit']['framesComparedOutsideScene'],8)
       self.assertEqual(result['outsideSceneVisualAudit']['outsideFrameMaxMeanAbsRgb255'],0)
@@ -486,6 +533,19 @@ class CraftSourceLockedContractTests(unittest.TestCase):
       self.assertGreater(min(frames[5]),200)
       receipt=output.with_suffix('.receipt.json')
       self.assertEqual(json.loads(receipt.read_text()),result)
+      # Real physical A/V desync: reuse *identical* AAC elementary frames,
+      # but delay their MP4 packet timestamps by 100ms. SHA alone misses it.
+      shifted=folder/'shifted-audio-not-approved.mp4'
+      subprocess.run(['ffmpeg','-nostdin','-v','error','-i',str(output),
+        '-itsoffset','0.100','-i',str(output),
+        '-map','0:v:0','-map','1:a:0','-c','copy',
+        '-movflags','+faststart',str(shifted)],
+        check=True,capture_output=True)
+      self.assertEqual(S.aac_sha(shifted),audio_pin)
+      self.assertEqual(len(S.original_aac_packet_timeline(shifted)),
+                       result['aacPacketTimelineAudit']['packetsCompared'])
+      with self.assertRaisesRegex(S.CraftHold,'ORIGINAL_AAC_PACKET_TIMING_CHANGED'):
+        S.verify_result(source,shifted,fixture,scene=scene)
       for key in ('scienceApproved','craftApproved','phonePlaybackApproved','mayPublish'):
         self.assertIs(result[key],False)
       self.assertFalse(list(folder.glob('.lane3-splice-*')))
