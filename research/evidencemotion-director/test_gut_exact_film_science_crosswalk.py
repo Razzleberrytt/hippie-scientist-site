@@ -4,6 +4,13 @@ import json
 import os
 import tempfile
 import unittest
+import contextlib
+import io
+import os
+import sys
+from unittest import mock
+
+import gut_exact_film_science_crosswalk as cli
 from pathlib import Path
 
 # Run reusable physical science-credit tests in the existing source-science CI.
@@ -112,5 +119,73 @@ class ScienceCrosswalkTests(unittest.TestCase):
   self.assertTrue(result["physicalFull845VideoDecodePassed"])
   self.assertEqual(len(result["sixSourceScopedFramesReplayed"]),6)
   self.assertFalse(result["mayPublish"])
+
+
+ def _run_science_cli(self, movie, srt, destination):
+  arguments=["gut-science-crosswalk","--manifest",str(self.path),
+   "--movie",str(movie),"--srt",str(srt),"--output",str(destination)]
+  with mock.patch.object(sys,"argv",arguments),contextlib.redirect_stdout(io.StringIO()):
+   cli.main()
+
+ def test_cli_direct_source_aliases_hold_before_writing_any_evidence(self):
+  self.check(valid())
+  movie=self.path.parent/"original.mp4";movie.write_bytes(b"original-film")
+  srt=self.path.parent/"original.srt";srt.write_bytes(b"original-caption")
+  original={p:p.read_bytes() for p in (self.path,movie,srt)}
+  for target in (self.path,movie,srt):
+   with self.subTest(path=target.name):
+    with mock.patch.object(cli,"audit",side_effect=AssertionError("audit must not run")):
+     with self.assertRaisesRegex(ValueError,"OUTPUT_SYMLINK_OR_INPUT_ALIAS"):
+      self._run_science_cli(movie,srt,target)
+    self.assertEqual({p:p.read_bytes() for p in original},original)
+
+ def test_cli_symlink_and_hardlink_aliases_hold_without_destroying_sources(self):
+  self.check(valid())
+  movie=self.path.parent/"original.mp4";movie.write_bytes(b"original-film")
+  srt=self.path.parent/"original.srt";srt.write_bytes(b"original-caption")
+  inputs=(self.path,movie,srt)
+  original={p:p.read_bytes() for p in inputs}
+  for source in inputs:
+   for alias_type in ("symlink","hardlink"):
+    alias=self.path.parent/("output-"+source.name+"-"+alias_type+".json")
+    with self.subTest(source=source.name,alias=alias_type):
+     if alias_type=="symlink":
+      alias.symlink_to(source)
+     else:
+      os.link(source,alias)
+     try:
+      with mock.patch.object(cli,"audit",side_effect=AssertionError("audit must not run")):
+       with self.assertRaisesRegex(ValueError,"OUTPUT_SYMLINK_OR_INPUT_ALIAS"):
+        self._run_science_cli(movie,srt,alias)
+      self.assertEqual({p:p.read_bytes() for p in inputs},original)
+     finally:
+      alias.unlink(missing_ok=True)
+
+ def test_cli_failed_actual_input_removes_stale_prior_positive_receipt(self):
+  self.check(valid())
+  movie=self.path.parent/"not-original.mp4";movie.write_bytes(b"invalid film")
+  srt=self.path.parent/"not-original.srt";srt.write_bytes(b"invalid captions")
+  report=self.path.parent/"old-positive.json"
+  report.write_text('{"mayPublish": true}',encoding="utf8")
+  with self.assertRaisesRegex(ValueError,"WRONG_ENCODED_MOVIE_OR_SRT"):
+   self._run_science_cli(movie,srt,report)
+  self.assertFalse(report.exists())
+  self.assertEqual(movie.read_bytes(),b"invalid film")
+  self.assertEqual(srt.read_bytes(),b"invalid captions")
+
+ def test_cli_unrelated_output_writes_only_research_hold_atomically(self):
+  self.check(valid())
+  movie=self.path.parent/"original.mp4";movie.write_bytes(b"frozen film")
+  srt=self.path.parent/"original.srt";srt.write_bytes(b"frozen captions")
+  report=self.path.parent/"research-only.json"
+  expected={"schema":SCHEMA,"independentSciencePassed":False,"mayPublish":False,
+   "decision":"MOCKED_RESEARCH_HOLD_FOR_RECEIPT_IO_TEST_ONLY"}
+  # This mock proves file-output behavior ONLY; it is not a real movie science pass.
+  with mock.patch.object(cli,"audit",return_value=expected) as audit:
+   self._run_science_cli(movie,srt,report)
+  audit.assert_called_once_with(str(self.path),str(movie),str(srt))
+  self.assertEqual(json.loads(report.read_text()),expected)
+  self.assertEqual(movie.read_bytes(),b"frozen film")
+  self.assertEqual(srt.read_bytes(),b"frozen captions")
 
 if __name__=="__main__":unittest.main()

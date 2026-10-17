@@ -10,6 +10,8 @@ on:
       - 'research/evidencemotion-director/repeated_term_acoustic_guard.py'
       - 'research/evidencemotion-director/test_repeated_term_acoustic_guard.py'
       - 'research/evidencemotion-director/gut_caption_audio_gate.py'
+      - 'research/evidencemotion-director/narration_caption_authoring_gate.py'
+      - 'research/evidencemotion-director/test_narration_caption_authoring_gate.py'
       - 'research/evidencemotion-director/mfa_acoustic_alignment.py'
       - 'research/evidencemotion-director/test_mfa_acoustic_alignment.py'
       - 'research/evidencemotion-director/audio-word-cuts.mjs'
