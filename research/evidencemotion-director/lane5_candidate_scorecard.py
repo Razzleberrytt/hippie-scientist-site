@@ -421,8 +421,36 @@ def score_candidate(*, film, wav, story_path, screen_path,
     }
 
 
+# A research-only writer must never become a second route for forged release,
+# first-render, external review or atomic-card approval. These are authority
+# fields, not descriptive metrics; the guard applies even to caller-supplied JSON.
+RESEARCH_REQUIRED_HOLDS = frozenset((
+    "INDEPENDENT_SCIENCE_AND_CLAIM_REVIEW_MISSING",
+    "ACTUAL_PCM_TO_AAC_PHONETIC_AND_CAPTION_REVIEW_MISSING",
+    "CALIBRATED_INDEPENDENT_CRAFT_REVIEW_MISSING",
+    "REAL_HANDSET_REVIEW_MISSING",
+    "SIX_LANE_INDEPENDENT_EXACT_BYTE_RECEIPTS_INCOMPLETE",
+))
+RESEARCH_FALSE_FIELDS = (
+    "mayPublish", "externalIndependentReviewed", "physicalPhoneReviewed",
+    "firstFinalRenderProven", "firstExcellentMasterAccepted",
+    "fiveRenderStreakAccepted",
+)
+
+
 def write_once(path, report):
-    if report.get("schema") != SCHEMA or report.get("mayPublish") is not False:
+    holds = report.get("hardAndReviewHolds") if type(report) is dict else None
+    if (type(report) is not dict
+            or report.get("schema") != SCHEMA
+            or report.get("status") != "RESEARCH_HOLD_NO_PROMOTION"
+            or report.get("machineReviewed") is not True
+            or any(report.get(field) is not False for field in RESEARCH_FALSE_FIELDS)
+            or type(report.get("atomicCardsNewlyAccepted")) is not int
+            or report["atomicCardsNewlyAccepted"] != 0
+            or report.get("calibratedPremiumCraftScore") is not None
+            or not isinstance(holds, list)
+            or any(type(item) is not str for item in holds)
+            or not RESEARCH_REQUIRED_HOLDS.issubset(holds)):
         hold("UNSAFE_SCORECARD")
     output = Path(path)
     if (output.exists() or output.is_symlink() or not output.parent.is_dir()
