@@ -220,17 +220,23 @@ def score_candidate(*, film, wav, story_path, screen_path,
         previous_film = prior.get("filmSha256")
         if previous_film == film_sha or not isinstance(previous_film, str) or not HEX.fullmatch(previous_film):
             hold("INVALID_PRIOR_FILM_IDENTITY")
+        # A hash alone proves bytes did not drift, not that their counts are
+        # true. Run the SAME entire per-frame structural verifier against the
+        # older screen; otherwise an inconsistent rehashed baseline can forge
+        # an apparent improvement without ever possessing old-frame evidence.
+        prior_story_sha = prior.get("storyboardSha256")
+        if not isinstance(prior_story_sha, str) or not HEX.fullmatch(prior_story_sha):
+            hold("PRIOR_STORYBOARD_SHA_INVALID")
+        older_bright, older_colors = _screen_stats(
+            prior, previous_film, prior_story_sha, dimensions[2])
         previous = {
             "priorFilmSha256": previous_film,
+            "priorStoryboardSha256": prior_story_sha,
             "previousScreenSha256": prior_sha,
-            "priorReportedBrightFrames": prior.get("brightNeutralPositiveFrameCount"),
-            "priorReportedHighlightFrames": prior.get("highlightedPositiveFrameCount"),
+            "priorReportedBrightFrames": len(older_bright),
+            "priorReportedHighlightFrames": len(older_colors),
+            "priorPhysicalDecodeReplayedHere": False,
         }
-        if (type(previous["priorReportedBrightFrames"]) is not int
-                or type(previous["priorReportedHighlightFrames"]) is not int
-                or not 0 <= previous["priorReportedBrightFrames"] <= dimensions[2]
-                or not 0 <= previous["priorReportedHighlightFrames"] <= dimensions[2]):
-            hold("PRIOR_SCREEN_COUNT_INVALID")
         previous["brightFrameDelta"] = len(bright) - previous["priorReportedBrightFrames"]
         previous["highlightFrameDelta"] = len(colors) - previous["priorReportedHighlightFrames"]
     blockers = []

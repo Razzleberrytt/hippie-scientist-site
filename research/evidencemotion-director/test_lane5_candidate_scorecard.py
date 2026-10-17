@@ -195,5 +195,69 @@ class ActualFileMutationTests(unittest.TestCase):
             self.assertEqual(candidate.read_bytes(), b'changed')
             self.assertEqual(candidate.stat().st_mtime_ns, before.st_mtime_ns)
 
+    def test_prior_screen_rehashed_but_false_baseline_is_rejected(self):
+        """An internally inconsistent rehashed predecessor cannot fake improvement."""
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            film, wav, story, current, prior = [root / name for name in (
+                "film.mp4", "narrator.wav", "story.json", "current.json", "prior.json")]
+            film.write_bytes(b"real video physically validated by separate media suite")
+            with wave.open(str(wav), "wb") as w:
+                w.setnchannels(1)
+                w.setsampwidth(2)
+                w.setframerate(24000)
+                w.writeframes(b"\x00\x00" * 12000)
+            film_sha = h(film.read_bytes())
+            old_film_sha = h(b"distinct previously encoded video")
+            prior_story_sha = h(b"previous storyboard")
+            story.write_text(json.dumps({
+                "schema": "ths-lane3-research-visual-treatment-story-v1",
+                "encodedH264Sha256": film_sha,
+                "shots": [{"shot": str(i)} for i in range(9)],
+                "mayPublish": False, "realPhonePlaybackVerified": False,
+                "independentCraftCalibrationPassed": False,
+                "phonePlanSha256": None
+            }))
+            story_sha = h(story.read_bytes())
+            current.write_text(json.dumps(screen(film_sha, story_sha, bright=[7])))
+            old = screen(old_film_sha, prior_story_sha, bright=[1, 2], colored=[4])
+            fake_av = {"fullVideoAudioPhysicalDecode": True, "nativeFrames": 12,
+                       "width": 64, "height": 64, "fps": 30, "audioCodec": "aac"}
+            def run(old_screen):
+                prior.write_text(json.dumps(old_screen))
+                with patch("lane5_candidate_scorecard._physical_av", return_value=fake_av):
+                    return score_candidate(
+                        film=film, wav=wav, story_path=story, screen_path=current,
+                        expected_film_sha=film_sha,
+                        expected_wav_sha=h(wav.read_bytes()),
+                        expected_story_sha=story_sha,
+                        expected_screen_sha=h(current.read_bytes()),
+                        previous_screen_path=prior,
+                        expected_previous_screen_sha=h(prior.read_bytes()),
+                        dimensions=(64, 64, 12))
+            good = run(old)
+            self.assertEqual(good["priorCandidateComparison"]["priorReportedBrightFrames"], 2)
+            self.assertEqual(good["priorCandidateComparison"]["priorReportedHighlightFrames"], 1)
+            self.assertEqual(good["priorCandidateComparison"]["brightFrameDelta"], -1)
+            self.assertIs(good["priorCandidateComparison"]["priorPhysicalDecodeReplayedHere"], False)
+            self.assertIs(good["mayPublish"], False)
+            inconsistent = json.loads(json.dumps(old))
+            inconsistent["brightNeutralPositiveFrameCount"] = 0
+            with self.assertRaisesRegex(ValueError, "SCREEN_SUMMARY_CONTRADICTS_FRAMES"):
+                run(inconsistent)
+            duplicate = json.loads(json.dumps(old))
+            duplicate["perFrame"][2]["frameIndex"] = 1
+            with self.assertRaisesRegex(ValueError, "SCREEN_FRAME_SEQUENCE_DRIFT"):
+                run(duplicate)
+            wrong_scope = json.loads(json.dumps(old))
+            wrong_scope["rightBoundaryX"] = 777
+            with self.assertRaisesRegex(ValueError, "CROSS_FILM_OR_UNSCOPED_MOBILE_SCREEN"):
+                run(wrong_scope)
+            no_story = json.loads(json.dumps(old))
+            no_story["storyboardSha256"] = None
+            with self.assertRaisesRegex(ValueError, "PRIOR_STORYBOARD_SHA_INVALID"):
+                run(no_story)
+
+
 if __name__ == "__main__":
     unittest.main()
