@@ -1,0 +1,29 @@
+# EM-007.07 — one genuine claim registered for independent science review (partial machine coverage)
+
+**Evidence-scoped audit, 2026-10-17.** **PARTIAL: `U/S/O` only, not independent scientific review.** The original underlying science-review handoff and source have already been implemented and exercised; this receipt recognizes only three independently observable prerequisites against **one exact source unit**. It does not invent a scientific expert, prove botanical content or viewer comprehension, claim a changed movie, or complete the EM-007.07 reviewer obligation.
+
+## Real-unit inventory and original source identities
+
+- **Single unit:** `spoken-001`, question about what makes 7-OH different from mitragynine. Original locked narration/source words **0.160–2.920 s** (candidate MFA, not calibrated phonetics). Part of exactly 73 spoken words and eight nonoverlapping claims in `EM00701-FROZEN-SPOKEN-LEDGER-20261016.json`.
+- **Exact original narration:** `narration.wav` SHA-256 `9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435`. Frozen alignment revision SHA-256 `2414833bfd35c18ad6c629c3d10cbfab8501b09e296cc1963db01638b854bbaf`.
+- **Single original review film:** first-party archived 1031-frame 1080×1920 30fps H264 MP4 SHA-256 `4a36305c08e422d85a006332c4e83d39dac4a8f12c87502ad842cb99b8f874e3`. Its independently decoded f45 (t=1.5 s) 540×960 original PNG SHA-256 `7129a6e676b450d57c47913c7790744db9a19d1903d2488daf3039dc331820c2`. Source: [archived original native run #38914069118](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/38914069118) and research review handoff `EM00708-REAL-ARCHIVE-SCIENCE-HOLD-20261016.md`.
+- **Primary scientific source records, **chemical identity only****: [PubChem mitragynine CID 3034396](https://pubchem.ncbi.nlm.nih.gov/compound/3034396) and [PubChem 7-hydroxymitragynine CID 44301524](https://pubchem.ncbi.nlm.nih.gov/compound/44301524). Neither establishes human effect size, a clinical comparison, receptor behavior, or the meaning of the on-screen **“No reaction”** phrase.
+- **Physical known visual risk:** original f45 + independent samples f8/20/35/55/65/75/85 yielded two-mode actual-film OCR for “No reaction” under both compound diagrams, previously documented as unresolved semantic ambiguity. **No physiological-efficacy, safety, or drug-reaction conclusion is drawn.**
+
+## Acceptance oracle, frozen before this ledger credit
+
+**U**: exactly this claim ID and word interval must be present in the immutable eight-claim original-WAV ledger; no other claim is newly counted. **S**: original film/WAV/alignment/still identities above and both primary chemical-identity source URLs must be pinned; a modified movie or a later Lane3 draft cannot silently inherit this claim review. **O**: a scientific review packet must explicitly report `independentQualifiedReviewReceived=false`, `mayPublish=false`, `approvalToMerge=false` until an independently qualified or calibrated source-grounded reviewer delivers **actual exact film** verdicts. Verifying a review *request*, timing map, self-recomputed SHA or synthetically forged independent signoff is never a valid reviewer result. Existing code `science_reviewer_handoff.py` and `test_science_reviewer_handoff.py` implement hold-oracle and tampering controls.
+
+**Prior independently hosted source execution:** existing exact-head Lane1 [native science workflow #39040764683](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/39040764683) completed **4/4 jobs SUCCESS**; original archive science checks, new current-source identity guards, strict transcript and actual original WAV acoustic alignment are separate from external scientific verification. The science-review-handoff gate is a machine operation that prepares an unapproved intake; no qualified clinical review was received from this run. Source tests are reproducible but cannot substitute for an actual qualified reviewer.
+
+## Strict partial-card reconciliation — only three independently verified prerequisites
+
+| Atomic card | Unit and specific supported decision |
+|---|---|
+| `EM-007.07.U` | **VERIFIED_MACHINE_RESEARCH** — exactly one real original spoken unit `spoken-001`, pinned original words 0.160–2.920 sec and source claim inventory (not eight new units) |
+| `EM-007.07.S` | **VERIFIED_MACHINE_RESEARCH** — exact archived-original film, WAV, original f45 PNG, alignment revision, two PubChem chemical-identity source IDs, and original hosted process identity bound to this unit |
+| `EM-007.07.O` | **VERIFIED_MACHINE_RESEARCH** — falsifiable no-self-certified-human-science oracle established; changed original film/claim/source or fabricated reviewer approval must HOLD |
+
+**Unverified and intentionally excluded from workcard ledger:** `EM-007.07.X` (no actually independent calibrated review obtained), `EM-007.07.T` (no independent reviewer verdict against exact film), `EM-007.07.N` (do not newly count existing synthetic tamper tests as separately calibrated reviewer evidence), and `EM-007.07.R` (this partial machine inventory is **not** an audit-grade *qualified scientific reviewer decision*). The **task remains OPEN**, current updated 7-OH candidate still requires new exact-film evidence and independent science, and new gut-absorption film remains separate with its own unresolved science-screen defect.
+
+**Only** `U/S/O` can be newly recognized here: existing distinct ledger 165 machine-audited + **3** independently mapped original-claim prerequisites = **168**, plus 707 inherited un-audited provisional = **875/1590** (55.0314% provisional). This does **not** equal 875 scientifically complete capabilities, workstream admission, acceptance of any film, publishing permission, qualified approval, or merge permission. `mayPublish=false` and `scienceApproved=false`.
