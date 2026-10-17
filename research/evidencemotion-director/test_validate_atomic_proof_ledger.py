@@ -18,8 +18,8 @@ class AtomicProofLedgerTests(unittest.TestCase):
                 shutil.copyfile(LEDGER.parent/group["source"],
                                 directory/group["source"])
             (directory/"atomic").mkdir()
-            shutil.copyfile(LEDGER.parent/"atomic"/"04-trust-mobile.md",
-                            directory/"atomic"/"04-trust-mobile.md")
+            for planning_file in sorted((LEDGER.parent/"atomic").glob("0[1-5]-*.md")):
+                shutil.copyfile(planning_file,directory/"atomic"/planning_file.name)
             merge="a"*40
             run=39060226925
             proof="".join((
