@@ -623,7 +623,7 @@ class Tests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             source = root / "narration_locked_treatments.py"
-            source.write_bytes(b"REPLAY_FIXTURE_ID = 'archival'\\n")
+            source.write_bytes(b"REPLAY_FIXTURE_ID = 'archival'\n")
             with patch.dict("original_replay_source_restore.PINNED", {
                     "narration_locked_treatments.py": digest(source.read_bytes())},
                     clear=True):
