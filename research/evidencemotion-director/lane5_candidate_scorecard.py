@@ -18,6 +18,7 @@ import tempfile
 import wave
 
 from original_replay_admission import strict_json
+from phone_ui_audit import verify_shots
 
 HEX = re.compile(r"^[0-9a-f]{64}$")
 DOMAINS = ("science", "voice", "craft", "mobile", "handoff")
@@ -404,17 +405,71 @@ def assess_source_card_glyph_gain(*, previous_path, current_path,
 
 
 def _phone_plan_claim_hold(story):
-    """A storyboard digest is a producer assertion, not received/verified bytes.
-
-    This scorecard has no trusted plan-receiving interface yet. Do not silently
-    clear the missing-plan blocker when a producer types a plausible SHA.
-    """
+    """A storyboard digest without the actual pinned plan bytes is not proof."""
     claim = story.get("phonePlanSha256")
     if claim is None:
         return "AUTHENTICATED_CURRENT_PHONE_PLAN_MISSING"
     if type(claim) is not str or HEX.fullmatch(claim) is None:
         hold("INVALID_UNVERIFIED_PHONE_PLAN_DIGEST")
     return "PHONE_PLAN_DIGEST_CLAIM_WITHOUT_INDEPENDENT_PLAN_BYTES"
+
+
+def _receive_phone_plan(story, film_sha, *, phone_plan_path=None,
+                        expected_phone_plan_sha=None, expected_shots=9,
+                        native_frames=None, native_fps=FPS):
+    """Physically join research plan bytes to this exact film and storyboard.
+
+    The plan is producer-authored. A successful byte join never proves app
+    overlays, actual rendered safe regions, viewer comprehension or real-phone
+    playback. Such verdicts remain independent hard holds.
+    """
+    if (phone_plan_path is None) != (expected_phone_plan_sha is None):
+        hold("PHONE_PLAN_FILE_AND_INDEPENDENT_PIN_REQUIRED_TOGETHER")
+    if phone_plan_path is None:
+        return None, _phone_plan_claim_hold(story)
+    claim = story.get("phonePlanSha256")
+    if type(claim) is not str or HEX.fullmatch(claim) is None:
+        hold("STORY_PHONE_PLAN_SHA_REQUIRED_WITH_BYTES")
+    plan, measured_sha = _read_json(phone_plan_path, expected_phone_plan_sha)
+    if claim != measured_sha:
+        hold("STORY_PHONE_PLAN_BYTES_MISMATCH")
+    if plan.get("expectedVideoSha256") != film_sha:
+        hold("PHONE_PLAN_DIFFERENT_EXACT_FILM")
+    if (plan.get("status") != "RESEARCH_ONLY"
+            or plan.get("releaseApproved") is not False
+            or plan.get("mayPublish") is True
+            or any(plan.get(key) is True for key in
+                   ("realHandsetApproved", "realPhonePlaybackVerified",
+                    "viewerComprehensionApproved", "scienceApproved"))):
+        hold("PHONE_PLAN_PRODUCER_APPROVAL_NOT_TRUSTED")
+    platforms = plan.get("platforms")
+    if (not isinstance(platforms, list) or len(platforms) != 2
+            or any(type(x) is not str for x in platforms)
+            or set(platforms) != {"tiktok", "shorts"}):
+        hold("PHONE_PLAN_PLATFORM_SCOPE_INVALID")
+    shots = plan.get("shots")
+    if (not isinstance(shots, list) or type(expected_shots) is not int
+            or len(shots) != expected_shots
+            or any(not isinstance(shot, dict) for shot in shots)):
+        hold("PHONE_PLAN_SHOT_INVENTORY_MISMATCH")
+    if (type(native_frames) is not int or native_frames < 1
+            or type(native_fps) is not int or native_fps != FPS):
+        hold("PHONE_PLAN_PHYSICAL_FRAME_DURATION_REQUIRED")
+    # Reuse Lane 4's strict research preflight against the physically
+    # decoded film duration. A matching SHA proves bytes, not usable shots.
+    try:
+        verify_shots(shots, native_frames / native_fps)
+    except ValueError as exc:
+        hold("PHONE_PLAN_SHOT_TIMELINE_INVALID:" + str(exc))
+    return {
+        "planSha256": measured_sha,
+        "filmSha256": film_sha,
+        "declaredShots": len(shots),
+        "physicalProducerPlanBytesReceived": True,
+        "actualRenderedSafeZonesValidated": False,
+        "physicalHandsetReviewed": False,
+        "mayPublish": False,
+    }, "PHONE_PLAN_BYTES_JOINED_RESEARCH_ONLY_PHONE_QA_UNVERIFIED"
 
 
 def _verified_original_pcm_samples(path, expected_sha):
@@ -452,7 +507,8 @@ def score_candidate(*, film, wav, story_path, screen_path,
                     expected_previous_screen_sha=None, dimensions=None,
                     expected_shot_count=9, previous_ink_path=None, current_ink_path=None,
                     expected_previous_ink_sha=None, expected_current_ink_sha=None,
-                    previous_ink_film_sha=None):
+                    previous_ink_film_sha=None, phone_plan_path=None,
+                    expected_phone_plan_sha=None):
     """Return an explicitly non-promotable scorecard for one physically decoded film."""
     if dimensions is None:
         hold("EXPLICIT_EXPECTED_NATIVE_DIMENSIONS_REQUIRED")
@@ -525,7 +581,12 @@ def score_candidate(*, film, wav, story_path, screen_path,
         blockers.append("BRIGHT_CRITICAL_CANDIDATES_RIGHT_APP_EXCLUSION")
     if colors:
         blockers.append("COLOR_RIGHT_EXCLUSION_REQUIRES_SEMANTIC_CLASSIFICATION")
-    blockers.append(_phone_plan_claim_hold(story))
+    phone_plan_receipt, phone_plan_hold = _receive_phone_plan(
+        story, film_sha, phone_plan_path=phone_plan_path,
+        expected_phone_plan_sha=expected_phone_plan_sha,
+        expected_shots=expected_shot_count,
+        native_frames=av["nativeFrames"], native_fps=av["fps"])
+    blockers.append(phone_plan_hold)
     # Lane 5 receives exact-byte proofs from Lanes 1–4; it cannot certify them.
     # Cross-lane identity and independent source/phone/craft gates cannot be
     # established by this same-process research scorecard.
@@ -556,6 +617,7 @@ def score_candidate(*, film, wav, story_path, screen_path,
         },
         "priorCandidateComparison": previous,
         "sourceCardResearchGain": source_card_gain,
+        "phonePlanResearchReceipt": phone_plan_receipt,
         "calibratedPremiumCraftScore": None,
         "hardAndReviewHolds": blockers,
         "nextDependency": "LANE5_SAME_FILM_AUTHENTICATED_PHONE_PLAN_AND_CROSS_LANE_RECEIPTS",
@@ -610,6 +672,27 @@ def write_once(path, report):
             or (needs_review and
                 "AUDIO_PTS_ANOMALY_REQUIRES_ORIGINAL_PCM_COMPARISON" not in holds)):
         hold("AUDIO_PTS_REVIEW_HOLD_MISSING_OR_FORGED")
+    received_plan = report.get("phonePlanResearchReceipt")
+    has_joined_hold = "PHONE_PLAN_BYTES_JOINED_RESEARCH_ONLY_PHONE_QA_UNVERIFIED" in holds
+    if (received_plan is None) != (not has_joined_hold):
+        hold("PHONE_PLAN_RECEIPT_AND_HOLD_INCONSISTENT")
+    if received_plan is not None:
+        expected_fields = {"planSha256", "filmSha256", "declaredShots",
+                           "physicalProducerPlanBytesReceived",
+                           "actualRenderedSafeZonesValidated",
+                           "physicalHandsetReviewed", "mayPublish"}
+        if (type(received_plan) is not dict
+                or set(received_plan) != expected_fields
+                or type(received_plan.get("planSha256")) is not str
+                or HEX.fullmatch(received_plan["planSha256"]) is None
+                or received_plan.get("filmSha256") != report.get("filmSha256")
+                or type(received_plan.get("declaredShots")) is not int
+                or not 1 <= received_plan["declaredShots"] <= 30
+                or received_plan.get("physicalProducerPlanBytesReceived") is not True
+                or any(received_plan.get(k) is not False for k in
+                       ("actualRenderedSafeZonesValidated",
+                        "physicalHandsetReviewed", "mayPublish"))):
+            hold("PHONE_PLAN_RESEARCH_RECEIPT_FORGED")
     output = Path(path)
     if (output.exists() or output.is_symlink() or not output.parent.is_dir()
             or any(p.is_symlink() for p in output.parents)):
@@ -642,6 +725,8 @@ def main():
     p.add_argument("--expected-previous-ink-sha")
     p.add_argument("--expected-current-ink-sha")
     p.add_argument("--previous-ink-film-sha")
+    p.add_argument("--phone-plan-path")
+    p.add_argument("--expected-phone-plan-sha")
     p.add_argument("--out", required=True)
     # Actual films differ: 7-OH=1031 frames, Gut=845, Phenibut=1112.
     # Preserve an external exact-frame expectation; never silently use the
@@ -660,7 +745,8 @@ def main():
             "previous_screen_path", "expected_previous_screen_sha",
             "previous_ink_path", "current_ink_path",
             "expected_previous_ink_sha", "expected_current_ink_sha",
-            "previous_ink_film_sha"
+            "previous_ink_film_sha", "phone_plan_path",
+            "expected_phone_plan_sha"
         )
     }, dimensions=(1080, 1920, a.expected_frames),
        expected_shot_count=a.expected_shots)
