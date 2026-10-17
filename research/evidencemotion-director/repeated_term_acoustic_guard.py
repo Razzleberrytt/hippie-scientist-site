@@ -779,6 +779,145 @@ def audit_archived_frame_native_pause_files(wav_path, video_path, receipt_path):
         return hold("FRAME_PLAN_ARCHIVED_FILES_UNREADABLE")
 
 
+def audit_archived_encoded_audio_sync(source_raw, video_raw, receipt_raw, decoded_pcm_f32le):
+    """Screen *original* WAV versus lossy encoded AAC signal, never phonemes.
+
+    Caller supplies physically decoded mono 24kHz float32 PCM; the file-based
+    entrypoint below obtains those bytes from SHA-pinned original MP4 using
+    FFmpeg. This standalone function does NOT itself prove decode provenance.
+    """
+    base = {"schema": SCHEMA, "mayPublish": False,
+            "pronunciationVerified": False, "phonemeIdentityVerified": False,
+            "wordTimingCalibrated": False, "captionTimingApproved": False,
+            "audioCraftApproved": False, "actualRevisedFilmReviewed": False,
+            "sourceOrEncodedMediaModified": False,
+            "decoderRunBoundToNativeFilm": False}
+    def refuse(reason):
+        return {**base, "status": "HOLD", "errors": [reason]}
+    preflight = audit_archived_frame_native_pause_plan(
+        source_raw, video_raw, receipt_raw)
+    if preflight["status"] != "RESEARCH_FRAME_NATIVE_PAUSE_PLAN_HOLD":
+        return refuse("ENCODED_AUDIO_PINNED_SOURCE_PREFLIGHT_FAILED")
+    if (not isinstance(decoded_pcm_f32le, bytes)
+            or len(decoded_pcm_f32le) % 4
+            or not 824336*4 <= len(decoded_pcm_f32le) <= (824336+2048)*4):
+        return refuse("ENCODED_AUDIO_DECODE_LENGTH_INVALID")
+    try:
+        with wave.open(io.BytesIO(source_raw), "rb") as w:
+            original = np.frombuffer(w.readframes(w.getnframes()),
+                                     dtype="<i2").astype(np.float64)/32768
+        decoded = np.frombuffer(decoded_pcm_f32le,
+                                dtype="<f4").astype(np.float64)
+        if (not np.all(np.isfinite(decoded))
+                or np.max(np.abs(decoded)) > 2.0):
+            return refuse("ENCODED_AUDIO_NONFINITE_OR_UNSAFE_PCM")
+        if np.std(decoded[:824336]) < 0.005:
+            return refuse("ENCODED_AUDIO_ACTIVE_SIGNAL_MISSING")
+        # Distinct source-active windows spanning the whole original take,
+        # avoiding the documented 3.44s all-digital-zero source-card hold.
+        # A high PCM correlation checks signal/time identity; it cannot
+        # identify chemical phones or prove a word's first audible sample.
+        anchors = ((1.0, 3.0), (6.0, 9.0), (12.0, 15.0),
+                   (20.0, 24.0), (25.5, 27.3), (31.25, 33.7))
+        records = []
+        for start, end in anchors:
+            lo, hi = round(start*24000), round(end*24000)
+            a, b = original[lo:hi], decoded[lo:hi]
+            if (len(a) != hi-lo or len(b) != hi-lo
+                    or np.std(a) < 0.005 or np.std(b) < 0.005):
+                return refuse("ENCODED_AUDIO_ANCHOR_SPEECH_SIGNAL_MISSING")
+            zero_lag_corr = float(np.corrcoef(a, b)[0, 1])
+            # Small, fixed ±40ms 10ms-hop RMS-envelope lag screen.
+            # Do not turn its coarse lag into per-word boundary accuracy.
+            def envelope(x):
+                n = len(x)//240
+                return np.sqrt(np.mean(x[:n*240].reshape(n, 240)**2,
+                                       axis=1))
+            ea, eb = envelope(a), envelope(b)
+            lag_scores = []
+            for lag in range(-4, 5):
+                if lag < 0:
+                    x, y = ea[-lag:], eb[:lag]
+                elif lag > 0:
+                    x, y = ea[:-lag], eb[lag:]
+                else:
+                    x, y = ea, eb
+                score = (float(np.corrcoef(x, y)[0, 1])
+                         if np.std(x)>1e-8 and np.std(y)>1e-8
+                         else -1.0)
+                lag_scores.append((score, lag))
+            peak_score, best_lag = max(lag_scores)
+            records.append({
+                "windowSeconds": [start, end],
+                "originalSourcePcmSha256": digest(
+                    np.asarray(np.rint(a*32768), dtype="<i2").tobytes()),
+                "zeroLagDecodedPcmCorrelation": round(zero_lag_corr, 6),
+                "bestEnvelopeLagMs": best_lag*10,
+                "bestEnvelopeCorrelation": round(peak_score, 6),
+                "signalSyncScreenPass":
+                    zero_lag_corr >= 0.95 and abs(best_lag) <= 1,
+            })
+        if not all(row["signalSyncScreenPass"] for row in records):
+            return {**base, "status": "HOLD",
+                    "errors": ["ENCODED_AUDIO_SIGNAL_LAG_OR_CORRELATION_HOLD"],
+                    "sourceWavSha256": SOURCE_WAV_REFERENCE,
+                    "filmSha256": ARCHIVED_TIMED_NATIVE_VIDEO_SHA,
+                    "diagnosticWindows": records}
+        return {**base, "status": "RESEARCH_ARCHIVED_ENCODED_AUDIO_SYNC_HOLD",
+                "sourceWavSha256": SOURCE_WAV_REFERENCE,
+                "filmSha256": ARCHIVED_TIMED_NATIVE_VIDEO_SHA,
+                "renderReceiptSha256": ARCHIVED_TIMED_NATIVE_RECEIPT_SHA,
+                "decodedF32leSha256": digest(decoded_pcm_f32le),
+                "sourceSampleCount": 824336,
+                "decodedAacSampleCount": len(decoded),
+                "sampleRateHz": 24000,
+                "testedRealSignalWindows": len(records),
+                "diagnosticWindows": records,
+                "decodedSignalOnlyTimedContinuity": True,
+                "independentlyVerifiedPhoneticContent": False,
+                "caution": "Signal correlation is NOT source phoneme identity, "
+                           "caption/word alignment, craft, AAC sample identity "
+                           "or revised-final-film verification."}
+    except (ValueError, TypeError, OSError, EOFError, wave.Error,
+            FloatingPointError):
+        return refuse("ENCODED_AUDIO_SIGNAL_REVIEW_PARSE_FAILED")
+
+
+def audit_archived_encoded_audio_sync_files(wav_path, video_path, receipt_path):
+    """Decode actual pinned original MP4 audio in a bounded read-only mode."""
+    import subprocess
+    base = {"schema": SCHEMA, "status": "HOLD", "mayPublish": False,
+            "decoderRunBoundToNativeFilm": False}
+    try:
+        wav, film, receipt = map(Path, (wav_path, video_path, receipt_path))
+        sources = ((wav, 3000000), (film, 10000000), (receipt, 50000))
+        if any(p.is_symlink() or not p.is_file()
+               or not 0 < p.stat().st_size <= cap for p, cap in sources):
+            return {**base, "errors": ["ENCODED_AUDIO_FILES_MISSING_OR_UNSAFE"]}
+        source_raw, video_raw, receipt_raw = (p.read_bytes() for p, _ in sources)
+        if (audit_archived_frame_native_pause_plan(
+                source_raw, video_raw, receipt_raw)["status"]
+                != "RESEARCH_FRAME_NATIVE_PAUSE_PLAN_HOLD"):
+            return {**base, "errors": ["ENCODED_AUDIO_PINNED_SOURCE_PREFLIGHT_FAILED"]}
+        command = ["ffmpeg", "-nostdin", "-v", "error", "-xerror",
+                   "-i", str(film), "-map", "0:a:0", "-vn", "-ac", "1",
+                   "-ar", "24000", "-f", "f32le", "-"]
+        run = subprocess.run(command, capture_output=True, timeout=45,
+                             check=False)
+        if run.returncode != 0:
+            return {**base, "errors": ["ENCODED_AUDIO_FFMPEG_DECODE_FAILED"]}
+        # Catch mutation between initial digest and decoder file-open.
+        if digest(film.read_bytes()) != ARCHIVED_TIMED_NATIVE_VIDEO_SHA:
+            return {**base, "errors": ["ENCODED_AUDIO_MOVIE_CHANGED_DURING_DECODE"]}
+        result = audit_archived_encoded_audio_sync(
+            source_raw, video_raw, receipt_raw, run.stdout)
+        result["decoderRunBoundToNativeFilm"] = True
+        result["decoderInvocation"] = "ffmpeg -xerror mono 24000Hz float32le"
+        return result
+    except (OSError, ValueError, subprocess.TimeoutExpired):
+        return {**base, "errors": ["ENCODED_AUDIO_FFMPEG_OR_FILES_UNREADABLE"]}
+
+
 def audit_original_pause_audition_pcm(source_raw, candidate_raw, retained_pause_ms):
     """Verify a research-only preview removed ONLY source-proven digital zeros.
 
@@ -1646,6 +1785,8 @@ def main(argv=None):
     p.add_argument("--original-wav", help="Pinned original full 24 kHz source WAV")
     p.add_argument("--mfa-receipt", help="Pinned first-party original MFA run receipt")
     p.add_argument("--mfa-alignment", help="Pinned original MFA word alignment candidate")
+    p.add_argument("--archived-aac-sync-review", action="store_true",
+                   help="Original source vs actual decoded archived AAC research screen only")
     p.add_argument("--frame-native-pause-plan", action="store_true",
                    help="Original archived H264/AAC film and 30fps-compatible silence-cut PLAN only")
     p.add_argument("--native-research-film", help="Exact archived unapproved native research MP4")
@@ -1672,7 +1813,21 @@ def main(argv=None):
     p.add_argument("--pose-internal-contrasts", action="store_true",
                    help="Produce source-pinned same-narrator comparisons; NEVER a phoneme verdict")
     a=p.parse_args(argv)
-    if a.frame_native_pause_plan:
+    if a.archived_aac_sync_review:
+        if (not a.original_wav or not a.native_research_film
+                or not a.native_render_receipt
+                or any((a.frame_native_pause_plan, a.original_pause_audition_audit,
+                        a.original_dead_air_review, a.cross_model_timing_review,
+                        a.human_review_json, a.mfa_zero_interval_audit,
+                        a.asr_zero_onset_audit, a.pause_preview_wav,
+                        a.pause_retained_ms, a.pose_asr_receipt, a.mfa_alignment,
+                        a.mfa_receipt, a.source_archive, a.reference_target_wav,
+                        a.reference_benchmark_zip, a.pose_internal_contrasts))):
+            result = hold("ENCODED_AUDIO_REQUIRES_EXCLUSIVE_ARCHIVED_THREE_INPUTS")
+        else:
+            result = audit_archived_encoded_audio_sync_files(
+                a.original_wav, a.native_research_film, a.native_render_receipt)
+    elif a.frame_native_pause_plan:
         if (not a.original_wav or not a.native_research_film
                 or not a.native_render_receipt
                 or any((a.original_pause_audition_audit, a.original_dead_air_review,
