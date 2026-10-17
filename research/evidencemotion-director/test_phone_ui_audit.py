@@ -1114,7 +1114,7 @@ class EncodedFrameMembershipTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "INK_FRAME_INDEX_OR_SHOT_NOT_PRESENT_IN_DECODED_FILM"):
             self.verify(ink, frames, shots)
 
-    def test_full_audit_clears_old_report_before_misassigned_ink_receipt(self):
+    def test_full_audit_rejects_misassigned_ink_without_writing_report(self):
         # Integration wiring: patch expensive FFmpeg only. The real audit must
         # call the decoded-PTS membership gate BEFORE generating any image.
         with tempfile.TemporaryDirectory() as root:
@@ -1132,7 +1132,6 @@ class EncodedFrameMembershipTests(unittest.TestCase):
             output = root / "screens"
             output.mkdir()
             report = output / "research-report.json"
-            report.write_text('{"staleFalsePass": true}')
             source_bytes = (movie.read_bytes(), plan_path.read_bytes(), ink_path.read_bytes())
             with (patch("phone_ui_audit.probe_movie", return_value=(1080, 1920, 15., 450)),
                   patch("phone_ui_audit.validate_manifest", return_value={"mayPublish": False}),
@@ -1145,7 +1144,7 @@ class EncodedFrameMembershipTests(unittest.TestCase):
                     ValueError, "INK_DECODED_FRAME_BELONGS_TO_DIFFERENT_SHOT"
                 ):
                     audit(movie, plan_path, output, ink_receipt=ink_path)
-            self.assertFalse(report.exists(), "stale QA approval must be invalidated")
+            self.assertFalse(report.exists(), "rejected ink must not generate an audit receipt")
             self.assertEqual(
                 (movie.read_bytes(), plan_path.read_bytes(), ink_path.read_bytes()),
                 source_bytes, "input sources must remain immutable")
