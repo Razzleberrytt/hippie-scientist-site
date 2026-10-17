@@ -239,6 +239,19 @@ class MobileDeliveryGuardTests(unittest.TestCase):
             with self.assertRaisesRegex(Hold,'AUDIBLE_AUDIO_TAIL_MISMATCH'):
                 audio_compare('original','reencoded')
 
+    def test_nonfinite_decoded_pcm_never_emits_positive_fidelity(self):
+        for corrupt in (float('nan'),float('inf'),float('-inf')):
+            for position in ('source_middle','mobile_middle','source_tail','mobile_tail'):
+                with self.subTest(corrupt=str(corrupt),position=position):
+                    original=array('f',[0.02]*8000)
+                    mobile=array('f',[0.02]*8000)
+                    selected=original if position.startswith('source') else mobile
+                    selected[4000 if position.endswith('middle') else -1]=corrupt
+                    with patch('mobile_delivery_guard.decoded_audio',
+                               side_effect=[original,mobile]):
+                        with self.assertRaisesRegex(Hold,'NONFINITE_DECODED_AUDIO_SAMPLES'):
+                            audio_compare('original.mp4','phone.mp4')
+
     def test_truncated_audible_source_tail_not_exempt(self):
         original=array('f',[.02]*8000)
         cut=array('f',[.02]*7520)
