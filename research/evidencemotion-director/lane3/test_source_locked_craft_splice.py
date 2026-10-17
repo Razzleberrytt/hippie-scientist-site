@@ -71,6 +71,62 @@ class CraftSourceLockedContractTests(unittest.TestCase):
       with tempfile.TemporaryDirectory() as td:
         p=Path(td)/'unsafe.json';x=copy.deepcopy(self.m);x[field]=v;p.write_text(json.dumps(x))
         with self.assertRaises(S.CraftHold):S.trusted_manifest(p,S.digest(p))
+
+  def test_hidden_third_stream_is_rejected_before_splice_mapping(self):
+    normal=[
+      {'codec_type':'video','codec_name':'h264','pix_fmt':'yuv420p',
+       'sample_aspect_ratio':'1:1'},
+      {'codec_type':'audio','codec_name':'aac','sample_rate':'24000'}
+    ]
+    for extra in (
+      {'codec_type':'subtitle','codec_name':'mov_text'},
+      {'codec_type':'data','codec_name':'bin_data'},
+      {'codec_type':'attachment','codec_name':'ttf'},
+      {'codec_type':'video','codec_name':'h264'}
+    ):
+      with self.subTest(extra=extra['codec_type']):
+        payload=json.dumps({'streams':normal+[extra]})
+        with patch.object(S,'run',return_value=payload):
+          with self.assertRaisesRegex(S.CraftHold,'AMBIGUOUS_TRACK_LAYOUT'):
+            S.media_info('bad-tracks.mp4')
+
+  def test_square_pixel_yuv420_admission_and_refusal(self):
+    base={'codec_type':'video','codec_name':'h264',
+          'pix_fmt':'yuv420p','sample_aspect_ratio':'1:1'}
+    self.assertTrue(S.require_square_yuv420_video(base,'SOURCE'))
+    for change in (
+      {'pix_fmt':'yuv444p'},
+      {'pix_fmt':'yuv422p'},
+      {'pix_fmt':'yuv420p10le'},
+      {'sample_aspect_ratio':'2:1'},
+      {'sample_aspect_ratio':'N/A'},
+    ):
+      candidate={**base,**change}
+      with self.subTest(change=change):
+        with self.assertRaisesRegex(S.CraftHold,'SOURCE_PIXEL_FORMAT_OR_ASPECT_MISMATCH'):
+          S.require_square_yuv420_video(candidate,'SOURCE')
+
+  def test_physical_444_and_anamorphic_source_tracks_are_rejected(self):
+    if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
+      self.skipTest('Native ffmpeg is required for actual H264 metadata')
+    with tempfile.TemporaryDirectory() as td:
+      root=Path(td)
+      for tag,options in (
+        ('444',['-pix_fmt','yuv444p']),
+        ('anamorphic',['-vf','setsar=2/1','-pix_fmt','yuv420p']),
+      ):
+        with self.subTest(tag=tag):
+          movie=root/(tag+'.mp4')
+          subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi',
+            '-i','testsrc2=s=64x96:r=30','-frames:v','3',
+            '-c:v','libx264',*options,str(movie)],
+            check=True,capture_output=True)
+          stream,audio=S.media_info(movie)
+          self.assertEqual(stream['codec_name'],'h264')
+          self.assertEqual(audio,[])
+          with self.assertRaisesRegex(S.CraftHold,'CRAFT_SCENE_PIXEL_FORMAT_OR_ASPECT_MISMATCH'):
+            S.require_square_yuv420_video(stream,'CRAFT_SCENE')
+
   def test_cfr_timestamp_sequence_accepts_exact_grid(self):
     # Mocked probe payload; the real H264/AAC positive stays in the codec test.
     data={'frames':[{'best_effort_timestamp_time':p} for p in
