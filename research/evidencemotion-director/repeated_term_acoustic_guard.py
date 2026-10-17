@@ -4,9 +4,11 @@ Two similarly spoken terms can both be wrong. Neither spectral matching nor a
 confident speech recognizer proves phonemes, stress, intelligibility or release.
 """
 import argparse
+from difflib import SequenceMatcher
 import hashlib
 import io
 import json
+import re
 from pathlib import Path
 import wave
 import zipfile
@@ -368,6 +370,167 @@ def audit_asr_zero_onsets_files(source_path, asr_path):
             *(p.read_bytes() for p, _ in paths))
     except (OSError, TypeError, ValueError):
         return hold("DIGITAL_ZERO_ORIGINAL_SOURCE_FILES_UNREADABLE")
+
+
+def audit_original_cross_model_word_timing(source_raw, alignment_raw, asr_raw):
+    """Rank first-party, word-level MFA/ASR disagreements for human audition.
+
+    Both tools can be wrong together. The original waveform authenticates
+    review windows, NOT script words, phonemes, or true boundary placement.
+    No result of this method can authorize captions or voice publication.
+    """
+    base = {"schema": SCHEMA, "mayPublish": False,
+            "pronunciationVerified": False, "phonemeIdentityVerified": False,
+            "wordTimingCalibrated": False, "captionTimingApproved": False,
+            "independentHumanAnnotationPresent": False,
+            "lexicalWinner": None}
+    def fail(reason):
+        return {**base, "status": "HOLD", "errors": [reason]}
+    if not all(isinstance(x, bytes) for x in (source_raw, alignment_raw, asr_raw)):
+        return fail("CROSS_MODEL_SOURCE_BYTES_REQUIRED")
+    if digest(source_raw) != SOURCE_WAV_REFERENCE:
+        return fail("CROSS_MODEL_WAV_SHA_MISMATCH")
+    if digest(alignment_raw) != MFA_SOURCE_ALIGNMENT_SHA:
+        return fail("CROSS_MODEL_MFA_SHA_MISMATCH")
+    if digest(asr_raw) != POSE_ASR_RECEIPT_SHA:
+        return fail("CROSS_MODEL_ASR_SHA_MISMATCH")
+    try:
+        mfa, asr = json.loads(alignment_raw), json.loads(asr_raw)
+        original_words, recognized_words = mfa.get("wordAlignment"), asr.get("recognizedWords")
+        if (mfa.get("inputSha256", {}).get("wav") != SOURCE_WAV_REFERENCE
+                or mfa.get("sampleRate") != 24000
+                or mfa.get("sampleCount") != 824336
+                or mfa.get("mayPublish") is not False
+                or mfa.get("pronunciationVerified") is not False
+                or mfa.get("timingAccuracyCalibrated") is not False
+                or asr.get("sourceWavSha256") != SOURCE_WAV_REFERENCE
+                or asr.get("mayPublish") is not False
+                or not isinstance(original_words, list) or len(original_words) != 73
+                or not isinstance(recognized_words, list) or len(recognized_words) != 70):
+            return fail("CROSS_MODEL_SOURCE_OR_AUTHORITY_INCONSISTENT")
+        with wave.open(io.BytesIO(source_raw), "rb") as source:
+            if (source.getnchannels(), source.getsampwidth(),
+                    source.getframerate(), source.getcomptype(),
+                    source.getnframes()) != (1, 2, 24000, "NONE", 824336):
+                return fail("CROSS_MODEL_ORIGINAL_WAV_FORMAT_INVALID")
+            pcm = source.readframes(source.getnframes())
+        if len(pcm) != 824336 * 2:
+            return fail("CROSS_MODEL_ORIGINAL_PCM_TRUNCATED")
+        for rows, scale in ((original_words, 1), (recognized_words, 1000)):
+            previous = -1.0
+            for word in rows:
+                if not isinstance(word, dict):
+                    return fail("CROSS_MODEL_WORD_ROW_INVALID")
+                spelling = word.get("word")
+                start = word.get("startMs") if scale == 1 else word.get("start")
+                end = word.get("endMs") if scale == 1 else word.get("end")
+                if (not isinstance(spelling, str) or not spelling.strip()
+                        or not re.sub(r"[^a-z0-9]", "", spelling.casefold())
+                        or not isinstance(start, (float, int)) or isinstance(start, bool)
+                        or not isinstance(end, (float, int)) or isinstance(end, bool)
+                        or not np.isfinite(start) or not np.isfinite(end)
+                        or not 0 <= start < end <= (824336/24)/scale
+                        or start < previous):
+                    return fail("CROSS_MODEL_WORD_TIMES_OR_TEXT_INVALID")
+                previous = start
+
+        normalize = lambda row: re.sub(r"[^a-z0-9]", "", row["word"].casefold())
+        mfa_terms = [normalize(w) for w in original_words]
+        asr_terms = [normalize(w) for w in recognized_words]
+        opcodes = SequenceMatcher(
+            None, mfa_terms, asr_terms, autojunk=False).get_opcodes()
+        lexical_blocks, timing_reviews = [], []
+        threshold_ms = 150
+        duration_ms = 824336 / 24
+
+        def review_window(mfa_slice, asr_slice):
+            times = [(w["startMs"], w["endMs"]) for w in mfa_slice] + [
+                (w["start"]*1000, w["end"]*1000) for w in asr_slice]
+            first_ms = max(0, min(s for s, _ in times) - 200)
+            last_ms = min(duration_ms, max(e for _, e in times) + 200)
+            first_sample = max(0, round(first_ms * 24))
+            last_sample = min(824336, round(last_ms * 24))
+            if last_sample <= first_sample:
+                raise ValueError("ZERO_AUDIO_REVIEW_WINDOW")
+            raw = pcm[first_sample*2:last_sample*2]
+            return {"sourceStartSample": first_sample,
+                    "sourceEndSample": last_sample,
+                    "sourcePcmSha256": digest(raw),
+                    "sourceWindowMs": [round(first_sample/24, 3),
+                                       round(last_sample/24, 3)]}
+
+        matched_count = 0
+        onset_flags, offset_flags = 0, 0
+        for kind, i0, i1, j0, j1 in opcodes:
+            left = original_words[i0:i1]
+            right = recognized_words[j0:j1]
+            if kind != "equal":
+                lexical_blocks.append({
+                    "reason": "UNRESOLVED_ASR_VS_FORCED_SCRIPT_SPELLING",
+                    "mfaWordIndices": list(range(i0, i1)),
+                    "asrWordIndices": list(range(j0, j1)),
+                    "mfaAuthoredHypotheses": [w["word"] for w in left],
+                    "asrRecognizerHypotheses": [w["word"].strip() for w in right],
+                    **review_window(left, right),
+                })
+                continue
+            for mi, ai in zip(range(i0, i1), range(j0, j1)):
+                matched_count += 1
+                m, a = original_words[mi], recognized_words[ai]
+                onset = round(abs(m["startMs"] - 1000*a["start"]), 3)
+                offset = round(abs(m["endMs"] - 1000*a["end"]), 3)
+                onset_alert = onset > threshold_ms
+                offset_alert = offset > threshold_ms
+                onset_flags += onset_alert
+                offset_flags += offset_alert
+                if onset_alert or offset_alert:
+                    timing_reviews.append({
+                        "reason": "UNVERIFIED_CROSS_MODEL_BOUNDARY_DISAGREEMENT",
+                        "mfaWordIndex": mi, "asrWordIndex": ai,
+                        "matchingTextHypothesis": m["word"],
+                        "onsetDisagreementMs": onset,
+                        "offsetDisagreementMs": offset,
+                        "onsetAbove150ms": bool(onset_alert),
+                        "offsetAbove150ms": bool(offset_alert),
+                        **review_window([m], [a]),
+                    })
+        return {**base, "status": "RESEARCH_ORIGINAL_WORD_REVIEW_QUEUE_HOLD",
+                "sourceWavSha256": SOURCE_WAV_REFERENCE,
+                "mfaAlignmentSha256": MFA_SOURCE_ALIGNMENT_SHA,
+                "asrReceiptSha256": POSE_ASR_RECEIPT_SHA,
+                "sourceWavIndependentlyRehashed": True,
+                "frozenMfaWordCount": 73, "frozenAsrWordCount": 70,
+                "matchedWordPairCount": matched_count,
+                "lexicalDisagreementBlockCount": len(lexical_blocks),
+                "lexicalDisagreements": lexical_blocks,
+                "wordBoundaryResearchThresholdMs": threshold_ms,
+                "onsetDisagreementOverThresholdCount": onset_flags,
+                "offsetDisagreementOverThresholdCount": offset_flags,
+                "distinctMatchedWordTimingReviewCount": len(timing_reviews),
+                "timingReviews": timing_reviews,
+                "reviewQueueCaseCount": len(lexical_blocks) + len(timing_reviews),
+                "reviewPriorityRule": "6 lexical conflicts plus each matched word "
+                                      "with MFA-v-ASR onset/end discrepancy >150ms",
+                "caution": "Recognizer text and forced script labels are hypotheses. "
+                           "Sample-pinned listening context and disagreement alone "
+                           "never validate a word, phones, onset, offset or caption."}
+    except (ValueError, TypeError, KeyError, IndexError, OSError,
+            EOFError, wave.Error, UnicodeError):
+        return fail("CROSS_MODEL_REVIEW_INPUT_PARSE_FAILED")
+
+
+def audit_cross_model_files(source_path, alignment_path, asr_path):
+    """No writes; refuse mutable aliases or missing first-party source inputs."""
+    try:
+        paths = ((Path(source_path), 3000000),
+                 (Path(alignment_path), 100000), (Path(asr_path), 30000))
+        if any(p.is_symlink() or not p.is_file()
+               or not 0 < p.stat().st_size <= cap for p, cap in paths):
+            return hold("CROSS_MODEL_REVIEW_FILES_MISSING_OR_UNSAFE")
+        return audit_original_cross_model_word_timing(
+            *(p.read_bytes() for p, _ in paths))
+    except (OSError, TypeError, ValueError):
+        return hold("CROSS_MODEL_REVIEW_FILES_UNREADABLE")
 
 
 def audit_pose_poles_conflict(source_raw, alignment_raw, asr_raw):
@@ -999,6 +1162,8 @@ def main(argv=None):
     p.add_argument("--original-wav", help="Pinned original full 24 kHz source WAV")
     p.add_argument("--mfa-receipt", help="Pinned first-party original MFA run receipt")
     p.add_argument("--mfa-alignment", help="Pinned original MFA word alignment candidate")
+    p.add_argument("--cross-model-timing-review", action="store_true",
+                   help="Original WAV + 73 MFA / 70 ASR candidate word review queue, never approval")
     p.add_argument("--mfa-zero-interval-audit", action="store_true",
                    help="Screen all 73 frozen original MFA word windows for whole digital zeros")
     p.add_argument("--asr-zero-onset-audit", action="store_true",
@@ -1011,9 +1176,19 @@ def main(argv=None):
     p.add_argument("--pose-internal-contrasts", action="store_true",
                    help="Produce source-pinned same-narrator comparisons; NEVER a phoneme verdict")
     a=p.parse_args(argv)
-    if a.mfa_zero_interval_audit:
+    if a.cross_model_timing_review:
+        if (not a.original_wav or not a.mfa_alignment or not a.pose_asr_receipt
+                or any((a.mfa_zero_interval_audit, a.asr_zero_onset_audit,
+                        a.mfa_receipt, a.source_archive, a.reference_target_wav,
+                        a.reference_benchmark_zip, a.pose_internal_contrasts))):
+            result = hold("CROSS_MODEL_REVIEW_REQUIRES_EXACT_THREE_SOURCE_INPUTS")
+        else:
+            result = audit_cross_model_files(
+                a.original_wav, a.mfa_alignment, a.pose_asr_receipt)
+    elif a.mfa_zero_interval_audit:
         if (not a.original_wav or not a.mfa_alignment
-                or any((a.asr_zero_onset_audit, a.pose_asr_receipt,
+                or any((a.cross_model_timing_review, a.asr_zero_onset_audit,
+                        a.pose_asr_receipt,
                         a.mfa_receipt, a.source_archive, a.reference_target_wav,
                         a.reference_benchmark_zip, a.pose_internal_contrasts))):
             result = hold("MFA_SIGNAL_MODE_REQUIRES_EXACT_WAV_AND_ALIGNMENT_ONLY")
