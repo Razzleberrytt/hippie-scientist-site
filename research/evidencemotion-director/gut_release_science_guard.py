@@ -149,10 +149,20 @@ def static_scenes(source):
 
 def review_release_scene(scenes, voice, science_text):
     if (not isinstance(voice, dict) or voice.get('mayPublish') is not False
-        or not isinstance(voice.get('scenes'), list)):
+        or not isinstance(voice.get('scenes'), list) or
+        not isinstance(voice.get('master_sha256'), str) or
+        not re.fullmatch(r'[a-f0-9]{64}', voice['master_sha256'])):
+        hold('ORIGINAL_NARRATION_RECEIPT_INVALID')
+    # Filtering non-dict entries makes a forged seven-scene receipt look like
+    # the six frozen records; require the exact count and complete text first.
+    if len(voice['scenes']) != len(scenes) or any(
+        not isinstance(s, dict) or not isinstance(s.get('id'), str) or
+        not s['id'].strip() or not isinstance(s.get('text'), str) or
+        not s['text'].strip() for s in voice['scenes']
+    ):
         hold('ORIGINAL_NARRATION_RECEIPT_INVALID')
     source_ids = [s['id'] for s in scenes]
-    spoken_ids = [s.get('id') for s in voice['scenes'] if isinstance(s, dict)]
+    spoken_ids = [s['id'] for s in voice['scenes']]
     if source_ids != spoken_ids or len(spoken_ids) != 6:
         hold('VISUAL_VOICE_SCENE_IDENTITY_DRIFT')
     narration = voice['scenes'][spoken_ids.index('dissolve')].get('text')
