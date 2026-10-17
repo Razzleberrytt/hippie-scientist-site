@@ -255,6 +255,35 @@ class Lane5ScorecardTests(unittest.TestCase):
 
 
 
+    def test_midfilm_audio_pts_gap_even_if_audio_ends_on_time(self):
+        """Do not conflate last AAC timestamp with uninterrupted narration.
+
+        A 50ms timestamp discontinuity is real even when both AAC and video
+        decode cleanly and the audio track almost reaches the picture end.
+        """
+        with tempfile.TemporaryDirectory() as td:
+            film = Path(td) / "midfilm-gap.mp4"
+            subprocess.run([
+                "/usr/bin/ffmpeg", "-nostdin", "-hide_banner", "-v", "error",
+                "-f", "lavfi", "-i", "color=c=navy:s=96x170:r=30:d=3",
+                "-f", "lavfi", "-i",
+                "sine=frequency=440:sample_rate=24000:duration=3",
+                "-map", "0:v:0", "-map", "1:a:0",
+                "-af", "asetpts=PTS+0.05/TB*gte(T\\,1)",
+                "-c:v", "libx264", "-pix_fmt", "yuv420p",
+                "-frames:v", "90", "-c:a", "aac", "-ar", "24000",
+                "-ac", "1", "-y", str(film)
+            ], check=True, capture_output=True, timeout=40)
+            # This real 90f/3s movie has valid AAC beginning and ending near
+            # the proper times, but a missing timestamp span in the middle.
+            with self.assertRaisesRegex(
+                ValueError, "DECODED_AUDIO_TIMELINE_GAP_OR_OVERLAP"
+            ):
+                _physical_av(film, (96, 170, 90))
+
+
+
+
 class PhysicalStatSurfaceTests(unittest.TestCase):
     def check_surfaces(self, *, path_after_ctime=10, fd_after_ctime=20,
                        path_after_inode=7):
