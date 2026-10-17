@@ -574,6 +574,27 @@ class IndependentScienceIntakeTests(unittest.TestCase):
             self.assertEqual(gate.read_bytes(), payload)
             self.assertEqual(same_inode_output.read_bytes(), payload)
 
+    def test_frozen_spoken_ledger_alias_cannot_destroy_original_source(self):
+        import os
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            gate = root / "gate.json"
+            gate.write_text(json.dumps(self.gate), encoding="utf8")
+            words = root / "original-source-words.json"
+            original = b"protected frozen original spoken-word source"
+            words.write_bytes(original)
+            output = root / "apparently-unrelated-report.json"
+            os.link(words, output)
+            argv = ["science_reviewer_handoff.py", "--gate",
+                    str(gate), "--out", str(output)]
+            with patch("science_reviewer_handoff.FROZEN_SPOKEN_LEDGER", words):
+                with patch("sys.argv", argv), self.assertRaisesRegex(
+                        ValueError, "FROZEN_SOURCE_WORD_LEDGER_OUTPUT_PATH_ALIAS"):
+                    main()
+            self.assertEqual(words.read_bytes(), original)
+            self.assertEqual(output.read_bytes(), original)
+            self.assertTrue(gate.is_file())
+
     def test_cannot_overwrite_input_and_symlink_target(self):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
