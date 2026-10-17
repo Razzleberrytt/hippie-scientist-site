@@ -323,7 +323,7 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
             wav.writeframes(pcm.tobytes())
         original = out.getvalue()
         authored = [{"word": f"w{i:02}", "startMs": 100 + i*440,
-                     "endMs": 270 + i*440} for i in range(73)]
+                     "endMs": 350 + i*440} for i in range(73)]
         alignment = json.dumps({
             "inputSha256": {"wav": digest(original)},
             "sampleRate": 24000, "sampleCount": 824336,
