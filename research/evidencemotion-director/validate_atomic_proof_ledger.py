@@ -69,6 +69,22 @@ def validate(data,source_directory):
         group,src=record.get("group"),record.get("source")
         if not isinstance(group,str) or not isinstance(src,str) or group in group_keys:
             hold("UNKNOWN_DUPLICATE_OR_MISBOUND_EVIDENCE_GROUP")
+        if group not in sources:
+            # Existing 707 provisional cards were allocated to accepted
+            # foundations. Extra machine proof for one of those parents is
+            # RECLASSIFICATION, not additive credit. Never inflate coverage.
+            checklist=source_directory/"COMPLETION-CHECKLIST.md"
+            if not checklist.is_file():
+                hold("CANONICAL_46_PARENT_CHECKLIST_REQUIRED")
+            states=[line[:5] for line in checklist.read_text(encoding="utf-8").splitlines()
+                    if line.startswith("- [x] ") or line.startswith("- [ ] ")]
+            if len(states)!=46:
+                hold("CANONICAL_46_PARENT_CHECKLIST_INCONSISTENT")
+            parent=int(group[3:6]) if re.fullmatch(r"EM-\d{3}\\.\d{2}",group) else 0
+            if parent<1 or parent>46:
+                hold("UNKNOWN_CANONICAL_PARENT")
+            if states[parent-1]=="- [x]":
+                hold("ACCEPTED_PARENT_REQUIRES_INHERITED_RECLASSIFICATION")
         if group in sources:
             if src!=sources[group]:
                 hold("UNKNOWN_DUPLICATE_OR_MISBOUND_EVIDENCE_GROUP")
