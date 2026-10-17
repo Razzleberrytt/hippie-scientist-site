@@ -130,6 +130,18 @@ class MobileDeliveryGuardTests(unittest.TestCase):
         validate_report_target(out,self.source,self.mobile)
         self.assertFalse(out.exists())  # preflight never creates the report
 
+    def test_real_non_square_phone_sar_is_rejected(self):
+        # Physically encode non-square SAR: coded dimensions still 160x284,
+        # but display geometry is stretched and must never be accepted.
+        phone=self.root/'stretched_sar.mp4'
+        ff('-i',self.source,'-vf','scale=160:284,setsar=2/1',
+           '-c:v','libx264','-profile:v','baseline','-level:v','3.1',
+           '-pix_fmt','yuv420p','-crf','16',
+           '-c:a','aac','-b:a','160k','-ar','48000','-ac','2',
+           '-movflags','+faststart',phone)
+        with self.assertRaisesRegex(Hold,'NON_SQUARE_SAMPLE_ASPECT_RATIO'):
+            self.run_pair(phone=phone,visual=False)
+
     def test_source_hash_tamper_rejected(self):
         with self.assertRaisesRegex(Hold,'FILM_SHA256_DOES_NOT_MATCH_PIN'):
             self.run_pair(source_hash='0'*64)
