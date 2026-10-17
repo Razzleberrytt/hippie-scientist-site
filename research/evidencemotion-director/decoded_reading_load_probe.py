@@ -15,6 +15,7 @@ from pathlib import Path
 
 SCHEMA = "ths-em034-decoded-reading-negative-screen-v1"
 MAX_SAMPLE_WORDS = 12  # Uncalibrated conservative triage cap, never an approval.
+MAX_PRIOR_RECEIPT_BYTES = 1_000_000
 
 
 def hold(reason):
@@ -119,14 +120,46 @@ def words(text):
     return re.findall(r"[a-z0-9]+(?:-[a-z0-9]+)*", text.casefold())
 
 
+
+def clear_owned_previous_receipt(out):
+    """Invalidate only an existing receipt owned by this exact research screen.
+
+    A caller's output path may exist for another purpose: do not unlink it
+    merely to solve the stale-success problem. A corrupted/forged receipt is
+    an explicit HOLD, not permission to delete a user's unrelated artifact.
+    """
+    if out.is_symlink():
+        hold("OUTPUT_SYMLINK_NOT_ALLOWED")
+    if not out.exists():
+        return
+    if not out.is_file() or out.stat().st_size > MAX_PRIOR_RECEIPT_BYTES:
+        hold("EXISTING_OUTPUT_NOT_OWNED_RECEIPT")
+    try:
+        old = unique_json(out)
+    except (OSError, ValueError):
+        hold("EXISTING_OUTPUT_NOT_OWNED_RECEIPT")
+    if (not isinstance(old, dict) or old.get("schema") != SCHEMA
+        or old.get("status") != "SAMPLED_NEGATIVE_SCREEN_NO_HOLD_REVIEW_REQUIRED"
+        or old.get("mayPublish") is not False
+        or not isinstance(old.get("filmSha256"), str)
+        or not re.fullmatch(r"[0-9a-f]{64}", old["filmSha256"])
+        or not isinstance(old.get("manifestSha256"), str)
+        or not re.fullmatch(r"[0-9a-f]{64}", old["manifestSha256"])):
+        hold("EXISTING_OUTPUT_NOT_OWNED_RECEIPT")
+    out.unlink()
+
+
 def inspect(movie, manifest, out):
     movie, manifest, out = Path(movie), Path(manifest), Path(out)
     if (out.resolve() in (movie.resolve(), manifest.resolve()) or out.is_symlink()):
         hold("OUTPUT_ALIASES_SOURCE")
-    # An earlier positive research receipt must not survive a new HOLD.
-    # Source/output aliases are rejected before any deletion.
-    out.unlink(missing_ok=True)
+    # An earlier positive receipt must not survive a new HOLD, but never
+    # delete a pre-existing file unless it is an owned prior receipt.
+    clear_owned_previous_receipt(out)
+    manifest_sha = digest(manifest)
     data = unique_json(manifest)
+    if not isinstance(data, dict) or digest(manifest) != manifest_sha:
+        hold("INVALID_OR_CHANGED_RESEARCH_MANIFEST")
     movie_sha = digest(movie)
     if (not isinstance(data.get("filmSha256"), str)
         or not re.fullmatch(r"[0-9a-f]{64}", data["filmSha256"])
@@ -166,8 +199,12 @@ def inspect(movie, manifest, out):
                                      "observedWords":observed,
                                      "sampleVisibleWordCount":len(observed),
                                      "requiredTokensObserved":True})
+    # Catch a moving source between intake hash and physical decode: a hash
+    # bound only at intake would otherwise certify pixels from altered bytes.
+    if digest(movie) != movie_sha or digest(manifest) != manifest_sha:
+        hold("ENCODED_INPUT_CHANGED_DURING_AUDIT")
     receipt = {"schema":SCHEMA, "status":"SAMPLED_NEGATIVE_SCREEN_NO_HOLD_REVIEW_REQUIRED",
-               "filmSha256":movie_sha, "manifestSha256":digest(manifest),
+               "filmSha256":movie_sha, "manifestSha256":manifest_sha,
                "nativeDecodedFrames":frames, "observations":observations,
                "physicalCropsChecked":len(observations),
                "maximumSampleWords":MAX_SAMPLE_WORDS,
