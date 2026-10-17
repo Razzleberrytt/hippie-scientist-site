@@ -157,10 +157,25 @@ def audit(before,after,sha_before,sha_after,*,source_size=(1080,1920),mobile_siz
     img=video_psnr(before,after,n0)
     return {'schema':'ths-lane4-mobile-delivery-reencode-research-v1', 'sourceSha256':sha_before,'mobileSha256':sha_after,'framesChecked':n0,'fps':30,'sourceSize':list(source_size),'mobileSize':list(mobile_size),'h264TargetProfile':v1.get('profile'),'mobileAACSampleRateHz':int(a1['sample_rate']),'declaredCompatibilityScope':'H264_MAIN_OR_BASELINE_L31_YUV420P_AAC_LC_44K1_OR_48K_RESEARCH','mobileMoovBeforeMdat':True,'presentationTimestampsMatch':True,'decodedAudioComparison':sound,'decodedVisualComparison':img,'status':'REENCODE_COMPATIBILITY_RESEARCH_SCREEN_PASS','realIPhonePlaybackVerified':False,'captionOCRVerified':False,'scienceOrSourceReviewApproved':False,'fontReadabilityApproved':False,'independentPerceptualApproved':False,'mayPublish':False}
 
+def validate_report_target(out, source, phone):
+    """Never replace either original input through a report path alias.
+
+    Both symlink-resolved paths and existing hard-link inode aliases are
+    checked BEFORE reading / decoding any input or opening the output.
+    """
+    target=Path(out)
+    for raw in (source,phone):
+        video=Path(raw)
+        if (target.resolve()==video.resolve()
+                or (target.exists() and video.exists() and target.samefile(video))):
+            raise Hold('REPORT_OUTPUT_ALIASES_SOURCE_MEDIA')
+
+
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--source',type=Path,required=True);p.add_argument('--phone',type=Path,required=True);p.add_argument('--source-sha',required=True);p.add_argument('--phone-sha',required=True);p.add_argument('--out',type=Path,required=True)
     args=p.parse_args()
     try:
+        validate_report_target(args.out,args.source,args.phone)
         obj=audit(args.source,args.phone,args.source_sha,args.phone_sha)
         args.out.write_text(json.dumps(obj,indent=2)+'\n');print(json.dumps({'status':obj['status'],'publish':False,'frames':obj['framesChecked']}))
     except Hold as exc:print('PHONE_DELIVERY_HOLD:'+str(exc),file=sys.stderr);sys.exit(1)
