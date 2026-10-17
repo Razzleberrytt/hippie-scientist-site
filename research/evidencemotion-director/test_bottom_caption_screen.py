@@ -1,7 +1,8 @@
 """Lane4 negative controls for actual decoded bottom zone video proof."""
 import hashlib,subprocess,tempfile,unittest
 from pathlib import Path
-import numpy as np
+from unittest.mock import patch
+import bottom_caption_screen as guard
 from bottom_caption_screen import measure_bright_ink,check_frames,run_movie,source_sha,BRIGHT_THRESHOLDS
 
 H='e'*64
@@ -9,16 +10,31 @@ H='e'*64
 def frame(i, n=8, bright=0):
     return {'index':i,'thresholds':{str(t):bright for t in BRIGHT_THRESHOLDS}}
 
+def paint_rect(y1,y2,x1,x2,color):
+    data=bytearray(160*800*3)
+    pixels=bytes(color)*(x2-x1)
+    for y in range(y1,y2):
+        start=(y*800+x1)*3
+        data[start:start+len(pixels)]=pixels
+    return data
+
 class BottomCaptionScreenTests(unittest.TestCase):
     def test_bright_caption_inside_crop_holds(self):
-        arr=np.zeros((160,800,3),np.uint8);arr[25:58,110:570]=[245,242,233]
+        arr=paint_rect(25,58,110,570,(245,242,233))
         result=measure_bright_ink(arr)
         self.assertTrue(result['flagged']);self.assertEqual(result['nativeBBox'],[250,1601,709,1633])
     def test_outside_colored_art_not_confused_with_pale_caption(self):
-        arr=np.zeros((160,800,3),np.uint8);arr[25:58,110:570]=[10,230,245]
+        arr=paint_rect(25,58,110,570,(10,230,245))
         self.assertFalse(measure_bright_ink(arr)['flagged'])
+    def test_no_numpy_fallback_agrees_with_numpy_accelerated_path_if_available(self):
+        raw=paint_rect(25,58,110,570,(245,242,233))
+        normal=measure_bright_ink(raw)
+        with patch.object(guard,"np",None):
+            fallback=guard.measure_bright_ink(raw)
+        self.assertEqual(normal,fallback)
+
     def test_single_pixel_is_not_fake_large_caption(self):
-        arr=np.zeros((160,800,3),np.uint8);arr[25,110]=[245,245,245]
+        arr=paint_rect(25,26,110,111,(245,245,245))
         r=measure_bright_ink(arr);self.assertEqual(r['count'],1);self.assertFalse(r['flagged'])
     def test_no_ink_cannot_certify_publish(self):
         receipt=check_frames([frame(i) for i in range(8)],expected_frames=8,expected_movie_sha=H)
