@@ -351,10 +351,9 @@ def screen_original_no_reaction_caption(folder, gate, packet):
             hold("AMBIGUOUS_CAPTION_INDEPENDENT_OCR_NOT_AVAILABLE:"+
                  type(error).__name__)
         observations["psm"+str(mode)]=process.stdout
+    saved=strict_json((Path(folder)/"REVIEW-SAMPLES-RESEARCH-ONLY.json").read_bytes())
     return original_no_reaction_ocr_verdict(
-        packet["eightClaimsToReview"] and
-        strict_json((Path(folder)/"REVIEW-SAMPLES-RESEARCH-ONLY.json").read_bytes())[
-            "originalClaimFrameStills"][0], observations)
+        saved["originalClaimFrameStills"][0],observations)
 
 
 
