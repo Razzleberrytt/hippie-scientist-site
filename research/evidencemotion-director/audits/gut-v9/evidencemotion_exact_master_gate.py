@@ -38,6 +38,8 @@ def sha256(path):
 
 
 def parse_srt(text):
+    if not isinstance(text,str) or not text.strip():
+        raise ValueError('Empty SRT captions')
     cues=[]
     ts=re.compile(r'(\d\d):(\d\d):(\d\d)[,.](\d\d\d)')
     def seconds(m):
@@ -46,12 +48,14 @@ def parse_srt(text):
     for chunk in re.split(r'\r?\n\s*\r?\n', text.strip()):
         lines=chunk.splitlines()
         timing=next((line for line in lines if '-->' in line),None)
-        if not timing: continue
+        if not timing: raise ValueError('Untimed SRT cue block')
         l,r=(x.strip() for x in timing.split('-->',1))
         a,b=ts.fullmatch(l),ts.fullmatch(r)
         if not a or not b: raise ValueError('Malformed SRT timing: '+timing)
         idx=lines.index(timing)
-        cues.append({'start':seconds(a),'end':seconds(b),'text':' '.join(lines[idx+1:]).strip()})
+        caption=' '.join(lines[idx+1:]).strip()
+        if not caption: raise ValueError('Blank SRT caption text')
+        cues.append({'start':seconds(a),'end':seconds(b),'text':caption})
     return cues
 
 
