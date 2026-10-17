@@ -27,6 +27,8 @@ on:
       - 'research/evidencemotion-director/test_caption_multiwindow_repair_guard.py'
       - 'research/evidencemotion-director/finished_master_caption_intake.py'
       - 'research/evidencemotion-director/test_finished_master_caption_intake.py'
+      - 'research/evidencemotion-director/finished_dual_delivery_guard.py'
+      - 'research/evidencemotion-director/test_finished_dual_delivery_guard.py'
       - 'research/evidencemotion-director/exact_film_research_join.py'
       - 'research/evidencemotion-director/test_exact_film_research_join.py'
       - 'research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md'
@@ -127,6 +129,11 @@ jobs:
           set -euo pipefail
           python3 -m py_compile research/evidencemotion-director/finished_master_caption_intake.py
           python3 -m unittest discover -s research/evidencemotion-director -p 'test_finished_master_caption_intake.py' -v
+      - name: Physically reject mismatched full/phone delivery and missing current QA (research HOLD)
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/finished_dual_delivery_guard.py
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_finished_dual_delivery_guard.py' -v
       - name: Ensure no production publishing privileges are implied
         run: |
           set -euo pipefail
