@@ -1,0 +1,15 @@
+{
+  "scope": "local-production-build-not-deployment-or-film-approval",
+  "sourceCommit": "071cf4c128b02c42835fecd28b3082cebcea47b2",
+  "command": "npm run build",
+  "exitCode": 0,
+  "status": "PASS",
+  "stepsCompleted": 36,
+  "seconds": 877.19,
+  "rawLocalLogSha256": "26293d31423673e2ae1c407c89348a3a5cba7d406dd25188c1d8299f774ee7f1",
+  "rawLogLocation": "system temporary directory/lane6-final-transfer-build.log",
+  "pagefindIndexedPages": 1605,
+  "mayPublish": false,
+  "filmVerified": false,
+  "workspaceBoundary": "Pre-existing untracked generated profiles preserved; not a clean-checkout reproducibility claim."
+}

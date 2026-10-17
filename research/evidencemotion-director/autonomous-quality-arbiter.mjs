@@ -16,6 +16,22 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
  else{
    if(decodedVisual.decision==='AUTO_REVISE'||decodedVisual.issues?.length)
       fixes.push(...(decodedVisual.issues||['ACTUAL_VIDEO_NEGATIVE_QA_REJECTED']));
+   else if(decodedVisual.decision==='CRAFT_REVIEW_HOLD'){
+      // The producer's decoded-pixel warning is only an advisory. Carry it
+      // into the autonomous review queue without accepting craft quality.
+      // Reject a substituted/empty receipt rather than silently blessing it.
+      const windows=decodedVisual.centerHeroStasisPeripheralMotionWindowsSec;
+      const named=decodedVisual.reviewCandidates;
+      const credible=Array.isArray(named)&&
+         named.includes('CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION')&&
+         Array.isArray(windows)&&windows.length>0&&windows.every(w=>
+           w&&Number.isFinite(w.startSec)&&w.startSec>=0&&
+           Number.isFinite(w.endSec)&&w.endSec>w.startSec&&
+           Number.isInteger(w.repeatedPairCount)&&w.repeatedPairCount>=3&&
+           w.endSec-w.startSec===w.repeatedPairCount*2);
+      if(credible)needs.push('SOURCE_BOUND_CRAFT_REVIEW_FOR_STATIC_CENTER_HERO');
+      else blockers.push('VISUAL_CRAFT_HOLD_EVIDENCE_MISSING');
+   }
    else if(decodedVisual.decision!=='AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE')
       blockers.push('VISUAL_DECISION_UNRECOGNIZED');
  }

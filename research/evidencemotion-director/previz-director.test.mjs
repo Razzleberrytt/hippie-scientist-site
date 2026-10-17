@@ -2,7 +2,7 @@
 // Research-only. No production workflow executes these tests automatically.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {proposeShots,evaluatePreviz} from './previz-director.mjs';
+import {proposeShots,evaluatePreviz,auditShotRepetition} from './previz-director.mjs';
 const hex='a'.repeat(64);
 const beat={
  id:'b1',durationSec:4,spokenAnchorTimes:[0.4,1.9,3.5],
@@ -11,6 +11,9 @@ const beat={
 };
 const receipt={
  origin:'independent-full-decode',schemaVersion:'ths-director-decoded-pixels-v1',previewSha256:hex,decodedFrameCount:120,
+ candidateId:'b1:G1:1',beatId:'b1',grammarId:'G1',camera:'MACRO_PUSH',
+ originalBeatDurationSec:4,sourceClaimIds:[...beat.claimIds],
+ scientificAssetIds:[...beat.scientificAssetIds],anchorTimes:[...beat.spokenAnchorTimes],
  width:360,height:640,fps:12,roiPixels:[40,115,320,486],medianChangedFraction:0.18,medianBroadStructureChangedFraction:0.08,
  voiceTimeStretched:false,factualGeometryGenerated:false,heroAbsent:false,
  stockClipArtDetected:false,maxCaptionExcludedStaticSec:1.5,sourceLocked:true,
@@ -77,4 +80,132 @@ test('moving pixels do not establish hero motion',()=>{
  const result=evaluatePreviz(candidate,{...receipt,medianChangedFraction:0.2,medianBroadStructureChangedFraction:0});
  assert.equal(result.status,'HOLD');
  assert.ok(result.reasons.includes('HERO_STATIC_CONCEPT_REVIEW_HOLD'));
+});
+
+test('missing claim or asset lineage cannot produce a preview proposal',()=>{
+  assert.equal(proposeShots({...beat,claimIds:[]}).status,'HOLD');
+  assert.equal(proposeShots({...beat,scientificAssetIds:[]}).status,'HOLD');
+  assert.equal(proposeShots({...beat,scientificAssetIds:['asset','asset']}).status,'HOLD');
+});
+
+test('receipt cannot be recycled for another independently authored treatment',()=>{
+  const candidates=proposeShots(beat).candidates;
+  const result=evaluatePreviz(candidates[1],receipt);
+  assert.equal(result.status,'HOLD');
+  assert.ok(result.reasons.includes('SHOT_REVIEW_SOURCE_OR_TIMING_IDENTITY_MISMATCH'));
+  assert.equal(result.excellentCertified,false);
+});
+
+test('shot/source/camera/voice-anchor swaps hold despite otherwise plausible decoded motion',()=>{
+  const candidate=proposeShots(beat).candidates[0];
+  const faults=[
+    {candidateId:'unrelated-shot'},
+    {beatId:'unrelated-beat'},
+    {grammarId:'G5'},
+    {camera:'ORBIT_REVEAL'},
+    {originalBeatDurationSec:4.1},
+    {sourceClaimIds:['pmid:987654']},
+    {sourceClaimIds:[]},
+    {scientificAssetIds:['another-molecule']},
+    {scientificAssetIds:[]},
+    {anchorTimes:[.4,1.9,3.4]},
+    {anchorTimes:[]}
+  ];
+  for(const fault of faults){
+    const result=evaluatePreviz(candidate,{...receipt,...fault});
+    assert.equal(result.status,'HOLD',JSON.stringify(fault));
+    assert.ok(result.reasons.includes('SHOT_REVIEW_SOURCE_OR_TIMING_IDENTITY_MISMATCH'),
+      JSON.stringify(fault));
+    assert.equal(result.mayRenderFinal,false);
+    assert.equal(result.excellentCertified,false);
+  }
+});
+
+test('missing shot linkage is held even with green synthetic pixel measurements',()=>{
+  const candidate=proposeShots(beat).candidates[0];
+  const {candidateId: _candidateId,...unbound}=receipt;
+  const result=evaluatePreviz(candidate,unbound);
+  assert.equal(result.status,'HOLD');
+  assert.ok(result.reasons.includes('SHOT_REVIEW_SOURCE_OR_TIMING_IDENTITY_MISMATCH'));
+});
+
+test('valid source-bound metadata still requires independent perceptual evaluation',()=>{
+  const candidate=proposeShots(beat).candidates[0];
+  const result=evaluatePreviz(candidate,receipt);
+  assert.equal(result.status,'PERCEPTUAL_REVIEW_REQUIRED');
+  assert.equal(result.mayRenderFinal,false);
+  assert.equal(result.excellentCertified,false);
+});
+
+const stagedShot=(i,override={})=>({
+  beatId:'shot-'+i,grammarId:'G5',startSec:2*i,endSec:2*(i+1),
+  scientificAssetIds:['molecule:verified'],primaryCamera:i%2?'LOCKED_HOLD':'FOCUS_TRANSFER',
+  transition:i%2?'HARD_CUT':'OCCLUSION_REVEAL',
+  viewerLearns:'Different sentence phrasing for the same source',
+  ...override
+});
+
+test('three identical-source grammar shots require creative redirection despite camera variation',()=>{
+  const r=auditShotRepetition([stagedShot(0),stagedShot(1),stagedShot(2)]);
+  assert.equal(r.status,'CRAFT_REDIRECTION_REQUIRED');
+  assert.equal(r.craftRemediationRequired,true);
+  assert.deepEqual(r.findings[0],{
+    reason:'THREE_PLUS_REPEATED_GRAMMAR_AND_SOURCE_SHOTS',
+    firstBeatId:'shot-0',lastBeatId:'shot-2',consecutiveCount:3,
+    grammarId:'G5',scientificAssetIds:['molecule:verified']
+  });
+  assert.equal(r.excellentCertified,false);
+  assert.equal(r.mayPublish,false);
+});
+
+test('extra caption, transition, palette and varying spoken text do not launder template repetition',()=>{
+  const x=[stagedShot(0),stagedShot(1,{transition:'SPATIAL_CONTINUITY',palette:'blue'}),
+    stagedShot(2,{viewerLearns:'Entirely different caption',palette:'red'})];
+  assert.equal(auditShotRepetition(x).findings.length,1);
+});
+
+test('repetition counts are deduplicated by maximal adjacent run rather than overlapping windows',()=>{
+  const r=auditShotRepetition(Array.from({length:5},(_,i)=>stagedShot(i)));
+  assert.equal(r.findings.length,1);
+  assert.equal(r.findings[0].consecutiveCount,5);
+});
+
+test('a semantically distinct grammar breaks a repetitive source window but never certifies artistry',()=>{
+  const r=auditShotRepetition([stagedShot(0),stagedShot(1,{grammarId:'G3'}),stagedShot(2)]);
+  assert.equal(r.status,'SEQUENCE_REVIEW_REQUIRED');
+  assert.equal(r.craftRemediationRequired,false);
+  assert.equal(r.excellentCertified,false);
+});
+
+test('an actual different asset breaks the repeated-source pattern; reordering does not',()=>{
+  const r1=auditShotRepetition([stagedShot(0),stagedShot(1,{scientificAssetIds:['different:verified']}),stagedShot(2)]);
+  assert.equal(r1.findings.length,0);
+  const r2=auditShotRepetition([stagedShot(0,{scientificAssetIds:['a','b']}),
+    stagedShot(1,{scientificAssetIds:['b','a']}),stagedShot(2,{scientificAssetIds:['a','b']})]);
+  assert.equal(r2.findings.length,1);
+});
+
+test('missing, duplicated or malformed film-scene inputs fail closed',()=>{
+  const cases=[
+    [],[stagedShot(0)],
+    [stagedShot(0),stagedShot(0)],
+    [stagedShot(0),stagedShot(1,{scientificAssetIds:[]})],
+    [stagedShot(0),stagedShot(1,{scientificAssetIds:['x','x']})],
+    [stagedShot(0),stagedShot(1,{grammarId:'G999'})],
+    [stagedShot(0),stagedShot(1,{endSec:1})]
+  ];
+  for(const sequence of cases){
+    const r=auditShotRepetition(sequence);
+    assert.equal(r.status,'HOLD');
+    assert.equal(r.craftRemediationRequired,true);
+    assert.equal(r.excellentCertified,false);
+  }
+});
+
+
+test('whitespace aliases cannot hide repeated scientific assets',()=>{
+  const r=auditShotRepetition([stagedShot(0,{scientificAssetIds:['asset']}),
+    stagedShot(1,{scientificAssetIds:[' asset']}),stagedShot(2,{scientificAssetIds:['asset ']})]);
+  assert.equal(r.status,'HOLD');
+  assert.equal(r.craftRemediationRequired,true);
 });

@@ -1,0 +1,93 @@
+{
+  "scope": "access-only-Linux-media-runtime-followup-not-actual-film-or-approval",
+  "sourceReceipt": "current-source-integration-20261017.json",
+  "combinedTree": "785fa8a27b2da7d56306ec3f704adeafbd780833",
+  "snapshot": "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo",
+  "steps": [
+    {
+      "lane": "lane1",
+      "head": "ed172d6f5ba3554c3be415789243db21e317d203",
+      "mergeTreeExitCode": 0,
+      "tree": "09f6883e27ceef0c347117c8295b8d07718d83ca"
+    },
+    {
+      "lane": "lane2",
+      "head": "4d1468adc77f3440346ac3c7289f406f7a8d2ad7",
+      "mergeTreeExitCode": 0,
+      "tree": "4a5e0c8a33714acb1373ee0c2106f7476d387ae2"
+    },
+    {
+      "lane": "lane3",
+      "head": "16580d70575505680951d881d73ba1ad19513062",
+      "mergeTreeExitCode": 0,
+      "tree": "9354503cbdb8ff8870a82318dfd6b442cd580729"
+    },
+    {
+      "lane": "lane4",
+      "head": "cb5bb5dd45364fe60a370f00d13434054491992a",
+      "mergeTreeExitCode": 0,
+      "tree": "ecb45cfe8a9329945e3b94823f392f9eb5ce80f3"
+    },
+    {
+      "lane": "lane5",
+      "head": "fcafcd50f7bd32dec35d003c77f99decd8c369b4",
+      "mergeTreeExitCode": 0,
+      "tree": "56dced47ce51fe5785fedbcc56d9f8c847d2e16b"
+    },
+    {
+      "lane": "lane6",
+      "head": "9ea973e2406585db3f0d6db298bbddfc8b19f5ef",
+      "mergeTreeExitCode": 0,
+      "tree": "785fa8a27b2da7d56306ec3f704adeafbd780833"
+    }
+  ],
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-current-integration-1a2s3keo/research/evidencemotion-director",
+    "--exec",
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "test_native_stdin_capture_guard.Tests.test_downloaded_media_rejects_real_short_aac_attached_to_full_video",
+    "test_native_stdin_capture_guard.Tests.test_downloaded_native_media_real_codec_fixture",
+    "test_native_stdin_capture_guard.Tests.test_downloaded_native_media_rejects_removed_or_faked_encoder_control",
+    "test_native_stdin_capture_guard.Tests.test_downloaded_native_media_rejects_truncated_actual_encoded_movie",
+    "test_native_stdin_capture_guard.Tests.test_original_media_executables_ignore_path_shadow",
+    "test_native_stdin_capture_guard.Tests.test_original_receiver_refuses_encoder_proof_changed_during_decode",
+    "test_native_stdin_capture_guard.Tests.test_original_receiver_refuses_movie_replaced_during_actual_decode",
+    "test_native_stdin_capture_guard.Tests.test_original_receiver_requires_physically_pinned_film_on_cli_path"
+  ],
+  "exitCode": 0,
+  "seconds": 1.414,
+  "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-linux-media-eight-tests.log",
+  "logSha256": "c4cded5454c2afdb854735e59bd0076e7ff94c8cfdcf860471ae45ca94796701",
+  "output": "test_downloaded_media_rejects_real_short_aac_attached_to_full_video (test_native_stdin_capture_guard.Tests.test_downloaded_media_rejects_real_short_aac_attached_to_full_video) ... ok\ntest_downloaded_native_media_real_codec_fixture (test_native_stdin_capture_guard.Tests.test_downloaded_native_media_real_codec_fixture) ... ok\ntest_downloaded_native_media_rejects_removed_or_faked_encoder_control (test_native_stdin_capture_guard.Tests.test_downloaded_native_media_rejects_removed_or_faked_encoder_control) ... ok\ntest_downloaded_native_media_rejects_truncated_actual_encoded_movie (test_native_stdin_capture_guard.Tests.test_downloaded_native_media_rejects_truncated_actual_encoded_movie) ... ok\ntest_original_media_executables_ignore_path_shadow (test_native_stdin_capture_guard.Tests.test_original_media_executables_ignore_path_shadow)\nThe file hashed as encoder must actually be the binary executed. ... ok\ntest_original_receiver_refuses_encoder_proof_changed_during_decode (test_native_stdin_capture_guard.Tests.test_original_receiver_refuses_encoder_proof_changed_during_decode) ... ok\ntest_original_receiver_refuses_movie_replaced_during_actual_decode (test_native_stdin_capture_guard.Tests.test_original_receiver_refuses_movie_replaced_during_actual_decode) ... ok\ntest_original_receiver_requires_physically_pinned_film_on_cli_path (test_native_stdin_capture_guard.Tests.test_original_receiver_requires_physically_pinned_film_on_cli_path) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 1.257s\n\nOK\n",
+  "installation": {
+    "command": "apt-get update && apt-get install --no-install-recommends -y ffmpeg",
+    "exitCode": 0,
+    "environment": "WSL Ubuntu; repository source unchanged",
+    "installLog": "/tmp/lane6-ffmpeg-install.log no longer available after process completion; package/binary versions independently verified"
+  },
+  "runtime": {
+    "python": "3.12.3",
+    "ffmpegPackage": "7:6.1.1-3ubuntu5",
+    "ffmpegSha256": "ed16af623947494a72e284b6eb8ff225f2da22b38b5d5069c2fd4b4ba3384e41",
+    "ffprobeSha256": "272f6ebc634a63d9c8b4ca68e964119d980f25154e5aa2c35e5487da48e9a58f"
+  },
+  "mayPublish": false,
+  "newAtomicCards": 0,
+  "result": {
+    "testsRun": 8,
+    "passed": 8,
+    "errors": 0,
+    "failures": 0,
+    "skips": 0,
+    "exitCode": 0
+  },
+  "boundary": "These are tiny synthetic actual-codec fixtures, not original or latest revised-film acceptance. Previous Windows aggregate remains exit1; no all-suite green claim. Lane3 Windows canonical receipt error and original-media skips remain unresolved. No production build rerun: access-only runtime validation and documentation, no repository behavior change."
+}

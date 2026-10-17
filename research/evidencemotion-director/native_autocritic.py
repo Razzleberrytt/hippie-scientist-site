@@ -19,7 +19,14 @@ SAMPLE_STEP_SECONDS = 2
 FRAME_W, FRAME_H = 180, 320
 EDGE_MATCH_LIMIT = 0.95
 HIGH_REPETITION_FRAC = 0.45
+MIN_SUSTAINED_REPEATED_PAIRS = 3  # 3 * 2s = 6s, even if global fraction stays below .45
 MIN_VISIBLE_SUBJECT_STD = 4.5
+# Separate the teaching subject from decorative motion INSIDE the broad body.
+# These fixed coordinates are a provisional negative-screen for centered hero
+# art, not a universal composition requirement (off-center stages may be valid).
+CENTER_HERO_BOX = (58, 86, 122, 190)  # x0,y0,x1,y1 at 180x320
+CENTER_HERO_MATCH_LIMIT = 0.985
+MIN_MASKED_HERO_REPEAT_PAIRS = 3  # 6s at the existing 2s cadence
 MIN_SEC, MAX_SEC = 12, 90
 
 
@@ -48,25 +55,59 @@ def review_decoded_samples(samples):
     frames = np.asarray(samples, dtype=np.uint8)
     if frames.ndim != 3 or frames.shape[1:] != (FRAME_H, FRAME_W) or len(frames) < 4:
         raise ValueError("ACTUAL_DECODED_SAMPLES_REQUIRED")
-    vectors, visible_stds = [], []
+    vectors, visible_stds, center_vectors, center_stds = [], [], [], []
     for arr in frames:
         subject = arr[33:226, 6:174]
         visible_stds.append(float(subject.std()))
+        x0, y0, x1, y1 = CENTER_HERO_BOX
+        center_stds.append(float(arr[y0:y1, x0:x1].std()))
         edge = np.asarray(Image.fromarray(arr).filter(ImageFilter.FIND_EDGES)).copy()
         edge[:33, :] = 0
         edge[226:, :] = 0
         edge[:, :5] = 0
         edge[:, 175:] = 0
         vectors.append(edge.reshape(32, 10, 18, 10).mean(axis=(1, 3)).ravel().astype(np.float64))
+        # 104x64 -> 13x8 bins of 8x8 pixels. Core motion is measured
+        # separately so moving peripheral lines cannot certify hero progress.
+        core = edge[y0:y1, x0:x1]
+        center_vectors.append(core.reshape(13, 8, 8, 8).mean(axis=(1, 3)).ravel().astype(np.float64))
     similarities = [similarity(a, b) for a, b in zip(vectors, vectors[1:])]
     repeated = [i for i, sim in enumerate(similarities) if sim > EDGE_MATCH_LIMIT]
     repetition_fraction = len(repeated) / len(similarities)
+    # A long local visual plateau is unacceptable even when fast cuts elsewhere
+    # dilute the whole-film repeat fraction. Preserve contiguous pair windows.
+    def consecutive_runs(indices):
+        result, current = [], []
+        for i in indices:
+            if current and i != current[-1] + 1:
+                result.append(current)
+                current = []
+            current.append(i)
+        if current:
+            result.append(current)
+        return result
+
+    runs = consecutive_runs(repeated)
+    sustained = [run for run in runs if len(run) >= MIN_SUSTAINED_REPEATED_PAIRS]
+    center_matches = [similarity(a, b) for a, b in zip(center_vectors, center_vectors[1:])]
+    masked_core_pairs = [
+        i for i, (broad, core) in enumerate(zip(similarities, center_matches))
+        if broad <= EDGE_MATCH_LIMIT and core >= CENTER_HERO_MATCH_LIMIT
+        and min(center_stds[i], center_stds[i + 1]) >= MIN_VISIBLE_SUBJECT_STD
+    ]
+    # Advisory, not an automatic artistic veto: a deliberately held source
+    # card or a focal subject located elsewhere can be good direction.
+    masked_core_runs = [run for run in consecutive_runs(masked_core_pairs)
+                        if len(run) >= MIN_MASKED_HERO_REPEAT_PAIRS]
+    longest_run_sec = max((len(run) for run in runs), default=0) * SAMPLE_STEP_SECONDS
     empty_subject = float(np.median(visible_stds)) < MIN_VISIBLE_SUBJECT_STD
     issues = []
     if empty_subject:
         issues.append("MISSING_RECOGNIZABLE_SUBJECT_OR_NEAR_BLANK_CENTRAL_STAGE")
     if repetition_fraction >= HIGH_REPETITION_FRAC:
         issues.append("REPETITIVE_SOURCE_LAYOUT_REQUIRES_ART_DIRECTION_REPAIR")
+    if sustained:
+        issues.append("SUSTAINED_REPEATED_SOURCE_LAYOUT_REQUIRES_ART_DIRECTION_REPAIR")
     return {
         "samples": len(frames),
         "sampleEverySeconds": SAMPLE_STEP_SECONDS,
@@ -75,6 +116,23 @@ def review_decoded_samples(samples):
         "medianSubjectLayoutSimilarity": round(float(np.median(similarities)), 4),
         "medianSubjectGrayscaleStd": round(float(np.median(visible_stds)), 3),
         "layoutRepetitionThreshold": HIGH_REPETITION_FRAC,
+        "longestRepeatedLayoutRunSec": longest_run_sec,
+        "sustainedLayoutThresholdSec": MIN_SUSTAINED_REPEATED_PAIRS * SAMPLE_STEP_SECONDS,
+        "sustainedRepeatWindowsSec": [
+            {"startSec": run[0] * SAMPLE_STEP_SECONDS,
+             "endSec": (run[-1] + 1) * SAMPLE_STEP_SECONDS,
+             "repeatedPairCount": len(run)} for run in sustained
+        ],
+        "centerHeroProbeBoxPixels": list(CENTER_HERO_BOX),
+        "centerHeroStasisPeripheralMotionWindowsSec": [
+            {"startSec": run[0] * SAMPLE_STEP_SECONDS,
+             "endSec": (run[-1] + 1) * SAMPLE_STEP_SECONDS,
+             "repeatedPairCount": len(run)} for run in masked_core_runs
+        ],
+        "reviewCandidates": (
+            ["CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION"]
+            if masked_core_runs else []),
+        "centerHeroScope": "A centered-hero 2s-sampled negative advisory; intentional holds and off-center subjects require separate source-bound craft reasoning. Never a quality PASS.",
         "issues": issues,
         "critiqueScope": "AUTONOMOUS_ACTUAL_PIXELS_NEGATIVE_SCREENING_NOT_HUMAN_QUALITY",
     }
@@ -121,7 +179,9 @@ def analyze_video(path, expected_sha=None):
         "actualVideoSha256": source_sha,
         "actualDurationSeconds": round(duration, 5),
         "actualSourceResolution": [int(v["width"]), int(v["height"])],
-        "decision": "AUTO_REVISE" if result["issues"] else "AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE",
+        "decision": ("AUTO_REVISE" if result["issues"]
+                     else "CRAFT_REVIEW_HOLD" if result["reviewCandidates"]
+                     else "AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE"),
         "negativeFindingsDoNotRequireOwnerVerdict": True,
         "automaticallyApprovedScientificClaims": False,
         "automaticallyApprovedNaturalVoice": False,
