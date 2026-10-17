@@ -36,6 +36,8 @@ on:
       - 'research/evidencemotion-director/test_research_receipt_io.py'
       - 'research/evidencemotion-director/gut_release_science_guard.py'
       - 'research/evidencemotion-director/test_gut_release_science_guard.py'
+      - 'research/evidencemotion-director/gut_followup_science_guard.py'
+      - 'research/evidencemotion-director/test_gut_followup_science_guard.py'
       - 'research/evidencemotion-director/EM00701-FROZEN-SPOKEN-LEDGER-20261016.json'
       - 'research/evidencemotion-director/encoded_science_motion_audit.py'
       - 'research/evidencemotion-director/test_encoded_science_motion_audit.py'
@@ -858,6 +860,8 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director -p test_research_cli_continuations.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_research_receipt_io.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_gut_release_science_guard.py -v
+          command -v ffmpeg && command -v ffprobe  # Physical synthetic-media regression is mandatory, never silently skipped.
+          python -m unittest discover -s research/evidencemotion-director -p test_gut_followup_science_guard.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_em00707_current_intro_semantic_guard.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_science_redteam_controls.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_claim_source_context_join.py -v
