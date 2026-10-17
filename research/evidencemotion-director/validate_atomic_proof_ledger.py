@@ -7,6 +7,7 @@ or publication. The 1,590 planning inventory remains on main.
 """
 import json
 import re
+import hashlib
 from pathlib import Path
 
 SCHEMA="ths-atomic-workcard-proof-ledger-v1"
@@ -29,7 +30,8 @@ def validate(data,source_directory):
         or data.get("noDoubleCountAsserted") is not True):
         hold("DENOMINATOR_OR_ACCEPTANCE_CONTRACT_TAMPER")
     groups=data.get("proofGroups")
-    if not isinstance(groups,list) or len(groups)!=26:
+    # Existing 26 are mandatory; allow additional individually evidenced groups.
+    if not isinstance(groups,list) or not 26<=len(groups)<=243:
         hold("EXACT_TWENTY_SIX_SOURCE_EVIDENCE_GROUPS_REQUIRED")
     sources={
         "EM-001.01":"EM00101-THREE-HOSTED-CPU-RUNS-20261016.md",
@@ -65,13 +67,59 @@ def validate(data,source_directory):
         if not isinstance(record,dict):
             hold("INVALID_PROOF_GROUP")
         group,src=record.get("group"),record.get("source")
-        if group not in sources or src!=sources[group] or group in group_keys:
+        if not isinstance(group,str) or not isinstance(src,str) or group in group_keys:
             hold("UNKNOWN_DUPLICATE_OR_MISBOUND_EVIDENCE_GROUP")
+        if group not in sources:
+            # Existing 707 provisional cards were allocated to accepted
+            # foundations. Extra machine proof for one of those parents is
+            # RECLASSIFICATION, not additive credit. Never inflate coverage.
+            checklist=source_directory/"COMPLETION-CHECKLIST.md"
+            if not checklist.is_file():
+                hold("CANONICAL_46_PARENT_CHECKLIST_REQUIRED")
+            states=[line[:5] for line in checklist.read_text(encoding="utf-8").splitlines()
+                    if line.startswith("- [x] ") or line.startswith("- [ ] ")]
+            if len(states)!=46:
+                hold("CANONICAL_46_PARENT_CHECKLIST_INCONSISTENT")
+            try:
+                parent=int(group.split(".",1)[0].split("-",1)[1])
+            except (ValueError,IndexError):
+                hold("UNKNOWN_CANONICAL_PARENT")
+            if parent<1 or parent>46:
+                hold("UNKNOWN_CANONICAL_PARENT")
+            if states[parent-1]=="- [x]":
+                hold("ACCEPTED_PARENT_REQUIRES_INHERITED_RECLASSIFICATION")
+        if group in sources:
+            if src!=sources[group]:
+                hold("UNKNOWN_DUPLICATE_OR_MISBOUND_EVIDENCE_GROUP")
+        else:
+            # Expansion requires a canonical task, a unique named evidence
+            # file, exact-byte SHA and observed first-party run/merge identity.
+            if not re.fullmatch(r"EM-\d{3}\.\d{2}",group):
+                hold("UNKNOWN_DUPLICATE_OR_MISBOUND_EVIDENCE_GROUP")
+            key=group.replace("-","").replace(".","")
+            if (not re.fullmatch(r"EM\d{5}-[A-Z0-9-]+-20\d{6}\.md",src)
+                or not src.startswith(key+"-")):
+                hold("UNPINNED_NEW_EVIDENCE_SOURCE")
         group_keys.add(group)
         p=source_directory/src
         if not p.is_file() or p.is_symlink():
             hold("MISSING_PRIMARY_PROOF_RECEIPT:"+str(src))
-        proof=p.read_text(encoding="utf-8")
+        proof_bytes=p.read_bytes()
+        proof=proof_bytes.decode("utf-8")
+        if group not in sources:
+            digest=record.get("sourceSha256")
+            if (not isinstance(digest,str) or
+                not re.fullmatch(r"[0-9a-f]{64}",digest) or
+                hashlib.sha256(proof_bytes).hexdigest()!=digest):
+                hold("NEW_EVIDENCE_SOURCE_SHA_UNVERIFIED")
+            merge=record.get("mergeCommitSha")
+            run=record.get("workflowRunId")
+            if (not isinstance(merge,str) or
+                not re.fullmatch(r"[0-9a-f]{40}",merge) or
+                type(run) is not int or run<=0 or
+                "https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/"+str(run) not in proof or
+                merge not in proof or "mayPublish=false" not in proof):
+                hold("NEW_EVIDENCE_MERGE_RUN_OR_HOLD_NOT_DOCUMENTED")
         ids=record.get("cards")
         if not isinstance(ids,list) or not ids:
             hold("NO_ACTUAL_EVIDENCE_CARD_IDS")
@@ -87,6 +135,17 @@ def validate(data,source_directory):
             permitted=("EM-034.04.","EM-034.02.") if group=="EM-034.04" else (group+".",)
             if not card.startswith(permitted):
                 hold("WRONG_PROOF_GROUP_FOR_CARD:"+card)
+            if group not in sources:
+                # Only canonical pre-existing workcards may earn new credit.
+                # Reject missing or empty plan inventory instead of trusting
+                # merely well-formed IDs or newly invented markdown proofs.
+                plan_dir=source_directory/"atomic"
+                plan_files=sorted(plan_dir.glob("0[1-5]-*.md"))
+                if len(plan_files)!=5:
+                    hold("CANONICAL_ATOMIC_INVENTORY_REQUIRED")
+                canonical="\n".join(f.read_text(encoding="utf-8") for f in plan_files)
+                if ("**"+card+"**") not in canonical:
+                    hold("NEW_CARD_NOT_IN_CANONICAL_1590_TEMPLATES:"+card)
             good=any(line.strip().startswith("|") and
                      (chr(96)+card+chr(96)) in line and
                      "VERIFIED_MACHINE_RESEARCH" in line
@@ -94,7 +153,7 @@ def validate(data,source_directory):
             if not good:
                 hold("NO_EXPLICIT_RESEARCH_PROOF_TABLE_ROW:"+card)
             cards.add(card)
-    if group_keys!=set(sources):
+    if not set(sources).issubset(group_keys):
         hold("REQUIRED_PROOF_SET_NOT_EXHAUSTIVE")
     verified=len(cards)
     coverage=707+verified
