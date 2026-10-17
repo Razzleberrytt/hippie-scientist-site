@@ -8,6 +8,8 @@ import shutil
 import subprocess
 import tempfile
 import unittest
+import wave
+import decoded_shot_variety as D
 from unittest.mock import patch
 
 from decoded_shot_variety import CraftHold, audit, validate_story, sample_frame_triplet, THUMB_W, THUMB_H, fingerprint, compare, similar
@@ -159,6 +161,87 @@ class DecodedShotVarietyTests(unittest.TestCase):
         invalid['shots'][-1]['endSec']-=1/30
         with self.assertRaisesRegex(CraftHold,'FRAME_COUNT_MISMATCH'):
             validate_story(invalid,digest=self.story['encodedH264Sha256'],frame_count=90)
+
+
+
+class OriginalSilenceSourceHoldTests(unittest.TestCase):
+    """Physical fabricated PCM fixture, NOT the real original narrator."""
+    def setUp(self):
+        self.temp=tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.path=Path(self.temp.name)/'fixture.wav'
+        a,z=D.ORIGINAL_SILENCE
+        self.frames=(b'\\x02\\x00'*a+
+                     b'\\x00\\x00'*(z-a)+
+                     b'\\x02\\x00'*(D.ORIGINAL_WAV_FRAMES-z))
+        with wave.open(str(self.path),'wb') as w:
+            w.setnchannels(1);w.setsampwidth(2);w.setframerate(24000)
+            w.writeframes(self.frames)
+        self.sha=D.file_sha256(self.path)
+        self.story={'encodedH264Sha256':'e'*64,'sourceWavSha256':self.sha,
+                    'mayPublish':False,'shots':[
+                       {'shot':f's{i}','startSec':0,'endSec':1} for i in range(8)
+                    ]+[{'shot':'source_hold','startSec':27.35,'endSec':31.25}]}
+        self.decoded={'filmSha256':'e'*64,'fullDecodedFrames':1031,
+                      'mayPublish':False,
+                      'withinShotTemporalReview':[{'shot':'source_hold',
+                        'sampleFrameNumbers':[849,879,910],
+                        'nearStaticBodyReviewCandidate':True}]}
+
+    def test_physical_pcm_silence_maps_to_director_source_hold_without_auto_edit(self):
+        with patch.object(D,'ORIGINAL_WAV_SHA256',self.sha):
+            result=D.audit_source_hold_silence(self.path,self.story,self.decoded)
+        self.assertEqual(result['silenceDurationSec'],3.44)
+        self.assertEqual(result['sourceHoldShotId'],'source_hold')
+        self.assertTrue(result['visualSamplesDuringSilence'])
+        self.assertTrue(result['nearStaticBodyDuringSourceHold'])
+        self.assertGreater(result['sourceHoldSilenceFraction'],.88)
+        self.assertEqual(result['status'],'ORIGINAL_SOURCE_HOLD_DIRECTOR_AUDITION_REQUIRED')
+        for name in ('humanPacingApproved','automaticAudioTrimAllowed',
+                     'automaticCaptionShiftAllowed','excellentCertified','mayPublish'):
+            self.assertIs(result[name],False)
+
+    def test_same_pcm_nonstatic_card_still_needs_human_review(self):
+        self.decoded['withinShotTemporalReview'][0]['nearStaticBodyReviewCandidate']=False
+        with patch.object(D,'ORIGINAL_WAV_SHA256',self.sha):
+            result=D.audit_source_hold_silence(self.path,self.story,self.decoded)
+        self.assertFalse(result['nearStaticBodyDuringSourceHold'])
+        self.assertFalse(result['humanPacingApproved'])
+        self.assertFalse(result['mayPublish'])
+
+    def test_source_honesty_and_shot_boundary_tampering_fail_closed(self):
+        for kind in ('changed_wav','wrong_source','missing_source_hold','shift_shot',
+                     'wrong_movie','no_pixels','fabricated_release'):
+            story=copy.deepcopy(self.story)
+            decoded=copy.deepcopy(self.decoded)
+            wav=self.path
+            if kind=='changed_wav':
+                wav=Path(self.temp.name)/'changed.wav'
+                wav.write_bytes(self.path.read_bytes()+b'TAMPER')
+            if kind=='wrong_source':story['sourceWavSha256']='f'*64
+            if kind=='missing_source_hold':story['shots'][-1]['shot']='not-a-hold'
+            if kind=='shift_shot':story['shots'][-1]['startSec']=27.60
+            if kind=='wrong_movie':decoded['filmSha256']='0'*64
+            if kind=='no_pixels':decoded['withinShotTemporalReview']=[]
+            if kind=='fabricated_release':story['mayPublish']=True
+            with self.subTest(kind=kind),patch.object(D,'ORIGINAL_WAV_SHA256',self.sha):
+                with self.assertRaises(D.CraftHold):
+                    D.audit_source_hold_silence(wav,story,decoded)
+
+    def test_added_speech_inside_original_zero_run_is_not_silent(self):
+        damaged=bytearray(self.frames)
+        sample=D.ORIGINAL_SILENCE[0]+30000
+        damaged[sample*2:sample*2+2]=b'\\x12\\x00'
+        wav=Path(self.temp.name)/'not-silent.wav'
+        with wave.open(str(wav),'wb') as w:
+            w.setnchannels(1);w.setsampwidth(2);w.setframerate(24000)
+            w.writeframes(damaged)
+        updated_sha=D.file_sha256(wav)
+        self.story['sourceWavSha256']=updated_sha
+        with patch.object(D,'ORIGINAL_WAV_SHA256',updated_sha):
+            with self.assertRaisesRegex(D.CraftHold,'SOURCE_DIGITAL_ZERO_INTERVAL_CHANGED'):
+                D.audit_source_hold_silence(wav,self.story,self.decoded)
+
 
 
 class ArchivedFilmOptIn(unittest.TestCase):
