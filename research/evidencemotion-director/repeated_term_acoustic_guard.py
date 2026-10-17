@@ -637,6 +637,44 @@ def audit_scientific_name_source_triage(source_raw, alignment_raw, asr_raw):
                 "distanceRange":round(max(values)-min(values),6),
             })
         instability=any(x["distanceRange"]>=.05 for x in ranges)
+        # Critical same-word negative control: how much would this exact
+        # distance change if we nudged the annotated start of one of the TWO
+        # standalone mitragynine utterances instead? Otherwise a compound-
+        # only boundary sweep falsely makes its variability seem suspicious.
+        control_sweeps = []
+        control_ranges = []
+        offsets = (-120,-80,-40,0,40,80,120)
+        for source_word, other_word in (("7","19"),("19","7")):
+            word_index = int(source_word)
+            end_sample = bounds[source_word][1]
+            control = []
+            for offset_ms in offsets:
+                lo = round((mfa[word_index]["startMs"]+offset_ms)*24)
+                if (lo < 0 or not 2400 <= end_sample-lo <= 120000):
+                    return refuse("SCIENTIFIC_NAMES_CONTROL_SWEEP_OUTSIDE_SOURCE")
+                piece = orig[lo:end_sample]
+                if float(np.sqrt(np.mean(piece*piece))) < .002:
+                    return refuse("SCIENTIFIC_NAMES_CONTROL_SWEEP_NO_SPEECH")
+                observed = round(distance(trajectory(piece),f[other_word]),6)
+                control.append({
+                    "sourceMfaWordIndex": word_index,
+                    "againstOtherMfaWordIndex": int(other_word),
+                    "shiftRelativeToMfaMs": offset_ms,
+                    "sourcePcmSha256": digest(pcm[2*lo:2*end_sample]),
+                    "distanceToOtherStandalone": observed,
+                    "phoneticCalibration": False,
+                })
+            if (control[3]["distanceToOtherStandalone"]!=repeat
+                    or control[3]["sourcePcmSha256"]!=hashes[source_word]):
+                return refuse("SCIENTIFIC_NAMES_STANDALONE_CONTROL_BASELINE_DISAGREES")
+            scores=[v["distanceToOtherStandalone"] for v in control]
+            control_ranges.append({
+                "movingMfaWordIndex":word_index,
+                "fixedMfaWordIndex":int(other_word),
+                "minimumDistance":min(scores),"maximumDistance":max(scores),
+                "distanceRange":round(max(scores)-min(scores),6),
+            })
+            control_sweeps.append(control)
         norm=lambda s:re.sub(r"[^a-z0-9]","",s.lower())
         for position, asr_position, script in expected:
             item=mfa[position]
@@ -665,6 +703,11 @@ def audit_scientific_name_source_triage(source_raw, alignment_raw, asr_raw):
             "forcedTailStartBoundarySweepMs":[-120,-80,-40,0,40,80,120],
             "boundarySensitivitySourceOnly":boundary_sweep,
             "boundarySensitivityDistanceRanges":ranges,
+            "sameSpokenNameControlSweeps":control_sweeps,
+            "sameSpokenNameControlRanges":control_ranges,
+            "standaloneControlsAreAuthoredLabelsNotPhoneticGold":True,
+            "compoundBoundaryInstabilityUniqueToCompound":None,
+            "relativeBoundaryScoreNotACalibratedPhoneticTest":True,
             "sensitiveToHypothesizedOnset":bool(instability),
             "singleBestDistanceCannotEstablishPhonemeIdentity":True,
             "boundarySensitivitySpeechStartCalibrationAbsent":True,

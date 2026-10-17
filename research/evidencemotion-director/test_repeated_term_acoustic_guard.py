@@ -1771,6 +1771,21 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
             self.assertGreaterEqual(r["distanceRange"],0)
             self.assertLessEqual(r["minDistance"],r["maxDistance"])
         self.assertTrue(analysis["singleBestDistanceCannotEstablishPhonemeIdentity"])
+        controls=analysis["sameSpokenNameControlSweeps"]
+        self.assertEqual(len(controls),2)
+        self.assertEqual(len(controls[0]),7)
+        self.assertEqual(len(controls[1]),7)
+        self.assertEqual([z["shiftRelativeToMfaMs"] for z in controls[0]],
+                         [-120,-80,-40,0,40,80,120])
+        self.assertEqual([z["shiftRelativeToMfaMs"] for z in controls[1]],
+                         [-120,-80,-40,0,40,80,120])
+        for z in controls:
+            self.assertEqual(z[3]["distanceToOtherStandalone"],
+                             analysis["standaloneRepeatDistance"])
+            self.assertFalse(z[3]["phoneticCalibration"])
+        self.assertEqual(len(analysis["sameSpokenNameControlRanges"]),2)
+        self.assertIsNone(analysis["compoundBoundaryInstabilityUniqueToCompound"])
+        self.assertTrue(analysis["relativeBoundaryScoreNotACalibratedPhoneticTest"])
         self.assertFalse(out["pronunciationVerified"])
         self.assertFalse(out["mayPublish"])
 
