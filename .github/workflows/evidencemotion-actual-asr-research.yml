@@ -87,6 +87,8 @@ on:
       - 'research/evidencemotion-director/test_muted_answer_recovery.py'
       - 'research/evidencemotion-director/reading_load_audit.py'
       - 'research/evidencemotion-director/test_reading_load_audit.py'
+      - 'research/evidencemotion-director/decoded_reading_load_probe.py'
+      - 'research/evidencemotion-director/test_decoded_reading_load_probe.py'
       - 'research/evidencemotion-director/actual_pixel_text_recovery.py'
       - 'research/evidencemotion-director/test_actual_pixel_text_recovery.py'
       - 'research/evidencemotion-director/test_narrated_claim_screen.py'
@@ -1156,3 +1158,20 @@ jobs:
           echo 'The actual original 7-OH WAV was pinned by SHA; no user laptop or paid inference service used.' >> "$GITHUB_STEP_SUMMARY"
           echo 'Recognized words and timestamps are an ASR estimate, NOT a verified phoneme/stress/naturalness rating.' >> "$GITHUB_STEP_SUMMARY"
           echo 'A script-match candidate cannot grant clinical, craft or publishing approval, and no 46-point checklist tick is automatic.' >> "$GITHUB_STEP_SUMMARY"
+
+  em034-sampled-encoded-reading-negative:
+    # Separate fast physical H.264/OCR regressions; never film or viewer approval.
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run actual encoded scene/crowding adversarial regressions
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg tesseract-ocr fonts-dejavu-core
+          python -m unittest discover -s research/evidencemotion-director -p test_decoded_reading_load_probe.py -v
+          python -m py_compile research/evidencemotion-director/decoded_reading_load_probe.py
