@@ -1669,6 +1669,59 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
             return original_guard.audit_revised_caption_voice_gaps(
                 audio,counts,film_sha,adts_sha)
 
+    def test_scientific_names_are_an_asr_mismatch_not_proven_wrong_speech(self):
+        # Original-free 824336-sample simulated VO carrier and 73/70 receipts:
+        # source SHA pins are synthetic, never a claim about real narrator CI.
+        source, _, _, _=self.encoded_aac_screen_fixture()
+        _, frozen_mfa, frozen_asr, _, _=self.original_suffix_scene_fixture()
+        mfa=json.loads(frozen_mfa)
+        asr=json.loads(frozen_asr)
+        mfa["inputSha256"]["wav"]=digest(source)
+        asr["sourceWavSha256"]=digest(source)
+        for idx,word in ((7,"mitragynine"),(9,"hydroxyl"),(16,"seven"),
+                         (17,"hydroxymitragynine"),(19,"mitragynine"),
+                         (28,"chemical")):
+            mfa["wordAlignment"][idx]["word"]=word
+        row=mfa["wordAlignment"][17]
+        row["phones"]=[{"phone":"M","startMs":row["startMs"]+40,
+                        "endMs":row["startMs"]+60}]
+        for idx,word in ((5," Mitrogenine?"),(15," hydroxometrogenine"),
+                         (17," Mitrogenine.")):
+            asr["recognizedWords"][idx]["word"]=word
+        fa=json.dumps(mfa).encode()
+        fb=json.dumps(asr).encode()
+        def inspect(wav,align,recognized):
+            with patch.object(original_guard,"SOURCE_WAV_REFERENCE",digest(source)), (
+                 patch.object(original_guard,"MFA_SOURCE_ALIGNMENT_SHA",digest(fa))), (
+                 patch.object(original_guard,"POSE_ASR_RECEIPT_SHA",digest(fb))):
+                return original_guard.audit_scientific_name_source_triage(
+                    wav,align,recognized)
+        report=inspect(source,fa,fb)
+        self.assertEqual(report["status"],
+            "RESEARCH_SCIENTIFIC_NAMES_ACOUSTIC_TRIAGE_HOLD",report)
+        self.assertEqual(report["nameCandidateCount"],3)
+        self.assertEqual(report["mismatchedAsrScientificNameTokens"],3)
+        self.assertEqual(len(report["spectralResearch"][
+            "embeddedTailVsUnrelatedSameNarratorControls"]),2)
+        self.assertFalse(report["pronunciationVerified"])
+        self.assertFalse(report["mayPublish"])
+        self.assertIsNone(report["reviewerVerdict"])
+        bad=inspect(source[:-2]+b"XX",fa,fb)
+        self.assertEqual(bad["status"],"HOLD")
+        self.assertIn("SCIENTIFIC_NAMES_REQUIRE_PINNED_SOURCE_MFA_ASR",
+                      bad["errors"])
+        missing=json.loads(fa)
+        del missing["wordAlignment"][17]["phones"]
+        self.assertEqual(inspect(source,json.dumps(missing).encode(),fb)[
+            "status"],"HOLD")
+        with patch.object(original_guard,"SOURCE_WAV_REFERENCE",digest(source)), (
+             patch.object(original_guard,"MFA_SOURCE_ALIGNMENT_SHA",digest(fa))), (
+             patch.object(original_guard,"POSE_ASR_RECEIPT_SHA",digest(fb))):
+            embedded=original_guard.audit_cross_model_files(
+                "/file/does/not/exist","/also/missing","/third/missing")
+            self.assertEqual(embedded["status"],"HOLD")
+
+
     def test_kind_broadband_two_window_event_is_not_phonetic_truth(self):
         source, _, _ = self.frame_native_plan_fixture()
         with wave.open(io.BytesIO(source),"rb") as w:

@@ -520,6 +520,133 @@ def audit_original_cross_model_word_timing(source_raw, alignment_raw, asr_raw):
         return fail("CROSS_MODEL_REVIEW_INPUT_PARSE_FAILED")
 
 
+def audit_scientific_name_source_triage(source_raw, alignment_raw, asr_raw):
+    """Investigate name transcription vs repeated ORIGINAL audio, no phone truth.
+
+    Frozen first-party ASR may render mitragynine as "Mitrogenine" in all
+    contexts. Spellcheck cannot determine whether source pronunciation is
+    wrong; neither a forced phoneme ledger nor repeat similarity is a gold
+    reference. This source-only negative/proxy report cannot approve release.
+    """
+    base = {"schema": SCHEMA, "mayPublish": False,
+            "pronunciationVerified": False, "phonemeIdentityVerified": False,
+            "wordTimingCalibrated": False, "captionTimingApproved": False,
+            "correctSpokenScientificNameCertified": False,
+            "narrationModified": False, "automaticVoiceCorrectionApproved": False,
+            "externalReferenceCalibrated": False}
+    def refuse(reason):
+        return {**base, "status": "HOLD", "errors": [reason]}
+    cross = audit_original_cross_model_word_timing(
+        source_raw, alignment_raw, asr_raw)
+    if cross["status"] != "RESEARCH_ORIGINAL_WORD_REVIEW_QUEUE_HOLD":
+        return refuse("SCIENTIFIC_NAMES_REQUIRE_PINNED_SOURCE_MFA_ASR")
+    try:
+        mfa = json.loads(alignment_raw)["wordAlignment"]
+        heard = json.loads(asr_raw)["recognizedWords"]
+        expected = ((7, 5, "mitragynine"), (17, 15, "hydroxymitragynine"),
+                    (19, 17, "mitragynine"))
+        if (tuple(mfa[i]["word"].lower() for i in (7,9,16,17,19,28))
+                != ("mitragynine", "hydroxyl", "seven",
+                    "hydroxymitragynine", "mitragynine", "chemical")):
+            return refuse("SCIENTIFIC_NAMES_AUTHORED_TERM_ANCHORS_CHANGED")
+        phones = mfa[17]["phones"]
+        # This is a forced-alignment segmentation hypothesis, NOT an
+        # independently verified /m/ or phonetic spelling. The start is
+        # locked to the received ledger and source file identity.
+        m_starts = [p["startMs"] for p in phones
+                    if isinstance(p, dict) and p.get("phone") == "M"]
+        if (len(m_starts) != 1 or type(m_starts[0]) not in (int,float)
+                or not np.isfinite(m_starts[0]) or not
+                mfa[17]["startMs"] < m_starts[0] < mfa[17]["endMs"]-100):
+            return refuse("SCIENTIFIC_NAMES_EMBEDDED_TAIL_NOT_LOCATABLE")
+        with wave.open(io.BytesIO(source_raw), "rb") as w:
+            if ((w.getnchannels(), w.getsampwidth(), w.getframerate(),
+                 w.getnframes(), w.getcomptype())
+                    != (1,2,24000,824336,"NONE")):
+                return refuse("SCIENTIFIC_NAMES_WAV_FORMAT_INVALID")
+            pcm = w.readframes(w.getnframes())
+        if len(pcm) != 824336*2:
+            return refuse("SCIENTIFIC_NAMES_WAV_PCM_TRUNCATED")
+        orig = np.frombuffer(pcm,dtype="<i2").astype(np.float64)/32768
+        bounds = {str(i): (round(mfa[i]["startMs"]*24),
+                           round(mfa[i]["endMs"]*24))
+                  for i in (7,9,17,19,28)}
+        bounds["compoundTailMfaHypothesis"] = (
+            round(m_starts[0]*24), bounds["17"][1])
+        clips, hashes, rows = {}, {}, []
+        for key, (lo,hi) in bounds.items():
+            if not (0 <= lo < hi <= len(orig)
+                    and 2400 <= hi-lo <= 120000):
+                return refuse("SCIENTIFIC_NAMES_SAMPLE_RANGE_INVALID")
+            clip = orig[lo:hi]
+            if not np.all(np.isfinite(clip)) or np.sqrt(
+                    np.mean(clip*clip)) < .002:
+                return refuse("SCIENTIFIC_NAMES_SOURCE_SPEECH_MISSING")
+            clips[key]=clip
+            hashes[key]=digest(pcm[2*lo:2*hi])
+        f={key:trajectory(clip) for key,clip in clips.items()}
+        def score(a,b): return round(distance(f[a],f[b]),6)
+        repeat=score("7","19")
+        head=score("compoundTailMfaHypothesis","7")
+        after=score("compoundTailMfaHypothesis","19")
+        negative=[score("compoundTailMfaHypothesis",control)
+                  for control in ("9","28")]
+        norm=lambda s:re.sub(r"[^a-z0-9]","",s.lower())
+        for position, asr_position, script in expected:
+            item=mfa[position]
+            recognized=heard[asr_position]
+            if not isinstance(recognized["word"],str):
+                return refuse("SCIENTIFIC_NAMES_ASR_TEXT_INVALID")
+            lo,hi=bounds[str(position)]
+            rows.append({
+                "authoredChemicalNameHypothesis":script,
+                "mfaWordIndex":position, "asrWordIndex":asr_position,
+                "mfaAuthoredWindowSeconds":[round(lo/24000,6),
+                                             round(hi/24000,6)],
+                "asrHypothesizedWindowSeconds":[recognized["start"],
+                                                 recognized["end"]],
+                "sourceWordPcmSha256":hashes[str(position)],
+                "asrTokenAsRecognized":recognized["word"].strip(),
+                "asrLexicalDisagreement":norm(recognized["word"])!=norm(script),
+                "speechContentCorrectByAcoustics":None,
+                "lexicalWinner":None,
+            })
+        triage = {
+            "method": "SOURCE_LOCKED_25MS_10MS_LOG_SPECTRAL_DCT_DTW",
+            "standaloneRepeatDistance":repeat,
+            "embeddedMfaTailVsStandaloneDistances":[head,after],
+            "embeddedTailVsUnrelatedSameNarratorControls":negative,
+            "embeddedTailMfaHypothesisStartSec":round(
+                bounds["compoundTailMfaHypothesis"][0]/24000,6),
+            "embeddedTailPcmSha256":hashes["compoundTailMfaHypothesis"],
+            "embeddedSegmentIsAForcedAlignmentHypothesisOnly":True,
+            "distanceThresholdCalibratedForPhoneticAccuracy":False,
+            "withinOriginalPatternComparisonOnly":True,
+            "numberOfPhoneLabelsActuallyHeardOrValidated":0,
+        }
+        return {**base, "status": "RESEARCH_SCIENTIFIC_NAMES_ACOUSTIC_TRIAGE_HOLD",
+                "sourceWavSha256":SOURCE_WAV_REFERENCE,
+                "mfaAlignmentSha256":MFA_SOURCE_ALIGNMENT_SHA,
+                "asrReceiptSha256":POSE_ASR_RECEIPT_SHA,
+                "sourceWordCount":len(mfa),
+                "asrWordCount":len(heard),
+                "nameCandidateCount":len(rows),
+                "mismatchedAsrScientificNameTokens":sum(
+                    r["asrLexicalDisagreement"] for r in rows),
+                "timecodedWordReviews":rows,
+                "spectralResearch":triage,
+                "reportEvaluatesOriginalUnmodifiedNarration":True,
+                "reviewerVerdict":None,
+                "nextResearchAction": "Obtain independent phonetic reference "
+                    "and compare repeated-name sound to that reference; "
+                    "do not trust cross-model text or this spectral proxy.",
+                "caution": "Consistent misrecognition may be an ASR vocabulary "
+                    "failure or a real speech issue. Neither is established."}
+    except (OSError, EOFError, wave.Error, KeyError, IndexError, ValueError,
+            TypeError, FloatingPointError):
+        return refuse("SCIENTIFIC_NAMES_SPECTRAL_OR_RECEIPT_PARSE_FAILED")
+
+
 def audit_original_narration_dead_air(source_raw, alignment_raw, asr_raw):
     """Physically verify extended digital-zero pauses in original narration.
 
@@ -2066,6 +2193,10 @@ def audit_cross_model_files(source_path, alignment_path, asr_path,
             return hold("CROSS_MODEL_REVIEW_FILES_MISSING_OR_UNSAFE")
         report = audit_original_cross_model_word_timing(
             *(p.read_bytes() for p, _ in paths))
+        if report["status"] == "RESEARCH_ORIGINAL_WORD_REVIEW_QUEUE_HOLD":
+            report["scientificNamesAcousticTriage"] = (
+                audit_scientific_name_source_triage(
+                    *(p.read_bytes() for p, _ in paths)))
         if listening_notes_path is None or report["status"] == "HOLD":
             return report
         notes_path = Path(listening_notes_path)
