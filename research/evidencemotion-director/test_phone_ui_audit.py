@@ -782,7 +782,7 @@ class ReviewImageOwnershipSafety(unittest.TestCase):
                         output, stage, [{"file": "00-opening.png",
                                         "frameSha256": hashlib.sha256(b"exact source screenshot").hexdigest()}],
                         {})
-            self.assertEqual((output / "00-opening.png").read_bytes(), b"changed after transfer")
+            self.assertEqual((output / "00-opening.png").read_bytes(), b"changed after link")
             self.assertFalse((output / "research-report.json").exists())
 
 
