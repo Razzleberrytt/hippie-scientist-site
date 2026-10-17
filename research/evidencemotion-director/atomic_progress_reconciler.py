@@ -7,6 +7,7 @@ approval. A dated GitHub observation must never masquerade as current live data.
 import argparse
 import json
 import re
+from datetime import datetime, timezone
 from collections import Counter, defaultdict
 from pathlib import Path
 from validate_atomic_proof_ledger import LEDGER, validate
@@ -30,6 +31,13 @@ def reconcile(ledger_data, source_directory, observation):
         or not isinstance(observation.get("mergedPRs"),list)
         or not isinstance(observation.get("openPRs"),list)):
         raise ValueError("PROGRESS_HOLD:BAD_OBSERVATION_SCOPE")
+    observed_at=observation.get("observedAtUtc")
+    try:
+        when=datetime.fromisoformat(observed_at.replace("Z","+00:00"))
+        if when.tzinfo is None or when.astimezone(timezone.utc).date().isoformat()!=observation["observedDate"]:
+            raise ValueError("date conflict")
+    except (ValueError,AttributeError,TypeError):
+        raise ValueError("PROGRESS_HOLD:OBSERVATION_TIMESTAMP_NOT_SOURCE_BOUND")
     merged=observation["mergedPRs"]
     numbers=set()
     commits=defaultdict(list)
@@ -87,6 +95,9 @@ def reconcile(ledger_data, source_directory, observation):
         "sourceObservationDate":observation["observedDate"],
         "sourceObservationAtUtc":observation.get("observedAtUtc"),
         "sourceMode":"DATED_VERIFIED_SNAPSHOT_NOT_LIVE",
+        "freshness":("DATED_CURRENT_OBSERVATION" if
+                     datetime.now(timezone.utc).date().isoformat()==observation["observedDate"]
+                     else "HISTORICAL_SNAPSHOT_NOT_LIVE"),
         "mergedPRs":len(merged),
         "distinctMergeCommits":len(commits),
         "sharedIntegrationCommits":[{"sha":sha,"prs":sorted(ids)} for sha,ids in sorted(commits.items()) if len(ids)>1],
