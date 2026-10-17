@@ -45,9 +45,12 @@ def source_line_detected(ocr_text, source_name, source_number):
         hold("INVALID_SOURCE_DOCUMENT_NUMBER")
     for line in ocr_text.splitlines():
         words = re.findall(r"[A-Z0-9]+", line.upper())
-        if ("SOURCE" in words and source_name in words
-            and source_number in words
-            and [w for w in words if w.isdecimal()] == [source_number]):
+        # A bag-of-words match mislabels negated or unrelated mentions:
+        # "NOT SOURCE USP 2040" previously received affirmative pixel credit.
+        # Require an unambiguous contiguous source attribution, with only
+        # the conventional optional "CHAPTER" marker. Other prose must HOLD.
+        if words in (["SOURCE", source_name, source_number],
+                     ["SOURCE", source_name, "CHAPTER", source_number]):
             return True
     return False
 
