@@ -1019,6 +1019,134 @@ def screen_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indi
     return receipt
 
 
+def measure_whole_encoded_right_ui_ink(movie, *, expected_film_sha,
+                                      expected_frames, roi,
+                                      pixel_mode="bright_neutral_caption",
+                                      window_frames=120):
+    """Research-only exhaustive right UI ink screen, including every frame.
+
+    Reuse the already-tested 4..150-frame physical decoder in bounded windows,
+    then verify a contiguous, once-only complete-film observation series.
+    Three-frame sparse probes cannot substitute for this whole-film receipt.
+    No scene semantics, real platform layout, handset or publication approval.
+    """
+    if (type(expected_frames) is not int or not 10 <= expected_frames <= 1800 or
+            type(window_frames) is not int or not 8 <= window_frames <= 150):
+        hold("WHOLE_UI_SCREEN_BOUNDED_FRAME_COUNTS_REQUIRED")
+    movie = Path(movie)
+    if not is_hash(expected_film_sha) or sha256_file(movie) != expected_film_sha:
+        hold("WHOLE_UI_SCREEN_EXACT_FILM_SHA_MISMATCH")
+    width, height, _, n = probe_movie(movie)
+    if n != expected_frames:
+        hold("WHOLE_UI_SCREEN_EXACT_FRAME_COUNT_MISMATCH")
+    observations = []
+    windows = []
+    cursor = 0
+    while cursor < n:
+        count = min(window_frames, n - cursor)
+        remaining = n - cursor - count
+        # The existing decoder's 3-frame mode is explicitly SPARSE.
+        # Never let a final 1..3 frames be silently treated as a full window.
+        if 0 < remaining < 4:
+            count -= 4 - remaining
+        if count < 4:
+            hold("WHOLE_UI_SCREEN_CANNOT_COVER_FINAL_WINDOW")
+        indices = list(range(cursor, cursor + count))
+        receipt = measure_targeted_encoded_right_ui_ink(
+            movie, expected_film_sha=expected_film_sha,
+            frame_indices=indices, roi=roi, pixel_mode=pixel_mode)
+        rows = receipt.get("actualDecodedPixelObservations")
+        # A window counted under another optical rule or a displaced crop
+        # is not evidence for this exact film-wide screen. Verify returned
+        # scope and the window's internal counter before accepting its rows.
+        # The child remains a negative research screen, never release proof.
+        forbidden_width = roi[2] - int((1 - RIGHT) * width)
+        max_forbidden_pixels = forbidden_width * (roi[3] - roi[1])
+        if (receipt.get("filmSha256") != expected_film_sha or
+                receipt.get("targetedRoiPx") != roi or
+                receipt.get("pixelMode") != pixel_mode or
+                receipt.get("rightUiExclusionBeginsNativeX") !=
+                    int((1 - RIGHT) * width) or
+                receipt.get("decodedFramesExamined") != count or
+                receipt.get("publicationVerdict") != "HOLD" or
+                receipt.get("mayPublish") is not False or
+                receipt.get("actualPhoneLayoutVerified") is not False or
+                receipt.get("everyFrameInRequestedWindowChecked") is not True or
+                not isinstance(rows, list) or len(rows) != count or
+                any(not isinstance(row, dict) or
+                    type(row.get("decodedFrameIndex")) is not int or
+                    row["decodedFrameIndex"] != index or
+                    type(row.get("targetPixelsInRightExclusion")) is not int or
+                    not 0 <= row["targetPixelsInRightExclusion"] <= max_forbidden_pixels or
+                    (row.get("rightmostDetectedX") is None) !=
+                        (row["targetPixelsInRightExclusion"] == 0) or
+                    (row["targetPixelsInRightExclusion"] > 0 and
+                     (type(row["rightmostDetectedX"]) is not int or
+                      not int((1 - RIGHT) * width) <=
+                          row["rightmostDetectedX"] < roi[2]))
+                    for index, row in zip(indices, rows)) or
+                receipt.get("violatingFrameCount") != sum(
+                    row["targetPixelsInRightExclusion"] > 0 for row in rows) or
+                receipt.get("firstViolatingFrameIndex") != next(
+                    (row["decodedFrameIndex"] for row in rows
+                     if row["targetPixelsInRightExclusion"] > 0), None)):
+            hold("WHOLE_UI_SCREEN_INVALID_WINDOW_RECEIPT")
+        observations.extend(rows)
+        windows.append({"firstFrame": cursor, "lastFrame": cursor + count - 1})
+        cursor += count
+    if (len(observations) != n or
+            any(row["decodedFrameIndex"] != i
+                for i, row in enumerate(observations))):
+        hold("WHOLE_UI_SCREEN_MISSING_DUPLICATE_OR_UNORDERED_FRAME")
+    if sha256_file(movie) != expected_film_sha:
+        hold("WHOLE_UI_SCREEN_FILM_CHANGED_DURING_REVIEW")
+    unsafe = [row for row in observations
+              if row["targetPixelsInRightExclusion"] > 0]
+    first = unsafe[0] if unsafe else None
+    return {
+        "schema": "ths-lane4-exhaustive-encoded-right-ui-negative-v1",
+        "filmSha256": expected_film_sha,
+        "expectedFrames": expected_frames,
+        "decodedFramesExamined": n,
+        "wholeFilmFramesCoveredExactlyOnce": True,
+        "windowCount": len(windows),
+        "windows": windows,
+        "targetedRoiPx": list(roi),
+        "pixelMode": pixel_mode,
+        "rightUiExclusionBeginsNativeX": int((1 - RIGHT) * width),
+        "violationCount": len(unsafe),
+        "firstViolatingFrameIndex": first["decodedFrameIndex"] if first else None,
+        "lastViolatingFrameIndex": unsafe[-1]["decodedFrameIndex"] if unsafe else None,
+        "maxViolatingPixelCount": max(
+            (row["targetPixelsInRightExclusion"] for row in unsafe), default=0),
+        "actualDecodedPixelObservations": observations,
+        "status": ("WHOLE_FILM_RIGHT_UI_EXCLUSION_REVIEW_HOLD" if unsafe else
+                   "WHOLE_FILM_NEGATIVE_SCREEN_EMPTY_REVIEW_STILL_REQUIRED"),
+        "publicationVerdict": "HOLD",
+        "contentActuallyOCRVerified": False,
+        "realPlatformUiMaskVerified": False,
+        "handsetApproved": False,
+        "scienceApproved": False,
+        "mayPublish": False,
+    }
+
+
+def screen_whole_encoded_right_ui_ink(movie, *, expected_film_sha,
+                                     expected_frames, roi,
+                                     pixel_mode="bright_neutral_caption",
+                                     window_frames=120):
+    """Strict whole-film negative screen: no positive release verdict."""
+    receipt = measure_whole_encoded_right_ui_ink(
+        movie, expected_film_sha=expected_film_sha,
+        expected_frames=expected_frames, roi=roi,
+        pixel_mode=pixel_mode, window_frames=window_frames)
+    if receipt["violationCount"]:
+        hold("WHOLE_FILM_RIGHT_UI_EXCLUSION:" +
+             str(receipt["firstViolatingFrameIndex"]) + ":" +
+             str(receipt["violationCount"]))
+    return receipt
+
+
 def choose_decoded_sample(stamps, shot, requested_sec):
     """Select the closest actual presentation timestamp *within* the shot.
 
@@ -1480,6 +1608,12 @@ if __name__ == "__main__":
                         help="Optional exact-film 48-observation OCR receipt, requires ink; no approval")
     parser.add_argument("--targeted-right-ui-screen", action="store_true",
                         help="Read-only exact-film negative screen, no phone plan or publication approval")
+    parser.add_argument("--whole-film-right-ui-screen", action="store_true",
+                        help="Exhaustively screen every encoded frame in 4..150 frame bounded windows")
+    parser.add_argument("--expected-frames", type=int, default=None,
+                        help="Required independent full-film decoded-frame count for whole-film screen")
+    parser.add_argument("--window-frames", type=int, default=120,
+                        help="Bounded whole-film decode window (8..150; default 120)")
     parser.add_argument("--diagnostic-json", action="store_true",
                         help="Opt-in full frame-by-frame HOLD JSON; violations still exit nonzero")
     parser.add_argument("--expected-video-sha256", default=None,
@@ -1497,32 +1631,50 @@ if __name__ == "__main__":
                         help="Choose critical white caption or visibly highlighted science-art screen")
     args = parser.parse_args()
     try:
-        if args.targeted_right_ui_screen:
-            if any(value is not None for value in (
-                    args.manifest, args.output, args.ink_receipt, args.glyph_receipt)):
+        if args.targeted_right_ui_screen or args.whole_film_right_ui_screen:
+            if (args.targeted_right_ui_screen and args.whole_film_right_ui_screen or
+                    any(value is not None for value in (
+                        args.manifest, args.output, args.ink_receipt, args.glyph_receipt))):
                 hold("TARGETED_UI_SCREEN_MUST_NOT_MIX_FULL_AUDIT_FILES")
-            if (args.expected_video_sha256 is None or args.start_frame is None or
-                    args.end_frame is None or args.roi is None or
-                    not 4 <= args.end_frame - args.start_frame + 1 <= 150):
-                hold("TARGETED_UI_SCREEN_COMPLETE_BOUNDED_INPUT_REQUIRED")
-            screen = (measure_targeted_encoded_right_ui_ink if args.diagnostic_json
-                      else screen_targeted_encoded_right_ui_ink)
-            result = screen(
-                args.movie,
-                expected_film_sha=args.expected_video_sha256,
-                frame_indices=list(range(args.start_frame, args.end_frame + 1)),
-                roi=args.roi, pixel_mode=args.pixel_mode)
+            if args.expected_video_sha256 is None or args.roi is None:
+                hold("TARGETED_UI_SCREEN_SOURCE_AND_ROI_REQUIRED")
+            if args.whole_film_right_ui_screen:
+                if (args.start_frame is not None or args.end_frame is not None or
+                        args.expected_frames is None):
+                    hold("WHOLE_UI_SCREEN_COMPLETE_FILM_PARAMETERS_REQUIRED")
+                screen = (measure_whole_encoded_right_ui_ink if args.diagnostic_json
+                          else screen_whole_encoded_right_ui_ink)
+                result = screen(
+                    args.movie, expected_film_sha=args.expected_video_sha256,
+                    expected_frames=args.expected_frames, roi=args.roi,
+                    pixel_mode=args.pixel_mode, window_frames=args.window_frames)
+            else:
+                if (args.expected_frames is not None or
+                        args.window_frames != 120 or
+                        args.start_frame is None or args.end_frame is None or
+                        not 4 <= args.end_frame - args.start_frame + 1 <= 150):
+                    hold("TARGETED_UI_SCREEN_COMPLETE_BOUNDED_INPUT_REQUIRED")
+                screen = (measure_targeted_encoded_right_ui_ink if args.diagnostic_json
+                          else screen_targeted_encoded_right_ui_ink)
+                result = screen(
+                    args.movie,
+                    expected_film_sha=args.expected_video_sha256,
+                    frame_indices=list(range(args.start_frame, args.end_frame + 1)),
+                    roi=args.roi, pixel_mode=args.pixel_mode)
         else:
             if (args.diagnostic_json or args.manifest is None or args.output is None or
                     args.expected_video_sha256 is not None or
                     args.start_frame is not None or args.end_frame is not None or
+                    args.expected_frames is not None or args.window_frames != 120 or
                     args.roi is not None or args.pixel_mode != "bright_neutral_caption"):
                 hold("FULL_PHONE_AUDIT_REQUIRES_ITS_OWN_MANIFEST_OUTPUT_ARGUMENTS")
             result = audit(args.movie, args.manifest, args.output,
                            ink_receipt=args.ink_receipt,
                            glyph_receipt=args.glyph_receipt)
         print(json.dumps(result, indent=2))
-        if args.targeted_right_ui_screen and args.diagnostic_json and result["violatingFrameCount"]:
+        if args.diagnostic_json and (
+                args.targeted_right_ui_screen and result["violatingFrameCount"] or
+                args.whole_film_right_ui_screen and result["violationCount"]):
             # JSON on stdout is durable evidence, NOT a successful zero exit.
             raise SystemExit(2)
     except (ValueError, OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired,
