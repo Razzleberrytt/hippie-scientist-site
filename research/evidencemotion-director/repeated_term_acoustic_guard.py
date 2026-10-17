@@ -859,12 +859,69 @@ def audit_archived_encoded_audio_sync(source_raw, video_raw, receipt_raw, decode
                 "signalSyncScreenPass":
                     zero_lag_corr >= 0.95 and abs(best_lag) <= 1,
             })
+        # The six anchor checks can miss a substitution in the intervening
+        # untested time. Overlapping 500ms windows at 250ms hops now screen
+        # the original source end-to-end; silence windows are NOT counted as
+        # speech proof, and exact source zero must not acquire fake AAC audio.
+        frame_len, hop = 12000, 6000
+        rolling_total = rolling_active = rolling_silent = 0
+        rolling_worst = (1.0, None)
+        rolling_failures, silence_leaks = [], []
+        for lo in range(0, len(original)-frame_len+1, hop):
+            hi = lo+frame_len
+            a, b = original[lo:hi], decoded[lo:hi]
+            rolling_total += 1
+            source_rms = float(np.sqrt(np.mean(a*a)))
+            decoded_rms = float(np.sqrt(np.mean(b*b)))
+            if source_rms >= 0.01:
+                rolling_active += 1
+                corr = float(np.corrcoef(a, b)[0, 1])
+                if not np.isfinite(corr):
+                    return refuse("ENCODED_AUDIO_ROLLING_CORRELATION_NONFINITE")
+                if corr < rolling_worst[0]:
+                    rolling_worst = (corr, lo/24000)
+                if corr < 0.95:
+                    rolling_failures.append({
+                        "startSeconds": round(lo/24000, 3),
+                        "zeroLagCorrelation": round(corr, 6)})
+            elif source_rms == 0.0:
+                rolling_silent += 1
+                if decoded_rms > 0.001:
+                    silence_leaks.append({
+                        "startSeconds": round(lo/24000, 3),
+                        "decodedRms": round(decoded_rms, 6)})
+        scan = {
+            "overlappingWindowDurationMs": 500,
+            "overlappingWindowHopMs": 250,
+            "minimumActiveSourceRms": 0.01,
+            "minimumActiveSignalCorrelation": 0.95,
+            "screenedWindowCount": rolling_total,
+            "speechActiveWindowCount": rolling_active,
+            "exactDigitalSilenceWindowCount": rolling_silent,
+            "lowestActiveZeroLagPcmCorrelation":
+                round(rolling_worst[0], 6),
+            "lowestActiveCorrelationWindowStartSec":
+                rolling_worst[1],
+            "belowThresholdWindows": rolling_failures,
+            "unexpectedAudioDuringExactSourceSilence": silence_leaks,
+        }
+        if rolling_active < 80 or rolling_silent < 6:
+            return {**base, "status": "HOLD",
+                    "errors": ["ENCODED_AUDIO_ROLLING_SOURCE_COVERAGE_INSUFFICIENT"],
+                    "rollingSignalScreen": scan}
+        if rolling_failures or silence_leaks:
+            return {**base, "status": "HOLD",
+                    "errors": ["ENCODED_AUDIO_LOCALIZED_SIGNAL_OR_SILENCE_HOLD"],
+                    "sourceWavSha256": SOURCE_WAV_REFERENCE,
+                    "filmSha256": ARCHIVED_TIMED_NATIVE_VIDEO_SHA,
+                    "rollingSignalScreen": scan}
         if not all(row["signalSyncScreenPass"] for row in records):
             return {**base, "status": "HOLD",
                     "errors": ["ENCODED_AUDIO_SIGNAL_LAG_OR_CORRELATION_HOLD"],
                     "sourceWavSha256": SOURCE_WAV_REFERENCE,
                     "filmSha256": ARCHIVED_TIMED_NATIVE_VIDEO_SHA,
-                    "diagnosticWindows": records}
+                    "diagnosticWindows": records,
+                    "rollingSignalScreen": scan}
         return {**base, "status": "RESEARCH_ARCHIVED_ENCODED_AUDIO_SYNC_HOLD",
                 "sourceWavSha256": SOURCE_WAV_REFERENCE,
                 "filmSha256": ARCHIVED_TIMED_NATIVE_VIDEO_SHA,
@@ -875,6 +932,7 @@ def audit_archived_encoded_audio_sync(source_raw, video_raw, receipt_raw, decode
                 "sampleRateHz": 24000,
                 "testedRealSignalWindows": len(records),
                 "diagnosticWindows": records,
+                "rollingSignalScreen": scan,
                 "decodedSignalOnlyTimedContinuity": True,
                 "independentlyVerifiedPhoneticContent": False,
                 "caution": "Signal correlation is NOT source phoneme identity, "
