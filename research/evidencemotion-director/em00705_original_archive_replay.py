@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 
 from claim_strength_source_limits import evaluate
+from research_receipt_io import prepare_research_output, emit_research_output
 
 SOURCE_RUN = 38914069118
 SOURCE_ARTIFACT = 12052645131
@@ -108,6 +109,7 @@ def main():
     args = parser.parse_args()
     root = Path(args.root).resolve()
     validate_receipt_target(args.out, root)
+    target = prepare_research_output(args.out, [root/name for name in EXPECTED])
     data = {}
     for filename in EXPECTED:
         p = root / filename
@@ -115,7 +117,7 @@ def main():
             hold("MISSING_OR_UNSAFE_ARCHIVE_PATH:" + filename)
         data[filename] = p.read_bytes()
     receipt = replay(data)
-    Path(args.out).write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf8")
+    emit_research_output(target, receipt)
     print(json.dumps({"status":"PINNED_ORIGINAL_FILM_SOURCE_SCOPE_REPLAY_PASS",
                       "claims":receipt["frozenClaimCount"],
                       "axes":receipt["materialStudyAxesRecordedAbsent"],

@@ -5,9 +5,35 @@ No human-science, device, voice, or release approval is inferred.
 """
 import os
 import unittest
+import tempfile
+from unittest.mock import patch
 from pathlib import Path
 
 from em00705_original_archive_replay import replay, EXPECTED, FILM, SOURCE, UNCERTAINTY
+
+
+class ReplayOutputSafetyTests(unittest.TestCase):
+    def test_direct_and_hardlinked_output_aliases_preserve_all_inputs(self):
+        import em00705_original_archive_replay as subject
+        for target_name in EXPECTED:
+            for hardlink in (False, True):
+                with self.subTest(input=target_name, hardlink=hardlink), tempfile.TemporaryDirectory() as td:
+                    root = Path(td)
+                    before = {}
+                    for name in EXPECTED:
+                        path = root/name
+                        path.parent.mkdir(parents=True, exist_ok=True)
+                        before[path] = b'synthetic safety fixture: ' + name.encode()
+                        path.write_bytes(before[path])
+                    output = root/target_name
+                    if hardlink:
+                        output = root/'alias.json'
+                        os.link(root/target_name, output)
+                    with patch('sys.argv', ['replay', '--root', str(root), '--out', str(output)]):
+                        with self.assertRaisesRegex(ValueError,'OUTPUT_SYMLINK_OR_INPUT_ALIAS|RECEIPT_OUTPUT_ALIASES_PINNED_ARCHIVE_INPUT'):
+                            subject.main()
+                    for path, raw in before.items():
+                        self.assertEqual(path.read_bytes(), raw)
 
 
 class ActualOriginalFilmSourceReplayTests(unittest.TestCase):

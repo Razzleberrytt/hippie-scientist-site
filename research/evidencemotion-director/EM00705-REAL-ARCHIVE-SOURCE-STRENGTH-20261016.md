@@ -27,3 +27,29 @@ The replay audited exactly **eight immutable original narrated claims**, includi
 | `EM-007.05.R` | **VERIFIED_MACHINE_RESEARCH** — this precise source/run/artifact/byte receipt with explicit unresolved clinical/phone/viewer/craft/release HOLDs |
 
 **Accounting proposal:** +7 uniquely machine-audited cards over verified 75 = **82** individual machine-research cards, plus **707** inherited *non-audited* provisional cards = **789/1590 (49.6226%) provisional**; only after the updated proof-ledger host gate accepts this receipt. The full 46-item milestone count and first-render/streak acceptance remain unchanged. EM-007.07 qualified independent review and EM-007.08 release/process gate remain open. This is **not production** and `mayPublish=false`.
+
+
+## Merge review: immutable replay inputs - October 17, 2026
+
+The CLI now reuses research_receipt_io.prepare_research_output and
+emit_research_output. Reject direct and hardlinked aliases to all three archived
+inputs before reading/validating or writing; emit through the existing atomic
+receipt writer. Original replay/evaluate logic and SHA pins are unchanged.
+The six alias cases initially failed because alias admission was not checked;
+all now fail closed at the output boundary and preserve the input bytes.
+
+Focused OutputSafety regression: 1 test / 6 subcases PASS on Windows and Linux,
+exits0. Shared research_receipt_io suite: Windows 5 PASS / one symlink privilege
+SKIP; Linux 6/6 PASS, exits0. Existing gut archive resource-limit suite: 19 PASS /
+one optional archive-input SKIP on both platforms, exits0. Its current reader
+already bounds package, member count, member size, total expansion and manifest
+before decompression; no duplicate reader implementation added.
+
+The six original-film replay cases require the separately pinned real archive
+and were not run locally in this focused follow-up. Hosted original-archive,
+full CI/build and sole-controller merge remain mandatory; no human science,
+phone, craft, voice, release or publishing approval is inferred.
+
+Concurrent owner commit d3f43ba01 added validate_receipt_target during this repair.
+Retained that diagnostic precheck and added shared atomic output handling;
+regressions accept either explicit alias refusal and preserve all six inputs.
