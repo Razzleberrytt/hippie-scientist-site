@@ -1054,7 +1054,9 @@ def compare_revised_aac_packet_timeline(archived_packets, revised_packets,
         clean = []
         prior = None
         for row in rows:
-            if not isinstance(row, dict) or set(row) != set(fields):
+            if (not isinstance(row, dict)
+                    or not set(fields).issubset(row)
+                    or set(row) - set(fields) - {"side_data_list"}):
                 raise ValueError("PACKET_FIELDS_INVALID")
             x = {}
             for f in fields:
@@ -1069,6 +1071,31 @@ def compare_revised_aac_packet_timeline(archived_packets, revised_packets,
                 if not isinstance(v, int):
                     raise ValueError("PACKET_FIELDS_INVALID")
                 x[f] = v
+            # AAC priming/skip side data can change decoding without
+            # changing encoded bytes or pts. FFprobe includes it even when
+            # -show_entries specifies packet scalar fields: compare it too.
+            side = row.get("side_data_list", [])
+            if not isinstance(side, list) or len(side) > 4:
+                raise ValueError("PACKET_SIDE_DATA_INVALID")
+            x["sideData"] = []
+            for item in side:
+                expected = ("side_data_type", "skip_samples",
+                            "discard_padding", "skip_reason", "discard_reason")
+                if (not isinstance(item, dict)
+                        or set(item) != set(expected)
+                        or item["side_data_type"] != "Skip Samples"
+                        or any(isinstance(item[k], bool)
+                               or not isinstance(item[k], int)
+                               or item[k] < 0 or item[k] > 1024
+                               for k in expected[1:])):
+                    raise ValueError("PACKET_SIDE_DATA_INVALID")
+                x["sideData"].append({
+                    "type": item["side_data_type"],
+                    "skipSamples": item["skip_samples"],
+                    "discardPadding": item["discard_padding"],
+                    "skipReason": item["skip_reason"],
+                    "discardReason": item["discard_reason"],
+                })
             if (x["duration"] <= 0 or x["duration"] > 1024
                     or x["size"] <= 0 or x["size"] > 100000
                     or x["dts"] != x["pts"]
@@ -1144,7 +1171,9 @@ def audit_revised_aac_packet_timeline_files(archived_path, revised_path):
         for p in paths:
             probe = subprocess.run([
                 "ffprobe", "-v", "error", "-select_streams", "a:0",
-                "-show_entries", "packet=pts,dts,duration,size",
+                "-show_entries", "packet=pts,dts,duration,size:"
+                                 "packet_side_data=side_data_type,skip_samples,"
+                                 "discard_padding,skip_reason,discard_reason",
                 "-of", "json", str(p)], capture_output=True,
                 timeout=30, check=False)
             if probe.returncode or len(probe.stdout) > 2000000:
