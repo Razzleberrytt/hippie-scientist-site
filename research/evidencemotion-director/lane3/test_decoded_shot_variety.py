@@ -269,7 +269,7 @@ class SilentEveryFrameMotionTests(unittest.TestCase):
             with raw.open('wb') as out:
                 for n in range(120):
                     frame=bytearray(b'\x0c\x0c\x0c')*(96*170)
-                    x=18 if 25<=n<90 else 6+(n%18)*3
+                    x=18 if 30<=n<95 else 6+(n%18)*3
                     for y in range(56,90):
                         for xx in range(x,x+16):
                             if xx>=96:continue
@@ -281,6 +281,15 @@ class SilentEveryFrameMotionTests(unittest.TestCase):
                 '-frames:v','120','-c:v','libx264','-preset','ultrafast',
                 '-crf','18','-pix_fmt','yuv420p',str(movie)],
                 check=True,capture_output=True)
+            # The OLD three-sample intra-shot proxy compares early vs late:
+            # frame 29 is moving, frame 89 lies in the 65-frame freeze.
+            # Those two distinct compositions look nonstatic to that proxy,
+            # while the new contiguous scan must find the frozen middle.
+            three=D.sample_frame_triplet(0,120)
+            self.assertEqual(three,[29,59,89])
+            old=D.decode_samples(movie,three,120)
+            self.assertFalse(D.similar(old[three[0]],old[three[2]])[
+                'nearDuplicateReviewCandidate'])
             full=D.measure_source_hold_motion(movie,120,list(range(120)))
             self.assertEqual(full['silentFramesCompared'],120)
             self.assertEqual(full['adjacentFrameTransitionsCompared'],119)
