@@ -680,3 +680,31 @@ latest film, chemistry, voice, craft, handset, clean-checkout, CI or deployment 
 Latest reported Lane3 film remains conversation-only and not independently received.
 No production build rerun: access-only snapshot/docs/receipts, no repository behavior
 changed. mayPublish=false, newAtomicCards=0; no normal WIP slot or merge authority.
+
+
+## October 17 Linux fixed-binary media follow-up
+
+Closed the eight `MEDIA_EXECUTABLE_UNVERIFIED` environment gaps from the pinned
+six-lane snapshot, without changing any source or weakening fixed binary paths.
+Existing Ubuntu lacked FFmpeg/FFprobe. Installed Ubuntu's packaged FFmpeg with
+`apt-get update` and `apt-get install --no-install-recommends -y ffmpeg`, exit 0.
+Package `7:6.1.1-3ubuntu5`, Python 3.12.3; independently verified real regular
+`/usr/bin/ffmpeg` and `/usr/bin/ffprobe`, versions and SHA256. Temporary installer
+log disappeared after completion; raw installation log is unavailable, stated in
+receipt. Binary/version evidence and actual test output are retained.
+
+All eight original failed media cases run unchanged against the SAME combined
+source tree `785fa8a27b2da7d56306ec3f704adeafbd780833`: **8/8 PASS**, no skips,
+failures or errors, **exit 0**, 1.257s unittest time. Includes physical H264/AAC
+fixture decode, short-audio and truncated-movie negatives, ignored/forged encoder
+control negatives, PATH-shadow refusal, producer-film SHA binding, and movie or
+encoder-proof mutation during decode. Tiny actual-codec synthetic fixtures, not
+original/revised production-film evidence. Exact commands/output/runtime hashes:
+`receipts/linux-media-eight-test-followup-20261017.json`.
+
+Previous Windows aggregate still records exit 1; this follow-up does not overwrite
+it or turn missing original-media skips into PASS. Known Lane3 Windows canonical
+receipt newline failure remains owner-unapplied. Source heads remain the pinned
+snapshot, not a rolling latest-head claim. Only Lane6 docs/receipt change; build
+not rerun for this access-only verification. No merge, deployment, scientific,
+voice, craft, handset or publication acceptance; mayPublish=false, atomic credit 0.
