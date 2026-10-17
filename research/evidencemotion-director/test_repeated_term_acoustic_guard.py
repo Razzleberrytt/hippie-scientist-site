@@ -755,6 +755,130 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
 
 
 
+    @staticmethod
+    def frame_native_plan_fixture():
+        original, _, _ = OriginalDigitalZeroNegativeTests.original_dead_air_fixture()
+        # The hosted test is SYNTHETIC. The actual archived MP4+receipt are
+        # replayed independently, and must never be counted as hosted fixtures.
+        film = b"research-only-stand-in-native-video"
+        words = [
+            {"text": "That's" if i == 0 else f"word{i}",
+             "startSec": round(31.25+i*.28, 6),
+             "endSec": round(31.49+i*.28, 6)}
+            for i in range(9)]
+        receipt = {
+            "videoSha256": digest(film),
+            "sourceWavSha256": digest(original),
+            "frames": 1031, "fps": 30, "isOriginalV5": False,
+            "mayPublish": False, "pronunciationVerified": False,
+            "candidateCaptionWindowsAppliedToFilm": True,
+            "craftApproved": False, "scienceApproved": False,
+            "scenes": [
+                {"id": "sentence_5", "endSec": 27.35},
+                {"id": "source_hold", "line": "",
+                 "startSec": 27.35, "endSec": 31.25},
+                {"id": "sentence_6", "startSec": 31.25,
+                 "captionWords": words}
+            ]}
+        raw = json.dumps(receipt).encode()
+        return original, film, raw
+
+    def test_frame_native_plan_preserves_800_pcm_samples_per_30fps_frame(self):
+        audio, film, receipt = self.frame_native_plan_fixture()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(audio)), (
+                patch.object(original_guard, "ARCHIVED_TIMED_NATIVE_VIDEO_SHA",
+                             digest(film))), (
+                patch.object(original_guard, "ARCHIVED_TIMED_NATIVE_RECEIPT_SHA",
+                             digest(receipt))):
+            result = original_guard.audit_archived_frame_native_pause_plan(
+                audio, film, receipt)
+        self.assertEqual(result["status"], "RESEARCH_FRAME_NATIVE_PAUSE_PLAN_HOLD",
+                         result)
+        self.assertEqual(result["samplesPerVideoFrame"], 800)
+        self.assertEqual(result["originalExactZeroSamples"], [663600, 746160])
+        plans = result["researchPlans"]
+        self.assertEqual([x["removedWhole30fpsFrames"] for x in plans],
+                         [0, 67, 84])
+        self.assertEqual([x["cutStartOriginalSample"] for x in plans],
+                         [664000, 664000, 664000])
+        self.assertEqual([x["cutEndOriginalSample"] for x in plans],
+                         [664000, 717600, 731200])
+        self.assertEqual([x["researchProposedNativeFilmFrames"] for x in plans],
+                         [1031, 964, 947])
+        self.assertEqual([x["proposedRetainedOriginalPauseMs"] for x in plans],
+                         [3440, 1206.666667, 640])
+        self.assertEqual([x["researchProposedOriginalWavSamples"] for x in plans],
+                         [824336, 770736, 757136])
+        self.assertEqual([x["audioAuditionExactDurationIsNotFrameAligned"]
+                          for x in plans], [False, True, True])
+        self.assertEqual(plans[1]["firstFollowingCaptionProposalStartSec"],
+                         round(31.25-67/30, 6))
+        for flag in ("mayPublish", "productionEditApproved",
+                     "captionTimingApproved", "wordTimingCalibrated",
+                     "voicePronunciationVerified", "creativePauseApproved",
+                     "originalVoiceOrFilmModified", "nativeVideoProduced",
+                     "sourceCardReadingTimeApproved"):
+            self.assertFalse(result[flag], flag)
+
+    def test_frame_native_plan_mismatched_video_receipt_source_holds(self):
+        audio, film, receipt = self.frame_native_plan_fixture()
+        original_guard_ref = digest(audio)
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE",
+                          original_guard_ref), (
+                patch.object(original_guard, "ARCHIVED_TIMED_NATIVE_VIDEO_SHA",
+                             digest(film))), (
+                patch.object(original_guard, "ARCHIVED_TIMED_NATIVE_RECEIPT_SHA",
+                             digest(receipt))):
+            bad_film = film + b"tamper"
+            r = original_guard.audit_archived_frame_native_pause_plan(
+                audio, bad_film, receipt)
+            self.assertIn("FRAME_PLAN_PINNED_NATIVE_FILM_SHA_CHANGED", r["errors"])
+            bad_source = audio[:-2]+bytes([audio[-2]^1, audio[-1]])
+            r = original_guard.audit_archived_frame_native_pause_plan(
+                bad_source, film, receipt)
+            self.assertIn("FRAME_PLAN_PINNED_ORIGINAL_WAV_SHA_CHANGED", r["errors"])
+        altered = json.loads(receipt)
+        altered["scenes"][-2]["endSec"] = 31.24
+        changed = json.dumps(altered).encode()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE",
+                          original_guard_ref), (
+                patch.object(original_guard, "ARCHIVED_TIMED_NATIVE_VIDEO_SHA",
+                             digest(film))), (
+                patch.object(original_guard, "ARCHIVED_TIMED_NATIVE_RECEIPT_SHA",
+                             digest(changed))):
+            r = original_guard.audit_archived_frame_native_pause_plan(
+                audio, film, changed)
+        self.assertEqual(r["status"], "HOLD")
+        self.assertIn(
+            "FRAME_PLAN_FILM_SOURCE_CARD_OR_FOLLOWING_CUE_CHANGED", r["errors"])
+        self.assertFalse(r["mayPublish"])
+
+    def test_frame_native_plan_missing_inputs_and_implicit_mode_hold(self):
+        script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
+        cases = [
+            (["--frame-native-pause-plan",
+              "--original-wav", "/nonexistent/source.wav",
+              "--native-research-film", "/nonexistent/research.mp4",
+              "--native-render-receipt", "/nonexistent/receipt.json"],
+             "FRAME_PLAN_ARCHIVED_FILES_MISSING_OR_UNSAFE"),
+            (["--native-research-film", "/nonexistent/research.mp4"],
+             "FRAME_PLAN_FILM_RECEIPT_REQUIRE_EXPLICIT_RESEARCH_MODE"),
+            (["--frame-native-pause-plan", "--original-wav", "missing.wav",
+              "--native-research-film", "missing.mp4",
+              "--native-render-receipt", "missing.json",
+              "--original-pause-audition-audit"],
+             "FRAME_PLAN_REQUIRES_THREE_EXCLUSIVE_SOURCE_INPUTS"),
+        ]
+        for args, error in cases:
+            with self.subTest(error=error):
+                r = subprocess.run([sys.executable, script, *args],
+                    capture_output=True, text=True, timeout=20)
+                self.assertEqual(r.returncode, 2, r.stderr)
+                self.assertIn(error, r.stdout)
+                self.assertIn('"mayPublish": false', r.stdout)
+
+
+
 class SyntheticMasterLinkTests(unittest.TestCase):
     """Synthetic controls only; original 34.35s master is NOT in hosted checkout."""
 
