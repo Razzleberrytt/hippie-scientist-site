@@ -1682,6 +1682,12 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
                          (17,"hydroxymitragynine"),(19,"mitragynine"),
                          (28,"chemical")):
             mfa["wordAlignment"][idx]["word"]=word
+        for idx in (7,19):
+            # Synthetic first-party ledger uses 200ms placeholders.
+            # 410ms remains before next 420ms-onset synthetic word and
+            # permits all seven +/-120ms same-word source control cuts.
+            mfa["wordAlignment"][idx]["endMs"]=(
+                mfa["wordAlignment"][idx]["startMs"]+410)
         row=mfa["wordAlignment"][17]
         # The original synthetic MFA ledger's 200ms word is too short
         # for ±120ms onset probes; extend only this test fixture.
@@ -1735,6 +1741,12 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
                          (17,"hydroxymitragynine"),(19,"mitragynine"),
                          (28,"chemical")):
             mfa["wordAlignment"][idx]["word"]=word
+        for idx in (7,19):
+            # Synthetic first-party ledger uses 200ms placeholders.
+            # 410ms remains before next 420ms-onset synthetic word and
+            # permits all seven +/-120ms same-word source control cuts.
+            mfa["wordAlignment"][idx]["endMs"]=(
+                mfa["wordAlignment"][idx]["startMs"]+410)
         record=mfa["wordAlignment"][17]
         # Deliberately construct a >240ms context on each side of the
         # forced M label; the stock 200ms synthetic word has no room for
