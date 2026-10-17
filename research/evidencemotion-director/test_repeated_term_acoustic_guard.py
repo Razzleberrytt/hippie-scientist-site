@@ -325,6 +325,103 @@ class SpectralNegativeTests(unittest.TestCase):
                 source, encoded, digest(source.read_bytes()), "0"*64)
             self.assertIn("ENCODED_AAC_SHA_MISMATCH", rejected["errors"])
 
+
+    @staticmethod
+    def native_mux_fixture(td):
+        old, aac, mux = (Path(td)/s for s in
+                         ("archive.mp4", "candidate.m4a", "mux.mp4"))
+        commands = (
+            ["ffmpeg", "-nostdin", "-v", "error", "-y",
+             "-f", "lavfi", "-i", "color=c=blue:s=96x170:r=30:d=1.2",
+             "-f", "lavfi", "-i",
+             "sine=frequency=400:sample_rate=24000:duration=1.2",
+             "-c:v", "libx264", "-pix_fmt", "yuv420p",
+             "-c:a", "aac", "-b:a", "128k", "-shortest", str(old)],
+            ["ffmpeg", "-nostdin", "-v", "error", "-y",
+             "-i", str(old), "-map", "0:a:0", "-c:a", "copy", str(aac)],
+            ["ffmpeg", "-nostdin", "-v", "error", "-y",
+             "-i", str(old), "-i", str(aac),
+             "-map", "0:v:0", "-map", "1:a:0", "-c", "copy", str(mux)],
+        )
+        for command in commands:
+            subprocess.run(command, check=True, timeout=30,
+                           capture_output=True)
+        return old, aac, mux
+
+    def test_native_mux_actual_ffmpeg_packets_video_and_audio(self):
+        import shutil
+        if not all(shutil.which(cmd) for cmd in
+                   ("ffmpeg", "ffprobe")):
+            self.skipTest("native media toolchain unavailable")
+        with tempfile.TemporaryDirectory() as td:
+            old, aac, mux = self.native_mux_fixture(td)
+            result = original_guard.audit_research_pinned_mux_identity(
+                old, aac, mux, digest(old.read_bytes()),
+                digest(aac.read_bytes()), digest(mux.read_bytes()))
+        self.assertEqual(result["status"], "RESEARCH_NATIVE_MUX_IDENTITY_HOLD",
+                         result)
+        self.assertTrue(result["researchPacketAndDecodedSignalIdentical"])
+        self.assertGreater(result["h264PacketsCompared"], 20)
+        self.assertGreater(result["aacPacketsCompared"], 10)
+        self.assertFalse(result["mayPublish"])
+        self.assertFalse(result["wordTimingCalibrated"])
+        self.assertFalse(result["captionTimingApproved"])
+        self.assertFalse(result["sourceHashesIndependentlyTrustedByThisHelper"])
+
+    def test_native_mux_forged_sha_or_missing_media_holds(self):
+        import shutil
+        if not shutil.which("ffmpeg"):
+            self.skipTest("FFmpeg not installed")
+        with tempfile.TemporaryDirectory() as td:
+            old, aac, mux = self.native_mux_fixture(td)
+            shas = [digest(path.read_bytes()) for path in (old,aac,mux)]
+            for index in range(3):
+                bad=list(shas);bad[index]="0"*64
+                result=original_guard.audit_research_pinned_mux_identity(
+                    old,aac,mux,*bad)
+                self.assertEqual(result["status"],"HOLD")
+                self.assertFalse(result["mayPublish"])
+            result=original_guard.audit_research_pinned_mux_identity(
+                old,aac,mux, "bogus",*shas[1:])
+            self.assertIn("EXPECTED_SHA_INVALID",result["errors"][0])
+
+    def test_native_mux_shifted_aac_pts_holds_even_with_self_hash(self):
+        import shutil
+        if not shutil.which("ffmpeg"):
+            self.skipTest("FFmpeg not installed")
+        with tempfile.TemporaryDirectory() as td:
+            old, aac, mux = self.native_mux_fixture(td)
+            shifted=Path(td)/"shifted.mp4"
+            subprocess.run(
+                ["ffmpeg", "-nostdin", "-v", "error", "-y",
+                 "-i", str(old), "-itsoffset", "0.17", "-i", str(aac),
+                 "-map", "0:v:0", "-map", "1:a:0", "-c", "copy",
+                 str(shifted)], check=True, timeout=30,
+                capture_output=True)
+            r=original_guard.audit_research_pinned_mux_identity(
+                old,aac,shifted, digest(old.read_bytes()),
+                digest(aac.read_bytes()), digest(shifted.read_bytes()))
+        self.assertIn("NATIVE_MUX_AAC_PACKET_OR_PTS_CHANGED",r["errors"])
+
+    def test_native_mux_video_reencode_holds_even_with_self_hash(self):
+        import shutil
+        if not shutil.which("ffmpeg"):
+            self.skipTest("FFmpeg not installed")
+        with tempfile.TemporaryDirectory() as td:
+            old, aac, mux = self.native_mux_fixture(td)
+            altered=Path(td)/"altered.mp4"
+            subprocess.run(
+                ["ffmpeg", "-nostdin", "-v", "error", "-y",
+                 "-i", str(old), "-i", str(aac), "-map", "0:v:0",
+                 "-map", "1:a:0", "-vf", "hflip", "-c:v", "libx264",
+                 "-c:a", "copy", str(altered)],
+                check=True, timeout=30, capture_output=True)
+            r=original_guard.audit_research_pinned_mux_identity(
+                old,aac,altered,digest(old.read_bytes()),
+                digest(aac.read_bytes()),digest(altered.read_bytes()))
+        self.assertIn("NATIVE_MUX_VIDEO_PACKET_OR_TIMELINE_CHANGED",
+                      r["errors"])
+
     def test_gain_independent_positive_is_not_phonetic_proof(self):
         a=tone(240)
         report=compare(a,a*.6,[tone(470),tone(860)])
