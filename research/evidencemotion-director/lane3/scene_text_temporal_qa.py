@@ -6,7 +6,10 @@ pixel-only negative screen (not OCR, phone hardware, semantics or release approv
 """
 import argparse,hashlib,json,subprocess
 from pathlib import Path
-import numpy as np
+try:
+ import numpy as np
+except ModuleNotFoundError:
+ np=None  # Hosted portable contract tests run without this optional native-media dependency.
 
 FILM_SHA='c68a4bff5fd3c5b9af77127abfa441ccae3afc4d96c430d4c30cc51d9069fbf7'
 START,END=821,937
@@ -24,6 +27,7 @@ def digest(path):
  return h.hexdigest()
 
 def check_actual_frames(movie):
+ if np is None:raise ReviewHold('NUMPY_REQUIRED_FOR_NATIVE_FILM_ANALYSIS')
  movie=Path(movie)
  if movie.is_symlink() or not movie.is_file() or digest(movie)!=FILM_SHA:
   raise ReviewHold('WRONG_EXACT_FILM_SHA')
@@ -36,7 +40,20 @@ def check_actual_frames(movie):
  if digest(movie)!=FILM_SHA:raise ReviewHold('FILM_MUTATED_DURING_REVIEW')
  return a
 
+def validate_row_stats(name,heights,frame_mae,rightmost_native_x,count):
+ # Pure standard-Python safety rules also exercised by the hosted no-NumPy runner.
+ if type(count) is not int or count!=END-START+1 or len(heights)!=count or any(type(h) is not int or h<=0 for h in heights):
+  raise ReviewHold('FACTUAL_TEXT_FRAME_COVERAGE_INVALID:'+name)
+ if min(heights)*320/1080<14:
+  raise ReviewHold('TEXT_BELOW_MOBILE_320_IN_ANY_FRAME:'+name)
+ if not isinstance(frame_mae,(int,float)) or not 0<=frame_mae<=1.0:
+  raise ReviewHold('FACTUAL_TEXT_FLICKER_OR_MUTATION:'+name)
+ if not isinstance(rightmost_native_x,int) or rightmost_native_x>=830 or rightmost_native_x<126:
+  raise ReviewHold('TEXT_OUTSIDE_EDITED_SAFE_CARD:'+name)
+ return True
+
 def temporal_report(frames):
+ if np is None:raise ReviewHold('NUMPY_REQUIRED_FOR_NATIVE_FILM_ANALYSIS')
  if frames.shape!=(END-START+1,H,W) or frames.dtype!=np.uint8:raise ReviewHold('SCENE_FRAME_GRID_INVALID')
  result=[]
  for name,y,size in LINES:
@@ -59,12 +76,7 @@ def temporal_report(frames):
        'medianDecodedInkPixelCount':int(np.median(ink)),
        'maxDecodedTextFrameMae255':round(float(stability.max()),5),
        'rightmostCandidateInkNativeX':126+max(xx)}
-  if not report['minAboveThreshold14pxAt320']:
-   raise ReviewHold('TEXT_BELOW_MOBILE_320_IN_ANY_FRAME:'+name)
-  if report['maxDecodedTextFrameMae255']>1.0:
-   raise ReviewHold('FACTUAL_TEXT_FLICKER_OR_MUTATION:'+name)
-  if report['rightmostCandidateInkNativeX']>=830:
-   raise ReviewHold('TEXT_OUTSIDE_EDITED_SAFE_CARD:'+name)
+  validate_row_stats(name,heights,report['maxDecodedTextFrameMae255'],report['rightmostCandidateInkNativeX'],len(heights))
   result.append(report)
  return {'schema':'ths-em-lane3-source-card-every-frame-native-negative-screen-v1',
     'movieSha256':FILM_SHA,'decodedSceneFrames':END-START+1,
