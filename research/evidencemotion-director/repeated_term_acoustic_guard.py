@@ -822,7 +822,7 @@ def audit_archived_suffix_cue_hypotheses(
         with wave.open(io.BytesIO(source_raw), "rb") as w:
             pcm = w.readframes(w.getnframes())
         if (len(pcm) != 824336*2
-                or any(pcm[i*2:i*2+2] != b"\\x00\\x00"
+                or any(pcm[i*2:i*2+2] != bytes(2)
                        for i in (663600, 700000, 746159))
                 or pcm[663600*2:746160*2] != bytes((746160-663600)*2)):
             return refuse("SUFFIX_CUES_VERIFIED_ZERO_SPAN_MISSING")
