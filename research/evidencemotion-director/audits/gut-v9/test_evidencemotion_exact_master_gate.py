@@ -30,6 +30,20 @@ class ExactMasterGateTests(unittest.TestCase):
             self.assertEqual(len(r['checks']),1)
             self.assertEqual(r['checks'][0]['code'],'EXACT_MASTER_HASH')
             self.assertFalse(r['mayPublish'])
+    def test_no_fake_release_flag(self):
+        r=gate.audit(Path('/invalid/absent.mp4'),'0'*64,None,None,[])
+        self.assertFalse(r['mayPublish'])
+        self.assertFalse(r['independently_verified'])
+        self.assertFalse(r['owner_phone_verified'])
+    def test_srt_multiple_phrases_and_malformed_second(self):
+        with self.assertRaises(ValueError):
+            gate.parse_srt('1\n00:00:00,020 --> 00:00:00,900\nA\n\n2\n00:00:01,000 --> WRONG\nB\n')
+    def test_invalid_scene_bounds_cannot_be_marked_good(self):
+        self.assertEqual(gate.MOTION_DIFF,10)
+        self.assertGreater(gate.MAX_LUFS, -15)
+    def test_true_peak_parser_is_separate_from_lufs(self):
+        txt='Summary:\nIntegrated loudness:\nI: -16.0 LUFS\nLoudness range:\nLRA: 4.0 LU\nTrue peak:\nPeak: -0.2 dBFS'
+        self.assertGreater(gate.extract_ebur128(txt)['true_peak_dbtp'],gate.MAX_TRUE_PEAK)
     def test_hash_lock_is_cryptographic(self):
         with tempfile.TemporaryDirectory() as tmp:
             f=Path(tmp)/'sample.mp4';f.write_bytes(b'123')
