@@ -170,13 +170,27 @@ class Tests(unittest.TestCase):
 
     @staticmethod
     def _pair_hold_for_write():
+        # Exact expected compare_pair + physical receiver schema, not a
+        # minimal partial fixture that could accidentally bless omissions.
         return {
-            "schema": "ths-em-receiver-replay-test-only",
+            "schema": "ths-em-native-stdin-pair-research-v1",
             "status": "SINGLE_THREAD_ORIGINAL_SOURCE_H264_BITWISE_REPLAY_RESEARCH_HOLD",
+            "sourceFrameDigestsMatchAcrossTwoDeclaredRuns": True,
             "twoActualIndependentJobExecutionsAuthenticated": False,
+            "originalFullStdinExternallyCapturedAndReplayed": True,
             "nativeFullMediaDecodeAndCraftApproved": False,
             "mayPublish": False,
+            "firstExcellentMasterAccepted": False,
+            "fiveRenderStreakAccepted": False,
+            "twoGitHubHostedRunnerNamesDifferent": True,
+            "twoPhysicalFullNativeSourceRendersProduced": True,
+            "twoNativeDecodedMoviesVerified": True,
+            "sourceFrameBitwiseMatch": True,
+            "actualOriginalHistoricalFFmpegBinaryPinned": False,
+            "twoResearchSingleThreadEncodedMoviesBitwiseIdentical": True,
+            "downloadedMovieBytesRehashedAgainstBothEncoderReceipts": True,
             "twoDownloadedNativeMoviesIndependentlyFullyDecoded": True,
+            "twoPhysicalX264DisabledCpuAsmLogsIndependentlyValidated": True,
         }
 
     def test_research_pair_receipt_fresh_complete_atomically_published(self):
@@ -284,6 +298,39 @@ class Tests(unittest.TestCase):
                     with self.assertRaises((TypeError, ValueError)):
                         write_original_pair_research_hold(root / (name+".json"), report)
             self.assertFalse(any(root.iterdir()))
+
+    def test_original_pair_receipt_refuses_extra_approval_and_missing_proof(self):
+        from original_native_stdin_replay import (
+            write_original_pair_research_hold, ORIGINAL_PAIR_RESEARCH_FIELDS)
+        baseline = self._pair_hold_for_write()
+        self.assertEqual(set(baseline), ORIGINAL_PAIR_RESEARCH_FIELDS)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            forged = [
+                ("extra-release", {**baseline, "publicationApproved": True}),
+                ("extra-human", {**baseline, "qualifiedHumanFilmReviewApproved": True}),
+                ("missing-physical-audio", {
+                    k: v for k, v in baseline.items()
+                    if k != "twoDownloadedNativeMoviesIndependentlyFullyDecoded"}),
+                ("wrong-schema", {**baseline, "schema": "unreviewed"}),
+                ("film-decode-not-observed", {
+                    **baseline, "twoDownloadedNativeMoviesIndependentlyFullyDecoded": False}),
+                ("fake-binary", {
+                    **baseline, "actualOriginalHistoricalFFmpegBinaryPinned": True}),
+                ("fake-first-excellent", {
+                    **baseline, "firstExcellentMasterAccepted": True}),
+                ("boolean-coercion", {
+                    **baseline, "sourceFrameDigestsMatchAcrossTwoDeclaredRuns": 1}),
+                ("no-streak", {
+                    **baseline, "fiveRenderStreakAccepted": None}),
+            ]
+            for name, candidate in forged:
+                with self.subTest(name=name):
+                    target = root / (name + ".json")
+                    with self.assertRaisesRegex(ValueError, "UNAUTHORIZED_RECEIPT_CONTENT"):
+                        write_original_pair_research_hold(target, candidate)
+                    self.assertFalse(target.exists())
+            self.assertEqual(list(root.iterdir()), [])
 
     def test_original_job_v1_valid_bounded_fixture(self):
         from original_native_stdin_replay import validate_original_job_v1
