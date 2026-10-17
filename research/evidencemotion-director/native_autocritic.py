@@ -19,6 +19,7 @@ SAMPLE_STEP_SECONDS = 2
 FRAME_W, FRAME_H = 180, 320
 EDGE_MATCH_LIMIT = 0.95
 HIGH_REPETITION_FRAC = 0.45
+MIN_SUSTAINED_REPEATED_PAIRS = 3  # 3 * 2s = 6s, even if global fraction stays below .45
 MIN_VISIBLE_SUBJECT_STD = 4.5
 MIN_SEC, MAX_SEC = 12, 90
 
@@ -61,12 +62,26 @@ def review_decoded_samples(samples):
     similarities = [similarity(a, b) for a, b in zip(vectors, vectors[1:])]
     repeated = [i for i, sim in enumerate(similarities) if sim > EDGE_MATCH_LIMIT]
     repetition_fraction = len(repeated) / len(similarities)
+    # A long local visual plateau is unacceptable even when fast cuts elsewhere
+    # dilute the whole-film repeat fraction. Preserve contiguous pair windows.
+    runs, current = [], []
+    for i in repeated:
+        if current and i != current[-1] + 1:
+            runs.append(current)
+            current = []
+        current.append(i)
+    if current:
+        runs.append(current)
+    sustained = [run for run in runs if len(run) >= MIN_SUSTAINED_REPEATED_PAIRS]
+    longest_run_sec = max((len(run) for run in runs), default=0) * SAMPLE_STEP_SECONDS
     empty_subject = float(np.median(visible_stds)) < MIN_VISIBLE_SUBJECT_STD
     issues = []
     if empty_subject:
         issues.append("MISSING_RECOGNIZABLE_SUBJECT_OR_NEAR_BLANK_CENTRAL_STAGE")
     if repetition_fraction >= HIGH_REPETITION_FRAC:
         issues.append("REPETITIVE_SOURCE_LAYOUT_REQUIRES_ART_DIRECTION_REPAIR")
+    if sustained:
+        issues.append("SUSTAINED_REPEATED_SOURCE_LAYOUT_REQUIRES_ART_DIRECTION_REPAIR")
     return {
         "samples": len(frames),
         "sampleEverySeconds": SAMPLE_STEP_SECONDS,
@@ -75,6 +90,13 @@ def review_decoded_samples(samples):
         "medianSubjectLayoutSimilarity": round(float(np.median(similarities)), 4),
         "medianSubjectGrayscaleStd": round(float(np.median(visible_stds)), 3),
         "layoutRepetitionThreshold": HIGH_REPETITION_FRAC,
+        "longestRepeatedLayoutRunSec": longest_run_sec,
+        "sustainedLayoutThresholdSec": MIN_SUSTAINED_REPEATED_PAIRS * SAMPLE_STEP_SECONDS,
+        "sustainedRepeatWindowsSec": [
+            {"startSec": run[0] * SAMPLE_STEP_SECONDS,
+             "endSec": (run[-1] + 1) * SAMPLE_STEP_SECONDS,
+             "repeatedPairCount": len(run)} for run in sustained
+        ],
         "issues": issues,
         "critiqueScope": "AUTONOMOUS_ACTUAL_PIXELS_NEGATIVE_SCREENING_NOT_HUMAN_QUALITY",
     }

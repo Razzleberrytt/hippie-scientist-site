@@ -95,3 +95,33 @@ test('malformed episode shape or missing total timing causes HOLD, never crash/a
   assert.equal(result.excellentCertified,false);
  }
 });
+
+test('adjacent repeated same-asset uncertainty shots are detected even when cameras alternate',()=>{
+ const p=source('science:visual-repeat');
+ p.beats[0].visualIntent='uncertainty';
+ p.beats[1].visualIntent='uncertainty';
+ p.beats[2].visualIntent='uncertainty';
+ const r=compileReusableDirector(p);
+ assert.equal(r.status,'REUSABLE_G1_G6_PROGRAM_PROPOSED');
+ assert.equal(r.shots[0].grammarId,'G5');
+ assert.equal(r.shots[1].grammarId,'G5');
+ assert.notEqual(r.shots[0].primaryCamera,r.shots[1].primaryCamera);
+ assert.equal(r.compositionRedirectionRequired,true);
+ assert.equal(r.sequenceCraftReview.status,'CRAFT_REDIRECTION_REQUIRED');
+ assert.equal(r.sequenceCraftReview.findings[0].consecutiveCount,3);
+ assert.equal(r.excellentCertified,false);
+ assert.equal(r.productionEligible,false);
+ assert.equal(r.mayPublish,false);
+});
+
+test('a purposeful grammar change breaks immediate triple repetition but never certifies craft',()=>{
+ const p=source('science:distinct');
+ p.beats[0].visualIntent='uncertainty';
+ p.beats[1].visualIntent='study-measurement';
+ p.beats[2].visualIntent='uncertainty';
+ const r=compileReusableDirector(p);
+ assert.equal(r.status,'REUSABLE_G1_G6_PROGRAM_PROPOSED');
+ assert.equal(r.compositionRedirectionRequired,false);
+ assert.equal(r.sequenceCraftReview.status,'SEQUENCE_REVIEW_REQUIRED');
+ assert.equal(r.excellentCertified,false);
+});
