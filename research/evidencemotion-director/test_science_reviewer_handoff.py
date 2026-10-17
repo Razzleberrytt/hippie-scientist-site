@@ -42,6 +42,69 @@ class IndependentScienceIntakeTests(unittest.TestCase):
         self.assertFalse(packet["approvalToMerge"])
         self.assertFalse(packet["reviewer"]["receiptAuthenticated"])
 
+    def test_eight_original_wav_windows_are_precisely_film_frame_bounded(self):
+        packet=reviewer_packet(self.gate)
+        rows=packet["eightClaimsToReview"]
+        assert len(packet["frozenAlignedWordLedgerSha256"])==64
+        self.assertEqual([r["claimId"] for r in rows],
+                         [f"spoken-{n:03d}" for n in range(1,9)])
+        expected=(
+            (160.0,2920.0), (3470.0,10270.0),
+            (10850.0,15990.0), (16580.0,19150.0),
+            (19590.0,22860.001), (23379.999,25389.999),
+            (25709.999,27350.0), (31250.0,33889.999),
+        )
+        import math
+        for row,(a,b) in zip(rows,expected):
+            time=row["originalWavAlignedReviewWindow"]
+            self.assertAlmostEqual(time["spokenStartMs"],a,places=3)
+            self.assertAlmostEqual(time["spokenEndMs"],b,places=3)
+            self.assertEqual(time["firstPotentiallyOverlappingFrame"],
+                             math.floor(a*30/1000))
+            self.assertEqual(time["lastPotentiallyOverlappingFrame"],
+                             math.ceil(b*30/1000)-1)
+            self.assertLess(time["lastPotentiallyOverlappingFrame"],1031)
+            self.assertFalse(time["actualFilmPixelsIndependentlyReviewedForClaim"])
+            self.assertFalse(time["independentQualifiedReviewerApproved"])
+            self.assertIn("NOT_HUMAN_AUDITION",time["sourceAlignment"])
+        self.assertFalse(packet["independentScientificReviewPassed"])
+        self.assertFalse(packet["mayPublish"])
+
+    def test_modified_frozen_wav_timing_or_claim_id_cannot_rehash_to_review(self):
+        import science_reviewer_handoff as handoff
+        from science_reviewer_handoff import frozen_claim_review_windows
+        original=json.loads(handoff.FROZEN_SPOKEN_LEDGER.read_text())
+        with tempfile.TemporaryDirectory() as d:
+            path=Path(d)/"frozen-words.json"
+            for mutate in (
+                lambda record: record["words"][8].update({"startMs":3540.0}),
+                lambda record: record["words"][72].update({"endMs":34000.0}),
+                lambda record: record["assertions"][2].update({"id":"spoken-005"}),
+                lambda record: record.update({"sourceWavSha256":"a"*64}),
+                lambda record: record.update({"scienceApproved":True}),
+                lambda record: record["words"][35].update({"startMs":-3.0}),
+            ):
+                mutated=copy.deepcopy(original)
+                mutate(mutated)
+                path.write_text(json.dumps(mutated)+"\\n")
+                with patch.object(handoff,"FROZEN_SPOKEN_LEDGER",path):
+                    with self.subTest(mutation=mutate.__code__.co_firstlineno):
+                        with self.assertRaises(ValueError):
+                            reviewer_packet(self.gate)
+
+    def test_rehashed_time_window_or_original_media_claim_cannot_self_approve(self):
+        packet=reviewer_packet(self.gate)
+        packet["eightClaimsToReview"][4]["originalWavAlignedReviewWindow"][
+            "firstPotentiallyOverlappingFrame"]=0
+        from science_reviewer_handoff import PACKET_DOMAIN
+        from science_gate_process_attestation import canonical
+        import hashlib
+        payload={k:v for k,v in packet.items() if k!="processPacketDigest"}
+        packet["processPacketDigest"]=hashlib.sha256(
+            PACKET_DOMAIN+canonical(payload)).hexdigest()
+        with self.assertRaisesRegex(ValueError,"REVIEW_INTAKE_MUTATED"):
+            verify_packet(packet,self.gate)
+
     def test_human_axes_are_requested_without_implying_no_trials_exist(self):
         packet = reviewer_packet(self.gate)
         for row in packet["eightClaimsToReview"]:
