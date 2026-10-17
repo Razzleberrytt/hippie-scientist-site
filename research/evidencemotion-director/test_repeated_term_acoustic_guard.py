@@ -1669,6 +1669,23 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
             return original_guard.audit_revised_caption_voice_gaps(
                 audio,counts,film_sha,adts_sha)
 
+    def test_new_seq_film_pins_do_not_accept_mutated_or_unreviewed_film(self):
+        source, counts = self.revised_caption_blank_source_fixture()
+        for film_sha in (original_guard.REVISED_SCENE4_SEQUENTIAL_FILM_SHA,
+                         original_guard.REVISED_SCENE4_LEGIBLE_FILM_SHA):
+            with self.subTest(film=film_sha):
+                r=self.check_revised_caption_source(source,counts,
+                                                    film_sha=film_sha)
+                self.assertEqual(r["status"],
+                    "RESEARCH_REVISED_CAPTION_VOICE_GAP_SCREEN_HOLD",r)
+                self.assertFalse(r["mayPublish"])
+                bad=self.check_revised_caption_source(source,counts,
+                                                     film_sha="0"*64)
+                self.assertEqual(bad["status"],"HOLD")
+                self.assertIn("CAPTION_GAP_REVISED_FILM_OR_AAC_NOT_SOURCE_PINNED",
+                              bad["errors"])
+                self.assertFalse(bad["mayPublish"])
+
     def test_caption_presence_matches_authentic_film_shape_synthetic_source(self):
         audio,counts=self.revised_caption_blank_source_fixture()
         result=self.check_revised_caption_source(audio,counts)

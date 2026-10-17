@@ -1024,6 +1024,13 @@ def audit_archived_suffix_cue_hypotheses(
 # package, not an approved/published/recent-revision identity.
 REVISED_SCENE4_V2B_FILM_SHA = "3c4e91b37958f1e86b6a04486933bbfc719bf6a196203711d6421eca58b70d31"
 REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA = "f0057c19c9d06b8a2f3c6d8fec948ca4555966114579fd1a48b0bcfccc84aa98"
+# Independently acquired from owner's actual first-party Oct 17 research ZIP,
+# with original WAV, story, ZIP CRC and all SHA256SUMS verified. Not approved.
+REVISED_SCENE4_SEQUENTIAL_FILM_SHA = "45f86dad98f82dbe0e7e21f831529a8bc4256a8a053bd74a94c5666d03a5e122"
+REVISED_SCENE4_LEGIBLE_FILM_SHA = "07e808e35a82294fe8e1c0006b227f6d9435885dfd16daeb78d318edde027769"
+REVISED_FULL_DECODED_AAC_PCM_SHA = "05ebaeeb3d6e9a7c933c2c8f0a67a94359592333a090414dac6085d1c60c08bc"
+REVISED_AAC_PACKET_TUPLE_SHA = "421f007430fa50e82c9af793999551afbca0a5bcde7ca6fa9a18b2d7a510bb61"
+
 
 
 def compare_revised_aac_packet_timeline(archived_packets, revised_packets,
@@ -1223,7 +1230,9 @@ def audit_revised_caption_voice_gaps(source_raw, frame_ink_counts,
     def reject(reason):
         return {**base, "status": "HOLD", "errors": [reason]}
     permitted = (REVISED_SCENE4_V2B_FILM_SHA,
-                 REVISED_SCENE4_PHONE_FOOTNOTES_FILM_SHA)
+                 REVISED_SCENE4_PHONE_FOOTNOTES_FILM_SHA,
+                 REVISED_SCENE4_SEQUENTIAL_FILM_SHA,
+                 REVISED_SCENE4_LEGIBLE_FILM_SHA)
     if (not isinstance(revised_film_sha, str)
             or revised_film_sha not in permitted
             or adts_sha != REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA):
@@ -1316,7 +1325,9 @@ def audit_revised_caption_voice_gaps_files(wav_path, film_path):
         film_sha = digest(film_raw)
         if (digest(wav_raw) != SOURCE_WAV_REFERENCE or
                 film_sha not in (REVISED_SCENE4_V2B_FILM_SHA,
-                    REVISED_SCENE4_PHONE_FOOTNOTES_FILM_SHA)):
+                    REVISED_SCENE4_PHONE_FOOTNOTES_FILM_SHA,
+                    REVISED_SCENE4_SEQUENTIAL_FILM_SHA,
+                    REVISED_SCENE4_LEGIBLE_FILM_SHA)):
             return reject("CAPTION_GAP_PINNED_SOURCES_CHANGED")
         adts_cmd=["ffmpeg","-nostdin","-v","error","-xerror",
                   "-i",str(paths[1]),"-map","0:a:0","-c:a","copy",
@@ -1324,6 +1335,37 @@ def audit_revised_caption_voice_gaps_files(wav_path, film_path):
         audio = subprocess.run(adts_cmd,capture_output=True,timeout=35)
         if audio.returncode != 0 or digest(audio.stdout) != REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA:
             return reject("CAPTION_GAP_ENCODED_AAC_SOURCE_CHANGED")
+        # The same elementary AAC bytes can be remuxed with a different
+        # presentation timeline. Independently inspect EVERY packet and the
+        # complete decoded audio, not just the compressed stream fingerprint.
+        full_cmd=["ffmpeg","-nostdin","-v","error","-xerror",
+                  "-i",str(paths[1]),"-map","0:a:0","-vn",
+                  "-ac","1","-ar","24000","-f","f32le","-"]
+        decoded=subprocess.run(full_cmd,capture_output=True,timeout=35)
+        if (decoded.returncode != 0 or len(decoded.stdout) != 825344*4
+                or digest(decoded.stdout) != REVISED_FULL_DECODED_AAC_PCM_SHA):
+            return reject("CAPTION_GAP_FULL_NATIVE_AAC_DECODE_CHANGED")
+        packet_cmd=["ffprobe","-v","error","-select_streams","a:0",
+                    "-show_packets","-show_entries",
+                    "packet=pts,dts,duration,size","-of","json",str(paths[1])]
+        packet_run=subprocess.run(packet_cmd,capture_output=True,timeout=35)
+        if packet_run.returncode != 0:
+            return reject("CAPTION_GAP_NATIVE_AAC_PACKET_PROBE_FAILED")
+        raw_packets=json.loads(packet_run.stdout).get("packets")
+        if not isinstance(raw_packets,list) or len(raw_packets)!=807:
+            return reject("CAPTION_GAP_NATIVE_AAC_PACKET_COUNT_CHANGED")
+        packet_tuples=[]
+        for packet in raw_packets:
+            if not isinstance(packet,dict):
+                return reject("CAPTION_GAP_NATIVE_AAC_PACKET_SCHEMA_INVALID")
+            try:
+                tuple_row=[int(packet[k]) for k in ("pts","dts","duration","size")]
+            except (KeyError,TypeError,ValueError,OverflowError):
+                return reject("CAPTION_GAP_NATIVE_AAC_PACKET_SCHEMA_INVALID")
+            packet_tuples.append(tuple_row)
+        packet_sha=digest(json.dumps(packet_tuples,separators=(",",":")).encode())
+        if packet_sha != REVISED_AAC_PACKET_TUPLE_SHA:
+            return reject("CAPTION_GAP_FULL_NATIVE_AAC_PACKET_TIMELINE_CHANGED")
         cmd=["ffmpeg","-nostdin","-v","error","-xerror",
              "-i",str(paths[1]),"-map","0:v:0",
              "-vf","select='between(n,937,1030)',crop=790:100:60:1290,format=gray",
@@ -1337,6 +1379,12 @@ def audit_revised_caption_voice_gaps_files(wav_path, film_path):
             return reject("CAPTION_GAP_MEDIA_CHANGED_DURING_DECODE")
         result=audit_revised_caption_voice_gaps(
             wav_raw, ink, film_sha, digest(audio.stdout))
+        result["nativeCompleteAacDecodedSha256"]=digest(decoded.stdout)
+        result["nativeAacPacketTimelineSha256"]=packet_sha
+        result["nativeFullAudioSampleCount"]=825344
+        result["nativeAacPacketCount"]=len(packet_tuples)
+        result["fullNativeAacBytesAndPacketTimelineVerified"]=True
+        result["independentPhonemeOrWordTimingVerdict"]=False
         result["physicalVideoFrameDecodeVerifiedByThisFunction"]=True
         result["actualDecodedGrayscaleRoiSha256"]=digest(rendered.stdout)
         result["originalAndRevisedSourcesRehashedAfterDecode"]=True
