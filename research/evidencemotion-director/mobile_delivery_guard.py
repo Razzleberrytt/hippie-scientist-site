@@ -161,6 +161,10 @@ def audit(before,after,sha_before,sha_after,*,source_size=(1080,1920),mobile_siz
     require_undistorted_portrait(v1)
     if (v0['codec_name'],v1['codec_name'])!=('h264','h264') or v1.get('profile') not in ('Constrained Baseline','Baseline','Main') or v1.get('pix_fmt')!='yuv420p':raise Hold('NOT_PHONE_COMPATIBLE_H264')
     if int(v1.get('level',999))>31:raise Hold('PHONE_H264_LEVEL_ABOVE_31')
+    # Display geometry, not just coded pixel dimensions, must be portrait 9:16.
+    # Non-square SAR silently stretches TikTok's presentation even when PSNR agrees.
+    if v0.get('sample_aspect_ratio') not in ('1:1','1/1') or v1.get('sample_aspect_ratio') not in ('1:1','1/1'):
+        raise Hold('NON_SQUARE_SAMPLE_ASPECT_RATIO')
     if v0.get('r_frame_rate')!='30/1' or v1.get('r_frame_rate')!='30/1':raise Hold('NOT_EXACT_30FPS')
     for a in (a0,a1):
         if a.get('codec_name')!='aac' or a.get('profile')!='LC' or a.get('sample_rate') not in ('48000','44100') or a.get('channels')!=2:
