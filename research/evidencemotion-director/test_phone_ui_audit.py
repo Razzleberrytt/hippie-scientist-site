@@ -1596,6 +1596,50 @@ class ActualMediaStreamIdentityTests(unittest.TestCase):
             self.assertEqual((w, h, frames), (160, 288, 30))
             self.assertAlmostEqual(duration, 1.0)
 
+    def test_actual_matroska_renamed_mp4_does_not_pass_container_gate(self):
+        # The filename is deliberately .mp4 but the real multiplexed bytes
+        # are Matroska. Codec, SAR, chroma and timestamps stay valid.
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = self.make_h264(root)
+            disguised = root / "disguised.mp4"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+                "-i", str(source), "-map", "0:v:0",
+                "-c:v", "copy", "-an", "-f", "matroska", str(disguised)
+            ], capture_output=True, timeout=50, check=True)
+            metadata = json.loads(subprocess.run([
+                "ffprobe", "-v", "error",
+                "-show_entries", "format=format_name",
+                "-of", "json", str(disguised)
+            ], capture_output=True, text=True, timeout=20, check=True).stdout)
+            self.assertEqual(metadata["format"]["format_name"], "matroska,webm")
+            with self.assertRaisesRegex(ValueError, "EXPECTED_MP4_CONTAINER"):
+                probe_movie(disguised)
+
+    def test_actual_quicktime_brand_cannot_masquerade_as_iso_mp4(self):
+        # FFprobe's demuxer name is the SAME as MP4: major_brand is needed
+        # to distinguish a real QuickTime movie, even with a .mp4 suffix.
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = self.make_h264(root)
+            disguised = root / "quicktime-as-mp4.mp4"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+                "-i", str(source), "-map", "0:v:0",
+                "-c:v", "copy", "-an", "-f", "mov", str(disguised)
+            ], capture_output=True, timeout=50, check=True)
+            metadata = json.loads(subprocess.run([
+                "ffprobe", "-v", "error",
+                "-show_entries", "format=format_name:format_tags=major_brand",
+                "-of", "json", str(disguised)
+            ], capture_output=True, text=True, timeout=20, check=True).stdout)
+            self.assertEqual(metadata["format"]["format_name"],
+                             "mov,mp4,m4a,3gp,3g2,mj2")
+            self.assertEqual(metadata["format"]["tags"]["major_brand"], "qt  ")
+            with self.assertRaisesRegex(ValueError, "EXPECTED_ISO_MP4_MAJOR_BRAND"):
+                probe_movie(disguised)
+
     def test_real_h264_yuv444p_cannot_claim_mobile_420_compatibility(self):
         # H.264 as a codec is not enough: native high-444 chroma fails
         # common phone delivery constraints even with a clean 30fps grid.
