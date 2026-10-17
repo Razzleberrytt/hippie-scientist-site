@@ -9,7 +9,7 @@ import math
 from unittest.mock import patch
 from array import array
 from pathlib import Path
-from mobile_delivery_guard import audit,Hold,sha_file,audio_compare,frame_pts,validate_report_target,require_undistorted_portrait
+from mobile_delivery_guard import audit,Hold,sha_file,audio_compare,screen_local_audio_energy,frame_pts,validate_report_target,require_undistorted_portrait
 
 
 def ff(*a):
@@ -290,6 +290,23 @@ class MobileDeliveryGuardTests(unittest.TestCase):
             with self.assertRaisesRegex(Hold,'LOCAL_AUDIO_ENERGY_DROPOUT'):
                 audio_compare('original','dropped')
 
+    def test_phase_shifted_full_window_dropouts_are_rejected(self):
+        # A 120-stereo-frame zero interval starting between fixed bins
+        # previously passed because each original 2.5ms bin kept enough
+        # energy. Check every phase, including the half-bin bypass.
+        source=array('f',[.12]*8000)
+        for offset_frames in (15,30,45,60,75,90,105):
+            with self.subTest(offset_frames=offset_frames):
+                phone=array('f',source)
+                start=(240+offset_frames)*2
+                for i in range(start,start+120*2):
+                    phone[i]=0.
+                with self.assertRaisesRegex(Hold,'LOCAL_AUDIO_ENERGY_DROPOUT'):
+                    screen_local_audio_energy(source,phone,len(source))
+        ok=screen_local_audio_energy(source,array('f',source),len(source))
+        self.assertEqual(ok['minimumMobileToSourceWindowEnergyRatio'],1.)
+        self.assertEqual(ok['windowStrideMs'],0.625)
+
     def test_source_silent_intervals_are_not_speech_dropouts(self):
         rate=48000; seconds=4
         source=array('f',(0.12*math.sin(2*math.pi*440*(i//2)/rate)
@@ -301,7 +318,7 @@ class MobileDeliveryGuardTests(unittest.TestCase):
             receipt=audio_compare('source','mobile')
         screen=receipt['localAudioEnergyScreen']
         self.assertGreater(screen['materialSourceWindowCount'],0)
-        self.assertLess(screen['materialSourceWindowCount'],seconds*rate/120)
+        self.assertLess(screen['materialSourceWindowCount'],seconds*rate/30)
         self.assertEqual(screen['minimumMobileToSourceWindowEnergyRatio'],1.)
         self.assertFalse(screen['phonemeIdentityVerified'])
         self.assertFalse(receipt['codecTailAmplitudeScreened'])
