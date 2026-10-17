@@ -332,6 +332,29 @@ class Tests(unittest.TestCase):
                     self.assertFalse(target.exists())
             self.assertEqual(list(root.iterdir()), [])
 
+    def test_actual_pair_report_assembly_stays_compatible_with_strict_writer(self):
+        # Test the REAL inspect_both assembly shape. Only the costly physical
+        # encoder comparator is mocked; this does not pretend actual film QA.
+        from original_native_stdin_replay import (
+            inspect_both, write_original_pair_research_hold)
+        first, env, _ = self._job_v1_fixture()
+        second = {**first, "runId": "fixture-run-two",
+                  "runnerName": "fixture-runner-two"}
+        with patch("original_native_stdin_replay.compare_pair", return_value=pair()):
+            assembled = inspect_both(first, second, env, env)
+        assembled.update({
+            "downloadedMovieBytesRehashedAgainstBothEncoderReceipts": True,
+            "twoDownloadedNativeMoviesIndependentlyFullyDecoded": True,
+            "twoPhysicalX264DisabledCpuAsmLogsIndependentlyValidated": True,
+        })
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "complete-research-HOLD.json"
+            write_original_pair_research_hold(output, assembled)
+            result = json.loads(output.read_text())
+            self.assertEqual(result, assembled)
+            self.assertFalse(result["firstExcellentMasterAccepted"])
+            self.assertFalse(result["mayPublish"])
+
     def test_original_job_v1_valid_bounded_fixture(self):
         from original_native_stdin_replay import validate_original_job_v1
         job, _, _ = self._job_v1_fixture()
