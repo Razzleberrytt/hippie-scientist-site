@@ -95,6 +95,16 @@ class DecodedReadingLoadTests(unittest.TestCase):
             self.run_guard(output=self.film)
         self.assertEqual(digest(self.film),before)
 
+    def test_new_failure_clears_stale_previous_positive_receipt(self):
+        path=self.root/"stale-report.json"
+        self.run_guard(output=path)
+        self.assertTrue(path.exists())
+        data=copy.deepcopy(self.manifest_data)
+        data["scenes"][0]["requiredTokens"]=["NEVER"]
+        with self.assertRaisesRegex(ValueError,"REQUIRED_WORD_NOT_IN_SAME_DECODED_CROP"):
+            self.run_guard(data,output=path)
+        self.assertFalse(path.exists())
+
     def test_output_symlink_to_source_rejected(self):
         path=self.root/"alias.json"
         path.unlink(missing_ok=True)
