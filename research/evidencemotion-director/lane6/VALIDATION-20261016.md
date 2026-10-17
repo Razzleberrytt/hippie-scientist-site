@@ -803,3 +803,50 @@ complete authored bundle addressing those owner findings plus matched phone plan
 sidecars and current proof. Complete intake HOLD/mayPublish=false/newAtomicCards0.
 Only Lane6 registry/README/validation/receiver receipt change; no renderer/source,
 workflow or runtime behavior changed; access-only build exception applies.
+
+
+## October17 exhaustive Lane6 blocker-closure checkpoint
+
+User requested exhaustive continuation. Kept scope under lane6 and reused existing
+source/phone/native/auditor patterns. New actual owner legibility bundle07e received
+via Library599d9399,12/12 member pins and CRC PASS; both full A/V decode exit0,
+1031 native H264 frames each, original WAV/MOL,807 equal AAC packet tuples and actual
+PTS grid max error0.000000333334s. Separate camera-spacing5849 archive remains
+unreceived despite exact-name Library check/source conversation inspection; no
+alternate substituted. Registry history retains prior fdece/45f receipts.
+
+Cross-lane snapshot main ecc249f5 ->six pinned heads ->combined0af00db2,6/6 merge-tree
+exit0; no branch/ref integration. Initial307 isolated-method run271PASS/20error/
+16SKIP(exit1) preserved. Linux fonts/Pillow and correct InChI-enabled RDKit runtime
+allow unchanged science38/38, camera9/9,sequential12/12,Shot5safe6/6; native replay
+95/95 and scorecard5/5 pass there. Dense motion12/12 Windows pass.130/130 acoustic
+suite now runs with actual source inputs; former16 missing-media skips exercised.
+307 distinct unchanged method union passes across declared platform runs; not a
+single307-method all-platform run.180 source Python files byte-identical after tests.
+
+Recovered original WAV/MFA receipt/alignment/ASR and term-triage archive at exact
+hardcoded source SHA pins. First-party MFA run receipt213c... rejected as not1b27...;
+exact1b27 recovered from owner Library source/mfa-receipt.json. Term ZIPe5c28e...
+CRC/hash matches. No reconstructed receipt or fabricated source. Portable five-input
+capsule1,382,852bytes SHA903903f26ef5b22001ae3f95d680473107c54fbcab3898283a89d753b71df030,
+copy hashes/CRC verified. No phonetic/timing/lexical winner approval from passing
+source-integrity tests; expected research HOLD remains. Full recovery receipt saved.
+
+New Windows scorecard false-HOLD traced to differing pathstat/fstat ctime semantics
+on unchanged WAV. Inert owner-only patch retains same-surface metadata guards plus
+streaming confirmation against observed same-size/restored-mtime mutation. Original
+stat positive red(exit1), final owner patch10/10 Windows and10/10 Linux(exit0),
+exact0da9c00f apply-check0. Intermediate metadata-only Linux test failure retained;
+no weaker check adopted. Extra read pass and non-atomic concurrency boundary recorded.
+Both owner patches remain unapplied; Lane3 canonical patch still apply-check0 at
+selecteda3617e0b9 with unchanged ce520eb producer blob. No duplicate unchanged test.
+
+Current proof gaps remain: null phone plan; stale fec3d story renderReceipt fromfdece
+vs current07e physical receipt486bc123; packaged generator bytes differ from selected
+Git source. Current exact authored sidecars/revision and independent owner reviews
+required. Prior science redline scoped45f; current sender footer repair not promoted
+to Lane4 or handset approval. Read IMPLEMENTATION-HANDOFF.md and CURRENT-HANDOFF.json
+for one next dependency rather than repeated lane polling. Evidence checkpointd2e21e8ea.
+All mutations are inert patch/artifact/docs; no repository behavior/other owner source,
+production build, protected merge, deployment or approval. HOLD/mayPublish=false,
+newAtomicCards0. Fresh final link/JSON/capsule/hash/whitespace validation follows.

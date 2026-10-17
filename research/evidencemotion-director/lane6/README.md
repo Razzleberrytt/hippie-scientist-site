@@ -19,30 +19,29 @@ independently obtained pin SHA. No network or paid service is used.
 
 ## Current received-candidate disposition
 
-**Actual revised bytes received; complete intake HOLD.** The sole received-candidate
-and blocker registry is [`CURRENT-HANDOFF.json`](CURRENT-HANDOFF.json), backed by
-[`receipts/sequential-scene4-physical-receiver-20261017.json`](receipts/sequential-scene4-physical-receiver-20261017.json).
-Lane6 independently downloaded exact owner Library archive
-`EvidenceMotion_Lane3_Scene4_Sequential_Safe_Research_20261017.zip`, outer SHA
-`81ac8b662e5f270e0c78370b1992b6e620f12cbc14ad98347459fb64a2bed381`.
-Revised movie SHA `45f86dad98f82dbe0e7e21f831529a8bc4256a8a053bd74a94c5666d03a5e122`:
-ZIP CRC and 14/14 member hashes verified; prior/current movies fully A/V decoded,
-1031 native H264 frames each; AAC SHA and all 807 timing/size packet records match.
-Original WAV and authored nine-shot story are physically received. Prior `fdece1d9...`
-receipt remains historical and is retained in the registry; do not call it current.
+**Received legibility candidate07e; complete intake HOLD.** The single received
+candidate/blocker registry is [`CURRENT-HANDOFF.json`](CURRENT-HANDOFF.json), backed
+by [`receipts/legibility-candidate-physical-receiver-20261017.json`](receipts/legibility-candidate-physical-receiver-20261017.json).
+Actual owner Library archive `EvidenceMotion_Lane3_Autonomous_Legibility_Repair_20261017.zip`
+SHA `599d93991475d813ad54aaf8115e42cead76f70e00ea70f7805e9ece6a06984d`,
+current received film SHA `07e808e35a82294fe8e1c0006b227f6d9435885dfd16daeb78d318edde027769`.
+CRC/12 member hashes, both full A/V decodes,1031 native H264 frames each, original
+AAC hash/807 packet records, original WAV/MOL and nine-shot story bindings verified.
+The existing native auditor confirms1031 actual monotonic video timestamps on30fps grid.
 
-Story binds this current film/WAV but `phonePlanSha256` remains null. Its
-`renderReceiptSha256` resolves to the prior Shot5 receipt (not included in current
-archive), rather than current included physical audit SHA. This needs an authored
-current-vs-historical proof distinction or corrected binding. No complete seven-role
-caption/claim/asset/lineage/review intake is present. Registry also preserves exact
-Lane1 opening-label and Lane4 footer-padding redlines as owner-reported, not Lane6
-retests. Current source hash/proof is required after their repair.
+This is distinct from separately reported camera-spacing film5849dd45 whose exact
+e0e83700 archive was not found by Library filename and is not received here. No
+alternate archive is substituted for it. Previous received45f/fdece candidates
+remain historical in registry, never current fallbacks. Recipient context access
+to local shared paths must be independently checked.
 
-Local shared attachment path and automatic Library retrieval route are in the
-registry; other lanes must verify access/bytes. No science/voice/craft/mobile or
-publication acceptance; `mayPublish=false`. The older `e79e4474...` expectation
-remains historical, INCOMPLETE and unreceived, never a verified fallback.
+Phone plan is null; complete exact-candidate sidecars and current proof still
+missing. Story renderReceipt points to priorfdece proof absent from current bundle;
+current included07e proof has a different hash. Packaged generator also differs
+from selected Git-head source: require explicit producer revision, not silent rebinding.
+Prior science opening-label redline and sender-reported footer repair stay separately
+scoped pending independent current-SHA review. No science/voice/craft/phone/publication
+approval; `mayPublish=false`.
 
 ## Deliver, pin, check, transfer
 
@@ -132,7 +131,7 @@ remains historical, INCOMPLETE and unreceived, never a verified fallback.
    `--handoff`. Its `files` map must match the sender's receipt exactly. Lane 4
    then runs its own current exact-film OCR/pixel and muted-comprehension audits
    against the role paths. That includes early/middle/late same-crop ordered
-   `STRUCTURE Ã¢â€°Â  HUMAN EXPERIENCE`, CIDs, computed/not-filmed caveats and mobile
+   `STRUCTURE ÃƒÂ¢Ã¢â‚¬Â°Ã‚Â  HUMAN EXPERIENCE`, CIDs, computed/not-filmed caveats and mobile
    reading. The bridge does not invoke or award those independent reviews.
 
 Exit codes: `0 = PASS` for intake only, `1 = FAIL` for malformed/mismatched or
@@ -202,3 +201,28 @@ both platform results rather than treating the Windows skip as a passing case.
 Corrupt DEFLATE members return a structured `FAIL` receipt with the stable
 `CORRUPT_ZIP_COMPRESSION` error. The CLI exits 1 and does not create a handoff
 directory; this error does not grant any approval or atomic credit.
+
+
+## Ready owner handoffs and recovered original inputs
+
+`patches/lane5-consistent-stat-surfaces.patch` is an inert Lane5 proposal pinned to
+0da9c00f. It fixes observed Windows path-vs-descriptor ctime false rejection while
+retaining both metadata guards, plus one streaming confirmation read against the
+observed same-size/restored-mtime mutation case. Four synthetic stat cases and one
+actual mutation regression join the existing five scorecard tests:10/10 Windows
+and10/10 Linux after temporary application. It adds a read pass, does not establish
+an atomic snapshot under arbitrary adversarial writes, and requires owner independent
+review and required gates before adoption. No Lane5 source was changed. Exact
+red/green/apply evidence: `receipts/lane5-windows-stat-patch-proof-20261017.json`.
+The existing Lane3 canonical receipt patch still applies to the unchanged selected
+producer blob; owner adoption remains separate.
+
+Original audio inputs are now independently recovered at exact code-pinned SHA:
+`receipts/original-audio-input-recovery-20261017.json` provides five environment
+variables, stable local paths and a portable capsule. Existing acoustic suite now
+runs130/130 including all16 formerly missing-original skips. This proves tested
+source/excerpt and research-HOLD behavior; never phoneme identity or release approval.
+`receipts/exhaustive-integration-and-runtime-20261017.json` records refreshed
+six-head serial simulation,307 distinct selected methods across supported runtimes,
+initial failures and platform/runtime follow-ups. No all-platform or full-CI claim.
+See [`IMPLEMENTATION-HANDOFF.md`](IMPLEMENTATION-HANDOFF.md) for one checkpoint.
