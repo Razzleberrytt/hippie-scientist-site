@@ -59,6 +59,22 @@ class CaptionDisjointWindowsTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'UNDECLARED_GRAY_OR_COLOR_CHANGE'):
             self.check(new=self.badoutside)
 
+    def test_both_movies_shifted_half_second_cannot_steal_old_srt_windows(self):
+        """Same shifted decoded PTS ≠ SRT's original zero-origin frame clock."""
+        root = Path(self.temp.name)
+        shifted_source, shifted_edit = root/'shifted-original.mp4', root/'shifted-edited.mp4'
+        for original, target in ((self.src, shifted_source),
+                                 (self.edit, shifted_edit)):
+            subprocess.run([
+                'ffmpeg', '-nostdin', '-hide_banner', '-v', 'error',
+                '-i', str(original), '-map', '0', '-c', 'copy',
+                '-output_ts_offset', '0.5', '-y', str(target)
+            ], check=True, capture_output=True, timeout=30)
+        with self.assertRaisesRegex(ValueError, 'FRAME_PTS_NOT_AUTHORED_CFR_CLOCK'):
+            inspect(source=shifted_source, edited=shifted_edit,
+                    source_sha=sha(shifted_source), edited_sha=sha(shifted_edit),
+                    srt=self.srt, srt_sha=sha(self.srt), cue_ids=[2,4])
+
     def test_original_aac_audio_change_rejected(self):
         with self.assertRaisesRegex(ValueError,'AAC_PACKET_TIMING_CHANGED|ORIGINAL_AAC_ELEMENTARY_CHANGED'):
             self.check(new=self.badaudio)
