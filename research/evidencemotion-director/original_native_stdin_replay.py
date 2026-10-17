@@ -148,6 +148,37 @@ def assert_original_replay_inputs_unchanged(*, sources, fonts, wav, candidate,
     return True
 
 
+def assert_original_renderer_module_import_safe(source_dir, *, loaded=None):
+    """Reject Python's sys.modules cache as an archival-renderer substitute.
+
+    The path list alone does not force a fresh import. A prior import under
+    the same module name would win, regardless of the byte-pinned directory.
+    Caller must perform pre-import check before changing sys.path; after
+    import, validate the entrypoint's actual module origin.
+    """
+    from original_replay_source_restore import PINNED
+
+    if loaded is None:
+        cached = sorted(name[:-3] for name in PINNED if name[:-3] in sys.modules)
+        if cached:
+            raise ValueError(
+                "NATIVE_ORIGINAL_HOLD:ARCHIVED_RENDERER_MODULE_PRELOADED:" +
+                ",".join(cached))
+        return True
+
+    expected = Path(source_dir) / "narration_locked_treatments.py"
+    origin = getattr(getattr(loaded, "__spec__", None), "origin", None)
+    location = getattr(loaded, "__file__", None)
+    if (getattr(loaded, "__name__", None) != "narration_locked_treatments"
+            or not isinstance(origin, str) or not isinstance(location, str)
+            or Path(origin).resolve() != expected.resolve()
+            or Path(location).resolve() != expected.resolve()
+            or not expected.is_file() or expected.is_symlink()
+            or sha_file(expected) != PINNED["narration_locked_treatments.py"]):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:ARCHIVED_RENDERER_IMPORT_ORIGIN_DRIFT")
+    return True
+
+
 def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
     import PIL
     from PIL import Image
@@ -181,6 +212,9 @@ def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
         encoder_mode=encoder_mode)
     out_dir.mkdir(parents=False)
     (out_dir / "environment.json").write_text(json.dumps(environment, indent=2) + "\n")
+    # A cached sys.modules entry overrides sys.path even if every archived
+    # source file on disk is SHA-pinned. Reject before any renderer execution.
+    assert_original_renderer_module_import_safe(source_dir)
     # Never import the current main or candidate reimplementation in place of the
     # 11 byte-pinned historical renderer modules.
     sys.path.insert(0, str(source_dir))
@@ -188,6 +222,7 @@ def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
     start = time.monotonic()
     try:
         r = importlib.import_module("narration_locked_treatments")
+        assert_original_renderer_module_import_safe(source_dir, loaded=r)
         if r.FPS != 30 or r.WAV_SHA != ORIGINAL_WAV_SHA256:
             raise ValueError("NATIVE_ORIGINAL_HOLD:RENDERER_CONSTANT_DRIFT")
         scenes = r.timeline(alignment)
