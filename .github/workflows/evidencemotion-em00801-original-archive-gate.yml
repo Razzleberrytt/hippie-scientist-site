@@ -1,0 +1,99 @@
+name: EvidenceMotion EM-008.01 original archive botanical full timeline research gate
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/em00801_actual_botanical_frame_inventory.py'
+      - 'research/evidencemotion-director/test_em00801_actual_botanical_frame_inventory.py'
+      - 'research/evidencemotion-director/EM00801-NATIVE-NINE-SHOT-PROVENANCE-20261016.md'
+      - 'research/evidencemotion-director/EM00801-ACTUAL-FILM-BOTANICAL-INVENTORY-20261016.md'
+      - '.github/workflows/evidencemotion-em00801-original-archive-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original-full-framehash-botanical-source-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Restore only exact prior first-party research movie, NOT latest rerender
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/em00801-prior"
+          # This artifact was independently downloaded and rehashed before coding.
+          # It is historical research media, never assumed identical to a fresh candidate.
+          gh run download 38975933992 --repo "$GITHUB_REPOSITORY" \
+            --name evidencemotion-original-wav-mfa-acoustic-candidate \
+            --dir "$RUNNER_TEMP/em00801-prior"
+          test -s "$RUNNER_TEMP/em00801-prior/specimen-timed-native/specimen_NEW_RESEARCH_CANDIDATE.mp4"
+          test -s "$RUNNER_TEMP/em00801-prior/specimen-timed-native/phone-ui-plan.json"
+          test -s "$RUNNER_TEMP/em00801-prior/specimen-timed-native/render-receipt.json"
+          test -s "$RUNNER_TEMP/em00801-prior/specimen-timed-native/visual-claim-inventory.json"
+      - name: Ensure FFmpeg and FFprobe are available on this hosted runner
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+          ffmpeg -version | head -n 1
+          ffprobe -version | head -n 1
+      - name: Strict negative tests then decode all 1031 pinned native frames and nine cross-checks
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_em00801_actual_botanical_frame_inventory.py' -v
+          python research/evidencemotion-director/em00801_actual_botanical_frame_inventory.py \
+            --movie "$RUNNER_TEMP/em00801-prior/specimen-timed-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
+            --plan "$RUNNER_TEMP/em00801-prior/specimen-timed-native/phone-ui-plan.json" \
+            --receipt "$RUNNER_TEMP/em00801-prior/specimen-timed-native/render-receipt.json" \
+            --inventory "$RUNNER_TEMP/em00801-prior/specimen-timed-native/visual-claim-inventory.json" \
+            --out "$RUNNER_TEMP/em00801-actual-archived-nine-frames.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'em00801-actual-archived-nine-frames.json'
+          r=json.loads(p.read_text())
+          assert r['status']=='ACTUAL_ALL_1031_FRAMEHASHES_VERIFIED_BOTANICAL_CONTENT_HOLD'
+          assert r['actualDecodedShotsSampled']==9 and len(r['sampledDecodedPixelHashes'])==9
+          full=r['fullEncodedTimeline']
+          rows=full['allActualDecodedFrameHashes']
+          assert full['actualDecodedFrameCount']==1031 and len(rows)==1031
+          assert [row['frameIndex'] for row in rows]==list(range(1031))
+          assert all(len(row['decodedRgb24Sha256'])==64 for row in rows)
+          assert set(full['authorDeclaredShotFrameCounts'])=={
+              'sentence_1_part0','sentence_1_part1','sentence_2',
+              'sentence_3','sentence_4','sentence_5_part0',
+              'sentence_5_part1','source_hold','sentence_6'}
+          assert sum(full['authorDeclaredShotFrameCounts'].values())==1031
+          assert len(full['decodedFrameHashSequenceSha256'])==64
+          assert full['allFramesBotanicallyClassified'] is False
+          assert full['allFramesIndependentlyScientificallyReviewed'] is False
+          assert full['mayPublish'] is False
+          assert r['declaredBotanicalArtShots']==0 and r['declaredDeterministicScienceShots']==9
+          assert r['actualBotanicalAbsenceFromAllFramesEstablished'] is False
+          assert r['actualFullFrameContentBotanicallyClassified'] is False
+          assert r['sourceArtPixelProvenanceIndependentlyEstablished'] is False
+          assert r['qualifiedScienceApproved'] is False
+          assert r['mayPublish'] is False and r['publicationApproved'] is False
+          print('PASS_ORIGINAL_ARCHIVE_ALL_1031_RGB_FRAMEHASHES; botanical science and pixels classification HOLD')
+          PY
+      - name: Preserve no-video, no-WAV machine-only source receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: em00801-original-h264-all-1031-frame-hashes-research-only
+          path: ${{ runner.temp }}/em00801-actual-archived-nine-frames.json
+          retention-days: 14
+          if-no-files-found: error
+      - name: Prevent mistaken art, science, real-phone or release acceptance
+        if: always()
+        run: |
+          echo 'EM-008.01 uses exact prior archived H264, not current generator film.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'All 1031 decoded RGB24 frame hashes cross-match nine original midpoints; this is NOT botanical pixel classification or visual approval.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No qualified science, species identity, plant analyte measurement, real phone or publication authority; mayPublish=false.' >> "$GITHUB_STEP_SUMMARY"

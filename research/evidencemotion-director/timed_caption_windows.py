@@ -52,7 +52,12 @@ def schedule(cues, *, max_words=3):
         groups.append({'firstCue':idx,'afterLastCue':end,
                        'startSec':group[0]['startSec'],
                        'endSec':group[-1]['endSec'],
-                       'words':[x['text'] for x in group]})
+                       'words':[x['text'] for x in group],
+                       # Preserve exact acoustic onset per cue. A group is a
+                       # layout limit, never permission to pre-display words.
+                       'wordCues':[{'text':x['text'],
+                                    'startSec':x['startSec'],
+                                    'endSec':x['endSec']} for x in group]})
         idx=end
     if [w for g in groups for w in g['words']]!=[c['text'] for c in cues]:
         raise ValueError('CAPTION_WINDOW_HOLD:SOURCE_WORD_DRIFT')
@@ -61,7 +66,7 @@ def schedule(cues, *, max_words=3):
 
 def shown_at(groups, second):
     """Return *one* group when its spoken onset has occurred, never before."""
-    if not math.isfinite(second):
+    if (type(second) not in (float,int) or not math.isfinite(second)):
         raise ValueError('CAPTION_WINDOW_HOLD:INVALID_SAMPLE_TIME')
     active=None
     for group in groups:
@@ -71,4 +76,7 @@ def shown_at(groups, second):
             break
     if active is None or second >= active['endSec']:
         return []
-    return list(active['words'])
+    # Word timing, not group timing, controls reveal. This also prevents
+    # future qualifiers, scientific terms and repeated words from leaking.
+    return [cue['text'] for cue in active['wordCues']
+            if cue['startSec'] <= second]

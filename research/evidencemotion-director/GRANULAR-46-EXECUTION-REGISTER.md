@@ -85,6 +85,8 @@
 - [ ] **EM-002.03** Check version change does not silently enable deployment or posting — **Pass/receipt:** permission-negative test
 - [ ] **EM-002.04** Trace the policy into the governing tracker without creating an extra execution lane — **Pass/receipt:** exact doc link
 
+**EM-002.04 research-only policy trace (NOT child/parent acceptance):** [exact five-source WIP/science/spend/security/merge policy crosswalk](EM00202-POLICY-CROSSWALK-20261016.md) → [research-only release privilege negative-control receipt](EM00203-RESEARCH-WORKFLOW-RELEASE-GUARD-20261016.md) → [canonical version-policy and science/media authority](COMPLETION-CHECKLIST.md). The **Oct 12** version freeze was **rescinded Oct 13**, but WIP stays **three D/R/A normal workstreams** and owner publishing authorization remains **separate**. Research branch **draft/unmerged**; no new implementation lane, review approval, platform post, production integration or checked milestone. `mayPublish=false`.
+
 ### EM-003 — Six composition grammars
 
 **Canonical state (2026-10-15):** ACCEPTED / evidence-scoped. **Child evidence audit:** NOT_AUDITED (5 subtasks). **Owning source:** [canonical #3](COMPLETION-CHECKLIST.md).
