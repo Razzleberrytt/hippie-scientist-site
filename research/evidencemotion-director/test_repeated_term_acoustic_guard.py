@@ -331,9 +331,9 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
             "timingAccuracyCalibrated": False,
             "wordAlignment": authored,
         }).encode()
-        replacements = {2: (3, "sevenoh"), 7: (1, "mitrogenine"),
-                        16: (2, "hydroxyl"), 19: (1, "mitrogenine"),
-                        37: (1, "poles"), 63: (2, "thats")}
+        replacements = {2: (3, ("sevenoh",)), 7: (1, ("mitrogenine",)),
+                        16: (2, ("seven", "hydroxyl")), 19: (1, ("mitrogenine",)),
+                        37: (1, ("poles",)), 63: (2, ("thats",))}
         matched = [i for i in range(73)
                    if not any(start <= i < start+count
                               for start, (count, _) in replacements.items())]
@@ -343,10 +343,14 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
         i = 0
         while i < 73:
             if i in replacements:
-                consumed, word = replacements[i]
-                guessed.append({"word": word,
-                                "start": authored[i]["startMs"]/1000,
-                                "end": authored[i+consumed-1]["endMs"]/1000})
+                consumed, replacement_words = replacements[i]
+                for j, spoken in enumerate(replacement_words):
+                    source_index = i+j
+                    end_index = (i+consumed-1 if len(replacement_words) == 1
+                                 else source_index)
+                    guessed.append({"word": spoken,
+                                    "start": authored[source_index]["startMs"]/1000,
+                                    "end": authored[end_index]["endMs"]/1000})
                 i += consumed
                 continue
             m = authored[i]
