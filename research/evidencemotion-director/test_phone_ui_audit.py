@@ -1997,6 +1997,70 @@ class TargetedEncodedRightUiInkTests(unittest.TestCase):
                     self.assertFalse((root / "frames").exists())
             self.assertEqual(hashlib.sha256(movie.read_bytes()).hexdigest(), sha)
 
+    def test_cli_full_diagnostic_json_returns_all_unsafe_frames_and_exits_nonzero(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = self.physical_caption_proxy(root, overflows=True)
+            sha = hashlib.sha256(movie.read_bytes()).hexdigest()
+            result = self.run_targeted_cli(
+                movie, sha=sha, extras=("--diagnostic-json",))
+            self.assertEqual(result.returncode, 2, result.stderr)
+            receipt = json.loads(result.stdout)
+            self.assertEqual(receipt["publicationVerdict"], "HOLD")
+            self.assertFalse(receipt["mayPublish"])
+            self.assertEqual(receipt["decodedFramesExamined"], 21)
+            self.assertTrue(receipt["everyFrameInRequestedWindowChecked"])
+            self.assertEqual(receipt["violatingFrameCount"], 21)
+            self.assertEqual(receipt["firstViolatingFrameIndex"], 5)
+            self.assertEqual(receipt["lastViolatingFrameIndex"], 25)
+            self.assertGreater(receipt["maxViolatingPixelCount"], 0)
+            self.assertEqual(len(receipt["actualDecodedPixelObservations"]), 21)
+            self.assertEqual(hashlib.sha256(movie.read_bytes()).hexdigest(), sha)
+            self.assertEqual(sorted(p.name for p in root.iterdir()), [movie.name])
+            # The ordinary strict caller must STILL raise, not return a
+            # green-seeming result because diagnostics were introduced.
+            from phone_ui_audit import screen_targeted_encoded_right_ui_ink
+            with self.assertRaisesRegex(
+                ValueError, "TARGETED_CRITICAL_INK_RIGHT_UI_EXCLUSION:5:"
+            ):
+                screen_targeted_encoded_right_ui_ink(
+                    movie, expected_film_sha=sha,
+                    frame_indices=list(range(5, 26)), roi=[720, 830, 1080, 880])
+
+    def test_cli_full_diagnostic_json_zero_ink_is_nonpublishing_and_no_write(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = self.physical_caption_proxy(root, overflows=False)
+            sha = hashlib.sha256(movie.read_bytes()).hexdigest()
+            result = self.run_targeted_cli(
+                movie, sha=sha, extras=("--diagnostic-json",))
+            self.assertEqual(result.returncode, 0, result.stderr)
+            receipt = json.loads(result.stdout)
+            self.assertEqual(receipt["violationCode"], None)
+            self.assertEqual(receipt["violatingFrameCount"], 0)
+            self.assertEqual(receipt["maxViolatingPixelCount"], 0)
+            self.assertEqual(receipt["publicationVerdict"], "HOLD")
+            self.assertFalse(receipt["mayPublish"])
+            self.assertFalse(receipt["viewerReadabilityVerified"])
+            self.assertEqual(sorted(p.name for p in root.iterdir()), [movie.name])
+
+    def test_cli_diagnostic_json_cannot_skip_exact_video_input_or_mix_full_audit(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = self.physical_caption_proxy(root, overflows=False)
+            sha = hashlib.sha256(movie.read_bytes()).hexdigest()
+            result = self.run_targeted_cli(
+                movie, sha=H, extras=("--diagnostic-json",))
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("TARGETED_UI_PROBE_EXACT_FILM_SHA_MISMATCH", result.stderr)
+            self.assertFalse(result.stdout.strip())
+            result = self.run_targeted_cli(
+                movie, sha=sha,
+                extras=("--diagnostic-json", "--manifest", "foreign.json"))
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("TARGETED_UI_SCREEN_MUST_NOT_MIX_FULL_AUDIT_FILES", result.stderr)
+            self.assertEqual(sorted(p.name for p in root.iterdir()), [movie.name])
+
     def test_wrong_movie_identity_and_fake_sample_and_roi_are_rejected(self):
         from phone_ui_audit import screen_targeted_encoded_right_ui_ink
         with tempfile.TemporaryDirectory() as directory:
