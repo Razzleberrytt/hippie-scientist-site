@@ -73,7 +73,7 @@ describe('AI citation winner identity protection', () => {
 
   it('protects the mitragynine citation-winning article identity and direct-answer placement', () => {
     expect(mitragynine).toContain('slug: "mitragynine"')
-    expect(mitragynine).toContain('title: "Mitragynine: Pharmacology, Human Evidence, Safety & 2026 Research Status"')
+    expect(mitragynine).toContain('title: "Mitragynine: The Complete Evidence Review — Pharmacology, Human Studies, Safety & 2026 Legal Status"')
     expect(mitragynine).toContain('## Quick answers')
     expect(mitragynine).toContain('| **What is mitragynine?** |')
     expect(mitragynine.indexOf('## Quick answers')).toBeLessThan(mitragynine.indexOf('## Bottom line'))
