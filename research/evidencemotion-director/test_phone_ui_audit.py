@@ -2781,5 +2781,105 @@ class ActualFilmSmoke(unittest.TestCase):
             self.assertFalse((root / "frames" / "research-report.json").exists(),
                              "No stale PASS receipt may survive a phantom-shot rejection")
 
+
+class DecodedCaptionInkPhoneScreenTests(unittest.TestCase):
+    """No metadata-only typography approval: inspect exact decoded BGR rows."""
+
+    @staticmethod
+    def two_lines(*, first=(8, 26), second=(35, 53), gap=False,
+                  remove_second=False, dark=False, width=60, height=65):
+        image = bytearray(width * height * 3)
+        for index, (start, stop) in enumerate((first, second)):
+            if index == 1 and remove_second:
+                continue
+            for y in range(start, stop + 1):
+                if gap and y == 15:
+                    continue
+                for x in range(10, 30):
+                    at = (y * width + x) * 3
+                    image[at:at + 3] = bytes((90, 90, 90) if dark else (235, 235, 235))
+        return bytes(image)
+
+    def scan(self, raw=None, **kwargs):
+        from phone_ui_audit import measure_decoded_caption_ink_rows
+        return measure_decoded_caption_ink_rows(
+            self.two_lines() if raw is None else raw,
+            crop_width=60, crop_height=65, native_video_width=1080, **kwargs)
+
+    def test_actual_decoded_glyph_ink_small_on_320_phone_is_review_hold(self):
+        r = self.scan()
+        self.assertEqual(len(r["actualDecodedInkLines"]), 2)
+        self.assertEqual([x["nativeGlyphInkHeightPx"] for x in r["actualDecodedInkLines"]], [19, 19])
+        self.assertTrue(all(x["belowExperimentalReviewThreshold"]
+                            for x in r["actualDecodedInkLines"]))
+        self.assertFalse(r["mayPublish"])
+
+    def test_physically_large_type_still_never_certifies_publishing(self):
+        r = self.scan(native_video_width=60, phone_width_px=60)
+        self.assertEqual(r["status"], "NO_SMALL_CAPTION_INK_DETECTED_REVIEW_REQUIRED")
+        self.assertEqual(r["publicationVerdict"], "HOLD")
+        self.assertFalse(r["semanticOCRVerified"])
+
+    def test_a_missing_second_caption_line_is_not_a_green_pass(self):
+        with self.assertRaisesRegex(ValueError, "EXPECTED_PHYSICAL_INK_LINES"):
+            self.scan(self.two_lines(remove_second=True))
+
+    def test_blank_or_too_dark_decoded_pixels_are_held_not_called_readable(self):
+        for raw in (bytes(60 * 65 * 3), self.two_lines(dark=True)):
+            with self.subTest(first=raw[:2]):
+                with self.assertRaisesRegex(ValueError, "EXPECTED_PHYSICAL_INK_LINES"):
+                    self.scan(raw)
+
+    def test_incomplete_or_extra_decoded_bytes_cannot_claim_height(self):
+        for raw in (self.two_lines()[:-1], self.two_lines() + b"x"):
+            with self.assertRaisesRegex(ValueError, "COMPLETE_DECODED_BGR_CROP"):
+                self.scan(raw)
+
+    def test_true_antialias_gap_in_glyph_does_not_invent_third_line(self):
+        r = self.scan(self.two_lines(gap=True))
+        self.assertEqual([x["nativeGlyphInkHeightPx"] for x in r["actualDecodedInkLines"]], [19, 19])
+
+    def test_forged_roi_or_nonfinite_review_threshold_is_rejected(self):
+        for changed in (dict(phone_width_px=0), dict(expected_lines=0),
+                        dict(min_ink_pixels_per_row=90),
+                        dict(minimum_phone_glyph_px=float("nan"))):
+            with self.subTest(changed=changed):
+                with self.assertRaisesRegex(ValueError, "CAPTION_TYPE_SCREEN_"):
+                    self.scan(**changed)
+
+    def test_stale_exact_film_sha_rejected_before_any_ffmpeg(self):
+        from phone_ui_audit import measure_targeted_encoded_caption_type
+        with tempfile.TemporaryDirectory() as root:
+            movie = Path(root) / "fake.mp4"
+            movie.write_bytes(b"not real H264")
+            with self.assertRaisesRegex(ValueError, "FILM_SHA_MISMATCH"):
+                measure_targeted_encoded_caption_type(
+                    movie, expected_film_sha=H, frame_indices=list(range(4)),
+                    roi=[95, 1340, 780, 1475])
+
+    def test_discontinuous_frames_cannot_hide_one_frame_small_type(self):
+        from phone_ui_audit import measure_targeted_encoded_caption_type
+        with tempfile.TemporaryDirectory() as root:
+            movie = Path(root) / "source.bin"
+            movie.write_bytes(b"verified sha before probe")
+            identity = hashlib.sha256(movie.read_bytes()).hexdigest()
+            with patch("phone_ui_audit.probe_movie", return_value=(1080, 1920, 33.6, 1008)):
+                with self.assertRaisesRegex(ValueError, "COMPLETE_CONTIGUOUS_WINDOW"):
+                    measure_targeted_encoded_caption_type(
+                        movie, expected_film_sha=identity,
+                        frame_indices=[0, 1, 3, 4], roi=[95, 1340, 780, 1475])
+
+    def test_oversized_roi_rejected_before_decode(self):
+        from phone_ui_audit import measure_targeted_encoded_caption_type
+        with tempfile.TemporaryDirectory() as root:
+            movie = Path(root) / "source.bin"
+            movie.write_bytes(b"verified sha before roi")
+            identity = hashlib.sha256(movie.read_bytes()).hexdigest()
+            with patch("phone_ui_audit.probe_movie", return_value=(1080, 1920, 33.6, 1008)):
+                with self.assertRaisesRegex(ValueError, "BOUNDED_NATIVE_ROI"):
+                    measure_targeted_encoded_caption_type(
+                        movie, expected_film_sha=identity,
+                        frame_indices=list(range(4)), roi=[0, 0, 1080, 1920])
+
 if __name__ == "__main__":
     unittest.main()
