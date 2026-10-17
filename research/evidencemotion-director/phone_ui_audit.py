@@ -1060,8 +1060,8 @@ def measure_whole_encoded_right_ui_ink(movie, *, expected_film_sha,
         # is not evidence for this exact film-wide screen. Verify returned
         # scope and the window's internal counter before accepting its rows.
         # The child remains a negative research screen, never release proof.
-        forbidden_width = x1 - int((1 - RIGHT) * width)
-        max_forbidden_pixels = forbidden_width * (y1 - y0)
+        forbidden_width = roi[2] - int((1 - RIGHT) * width)
+        max_forbidden_pixels = forbidden_width * (roi[3] - roi[1])
         if (receipt.get("filmSha256") != expected_film_sha or
                 receipt.get("targetedRoiPx") != roi or
                 receipt.get("pixelMode") != pixel_mode or
@@ -1083,7 +1083,7 @@ def measure_whole_encoded_right_ui_ink(movie, *, expected_film_sha,
                     (row["targetPixelsInRightExclusion"] > 0 and
                      (type(row["rightmostDetectedX"]) is not int or
                       not int((1 - RIGHT) * width) <=
-                          row["rightmostDetectedX"] < x1))
+                          row["rightmostDetectedX"] < roi[2]))
                     for index, row in zip(indices, rows)) or
                 receipt.get("violatingFrameCount") != sum(
                     row["targetPixelsInRightExclusion"] > 0 for row in rows) or
