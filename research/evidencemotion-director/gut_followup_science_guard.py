@@ -23,6 +23,8 @@ from gut_release_science_guard import (
 SCHEMA = 'ths-lane1-gut-followup-video-science-identity-HOLD-v1'
 MAX_PACKAGE_BYTES = 75 * 1024 * 1024
 MAX_MEMBER_BYTES = 45 * 1024 * 1024
+MAX_ARCHIVE_MEMBERS = 128
+MAX_TOTAL_UNCOMPRESSED_BYTES = 96 * 1024 * 1024
 
 
 def _safe_archive(path, expected_sha):
@@ -37,7 +39,9 @@ def _safe_archive(path, expected_sha):
         with zipfile.ZipFile(p) as z:
             infos = z.infolist()
             names = [i.filename for i in infos]
-            if (not infos or len(names) != len(set(names)) or
+            if (not infos or len(infos) > MAX_ARCHIVE_MEMBERS or
+                sum(i.file_size for i in infos) > MAX_TOTAL_UNCOMPRESSED_BYTES or
+                len(names) != len(set(names)) or
                 any(i.is_dir() or i.file_size < 1 or i.file_size > MAX_MEMBER_BYTES or
                     i.flag_bits & 1 or i.filename.startswith('.') or
                     '\\' in i.filename or len(PurePosixPath(i.filename).parts) != 1 or
