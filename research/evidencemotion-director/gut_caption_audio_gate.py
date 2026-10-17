@@ -104,8 +104,8 @@ def audit_pcm_cues(stereo_pcm, cues):
             failures.append(idx)
         previous = end
     problems = bool(failures or gap_violations)
-    return {**hold("GUT_AUDIO_SRT_ACTIVITY_DISCREPANCY") if problems
-            else hold("RESEARCH_ONLY"),
+    return {**(hold("GUT_AUDIO_SRT_ACTIVITY_DISCREPANCY") if problems
+               else hold("RESEARCH_ONLY")),
             "status": "HOLD" if problems else "RESEARCH_GUT_AUDIO_SRT_COVERAGE_HOLD",
             "errors": ["GUT_AUDIO_SRT_ACTIVITY_DISCREPANCY"] if problems else [],
             "researchOnlyEnergyThresholdFullScaleRms": .003,
