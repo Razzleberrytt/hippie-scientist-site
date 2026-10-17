@@ -970,6 +970,10 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
                          "RESEARCH_ARCHIVED_ENCODED_AUDIO_SYNC_HOLD", report)
         self.assertEqual(report["testedRealSignalWindows"], 6)
         self.assertEqual(report["decodedAacSampleCount"], 825344)
+        self.assertGreaterEqual(report["rollingSignalScreen"]["speechActiveWindowCount"], 100)
+        self.assertGreaterEqual(report["rollingSignalScreen"]["exactDigitalSilenceWindowCount"], 6)
+        self.assertEqual(report["rollingSignalScreen"]["belowThresholdWindows"], [])
+        self.assertEqual(report["rollingSignalScreen"]["unexpectedAudioDuringExactSourceSilence"], [])
         for item in report["diagnosticWindows"]:
             self.assertEqual(item["bestEnvelopeLagMs"], 0)
             self.assertGreater(item["zeroLagDecodedPcmCorrelation"], .99)
@@ -986,7 +990,7 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
             (np.zeros(720, dtype="<f4"), decoded[:-720]))
         self.assertEqual(self.check_synthetic_encoded(
             source, film, receipt, shifted)["status"], "HOLD")
-        self.assertIn("ENCODED_AUDIO_SIGNAL_LAG_OR_CORRELATION_HOLD",
+        self.assertIn("ENCODED_AUDIO_LOCALIZED_SIGNAL_OR_SILENCE_HOLD",
                       self.check_synthetic_encoded(
                           source, film, receipt, shifted)["errors"])
         for bad in (
@@ -998,6 +1002,33 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
                     np.nan_to_num(bad).std())):
                 self.assertEqual(self.check_synthetic_encoded(
                     source, film, receipt, bad)["status"], "HOLD")
+
+    def test_rolling_screen_detects_unchecked_gap_audio_substitution(self):
+        source, film, receipt, decoded = self.encoded_aac_screen_fixture()
+        # Original six anchor windows do not cover this 4.1..4.4 sec gap.
+        # A malicious splice there previously evaded every anchor check.
+        modified = decoded.copy()
+        modified[round(4.1*24000):round(4.4*24000)] = 0
+        report = self.check_synthetic_encoded(
+            source, film, receipt, modified)
+        self.assertEqual(report["status"], "HOLD")
+        self.assertIn("ENCODED_AUDIO_LOCALIZED_SIGNAL_OR_SILENCE_HOLD",
+                      report["errors"])
+        self.assertTrue(report["rollingSignalScreen"]["belowThresholdWindows"])
+        self.assertFalse(report["mayPublish"])
+
+    def test_rolling_screen_rejects_inserted_audio_during_exact_zero_hold(self):
+        source, film, receipt, decoded = self.encoded_aac_screen_fixture()
+        modified = decoded.copy()
+        modified[29*24000:round(29.35*24000)] = .11
+        report = self.check_synthetic_encoded(
+            source, film, receipt, modified)
+        self.assertEqual(report["status"], "HOLD")
+        self.assertIn("ENCODED_AUDIO_LOCALIZED_SIGNAL_OR_SILENCE_HOLD",
+                      report["errors"])
+        self.assertTrue(report["rollingSignalScreen"][
+            "unexpectedAudioDuringExactSourceSilence"])
+        self.assertFalse(report["mayPublish"])
 
     def test_encoded_audio_forged_source_and_receipt_do_not_grant_sync(self):
         source, film, receipt, decoded = self.encoded_aac_screen_fixture()
