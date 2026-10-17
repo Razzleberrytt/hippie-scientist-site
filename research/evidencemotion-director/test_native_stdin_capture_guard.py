@@ -489,6 +489,77 @@ class Tests(unittest.TestCase):
         (base / "encoder.log").write_bytes(proc.stderr)
         return movie
 
+    def test_original_replay_checks_all_pinned_input_bytes_after_render(self):
+        from original_native_stdin_replay import assert_original_replay_inputs_unchanged
+        from original_replay_source_restore import PINNED
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            sources, fonts = root / "sources", root / "fonts"
+            sources.mkdir(); fonts.mkdir()
+            for name in PINNED:
+                (sources / name).write_bytes(("source:" + name).encode("utf-8"))
+            for name in ("DejaVuSans.ttf", "DejaVuSans-Bold.ttf"):
+                (fonts / name).write_bytes(("fixture-font:" + name).encode("utf-8"))
+            wav, align, binary = (root / "original.wav", root / "alignment.json",
+                                  root / "synthetic-ffmpeg")
+            wav.write_bytes(b"original fixture WAV bytes")
+            align.write_bytes(b'{"research":true}\n')
+            binary.write_bytes(b"synthetic FFmpeg executable identity")
+            environment = {
+                "sourceHashesSha256": {
+                    name: digest((sources / name).read_bytes()) for name in PINNED},
+                "fontHashesSha256": {
+                    name: digest((fonts / name).read_bytes())
+                    for name in ("DejaVuSans.ttf", "DejaVuSans-Bold.ttf")},
+                "wavSha256": digest(wav.read_bytes()),
+                "alignmentCandidateSha256": digest(align.read_bytes()),
+                "ffmpegExecutableSha256": digest(binary.read_bytes()),
+            }
+            inputs = dict(sources=sources, fonts=fonts, wav=wav,
+                          candidate=align, environment=environment)
+            with patch("original_native_stdin_replay.original_media_executable",
+                       return_value=str(binary)):
+                self.assertTrue(assert_original_replay_inputs_unchanged(**inputs))
+                for label, target in (
+                        ("RENDERER_SOURCE", sources / next(iter(PINNED))),
+                        ("FONT", fonts / "DejaVuSans.ttf"),
+                        ("NARRATION_WAV", wav),
+                        ("ALIGNMENT", align),
+                        ("ENCODER_BINARY", binary)):
+                    with self.subTest(label=label):
+                        original = target.read_bytes()
+                        target.write_bytes(original + b"-TAMPERED")
+                        try:
+                            with self.assertRaisesRegex(
+                                    ValueError,
+                                    "ORIGINAL_REPLAY_INPUT_CHANGED_DURING_RENDER:" + label):
+                                assert_original_replay_inputs_unchanged(**inputs)
+                        finally:
+                            target.write_bytes(original)
+                        self.assertTrue(assert_original_replay_inputs_unchanged(**inputs))
+                # Same byte contents via a symlink must not stand in for the
+                # originally pinned direct source input.
+                original = wav.read_bytes()
+                foreign = root / "foreign-original.wav"
+                foreign.write_bytes(original)
+                wav.unlink()
+                try:
+                    wav.symlink_to(foreign)
+                except (OSError, NotImplementedError) as exc:
+                    self.skipTest(f"file symlinks unavailable: {exc}")
+                with self.assertRaisesRegex(
+                        ValueError, "ORIGINAL_REPLAY_INPUT_CHANGED_DURING_RENDER:NARRATION_WAV"):
+                    assert_original_replay_inputs_unchanged(**inputs)
+
+    def test_original_replay_input_recheck_is_before_successful_job_receipt(self):
+        import inspect
+        from original_native_stdin_replay import replay
+        source = inspect.getsource(replay)
+        self.assertLess(source.index('"-f", "null", "-"'),
+                        source.index("assert_original_replay_inputs_unchanged("))
+        self.assertLess(source.index("assert_original_replay_inputs_unchanged("),
+                        source.index('"full-original-replay.json").write_text'))
+
     def test_downloaded_native_media_real_codec_fixture(self):
         from original_native_stdin_replay import audit_downloaded_original_movie
         with tempfile.TemporaryDirectory() as directory:
