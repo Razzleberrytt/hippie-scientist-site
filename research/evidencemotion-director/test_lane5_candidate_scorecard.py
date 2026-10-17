@@ -3,6 +3,7 @@ import hashlib
 import json
 import os
 import subprocess
+from types import SimpleNamespace
 from pathlib import Path
 import tempfile
 import unittest
@@ -10,7 +11,7 @@ import wave
 from unittest.mock import patch
 
 from lane5_candidate_scorecard import (
-    _screen_stats, _windows, _physical_av, score_candidate, write_once, hold
+    _screen_stats, _windows, _physical_av, _decoded_audio_coverage, score_candidate, write_once, hold
 )
 
 
@@ -246,6 +247,7 @@ class Lane5ScorecardTests(unittest.TestCase):
             complete = _physical_av(good, (96, 170, 90))
             self.assertTrue(complete["fullVideoAudioPhysicalDecode"])
             self.assertTrue(complete["audioCoverageTechnicallyComplete"])
+            self.assertEqual(complete["audioPtsAnomalyCount"], 0)
             self.assertGreaterEqual(complete["decodedAudioSamples"], 72000)
             self.assertGreaterEqual(complete["audioDecodedEndSeconds"], 2.9)
             # A successful FFmpeg decode used to incorrectly certify this.
@@ -280,6 +282,28 @@ class Lane5ScorecardTests(unittest.TestCase):
                 ValueError, "DECODED_AUDIO_TIMELINE_GAP_OR_OVERLAP"
             ):
                 _physical_av(film, (96, 170, 90))
+
+
+
+
+    def test_short_aac_pts_anomaly_is_reported_but_not_mistaken_for_truncation(self):
+        """Source-inherited <50ms AAC timing quirks require voice review; >50ms HOLD."""
+        first = {"best_effort_timestamp_time": "0.000000", "nb_samples": 1024}
+        second = {"best_effort_timestamp_time": "0.076000", "nb_samples": 1024}
+        def assess(rows):
+            with patch("lane5_candidate_scorecard.subprocess.run",
+                       return_value=SimpleNamespace(stdout=json.dumps({"frames": rows}))):
+                return _decoded_audio_coverage("synthetic-reference-not-a-film.mp4",
+                                               24000, 2)
+        r = assess([first, second])
+        self.assertTrue(r["audioCoverageTechnicallyComplete"])
+        self.assertTrue(r["audioPtsAnomaliesNeedSourceReview"])
+        self.assertEqual(r["audioPtsAnomalyCount"], 1)
+        self.assertAlmostEqual(r["audioPtsAnomalies"][0]["signedGapMs"], 33.333, places=2)
+        self.assertEqual(r["audioPtsAnomalies"][0]["audioFrameIndex"], 1)
+        with self.assertRaisesRegex(ValueError, "DECODED_AUDIO_TIMELINE_GAP_OR_OVERLAP"):
+            assess([first, {"best_effort_timestamp_time": "0.143000",
+                            "nb_samples": 1024}])
 
 
 
