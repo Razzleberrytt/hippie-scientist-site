@@ -5,6 +5,7 @@ import sys
 import tempfile
 import unittest
 import json
+import math
 from unittest.mock import patch
 from array import array
 from pathlib import Path
@@ -47,6 +48,13 @@ class MobileDeliveryGuardTests(unittest.TestCase):
         self.assertEqual(v['framesChecked'],24)
         self.assertEqual(v['decodedVisualComparison']['decodedPairFrames'],24)
         self.assertGreater(v['decodedAudioComparison']['normalizedCorrelation'],.995)
+        local=v['decodedAudioComparison']['localAudioEnergyScreen']
+        self.assertGreater(local['materialSourceWindowCount'],0)
+        self.assertGreaterEqual(local['minimumMobileToSourceWindowEnergyRatio'],.25)
+        self.assertIs(local['phonemeIdentityVerified'],False)
+        self.assertIs(local['humanAudibilityVerified'],False)
+        self.assertNotIn('codecTailExtraNonSpeechVerified',v['decodedAudioComparison'])
+        self.assertIs(v['decodedAudioComparison']['codecTailSpeechIdentityVerified'],False)
         for k in ('realIPhonePlaybackVerified','captionOCRVerified','scienceOrSourceReviewApproved','fontReadabilityApproved','mayPublish'):
             self.assertIs(v[k],False)
     def test_skipped_visual_replay_never_returns_positive_receipt(self):
@@ -216,6 +224,9 @@ class MobileDeliveryGuardTests(unittest.TestCase):
         self.assertEqual(v['mobileAACSampleRateHz'],44100)
         self.assertEqual(v['h264TargetProfile'],'Main')
         self.assertGreaterEqual(v['decodedAudioComparison']['codecTailDeltaStereoFrames'],0)
+        self.assertGreater(v['decodedAudioComparison']['localAudioEnergyScreen']['materialSourceWindowCount'],0)
+        self.assertGreaterEqual(v['decodedAudioComparison']['localAudioEnergyScreen']['minimumMobileToSourceWindowEnergyRatio'],.25)
+        self.assertIs(v['decodedAudioComparison']['codecTailSpeechIdentityVerified'],False)
         self.assertFalse(v['mayPublish'])
         # No JSON NaN or Infinity from FFmpeg's legitimate identical-frame PSNR.
         json.dumps(v,allow_nan=False)
@@ -258,5 +269,50 @@ class MobileDeliveryGuardTests(unittest.TestCase):
         with patch('mobile_delivery_guard.decoded_audio',side_effect=[original,cut]):
             with self.assertRaisesRegex(Hold,'AUDIBLE_AUDIO_TAIL_MISMATCH'):
                 audio_compare('original','short')
+
+
+    def test_six_ms_source_active_dropout_rejected_even_when_global_snr_would_pass(self):
+        # A four-second voiced-like physical PCM sequence with 6ms zeroed can
+        # keep global SNR >25dB and correlation >0.995. Segment audit MUST
+        # catch the missing high-energy chunk independently of these averages.
+        rate=48000; seconds=4
+        source=array('f',(0.12*math.sin(2*math.pi*440*(i//2)/rate)
+                          for i in range(rate*seconds*2)))
+        mobile=array('f',source)
+        start=rate*2*2
+        for i in range(start,start+int(.006*rate)*2):
+            mobile[i]=0.
+        full=sum(float(x*x) for x in source)
+        error=sum(float((x-y)**2) for x,y in zip(source,mobile))
+        self.assertGreater(10*math.log10(full/error),25.)
+        with patch('mobile_delivery_guard.decoded_audio',
+                   side_effect=[source,mobile]):
+            with self.assertRaisesRegex(Hold,'LOCAL_AUDIO_ENERGY_DROPOUT'):
+                audio_compare('original','dropped')
+
+    def test_source_silent_intervals_are_not_speech_dropouts(self):
+        rate=48000; seconds=4
+        source=array('f',(0.12*math.sin(2*math.pi*440*(i//2)/rate)
+                          if i < 2*rate*2 else 0.
+                          for i in range(rate*seconds*2)))
+        target=array('f',source)
+        with patch('mobile_delivery_guard.decoded_audio',
+                   side_effect=[source,target]):
+            receipt=audio_compare('source','mobile')
+        screen=receipt['localAudioEnergyScreen']
+        self.assertGreater(screen['materialSourceWindowCount'],0)
+        self.assertLess(screen['materialSourceWindowCount'],seconds*rate/120)
+        self.assertEqual(screen['minimumMobileToSourceWindowEnergyRatio'],1.)
+        self.assertFalse(screen['phonemeIdentityVerified'])
+        self.assertFalse(receipt['codecTailAmplitudeScreened'])
+        self.assertFalse(receipt['codecTailSpeechIdentityVerified'])
+
+    def test_unmeasurably_quiet_master_cannot_fake_local_energy_pass(self):
+        source=array('f',[0.001]*8000)
+        target=array('f',source)
+        with patch('mobile_delivery_guard.decoded_audio',
+                   side_effect=[source,target]):
+            with self.assertRaisesRegex(Hold,'EMPTY_OR_SILENT_AUDIO'):
+                audio_compare('source','mobile')
 
 if __name__=='__main__': unittest.main(verbosity=2)
