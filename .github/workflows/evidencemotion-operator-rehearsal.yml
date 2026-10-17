@@ -21,6 +21,8 @@ on:
       - 'research/evidencemotion-director/test_audio_only_remaster_guard.py'
       - 'research/evidencemotion-director/silent_static_experience_probe.py'
       - 'research/evidencemotion-director/test_silent_static_experience_probe.py'
+      - 'research/evidencemotion-director/visual_scene_repair_guard.py'
+      - 'research/evidencemotion-director/test_visual_scene_repair_guard.py'
       - 'research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md'
       - '.github/workflows/evidencemotion-operator-rehearsal.yml'
 concurrency:
@@ -99,6 +101,11 @@ jobs:
           set -euo pipefail
           python3 -m py_compile research/evidencemotion-director/silent_static_experience_probe.py
           python3 -m unittest discover -s research/evidencemotion-director -p 'test_silent_static_experience_probe.py' -v
+      - name: Test independent exact-film visual-scene repair boundary (research HOLD)
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/visual_scene_repair_guard.py
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_visual_scene_repair_guard.py' -v
       - name: Ensure no production publishing privileges are implied
         run: |
           set -euo pipefail
