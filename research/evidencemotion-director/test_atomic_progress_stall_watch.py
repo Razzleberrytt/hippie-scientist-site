@@ -119,6 +119,93 @@ class AtomicProgressWatchTests(unittest.TestCase):
             prior(99),CURRENT["repository"],CURRENT["branch"],"99",
             {**source,"head_sha":"f"*40},viewed))
 
+    def test_real_history_scans_past_reruns_to_two_distinct_verified_heads(self):
+        """A duplicate artifact must not hide the next older distinct source."""
+        import os
+        import json
+        from pathlib import Path
+        from unittest.mock import patch
+        same_head = prior(99)["headSha"]
+        entries = [(99,same_head),(98,same_head),(97,prior(97)["headSha"])]
+        seen_downloads = []
+        artifacts = [
+            {"name":"evidencemotion-atomic-progress-checkpoint",
+             "created_at":f"2026-10-17T17:{n:02d}:00Z",
+             "expired":False,
+             "workflow_run":{"id":n,"head_branch":CURRENT["branch"],
+                             "head_sha":head}}
+            for n,head in entries
+        ]
+        # Numeric created_at would sort 99 first if sorting on minute % 60
+        for index,item in enumerate(artifacts):
+            item["created_at"]=f"2026-10-17T{19-index:02d}:00:00Z"
+
+        def fake_gh(args):
+            if args[0] == "api":
+                return json.dumps({"artifacts":artifacts}).encode()
+            run=int(args[2])
+            head=dict(entries)[run]
+            if args[:2] == ["run","view"]:
+                return json.dumps({
+                    "workflowName":"EvidenceMotion atomic proof ledger gate",
+                    "status":"completed","conclusion":"success",
+                    "headBranch":CURRENT["branch"],"headSha":head
+                }).encode()
+            if args[:2] == ["run","download"]:
+                folder=Path(args[args.index("--dir")+1])
+                folder.joinpath("snapshot.json").write_text(
+                    json.dumps(prior(run,headSha=head)),encoding="utf-8")
+                seen_downloads.append(run)
+                return b""
+            raise AssertionError(f"unexpected GitHub invocation: {args}")
+
+        with patch.dict(os.environ,{"GH_TOKEN":"fixture"}),patch(
+                "atomic_progress_stall_watch._gh",side_effect=fake_gh):
+            history,status=history_from_github(
+                CURRENT["repository"],CURRENT["branch"],CURRENT["runId"])
+        self.assertEqual(status,"OK")
+        self.assertEqual([int(r["runId"]) for r in history],[99,97])
+        self.assertEqual(seen_downloads,[99,97])
+        self.assertEqual(decide(CURRENT,history)["status"],
+                         "STALLED_THREE_VERIFIED_CHECKPOINTS")
+
+    def test_history_same_head_only_remains_unknown_not_false_stall(self):
+        import os
+        import json
+        from pathlib import Path
+        from unittest.mock import patch
+        head=prior(99)["headSha"]
+        artifacts=[
+            {"name":"evidencemotion-atomic-progress-checkpoint",
+             "created_at":f"2026-10-17T{19-i:02d}:00:00Z",
+             "expired":False,
+             "workflow_run":{"id":n,"head_branch":CURRENT["branch"],
+                             "head_sha":head}}
+            for i,n in enumerate((99,98))
+        ]
+        def fake_gh(args):
+            if args[0]=="api":
+                return json.dumps({"artifacts":artifacts}).encode()
+            run=int(args[2])
+            if args[:2]==["run","view"]:
+                return json.dumps({"workflowName":"EvidenceMotion atomic proof ledger gate",
+                                   "status":"completed","conclusion":"success",
+                                   "headBranch":CURRENT["branch"],
+                                   "headSha":head}).encode()
+            if args[:2]==["run","download"]:
+                Path(args[args.index("--dir")+1],"snapshot.json").write_text(
+                    json.dumps(prior(run,headSha=head)),encoding="utf-8")
+                return b""
+            raise AssertionError(args)
+        with patch.dict(os.environ,{"GH_TOKEN":"fixture"}),patch(
+                "atomic_progress_stall_watch._gh",side_effect=fake_gh):
+            history,status=history_from_github(
+                CURRENT["repository"],CURRENT["branch"],CURRENT["runId"])
+        self.assertEqual(status,"HISTORY_NOT_YET_ESTABLISHED")
+        self.assertEqual(len(history),1)
+        self.assertEqual(decide(CURRENT,history)["status"],
+                         "INSUFFICIENT_VERIFIED_HISTORY")
+
     def test_lack_of_github_token_cannot_fabricate_history(self):
         import os
         from unittest.mock import patch
