@@ -244,6 +244,96 @@ class OriginalSilenceSourceHoldTests(unittest.TestCase):
 
 
 
+
+class SilentEveryFrameMotionTests(unittest.TestCase):
+    def test_exact_source_sample_to_frame_center_lattice(self):
+        frames=D.frame_midpoint_lattice_in_zero_run(*D.ORIGINAL_SILENCE)
+        # 27.65 seconds is exactly halfway into frame 829 at 30fps.
+        self.assertEqual((frames[0],frames[-1],len(frames)),(829,932,104))
+        for n in frames:
+            self.assertGreaterEqual((2*n+1)*24000,2*D.ORIGINAL_SILENCE[0]*30)
+            self.assertLess((2*n+1)*24000,2*D.ORIGINAL_SILENCE[1]*30)
+        with self.assertRaisesRegex(D.CraftHold,'FRAME_GRID_INVALID'):
+            D.frame_midpoint_lattice_in_zero_run(True,746160)
+        with self.assertRaisesRegex(D.CraftHold,'FRAME_GRID_UNAVAILABLE'):
+            D.frame_midpoint_lattice_in_zero_run(0,5)
+
+    def test_full_decode_physically_finds_freeze_between_moving_frames(self):
+        if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
+            self.skipTest('Native H264 encoder needed for physical frame-motion negative')
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)
+            raw=root/'scenes.rgb';movie=root/'scene.mp4'
+            # 120 actual RGB frames. The subject moves near beginning/end
+            # but remains fixed for 65 *intervening* frames (25..89).
+            with raw.open('wb') as out:
+                for n in range(120):
+                    frame=bytearray(b'\x0c\x0c\x0c')*(96*170)
+                    x=18 if 25<=n<90 else 6+(n%18)*3
+                    for y in range(56,90):
+                        for xx in range(x,x+16):
+                            if xx>=96:continue
+                            k=3*(y*96+xx)
+                            frame[k:k+3]=b'\xe8\xe8\xe8'
+                    out.write(frame)
+            subprocess.run(['ffmpeg','-nostdin','-v','error','-f','rawvideo',
+                '-pix_fmt','rgb24','-s','96x170','-r','30','-i',str(raw),
+                '-frames:v','120','-c:v','libx264','-preset','ultrafast',
+                '-crf','18','-pix_fmt','yuv420p',str(movie)],
+                check=True,capture_output=True)
+            full=D.measure_source_hold_motion(movie,120,list(range(120)))
+            self.assertEqual(full['silentFramesCompared'],120)
+            self.assertEqual(full['adjacentFrameTransitionsCompared'],119)
+            self.assertGreaterEqual(full['longestConsecutiveLowMotionFrames'],60)
+            self.assertLess(full['longestConsecutiveLowMotionFrames'],90)
+            self.assertEqual(full['excellentCertified'],False)
+            self.assertEqual(full['mayPublish'],False)
+            moving=D.measure_source_hold_motion(movie,120,list(range(3,17)))
+            self.assertLessEqual(moving['longestConsecutiveLowMotionFrames'],4)
+            self.assertGreater(full['longestConsecutiveLowMotionFrames'],
+                               moving['longestConsecutiveLowMotionFrames']+40)
+
+    def test_full_decode_refuses_sparse_or_forged_silence_lattice(self):
+        for frames in ([0],[0,2,3],[1,1,2],[False,1],[1,120],list(range(125))):
+            with self.subTest(frames=frames[:5]),self.assertRaisesRegex(
+                    D.CraftHold,'SILENCE_VISUAL_FRAME_INTERVAL_INVALID'):
+                D.measure_source_hold_motion('must-not-open.mp4',120,frames)
+
+    def test_full_scan_wired_only_to_explicit_original_wav_optin(self):
+        # Use the previously verified nine-shot + exact story/film identity
+        # before passing any source-hold review; never synthesize approval.
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td);movie=root/'movie.mp4'
+            movie.write_bytes(b'NOT A REAL MOVIE')
+            story={'encodedH264Sha256':D.file_sha256(movie),
+                   'sourceWavSha256':D.ORIGINAL_WAV_SHA256,
+                   'nineShotsMapped':9,'mayPublish':False,
+                   'shots':[{'shot':f's{i}','startSec':i*3.44,
+                             'endSec':(i+1)*3.44} for i in range(8)]+[
+                             {'shot':'source_hold','startSec':27.35,
+                              'endSec':31.25}]}
+            path=root/'story.json';path.write_text(json.dumps(story))
+            fingerprints=(bytes([20])*7000,set())
+            mock_review={'sourceHoldShotId':'source_hold','mayPublish':False}
+            mock_motion={'silentFramesCompared':104,'mayPublish':False}
+            with (patch.object(D,'read_metadata',return_value=1031),
+                  patch.object(D,'validate_story',return_value=story['shots']),
+                  patch.object(D,'decode_samples',return_value={n:fingerprints for n in range(1031)}),
+                  patch.object(D,'audit_source_hold_silence',return_value=mock_review) as audit_pause,
+                  patch.object(D,'measure_source_hold_motion',return_value=mock_motion) as allframes):
+                without=D.audit(movie,path)
+                self.assertNotIn('originalVoiceSourceHoldPacing',without)
+                audit_pause.assert_not_called()
+                with_audio=D.audit(movie,path,original_wav=root/'original.wav')
+                self.assertEqual(with_audio['originalVoiceSourceHoldPacing']['everySilentFrameMotionReview'],
+                                 mock_motion)
+                audit_pause.assert_called_once()
+                self.assertEqual(allframes.call_args.args[1],1031)
+                self.assertEqual(len(allframes.call_args.args[2]),104)
+                self.assertFalse(with_audio['mayPublish'])
+
+
+
 class ArchivedFilmOptIn(unittest.TestCase):
     def test_full_archived_timed_movie_when_supplied(self):
         film=os.getenv('LANE3_ACTUAL_FILM')
