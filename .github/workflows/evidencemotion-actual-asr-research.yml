@@ -960,7 +960,7 @@ jobs:
           assert flagged['clinicalOrPlantAssayMeaningEstablished'] is False
           assert flagged['mayPublish'] is False and flagged['approvalToMerge'] is False
           flag_path=Path(os.environ['RUNNER_TEMP'])/'em00707-no-reaction-original-film-OCR-review-HOLD.json'
-          flag_path.write_text(json.dumps(flagged,indent=2,sort_keys=True)+'\\n')
+          flag_path.write_text(json.dumps(flagged,indent=2,sort_keys=True)+'\n')
           print('PASS_ACTUAL_ORIGINAL_NO_REACTION_CAPTION_OCR_WITH_SCIENCE_REVIEW_HOLD')
           print('PASS_REAL_ARCHIVED_H264_EIGHT_CLAIM_FRAMES_REVIEW_REQUEST_HOLD')
           print('PASS_EXACT_ORIGINAL_FILM_EIGHT_WAV_TIMECODED_REVIEW_REQUEST_ONLY_HUMAN_REVIEW_HOLD')
