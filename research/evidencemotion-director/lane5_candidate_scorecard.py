@@ -562,6 +562,23 @@ def write_once(path, report):
             or any(type(item) is not str for item in holds)
             or not RESEARCH_REQUIRED_HOLDS.issubset(holds)):
         hold("UNSAFE_SCORECARD")
+    # Bounded AAC PTS anomalies are admitted for forensic source review,
+    # never as a clean voice verdict. Do not let a serialized scorecard lose
+    # the exact corresponding hard review hold through report mutation.
+    media = report.get("observedTechnicalMedia")
+    if type(media) is not dict:
+        hold("MISSING_OBSERVED_TECHNICAL_MEDIA")
+    count = media.get("audioPtsAnomalyCount", 0)
+    needs_review = media.get("audioPtsAnomaliesNeedSourceReview", False)
+    anomalies = media.get("audioPtsAnomalies", [])
+    if (type(count) is not int or count < 0
+            or type(needs_review) is not bool
+            or type(anomalies) is not list
+            or count != len(anomalies)
+            or needs_review != (count > 0)
+            or (needs_review and
+                "AUDIO_PTS_ANOMALY_REQUIRES_ORIGINAL_PCM_COMPARISON" not in holds)):
+        hold("AUDIO_PTS_REVIEW_HOLD_MISSING_OR_FORGED")
     output = Path(path)
     if (output.exists() or output.is_symlink() or not output.parent.is_dir()
             or any(p.is_symlink() for p in output.parents)):

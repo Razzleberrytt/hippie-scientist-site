@@ -109,6 +109,41 @@ class Lane5ScorecardTests(unittest.TestCase):
             # A downstream consumer must not persist apparently-approved
             # results just by mutating this report after its physical checks.
             baseline = json.loads(json.dumps(report))
+            # A bounded decoded AAC timeline anomaly is still a real review
+            # dependency, even when overall media decode is technically good.
+            physical_gap = {**physical,
+                            "audioPtsAnomalyCount": 1,
+                            "audioPtsAnomaliesNeedSourceReview": True,
+                            "audioPtsAnomalies": [
+                                {"audioFrameIndex": 1186,
+                                 "startSeconds": 25.334667,
+                                 "signedGapMs": 33.334}]}
+            with patch("lane5_candidate_scorecard._physical_av",
+                       return_value=physical_gap):
+                gap_report = score_candidate(
+                    film=film, wav=wav, story_path=story, screen_path=screenpath,
+                    expected_film_sha=movie_sha, expected_wav_sha=wav_sha,
+                    expected_story_sha=story_sha,
+                    expected_screen_sha=screen_sha, dimensions=(64, 64, 12))
+            gap_hold = "AUDIO_PTS_ANOMALY_REQUIRES_ORIGINAL_PCM_COMPARISON"
+            self.assertIn(gap_hold, gap_report["hardAndReviewHolds"])
+            self.assertFalse(gap_report["mayPublish"])
+            write_once(root / "audio-anomaly-intact.json", gap_report)
+            tampered = json.loads(json.dumps(gap_report))
+            tampered["hardAndReviewHolds"].remove(gap_hold)
+            with self.assertRaisesRegex(ValueError,
+                                        "AUDIO_PTS_REVIEW_HOLD_MISSING_OR_FORGED"):
+                write_once(root / "audio-anomaly-drop-hold.json", tampered)
+            tampered = json.loads(json.dumps(gap_report))
+            tampered["observedTechnicalMedia"]["audioPtsAnomalyCount"] = 0
+            with self.assertRaisesRegex(ValueError,
+                                        "AUDIO_PTS_REVIEW_HOLD_MISSING_OR_FORGED"):
+                write_once(root / "audio-anomaly-forged-count.json", tampered)
+            tampered = json.loads(json.dumps(gap_report))
+            tampered["observedTechnicalMedia"]["audioPtsAnomaliesNeedSourceReview"] = False
+            with self.assertRaisesRegex(ValueError,
+                                        "AUDIO_PTS_REVIEW_HOLD_MISSING_OR_FORGED"):
+                write_once(root / "audio-anomaly-forged-review.json", tampered)
             authority_forgeries = {
                 "mayPublish": True,
                 "externalIndependentReviewed": True,
