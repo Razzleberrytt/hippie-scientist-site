@@ -47,6 +47,7 @@ on:
       - 'research/evidencemotion-director/EM01401-ORIGINAL-PCM-TERM-ISOLATION-20261016.md'
       - 'research/evidencemotion-director/EM00702-VISUAL-CLAIM-INVENTORY-20261016.md'
       - 'research/evidencemotion-director/EM00703-PRIMARY-SOURCE-CONTEXT-20261016.md'
+      - 'research/evidencemotion-director/EM00707-ONE-CLAIM-INDEPENDENT-SCIENCE-PREREQUISITES-20261017.md'
       - '.github/workflows/evidencemotion-atomic-proof-ledger.yml'
   workflow_dispatch:
 permissions:
