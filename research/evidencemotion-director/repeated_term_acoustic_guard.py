@@ -247,6 +247,100 @@ def audit_research_gain_only_envelope(source_pcm, candidate_pcm, proposed_gain,
                    "integrated loudness, PCM/audio source pins, decoded-film sync, "
                    "phoneme calibration or listening-quality checks."}
 
+
+def audit_research_dynamic_gain_slew(source_pcm, preencode_pcm,
+                                    silence_intervals=()):
+    """Physical PCM 10ms gain-motion screen; NEVER a perceptual/release approval.
+
+    Source and candidate *file hashes*, encoded AAC EBU true peak, LUFS,
+    speech phonemes, source-to-film binding and real listening need separate
+    verification. Threshold is a conservative research heuristic only.
+    """
+    base = {"schema": SCHEMA, "mayPublish": False,
+            "productionAudioApproved": False,
+            "phonemeIdentityVerified": False, "wordTimingCalibrated": False,
+            "originalSourceShaVerifiedByThisHelper": False,
+            "decodedAACTruePeakVerifiedByThisHelper": False,
+            "perceptualPumpingOrVoiceQualityProven": False}
+    def refuse(reason):
+        return {**base, "status": "HOLD", "errors": [reason]}
+    try:
+        source = np.asarray(source_pcm, dtype=np.float64)
+        candidate = np.asarray(preencode_pcm, dtype=np.float64)
+    except (ValueError, TypeError, OverflowError):
+        return refuse("DYNAMIC_PCM_INVALID")
+    if (source.ndim != 1 or candidate.ndim != 1
+            or source.shape != candidate.shape
+            or not 2400 <= len(source) <= 24000*600
+            or not np.isfinite(source).all()
+            or not np.isfinite(candidate).all()
+            or np.max(np.abs(source)) > 1.0
+            or np.max(np.abs(candidate)) > 1.0
+            or np.max(np.abs(source)) < .01):
+        return refuse("DYNAMIC_PCM_INVALID")
+    if not isinstance(silence_intervals, (tuple, list)):
+        return refuse("DYNAMIC_ZERO_SPANS_INVALID")
+    for item in silence_intervals:
+        if (not isinstance(item, (list, tuple)) or len(item) != 2
+                or any(isinstance(i, bool)
+                       or not isinstance(i, (int, np.integer)) for i in item)):
+            return refuse("DYNAMIC_ZERO_SPANS_INVALID")
+        lo, hi = item
+        if not 0 <= lo < hi <= len(source):
+            return refuse("DYNAMIC_ZERO_SPANS_INVALID")
+        if np.any(source[lo:hi] != 0) or np.any(candidate[lo:hi] != 0):
+            return refuse("DYNAMIC_ZERO_SPANS_CHANGED")
+    sample_peak = float(np.max(np.abs(candidate)))
+    if sample_peak > 10**(-3.0/20):
+        return refuse("DYNAMIC_PREENCODE_HEADROOM_EXCEEDED")
+    signal_mask = (np.abs(source) > .002)
+    if np.any(np.signbit(candidate[signal_mask])
+              != np.signbit(source[signal_mask])):
+        return refuse("DYNAMIC_POLARITY_FLIP_OR_SOURCE_SUBSTITUTION")
+    if float(np.std(candidate)) < .005:
+        return refuse("DYNAMIC_CANDIDATE_AUDIO_DROPPED")
+    corr = float(np.corrcoef(source, candidate)[0, 1])
+    if not np.isfinite(corr) or corr < .98:
+        return refuse("DYNAMIC_SOURCE_CORRELATION_LOW")
+    n = len(source)//240
+    active, gain_db = [], []
+    for i in range(n):
+        lo, hi = i*240, (i+1)*240
+        a, b = source[lo:hi], candidate[lo:hi]
+        rms = float(np.sqrt(np.mean(a*a)))
+        mask = np.abs(a) > .002
+        is_active = rms >= .01 and np.count_nonzero(mask) >= 30
+        active.append(is_active)
+        if is_active:
+            ratios = np.abs(b[mask]/a[mask])
+            gain = float(np.median(ratios))
+            if not np.isfinite(gain) or not .1 < gain <= 16:
+                return refuse("DYNAMIC_ACTIVE_GAIN_INVALID")
+            gain_db.append(20*np.log10(gain))
+        else:
+            gain_db.append(float("nan"))
+    is_active = np.asarray(active, dtype=bool)
+    gains = np.asarray(gain_db)
+    valid = is_active[:-1] & is_active[1:]
+    if int(valid.sum()) < 10:
+        return refuse("DYNAMIC_ACTIVE_AUDIO_COVERAGE_INSUFFICIENT")
+    diffs = np.abs(np.diff(gains)[valid])
+    max_jump = float(np.max(diffs))
+    report = {**base, "status": "RESEARCH_DYNAMIC_SLEW_SCREEN_HOLD",
+              "errors": [], "sampleRateHz": 24000,
+              "samplePeakDbfs": round(20*np.log10(sample_peak), 4),
+              "active10msPairsCompared": int(valid.sum()),
+              "sourceToCandidateCorrelation": round(corr, 6),
+              "maxAdjacentActive10msGainDbJump": round(max_jump, 5),
+              "allowedAdjacentGainJumpDb": 1.2,
+              "maxJumpBelowResearchScreen": bool(max_jump <= 1.2),
+              "notPsychoacousticallyCalibrated": True}
+    if max_jump > 1.2:
+        report.update(status="HOLD",
+                      errors=["DYNAMIC_ABRUPT_GAIN_ENVELOPE"])
+    return report
+
+
 def audit_original_asr_digital_zero_onsets(source_raw, asr_raw):
     """Negative-only source-WAV proof: ASR cannot start speech in 150ms of zeros.
 
