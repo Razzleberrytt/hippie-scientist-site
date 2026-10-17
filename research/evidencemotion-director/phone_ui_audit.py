@@ -938,6 +938,28 @@ def verified_prior_review_images(output, previous_report_bytes):
         report.get("publicationVerdict") != "HOLD" or
         not isinstance(report.get("decodedOverlayFrames"), list)):
         return {}
+    # A report containing only generic HOLD flags and hashes could belong to
+    # an unrelated writer. Require the native provenance shape before using
+    # its self-declared image inventory to authorize destructive cleanup.
+    # This prevents accidental collisions; it is NOT cryptographic proof
+    # of origin, or a defense against an active hostile writer.
+    coverage = report.get("frameToShotCoverage")
+    decoded = report.get("completeEncodedMediaDecode")
+    nframes = report.get("decodedFrameCount")
+    if (report.get("status") != "OVERLAY_PREFLIGHT_PASS_REVIEW_REQUIRED" or
+        not is_hash(report.get("videoSha256")) or
+        not is_hash(report.get("manifestSha256")) or
+        report.get("videoResolution") != [1080, 1920] or
+        type(nframes) is not int or nframes <= 0 or
+        report.get("exact30FpsTimestampGridVerified") is not True or
+        not isinstance(coverage, dict) or
+        coverage.get("actualPresentedFramesChecked") != nframes or
+        coverage.get("framesAssignedExactlyOnce") != nframes or
+        coverage.get("mayPublish") is not False or
+        not isinstance(decoded, dict) or
+        decoded.get("allMappedStreamsDecodedWithoutFatalErrors") is not True or
+        decoded.get("mayPublish") is not False):
+        return {}
     owned = {}
     for row in report["decodedOverlayFrames"]:
         if not isinstance(row, dict):
