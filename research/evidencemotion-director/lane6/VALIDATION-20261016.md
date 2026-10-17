@@ -850,3 +850,22 @@ for one next dependency rather than repeated lane polling. Evidence checkpointd2
 All mutations are inert patch/artifact/docs; no repository behavior/other owner source,
 production build, protected merge, deployment or approval. HOLD/mayPublish=false,
 newAtomicCards0. Fresh final link/JSON/capsule/hash/whitespace validation follows.
+
+## Ready-review follow-up: structured LZMA failures and proof link
+
+Automated review of 3b4c7b89 identified an uncaught LZMAError and a missing
+receipts/ prefix in CURRENT-HANDOFF.json priorProof. Real ZIP_LZMA range-coded
+payload corruption reproduced two errors before the repair: module traceback and
+CLI empty stdout. Catch lzma.LZMAError alongside zlib.error; both now return FAIL,
+CORRUPT_ZIP_COMPRESSION, no destination, false approval flags and zero atomic credit.
+The CLI emits JSON, exits 1, and has empty stderr. Added two real-byte regressions.
+CURRENT-HANDOFF.json now resolves the existing canonical receipt under receipts/.
+
+Fresh Windows Python 3.14 suite: 47 discovered, 46 PASS, one explicit filesystem
+skip, exit0 (6.779s). WSL Ubuntu Python 3.12 suite: 47/47 PASS, no skips, exit0
+(4.027s). Prior root-directory test invocation failed import; rerun in the documented
+lane6 directory produced the actual red reproduction and the final results above.
+Repository doc links, proof-path resolution and whitespace are checked before push.
+The prior production build does not validate this new handler; fresh hosted CI/build
+must pass for the new head. Temporary hold-merge protects the review repair.
+Research HOLD, mayPublish=false and all external acceptance gates remain unchanged.

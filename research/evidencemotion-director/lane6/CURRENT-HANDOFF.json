@@ -95,7 +95,7 @@
         "producerGitBlobBefore": "ce520eb23ec47b414b823d1a426445047fceadb1",
         "producerGitBlobAtSelectedHead": "ce520eb23ec47b414b823d1a426445047fceadb1",
         "currentApplyCheckExitCode": 0,
-        "priorProof": "lane3-windows-canonical-patch-proof.json",
+        "priorProof": "receipts/lane3-windows-canonical-patch-proof.json",
         "status": "OWNER_UNAPPLIED_SOURCE_BLOB_UNCHANGED",
         "note": "No duplicate red/green execution on unchanged source. Inert existing patch still applies to selected owner head."
       }

@@ -5,6 +5,7 @@ SHA. Neither a bundle's own manifest nor a SHA generated from it is authority.
 """
 import argparse
 import json
+import lzma
 import os
 from pathlib import Path
 import re
@@ -291,7 +292,7 @@ def intake(source, pin_path, expected_pin_sha, destination=None):
                     require(digest(item) == result['files'][name], 'TRANSFER_FINAL_HASH_MISMATCH:'+name)
                 result['handoffDirectory'] = str(destination.absolute())
             result['status'] = 'PASS'
-    except zlib.error:
+    except (zlib.error, lzma.LZMAError):
         result['status'] = 'FAIL'
         result['errors'].append('CORRUPT_ZIP_COMPRESSION')
     except FileNotFoundError as error:
