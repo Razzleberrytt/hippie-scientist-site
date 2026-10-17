@@ -171,8 +171,12 @@ def original_aac_packet_timeline(path):
                 raise CraftHold('AAC_PACKET_TIMELINE_UNAVAILABLE') from exc
             if not value.is_finite():
                 raise CraftHold('AAC_PACKET_TIMELINE_UNAVAILABLE')
+            # Max research film is 5400/30 = 180s. Leave generous room
+            # for AAC encoder priming / container offsets, never centuries.
+            if abs(value)>Decimal('240'):
+                raise CraftHold('AAC_PACKET_TIMESTAMP_OUT_OF_BOUNDS')
             fields.append(value)
-        if fields[2]<=0:
+        if fields[2]<=0 or fields[2]>Decimal('1'):
             raise CraftHold('AAC_PACKET_DURATION_INVALID')
         timeline.append(tuple(fields))
     return timeline
