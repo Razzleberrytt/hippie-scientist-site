@@ -6,6 +6,7 @@ or physical-device review. Never authorizes publication, promotion or atomic
 completion. Other lanes must review the SAME immutable film/audio/story.
 """
 import argparse
+from decimal import Decimal, InvalidOperation
 import hashlib
 import json
 import os
@@ -101,6 +102,71 @@ def _same_pin(path, pin):
     return value
 
 
+
+def _decoded_audio_coverage(movie, sample_rate, expected_frames):
+    """Require real decoded AAC samples to span the physical 30fps video.
+
+    FFmpeg succeeds on a video with a short but valid audio stream; that is not
+    full-film narration coverage. Inspect every decoded audio frame's clock
+    and sample count rather than trusting container stream duration metadata.
+    Does not judge words, intelligibility or audible voice quality.
+    """
+    if type(sample_rate) is not int or not 8000 <= sample_rate <= 192000:
+        hold("INVALID_AUDIO_SAMPLE_RATE")
+    try:
+        result = subprocess.run([
+            "/usr/bin/ffprobe", "-v", "error", "-select_streams", "a:0",
+            "-show_frames", "-show_entries",
+            "frame=best_effort_timestamp_time,nb_samples",
+            "-of", "json", str(movie)
+        ], text=True, capture_output=True, timeout=60, check=True)
+        if len(result.stdout) > 2_000_000:
+            hold("UNBOUNDED_AUDIO_FRAME_INVENTORY")
+        observations = strict_json(result.stdout)["frames"]
+    except (OSError, subprocess.SubprocessError, ValueError, KeyError) as exc:
+        if str(exc).startswith("LANE5_CANDIDATE_HOLD:"):
+            raise
+        hold("DECODED_AUDIO_FRAME_PROBE_FAILED:" + type(exc).__name__)
+    if not isinstance(observations, list) or not 1 <= len(observations) <= 30000:
+        hold("MISSING_OR_UNBOUNDED_DECODED_AUDIO")
+    total_samples = 0
+    initial = previous_end = None
+    for index, frame in enumerate(observations):
+        if (not isinstance(frame, dict)
+                or type(frame.get("nb_samples")) is not int
+                or not 0 < frame["nb_samples"] <= 8192
+                or not isinstance(frame.get("best_effort_timestamp_time"), str)):
+            hold("INVALID_DECODED_AUDIO_FRAME:" + str(index))
+        try:
+            start = Decimal(frame["best_effort_timestamp_time"])
+        except InvalidOperation:
+            hold("NONNUMERIC_DECODED_AUDIO_PTS")
+        if not start.is_finite():
+            hold("NONFINITE_DECODED_AUDIO_PTS")
+        end = start + Decimal(frame["nb_samples"]) / Decimal(sample_rate)
+        if previous_end is None:
+            initial = start
+        elif abs(start - previous_end) > Decimal("0.012"):
+            hold("DECODED_AUDIO_TIMELINE_GAP_OR_OVERLAP")
+        previous_end = end
+        total_samples += frame["nb_samples"]
+    movie_end = Decimal(expected_frames) / Decimal(FPS)
+    if initial < Decimal("-0.09") or initial > Decimal("0.08"):
+        hold("DECODED_AUDIO_START_MISALIGNED")
+    if previous_end < movie_end - Decimal("0.08"):
+        hold("DECODED_AUDIO_EARLY_EOF")
+    if previous_end > movie_end + Decimal("0.50"):
+        hold("DECODED_AUDIO_OVERRUN")
+    return {
+        "decodedAudioFrameCount": len(observations),
+        "decodedAudioSamples": total_samples,
+        "audioDecodedStartSeconds": round(float(initial), 6),
+        "audioDecodedEndSeconds": round(float(previous_end), 6),
+        "videoEndSeconds": round(float(movie_end), 6),
+        "audioCoverageTechnicallyComplete": True,
+    }
+
+
 def _physical_av(movie, dimensions=NATIVE):
     """Probe then strictly decode both real tracks, and rehash after decoding."""
     if (len(dimensions) != 3 or any(type(i) is not int or i < 1 for i in dimensions)):
@@ -138,11 +204,16 @@ def _physical_av(movie, dimensions=NATIVE):
         ], capture_output=True, timeout=180, check=True)
     except (OSError, subprocess.SubprocessError):
         hold("PHYSICAL_AV_DECODE_FAILED")
+    try:
+        sr = int(a[0].get("sample_rate", "0"))
+    except (TypeError, ValueError):
+        hold("INVALID_AUDIO_SAMPLE_RATE")
+    audio = _decoded_audio_coverage(movie, sr, frames)
     if _physical_sha(movie) != pinned:
         hold("FILM_CHANGED_DURING_DECODE")
     return {"fullVideoAudioPhysicalDecode": True, "nativeFrames": frames,
             "width": width, "height": height, "fps": FPS,
-            "audioCodec": "aac"}
+            "audioCodec": "aac", **audio}
 
 
 def _screen_stats(screen, film_sha, story_sha, frames):
