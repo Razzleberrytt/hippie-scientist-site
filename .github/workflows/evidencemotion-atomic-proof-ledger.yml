@@ -52,10 +52,8 @@ on:
       - 'research/evidencemotion-director/test_atomic_progress_stall_watch.py'
       - '.github/workflows/evidencemotion-atomic-proof-ledger.yml'
   workflow_dispatch:
-  # Runs from protected default branch after normal authorized merge; a draft
-  # branch does not get independent scheduling privilege.
-  schedule:
-    - cron: '17 * * * *'
+  # Research release gate forbids schedules: check progress during actual PR
+  # validations or explicit workflow_dispatch; no autonomous timer.
 permissions:
   contents: read
   actions: read
@@ -121,14 +119,14 @@ jobs:
           from pathlib import Path
           report=json.loads((Path(os.environ["RUNNER_TEMP"])/"em-atomic-watch/report.json").read_text())
           with open(os.environ["GITHUB_STEP_SUMMARY"],"a") as out:
-              out.write("### EvidenceMotion atomic progress fail-safe\\n")
-              out.write(f"Current source-validated: **{report['currentCount']}/1590 provisional**\\n")
-              out.write(f"State: **{report['status']}**; prior counts: {report['previousCounts']}\\n")
-              out.write(f"History: {report['historyFetchStatus']}\\n")
+              out.write("### EvidenceMotion atomic progress fail-safe\n")
+              out.write(f"Current source-validated: **{report['currentCount']}/1590 provisional**\n")
+              out.write(f"State: **{report['status']}**; prior counts: {report['previousCounts']}\n")
+              out.write(f"History: {report['historyFetchStatus']}\n")
               if report["requiresRecovery"]:
-                  out.write("**Recovery triggered; NO automatic credit/approval.**\\n")
+                  out.write("**Recovery triggered; NO automatic credit/approval.**\n")
                   for x in report["namedBlockedRecoveryTargets"]:
-                      out.write(f"- {x['atomicId']} (Lane {x['lane']}): {x['blocker']} — {x['nextAction']}\\n")
+                      out.write(f"- {x['atomicId']} (Lane {x['lane']}): {x['blocker']} — {x['nextAction']}\n")
           PY
       - name: Keep two-readback progress checkpoints without committing run state
         uses: actions/upload-artifact@v4
