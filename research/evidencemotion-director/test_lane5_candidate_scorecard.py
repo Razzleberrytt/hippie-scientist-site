@@ -11,7 +11,7 @@ import wave
 from unittest.mock import patch
 
 from lane5_candidate_scorecard import (
-    _screen_stats, _windows, _physical_av, _decoded_audio_coverage, score_candidate, write_once, _verified_original_pcm_samples, hold
+    _screen_stats, _windows, _physical_av, _decoded_audio_coverage, score_candidate, write_once, _verified_original_pcm_samples, _receive_phone_plan, hold
 )
 
 
@@ -38,6 +38,163 @@ def screen(film, story, frames=12, bright=(), colored=()):
 
 
 class Lane5ScorecardTests(unittest.TestCase):
+    def test_exact_phone_plan_bytes_join_keeps_all_actual_phone_gates_held(self):
+        movie = h(b"current exact film")
+        with tempfile.TemporaryDirectory() as td:
+            plan_file = Path(td) / "phone.json"
+            plan = {
+                "status": "RESEARCH_ONLY", "releaseApproved": False,
+                "expectedVideoSha256": movie,
+                "platforms": ["tiktok", "shorts"],
+                "shots": [{"id": "scene_" + str(i),
+                           "startSec": i / 3, "endSec": (i + 1) / 3}
+                          for i in range(9)],
+            }
+            plan_file.write_text(json.dumps(plan))
+            plan_sha = h(plan_file.read_bytes())
+            story = {"phonePlanSha256": plan_sha}
+            receipt, reason = _receive_phone_plan(
+                story, movie, phone_plan_path=plan_file,
+                expected_phone_plan_sha=plan_sha, native_frames=90)
+            self.assertEqual(receipt["planSha256"], plan_sha)
+            self.assertEqual(receipt["filmSha256"], movie)
+            self.assertFalse(receipt["actualRenderedSafeZonesValidated"])
+            self.assertFalse(receipt["physicalHandsetReviewed"])
+            self.assertFalse(receipt["mayPublish"])
+            self.assertEqual(
+                reason, "PHONE_PLAN_BYTES_JOINED_RESEARCH_ONLY_PHONE_QA_UNVERIFIED")
+            none_received, missing = _receive_phone_plan(story, movie)
+            self.assertIsNone(none_received)
+            self.assertEqual(
+                missing, "PHONE_PLAN_DIGEST_CLAIM_WITHOUT_INDEPENDENT_PLAN_BYTES")
+            with self.assertRaisesRegex(ValueError, "REQUIRED_TOGETHER"):
+                _receive_phone_plan(story, movie, phone_plan_path=plan_file)
+            with self.assertRaisesRegex(ValueError, "STORY_PHONE_PLAN_BYTES_MISMATCH"):
+                _receive_phone_plan({"phonePlanSha256": h(b"unrelated")}, movie,
+                    phone_plan_path=plan_file, expected_phone_plan_sha=plan_sha)
+            with self.assertRaisesRegex(ValueError, "JSON_PIN_MISMATCH"):
+                _receive_phone_plan(story, movie, phone_plan_path=plan_file,
+                    expected_phone_plan_sha=h(b"changed external pin"))
+            plan["expectedVideoSha256"] = h(b"different film")
+            plan_file.write_text(json.dumps(plan))
+            bad_sha = h(plan_file.read_bytes())
+            with self.assertRaisesRegex(ValueError, "PHONE_PLAN_DIFFERENT_EXACT_FILM"):
+                _receive_phone_plan({"phonePlanSha256": bad_sha}, movie,
+                    phone_plan_path=plan_file, expected_phone_plan_sha=bad_sha)
+            plan["expectedVideoSha256"] = movie
+            plan["realHandsetApproved"] = True
+            plan_file.write_text(json.dumps(plan))
+            bad_sha = h(plan_file.read_bytes())
+            with self.assertRaisesRegex(ValueError, "PHONE_PLAN_PRODUCER_APPROVAL"):
+                _receive_phone_plan({"phonePlanSha256": bad_sha}, movie,
+                    phone_plan_path=plan_file, expected_phone_plan_sha=bad_sha)
+            plan["realHandsetApproved"] = False
+            plan["shots"].pop()
+            plan_file.write_text(json.dumps(plan))
+            bad_sha = h(plan_file.read_bytes())
+            with self.assertRaisesRegex(ValueError, "PHONE_PLAN_SHOT_INVENTORY"):
+                _receive_phone_plan({"phonePlanSha256": bad_sha}, movie,
+                    phone_plan_path=plan_file, expected_phone_plan_sha=bad_sha)
+
+    def test_phone_plan_duplicate_gapped_and_short_timelines_hold(self):
+        movie = h(b"actual film with bad declared shots")
+        shots = [{"id": "scene_" + str(i),
+                  "startSec": i / 3, "endSec": (i + 1) / 3}
+                 for i in range(9)]
+        with tempfile.TemporaryDirectory() as td:
+            path = Path(td) / "plan.json"
+            base = {"status": "RESEARCH_ONLY", "releaseApproved": False,
+                    "expectedVideoSha256": movie,
+                    "platforms": ["tiktok", "shorts"], "shots": shots}
+
+            def run(mutate, *, frame_count=90):
+                plan = json.loads(json.dumps(base))
+                mutate(plan["shots"])
+                path.write_text(json.dumps(plan))
+                sha = h(path.read_bytes())
+                return _receive_phone_plan(
+                    {"phonePlanSha256": sha}, movie, phone_plan_path=path,
+                    expected_phone_plan_sha=sha, native_frames=frame_count)
+
+            with self.assertRaisesRegex(ValueError, "INVALID_OR_DUPLICATE_SHOT_ID"):
+                run(lambda shots: shots[3].update(id=shots[0]["id"]))
+            with self.assertRaisesRegex(ValueError, "NONCONTIGUOUS_SHOT_TIMELINE"):
+                run(lambda shots: shots[4].update(
+                    startSec=shots[4]["startSec"] + 0.15))
+            with self.assertRaisesRegex(ValueError, "INCOMPLETE_FILM_COVERAGE"):
+                run(lambda shots: shots[8].update(
+                    endSec=shots[8]["endSec"] - 0.20))
+            with self.assertRaisesRegex(ValueError, "NONCONTIGUOUS_SHOT_TIMELINE"):
+                run(lambda shots: shots[2].update(
+                    endSec=shots[2]["startSec"]))
+            with self.assertRaisesRegex(ValueError, "PHONE_PLAN_PHYSICAL_FRAME_DURATION_REQUIRED"):
+                run(lambda shots: None, frame_count=None)
+            valid, hold_reason = run(lambda shots: None)
+            self.assertEqual(valid["declaredShots"], 9)
+            self.assertEqual(hold_reason,
+                             "PHONE_PLAN_BYTES_JOINED_RESEARCH_ONLY_PHONE_QA_UNVERIFIED")
+            self.assertFalse(valid["physicalHandsetReviewed"])
+
+    def test_scorecard_physically_receives_same_film_phone_plan_without_phone_approval(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            film, wav = root / "film.mp4", root / "voice.wav"
+            story_path, screen_path = root / "story.json", root / "screen.json"
+            plan_path = root / "plan.json"
+            film.write_bytes(b"research-film-placeholder-mocked-for-AV-only")
+            with wave.open(str(wav), "wb") as w:
+                w.setnchannels(1); w.setsampwidth(2); w.setframerate(24000)
+                w.writeframes(b"\x01\x00" * 12000)
+            movie_sha, wav_sha = h(film.read_bytes()), h(wav.read_bytes())
+            plan_path.write_text(json.dumps({
+                "status": "RESEARCH_ONLY", "releaseApproved": False,
+                "expectedVideoSha256": movie_sha,
+                "platforms": ["tiktok", "shorts"],
+                "shots": [{"id": "scene_" + str(i),
+                           "startSec": i / 3, "endSec": (i + 1) / 3}
+                          for i in range(9)],
+            }))
+            plan_sha = h(plan_path.read_bytes())
+            story_path.write_text(json.dumps({
+                "schema": "ths-lane3-research-visual-treatment-story-v1",
+                "encodedH264Sha256": movie_sha,
+                "shots": [{"id": "scene_" + str(i),
+                           "startSec": i / 3, "endSec": (i + 1) / 3}
+                          for i in range(9)],
+                "mayPublish": False, "realPhonePlaybackVerified": False,
+                "independentCraftCalibrationPassed": False,
+                "phonePlanSha256": plan_sha,
+            }))
+            story_sha = h(story_path.read_bytes())
+            screen_path.write_text(json.dumps(screen(movie_sha, story_sha, frames=90)))
+            av = {"fullVideoAudioPhysicalDecode": True, "nativeFrames": 90,
+                  "width": 64, "height": 64, "fps": 30, "audioCodec": "aac"}
+            with patch("lane5_candidate_scorecard._physical_av", return_value=av):
+                result = score_candidate(
+                    film=film, wav=wav, story_path=story_path,
+                    screen_path=screen_path, expected_film_sha=movie_sha,
+                    expected_wav_sha=wav_sha, expected_story_sha=story_sha,
+                    expected_screen_sha=h(screen_path.read_bytes()),
+                    phone_plan_path=plan_path, expected_phone_plan_sha=plan_sha,
+                    dimensions=(64, 64, 90))
+            self.assertEqual(result["phonePlanResearchReceipt"]["planSha256"], plan_sha)
+            self.assertIn("PHONE_PLAN_BYTES_JOINED_RESEARCH_ONLY_PHONE_QA_UNVERIFIED",
+                          result["hardAndReviewHolds"])
+            self.assertIn("REAL_HANDSET_REVIEW_MISSING", result["hardAndReviewHolds"])
+            self.assertFalse(result["physicalPhoneReviewed"])
+            self.assertFalse(result["mayPublish"])
+            self.assertFalse(result["firstExcellentMasterAccepted"])
+            write_once(root / "scorecard.json", result)
+            forged = json.loads(json.dumps(result))
+            forged["phonePlanResearchReceipt"]["physicalHandsetReviewed"] = True
+            with self.assertRaisesRegex(ValueError, "PHONE_PLAN_RESEARCH_RECEIPT_FORGED"):
+                write_once(root / "forged.json", forged)
+            no_hold = json.loads(json.dumps(result))
+            no_hold["hardAndReviewHolds"].remove(
+                "PHONE_PLAN_BYTES_JOINED_RESEARCH_ONLY_PHONE_QA_UNVERIFIED")
+            with self.assertRaisesRegex(ValueError, "PHONE_PLAN_RECEIPT_AND_HOLD_INCONSISTENT"):
+                write_once(root / "no-hold.json", no_hold)
+
     def test_original_pcm_header_cannot_hide_a_physically_truncated_source(self):
         # An intact WAV header can claim one second of PCM while the file
         # contains only 5 ms. The legacy scorecard trusted getnframes alone.
