@@ -798,9 +798,11 @@ def audit_archived_encoded_audio_sync(source_raw, video_raw, receipt_raw, decode
         source_raw, video_raw, receipt_raw)
     if preflight["status"] != "RESEARCH_FRAME_NATIVE_PAUSE_PLAN_HOLD":
         return refuse("ENCODED_AUDIO_PINNED_SOURCE_PREFLIGHT_FAILED")
+    # This is one immutable historical H264/AAC film, not an arbitrary AAC
+    # stream. Independent full FFmpeg decode measured EXACTLY 825344 PCM
+    # samples; accepting generic encoder padding would conceal truncation.
     if (not isinstance(decoded_pcm_f32le, bytes)
-            or len(decoded_pcm_f32le) % 4
-            or not 824336*4 <= len(decoded_pcm_f32le) <= (824336+2048)*4):
+            or len(decoded_pcm_f32le) != 825344*4):
         return refuse("ENCODED_AUDIO_DECODE_LENGTH_INVALID")
     try:
         with wave.open(io.BytesIO(source_raw), "rb") as w:
