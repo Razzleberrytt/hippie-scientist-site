@@ -15,6 +15,26 @@ class IndependentScienceIntakeTests(unittest.TestCase):
         fixture = ScienceGateProcessAttestationTests(
             "test_all_eight_claims_keep_machine_receipt_and_open_holds")
         fixture.setUp()
+        # This suite is a METADATA fixture, not a film playback. Rebuild the
+        # synthetic source report under the *actual pinned film identity*
+        # instead of borrowing its old generic 'a'*64 mock-movie digest.
+        from test_claim_source_context_join import LEDGER, visual_fixture
+        from claim_source_context_join import join
+        from scientific_uncertainty_ledger import classify
+        from claim_strength_source_limits import evaluate
+        from science_reviewer_handoff import FILM_SHA
+        import hashlib
+        visual=visual_fixture()
+        visual["filmSha256"]=FILM_SHA
+        fixture.source=join(
+            json.loads(LEDGER.read_text()),visual,
+            spoken_sha=hashlib.sha256(LEDGER.read_bytes()).hexdigest(),
+            visual_sha="d"*64)
+        fixture.uncertainty=classify(fixture.source,source_sha=fixture.source_sha)
+        fixture.strength=evaluate(
+            fixture.source,fixture.uncertainty,
+            source_join_sha=fixture.source_sha,
+            uncertainty_sha=fixture.uncertainty_sha)
         self.gate = fixture.inspect()
 
     def test_handoff_is_exactly_eight_claims_with_no_fake_review(self):
