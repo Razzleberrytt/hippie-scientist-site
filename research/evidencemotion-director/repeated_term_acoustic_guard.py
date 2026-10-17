@@ -519,16 +519,147 @@ def audit_original_cross_model_word_timing(source_raw, alignment_raw, asr_raw):
         return fail("CROSS_MODEL_REVIEW_INPUT_PARSE_FAILED")
 
 
-def audit_cross_model_files(source_path, alignment_path, asr_path):
-    """No writes; refuse mutable aliases or missing first-party source inputs."""
+def bind_self_reported_listening_notes(source_report, notes_raw):
+    """Bind previous OFFLINE player JSON to exact original-source audit cases.
+
+    Important: JS-exported user choices prove neither the listener's identity
+    nor the spoken phonemes. A successful join MUST remain research-only HOLD.
+    """
+    base = {"schema": SCHEMA, "mayPublish": False,
+            "captionTimingApproved": False, "wordTimingCalibrated": False,
+            "pronunciationVerified": False, "phonemeIdentityVerified": False,
+            "independentHumanAnnotationVerified": False,
+            "speakerIdentityVerified": False, "lexicalWinner": None}
+    def reject(reason):
+        return {**base, "status": "HOLD", "errors": [reason]}
+    if (not isinstance(source_report, dict)
+            or source_report.get("status") != "RESEARCH_ORIGINAL_WORD_REVIEW_QUEUE_HOLD"
+            or source_report.get("sourceWavSha256") != SOURCE_WAV_REFERENCE
+            or source_report.get("sourceWavIndependentlyRehashed") is not True
+            or source_report.get("reviewQueueCaseCount") != 36
+            or source_report.get("lexicalDisagreementBlockCount") != 6
+            or source_report.get("distinctMatchedWordTimingReviewCount") != 30
+            or source_report.get("mayPublish") is not False):
+        return reject("LISTENING_NOTES_AUTHENTICATED_ORIGINAL_QUEUE_REQUIRED")
+    if not isinstance(notes_raw, bytes) or not 0 < len(notes_raw) <= 50000:
+        return reject("LISTENING_NOTES_JSON_BYTES_OR_SIZE_INVALID")
+    try:
+        # Deliberately refuse duplicate JSON keys, including nested approval
+        # and decision fields; do not accept NaN/Infinity as JSON numbers.
+        def unique_object(pairs):
+            result = {}
+            for key, value in pairs:
+                if key in result:
+                    raise ValueError("DUPLICATE_JSON_KEY")
+                result[key] = value
+            return result
+        def no_constant(value):
+            raise ValueError("NONFINITE_JSON_LITERAL")
+        notes = json.loads(notes_raw, object_pairs_hook=unique_object,
+                           parse_constant=no_constant)
+        if (not isinstance(notes, dict)
+                or set(notes) != {"schema", "originalWavSha256",
+                                   "reviewerSelfReported",
+                                   "phoneticGroundTruthIndependentlyValidated",
+                                   "mayPublish", "reviewedAt", "decisions"}
+                or notes.get("schema") != "ths-lane2-human-listening-notes-v1"
+                or notes.get("originalWavSha256") != SOURCE_WAV_REFERENCE
+                or notes.get("reviewerSelfReported") is not True
+                or notes.get("phoneticGroundTruthIndependentlyValidated") is not False
+                or notes.get("mayPublish") is not False
+                or not isinstance(notes.get("reviewedAt"), str)
+                or not re.fullmatch(
+                    r"\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z",
+                    notes["reviewedAt"])
+                or not isinstance(notes.get("decisions"), list)
+                or len(notes["decisions"]) != 36):
+            return reject("LISTENING_NOTES_SCHEMA_SOURCE_OR_STATUS_INVALID")
+        expected = {
+            **{f"LEX-{i:02d}": row for i, row in
+               enumerate(source_report["lexicalDisagreements"], 1)},
+            **{f"TIME-{i:02d}": row for i, row in
+               enumerate(source_report["timingReviews"], 1)},
+        }
+        if len(expected) != 36:
+            return reject("LISTENING_NOTES_EXPECTED_SOURCE_CASES_INVALID")
+        heard_options = {"unreviewed", "written_mfa", "asr", "neither", "unclear"}
+        time_options = {"unreviewed", "mfa_closer", "asr_closer",
+                        "both_bad", "unclear"}
+        seen = set()
+        decisions = []
+        for row in notes["decisions"]:
+            if not isinstance(row, dict) or set(row) != {
+                    "id", "heard", "timing", "notes"}:
+                return reject("LISTENING_NOTES_DECISION_SHAPE_INVALID")
+            identity = row["id"]
+            if (not isinstance(identity, str) or identity not in expected
+                    or identity in seen):
+                return reject("LISTENING_NOTES_UNKNOWN_OR_DUPLICATE_CASE")
+            seen.add(identity)
+            heard, timing, free_text = row["heard"], row["timing"], row["notes"]
+            if (not isinstance(heard, str) or heard not in heard_options
+                    or not isinstance(timing, str) or timing not in time_options
+                    or not isinstance(free_text, str) or len(free_text) > 2000
+                    or any(ord(ch) < 32 and ch not in "\\t\\n\\r"
+                           for ch in free_text)):
+                return reject("LISTENING_NOTES_DECISION_VALUE_INVALID")
+            src = expected[identity]
+            if (not isinstance(src["sourceStartSample"], int)
+                    or not isinstance(src["sourceEndSample"], int)
+                    or not 0 <= src["sourceStartSample"] <
+                                src["sourceEndSample"] <= 824336
+                    or not isinstance(src["sourcePcmSha256"], str)
+                    or not re.fullmatch("[a-f0-9]{64}", src["sourcePcmSha256"])):
+                return reject("LISTENING_NOTES_ORIGINAL_CASE_IDENTITY_INVALID")
+            decisions.append({
+                "caseId": identity,
+                "originalSourcePcmSha256": src["sourcePcmSha256"],
+                "originalStartSample": src["sourceStartSample"],
+                "originalEndSample": src["sourceEndSample"],
+                "selfReportedHeard": heard, "selfReportedTiming": timing,
+                "selfReportedNotes": free_text,
+                "hasAnySelfReportedInput": (heard != "unreviewed" or
+                                            timing != "unreviewed" or
+                                            bool(free_text.strip())),
+            })
+        if seen != set(expected):
+            return reject("LISTENING_NOTES_MISSING_SOURCE_CASE")
+        cases_with_input = sum(x["hasAnySelfReportedInput"] for x in decisions)
+        return {**base, "status": "RESEARCH_SELF_REPORTED_LISTENING_HANDOFF_HOLD",
+                "sourceWavSha256": SOURCE_WAV_REFERENCE,
+                "untrustedNotesSha256": digest(notes_raw),
+                "declaredReviewedAtUnverified": notes["reviewedAt"],
+                "sourceCaseCount": len(expected),
+                "selfReportedCaseCount": cases_with_input,
+                "unreviewedCaseCount": len(expected) - cases_with_input,
+                "selfReportValuesJoinedToPinnedSourceCases": True,
+                "listenerIdentityNotAuthenticated": True,
+                "caseNotes": sorted(decisions, key=lambda x: x["caseId"]),
+                "caution": "Self-reported offline listening selections have "
+                           "NOT been independently authenticated, evaluated "
+                           "against phonetic gold, or approved for captions."}
+    except (ValueError, TypeError, KeyError, UnicodeDecodeError):
+        return reject("LISTENING_NOTES_JSON_OR_CASES_UNREADABLE")
+
+
+def audit_cross_model_files(source_path, alignment_path, asr_path,
+                            listening_notes_path=None):
+    """Read-only original-source reviewer handoff, no caption approvals."""
     try:
         paths = ((Path(source_path), 3000000),
                  (Path(alignment_path), 100000), (Path(asr_path), 30000))
         if any(p.is_symlink() or not p.is_file()
                or not 0 < p.stat().st_size <= cap for p, cap in paths):
             return hold("CROSS_MODEL_REVIEW_FILES_MISSING_OR_UNSAFE")
-        return audit_original_cross_model_word_timing(
+        report = audit_original_cross_model_word_timing(
             *(p.read_bytes() for p, _ in paths))
+        if listening_notes_path is None or report["status"] == "HOLD":
+            return report
+        notes_path = Path(listening_notes_path)
+        if (notes_path.is_symlink() or not notes_path.is_file()
+                or not 0 < notes_path.stat().st_size <= 50000):
+            return hold("LISTENING_NOTES_FILE_MISSING_OR_UNSAFE")
+        return bind_self_reported_listening_notes(report, notes_path.read_bytes())
     except (OSError, TypeError, ValueError):
         return hold("CROSS_MODEL_REVIEW_FILES_UNREADABLE")
 
@@ -1164,6 +1295,8 @@ def main(argv=None):
     p.add_argument("--mfa-alignment", help="Pinned original MFA word alignment candidate")
     p.add_argument("--cross-model-timing-review", action="store_true",
                    help="Original WAV + 73 MFA / 70 ASR candidate word review queue, never approval")
+    p.add_argument("--human-review-json",
+                   help="Self-reported offline original-voice listening choices (research HOLD only)")
     p.add_argument("--mfa-zero-interval-audit", action="store_true",
                    help="Screen all 73 frozen original MFA word windows for whole digital zeros")
     p.add_argument("--asr-zero-onset-audit", action="store_true",
@@ -1184,7 +1317,10 @@ def main(argv=None):
             result = hold("CROSS_MODEL_REVIEW_REQUIRES_EXACT_THREE_SOURCE_INPUTS")
         else:
             result = audit_cross_model_files(
-                a.original_wav, a.mfa_alignment, a.pose_asr_receipt)
+                a.original_wav, a.mfa_alignment, a.pose_asr_receipt,
+                listening_notes_path=a.human_review_json)
+    elif a.human_review_json is not None:
+        result = hold("LISTENING_NOTES_REQUIRES_EXCLUSIVE_CROSS_MODEL_SOURCE_MODE")
     elif a.mfa_zero_interval_audit:
         if (not a.original_wav or not a.mfa_alignment
                 or any((a.cross_model_timing_review, a.asr_zero_onset_audit,
