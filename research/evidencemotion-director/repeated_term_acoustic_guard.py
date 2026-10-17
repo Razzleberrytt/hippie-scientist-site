@@ -610,6 +610,99 @@ def audit_original_narration_dead_air(source_raw, alignment_raw, asr_raw):
         return fail("DEAD_AIR_ORIGINAL_SOURCE_PARSE_FAILED")
 
 
+def audit_original_pause_audition_pcm(source_raw, candidate_raw, retained_pause_ms):
+    """Verify a research-only preview removed ONLY source-proven digital zeros.
+
+    A candidate audio WAV is an offline listening aid, never a production
+    edit. Any change to one speech PCM sample, source offset, WAV format or
+    pause-cut size rejects it. All downstream captions remain uncalibrated.
+    """
+    base = {"schema": SCHEMA, "mayPublish": False,
+            "captionTimingApproved": False, "wordTimingCalibrated": False,
+            "pronunciationVerified": False, "phonemeIdentityVerified": False,
+            "sourceMasterModified": False, "videoModified": False,
+            "previewApprovedForProduction": False,
+            "humanListeningDecisionRecorded": False}
+    def refuse(reason):
+        return {**base, "status": "HOLD", "errors": [reason]}
+    if not isinstance(source_raw, bytes) or not isinstance(candidate_raw, bytes):
+        return refuse("PAUSE_PREVIEW_AUDIO_BYTES_REQUIRED")
+    if digest(source_raw) != SOURCE_WAV_REFERENCE:
+        return refuse("PAUSE_PREVIEW_ORIGINAL_WAV_SHA_CHANGED")
+    if (type(retained_pause_ms) is not int
+            or retained_pause_ms not in (650, 1200, 3440)):
+        return refuse("PAUSE_PREVIEW_RETAINED_DURATION_NOT_IN_RESEARCH_SET")
+    try:
+        with wave.open(io.BytesIO(source_raw), "rb") as original:
+            if (original.getnchannels(), original.getsampwidth(),
+                    original.getframerate(), original.getcomptype(),
+                    original.getnframes()) != (1, 2, 24000, "NONE", 824336):
+                return refuse("PAUSE_PREVIEW_ORIGINAL_FORMAT_INVALID")
+            full_pcm = original.readframes(original.getnframes())
+        if len(full_pcm) != 824336*2:
+            return refuse("PAUSE_PREVIEW_ORIGINAL_PCM_TRUNCATED")
+        pause_start, pause_end = 663600, 746160
+        context_start, context_end = 628800, 775200
+        if full_pcm[pause_start*2:pause_end*2] != bytes(
+                (pause_end-pause_start)*2):
+            return refuse("PAUSE_PREVIEW_EXPECTED_PHYSICAL_SOURCE_SILENCE_MISSING")
+        keep_samples = retained_pause_ms * 24
+        # The WHOLE cut lies inside authenticated exact-zero PCM, not in
+        # speech. Byte identity on both sides rejects pitch, gain, word edits,
+        # timing stretch, smoothing that touches nonzero samples, etc.
+        cut_start = pause_start + keep_samples
+        expected = (full_pcm[context_start*2:cut_start*2]
+                    + full_pcm[pause_end*2:context_end*2])
+        with wave.open(io.BytesIO(candidate_raw), "rb") as preview:
+            if (preview.getnchannels(), preview.getsampwidth(),
+                    preview.getframerate(), preview.getcomptype()) != (
+                        1, 2, 24000, "NONE"):
+                return refuse("PAUSE_PREVIEW_CANDIDATE_FORMAT_INVALID")
+            candidate_frames = preview.getnframes()
+            actual = preview.readframes(candidate_frames)
+        if (candidate_frames != len(expected)//2
+                or len(actual) != len(expected)):
+            return refuse("PAUSE_PREVIEW_FRAME_COUNT_OR_LENGTH_INVALID")
+        if actual != expected:
+            return refuse("PAUSE_PREVIEW_NONZERO_VOICE_OR_CUT_OFFSET_CHANGED")
+        removed_samples = pause_end-cut_start
+        return {**base, "status": "RESEARCH_EXACT_ZERO_PAUSE_AUDITION_HOLD",
+                "originalWavSha256": SOURCE_WAV_REFERENCE,
+                "candidateWavSha256": digest(candidate_raw),
+                "candidatePcmSha256": digest(actual),
+                "voicePcmSamplesPreservedExactly": True,
+                "sourceOriginalFrameCount": 824336,
+                "originalReviewWindowSourceSamples": [context_start, context_end],
+                "originalDigitalZeroSourceSamples": [pause_start, pause_end],
+                "retainedPauseMs": retained_pause_ms,
+                "removedOnlyExactZeroSamples": True,
+                "removedZeroSampleCount": removed_samples,
+                "removedPauseMs": removed_samples / 24,
+                "previewSampleCount": candidate_frames,
+                "allPostPauseCaptionOffsetsRemainUnapproved": True,
+                "caution": "This validates only exact sample-preserving offline "
+                           "audition audio; it DOES NOT authorize pause removal, "
+                           "voice phonemes, new word timings, finished film or captions."}
+    except (OSError, EOFError, ValueError, wave.Error, TypeError):
+        return refuse("PAUSE_PREVIEW_WAV_PARSE_FAILED")
+
+
+def audit_original_pause_audition_files(original_wav_path, preview_wav_path,
+                                        retained_pause_ms):
+    """Read-only strict path checks for a source-pinned original audio audition."""
+    try:
+        paths = ((Path(original_wav_path), 3000000),
+                 (Path(preview_wav_path), 1000000))
+        if any(p.is_symlink() or not p.is_file()
+               or not 0 < p.stat().st_size <= limit for p, limit in paths):
+            return hold("PAUSE_PREVIEW_FILES_MISSING_OR_UNSAFE")
+        return audit_original_pause_audition_pcm(
+            paths[0][0].read_bytes(), paths[1][0].read_bytes(),
+            retained_pause_ms)
+    except (OSError, TypeError, ValueError):
+        return hold("PAUSE_PREVIEW_FILES_UNREADABLE")
+
+
 def bind_self_reported_listening_notes(source_report, notes_raw):
     """Bind previous OFFLINE player JSON to exact original-source audit cases.
 
@@ -1384,6 +1477,10 @@ def main(argv=None):
     p.add_argument("--original-wav", help="Pinned original full 24 kHz source WAV")
     p.add_argument("--mfa-receipt", help="Pinned first-party original MFA run receipt")
     p.add_argument("--mfa-alignment", help="Pinned original MFA word alignment candidate")
+    p.add_argument("--original-pause-audition-audit", action="store_true",
+                   help="Verify exact-zero offline preview sample preservation; never publish")
+    p.add_argument("--pause-preview-wav", help="Source-only sample-preserving audition candidate")
+    p.add_argument("--pause-retained-ms", type=int, help="Research-only 650, 1200 or 3440 ms")
     p.add_argument("--original-dead-air-review", action="store_true",
                    help="SHA-pinned 73/70 source-audio 1.2s exact-silence creative review, never auto-cut")
     p.add_argument("--cross-model-timing-review", action="store_true",
@@ -1402,7 +1499,22 @@ def main(argv=None):
     p.add_argument("--pose-internal-contrasts", action="store_true",
                    help="Produce source-pinned same-narrator comparisons; NEVER a phoneme verdict")
     a=p.parse_args(argv)
-    if a.original_dead_air_review:
+    if a.original_pause_audition_audit:
+        if (not a.original_wav or not a.pause_preview_wav
+                or a.pause_retained_ms is None
+                or any((a.original_dead_air_review, a.cross_model_timing_review,
+                        a.human_review_json, a.asr_zero_onset_audit,
+                        a.mfa_zero_interval_audit, a.mfa_alignment,
+                        a.pose_asr_receipt, a.mfa_receipt, a.source_archive,
+                        a.reference_target_wav, a.reference_benchmark_zip,
+                        a.pose_internal_contrasts))):
+            result = hold("PAUSE_PREVIEW_REQUIRES_EXCLUSIVE_SOURCE_AND_CANDIDATE")
+        else:
+            result = audit_original_pause_audition_files(
+                a.original_wav, a.pause_preview_wav, a.pause_retained_ms)
+    elif a.pause_preview_wav is not None or a.pause_retained_ms is not None:
+        result = hold("PAUSE_PREVIEW_ARGUMENTS_REQUIRE_EXPLICIT_AUDIT_MODE")
+    elif a.original_dead_air_review:
         if (not a.original_wav or not a.mfa_alignment or not a.pose_asr_receipt
                 or any((a.cross_model_timing_review, a.human_review_json,
                         a.mfa_zero_interval_audit, a.asr_zero_onset_audit,
