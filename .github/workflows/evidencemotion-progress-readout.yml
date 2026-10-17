@@ -49,12 +49,12 @@ jobs:
           from pathlib import Path
           report=json.loads((Path(os.environ["RUNNER_TEMP"])/"em-progress/reconciliation.json").read_text())
           with open(os.environ["GITHUB_STEP_SUMMARY"],"a") as fp:
-              fp.write("### EvidenceMotion verified progress — GitHub snapshot\\n")
-              fp.write(f"Live verified observation **{report['sourceObservationAtUtc']}**; source mode **{report['sourceMode']}**.\\n\\n")
-              fp.write(f"Merged PRs **{report['mergedPRs']}**, unique integration commits **{report['distinctMergeCommits']}**; five lane PRs **{report['fiveActiveLanesMergedPRs']}**.\\n\\n")
-              fp.write(f"Individual machine-audited research cards: **{report['individualMachineVerifiedResearchCards']}/1590**. Inherited provisional but NOT audited: **{report['inheritedProvisionalNOTIndividuallyAudited']}**.\\n\\n")
-              fp.write(f"Provisional coverage only: **{report['provisionalCoverageOnly']}/1590**; reconciliation **{report['reconciliationState']}**.\\n\\n")
-              fp.write("First excellent render **0/1**, five streak **0/5**, mayPublish=false; no real-device/independent-science/creative release approval.\\n")
+              fp.write("### EvidenceMotion verified progress — GitHub snapshot\n")
+              fp.write(f"Live verified observation **{report['sourceObservationAtUtc']}**; source mode **{report['sourceMode']}**.\n\n")
+              fp.write(f"Merged PRs **{report['mergedPRs']}**, unique integration commits **{report['distinctMergeCommits']}**; five lane PRs **{report['fiveActiveLanesMergedPRs']}**.\n\n")
+              fp.write(f"Individual machine-audited research cards: **{report['individualMachineVerifiedResearchCards']}/1590**. Inherited provisional but NOT audited: **{report['inheritedProvisionalNOTIndividuallyAudited']}**.\n\n")
+              fp.write(f"Provisional coverage only: **{report['provisionalCoverageOnly']}/1590**; reconciliation **{report['reconciliationState']}**.\n\n")
+              fp.write("First excellent render **0/1**, five streak **0/5**, mayPublish=false; no real-device/independent-science/creative release approval.\n")
           PY
       - name: Preserve both snapshot and reviewed accounting
         uses: actions/upload-artifact@v4
