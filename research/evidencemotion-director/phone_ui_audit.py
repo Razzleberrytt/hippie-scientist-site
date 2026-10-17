@@ -709,7 +709,8 @@ def probe_movie(movie):
     cmd = ["ffprobe", "-v", "error", "-show_entries",
            "stream=codec_type,codec_name,width,height,avg_frame_rate,pix_fmt,sample_aspect_ratio",
            "-show_entries", "stream_tags=rotate:stream_side_data=side_data_type,rotation,displaymatrix",
-           "-show_entries", "format=duration", "-of", "json", str(movie)]
+           "-show_entries", "format=duration,format_name:format_tags=major_brand",
+           "-of", "json", str(movie)]
     data = json.loads(subprocess.run(cmd, capture_output=True, text=True, timeout=20, check=True).stdout)
     streams = data.get("streams")
     if not isinstance(streams, list):
@@ -723,6 +724,21 @@ def probe_movie(movie):
         hold("EXPECTED_H264_VIDEO_CODEC")
     if audios and audios[0].get("codec_name") != "aac":
         hold("EXPECTED_AAC_AUDIO_CODEC")
+    # ffprobe stream codecs and a .mp4 filename are not a delivery-container
+    # identity: actual Matroska can be renamed to .mp4, and QuickTime MOV
+    # shares FFprobe's demuxer name with ISO BMFF MP4. Inspect both the
+    # detected family and physical major-brand declaration. Fail closed on
+    # absent/unsupported brands instead of calling those mobile MP4.
+    container = data.get("format")
+    if not isinstance(container, dict):
+        hold("MOVIE_CONTAINER_INVENTORY_MISSING")
+    if container.get("format_name") != "mov,mp4,m4a,3gp,3g2,mj2":
+        hold("EXPECTED_MP4_CONTAINER")
+    fmt_tags = container.get("tags")
+    if not isinstance(fmt_tags, dict) or fmt_tags.get("major_brand") not in (
+            "isom", "iso2", "iso4", "iso5", "iso6",
+            "mp41", "mp42", "avc1", "M4V ", "MSNV", "dash"):
+        hold("EXPECTED_ISO_MP4_MAJOR_BRAND")
     # Codec+dimensions alone do NOT guarantee an ordinary portrait phone
     # image. H.264 4:4:4 is poorly supported by typical mobile decoders,
     # while non-square sample pixels alter displayed dimensions and move
