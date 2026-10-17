@@ -662,18 +662,17 @@ def mute_story_negative_screen(plan, glyph_proof):
         for phase in ("early", "middle", "late"))
     if not same_shot_ocr:
         findings.append("NO_EXACT_ENCODED_SAME_SHOT_NEGATION_OCR_PROOF")
-    # OCR word recovery alone is insufficient: an absent or corrupted ≠
-    # operator changes the meaning of the comparison. Require the literal
-    # operator WITH both terms inside one captured crop at every phase.
-    # This is still caller-provided OCR evidence, not independently replayed
-    # pixels or validated human comprehension.
+    # Even all three words plus a ≠ glyph in one crop can reverse or
+    # destroy the relationship if the operator is positioned incorrectly.
+    # Enforce the SAME ordered normalized sentence as the repaired-v2 OCR
+    # intake, including a natural line wrap but not word reordering.
+    # This is still self-reported OCR, not direct pixel/handset proof.
     same_shot_operator_ocr = all(
         any(row.get("scene") == "sentence_5_part1"
             and row.get("phase") == phase
             and isinstance(row.get("recognized"), str)
-            and "≠" in row["recognized"]
-            and all(term in ocr_words(row["recognized"])
-                    for term in ("structure", "human", "experience"))
+            and re.sub(r"\s+", " ", row["recognized"].strip()).casefold()
+                == "structure ≠ human experience"
             for row in raw_rows if isinstance(row, dict))
         for phase in ("early", "middle", "late"))
     if not same_shot_operator_ocr:
