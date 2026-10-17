@@ -18,6 +18,15 @@ class TemporalTextContractTests(unittest.TestCase):
         self.assertEqual(r['rowsChecked'],9)
         self.assertTrue(r['allSourceRowsEveryFramePass14pxResearchThreshold'])
         self.assertIs(r['mayPublish'],False)
+    def test_first_pixel_of_next_cid_cannot_inflate_previous_7oh_height(self):
+        f=self.valid.copy()
+        row_y=m.LINES[4][1]-m.Y0
+        f[:,row_y,126-m.X0+550:126-m.X0+600]=225
+        report=m.temporal_report(f)
+        seven=next(x for x in report['textRows'] if x['text']=='7-OH')
+        self.assertEqual(seven['nativeYWindowHalfOpen'],[906,985])
+        self.assertEqual(seven['minNativeInkRows'],55)
+        self.assertEqual(seven['maxNativeInkRows'],55)
     def test_partial_one_frame_disappearance_holds(self):
         f=self.valid.copy()
         y=m.LINES[4][1]-m.Y0
@@ -50,6 +59,15 @@ class TemporalTextContractTests(unittest.TestCase):
                 m.check_actual_frames(p)
 
 class PortableRowSafetyTests(unittest.TestCase):
+    def test_nonoverlapping_source_windows_never_see_next_line(self):
+        result=m.nonoverlapping_text_windows()
+        self.assertEqual(len(result),9)
+        self.assertEqual(next((start,end) for name,start,end in result if name=='7-OH'),(906,985))
+        self.assertEqual(next((start,end) for name,start,end in result if name=='CID = compound'),(1160,1232))
+    def test_invalid_or_reversed_row_definitions_hold(self):
+        for bad in [[('a',906,76),('b',905,10)],[('a',906,0)]]:
+            with self.assertRaisesRegex(m.ReviewHold,'FACTUAL_ROW_GEOMETRY_INVALID'):
+                m.nonoverlapping_text_windows(bad)
     def test_same_actual_valid_number_of_frames(self):
         self.assertTrue(m.validate_row_stats('CID 3034396',[52]*117,0.12259,808,117))
     def test_single_frame_missing_or_shrunken_citation_holds(self):
