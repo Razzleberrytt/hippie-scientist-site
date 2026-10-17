@@ -109,7 +109,7 @@ export function auditShotRepetition(shots){
   // All source-derived findings require independent artistic review.
   const payoffKeys=shots.map(shot=>{
     const outcome=clean(shot.viewerLearns).normalize('NFKC').toLowerCase()
-      .replace(/[^\\p{L}\\p{N}]+/gu,' ').trim();
+      .replace(/[^\p{L}\p{N}]+/gu,' ').trim();
     if(!outcome)return null; // missing authoring proof never implies progress
     const evidence=Array.isArray(shot.sourceClaimIds)
       ? [...shot.sourceClaimIds].sort() : [];
@@ -136,7 +136,7 @@ export function auditShotRepetition(shots){
     const a=payoffKeys[start],b=payoffKeys[start+1];
     if(a===null||b===null||a===b){start++;continue;}
     let end=start+2;
-    while(end<shots.length&&payoffKeys[end]===(end-start)%2===0?a:b)end++;
+    while(end<shots.length&&payoffKeys[end]===((end-start)%2===0?a:b))end++;
     if(end-start>=6){
       findings.push({reason:'REPEATED_TWO_PAYOFF_TEACHING_CYCLE_REQUIRES_REVIEW',
         firstBeatId:shots[start].beatId,lastBeatId:shots[end-1].beatId,
