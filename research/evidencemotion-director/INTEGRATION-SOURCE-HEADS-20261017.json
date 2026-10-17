@@ -16,7 +16,7 @@
     },
     {
       "pr": 6846,
-      "head": "4c2778dca7f40ac07113e190f7075a3d89643ec2"
+      "head": "2b56b51d144d68c540eb9d3098fb972ae430e7f8"
     }
   ],
   "preflightPython": {
@@ -50,9 +50,9 @@
     "scope": "Focused synthetic/mechanical integration; not original-film or human approval"
   },
   "followup": {
-    "head": "0e97924401e3061e6a6a53aa3eddbaa8b235508b",
-    "delta": "Lane5 AAC anomaly persistence; only scorecard source and tests changed",
-    "linuxScorecardTests": 20,
+    "head": "9870a3c9d16d87805921770f66e9ce235744edf5",
+    "delta": "Lane5 persisted AAC anomaly holds and repeated timestamp drift; only scorecard source/test changed",
+    "linuxScorecardTests": 21,
     "failures": 0,
     "errors": 0,
     "skips": 0,

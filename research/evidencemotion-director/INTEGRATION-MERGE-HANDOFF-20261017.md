@@ -10,7 +10,7 @@ ancestries over main 09032fc9593ff45d76343dc05ab1eac70b769338.
 - PR #6845: `1bfb3395afc2b104f37f9fbf56f6ba36c7c86cf7`
 - PR #6840: `b30af0ba355509c5ee94dcad51cdad5201285abb`
 - PR #6831: `c1f051185805a53dc71eb29c4fd8160b9abd17d9`
-- PR #6846: `4c2778dca7f40ac07113e190f7075a3d89643ec2`
+- PR #6846: `2b56b51d144d68c540eb9d3098fb972ae430e7f8`
 
 [Machine source/test receipt](INTEGRATION-SOURCE-HEADS-20261017.json) records exact
 pins and verification scope. Individual PRs have temporary hold-merge labels to
@@ -34,8 +34,8 @@ controller and production/quality/security checks; no new merge system.
   structured exit0. The first receipt-wrapper run failed after green tests because
   Linux Git could not parse a Windows worktree pointer. Corrected wrapper received
   the Windows-resolved head explicitly; complete rerun returned exit0.
-- Lane5 then advanced only its scorecard source/test to retain AAC anomaly holds.
-  Included that head and reran its affected suite: 20/20 PASS, no skips, exit0.
+- Lane5 then advanced only its scorecard source/test to retain AAC anomaly holds and repeated timestamp drift.
+  Included that head and reran its affected suite: 21/21 PASS, no skips, exit0.
   This follow-up is separately recorded rather than calling the earlier run an
   execution on the later head. Other preflight-covered source blobs unchanged.
 - Node reusable director, previz, story-first and botanical suites: 62/62 PASS,
