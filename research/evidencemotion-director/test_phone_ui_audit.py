@@ -1883,6 +1883,58 @@ class TargetedEncodedRightUiInkTests(unittest.TestCase):
                     expected_film_sha=hashlib.sha256(movie.read_bytes()).hexdigest(),
                     frame_indices=[0, 2, 5], roi=[861, 830, 961, 880])
 
+    @staticmethod
+    def physical_colored_science_proxy(root, *, unsafe):
+        movie = root / ("science_colored_unsafe.mp4" if unsafe
+                        else "science_colored_safe.mp4")
+        # One clearly identified, colored science-art proxy against a black
+        # panel. It is NOT a molecular identity or legibility test.
+        x = 900 if unsafe else 770
+        subprocess.run([
+            "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+            "-f", "lavfi", "-i", "color=c=black:s=1080x1920:r=30:d=1",
+            "-vf", f"drawbox=x={x}:y=840:w=24:h=28:color=red:t=fill",
+            "-c:v", "libx264", "-preset", "ultrafast", "-pix_fmt",
+            "yuv420p", "-an", str(movie)
+        ], capture_output=True, timeout=50, check=True)
+        return movie
+
+    def test_physical_colored_science_art_in_right_ui_is_hold(self):
+        from phone_ui_audit import screen_targeted_encoded_right_ui_ink
+        with tempfile.TemporaryDirectory() as directory:
+            movie = self.physical_colored_science_proxy(
+                Path(directory), unsafe=True)
+            with self.assertRaisesRegex(
+                    ValueError, "TARGETED_CRITICAL_ART_RIGHT_UI_EXCLUSION:5:"):
+                screen_targeted_encoded_right_ui_ink(
+                    movie,
+                    expected_film_sha=hashlib.sha256(movie.read_bytes()).hexdigest(),
+                    frame_indices=[5, 15, 25], roi=[720, 830, 1080, 880],
+                    pixel_mode="scientific_visual_highlights")
+
+    def test_physical_colored_art_inside_safe_area_is_research_only(self):
+        from phone_ui_audit import screen_targeted_encoded_right_ui_ink
+        with tempfile.TemporaryDirectory() as directory:
+            movie = self.physical_colored_science_proxy(
+                Path(directory), unsafe=False)
+            args = {
+                "expected_film_sha": hashlib.sha256(movie.read_bytes()).hexdigest(),
+                "frame_indices": [5, 15, 25],
+                "roi": [720, 830, 1080, 880],
+            }
+            receipt = screen_targeted_encoded_right_ui_ink(
+                movie, **args, pixel_mode="scientific_visual_highlights")
+            self.assertTrue(all(row["targetPixelsInRightExclusion"] == 0
+                                for row in receipt["actualDecodedPixelObservations"]))
+            self.assertFalse(receipt["mayPublish"])
+            self.assertFalse(receipt["scientificVisualContentIndependentlyIdentified"])
+            # A non-neutral colored object MUST not be silently reclassified
+            # as valid critical white text, and invalid modes fail closed.
+            with self.assertRaisesRegex(ValueError,
+                                        "TARGETED_UI_PROBE_EXPLICIT_SUPPORTED_PIXEL_MODE_REQUIRED"):
+                screen_targeted_encoded_right_ui_ink(
+                    movie, **args, pixel_mode="anything-goes")
+
     def test_wrong_movie_identity_and_fake_sample_and_roi_are_rejected(self):
         from phone_ui_audit import screen_targeted_encoded_right_ui_ink
         with tempfile.TemporaryDirectory() as directory:
