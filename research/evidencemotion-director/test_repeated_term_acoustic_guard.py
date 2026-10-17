@@ -1543,6 +1543,142 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
                 self.assertIn('"mayPublish": false', c.stdout)
 
 
+
+    @staticmethod
+    def revised_caption_blank_source_fixture():
+        """Synthetic exact-duration WAV + 94 representative grayscale counts.
+
+        Physical scene observation has exactly two internal blank frames
+        984–985 and 14 trailing blanks 1017–1030. Actual media is NOT
+        included in hosted CI; film-file entrypoint does physical decoding.
+        """
+        samples=np.zeros(824336,dtype="<i2")
+        for frame in [*range(938,984),*range(986,1017)]:
+            samples[frame*800:min((frame+1)*800,len(samples))]=2000
+        output=io.BytesIO()
+        with wave.open(output,"wb") as w:
+            w.setparams((1,2,24000,0,"NONE","not compressed"))
+            w.writeframes(samples.tobytes())
+        displayed=set([*range(938,984),*range(986,1017)])
+        ink=[4600 if frame in displayed else 0
+             for frame in range(937,1031)]
+        return output.getvalue(),ink
+
+    @staticmethod
+    def check_revised_caption_source(audio,counts,
+                                     film_sha=None,adts_sha=None):
+        if film_sha is None:
+            film_sha=original_guard.REVISED_SCENE4_PHONE_FOOTNOTES_FILM_SHA
+        if adts_sha is None:
+            adts_sha=original_guard.REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA
+        with patch.object(original_guard,"SOURCE_WAV_REFERENCE",
+                          digest(audio)):
+            return original_guard.audit_revised_caption_voice_gaps(
+                audio,counts,film_sha,adts_sha)
+
+    def test_caption_presence_matches_authentic_film_shape_synthetic_source(self):
+        audio,counts=self.revised_caption_blank_source_fixture()
+        result=self.check_revised_caption_source(audio,counts)
+        self.assertEqual(result["status"],
+            "RESEARCH_REVISED_CAPTION_VOICE_GAP_SCREEN_HOLD",result)
+        self.assertEqual(result["totalFramesChecked"],94)
+        self.assertEqual(result["captionPresentFrames"],77)
+        self.assertEqual(result["visuallyBlankFrames"],17)
+        self.assertEqual(
+            [x["frame"] for x in result["allVisualBlankFrameMeasurements"]],
+            [937,984,985,*range(1017,1031)])
+        self.assertEqual(result["blankFramesWithSourceSpeechEnergy"],[])
+        self.assertEqual(result["ambiguousRoiFrames"],[])
+        self.assertFalse(result["physicalVideoFrameDecodeVerifiedByThisFunction"])
+        for key in ("mayPublish","pronunciationVerified","wordTimingCalibrated",
+                    "captionTimingApproved","actualPhoneReviewApproved"):
+            self.assertFalse(result[key])
+
+    def test_middle_of_spoken_caption_disappearing_cannot_pass(self):
+        audio,counts=self.revised_caption_blank_source_fixture()
+        altered=counts.copy()
+        altered[960-937]=0
+        result=self.check_revised_caption_source(audio,altered)
+        self.assertEqual(result["status"],"HOLD")
+        self.assertIn("CAPTION_GAP_VOICE_ACTIVE_WITHOUT_CAPTION",
+                      result["errors"])
+        self.assertEqual(
+            [x["frame"] for x in result["blankFramesWithSourceSpeechEnergy"]],
+            [960])
+        self.assertFalse(result["mayPublish"])
+
+    def test_voice_inserted_during_original_blank_gap_fails_closed(self):
+        audio,counts=self.revised_caption_blank_source_fixture()
+        with wave.open(io.BytesIO(audio),"rb") as w:
+            pcm=np.frombuffer(w.readframes(w.getnframes()),"<i2").copy()
+        pcm[984*800:986*800]=3000
+        target=io.BytesIO()
+        with wave.open(target,"wb") as w:
+            w.setparams((1,2,24000,0,"NONE","not compressed"))
+            w.writeframes(pcm.tobytes())
+        result=self.check_revised_caption_source(target.getvalue(),counts)
+        self.assertEqual(result["status"],"HOLD")
+        self.assertEqual(
+            [x["frame"] for x in result["blankFramesWithSourceSpeechEnergy"]],
+            [984,985])
+        self.assertFalse(result["wordTimingCalibrated"])
+
+    def test_brightness_indeterminate_and_invalid_frame_schema_hold(self):
+        audio,counts=self.revised_caption_blank_source_fixture()
+        confused=counts.copy()
+        confused[10]=380
+        report=self.check_revised_caption_source(audio,confused)
+        self.assertEqual(report["status"],"HOLD")
+        self.assertIn("CAPTION_GAP_ROI_INDETERMINATE",report["errors"])
+        for bad in (counts[:-1],counts+[0],
+                    [*counts[:-1],True],
+                    [*counts[:-1],79001],
+                    [*counts[:-1],-1]):
+            with self.subTest(length=len(bad),tail=bad[-1]):
+                result=self.check_revised_caption_source(audio,bad)
+                self.assertEqual(result["status"],"HOLD")
+                self.assertIn(
+                    "CAPTION_GAP_FRAME_COUNT_OR_PIXEL_SCHEMA_INVALID",
+                    result["errors"])
+
+    def test_caption_research_fails_on_unpinned_voice_video_or_aac(self):
+        audio,counts=self.revised_caption_blank_source_fixture()
+        self.assertIn("CAPTION_GAP_ORIGINAL_VOICE_SHA_MISMATCH",
+            original_guard.audit_revised_caption_voice_gaps(
+                audio,counts,
+                original_guard.REVISED_SCENE4_PHONE_FOOTNOTES_FILM_SHA,
+                original_guard.REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA)["errors"])
+        for film,aac in (
+            ("0"*64,original_guard.REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA),
+            (original_guard.REVISED_SCENE4_PHONE_FOOTNOTES_FILM_SHA,"1"*64)):
+            r=self.check_revised_caption_source(audio,counts,film,aac)
+            self.assertEqual(r["status"],"HOLD")
+            self.assertFalse(r["mayPublish"])
+
+    def test_caption_voice_gap_cli_requires_one_exclusive_physical_pair(self):
+        script=str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
+        cases=(
+            (["--revised-caption-voice-gap"],
+             "CAPTION_GAP_REQUIRES_EXCLUSIVE_ORIGINAL_WAV_AND_REVISED_FILM"),
+            (["--revised-caption-voice-gap",
+              "--original-wav","/missing/narration.wav",
+              "--revised-research-film","/missing/film.mp4"],
+             "CAPTION_GAP_REQUIRED_FILES_MISSING_OR_UNSAFE"),
+            (["--revised-caption-voice-gap",
+              "--original-wav","/missing/narration.wav",
+              "--revised-research-film","/missing/film.mp4",
+              "--revised-aac-packet-timeline"],
+             "CAPTION_GAP_REQUIRES_EXCLUSIVE_ORIGINAL_WAV_AND_REVISED_FILM"),
+        )
+        for args,reason in cases:
+            with self.subTest(reason=reason):
+                p=subprocess.run([sys.executable,script,*args],
+                                 capture_output=True,text=True,timeout=20)
+                self.assertEqual(p.returncode,2)
+                self.assertIn(reason,p.stdout)
+                self.assertIn('"mayPublish": false',p.stdout)
+
+
 class SyntheticMasterLinkTests(unittest.TestCase):
     """Synthetic controls only; original 34.35s master is NOT in hosted checkout."""
 
