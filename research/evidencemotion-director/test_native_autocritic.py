@@ -157,6 +157,53 @@ class AutonomousFilmCriticTests(unittest.TestCase):
             self.assertFalse(verdict["automaticallyApprovedPremiumCraft"])
             self.assertFalse(verdict["mayPublish"])
 
+    def test_interleaved_blank_phase_probe_is_negative_only(self):
+        from PIL import Image, ImageDraw
+        frames = []
+        for i in range(16):
+            image = Image.new("L", (180, 320), 0 if i % 2 else 12)
+            if i % 2 == 0:
+                draw = ImageDraw.Draw(image)
+                x = 8 + (i // 2 % 5) * 24
+                draw.rectangle((x, 74, x + 46, 165), fill=230)
+            frames.append(np.asarray(image))
+        windows = m.interleaved_blank_phase_windows(np.asarray(frames))
+        self.assertEqual(windows, [{"startSec": 1, "endSec": 16,
+                                    "blankSamples": 8, "blankPhase": 1}])
+        self.assertEqual(m.interleaved_blank_phase_windows(np.asarray(frames)[::2]), [])
+        self.assertEqual(m.interleaved_blank_phase_windows(np.asarray(frames)[::2].repeat(2,axis=0)), [])
+
+    def test_actual_h264_interleaved_blank_phase_not_invisible_to_critic(self):
+        if not shutil.which("ffmpeg") or not shutil.which("ffprobe"):
+            self.skipTest("Native FFmpeg required")
+        from PIL import Image, ImageDraw
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            for i in range(16):
+                image = Image.new("L", (180, 320), 0 if i % 2 else 12)
+                if i % 2 == 0:
+                    draw = ImageDraw.Draw(image)
+                    x = 8 + (i // 2 % 5) * 24
+                    draw.rectangle((x, 74, x + 46, 165), fill=230)
+                image.save(root / f"sample-{i:02d}.png")
+            movie = root / "aliased-blank-visual.mp4"
+            subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error",
+                            "-nostdin", "-framerate", "1",
+                            "-i", str(root / "sample-%02d.png"),
+                            "-vf", "fps=12", "-c:v", "libx264",
+                            "-pix_fmt", "yuv420p", "-y", str(movie)],
+                           check=True, capture_output=True, timeout=40)
+            pinned = m.sha256(movie)
+            report = m.analyze_video(movie, pinned)
+            self.assertEqual(report["actualVideoSha256"], pinned)
+            self.assertIn("INTERLEAVED_NEAR_BLANK_VISUAL_PHASE",
+                          report["reviewCandidates"])
+            self.assertEqual(report["interleavedBlankPhaseWindowsSec"][0],
+                             {"startSec": 1, "endSec": 16,
+                              "blankSamples": 8, "blankPhase": 1})
+            self.assertFalse(report["mayPublish"])
+            self.assertFalse(report["automaticallyApprovedPremiumCraft"])
+
     def test_real_decode_pins_sha_and_blocks_static_mp4(self):
         if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
             self.skipTest('FFmpeg required for actual media test')
