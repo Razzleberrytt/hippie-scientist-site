@@ -314,8 +314,11 @@ class SilentEveryFrameMotionTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             root=Path(td);movie=root/'movie.mp4'
             movie.write_bytes(b'NOT A REAL MOVIE')
+            wav=root/'original.wav'
+            wav.write_bytes(b'synthetic WAV fixture; no source content')
+            mock_wav_sha=D.file_sha256(wav)
             story={'encodedH264Sha256':D.file_sha256(movie),
-                   'sourceWavSha256':D.ORIGINAL_WAV_SHA256,
+                   'sourceWavSha256':mock_wav_sha,
                    'nineShotsMapped':9,'mayPublish':False,
                    'shots':[{'shot':f's{i}','startSec':i*3.44,
                              'endSec':(i+1)*3.44} for i in range(8)]+[
@@ -329,11 +332,12 @@ class SilentEveryFrameMotionTests(unittest.TestCase):
                   patch.object(D,'validate_story',return_value=story['shots']),
                   patch.object(D,'decode_samples',return_value={n:fingerprints for n in range(1031)}),
                   patch.object(D,'audit_source_hold_silence',return_value=mock_review) as audit_pause,
-                  patch.object(D,'measure_source_hold_motion',return_value=mock_motion) as allframes):
+                  patch.object(D,'measure_source_hold_motion',return_value=mock_motion) as allframes,
+                  patch.object(D,'ORIGINAL_WAV_SHA256',mock_wav_sha)):
                 without=D.audit(movie,path)
                 self.assertNotIn('originalVoiceSourceHoldPacing',without)
                 audit_pause.assert_not_called()
-                with_audio=D.audit(movie,path,original_wav=root/'original.wav')
+                with_audio=D.audit(movie,path,original_wav=wav)
                 self.assertEqual(with_audio['originalVoiceSourceHoldPacing']['everySilentFrameMotionReview'],
                                  mock_motion)
                 audit_pause.assert_called_once()
