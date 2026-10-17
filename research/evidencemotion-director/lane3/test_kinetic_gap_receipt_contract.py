@@ -1,7 +1,7 @@
 """Portable adversarial controls; hosted CI DOES NOT have owner 845f movie."""
 import copy
 import unittest
-from kinetic_gap_receipt_contract import FILM_SHA,SCENES,GapHold,classify_gap,validate_receipt
+from kinetic_gap_receipt_contract import FILM_SHA,SCENES,GapHold,classify_gap,validate_receipt,preflight_raised_credit_from_pinned_receipt
 
 def fixture(ink_y=1600):
     px,passes=classify_gap(ink_y)
@@ -64,5 +64,29 @@ class ReceiptFailClosedTests(unittest.TestCase):
     def test_invalid_native_coordinates_fail_closed(self):
         for y in ('1600',1600.0,True,-1,1798):
             with self.subTest(y=y),self.assertRaises(GapHold):classify_gap(y)
+
+
+    def test_raised_credit_geometry_predicted_from_exact_source_receipt(self):
+        previous=fixture()
+        baseline=preflight_raised_credit_from_pinned_receipt(previous,1587)
+        self.assertEqual(baseline['status'],'HOLD_PROPOSED_CREDIT_TOO_CLOSE_TO_KINETIC')
+        self.assertEqual(baseline['framesRecomputed'],845)
+        raised=preflight_raised_credit_from_pinned_receipt(previous,1527)
+        self.assertEqual(raised['status'],'PREFLIGHT_GAP_ONLY')
+        self.assertTrue(all(x['predictedMinGapPx320']>=12 for x in raised['scenes']))
+        self.assertIs(raised['newFilmIndependentlyDecoded'],False)
+        self.assertIs(raised['mayPublish'],False)
+
+    def test_proposed_reflow_does_not_override_forged_old_receipt(self):
+        for key,value in [('movieSha256','fake'),('status','RESEARCH_GAP_NEGATIVE_SCREEN_ONLY'),
+                          ('mayPublish',True),('totalNativeFilmFramesVisited',844)]:
+            candidate=fixture();candidate[key]=value
+            with self.subTest(key=key),self.assertRaises(GapHold):
+                preflight_raised_credit_from_pinned_receipt(candidate,1527)
+
+    def test_credit_preflight_rejects_nonphysical_anchor(self):
+        for y in (True,1527.0,'1527',1199,1588,-30):
+            with self.subTest(y=y),self.assertRaisesRegex(GapHold,'PROPOSED_CREDIT'):
+                preflight_raised_credit_from_pinned_receipt(fixture(),y)
 
 if __name__=='__main__':unittest.main()
