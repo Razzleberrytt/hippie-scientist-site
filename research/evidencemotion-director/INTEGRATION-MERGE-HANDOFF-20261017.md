@@ -57,3 +57,38 @@ Next gate: exact final-head hosted CI/build/research checks and review, then sol
 controller merge, source PR reconciliation, and exact deployment receipt. Old
 integration PRs #6817/#6825 are outside this selected four-lane snapshot; they are
 not silently merged or credited by this handoff. No new normal WIP admission.
+
+
+## Native integration gate failure and physical OCR replay repair
+
+First integration head 3c4215c2 failed actual original-WAV job 39051581769 at
+critical caption OCR: sentence_2 hydroxyl. Retrieved its first-party artifact
+12107564530 and verified actual MP4 SHA5028e671d7e0525dc6768d6b93e252fab57cb149affc47e235ae66b397e39d7d
+against render receipt b17b9af0224b21096e20faed2ac1b8782cfe674fd170456e0be7a3976c5fea53.
+Raw sparse-page OCR split the word or read its final glyph as punctuation.
+Bounded font/contrast prototypes and a single-line-only OCR attempt did not
+resolve every cue; no renderer edits from those experiments are retained.
+
+Repair reuses the existing OCR backend with constrained segmentation modes.
+Caption crop starts at its actual native y1310 field, excludes clipped science
+text above it and retains the full five-line region to y1590. Detect line bands
+from decoded pixel luminance, choose line/block segmentation from that layout,
+and apply the same explicit black/white luminance mask to EVERY sampled caption
+before OCR. No expected words, transcript, dictionary, per-word threshold or
+answer annotations enter the OCR call. Preserve raw crop and derived-mask SHA.
+Source-card OCR retains sparse-page mode11. Exact-token, missing-word and
+pre-reveal veto logic is unchanged; scope explicitly requires the specimen
+research renderer. This is not an original-color contrast or human-reading pass.
+
+[Physical replay and negatives](INTEGRATION-OCR-REPAIR-20261017.json): SAME immutable
+failed MP4, 8/8 critical words, 3/3 pre-reveal absences and both decoded PubChem
+identity/CID joins PASS, 12 sampled frames, exit0. No movie/WAV pixels rewritten.
+Actual OCR of a synthetic blank mask returned the spurious text So; it still
+failed the missing-critical-word check. A synthetic premature not was read by
+actual OCR and rejected by the existing pre-reveal gate. No blank-image OCR
+infallibility is claimed. These negatives do not constitute new source media.
+
+Focused tests: encoded-caption suite Linux9/9 and Windows9/9 PASS; pixel-recovery
+suite Linux16/16 PASS; all exits0. Full final-head CI/build and regenerated native
+replay remain required. All-frame OCR=false, independent comprehension=false,
+mayPublish=false, qualified science/voice/craft/physical-phone/release HOLD retained.

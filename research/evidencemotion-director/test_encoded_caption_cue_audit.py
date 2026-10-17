@@ -7,6 +7,57 @@ from autonomous_script_asr_research import LINES
 
 
 class ActualEncodedCaptionTests(unittest.TestCase):
+    def test_caption_layout_uses_actual_ink_for_single_and_wrapped_lines(self):
+        import tempfile
+        from pathlib import Path
+        from PIL import Image,ImageDraw
+        from encoded_caption_cue_audit import caption_pixel_layout
+        with tempfile.TemporaryDirectory() as td:
+            p=Path(td)/'decoded.png'
+            for lines,expected_mode in ((1,7),(2,6)):
+                image=Image.new('RGB',(1800,560),(13,35,44))
+                draw=ImageDraw.Draw(image)
+                for line in range(lines):
+                    draw.text((100,40+line*100),'visible caption glyphs',fill='white')
+                image.save(p)
+                layout=caption_pixel_layout(p)
+                self.assertEqual(layout['detectedInkLines'],lines)
+                self.assertEqual(layout['pageSegmentation'],expected_mode)
+
+    def test_blank_pixels_remain_blank_after_uniform_ocr_mask(self):
+        import tempfile
+        from pathlib import Path
+        from PIL import Image
+        from unittest.mock import patch
+        from encoded_caption_cue_audit import ocr_caption_crop
+        with tempfile.TemporaryDirectory() as td:
+            p=Path(td)/'blank.png'
+            Image.new('RGB',(1800,560),(13,35,44)).save(p)
+            def inspect_mask(mask,*,psm):
+                with Image.open(mask) as image:
+                    self.assertEqual(image.convert('L').getextrema(),(255,255))
+                return ''
+            with patch('encoded_caption_cue_audit.ocr_image',side_effect=inspect_mask):
+                text,layout=ocr_caption_crop(p)
+            self.assertEqual(text,'')
+            self.assertEqual(layout['detectedInkLines'],0)
+            self.assertFalse(recognized(text,'not'))
+            self.assertFalse(recognized(text,'hydroxyl'))
+
+    def test_wrong_caption_geometry_and_unsupported_ocr_mode_fail_closed(self):
+        import tempfile
+        from pathlib import Path
+        from PIL import Image
+        from encoded_caption_cue_audit import caption_pixel_layout
+        from actual_pixel_text_recovery import ocr_image
+        with tempfile.TemporaryDirectory() as td:
+            p=Path(td)/'wrong.png';Image.new('RGB',(50,50)).save(p)
+            with self.assertRaisesRegex(ValueError,'CROP_GEOMETRY'):
+                caption_pixel_layout(p)
+            for mode in (True,7.0,'7',0,13):
+                with self.assertRaisesRegex(ValueError,'UNSUPPORTED_OCR_PAGE_SEGMENTATION'):
+                    ocr_image(p,psm=mode)
+
     def test_critical_words_are_selected_from_real_frozen_script(self):
         ids=["sentence_1","sentence_2","sentence_3","sentence_4",
              "sentence_5","source_hold","sentence_6"]
