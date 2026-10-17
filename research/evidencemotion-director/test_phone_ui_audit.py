@@ -2971,5 +2971,52 @@ class WholeEncodedRightUiFilmTests(unittest.TestCase):
                         roi=[720, 830, 1080, 880], window_frames=12)
 
 
+    def test_forged_window_scope_and_counters_cannot_clear_entire_film(self):
+        # Before this guard, a returned frame-window receipt produced with
+        # the wrong pixel mode or crop could falsely clear a whole film.
+        from phone_ui_audit import (measure_targeted_encoded_right_ui_ink,
+                                    measure_whole_encoded_right_ui_ink)
+        with tempfile.TemporaryDirectory() as tmp:
+            movie, digest = self.movie_and_hash(Path(tmp), overflows=False)
+            roi = [720, 830, 1080, 880]
+            authentic = measure_targeted_encoded_right_ui_ink(
+                movie, expected_film_sha=digest,
+                frame_indices=list(range(12)), roi=roi)
+            self.assertEqual(authentic["violationCount"] if
+                             "violationCount" in authentic else
+                             authentic["violatingFrameCount"], 0)
+            bad_cases = [
+                ("pixelMode", "scientific_visual_highlights"),
+                ("targetedRoiPx", [718, 830, 1080, 880]),
+                ("rightUiExclusionBeginsNativeX", 865),
+                ("decodedFramesExamined", 11),
+                ("publicationVerdict", "PASS"),
+                ("actualPhoneLayoutVerified", True),
+                ("violatingFrameCount", 3),
+            ]
+            for key, value in bad_cases:
+                with self.subTest(forgery=key):
+                    forged = copy.deepcopy(authentic)
+                    forged[key] = value
+                    with patch("phone_ui_audit.measure_targeted_encoded_right_ui_ink",
+                               return_value=forged):
+                        with self.assertRaisesRegex(
+                                ValueError, "WHOLE_UI_SCREEN_INVALID_WINDOW_RECEIPT"):
+                            measure_whole_encoded_right_ui_ink(
+                                movie, expected_film_sha=digest,
+                                expected_frames=30, roi=roi, window_frames=12)
+            corrupt = copy.deepcopy(authentic)
+            corrupt["actualDecodedPixelObservations"][0][
+                "targetPixelsInRightExclusion"] = 1
+            # One asserted positive pixel cannot have a null X coordinate.
+            with patch("phone_ui_audit.measure_targeted_encoded_right_ui_ink",
+                       return_value=corrupt):
+                with self.assertRaisesRegex(
+                        ValueError, "WHOLE_UI_SCREEN_INVALID_WINDOW_RECEIPT"):
+                    measure_whole_encoded_right_ui_ink(
+                        movie, expected_film_sha=digest,
+                        expected_frames=30, roi=roi, window_frames=12)
+
+
 if __name__ == "__main__":
     unittest.main()
