@@ -519,6 +519,97 @@ def audit_original_cross_model_word_timing(source_raw, alignment_raw, asr_raw):
         return fail("CROSS_MODEL_REVIEW_INPUT_PARSE_FAILED")
 
 
+def audit_original_narration_dead_air(source_raw, alignment_raw, asr_raw):
+    """Physically verify extended digital-zero pauses in original narration.
+
+    A true digital-zero span can veto an impossible ASR word onset but cannot
+    establish whether the pause is intended, whether nonzero audio is speech,
+    or how a final film should be paced. No timecodes/audio are ever edited.
+    """
+    base = {"schema": SCHEMA, "mayPublish": False,
+            "pronunciationVerified": False, "phonemeIdentityVerified": False,
+            "wordTimingCalibrated": False, "captionTimingApproved": False,
+            "pauseCraftApproved": False, "audioAltered": False}
+    def fail(reason):
+        return {**base, "status": "HOLD", "errors": [reason]}
+    report = audit_original_cross_model_word_timing(
+        source_raw, alignment_raw, asr_raw)
+    if report["status"] != "RESEARCH_ORIGINAL_WORD_REVIEW_QUEUE_HOLD":
+        return fail("DEAD_AIR_REQUIRES_AUTHENTICATED_CROSS_MODEL_SOURCES")
+    try:
+        with wave.open(io.BytesIO(source_raw), "rb") as source:
+            if (source.getnchannels(), source.getsampwidth(),
+                    source.getframerate(), source.getcomptype(),
+                    source.getnframes()) != (1, 2, 24000, "NONE", 824336):
+                return fail("DEAD_AIR_MASTER_WAV_FORMAT_INVALID")
+            raw_pcm = source.readframes(source.getnframes())
+        if len(raw_pcm) != 824336 * 2:
+            return fail("DEAD_AIR_MASTER_PCM_TRUNCATED")
+        signal = np.frombuffer(raw_pcm, dtype="<i2")
+        zero = signal == 0
+        changes = np.flatnonzero(np.diff(
+            np.r_[False, zero, False].astype(np.int8)))
+        # Deliberately strict: exactly 1.2 seconds of digital zeros is long
+        # enough to require a creative/directorial review, not auto-silencing.
+        min_samples = 28800
+        original_words = json.loads(alignment_raw)["wordAlignment"]
+        recognized_words = json.loads(asr_raw)["recognizedWords"]
+        intervals = []
+        for first, stop in zip(changes[::2], changes[1::2]):
+            first, stop = int(first), int(stop)
+            if stop - first < min_samples:
+                continue
+            begin_ms, end_ms = first/24, stop/24
+            before = [(i, w) for i, w in enumerate(original_words)
+                      if w["endMs"] <= begin_ms]
+            after = [(i, w) for i, w in enumerate(original_words)
+                     if w["startMs"] >= end_ms]
+            prev = max(before, key=lambda v: v[1]["endMs"]) if before else None
+            later = min(after, key=lambda v: v[1]["startMs"]) if after else None
+            asr_onsets = []
+            for i, w in enumerate(recognized_words):
+                claimed_sample = round(w["start"] * 24000)
+                if first <= claimed_sample < stop:
+                    asr_onsets.append({
+                        "wordIndex": i, "recognizerHypothesis": w["word"].strip(),
+                        "hypothesizedOnsetSample": claimed_sample,
+                        "provenZeroBeyondClaimedOnsetMs":
+                            round((stop-claimed_sample)/24, 3)})
+            intervals.append({
+                "startSample": first, "endSample": stop,
+                "startSeconds": round(first/24000, 6),
+                "endSeconds": round(stop/24000, 6),
+                "durationMs": round((stop-first)/24, 3),
+                "allOriginalPcmSamplesAreZero": True,
+                "zeroPcmSha256": digest(raw_pcm[first*2:stop*2]),
+                "precedingAuthoredHypothesis": (
+                    {"wordIndex": prev[0], "word": prev[1]["word"],
+                     "endMs": prev[1]["endMs"]} if prev else None),
+                "followingAuthoredHypothesis": (
+                    {"wordIndex": later[0], "word": later[1]["word"],
+                     "startMs": later[1]["startMs"]} if later else None),
+                "asrOnsetsClaimedDuringDigitalZero": asr_onsets,
+            })
+        return {**base, "status": "RESEARCH_DEAD_AIR_CREATIVE_REVIEW_HOLD",
+                "sourceWavSha256": SOURCE_WAV_REFERENCE,
+                "mfaAlignmentSha256": MFA_SOURCE_ALIGNMENT_SHA,
+                "asrReceiptSha256": POSE_ASR_RECEIPT_SHA,
+                "originalAudioIndependentlyRehashed": True,
+                "sourceFrameCount": 824336, "sampleRate": 24000,
+                "exactDigitalZeroReviewThresholdMs": 1200,
+                "longDigitalZeroIntervalCount": len(intervals),
+                "longDigitalZeroIntervals": intervals,
+                "automaticPauseRemovalAllowed": False,
+                "automaticCaptionShiftAllowed": False,
+                "caution": "Long exact digital silence requires an actual "
+                           "director/ear-check decision. ASR onsets inside that "
+                           "silence are physically impossible, but MFA/ASR "
+                           "word boundaries and intended pause length remain "
+                           "unverified. No narration or caption changes applied."}
+    except (ValueError, TypeError, OSError, EOFError, wave.Error, KeyError):
+        return fail("DEAD_AIR_ORIGINAL_SOURCE_PARSE_FAILED")
+
+
 def bind_self_reported_listening_notes(source_report, notes_raw):
     """Bind previous OFFLINE player JSON to exact original-source audit cases.
 
@@ -1293,6 +1384,8 @@ def main(argv=None):
     p.add_argument("--original-wav", help="Pinned original full 24 kHz source WAV")
     p.add_argument("--mfa-receipt", help="Pinned first-party original MFA run receipt")
     p.add_argument("--mfa-alignment", help="Pinned original MFA word alignment candidate")
+    p.add_argument("--original-dead-air-review", action="store_true",
+                   help="SHA-pinned 73/70 source-audio 1.2s exact-silence creative review, never auto-cut")
     p.add_argument("--cross-model-timing-review", action="store_true",
                    help="Original WAV + 73 MFA / 70 ASR candidate word review queue, never approval")
     p.add_argument("--human-review-json",
@@ -1309,7 +1402,27 @@ def main(argv=None):
     p.add_argument("--pose-internal-contrasts", action="store_true",
                    help="Produce source-pinned same-narrator comparisons; NEVER a phoneme verdict")
     a=p.parse_args(argv)
-    if a.cross_model_timing_review:
+    if a.original_dead_air_review:
+        if (not a.original_wav or not a.mfa_alignment or not a.pose_asr_receipt
+                or any((a.cross_model_timing_review, a.human_review_json,
+                        a.mfa_zero_interval_audit, a.asr_zero_onset_audit,
+                        a.mfa_receipt, a.source_archive, a.reference_target_wav,
+                        a.reference_benchmark_zip, a.pose_internal_contrasts))):
+            result = hold("DEAD_AIR_REQUIRES_EXCLUSIVE_ORIGINAL_THREE_SOURCE_MODE")
+        else:
+            try:
+                items = ((Path(a.original_wav), 3000000),
+                         (Path(a.mfa_alignment), 100000),
+                         (Path(a.pose_asr_receipt), 30000))
+                if any(p.is_symlink() or not p.is_file()
+                       or not 0 < p.stat().st_size <= cap for p, cap in items):
+                    result = hold("DEAD_AIR_ORIGINAL_FILES_MISSING_OR_UNSAFE")
+                else:
+                    result = audit_original_narration_dead_air(
+                        *(p.read_bytes() for p, _ in items))
+            except (OSError, TypeError, ValueError):
+                result = hold("DEAD_AIR_ORIGINAL_FILES_UNREADABLE")
+    elif a.cross_model_timing_review:
         if (not a.original_wav or not a.mfa_alignment or not a.pose_asr_receipt
                 or any((a.mfa_zero_interval_audit, a.asr_zero_onset_audit,
                         a.mfa_receipt, a.source_archive, a.reference_target_wav,
