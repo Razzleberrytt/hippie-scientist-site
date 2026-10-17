@@ -38,6 +38,9 @@ on:
       - 'research/evidencemotion-director/test_gut_release_science_guard.py'
       - 'research/evidencemotion-director/gut_followup_science_guard.py'
       - 'research/evidencemotion-director/test_gut_followup_science_guard.py'
+      - 'research/evidencemotion-director/gut_exact_film_science_crosswalk.py'
+      - 'research/evidencemotion-director/test_gut_exact_film_science_crosswalk.py'
+      - 'research/evidencemotion-director/gut_current_three_cue_six_scene_manifest.json'
       - 'research/evidencemotion-director/EM00701-FROZEN-SPOKEN-LEDGER-20261016.json'
       - 'research/evidencemotion-director/encoded_science_motion_audit.py'
       - 'research/evidencemotion-director/test_encoded_science_motion_audit.py'
@@ -866,6 +869,15 @@ jobs:
           command -v ffprobe
           ffmpeg -version | head -n 1
           python -m unittest discover -s research/evidencemotion-director -p test_gut_followup_science_guard.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_gut_exact_film_science_crosswalk.py -v
+          python - <<'PY'
+          import sys
+          sys.path.insert(0,'research/evidencemotion-director')
+          from gut_exact_film_science_crosswalk import parse_manifest
+          report=parse_manifest('research/evidencemotion-director/gut_current_three_cue_six_scene_manifest.json')
+          assert len(report['scenes']) == 6 and report['mayPublish'] is False
+          print('PASS immutable latest science scene manifest; owner movie not hosted, release HOLD')
+          PY
           python -m unittest discover -s research/evidencemotion-director -p test_em00707_current_intro_semantic_guard.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_science_redteam_controls.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_claim_source_context_join.py -v
