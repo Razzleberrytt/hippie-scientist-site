@@ -123,6 +123,9 @@ def inspect(movie, manifest, out):
     movie, manifest, out = Path(movie), Path(manifest), Path(out)
     if (out.resolve() in (movie.resolve(), manifest.resolve()) or out.is_symlink()):
         hold("OUTPUT_ALIASES_SOURCE")
+    # An earlier positive research receipt must not survive a new HOLD.
+    # Source/output aliases are rejected before any deletion.
+    out.unlink(missing_ok=True)
     data = unique_json(manifest)
     movie_sha = digest(movie)
     if (not isinstance(data.get("filmSha256"), str)
