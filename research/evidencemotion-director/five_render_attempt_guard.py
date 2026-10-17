@@ -212,8 +212,90 @@ def verify_append_only(current, previous, previous_sha):
     return report
 
 
+RESEARCH_REPORT_FIELDS = frozenset((
+    "schema", "status", "registeredAttempts", "registeredDistinctSubjects",
+    "registeredRevisionsExcluded", "provisionalDeclaredConsecutiveFirstPasses",
+    "provisionalMaxDeclaredFirstPasses", "lastFiveFirstAttemptsDeclaredPass",
+    "allHistoricalAttemptsProvenPresent",
+    "independentScienceVoiceCraftHandsetAudienceAndVarietyVerified",
+    "firstExcellentMasterAccepted", "fiveRenderMilestoneAccepted",
+    "authorizedPromotion", "mayPublish", "attempts",
+))
+RESEARCH_APPEND_FIELDS = frozenset((
+    "appendOnlyAgainstPinnedPrior", "externalPreviousRegisterSha256",
+    "previousRegisteredAttempts", "newAppendedAttemptCount",
+    "newAppendedRunIds",
+))
+RESEARCH_ATTEMPT_FIELDS = frozenset((
+    "runId", "subjectId", "renderOrdinal", "firstFinal",
+    "declaredDecision", "declaredEligible", "declaredStreakBeforeEvent",
+    "declaredStreakAfterEvent", "streakBreakReason",
+    "independentlyApproved",
+))
+RESEARCH_WITHHELD_APPROVALS = frozenset((
+    "allHistoricalAttemptsProvenPresent",
+    "independentScienceVoiceCraftHandsetAudienceAndVarietyVerified",
+    "firstExcellentMasterAccepted", "fiveRenderMilestoneAccepted",
+    "authorizedPromotion", "mayPublish",
+))
+
+
+def validate_report_for_write(report):
+    """Never persist arbitrary approval claims as our guarded streak report.
+
+    This enforces report structure and withheld authority; it does not
+    authenticate an input run, independent review, or a historical attempt.
+    """
+    if (not isinstance(report, dict)
+            or set(report) not in (RESEARCH_REPORT_FIELDS,
+                                   RESEARCH_REPORT_FIELDS | RESEARCH_APPEND_FIELDS)
+            or report.get("schema") != "ths-em-five-render-integrity-report-v1"
+            or report.get("status") != "RESEARCH_INTEGRITY_ONLY_NO_STREAK_APPROVAL"
+            or any(report.get(key) is not False for key in RESEARCH_WITHHELD_APPROVALS)):
+        hold("UNAUTHORIZED_RESEARCH_REPORT_CONTENT")
+    entries = report.get("attempts")
+    if not isinstance(entries, list):
+        hold("UNAUTHORIZED_RESEARCH_REPORT_CONTENT")
+    for item in entries:
+        if (not isinstance(item, dict)
+                or set(item) != RESEARCH_ATTEMPT_FIELDS
+                or item.get("independentlyApproved") is not False):
+            hold("UNAUTHORIZED_RESEARCH_REPORT_CONTENT")
+    total = len(entries)
+    for key in ("registeredAttempts", "registeredDistinctSubjects",
+                "registeredRevisionsExcluded",
+                "provisionalDeclaredConsecutiveFirstPasses",
+                "provisionalMaxDeclaredFirstPasses"):
+        if type(report.get(key)) is not int or report[key] < 0:
+            hold("UNAUTHORIZED_RESEARCH_REPORT_CONTENT")
+    if (report["registeredAttempts"] != total
+            or report["registeredDistinctSubjects"] > total
+            or report["registeredRevisionsExcluded"] > total
+            or report["provisionalDeclaredConsecutiveFirstPasses"] > total
+            or report["provisionalMaxDeclaredFirstPasses"] > total
+            or report["provisionalMaxDeclaredFirstPasses"]
+               < report["provisionalDeclaredConsecutiveFirstPasses"]
+            or report.get("lastFiveFirstAttemptsDeclaredPass") is not
+               (report["provisionalDeclaredConsecutiveFirstPasses"] >= 5)):
+        hold("UNAUTHORIZED_RESEARCH_REPORT_CONTENT")
+    if set(report) == RESEARCH_REPORT_FIELDS | RESEARCH_APPEND_FIELDS:
+        prior = report.get("previousRegisteredAttempts")
+        count = report.get("newAppendedAttemptCount")
+        newly_added = report.get("newAppendedRunIds")
+        if (report.get("appendOnlyAgainstPinnedPrior") is not True
+                or not isinstance(report.get("externalPreviousRegisterSha256"), str)
+                or not HEX64.fullmatch(report["externalPreviousRegisterSha256"])
+                or type(prior) is not int or prior < 0 or prior >= total
+                or type(count) is not int or count != total - prior
+                or not isinstance(newly_added, list)
+                or newly_added != [item["runId"] for item in entries[prior:]]):
+            hold("UNAUTHORIZED_RESEARCH_REPORT_CONTENT")
+    return True
+
+
 def write_report_no_clobber(path, report):
     """Do not overwrite an older research report or follow a final-file alias."""
+    validate_report_for_write(report)
     output = Path(path)
     if (not output.parent.is_dir() or _has_symlinked_parent(output)
             or output.exists() or output.is_symlink()):
