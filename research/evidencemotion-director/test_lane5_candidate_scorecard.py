@@ -343,6 +343,41 @@ class Lane5ScorecardTests(unittest.TestCase):
 
 
 
+    def test_repeated_small_pts_jumps_accumulate_and_cannot_hide(self):
+        """Ten alternating 11ms AAC PTS jumps are worse than a one-off glitch.
+
+        Earlier logic only counted >12ms gaps; individual 11ms shifts stayed
+        invisible even when cumulative absolute drift exceeded 80ms.
+        ffprobe's <1us decimal rounding must not trigger anomaly warnings.
+        """
+        from decimal import Decimal
+        n = Decimal(1024) / Decimal(24000)
+        def run(jitter_seconds, count, expected_video_frames):
+            rows = []
+            for i in range(count):
+                jitter = jitter_seconds if i % 2 else Decimal(0)
+                rows.append({
+                    "best_effort_timestamp_time":
+                        format(i*n+jitter, ".6f"),
+                    "nb_samples": 1024,
+                })
+            with patch("lane5_candidate_scorecard.subprocess.run",
+                       return_value=SimpleNamespace(stdout=json.dumps({"frames":rows}))):
+                return _decoded_audio_coverage("synthetic-not-a-film.mp4",
+                                               24000, expected_video_frames)
+        with self.assertRaisesRegex(ValueError,
+                                    "EXCESS_CUMULATIVE_DECODED_AUDIO_PTS_DRIFT"):
+            run(Decimal("0.011"), 12, 15)
+        one = run(Decimal("0.003"), 4, 5)
+        self.assertGreater(one["audioPtsAnomalyCount"], 0)
+        self.assertTrue(one["audioPtsAnomaliesNeedSourceReview"])
+        clean = run(Decimal("0.0000003"), 4, 5)
+        self.assertEqual(clean["audioPtsAnomalyCount"], 0)
+        self.assertFalse(clean["audioPtsAnomaliesNeedSourceReview"])
+
+
+
+
 class PhysicalStatSurfaceTests(unittest.TestCase):
     def check_surfaces(self, *, path_after_ctime=10, fd_after_ctime=20,
                        path_after_inode=7):
