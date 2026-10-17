@@ -60,6 +60,36 @@ def _cues(text, video_frames, fps):
     return cues
 
 
+
+def _assert_authored_cfr_clock(path, frame_pts, fps):
+    """Compare EVERY displayed H264 frame to SRT's zero-origin CFR clock.
+
+    Identical source/revision PTS are insufficient: both can be offset or
+    irregular. Authored SRT timestamps are movie-local seconds, not arbitrary
+    display-order indexes. Refuse drift rather than misattribute edit windows.
+    """
+    try:
+        result = subprocess.run([
+            'ffprobe', '-v', 'error', '-select_streams', 'v:0',
+            '-show_entries', 'stream=time_base', '-of', 'json', str(path)
+        ], capture_output=True, text=True, check=True, timeout=30)
+        streams = json.loads(result.stdout)['streams']
+        if len(streams) != 1:
+            hold('INVALID_CFR_STREAM_TIME_BASE')
+        tick = Fraction(streams[0]['time_base'])
+    except (OSError, subprocess.SubprocessError, ValueError, KeyError, TypeError, ZeroDivisionError):
+        hold('INVALID_CFR_STREAM_TIME_BASE')
+    if tick <= 0 or tick > Fraction(1, 10):
+        hold('INVALID_CFR_STREAM_TIME_BASE')
+    if not isinstance(frame_pts, list) or not frame_pts:
+        hold('MISSING_FULL_FRAME_PTS')
+    tolerance = Fraction(1, 1000)  # <= 1ms timebase rounding, not a shot frame
+    for i, observed in enumerate(frame_pts):
+        if type(observed) is not int or abs(observed*tick - Fraction(i, 1)/fps) > tolerance:
+            hold('FRAME_PTS_NOT_AUTHORED_CFR_CLOCK_AT_' + str(i))
+    return True
+
+
 def _rgb_frames(path):
     try:
         return subprocess.run(['ffmpeg','-nostdin','-v','error','-xerror',
@@ -104,6 +134,8 @@ def inspect(*, source, edited, source_sha, edited_sha, srt, srt_sha, cue_ids):
     p0,p1=presentation_pts(source),presentation_pts(edited)
     if (len(p0)!=n or p0!=p1 or any(x>=y for x,y in zip(p0,p0[1:]))):
         hold('PRESENTATION_TIMELINE_CHANGED')
+    _assert_authored_cfr_clock(source,p0,fps)
+    _assert_authored_cfr_clock(edited,p1,fps)
     try:
         raw=Path(srt).read_bytes()
         if len(raw)>65536:
@@ -143,6 +175,7 @@ def inspect(*, source, edited, source_sha, edited_sha, srt, srt_sha, cue_ids):
     return {'schema':'ths-lane5-srt-locked-disjoint-edit-research-v1',
             'sourceSha256':source_sha,'editedSha256':edited_sha,'originalSrtSha256':srt_sha,
             'fps':str(fps),'videoFrames':n,'authoredCueCount':len(parsed),
+            'bothDecodedPresentationClocksMatchAuthoredZeroOriginCfr':True,
             'editedCueWindows':[{'cue':q['cue'],'firstFrame':q['firstFrame'],
                                  'lastFrame':q['lastFrame'], 'authoredText':q['text']}
                                 for q in selected],
