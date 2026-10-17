@@ -163,7 +163,7 @@ class IndependentScienceIntakeTests(unittest.TestCase):
                 if command[0]=="ffmpeg":
                     folder=Path(command[-1]).parent
                     # These are mock PNG headers, NOT pixel-grounded proof.
-                    header=(b"\\x89PNG\\r\\n\\x1a\\n"+(13).to_bytes(4,"big")
+                    header=(b"\x89PNG\r\n\x1a\n"+(13).to_bytes(4,"big")
                             +b"IHDR"+(540).to_bytes(4,"big")
                             +(960).to_bytes(4,"big")+b"a"*130)
                     for i in range(8):
