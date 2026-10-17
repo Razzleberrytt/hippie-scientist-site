@@ -20,17 +20,33 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
       // The producer's decoded-pixel warning is only an advisory. Carry it
       // into the autonomous review queue without accepting craft quality.
       // Reject a substituted/empty receipt rather than silently blessing it.
-      const windows=decodedVisual.centerHeroStasisPeripheralMotionWindowsSec;
       const named=decodedVisual.reviewCandidates;
-      const credible=Array.isArray(named)&&
-         named.includes('CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION')&&
-         Array.isArray(windows)&&windows.length>0&&windows.every(w=>
-           w&&Number.isFinite(w.startSec)&&w.startSec>=0&&
-           Number.isFinite(w.endSec)&&w.endSec>w.startSec&&
-           Number.isInteger(w.repeatedPairCount)&&w.repeatedPairCount>=3&&
-           w.endSec-w.startSec===w.repeatedPairCount*2);
-      if(credible)needs.push('SOURCE_BOUND_CRAFT_REVIEW_FOR_STATIC_CENTER_HERO');
-      else blockers.push('VISUAL_CRAFT_HOLD_EVIDENCE_MISSING');
+      const hero=Array.isArray(named)&&
+         named.includes('CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION');
+      const blank=Array.isArray(named)&&named.includes('INTERLEAVED_NEAR_BLANK_VISUAL_PHASE');
+      const onlyKnown=Array.isArray(named)&&named.length>0&&named.every(x=>
+        x==='CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION'||
+        x==='INTERLEAVED_NEAR_BLANK_VISUAL_PHASE');
+      const heroWindows=decodedVisual.centerHeroStasisPeripheralMotionWindowsSec;
+      const blankWindows=decodedVisual.interleavedBlankPhaseWindowsSec;
+      const credibleHero=!hero||(Array.isArray(heroWindows)&&heroWindows.length>0&&
+        heroWindows.every(w=>w&&Number.isFinite(w.startSec)&&w.startSec>=0&&
+          Number.isFinite(w.endSec)&&w.endSec>w.startSec&&
+          Number.isInteger(w.repeatedPairCount)&&w.repeatedPairCount>=3&&
+          w.endSec-w.startSec===w.repeatedPairCount*2));
+      const credibleBlank=!blank||(Array.isArray(blankWindows)&&blankWindows.length>0&&
+        blankWindows.every(w=>w&&Number.isInteger(w.startSec)&&w.startSec>=0&&
+          Number.isInteger(w.endSec)&&w.endSec>w.startSec&&
+          Number.isInteger(w.blankSamples)&&w.blankSamples>=4&&
+          (w.blankPhase===0||w.blankPhase===1)&&
+          w.startSec%2===w.blankPhase&&
+          w.endSec-w.startSec===2*w.blankSamples-1));
+      if(!onlyKnown||!credibleHero||!credibleBlank)
+        blockers.push('VISUAL_CRAFT_HOLD_EVIDENCE_MISSING');
+      else{
+        if(hero)needs.push('SOURCE_BOUND_CRAFT_REVIEW_FOR_STATIC_CENTER_HERO');
+        if(blank)needs.push('SOURCE_BOUND_CRAFT_REVIEW_FOR_INTERLEAVED_BLANK_INTERVALS');
+      }
    }
    else if(decodedVisual.decision!=='AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE')
       blockers.push('VISUAL_DECISION_UNRECOGNIZED');
