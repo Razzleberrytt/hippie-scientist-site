@@ -11,6 +11,7 @@ import unittest
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).parent))
+from test_mobile_delivery_guard import MobileDeliveryGuardTests  # execute real FFmpeg mobile transcode negatives in existing Lane4 CI
 from test_caption_variant_review import CaptionCounterfactualTests  # hosted actual-H264 synthetic and exact-cue negative checks
 from test_bottom_caption_screen import BottomCaptionScreenTests  # ensure hosted CI executes new full-frame phone-bottom negative controls
 from test_phone_glyph_receipt_guard import ReceiptGuardTests  # reuse Lane4 CI entrypoint for negative-control suite
