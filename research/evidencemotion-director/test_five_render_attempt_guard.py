@@ -268,6 +268,31 @@ class FirstRenderIntegrityTests(unittest.TestCase):
                 write_report_no_clobber(alias, report)
             self.assertEqual(output.read_bytes(), original)
 
+    def test_nested_symlinked_ancestor_refused_for_input_and_new_report(self):
+        # A non-symlink final parent is not sufficient: an earlier folder
+        # in the same lexical path could redirect the owner evidence store.
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            real = root / "actual" / "nested"
+            real.mkdir(parents=True)
+            previous = real / "previous.json"
+            previous.write_text(json.dumps(register([attempt(0)])))
+            alias = root / "alias"
+            try:
+                alias.symlink_to(root / "actual", target_is_directory=True)
+            except (OSError, NotImplementedError) as exc:
+                self.skipTest(f"directory symlinks unavailable: {exc}")
+            redirected_previous = alias / "nested" / "previous.json"
+            self.assertFalse(redirected_previous.is_symlink())
+            self.assertFalse(redirected_previous.parent.is_symlink())
+            with self.assertRaisesRegex(ValueError, "REGISTER_FILE_MISSING_OR_UNSAFE"):
+                read_register(redirected_previous)
+            redirected_output = alias / "nested" / "new-report.json"
+            with self.assertRaisesRegex(ValueError, "REPORT_PATH_ALREADY_EXISTS_OR_UNSAFE"):
+                write_report_no_clobber(redirected_output, verify(register([attempt(1)])))
+            self.assertFalse((real / "new-report.json").exists())
+            self.assertEqual(json.loads(previous.read_text())["schema"], SCHEMA)
+
     def test_append_cli_requires_prior_sha_and_never_says_approved(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
