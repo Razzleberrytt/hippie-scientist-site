@@ -785,6 +785,47 @@ class Tests(unittest.TestCase):
                     directory, expected_geometry=(64, 64, 12),
                     expected_film_sha256=digest(movie.read_bytes()))
 
+    def test_downloaded_media_rejects_real_overlong_aac_attached_to_full_video(self):
+        """A playable overlong AAC stream must not pass mere full-decode tests."""
+        from original_native_stdin_replay import (
+            audit_downloaded_original_movie, original_media_executable)
+        with tempfile.TemporaryDirectory() as directory:
+            movie = self._small_h264_aac_original_codec_fixture(directory)
+            audio = Path(directory) / "overlong-audio.m4a"
+            remuxed = Path(directory) / "overlong-video.mp4"
+            subprocess.run([
+                original_media_executable("ffmpeg"), "-nostdin", "-v", "error",
+                "-f", "lavfi", "-i",
+                "sine=frequency=500:sample_rate=24000:duration=1.6",
+                "-c:a", "aac", "-y", str(audio),
+            ], check=True, capture_output=True, timeout=30)
+            subprocess.run([
+                original_media_executable("ffmpeg"), "-nostdin", "-v", "error",
+                "-i", str(movie), "-i", str(audio), "-map", "0:v:0",
+                "-map", "1:a:0", "-c", "copy", "-y", str(remuxed),
+            ], check=True, capture_output=True, timeout=30)
+            os.replace(remuxed, movie)
+            # The malicious remux really does decode both audio and video.
+            subprocess.run([
+                original_media_executable("ffmpeg"), "-nostdin", "-v", "error",
+                "-xerror", "-i", str(movie), "-map", "0:v:0",
+                "-map", "0:a:0", "-f", "null", "-",
+            ], check=True, capture_output=True, timeout=30)
+            probe = subprocess.run([
+                original_media_executable("ffprobe"), "-v", "error",
+                "-count_frames", "-show_entries",
+                "stream=codec_type,nb_read_frames", "-of", "json", str(movie),
+            ], capture_output=True, text=True, check=True, timeout=15)
+            streams = json.loads(probe.stdout)["streams"]
+            by_type = {s["codec_type"]: int(s["nb_read_frames"]) for s in streams}
+            self.assertEqual(by_type["video"], 12)
+            self.assertGreater(by_type["audio"], 12)
+            with self.assertRaisesRegex(
+                    ValueError, "DOWNLOADED_AAC_TOO_LONG_FOR_FILM"):
+                audit_downloaded_original_movie(
+                    directory, expected_geometry=(64, 64, 12),
+                    expected_film_sha256=digest(movie.read_bytes()))
+
     def test_downloaded_native_media_rejects_removed_or_faked_encoder_control(self):
         from original_native_stdin_replay import audit_downloaded_original_movie
         with tempfile.TemporaryDirectory() as directory:
