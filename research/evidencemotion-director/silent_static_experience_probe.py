@@ -101,7 +101,94 @@ def _decode_and_probe(path):
     return n, rate, frames, pcm
 
 
-def inspect(*, movie, movie_sha):
+def _load_story_intent(*, story_path, story_sha, movie_sha, video_frames, rate):
+    """Check authored shot intent against the exact independently decoded film.
+
+    Story lineage alone is not science, craft, phone or human approval.
+    """
+    if not isinstance(story_sha, str) or HEX.fullmatch(story_sha) is None:
+        _hold("EXTERNAL_STORY_SHA_REQUIRED")
+    f = Path(story_path)
+    if f.stat().st_size > 1000000:
+        _hold("STORY_BYTES_TOO_LARGE")
+    if _sha(f) != story_sha:
+        _hold("EXTERNAL_STORY_SHA_MISMATCH")
+    def unique(fields):
+        obj = {}
+        for k, v in fields:
+            if k in obj:
+                _hold("DUPLICATE_STORY_JSON_KEY")
+            obj[k] = v
+        return obj
+    try:
+        story = json.loads(f.read_text(encoding="utf-8"), object_pairs_hook=unique)
+    except (UnicodeError, ValueError) as exc:
+        if str(exc).startswith("EXPERIENCE_PROBE_HOLD:"):
+            raise
+        _hold("MALFORMED_STORY_JSON:" + type(exc).__name__)
+    if (not isinstance(story, dict)
+            or story.get("schema") != "ths-lane3-research-visual-treatment-story-v1"
+            or story.get("encodedH264Sha256") != movie_sha
+            or story.get("mayPublish") is not False
+            or story.get("scienceApproved") is not False
+            or story.get("realPhonePlaybackVerified") is not False
+            or story.get("independentCraftCalibrationPassed") is not False):
+        _hold("STORY_WRONG_FILM_OR_APPROVAL_SCOPE")
+    shots = story.get("shots")
+    if not isinstance(shots, list) or not 1 <= len(shots) <= 64:
+        _hold("MISSING_STORY_SHOT_MAP")
+    last_end = 0.0
+    verified = []
+    duration = float(video_frames/rate)
+    for i, shot in enumerate(shots):
+        if (not isinstance(shot, dict) or not isinstance(shot.get("shot"), str)
+                or not 1 <= len(shot["shot"]) <= 80
+                or type(shot.get("startSec")) not in (int, float)
+                or type(shot.get("endSec")) not in (int, float)
+                or not math.isfinite(shot["startSec"])
+                or not math.isfinite(shot["endSec"])
+                or not isinstance(shot.get("directedComposition"), str)
+                or not isinstance(shot.get("spokenOriginalLine"), str)
+                or not isinstance(shot.get("onscreenAnnotationRoles"), list)
+                or not all(isinstance(role, str) for role in shot["onscreenAnnotationRoles"])):
+            _hold("UNUSABLE_SHOT_INTENT")
+        start, end = float(shot["startSec"]), float(shot["endSec"])
+        if (abs(start-last_end) > 1/float(rate)+0.002 or end <= start
+                or end > duration + 1/float(rate)+0.002):
+            _hold("GAPPED_OR_OVERLAPPING_SHOT_MAP")
+        last_end = end
+        verified.append({"shot": shot["shot"], "startSec": start, "endSec": end,
+                         "silentReadingDeclared": (
+                             "silent" in shot["directedComposition"].lower()
+                             and "source" in shot["onscreenAnnotationRoles"]
+                             and shot["spokenOriginalLine"].strip() == ""
+                             and "source" in shot["shot"].lower())})
+    if abs(last_end-duration)>1/float(rate)+0.002:
+        _hold("STORY_DOES_NOT_COVER_COMPLETE_FILM")
+    if _sha(f) != story_sha:
+        _hold("STORY_CHANGED_DURING_CHECK")
+    return verified
+
+
+def _crosscheck_intent(gap, shots):
+    # Exact film timestamps have 3-decimal report rounding: one frame of slack
+    # is only for comparisons and never promotes an unverified shot.
+    start, end = gap["startSec"], gap["endExclusiveSec"]
+    matched = [s for s in shots if s["startSec"] <= start + 0.002
+               and s["endSec"] >= end - 0.002]
+    if len(matched) != 1:
+        return {"storyIntent": "UNDECLARED_OR_CROSS_SHOT_GAP",
+                "declaredShot": None, "independentCraftAcceptance": False}
+    shot = matched[0]
+    return {"storyIntent": ("DECLARED_SILENT_SOURCE_READING_HOLD"
+                            if shot["silentReadingDeclared"]
+                            else "SHOT_DOES_NOT_DECLARE_SILENT_SOURCE_READING"),
+            "declaredShot": shot["shot"],
+            "declaredShotDurationSec": round(shot["endSec"]-shot["startSec"],3),
+            "independentCraftAcceptance": False}
+
+
+def inspect(*, movie, movie_sha, story_path=None, story_sha=None):
     if not isinstance(movie_sha, str) or not HEX.fullmatch(movie_sha):
         _hold("EXTERNAL_MOVIE_SHA_REQUIRED")
     before = _sha(movie)
@@ -145,6 +232,14 @@ def inspect(*, movie, movie_sha):
                         "durationSec": round(float(Fraction(len(group)) / rate), 3),
                         "maximumFrameMotionMAE8bit": round(max(row[2] for row in group), 6),
                         "loudestFrameRmsDBFS": round(max(row[1] for row in group), 1)})
+    if (story_path is None) != (story_sha is None):
+        _hold("STORY_AND_EXTERNAL_SHA_REQUIRED_TOGETHER")
+    verified_shots = None
+    if story_path is not None:
+        verified_shots = _load_story_intent(story_path=story_path, story_sha=story_sha,
+                                            movie_sha=before, video_frames=n, rate=rate)
+        for item in results:
+            item.update(_crosscheck_intent(item, verified_shots))
     if _sha(movie) != before:
         _hold("MOVIE_CHANGED_WHILE_TESTING")
     return {"schema": "ths-em-lane5-decoded-experience-research-v1",
@@ -155,6 +250,9 @@ def inspect(*, movie, movie_sha):
             "minCoincidentSpanSeconds": MIN_FLAG_SECONDS,
             "silentAndNearStaticSpans": results,
             "needsExperienceReview": bool(results),
+            "storyIntentReceiptSha256": story_sha,
+            "storyShotContinuityPhysicallyFilmBound": verified_shots is not None,
+            "sourceCardReadTimeAndComprehensionIndependentlyValidated": False,
             "decision": "RESEARCH_REVIEW_REQUIRED" if results else "NO_LONG_COINCIDENT_GAP_AT_THIS_PROXY",
             "probeIsNotSceneIntentOrCraftJudgment": True,
             "qualifiedScienceAndNativeHandsetReviewComplete": False,
@@ -166,9 +264,12 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--movie", required=True)
     p.add_argument("--movie-sha", required=True)
+    p.add_argument("--story")
+    p.add_argument("--story-sha")
     p.add_argument("--output", required=True)
     args = p.parse_args()
-    result = inspect(movie=args.movie, movie_sha=args.movie_sha)
+    result = inspect(movie=args.movie, movie_sha=args.movie_sha,
+                     story_path=args.story, story_sha=args.story_sha)
     Path(args.output).write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
     print(result["decision"], "candidate intervals:", len(result["silentAndNearStaticSpans"]))
 
