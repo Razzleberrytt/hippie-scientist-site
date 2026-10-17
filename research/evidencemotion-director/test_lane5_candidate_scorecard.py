@@ -425,10 +425,10 @@ class ExactFrameScopeAndPhonePlanClaimTests(unittest.TestCase):
         for frames in (845, 1031, 1112):
             with self.subTest(frames=frames):
                 with patch("sys.argv", ["lane5_candidate_scorecard.py", *required,
-                                        "--expected-frames", str(frames)]), \\
+                                        "--expected-frames", str(frames)]), \
                      patch.object(unit, "score_candidate", return_value={
                          "status": "RESEARCH_HOLD_NO_PROMOTION",
-                         "filmSha256": "a" * 64}) as scorer, \\
+                         "filmSha256": "a" * 64}) as scorer, \
                      patch.object(unit, "write_once") as writer:
                     unit.main()
                 self.assertEqual(scorer.call_args.kwargs["dimensions"],
@@ -437,7 +437,7 @@ class ExactFrameScopeAndPhonePlanClaimTests(unittest.TestCase):
         for count in (0, -1, 5401):
             with self.subTest(bad_frames=count):
                 with patch("sys.argv", ["lane5_candidate_scorecard.py", *required,
-                                        "--expected-frames", str(count)]), \\
+                                        "--expected-frames", str(count)]), \
                      patch.object(unit, "score_candidate") as scorer:
                     with self.assertRaisesRegex(ValueError,
                                                 "EXPECTED_FRAMES_OUT_OF_RANGE"):
