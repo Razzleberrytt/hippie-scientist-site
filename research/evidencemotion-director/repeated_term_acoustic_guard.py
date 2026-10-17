@@ -610,6 +610,154 @@ def audit_original_narration_dead_air(source_raw, alignment_raw, asr_raw):
         return fail("DEAD_AIR_ORIGINAL_SOURCE_PARSE_FAILED")
 
 
+# Exact original archived H.264/AAC TIMED RESEARCH candidate, NOT current
+# production and NOT independently approved for normal publication.
+ARCHIVED_TIMED_NATIVE_VIDEO_SHA = "2851c9ce6bbac6c5bd396c28cb4ab3c59caf5a4f5baaa1ffddc77f05bfd6988a"
+ARCHIVED_TIMED_NATIVE_RECEIPT_SHA = "1ca12f7d947b1558588ff67829e641d2a0e8b81fb6f649cee4161f6e5ecc0839"
+
+
+def audit_archived_frame_native_pause_plan(source_raw, video_raw, receipt_raw):
+    """Plan synchronized original-voice cuts ON 30fps boundaries; edit nothing.
+
+    Archived real film includes a visual source card during the narration's
+    3.44s exact silence. Offline 1200ms/650ms audio audition lengths are NOT
+    whole-frame cuts, so provide nearby sample-exact 30fps-compatible options.
+    """
+    base = {"schema": SCHEMA, "mayPublish": False, "productionEditApproved": False,
+            "captionTimingApproved": False, "wordTimingCalibrated": False,
+            "voicePronunciationVerified": False, "creativePauseApproved": False,
+            "originalVoiceOrFilmModified": False, "nativeVideoProduced": False,
+            "sourceCardReadingTimeApproved": False}
+    def reject(reason):
+        return {**base, "status": "HOLD", "errors": [reason]}
+    if not all(isinstance(x, bytes) for x in (source_raw, video_raw, receipt_raw)):
+        return reject("FRAME_PLAN_ALL_ORIGINAL_SOURCE_BYTES_REQUIRED")
+    if digest(source_raw) != SOURCE_WAV_REFERENCE:
+        return reject("FRAME_PLAN_PINNED_ORIGINAL_WAV_SHA_CHANGED")
+    if digest(video_raw) != ARCHIVED_TIMED_NATIVE_VIDEO_SHA:
+        return reject("FRAME_PLAN_PINNED_NATIVE_FILM_SHA_CHANGED")
+    if digest(receipt_raw) != ARCHIVED_TIMED_NATIVE_RECEIPT_SHA:
+        return reject("FRAME_PLAN_PINNED_RENDER_RECEIPT_SHA_CHANGED")
+    try:
+        with wave.open(io.BytesIO(source_raw), "rb") as w:
+            if (w.getnchannels(), w.getsampwidth(), w.getframerate(),
+                    w.getcomptype(), w.getnframes()) != (1, 2, 24000,
+                                                        "NONE", 824336):
+                return reject("FRAME_PLAN_SOURCE_WAV_FORMAT_CHANGED")
+            pcm = w.readframes(w.getnframes())
+        if len(pcm) != 824336*2:
+            return reject("FRAME_PLAN_SOURCE_PCM_TRUNCATED")
+        start, end = 663600, 746160
+        if pcm[start*2:end*2] != bytes((end-start)*2):
+            return reject("FRAME_PLAN_ORIGINAL_ZERO_INTERVAL_MISSING")
+        receipt = json.loads(receipt_raw)
+        scenes = receipt.get("scenes")
+        if (receipt.get("videoSha256") != ARCHIVED_TIMED_NATIVE_VIDEO_SHA
+                or receipt.get("sourceWavSha256") != SOURCE_WAV_REFERENCE
+                or receipt.get("frames") != 1031 or receipt.get("fps") != 30
+                or receipt.get("isOriginalV5") is not False
+                or receipt.get("mayPublish") is not False
+                or receipt.get("pronunciationVerified") is not False
+                or receipt.get("candidateCaptionWindowsAppliedToFilm") is not True
+                or receipt.get("craftApproved") is not False
+                or receipt.get("scienceApproved") is not False
+                or not isinstance(scenes, list)
+                or [s.get("id") for s in scenes][-3:] != [
+                    "sentence_5", "source_hold", "sentence_6"]):
+            return reject("FRAME_PLAN_ORIGINAL_RENDER_RECEIPT_AUTHORITY_CHANGED")
+        hold_scene, post = scenes[-2], scenes[-1]
+        if (hold_scene.get("startSec") != 27.35
+                or hold_scene.get("endSec") != 31.25
+                or hold_scene.get("line") != ""
+                or post.get("startSec") != 31.25
+                or not isinstance(post.get("captionWords"), list)
+                or len(post["captionWords"]) != 9
+                or post["captionWords"][0].get("text") != "That's"
+                or post["captionWords"][0].get("startSec") != 31.25):
+            return reject("FRAME_PLAN_FILM_SOURCE_CARD_OR_FOLLOWING_CUE_CHANGED")
+        # Exactly 800 samples per frame at PCM 24kHz and film 30fps.
+        samples_per_frame = 800
+        cut_start = ((start + samples_per_frame - 1) //
+                     samples_per_frame) * samples_per_frame
+        variants = []
+        for label, target_ms, removed_frames in [
+                ("original", 3440, 0),
+                ("near_1200ms", 1200, 67),
+                ("near_650ms", 650, 84)]:
+            removed = removed_frames*samples_per_frame
+            cut_end = cut_start + removed
+            if not (start <= cut_start <= cut_end <= end
+                    and pcm[cut_start*2:cut_end*2] == bytes(removed*2)
+                    and hold_scene["startSec"] <= cut_start/24000
+                    and cut_end/24000 <= hold_scene["endSec"]):
+                return reject("FRAME_PLAN_CUT_MAY_TOUCH_SOURCE_SPEECH_OR_CARD_BOUNDARY")
+            remaining = (end-start-removed)
+            shift = removed_frames/30
+            suffix = []
+            for cue in post["captionWords"]:
+                a, b = cue.get("startSec"), cue.get("endSec")
+                if (not isinstance(a, (float, int)) or isinstance(a, bool)
+                        or not isinstance(b, (float, int)) or isinstance(b, bool)
+                        or not np.isfinite(a) or not np.isfinite(b)
+                        or not cut_end/24000 <= a < b <= 1031/30):
+                    return reject("FRAME_PLAN_FOLLOWING_CAPTION_CUE_INVALID")
+                suffix.append({"word": cue["text"],
+                               "sourceStartSec": a,
+                               "proposalStartSec": round(a-shift, 6),
+                               "proposalEndSec": round(b-shift, 6)})
+            variants.append({
+                "label": label, "auditionApproximateTargetPauseMs": target_ms,
+                "audioAuditionExactDurationIsNotFrameAligned":
+                    target_ms != round(remaining/24, 6),
+                "cutStartOriginalSample": cut_start,
+                "cutEndOriginalSample": cut_end,
+                "removedExactDigitalZeroSamples": removed,
+                "removedWhole30fpsFrames": removed_frames,
+                "proposedRetainedOriginalPauseMs": round(remaining/24, 6),
+                "postPauseTimeShiftMs": round(removed/24, 6),
+                "sourceHoldProposedDurationMs": round(
+                    (hold_scene["endSec"]-hold_scene["startSec"]-shift)*1000, 6),
+                "sourceCardReadingTimeApproved": False,
+                "researchProposedNativeFilmFrames": 1031-removed_frames,
+                "researchProposedOriginalWavSamples": 824336-removed,
+                "firstFollowingCaptionProposalStartSec": suffix[0]["proposalStartSec"],
+                "lastFollowingCaptionProposalEndSec": suffix[-1]["proposalEndSec"],
+                "followingNineCaptionsResearchOnly": suffix})
+        return {**base, "status": "RESEARCH_FRAME_NATIVE_PAUSE_PLAN_HOLD",
+                "originalWavSha256": SOURCE_WAV_REFERENCE,
+                "archivedResearchFilmSha256": ARCHIVED_TIMED_NATIVE_VIDEO_SHA,
+                "archivedRenderReceiptSha256": ARCHIVED_TIMED_NATIVE_RECEIPT_SHA,
+                "originalExactZeroSamples": [start, end],
+                "originalSourceCardHoldSeconds": [
+                    hold_scene["startSec"], hold_scene["endSec"]],
+                "originalSourceCardHoldMs": 3900,
+                "sourceSampleRate": 24000, "nativeVideoFrameRate": 30,
+                "samplesPerVideoFrame": samples_per_frame,
+                "researchPlans": variants,
+                "nonzeroVoiceSamplesMustRemainBitExact": True,
+                "captionCueRetimingRequiresIndependentRenderedFilmReview": True,
+                "caution": "Old archived research film, not current final release. "
+                           "These are mathematically frame-aligned edit PLANS "
+                           "only. No master WAV, frames, AAC, captions or videos "
+                           "were produced, accepted or changed."}
+    except (ValueError, TypeError, EOFError, OSError, wave.Error, KeyError):
+        return reject("FRAME_PLAN_ORIGINAL_RESEARCH_DATA_PARSE_FAILED")
+
+
+def audit_archived_frame_native_pause_files(wav_path, video_path, receipt_path):
+    """Read only three SHA-pinned first-party archived inputs; no writes."""
+    try:
+        paths = ((Path(wav_path), 3000000), (Path(video_path), 10000000),
+                 (Path(receipt_path), 50000))
+        if any(p.is_symlink() or not p.is_file()
+               or not 0 < p.stat().st_size <= limit for p, limit in paths):
+            return hold("FRAME_PLAN_ARCHIVED_FILES_MISSING_OR_UNSAFE")
+        return audit_archived_frame_native_pause_plan(
+            *(p.read_bytes() for p, _ in paths))
+    except (OSError, TypeError, ValueError):
+        return hold("FRAME_PLAN_ARCHIVED_FILES_UNREADABLE")
+
+
 def audit_original_pause_audition_pcm(source_raw, candidate_raw, retained_pause_ms):
     """Verify a research-only preview removed ONLY source-proven digital zeros.
 
@@ -1477,6 +1625,10 @@ def main(argv=None):
     p.add_argument("--original-wav", help="Pinned original full 24 kHz source WAV")
     p.add_argument("--mfa-receipt", help="Pinned first-party original MFA run receipt")
     p.add_argument("--mfa-alignment", help="Pinned original MFA word alignment candidate")
+    p.add_argument("--frame-native-pause-plan", action="store_true",
+                   help="Original archived H264/AAC film and 30fps-compatible silence-cut PLAN only")
+    p.add_argument("--native-research-film", help="Exact archived unapproved native research MP4")
+    p.add_argument("--native-render-receipt", help="Exact corresponding archived render receipt")
     p.add_argument("--original-pause-audition-audit", action="store_true",
                    help="Verify exact-zero offline preview sample preservation; never publish")
     p.add_argument("--pause-preview-wav", help="Source-only sample-preserving audition candidate")
@@ -1499,7 +1651,23 @@ def main(argv=None):
     p.add_argument("--pose-internal-contrasts", action="store_true",
                    help="Produce source-pinned same-narrator comparisons; NEVER a phoneme verdict")
     a=p.parse_args(argv)
-    if a.original_pause_audition_audit:
+    if a.frame_native_pause_plan:
+        if (not a.original_wav or not a.native_research_film
+                or not a.native_render_receipt
+                or any((a.original_pause_audition_audit, a.original_dead_air_review,
+                        a.cross_model_timing_review, a.human_review_json,
+                        a.mfa_zero_interval_audit, a.asr_zero_onset_audit,
+                        a.pause_preview_wav, a.pause_retained_ms,
+                        a.pose_asr_receipt, a.mfa_alignment, a.mfa_receipt,
+                        a.source_archive, a.reference_target_wav,
+                        a.reference_benchmark_zip, a.pose_internal_contrasts))):
+            result = hold("FRAME_PLAN_REQUIRES_THREE_EXCLUSIVE_SOURCE_INPUTS")
+        else:
+            result = audit_archived_frame_native_pause_files(
+                a.original_wav, a.native_research_film, a.native_render_receipt)
+    elif a.native_research_film is not None or a.native_render_receipt is not None:
+        result = hold("FRAME_PLAN_FILM_RECEIPT_REQUIRE_EXPLICIT_RESEARCH_MODE")
+    elif a.original_pause_audition_audit:
         if (not a.original_wav or not a.pause_preview_wav
                 or a.pause_retained_ms is None
                 or any((a.original_dead_air_review, a.cross_model_timing_review,
