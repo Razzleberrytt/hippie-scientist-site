@@ -647,6 +647,114 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
 
 
 
+    @staticmethod
+    def pause_preview_fixture(keep_ms=1200):
+        original, _, _ = OriginalDigitalZeroNegativeTests.original_dead_air_fixture()
+        with wave.open(io.BytesIO(original), "rb") as w:
+            pcm = w.readframes(w.getnframes())
+        begin, end, left, right = 663600, 746160, 628800, 775200
+        cut = begin + keep_ms * 24
+        data = pcm[left*2:cut*2] + pcm[end*2:right*2]
+        output = io.BytesIO()
+        with wave.open(output, "wb") as w:
+            w.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            w.writeframes(data)
+        return original, output.getvalue()
+
+    def test_original_pause_auditions_three_preserve_voice_pcm_bit_exact(self):
+        for retain in (3440, 1200, 650):
+            with self.subTest(retain=retain):
+                source, preview = self.pause_preview_fixture(retain)
+                with patch.object(original_guard, "SOURCE_WAV_REFERENCE",
+                                  digest(source)):
+                    r = original_guard.audit_original_pause_audition_pcm(
+                        source, preview, retain)
+                self.assertEqual(r["status"], "RESEARCH_EXACT_ZERO_PAUSE_AUDITION_HOLD", r)
+                self.assertTrue(r["voicePcmSamplesPreservedExactly"])
+                self.assertTrue(r["removedOnlyExactZeroSamples"])
+                self.assertEqual(r["removedPauseMs"], 3440 - retain)
+                self.assertEqual(r["previewSampleCount"],
+                                 146400 - (3440 - retain) * 24)
+                self.assertEqual(r["candidateWavSha256"], digest(preview))
+                self.assertFalse(r["mayPublish"])
+                self.assertFalse(r["previewApprovedForProduction"])
+                self.assertFalse(r["captionTimingApproved"])
+                self.assertFalse(r["wordTimingCalibrated"])
+
+    def test_pause_audition_rejects_one_changed_real_voice_sample(self):
+        source, preview = self.pause_preview_fixture(1200)
+        with wave.open(io.BytesIO(preview), "rb") as w:
+            pcm = bytearray(w.readframes(w.getnframes()))
+        # One bit changed in a real nonzero sample before the original pause.
+        pcm[15] ^= 1
+        changed = io.BytesIO()
+        with wave.open(changed, "wb") as w:
+            w.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            w.writeframes(pcm)
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(source)):
+            r = original_guard.audit_original_pause_audition_pcm(
+                source, changed.getvalue(), 1200)
+        self.assertEqual(r["status"], "HOLD", r)
+        self.assertIn("PAUSE_PREVIEW_NONZERO_VOICE_OR_CUT_OFFSET_CHANGED", r["errors"])
+        self.assertFalse(r["mayPublish"])
+
+    def test_pause_audition_rejects_wrong_cut_claim_or_source_change(self):
+        source, preview = self.pause_preview_fixture(650)
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(source)):
+            r = original_guard.audit_original_pause_audition_pcm(
+                source, preview, 1200)
+            self.assertEqual(r["status"], "HOLD")
+            self.assertIn("PAUSE_PREVIEW_FRAME_COUNT_OR_LENGTH_INVALID", r["errors"])
+            r = original_guard.audit_original_pause_audition_pcm(
+                source, preview, 250)
+            self.assertIn("PAUSE_PREVIEW_RETAINED_DURATION_NOT_IN_RESEARCH_SET",
+                          r["errors"])
+            r = original_guard.audit_original_pause_audition_pcm(
+                source[:-2] + b"00", preview, 650)
+            self.assertIn("PAUSE_PREVIEW_ORIGINAL_WAV_SHA_CHANGED", r["errors"])
+        with wave.open(io.BytesIO(source), "rb") as w:
+            pcm = bytearray(w.readframes(w.getnframes()))
+        pcm[700000*2] = 1  # Artificially add signal in original certified zero gap.
+        changed_source = io.BytesIO()
+        with wave.open(changed_source, "wb") as w:
+            w.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            w.writeframes(pcm)
+        forged = changed_source.getvalue()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(forged)):
+            r = original_guard.audit_original_pause_audition_pcm(
+                forged, preview, 650)
+        self.assertIn(
+            "PAUSE_PREVIEW_EXPECTED_PHYSICAL_SOURCE_SILENCE_MISSING",
+            r["errors"])
+        self.assertFalse(r["mayPublish"])
+
+    def test_pause_audition_cli_refuses_missing_and_implicit_modes(self):
+        script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
+        commands = [
+            (["--original-pause-audition-audit",
+              "--original-wav", "/nonexistent/original.wav",
+              "--pause-preview-wav", "/nonexistent/preview.wav",
+              "--pause-retained-ms", "650"],
+             "PAUSE_PREVIEW_FILES_MISSING_OR_UNSAFE"),
+            (["--pause-preview-wav", "/nonexistent/preview.wav",
+              "--pause-retained-ms", "1200"],
+             "PAUSE_PREVIEW_ARGUMENTS_REQUIRE_EXPLICIT_AUDIT_MODE"),
+            (["--original-pause-audition-audit",
+              "--original-wav", "/nonexistent/original.wav",
+              "--pause-preview-wav", "/nonexistent/preview.wav",
+              "--pause-retained-ms", "650", "--original-dead-air-review"],
+             "PAUSE_PREVIEW_REQUIRES_EXCLUSIVE_SOURCE_AND_CANDIDATE"),
+        ]
+        for args, expected in commands:
+            with self.subTest(expected=expected):
+                p = subprocess.run([sys.executable, script, *args],
+                    capture_output=True, text=True, timeout=20)
+                self.assertEqual(p.returncode, 2, p.stderr)
+                self.assertIn(expected, p.stdout)
+                self.assertIn('"mayPublish": false', p.stdout)
+
+
+
 class SyntheticMasterLinkTests(unittest.TestCase):
     """Synthetic controls only; original 34.35s master is NOT in hosted checkout."""
 
