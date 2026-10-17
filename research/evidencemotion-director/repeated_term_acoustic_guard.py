@@ -341,6 +341,96 @@ def audit_research_dynamic_gain_slew(source_pcm, preencode_pcm,
     return report
 
 
+
+def audit_research_quiet_speech_preservation(source_pcm, preencode_pcm):
+    """Research-only 24kHz physical quiet-speech 10ms preservation screen.
+
+    The caller must verify immutable audio hashes. This measures gain and
+    signal preservation, NOT correct phonemes, listening or any film approval.
+    """
+    base = {"schema": SCHEMA, "mayPublish": False,
+            "productionAudioApproved": False, "phonemeIdentityVerified": False,
+            "wordTimingCalibrated": False, "qualifiedListenerReviewed": False,
+            "physicalFilmAudioVerified": False,
+            "sourceHashesVerifiedByThisHelper": False}
+    def reject(reason, **diagnostics):
+        return {**base, "status": "HOLD", "errors": [reason], **diagnostics}
+    try:
+        original = np.asarray(source_pcm, dtype=np.float64)
+        processed = np.asarray(preencode_pcm, dtype=np.float64)
+    except (ValueError, TypeError, OverflowError):
+        return reject("QUIET_PCM_INVALID")
+    if (original.ndim != 1 or processed.ndim != 1 or
+            original.shape != processed.shape or
+            not 2400 <= len(original) <= 24000*600 or
+            not np.isfinite(original).all() or
+            not np.isfinite(processed).all() or
+            np.max(np.abs(original)) > 1 or np.max(np.abs(processed)) > 1 or
+            np.max(np.abs(original)) < .01):
+        return reject("QUIET_PCM_INVALID")
+    window_size = 240
+    count = len(original)//window_size
+    a = original[:count*window_size].reshape(count, window_size)
+    b = processed[:count*window_size].reshape(count, window_size)
+    source_rms = np.sqrt(np.mean(a*a, axis=1))
+    rendered_rms = np.sqrt(np.mean(b*b, axis=1))
+    quiet = (source_rms >= .0001) & (source_rms < .01)
+    empty = source_rms == 0
+    if int(quiet.sum()) < 10:
+        return reject("QUIET_PCM_COVERAGE_INSUFFICIENT",
+                      quietWindows=int(quiet.sum()))
+    if np.any(rendered_rms[empty] > 0):
+        return reject("QUIET_SOURCE_ZERO_WINDOW_FILLED")
+    tail = original[count*window_size:]
+    tail_processed = processed[count*window_size:]
+    if len(tail):
+        if not np.any(tail):
+            if np.any(tail_processed):
+                return reject("QUIET_UNMEASURED_TAIL_SILENCE_CHANGED")
+        else:
+            tail_rms = float(np.sqrt(np.mean(tail*tail)))
+            altered_rms = float(np.sqrt(np.mean(tail_processed*tail_processed)))
+            if tail_rms < .0001:
+                return reject("QUIET_UNMEASURED_TAIL_TOO_FAINT_TO_CALIBRATE")
+            ratio_tail = altered_rms/tail_rms
+            if not .5 <= ratio_tail <= 8:
+                return reject("QUIET_UNMEASURED_TAIL_GAIN_INVALID")
+            a_tail = tail-tail.mean()
+            b_tail = tail_processed-tail_processed.mean()
+            corr_tail = float(np.dot(a_tail, b_tail)/max(
+                np.linalg.norm(a_tail)*np.linalg.norm(b_tail), 1e-20))
+            if corr_tail < .98:
+                return reject("QUIET_UNMEASURED_TAIL_SIGNAL_CHANGED")
+    a_q = a[quiet]
+    b_q = b[quiet]
+    ratio = rendered_rms[quiet]/source_rms[quiet]
+    aa = a_q-a_q.mean(axis=1, keepdims=True)
+    bb = b_q-b_q.mean(axis=1, keepdims=True)
+    correlation = np.sum(aa*bb, axis=1)/np.maximum(
+        np.linalg.norm(aa, axis=1)*np.linalg.norm(bb, axis=1), 1e-20)
+    bad = (ratio < .5) | (ratio > 8) | (correlation < .98)
+    failures = np.flatnonzero(quiet)[bad]
+    measurements = {
+        "sampleRateHz": 24000, "windowDurationMs": 10,
+        "quietSourceWindows": int(quiet.sum()),
+        "exactSourceZeroWindows": int(empty.sum()),
+        "quietSourceRmsRange": [.0001, .01],
+        "allowedResearchGainRatio": [.5, 8],
+        "minimumResearchWindowCorrelation": .98,
+        "lowestObservedQuietWindowRatio": round(float(ratio.min()), 6),
+        "lowestObservedQuietWindowCorrelation":
+            round(float(correlation.min()), 6),
+        "failingQuietWindowCount": int(len(failures)),
+        "firstFailingQuietWindowStartSeconds":
+            [round(float(i)/100, 2) for i in failures[:16]],
+        "truePhonemeOrPerceptualPreservationStillUnknown": True,
+    }
+    if len(failures):
+        return reject("QUIET_SPEECH_DROP_OR_SUBSTITUTION", **measurements)
+    return {**base, "status": "RESEARCH_QUIET_SIGNAL_SCREEN_HOLD",
+            "errors": [], **measurements}
+
+
 def audit_original_asr_digital_zero_onsets(source_raw, asr_raw):
     """Negative-only source-WAV proof: ASR cannot start speech in 150ms of zeros.
 
