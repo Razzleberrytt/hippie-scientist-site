@@ -6,6 +6,8 @@ import json
 import subprocess
 from pathlib import Path
 
+from research_receipt_io import prepare_research_output, emit_research_output
+
 SCHEMA="ths-gut-exact-film-science-crosswalk-v1"
 MOVIE_SHA="044c1f0573f01d3fe850cbd74f270c90019cc3e37b364a0fa627d56e7ecb39f2"
 SRT_SHA="40622b677cd6db8c493eff55727904c5017c4a3d7803b22d4c361e84a1ff9bee"
@@ -95,8 +97,11 @@ def main():
  p=argparse.ArgumentParser()
  for key in ("manifest","movie","srt","output"):p.add_argument("--"+key,required=True)
  a=p.parse_args()
+ # Guard immutable inputs before running science checks. A stale positive
+ # receipt must not survive a failed replay or overwrite original evidence.
+ target=prepare_research_output(a.output,(a.manifest,a.movie,a.srt))
  result=audit(a.manifest,a.movie,a.srt)
- Path(a.output).write_text(json.dumps(result,indent=2)+"\n",encoding="utf8")
+ emit_research_output(target,result)
  print(json.dumps(result,indent=2))
 
 if __name__=="__main__":main()
