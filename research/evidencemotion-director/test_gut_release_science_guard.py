@@ -13,7 +13,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from gut_release_science_guard import (
-    FDA_GUIDANCE, ORIGINAL_NARRATION, inspect, read_pinned_package,
+    FDA_GUIDANCE, USP_SUPPLEMENT_CHAPTER, ORIGINAL_NARRATION, inspect, read_pinned_package,
     static_scenes, review_release_scene, sha256,
 )
 
@@ -79,6 +79,42 @@ class GutReleaseScienceTests(unittest.TestCase):
         self.assertIn('ENCODED_FILM_STILL_HOLD',result['result'])
         self.assertIn('EXTERNAL_RENDERER_SOURCE_NOT_IN_ARCHIVE:embedded_current_renderer.py',result['reproducibilityIssues'])
         self.assertFalse(result['encodedFilmPixelsIndependentlyCheckedByThisTool'])
+        self.assertFalse(result['mayPublish'])
+
+    def test_usp_supplement_standard_is_source_proposal_only_not_human_uptake(self):
+        source=(ORIGINAL_SCENES.replace('FIRST: DISSOLVE','RELEASE IS NOT')
+                .replace('IN THE GUT','ABSORPTION')
+                .replace("source='NIDDK digestive system'",
+                         "source='USP-NF <2040> supplement disintegration standard'"))
+        scope=(USP_SUPPLEMENT_CHAPTER +
+               '\nUSP <2040> covers dietary supplement lab dissolution/disintegration '
+               'where individual monographs specify; not in-vivo absorption.\n')
+        result=self.run_zip(archive(source=source,science=scope))
+        self.assertEqual(result['sourceContractIssues'],[])
+        self.assertIn('ENCODED_FILM_STILL_HOLD',result['result'])
+        self.assertFalse(result['encodedFilmPixelsIndependentlyCheckedByThisTool'])
+        self.assertFalse(result['mayPublish'])
+
+    def test_usp_source_label_without_direct_chapter_link_is_rejected(self):
+        source=(ORIGINAL_SCENES.replace('FIRST: DISSOLVE','RELEASE IS NOT')
+                .replace('IN THE GUT','ABSORPTION')
+                .replace("source='NIDDK digestive system'","source='USP <2040>'"))
+        scope=('USP supplement lab tests apply where individual monographs specify; '
+               'not in-vivo absorption.')
+        result=self.run_zip(archive(source=source,science=scope))
+        self.assertIn('USP_SUPPLEMENT_DISINTEGRATION_CHAPTER_NOT_CITED',
+                      result['sourceContractIssues'])
+        self.assertFalse(result['mayPublish'])
+
+    def test_usp_lab_test_cannot_be_laundered_as_human_absorption(self):
+        source=(ORIGINAL_SCENES.replace('FIRST: DISSOLVE','RELEASE IS NOT')
+                .replace('IN THE GUT','ABSORPTION')
+                .replace("source='NIDDK digestive system'","source='USP <2040>'"))
+        scope=(USP_SUPPLEMENT_CHAPTER +
+               '\nThis proves every capsule releases and reaches the blood in people.')
+        result=self.run_zip(archive(source=source,science=scope))
+        self.assertIn('USP_LAB_TEST_NOT_DISTINGUISHED_FROM_HUMAN_ABSORPTION',
+                      result['sourceContractIssues'])
         self.assertFalse(result['mayPublish'])
 
     def test_tampering_original_archive_sha_holds(self):
