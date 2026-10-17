@@ -87,12 +87,27 @@ def replay(blobs):
         "mayPublish": False,
     }
 
+def validate_receipt_target(out, archive_root):
+    """Fail closed before an archive proof receipt can overwrite a source input.
+
+    Resolves directory traversal and symlink aliases, and checks same-inode
+    hard links when the destination already exists.
+    """
+    target = Path(out)
+    root = Path(archive_root).resolve()
+    for filename in EXPECTED:
+        source = root / filename
+        if target.resolve() == source.resolve() or (
+                target.exists() and source.exists() and target.samefile(source)):
+            hold("RECEIPT_OUTPUT_ALIASES_PINNED_ARCHIVE_INPUT:" + filename)
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", required=True)
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
     root = Path(args.root).resolve()
+    validate_receipt_target(args.out, root)
     data = {}
     for filename in EXPECTED:
         p = root / filename
