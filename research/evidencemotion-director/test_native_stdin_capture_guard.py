@@ -164,6 +164,94 @@ class Tests(unittest.TestCase):
         assert set(job) == ORIGINAL_JOB_V1_FIELDS, "Fixture must exactly model original v1 writer"
         return job, env, movie_bytes
 
+    @staticmethod
+    def _pair_hold_for_write():
+        return {
+            "schema": "ths-em-receiver-replay-test-only",
+            "status": "SINGLE_THREAD_ORIGINAL_SOURCE_H264_BITWISE_REPLAY_RESEARCH_HOLD",
+            "twoActualIndependentJobExecutionsAuthenticated": False,
+            "nativeFullMediaDecodeAndCraftApproved": False,
+            "mayPublish": False,
+            "twoDownloadedNativeMoviesIndependentlyFullyDecoded": True,
+        }
+
+    def test_research_pair_receipt_fresh_complete_atomically_published(self):
+        from original_native_stdin_replay import write_original_pair_research_hold
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "original-pair-HOLD.json"
+            receipt = self._pair_hold_for_write()
+            self.assertEqual(write_original_pair_research_hold(output, receipt), str(output))
+            self.assertEqual(json.loads(output.read_text()), receipt)
+            self.assertFalse(receipt["mayPublish"])
+            self.assertFalse(receipt["twoActualIndependentJobExecutionsAuthenticated"])
+            self.assertEqual(sorted(p.name for p in Path(directory).iterdir()),
+                             ["original-pair-HOLD.json"])
+            self.assertTrue(output.read_bytes().endswith(b"\n"))
+
+    def test_research_pair_receipt_no_clobber_original_bytes(self):
+        from original_native_stdin_replay import write_original_pair_research_hold
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "original-pair-HOLD.json"
+            output.write_bytes(b"OWNER_FILE_MUST_SURVIVE")
+            with self.assertRaisesRegex(ValueError, "RESEARCH_RECEIPT_DESTINATION_UNSAFE"):
+                write_original_pair_research_hold(output, self._pair_hold_for_write())
+            self.assertEqual(output.read_bytes(), b"OWNER_FILE_MUST_SURVIVE")
+            self.assertEqual(len(list(Path(directory).iterdir())), 1)
+
+    def test_research_pair_receipt_rejects_symlink_without_target_change(self):
+        from original_native_stdin_replay import write_original_pair_research_hold
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            target = root / "owner.txt"
+            target.write_bytes(b"OWNER_BYTES")
+            link = root / "original-pair-HOLD.json"
+            link.symlink_to(target)
+            with self.assertRaisesRegex(ValueError, "RESEARCH_RECEIPT_DESTINATION_UNSAFE"):
+                write_original_pair_research_hold(link, self._pair_hold_for_write())
+            self.assertEqual(target.read_bytes(), b"OWNER_BYTES")
+            self.assertTrue(link.is_symlink())
+
+    def test_research_pair_receipt_untrusted_parent_link_rejected(self):
+        from original_native_stdin_replay import write_original_pair_research_hold
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            real = root / "owner"; real.mkdir()
+            alias = root / "shortcut"; alias.symlink_to(real, target_is_directory=True)
+            with self.assertRaisesRegex(ValueError, "RESEARCH_RECEIPT_DESTINATION_UNSAFE"):
+                write_original_pair_research_hold(alias / "HOLD.json",
+                                                  self._pair_hold_for_write())
+            self.assertEqual(list(real.iterdir()), [])
+
+    def test_research_pair_receipt_cannot_self_approve_or_relabel(self):
+        from original_native_stdin_replay import write_original_pair_research_hold
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            alterations = [
+                ("publish", {"mayPublish": True}),
+                ("fake-human", {"nativeFullMediaDecodeAndCraftApproved": True}),
+                ("fake-runner", {"twoActualIndependentJobExecutionsAuthenticated": True}),
+                ("wrong-status", {"status": "PUBLISHED"}),
+                ("fake-type", {"mayPublish": 0}),
+            ]
+            for name, mutation in alterations:
+                with self.subTest(name=name):
+                    report = {**self._pair_hold_for_write(), **mutation}
+                    with self.assertRaisesRegex(ValueError, "UNAUTHORIZED_RECEIPT_CONTENT"):
+                        write_original_pair_research_hold(root / ("output-"+name+".json"), report)
+            self.assertFalse(any(root.iterdir()))
+
+    def test_research_pair_receipt_nonfinite_or_unserializable_blocks_without_file(self):
+        from original_native_stdin_replay import write_original_pair_research_hold
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name, data in (("infinity", float("inf")), ("nan", float("nan")),
+                               ("object", object())):
+                with self.subTest(name=name):
+                    report = {**self._pair_hold_for_write(), "invalidExtra": data}
+                    with self.assertRaises((TypeError, ValueError)):
+                        write_original_pair_research_hold(root / (name+".json"), report)
+            self.assertFalse(any(root.iterdir()))
+
     def test_original_job_v1_valid_bounded_fixture(self):
         from original_native_stdin_replay import validate_original_job_v1
         job, _, _ = self._job_v1_fixture()
