@@ -141,7 +141,10 @@ def _all_numbers_finite(value):
 
 def _has_symlinked_parent(path):
     """Refuse indirect folder aliases, not just a symlink at the last parent."""
-    ancestor = Path(os.path.abspath(os.fspath(path))).parent
+    candidate = Path(path)
+    # Keep literal ".." components: abspath/normpath can erase a traversed
+    # symlink before we check the path that the filesystem will actually walk.
+    ancestor = (candidate if candidate.is_absolute() else Path.cwd() / candidate).parent
     while True:
         if ancestor.is_symlink():
             return True
