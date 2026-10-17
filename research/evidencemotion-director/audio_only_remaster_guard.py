@@ -88,6 +88,27 @@ def physical_decode(path):
          "-i", str(path), "-map", "0:v:0", "-map", "0:a:0", "-f", "null", "-"])
 
 
+
+def _audio_r128(path):
+    """Measure both complete AAC decodes; never infer loudness from metadata."""
+    try:
+        output = subprocess.run([
+            "ffmpeg", "-nostdin", "-v", "info", "-nostats", "-i", str(path),
+            "-map", "0:a:0", "-vn", "-af", "ebur128=peak=true", "-f", "null", "-"
+        ], capture_output=True, text=True, timeout=60, check=True).stderr
+    except (OSError, subprocess.SubprocessError) as exc:
+        hold("AUDIO_R128_PHYSICAL_CHECK_FAILED:" + type(exc).__name__)
+    summary = output.rsplit("Summary:", 1)
+    if len(summary) != 2:
+        hold("AUDIO_R128_SUMMARY_MISSING")
+    levels = re.search(r"Integrated loudness:\s*I:\s*(-?\d+(?:\.\d+)?) LUFS", summary[1])
+    peak = re.search(r"True peak:\s*Peak:\s*(-?\d+(?:\.\d+)?) dBFS", summary[1])
+    if levels is None or peak is None:
+        hold("AUDIO_R128_UNMEASURABLE")
+    return {"integratedLUFS": float(levels.group(1)),
+            "truePeakDBTP": float(peak.group(1))}
+
+
 def inspect(*, source, remaster, source_sha, remaster_sha,
             expected_remaster_sample_rate=None):
     old = exact(source, source_sha)
@@ -120,6 +141,7 @@ def inspect(*, source, remaster, source_sha, remaster_sha,
         hold("UNMODIFIED_AUDIO_NOT_A_HOTFIX")
     physical_decode(source)
     physical_decode(remaster)
+    old_loudness, new_loudness = _audio_r128(source), _audio_r128(remaster)
     if exact(source, source_sha) != old or exact(remaster, remaster_sha) != new:
         hold("MOVIE_CHANGED_WHILE_TESTING")
     return {"schema": "ths-em-lane5-audio-only-remaster-research-v1",
@@ -135,6 +157,13 @@ def inspect(*, source, remaster, source_sha, remaster_sha,
             "containerDurationDeltaSeconds": round(b["durationSeconds"] - a["durationSeconds"], 6),
             "videoPacketsAndTimestampsIdentical": True,
             "bothFullAvStreamsPhysicallyDecoded": True,
+            "measuredCompleteTrackEbuR128": {
+                "source": old_loudness,
+                "remaster": new_loudness,
+                "integratedLoudnessIncreaseLU": round(new_loudness["integratedLUFS"] - old_loudness["integratedLUFS"], 1),
+                "remasterTruePeakBelow0DBTP": new_loudness["truePeakDBTP"] < 0,
+                "masteringQualityIndependentlyCertified": False,
+                "measurementLimit": "EBU R128 loudness and intersample peak; no naturalness, distortion or phone audition verdict"},
             "editorialAndVoicePhoneticsInheritedFromSource": "REQUIRES_SEPARATE_REVIEW",
             "machineTechnicalVerdict": "AUDIO_ONLY_STRUCTURE_VERIFIED_EDITORIAL_HOLD",
             "independentHumanOrPhoneApproval": False,
