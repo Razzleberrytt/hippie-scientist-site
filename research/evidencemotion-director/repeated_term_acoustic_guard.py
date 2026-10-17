@@ -183,6 +183,70 @@ def compare(first, second, unrelated):
 
 
 
+
+def audit_research_gain_only_envelope(source_pcm, candidate_pcm, proposed_gain,
+                                      silence_intervals=()):
+    """Fail closed before an audio encode; sample envelope only, not loudness.
+
+    Never grants audio craft, phoneme, decoded-film, real true-peak or release
+    approval. Source/candidate PCM provenance must be checked by the caller.
+    """
+    base = {"schema": SCHEMA, "mayPublish": False,
+            "productionAudioApproved": False, "wordTimingCalibrated": False,
+            "phonemeIdentityVerified": False, "filmEncodedAndDecoded": False,
+            "ebuTruePeakMeasured": False, "integratedLoudnessMeasured": False,
+            "sourceHashesVerifiedByThisHelper": False}
+    def reject(why):
+        return {**base, "status": "HOLD", "errors": [why]}
+    try:
+        a = np.asarray(source_pcm, dtype=np.float64)
+        b = np.asarray(candidate_pcm, dtype=np.float64)
+    except (ValueError, TypeError, OverflowError):
+        return reject("GAIN_ENVELOPE_PCM_INVALID")
+    if (a.ndim != 1 or b.ndim != 1 or a.shape != b.shape
+            or len(a) < 2400 or len(a) > 24000*600
+            or not np.isfinite(a).all() or not np.isfinite(b).all()
+            or np.max(np.abs(a)) > 1 or np.max(np.abs(b)) > 1
+            or np.max(np.abs(a)) <= 0.001 or np.max(np.abs(b)) <= 0.001):
+        return reject("GAIN_ENVELOPE_PCM_INVALID")
+    try:
+        g = float(proposed_gain)
+    except (TypeError, ValueError, OverflowError):
+        return reject("GAIN_ENVELOPE_GAIN_INVALID")
+    if not np.isfinite(g) or not 0 < g <= 16:
+        return reject("GAIN_ENVELOPE_GAIN_INVALID")
+    if not isinstance(silence_intervals, (tuple, list)):
+        return reject("GAIN_ENVELOPE_SILENCE_INTERVAL_INVALID")
+    for item in silence_intervals:
+        if (not isinstance(item, (tuple, list)) or len(item) != 2
+                or any(isinstance(i, bool) or not isinstance(i, (int, np.integer)) for i in item)):
+            return reject("GAIN_ENVELOPE_SILENCE_INTERVAL_INVALID")
+        lo, hi = item
+        if not 0 <= lo < hi <= len(a):
+            return reject("GAIN_ENVELOPE_SILENCE_INTERVAL_INVALID")
+        if np.any(a[lo:hi] != 0) or np.any(b[lo:hi] != 0):
+            return reject("GAIN_ENVELOPE_SOURCE_SILENCE_CHANGED")
+    max_absolute_input = float(np.max(np.abs(b)))
+    projected_peak = max_absolute_input*g
+    projected_over_count = int(np.count_nonzero(np.abs(b)*g >= 1.0))
+    peak_dbfs = float(20*np.log10(max(projected_peak, 1e-15)))
+    target_sample_peak = float(10**(-3.0/20))
+    sample_guard = projected_peak <= target_sample_peak
+    return {**base,
+        "status": "RESEARCH_SAMPLE_HEADROOM_ONLY_HOLD" if sample_guard else "HOLD",
+        "errors": [] if sample_guard else ["GAIN_ENVELOPE_PREENCODE_HEADROOM_UNSAFE"],
+        "previewSamplePeakFullScale": round(max_absolute_input, 8),
+        "proposedLinearGain": round(g, 7),
+        "projectedPreEncodeSamplePeakDbfs": round(peak_dbfs, 5),
+        "projectedPreEncodeSamplesAtOrAboveFullScale": projected_over_count,
+        "fixedSamplePeakHeadroomTargetDbfs": -3.0,
+        "maximumSampleSafeLinearGain": round(target_sample_peak/max_absolute_input, 7),
+        "sampleOnlyHeadroomScreenPass": bool(sample_guard),
+        "encodedTruePeakAndPerceptualQualityStillUnknown": True,
+        "caution": "Sample headroom never replaces true peak after actual AAC encode, "
+                   "integrated loudness, PCM/audio source pins, decoded-film sync, "
+                   "phoneme calibration or listening-quality checks."}
+
 def audit_original_asr_digital_zero_onsets(source_raw, asr_raw):
     """Negative-only source-WAV proof: ASR cannot start speech in 150ms of zeros.
 
