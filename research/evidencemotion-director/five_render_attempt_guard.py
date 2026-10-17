@@ -139,10 +139,21 @@ def _all_numbers_finite(value):
             _all_numbers_finite(v)
 
 
+def _has_symlinked_parent(path):
+    """Refuse indirect folder aliases, not just a symlink at the last parent."""
+    ancestor = Path(os.path.abspath(os.fspath(path))).parent
+    while True:
+        if ancestor.is_symlink():
+            return True
+        if ancestor == ancestor.parent:
+            return False
+        ancestor = ancestor.parent
+
+
 def read_register(path, *, required_sha=None):
     """A non-symlink JSON file with identity anchored outside its own contents."""
     file = Path(path)
-    if (not file.is_file() or file.is_symlink()
+    if (not file.is_file() or file.is_symlink() or _has_symlinked_parent(file)
             or file.stat().st_size == 0 or file.stat().st_size > 2_000_000):
         hold("REGISTER_FILE_MISSING_OR_UNSAFE")
     raw = file.read_bytes()
@@ -201,7 +212,7 @@ def verify_append_only(current, previous, previous_sha):
 def write_report_no_clobber(path, report):
     """Do not overwrite an older research report or follow a final-file alias."""
     output = Path(path)
-    if (not output.parent.is_dir() or output.parent.is_symlink()
+    if (not output.parent.is_dir() or _has_symlinked_parent(output)
             or output.exists() or output.is_symlink()):
         hold("REPORT_PATH_ALREADY_EXISTS_OR_UNSAFE")
     blob = (json.dumps(report, indent=2, allow_nan=False) + "\n").encode("utf-8")
