@@ -2,7 +2,7 @@
   "schema": "ths-atomic-workcard-proof-ledger-v1",
   "recordedDate": "2026-10-16",
   "authoritativePlanningIndex": "https://github.com/Razzleberrytt/hippie-scientist-site/blob/main/research/evidencemotion-director/ATOMIC-EXECUTION-INDEX.md",
-  "note": "Research-only 22 bounded evidence groups (144 individually machine-audited research cards), including EM-006.04 hosted metadata-caption fake-photograph, fake assay, forged plant 7-OH measurement negative tests: 15 new + 4 existing Node tests passed on a prior code head. The original generated botanical PNG and actual film pixels were NOT re-opened; no species, measured analyte, phone caption or finished-film science approved. 707 inherited provisional cards NOT individually audited. EM-001.03.T real iPhone, EM-007.07 qualified science, EM-008 real-botanical-film review, premium 0/1 and 0/5 remain HOLD. No new WIP, production release, merge or publishing.",
+  "note": "Exactly 151 individually machine-audited research workcards across 23 proof groups, including 7 EM-008.05 self-authored illustrated botanical real H264 negative controls: missing disclosure and false measured-7-OH banner both HOLD on actual decoded pixels. Separate local unverified botanical Library art is never considered authenticated, published, or a source for science approval. 707 inherited provisional cards remain NOT individually audited; EM-008 film/plant-content independent acceptance and exact handset, EM-007.07 qualified reviewer, 0/1 and 0/5 milestones, production release and merge remain HOLD; mayPublish=false.",
   "denominator": 1590,
   "inheritedMappedToAcceptedFoundationsNotIndividuallyAudited": 707,
   "status": "PROVISIONAL_COVERAGE_NOT_FINAL_ACCEPTANCE",
@@ -284,11 +284,24 @@
         "EM-006.04.N",
         "EM-006.04.R"
       ]
+    },
+    {
+      "group": "EM-008.05",
+      "source": "EM00805-ENCODED-BOTANICAL-NEGATIVES-20261016.md",
+      "cards": [
+        "EM-008.05.U",
+        "EM-008.05.S",
+        "EM-008.05.O",
+        "EM-008.05.X",
+        "EM-008.05.T",
+        "EM-008.05.N",
+        "EM-008.05.R"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 144,
-  "provisionalCoverageCardCount": 851,
-  "provisionalCoveragePercent": 53.522,
+  "individualMachineVerifiedResearchCardCount": 151,
+  "provisionalCoverageCardCount": 858,
+  "provisionalCoveragePercent": 53.9623,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }
