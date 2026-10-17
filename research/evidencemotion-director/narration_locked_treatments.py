@@ -451,14 +451,15 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
     if caption_mode not in ('legacy','timed_research'):
         raise ValueError('TREATMENT_HOLD:UNKNOWN_CAPTION_MODE')
     if caption_mode == 'timed_research':
-        # Schedule only already-safe pre/post reveal phrases: even future
-        # words in a caption group cannot expose the spoken "not" early.
+        # Independently reveal each word only at its own acoustic onset;
+        # negation / comparison still start separate semantic windows.
         groups=caption_schedule(visible_words,max_words=3)
         now=timed_caption_shown_at(groups,t)
         # Use the exact source-cue range, not text equality: repeated words
         # must never be mistaken for the same acoustic occurrence.
         active=next((g for g in groups if g['startSec']<=t<g['endSec']),None)
         visible_words=visible_words[active['firstCue']:active['afterLastCue']] if active else []
+        visible_words=[cue for cue in visible_words if cue['startSec']<=t]
         if [cue['text'] for cue in visible_words]!=now:
             raise ValueError('TREATMENT_HOLD:TIMED_CAPTION_SOURCE_DRIFT')
     # Scene 2's encoded H264 OCR could not recover the important scientific
@@ -521,6 +522,16 @@ def native_phone_plan(video_sha,scenes,assets,treatment,font,*,caption_mode='leg
     return plan
 
 
+def encoder_command(size, wav, count, video):
+    # Gain plus latency-compensated peak limiting preserves performance timing.
+    # The original remains immutable; processed AAC has a declared new identity.
+    return ['ffmpeg','-v','error','-nostdin','-y','-f','rawvideo','-pixel_format','rgb24',
+               '-video_size',f'{size[0]}x{size[1]}','-framerate',str(FPS),'-i','pipe:0',
+               '-i',str(wav),'-map','0:v','-map','1:a','-c:v','libx264','-preset','fast',
+               '-crf','18','-pix_fmt','yuv420p','-vf','setsar=1','-af',AUDIO_FILTER,'-c:a','aac','-b:a','192k',
+               '-frames:v',str(count),'-movflags','+faststart',str(video)]
+
+
 def render(root, destination, font_dir, treatment, native=False, *, experimental_timed_captions=False):
     import PIL
     import rdkit
@@ -575,13 +586,7 @@ def render(root, destination, font_dir, treatment, native=False, *, experimental
     },indent=2)+'\n',encoding='utf-8')
     start = time.monotonic()
     video = out/(treatment+'_NEW_RESEARCH_CANDIDATE.mp4')
-    # Gain plus latency-compensated peak limiting preserves performance timing.
-    # The original remains immutable; processed AAC has a declared new identity.
-    command = ['ffmpeg','-v','error','-nostdin','-y','-f','rawvideo','-pixel_format','rgb24',
-               '-video_size',f'{size[0]}x{size[1]}','-framerate',str(FPS),'-i','pipe:0',
-               '-i',str(wav),'-map','0:v','-map','1:a','-c:v','libx264','-preset','fast',
-               '-crf','18','-pix_fmt','yuv420p','-af',AUDIO_FILTER,'-c:a','aac','-b:a','192k',
-               '-frames:v',str(count),'-movflags','+faststart',str(video)]
+    command = encoder_command(size, wav, count, video)
     snapshots = {0,60,120,360,540,750,870,1000}
     emitted_frames=[]  # only the separately rendered experimental original-WAV movie
     with (out/'encoder.log').open('wb') as log:

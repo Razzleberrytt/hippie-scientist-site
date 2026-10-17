@@ -29,18 +29,35 @@ def validate(data,source_directory):
         or data.get("noDoubleCountAsserted") is not True):
         hold("DENOMINATOR_OR_ACCEPTANCE_CONTRACT_TAMPER")
     groups=data.get("proofGroups")
-    if not isinstance(groups,list) or len(groups)!=9:
-        hold("EXACT_NINE_SOURCE_EVIDENCE_GROUPS_REQUIRED")
+    if not isinstance(groups,list) or len(groups)!=26:
+        hold("EXACT_TWENTY_SIX_SOURCE_EVIDENCE_GROUPS_REQUIRED")
     sources={
+        "EM-001.01":"EM00101-THREE-HOSTED-CPU-RUNS-20261016.md",
+        "EM-001.02":"EM00102-CPU-ONLY-PLAYABLE-ARTIFACT-20261016.md",
+        "EM-001.04":"EM00104-REQUIRED-CPU-NO-GPU-20261016.md",
+        "EM-001.03":"EM00103-IPHONE-HANDOFF-BYTES-REVIEW-20261016.md",
+        "EM-002.01":"EM00201-DATED-OWNER-POLICY-20261016.md",
+        "EM-002.02":"EM00202-POLICY-CROSSWALK-20261016.md",
+        "EM-002.04":"EM00204-POLICY-TRACKER-TRACE-20261016.md",
+        "EM-002.03":"EM00203-RESEARCH-WORKFLOW-RELEASE-GUARD-20261016.md",
         "EM-034.04":"EM03404-ATOMIC-EVIDENCE-RECONCILIATION-20261015.md",
         "EM-034.11":"EM03411-ATOMIC-EVIDENCE-RECONCILIATION-20261015.md",
         "EM-023.01":"EM02301-ATOMIC-STORY-EVIDENCE-20261015.md",
         "EM-023.03":"EM02303-ATOMIC-VISUAL-REPAIR-20261015.md",
         "EM-034.12":"EM03412-ATOMIC-TIMED-SOUNDOFF-INSTRUMENT-20261016.md",
+        "EM-006.04":"EM00604-BOTANICAL-CAPTION-NEGATIVE-20261016.md",
+        "EM-008.05":"EM00805-ENCODED-BOTANICAL-NEGATIVES-20261016.md",
+        "EM-008.03":"EM00803-ACTUAL-375PX-PIXEL-RESEARCH-20261016.md",
+        "EM-008.04":"EM00804-ENCODED-375PX-OCR-RESEARCH-20261016.md",
         "EM-007.01":"EM00701-ATOMIC-SPOKEN-INVENTORY-20261016.md",
         "EM-014.01":"EM01401-ORIGINAL-PCM-TERM-ISOLATION-20261016.md",
         "EM-007.02":"EM00702-VISUAL-CLAIM-INVENTORY-20261016.md",
-        "EM-007.03":"EM00703-PRIMARY-SOURCE-CONTEXT-20261016.md"
+        "EM-007.03":"EM00703-PRIMARY-SOURCE-CONTEXT-20261016.md",
+        "EM-007.04":"EM00704-FILM-SOURCE-UNCERTAINTY-20261016.md",
+        "EM-007.06":"EM00706-SCIENCE-ADVERSARIAL-RECEIPT-20261016.md",
+        "EM-007.05":"EM00705-REAL-ARCHIVE-SOURCE-STRENGTH-20261016.md",
+        "EM-007.08":"EM00708-REAL-ARCHIVE-SCIENCE-HOLD-20261016.md",
+        "EM-007.07":"EM00707-ONE-CLAIM-INDEPENDENT-SCIENCE-PREREQUISITES-20261017.md"
     }
     group_keys=set()
     cards=set()
@@ -58,6 +75,10 @@ def validate(data,source_directory):
         ids=record.get("cards")
         if not isinstance(ids,list) or not ids:
             hold("NO_ACTUAL_EVIDENCE_CARD_IDS")
+        # EM00707 has ONLY machine-verifiable pre-review U/S/O; never count
+        # independent reviewer execution, outcome, negatives or signoff as passed.
+        if group == "EM-007.07" and (ids != ["EM-007.07.U", "EM-007.07.S", "EM-007.07.O"]):
+            hold("EM00707_INDEPENDENT_REVIEW_NOT_RECEIVED_NO_X_T_N_R_CREDIT")
         for card in ids:
             if not isinstance(card,str) or not CARD.fullmatch(card):
                 hold("INVALID_ATOMIC_CARD_ID")

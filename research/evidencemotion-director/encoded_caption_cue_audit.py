@@ -90,11 +90,11 @@ def exact_frame_timestamp(cue,fps=30):
 
 
 def decode_caption_crop(movie,when,path):
-    # This native 1080x1920 renderer reserves 1310..1460 for captions; use
-    # only decoded H.264 caption-region pixels, excluding science overlays.
+    # The native renderer starts captions at y1310. Exclude clipped science
+    # disclosure glyphs above it; retain the complete five-line field to y1590.
     cmd=["ffmpeg","-v","error","-nostdin","-ss",f"{when:.6f}",
          "-i",str(movie),"-vf",
-         "crop=900:320:0:1270,scale=1800:640:flags=lanczos",
+         "crop=900:280:0:1310,scale=1800:560:flags=lanczos",
          "-frames:v","1","-y",str(path)]
     try:
         subprocess.run(cmd,check=True,capture_output=True,timeout=45)
@@ -102,6 +102,45 @@ def decode_caption_crop(movie,when,path):
         hold("ACTUAL_CAPTION_FRAME_DECODE_FAILED")
     if not path.exists() or path.stat().st_size<4000:
         hold("MISSING_ACTUAL_ENCODED_CROP")
+
+
+def caption_pixel_layout(path):
+    """Choose a caption layout from decoded pixels, never from expected words."""
+    from PIL import Image
+    with Image.open(path) as source:
+        if source.size != (1800,560):
+            hold('UNEXPECTED_DECODED_CAPTION_CROP_GEOMETRY')
+        gray=source.convert('L')
+        rows=[y for y in range(gray.height)
+              if gray.crop((0,y,gray.width,y+1)).point(
+                  lambda value: 255 if value>=130 else 0).histogram()[255]>=8]
+    bands=[]
+    for y in rows:
+        if not bands or y-bands[-1][-1]>12:
+            bands.append([y])
+        else:
+            bands[-1].append(y)
+    # A one-line caption needs line segmentation; wrapped captions need a
+    # text block. Sparse-page mode misread encoded glyphs as punctuation.
+    return {'detectedInkLines':len(bands),
+            'pageSegmentation':7 if len(bands)<=1 else 6,
+            'lineBandsPx':[[band[0],band[-1]] for band in bands]}
+
+
+def ocr_caption_crop(path):
+    from PIL import Image
+    layout=caption_pixel_layout(path)
+    # Normalize the existing caption glyph contrast uniformly. No transcript,
+    # expected token or per-word threshold enters the OCR.
+    # Keep both raw crop identity and derived mask identity in the receipt.
+    with tempfile.TemporaryDirectory(prefix='ths-caption-ocr-mask-') as td:
+        mask=Path(td)/'caption.png'
+        with Image.open(path) as source:
+            source.convert('L').point(lambda value:0 if value>=130 else 255).save(mask)
+        layout.update({'contrastMask':'LUMA_GE130_BLACK_ELSE_WHITE',
+                       'contrastMaskSha256':digest(mask)})
+        text=ocr_image(mask,psm=layout['pageSegmentation'])
+    return text,layout
 
 
 def verify_source_record_pixels(ocr_text):
@@ -139,6 +178,7 @@ def inspect(movie,receipt_file,out):
     receipt=json.loads(receipt_file.read_text(encoding="utf-8"))
     if (receipt.get("experimentCaptionMode")!="TIMED_RESEARCH"
         or receipt.get("candidateCaptionWindowsAppliedToFilm") is not True
+        or receipt.get("treatment")!="specimen"
         or receipt.get("sourceWavSha256")!=WAV_SHA
         or receipt.get("mayPublish") is not False
         or receipt.get("videoSha256")!=digest(movie)
@@ -147,6 +187,8 @@ def inspect(movie,receipt_file,out):
         or receipt.get("fps")!=30):
         hold("EXACT_RESEARCH_FILM_AND_ORIGINAL_WAV_REQUIRED")
     scenes=ensure_frozen_scenes(receipt)
+    # OCR layout comes from actual caption ink. No dictionary, expected
+    # word, source transcript or annotation is passed to the OCR engine.
     rows=[]
     with tempfile.TemporaryDirectory(prefix="ths-encoded-caption-") as td:
         for scene,term in TARGETS:
@@ -154,10 +196,12 @@ def inspect(movie,receipt_file,out):
             t=exact_frame_timestamp(cue)
             frame=Path(td)/f"{scene}_{term}_during.png"
             decode_caption_crop(movie,t,frame)
+            text,layout=ocr_caption_crop(frame)
             rows.append({"scene":scene,"term":term,"phase":"during",
                          "frameIndex":round(t*30),"t":round(t,5),
                          "croppedImageSha256":digest(frame),
-                         "ocrText":ocr_image(frame)})
+                         "ocrText":text,
+                         "ocrPixelLayout":layout})
         for scene,term in REVEALS:
             cue=cue_lookup(scenes,scene,term)
             # Read the last full encoded frame before the spoken reveal.
@@ -167,10 +211,12 @@ def inspect(movie,receipt_file,out):
             t=idx/30
             frame=Path(td)/f"{scene}_{term}_before.png"
             decode_caption_crop(movie,t,frame)
+            text,layout=ocr_caption_crop(frame)
             rows.append({"scene":scene,"term":term,"phase":"before",
                          "frameIndex":idx,"t":round(t,5),
                          "croppedImageSha256":digest(frame),
-                         "ocrText":ocr_image(frame)})
+                         "ocrText":text,
+                         "ocrPixelLayout":layout})
     evaluate_ocr_rows(rows,TARGETS,REVEALS)
     # Independent source-card pixels, not a phone-plan annotation, must
     # demonstrate both exact compound->PubChem CID joins on this *new* MP4.

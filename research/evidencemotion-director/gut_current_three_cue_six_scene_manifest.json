@@ -1,0 +1,74 @@
+{
+  "schema": "ths-gut-exact-film-science-crosswalk-v1",
+  "movieSha256": "044c1f0573f01d3fe850cbd74f270c90019cc3e37b364a0fa627d56e7ecb39f2",
+  "srtSha256": "40622b677cd6db8c493eff55727904c5017c4a3d7803b22d4c361e84a1ff9bee",
+  "encodedFrameCount": 845,
+  "scenes": [
+    {
+      "id": "hook",
+      "sampleFrame": 45,
+      "sourceScope": "NIDDK_GENERAL_DIGESTION",
+      "limitation": "NIDDK digestive-system description cannot quantify a supplement absorbed dose",
+      "inFrameSourceLabel": true,
+      "sampleRgb540Sha256": "803aeebd13673322d7c9b7303167550ccb0b642eea593a4c6c4bbb7bacf96167",
+      "sourceReviewState": "MACHINE_VISUAL_INTAKE_HOLD"
+    },
+    {
+      "id": "release",
+      "sampleFrame": 165,
+      "sourceScope": "USP2040_DIETARY_SUPPLEMENT_DOSAGE_TESTS_ONLY",
+      "limitation": "USP chapter 2040 provides dietary-supplement disintegration/dissolution tests only where individual monographs specify; it does not establish in-vivo absorption, universal stomach release, or a visible film source credit",
+      "inFrameSourceLabel": false,
+      "sampleRgb540Sha256": "505c7af437e08fda61cbc73562e7ff2b903dbd505d2a832b495391e1f8f7f4ce",
+      "sourceReviewState": "MACHINE_VISUAL_INTAKE_HOLD"
+    },
+    {
+      "id": "small_intestine",
+      "sampleFrame": 320,
+      "sourceScope": "NIDDK_NUTRIENTS_FROM_FOOD",
+      "limitation": "most dietary nutrients from food are absorbed in small intestine; some lipids/vitamins use lymph",
+      "inFrameSourceLabel": true,
+      "sampleRgb540Sha256": "f7953b69a9f050b74d6ddd0c2ce21b84ebcbd16df1c7b4b6e33a5cdc07aab187",
+      "sourceReviewState": "MACHINE_VISUAL_INTAKE_HOLD"
+    },
+    {
+      "id": "vitamin_d",
+      "sampleFrame": 480,
+      "sourceScope": "NIH_ODS_VITAMIN_D",
+      "limitation": "fat can enhance vitamin D absorption but dietary fat is not always required; no percent-effect claim",
+      "inFrameSourceLabel": true,
+      "sampleRgb540Sha256": "6d88941a583a679f9a4e9e981fc1aef124de47e36ce62f0ff3ad6c789e807ee3",
+      "sourceReviewState": "MACHINE_VISUAL_INTAKE_HOLD"
+    },
+    {
+      "id": "iron",
+      "sampleFrame": 615,
+      "sourceScope": "NIH_ODS_IRON_AND_CONDITIONED_TEA_TRIALS",
+      "limitation": "vitamin C can enhance nonheme iron; certain tea polyphenols may inhibit meal-bound nonheme iron; no population-independent clinical endpoint",
+      "inFrameSourceLabel": true,
+      "sampleRgb540Sha256": "3299d9bc92888b1e249f1f61dda8a435ccaed00879115fd6b8d558e2b0035f4e",
+      "sourceReviewState": "MACHINE_VISUAL_INTAKE_HOLD"
+    },
+    {
+      "id": "takeaway",
+      "sampleFrame": 785,
+      "sourceScope": "NIDDK_AND_NIH_ODS",
+      "limitation": "food/formulation and medication contexts differ; check label; no personal medication direction",
+      "inFrameSourceLabel": true,
+      "sampleRgb540Sha256": "6caf5ffe08ac30ab2cb3c4ef8c2656f0653e57d2333cf6fb360ceb8416c9d39b",
+      "sourceReviewState": "MACHINE_VISUAL_INTAKE_HOLD"
+    }
+  ],
+  "primarySources": {
+    "niddk": "https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works",
+    "ods_vitamin_d": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+    "ods_iron": "https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/",
+    "tea_trial_2017": "https://pubmed.ncbi.nlm.nih.gov/29046302/",
+    "polyphenol_trial_1999": "https://pubmed.ncbi.nlm.nih.gov/10999016/",
+    "usp_supplement_2040": "https://doi.usp.org/USPNF/USPNF_M99970_04_01.html"
+  },
+  "mayPublish": false,
+  "qualifiedIndependentSciencePassed": false,
+  "realPhonePassed": false,
+  "overallScienceDisposition": "RESEARCH_SOURCE_SCOPES_REVIEWED_RELEASE_HOLD"
+}
