@@ -51,7 +51,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
                 ({"workflowRunId":None},"NEW_EVIDENCE_MERGE_RUN_OR_HOLD"),
                 ({"cards":["EM-034.08.U","EM-034.08.U"]},"DUPLICATED_CARD_CLAIM"),
                 ({"cards":["EM-034.08.X"]},"NO_EXPLICIT_RESEARCH_PROOF_TABLE_ROW"),
-                ({"cards":["EM-034.99.U"]},"NEW_CARD_NOT_IN_CANONICAL"),
+                ({"cards":["EM-034.99.U"]},"WRONG_PROOF_GROUP_FOR_CARD"),
             ):
                 bad=copy.deepcopy(candidate)
                 bad["proofGroups"][-1].update(corrupt)
