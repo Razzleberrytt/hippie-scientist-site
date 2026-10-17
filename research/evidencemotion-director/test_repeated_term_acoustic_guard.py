@@ -924,7 +924,7 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
 
 
     @staticmethod
-    def original_suffix_scene_fixture():
+    def original_suffix_scene_fixture(kind_acoustic_variant="paired_trough"):
         # Synthetic 73-/70-token research receipts, real-length physical
         # digital-zero PCM and a stand-in receipt/film. NOT authentic media.
         original, film, old_receipt = (
@@ -935,6 +935,16 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
             original_pcm = np.frombuffer(
                 w.readframes(w.getnframes()), dtype="<i2").copy()
         original_pcm[746160:round(31.26*24000)] = 1
+        if kind_acoustic_variant == "paired_trough":
+            original_pcm[round(31.59*24000):round(31.61*24000)] = 1
+        elif kind_acoustic_variant == "single_quiet_window":
+            original_pcm[round(31.59*24000):round(31.60*24000)] = 1
+        elif kind_acoustic_variant == "no_trough":
+            pass
+        elif kind_acoustic_variant == "no_sustained_rise":
+            original_pcm[round(31.59*24000):round(31.80*24000)] = 1
+        else:
+            raise ValueError("UNEXPECTED_SYNTHETIC_KIND_ACOUSTIC_VARIANT")
         out = io.BytesIO()
         with wave.open(out, "wb") as w:
             w.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
@@ -1017,6 +1027,15 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
         self.assertEqual(rise["firstCaptionCueMinusSignalRiseMs"], -10.0)
         self.assertEqual(rise["firstEligibleVideoFrameMinusSignalRiseMs"], 6.667)
         self.assertEqual(rise["signalRiseMinusFirstAsrHypothesisMs"], 460.0)
+        kind = report["kindSourceEnergyCorridor"]
+        self.assertEqual(kind["status"], "RESEARCH_ENERGY_CORRIDOR_ONLY_HOLD")
+        self.assertEqual(kind["twoWindowTroughSec"], [31.59, 31.61])
+        self.assertEqual(kind["firstTwoWindowEnergyRiseSec"], 31.61)
+        self.assertEqual(kind["riseMinusCaptionCandidateMs"], 30.0)
+        self.assertEqual(kind["asrCandidateMinusRiseMs"], 130.0)
+        self.assertTrue(kind["observedEnergyTransition"])
+        self.assertFalse(kind["originalPcmWordOrPhonemeIdentified"])
+        self.assertFalse(kind["newWordBoundaryCertified"])
         self.assertFalse(rise["phonemeOrWordOnsetIdentified"])
         self.assertTrue(rise["researchEnergyHeuristicOnly"])
         self.assertEqual(report["cueReviewRows"][0]["captionWord"], "That's")
@@ -1036,6 +1055,34 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
                     "wordTimingCalibrated", "captionTimingApproved",
                     "nativeFilmModified", "independentHumanListeningVerified"):
             self.assertFalse(report[key])
+
+    def test_kind_timing_single_low_window_never_conjures_word_attack(self):
+        five = self.original_suffix_scene_fixture("single_quiet_window")
+        report = self.check_suffix_scene(five)
+        self.assertEqual(
+            report["status"], "RESEARCH_ARCHIVED_SUFFIX_WORD_REVIEW_HOLD",
+            report)
+        kind = report["kindSourceEnergyCorridor"]
+        self.assertEqual(kind["status"],
+                         "NO_STABLE_TROUGH_THEN_RISE_REVIEW_HOLD")
+        self.assertFalse(kind["observedEnergyTransition"])
+        self.assertFalse(kind["captionTimingApproved"])
+        self.assertFalse(report["mayPublish"])
+
+    def test_kind_timing_no_timed_trough_or_no_rise_stays_hold(self):
+        for variant in ("no_trough", "no_sustained_rise"):
+            with self.subTest(variant=variant):
+                report = self.check_suffix_scene(
+                    self.original_suffix_scene_fixture(variant))
+                self.assertEqual(report["status"],
+                    "RESEARCH_ARCHIVED_SUFFIX_WORD_REVIEW_HOLD", report)
+                kind = report["kindSourceEnergyCorridor"]
+                self.assertFalse(kind["observedEnergyTransition"])
+                self.assertEqual(
+                    kind["status"], "NO_STABLE_TROUGH_THEN_RISE_REVIEW_HOLD")
+                self.assertFalse(report["pronunciationVerified"])
+                self.assertFalse(report["wordTimingCalibrated"])
+
 
     def test_post_silence_single_10ms_glitch_is_not_speech_onset(self):
         original, mfa, asr, film, receipt = (
