@@ -12,6 +12,8 @@ import zipfile
 from pathlib import Path
 from unittest.mock import patch
 
+from em00705_original_archive_replay import validate_receipt_target, EXPECTED as EM00705_EXPECTED
+
 from gut_release_science_guard import (
     FDA_GUIDANCE, USP_SUPPLEMENT_CHAPTER, ORIGINAL_NARRATION, inspect, read_pinned_package,
     static_scenes, review_release_scene, sha256,
@@ -57,6 +59,44 @@ class GutReleaseScienceTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             path=Path(folder)/'candidate.zip';path.write_bytes(raw)
             return inspect(path, expected_sha or sha256(raw))
+
+    def test_replay_receipt_never_overwrites_archived_originals(self):
+        # This test is source-path safety only; it does not need a claim-quality
+        # oracle, imported media fixture or privileged publication permission.
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            inputs=[]
+            for name in EM00705_EXPECTED:
+                source=root/name
+                source.parent.mkdir(parents=True,exist_ok=True)
+                source.write_bytes(b'pinned-original-'+name.encode())
+                inputs.append(source)
+            original={p:p.read_bytes() for p in inputs}
+            for source in inputs:
+                with self.subTest(kind='direct',source=source):
+                    with self.assertRaisesRegex(ValueError,'RECEIPT_OUTPUT_ALIASES_PINNED_ARCHIVE_INPUT'):
+                        validate_receipt_target(source,root)
+                link=root/('alias-'+source.name)
+                try:
+                    link.symlink_to(source)
+                except (OSError, NotImplementedError):
+                    self.fail('host must prove symbolic-link safety')
+                with self.subTest(kind='symlink',source=source):
+                    with self.assertRaisesRegex(ValueError,'RECEIPT_OUTPUT_ALIASES_PINNED_ARCHIVE_INPUT'):
+                        validate_receipt_target(link,root)
+                link.unlink()
+                try:
+                    link.hardlink_to(source)
+                except (OSError, NotImplementedError):
+                    self.fail('host must prove hard-link safety')
+                with self.subTest(kind='hardlink',source=source):
+                    with self.assertRaisesRegex(ValueError,'RECEIPT_OUTPUT_ALIASES_PINNED_ARCHIVE_INPUT'):
+                        validate_receipt_target(link,root)
+                link.unlink()
+            valid=root/'review-new.json'
+            validate_receipt_target(valid,root)
+            self.assertFalse(valid.exists())
+            self.assertEqual(original,{p:p.read_bytes() for p in inputs})
 
     def test_original_archived_scene_synthetic_reconstruction_fails_two_axes(self):
         report=self.run_zip(archive())
