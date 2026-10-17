@@ -34,6 +34,29 @@ class ScienceCrosswalkTests(unittest.TestCase):
  def test_release_scene_cannot_launder_niddk_digestion_as_formulation_study(self):
   d=valid();d["scenes"][1]["sourceScope"]="NIDDK_NUTRIENTS_FROM_FOOD"
   with self.assertRaisesRegex(ValueError,"SCENE_SOURCE_SCOPE"):self.check(d)
+ def test_usp_supplement_specific_chapter_is_explicit_and_does_not_clear_in_frame_source(self):
+  d=self.check(valid())
+  self.assertEqual(d["primarySources"]["usp_supplement_2040"],
+      "https://doi.usp.org/USPNF/USPNF_M99970_04_01.html")
+  self.assertEqual(d["scenes"][1]["sourceScope"],"USP2040_DIETARY_SUPPLEMENT_DOSAGE_TESTS_ONLY")
+  self.assertIn("where individual monographs specify",d["scenes"][1]["limitation"])
+  self.assertIn("does not establish in-vivo absorption",d["scenes"][1]["limitation"])
+  self.assertFalse(d["scenes"][1]["inFrameSourceLabel"])
+  self.assertFalse(d["mayPublish"])
+ def test_disguised_fda_drug_source_cannot_replace_dietary_supplement_chapter(self):
+  d=valid()
+  d["primarySources"]["usp_supplement_2040"]="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/dissolution-testing-immediate-release-solid-oral-dosage-forms"
+  with self.assertRaisesRegex(ValueError,"SOURCE_URLS_NOT_CANONICAL"):self.check(d)
+ def test_missing_supplement_source_refuses_science_proof(self):
+  d=valid();del d["primarySources"]["usp_supplement_2040"]
+  with self.assertRaisesRegex(ValueError,"SOURCE_URLS_NOT_CANONICAL"):self.check(d)
+ def test_source_cannot_be_oversold_as_all_supplements_or_in_vivo_effect(self):
+  for claim in ("All supplements fully dissolve in the stomach",
+                "USP proves 100 percent nutrient absorption in humans",
+                "Every tablet releases fully before being absorbed"):
+   d=valid();d["scenes"][1]["limitation"]=claim
+   with self.subTest(claim=claim),self.assertRaisesRegex(ValueError,"SCENE_SOURCE_SCOPE_MISMATCH"):
+    self.check(d)
  def test_missing_in_scene2_source_must_not_be_forged(self):
   d=valid();d["scenes"][1]["inFrameSourceLabel"]=True
   with self.assertRaisesRegex(ValueError,"SCENE_SOURCE_SCOPE"):self.check(d)
