@@ -149,6 +149,156 @@ class NarrationTreatments(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'MISSING_SPOKEN_WORD_CUES'):
             render_frame(.5,scenes,assets,'specimen',(1080,1920),font)
 
+    def test_encoded_hydroxyl_ocr_repair_has_actual_source_locked_native_pixels(self):
+        # A new decoded H264 + independent OCR pass remains mandatory. This
+        # isolates the actual renderer pixel/font/cue design, not OCR success.
+        import os
+        from pathlib import Path
+        from PIL import Image
+        from narration_locked_treatments import fonts,render_frame
+        folder=Path(os.environ.get('THS_TEST_FONT_DIR',
+                                    '/usr/share/fonts/truetype/dejavu'))
+        if not folder.is_dir():
+            self.skipTest('Pinned font directory unavailable')
+        font,_=fonts(folder)
+        scenes=timeline(self.alignment())
+        assets=chemistry_assets()
+        assets['dark_diagram']=assets['7_hydroxymitragynine']['diagram']
+        cue=next(c for c in scenes[1]['captionWords'] if c['text']=='hydroxyl')
+        when=(cue['startSec']+cue['endSec'])/2
+        rendered=[]
+        frame=render_frame(when,scenes,assets,'specimen',(1080,1920),
+                           font,annotations=rendered,caption_mode='timed_research')
+        caption=[a for a in rendered if a['role']=='caption']
+        words=[a['text'] for a in caption]
+        self.assertIn('hydroxyl',words)
+        self.assertEqual([c['text'] for c in scenes[1]['captionWords']],
+                         scenes[1]['line'].split())
+        self.assertTrue(all(a['fontPx']==48 for a in caption))
+        self.assertTrue(all(0<=a['boxPx'][0]<a['boxPx'][2]<=864 and
+                            1290<=a['boxPx'][1]<a['boxPx'][3]<=1574
+                            for a in caption))
+        self.assertEqual(frame.getpixel((64,1305)),(13,35,44))
+        self.assertTrue(all(x['text']!='hydroxyl' or
+                            x['role']=='caption' for x in caption))
+        # The narration and the source science cue are not rewritten.
+        self.assertEqual(cue['text'],'hydroxyl')
+        self.assertEqual(cue['startSec'],next(c['startSec']
+            for c in scenes[1]['captionWords'] if c['text']=='hydroxyl'))
+
+    def test_computed_dual_view_is_real_source_and_camera_motion(self):
+        # Craft research on actual rendered RGB, not a synthetic scene name:
+        # verified 2D RDKit connectivity remains fixed while the calculated
+        # 3D stage changes smoothly with original narration-driven time.
+        import os
+        import numpy as np
+        from pathlib import Path
+        from PIL import Image,ImageChops
+        from narration_locked_treatments import fonts,render_frame
+        base=Path(os.environ.get('THS_TEST_FONT_DIR',
+                  '/usr/share/fonts/truetype/dejavu'))
+        if not base.is_dir():
+            self.skipTest('Pinned native font directory unavailable')
+        font,_=fonts(base)
+        scenes=timeline(self.alignment())
+        assets=chemistry_assets()
+        assets['dark_diagram']=assets['7_hydroxymitragynine']['diagram']
+        target=scenes[3]
+        t0=target['startSec']+.4
+        t1=target['endSec']-.4
+        self.assertGreater(t1,t0)
+        before_ann=[]
+        before=render_frame(t0,scenes,assets,'specimen',(1080,1920),font,
+                            annotations=before_ann,caption_mode='timed_research')
+        after=render_frame(t1,scenes,assets,'specimen',(1080,1920),font,
+                           caption_mode='timed_research')
+        # This left inset ends before the model stage begins, so its pixels
+        # must stay still and trace back to the actual approved RDKit drawing.
+        left=(88,480,415,640)
+        self.assertIsNone(ImageChops.difference(before.crop(left),
+                                                after.crop(left)).getbbox())
+        no_source=dict(assets)
+        erased=dict(assets['7_hydroxymitragynine'])
+        erased['diagram']=Image.new('RGBA',(1200,900),(0,0,0,0))
+        no_source['7_hydroxymitragynine']=erased
+        absent=render_frame(t0,scenes,no_source,'specimen',(1080,1920),
+                            font,caption_mode='timed_research')
+        diff=np.abs(np.asarray(before.crop(left),dtype=np.int16)-
+                    np.asarray(absent.crop(left),dtype=np.int16))
+        self.assertGreater(float(diff.mean()),1.0,
+                           'source thumbnail must be physically rendered')
+        # Separately the computed 3D molecular stage should progress; the
+        # frozen source thumbnail must never be mistaken for a reaction.
+        model=(430,690,990,1055)
+        change=np.abs(np.asarray(before.crop(model),dtype=np.int16)-
+                      np.asarray(after.crop(model),dtype=np.int16))
+        self.assertGreater(float(change.mean()),.20)
+        words=[a['text'] for a in before_ann if a['role']!='caption']
+        title=next(a for a in before_ann if a['text']=='A possible\n3D shape.')
+        # Actual emitted native glyph bounds must leave visible whitespace
+        # above the *physical* source-panel upper edge y=456; tiny 2px
+        # collisions would otherwise pass the old semantic copy checks.
+        self.assertGreaterEqual(title['boxPx'][1],192)
+        self.assertGreaterEqual(456-title['boxPx'][3],30)
+        self.assertIn('A possible\n3D shape.',words)
+        self.assertIn('Computed 3D illustration • not filmed',words)
+        self.assertIn('Hydrogen atoms omitted',words)
+        self.assertNotIn('receptor binding proven',words)
+        self.assertEqual(len([a for a in before_ann if a['role']=='disclosure']),2)
+
+    def test_exact_visual_reflow_never_changes_source_claim(self):
+        from narration_locked_treatments import exact_visual_reflow
+        original='Computed 3D illustration • not filmed'
+        lines=['Computed 3D illustration','• not filmed']
+        self.assertEqual(exact_visual_reflow(original,lines),
+                         'Computed 3D illustration\n• not filmed')
+        for candidate in (['Computed illustration','• not filmed'],
+                          ['• not filmed','Computed 3D illustration'],
+                          ['Computed 3D illustration','• filming'],
+                          ['Computed 3D illustration','']):
+            with self.subTest(lines=candidate):
+                with self.assertRaisesRegex(ValueError,'REFLOW'):
+                    exact_visual_reflow(original,candidate)
+        with self.assertRaisesRegex(ValueError,'INVALID_VISUAL_REFLOW'):
+            exact_visual_reflow(original,['one line'])
+
+    def test_specimen_native_labels_meet_phone_type_and_reflow_geometry(self):
+        # Checks actual native draw-generated label bounds. They are still
+        # authored geometry, NOT film OCR, handset or comprehension acceptance.
+        import os
+        from pathlib import Path
+        from narration_locked_treatments import fonts,native_phone_plan
+        from phone_ui_audit import projected_type_review
+        directory=Path(os.environ.get('THS_TEST_FONT_DIR',
+                          '/usr/share/fonts/truetype/dejavu'))
+        if not directory.is_dir():
+            self.skipTest('Pinned font directory unavailable')
+        font,_=fonts(directory)
+        assets=chemistry_assets()
+        assets['dark_diagram']=assets['7_hydroxymitragynine']['diagram']
+        plan=native_phone_plan('a'*64,timeline(self.alignment()),assets,'specimen',font)
+        small=projected_type_review(plan['shots'],1080)
+        self.assertEqual(small['smallDeclaredTextCount'],0,small['smallDeclaredText'])
+        self.assertFalse(small['realHandsetReadabilityVerified'])
+        labels={(shot['id'],a['text']):a for shot in plan['shots']
+                for a in shot['annotations'] if a['role']!='caption'}
+        checks={'sentence_3':'Dots mark atoms. Lines mark bonds.',
+                'sentence_4':'Computed 3D illustration • not filmed'}
+        for shot_id,label in checks.items():
+            a=labels[shot_id,label]
+            self.assertEqual(a['fontPx'],42)
+            self.assertEqual(' '.join(a['renderedLineBreaks']),label)
+            self.assertLessEqual(a['boxPx'][2],864)
+            self.assertLessEqual(a['boxPx'][3],1574)
+        disclosure=labels['sentence_4','Computed 3D illustration • not filmed']
+        hydrogen=labels['sentence_4','Hydrogen atoms omitted']
+        self.assertLess(disclosure['boxPx'][3],hydrogen['boxPx'][1])
+        self.assertLess(hydrogen['boxPx'][3],1318)
+        # The opening, nine scientific teaching/source shots, and ALL source
+        # narration words remain source-locked; no new release permissions.
+        self.assertEqual(len(plan['shots']),9)
+        self.assertIs(plan['releaseApproved'],False)
+
     def test_native_emitted_text_fits_existing_phone_ui_rules(self):
         import os
         from pathlib import Path

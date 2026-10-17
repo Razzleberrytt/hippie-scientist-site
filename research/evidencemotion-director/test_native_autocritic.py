@@ -24,6 +24,39 @@ class AutonomousFilmCriticTests(unittest.TestCase):
         report=m.review_decoded_samples(f)
         self.assertIn('REPETITIVE_SOURCE_LAYOUT_REQUIRES_ART_DIRECTION_REPAIR',report['issues'])
         self.assertGreater(report['highEdgeSimilarityFraction'],.9)
+    def test_contiguous_six_second_plateau_is_caught_below_global_threshold(self):
+        from PIL import Image,ImageDraw
+        frames=[]
+        for i in range(9):
+            im=Image.new('L',(180,320),15)
+            d=ImageDraw.Draw(im)
+            # Four distinct-time frames deliberately share one exact subject layout.
+            # Later scenes move enough that only 3/8 pairs repeat.
+            x=40 if i<4 else 10+(i-3)*22
+            y=90 if i<4 else 52+(i-4)*32
+            d.rounded_rectangle((x,y,x+45,y+65),radius=10,fill=220)
+            frames.append(np.asarray(im))
+        report=m.review_decoded_samples(np.asarray(frames))
+        self.assertLess(report['highEdgeSimilarityFraction'],m.HIGH_REPETITION_FRAC)
+        self.assertEqual(report['longestRepeatedLayoutRunSec'],6)
+        self.assertIn('SUSTAINED_REPEATED_SOURCE_LAYOUT_REQUIRES_ART_DIRECTION_REPAIR',report['issues'])
+        self.assertEqual(report['sustainedRepeatWindowsSec'][0]['startSec'],0)
+        self.assertEqual(report['sustainedRepeatWindowsSec'][0]['endSec'],6)
+    def test_two_second_isolated_plateau_does_not_trigger_sustained_veto(self):
+        from PIL import Image,ImageDraw
+        frames=[]
+        for i in range(9):
+            im=Image.new('L',(180,320),15)
+            d=ImageDraw.Draw(im)
+            k=i-1 if i==2 else i
+            x=10+(k%5)*24
+            y=60+(k%3)*32
+            d.rounded_rectangle((x,y,x+42,y+65),radius=8,fill=220)
+            frames.append(np.asarray(im))
+        report=m.review_decoded_samples(np.asarray(frames))
+        self.assertEqual(report['sustainedRepeatWindowsSec'],[])
+        self.assertNotIn('SUSTAINED_REPEATED_SOURCE_LAYOUT_REQUIRES_ART_DIRECTION_REPAIR',report['issues'])
+
     def test_blank_subject_is_not_accepted(self):
         report=m.review_decoded_samples(np.zeros((9,320,180),dtype=np.uint8))
         self.assertIn('MISSING_RECOGNIZABLE_SUBJECT_OR_NEAR_BLANK_CENTRAL_STAGE',report['issues'])

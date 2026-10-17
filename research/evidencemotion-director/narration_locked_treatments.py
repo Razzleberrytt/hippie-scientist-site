@@ -217,6 +217,17 @@ def wrapped(text, font, width):
     return lines+[line] if line else lines
 
 
+def exact_visual_reflow(wording, lines):
+    """Wrap visual typography without rewriting source-science statements."""
+    if not isinstance(wording,str) or not isinstance(lines,(tuple,list)) or len(lines)<2:
+        raise ValueError('TREATMENT_HOLD:INVALID_VISUAL_REFLOW')
+    if any(not isinstance(line,str) or not line.strip() or '\n' in line for line in lines):
+        raise ValueError('TREATMENT_HOLD:INVALID_VISUAL_REFLOW')
+    if ' '.join(' '.join(lines).split()) != ' '.join(wording.split()):
+        raise ValueError('TREATMENT_HOLD:SCIENTIFIC_TEXT_REFLOW_CHANGED_WORDS')
+    return '\n'.join(lines)
+
+
 def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, caption_mode='legacy'):
     from PIL import Image,ImageDraw
     w,h = size
@@ -235,20 +246,24 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
     image = Image.new('RGB',size,bg).convert('RGBA') if light else background(size).copy()
     draw = ImageDraw.Draw(image)
 
-    def text(xy,wording,*,font,fill,role='science'):
-        # Record the very same emitted text/font/bounds, not a separate hand-
-        # authored rectangle. This still is not OCR or a comprehension verdict.
-        if '\n' in wording:
+    def text(xy,wording,*,font,fill,role='science',visual_lines=None):
+        # Source statement stays fixed; draw and report the same actual layout.
+        display=exact_visual_reflow(wording,visual_lines) if visual_lines else wording
+        if '\n' in display:
             spacing=round(8*scale)
-            draw.multiline_text(xy,wording,font=font,fill=fill,spacing=spacing)
-            box=draw.multiline_textbbox(xy,wording,font=font,spacing=spacing)
+            draw.multiline_text(xy,display,font=font,fill=fill,spacing=spacing)
+            box=draw.multiline_textbbox(xy,display,font=font,spacing=spacing)
         else:
-            draw.text(xy,wording,font=font,fill=fill)
-            box=draw.textbbox(xy,wording,font=font)
+            draw.text(xy,display,font=font,fill=fill)
+            box=draw.textbbox(xy,display,font=font)
         if annotations is not None and role:
-            annotations.append({'role':role,'text':wording,'fontPx':font.size,'boxPx':list(box)})
+            entry={'role':role,'text':wording,'fontPx':font.size,'boxPx':list(box)}
+            if visual_lines:
+                entry['renderedLineBreaks']=list(visual_lines)
+            annotations.append(entry)
 
-    text(pos(72,220),'THE HIPPIE SCIENTIST',font=f(27,True),fill=accent,role=None)
+    text(pos(72,190 if idx==3 and not light else 220),'THE HIPPIE SCIENTIST',
+         font=f(27,True),fill=accent,role=None)
     titles = ['What makes\n7-OH different?', 'Look at the\nhydroxyl group.', 'A record of\nconnected atoms.', 'A possible\n3D shape.', 'Structure\nis not an effect.', 'SOURCE', 'Look closer.']
     # A semantic reveal must not be spoiled by the header before the narrator
     # says the negation. Keep the original WAV and acoustic cue untouched.
@@ -268,11 +283,12 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
     else:
         title = titles[idx]
     if title is not None:
-        text(pos(70,292),title,font=f(70 if idx==5 else 74,True),fill=fg,
+        text(pos(70,251 if idx==3 and not light else 292),title,
+             font=f(70 if idx==5 else 74,True),fill=fg,
              role='hook' if idx==0 else 'science')
     is_spatial = not light and idx not in (0,2,4,5)
     if idx==1 and is_spatial:
-        text(pos(72,500),'–OH group: oxygen + hydrogen',font=f(36,True),fill=accent)
+        text(pos(72,500),'–OH group: oxygen + hydrogen',font=f(42 if not light else 36,True),fill=accent)
     hero = assets['7_hydroxymitragynine']
     hero_label = '7-HYDROXYMITRAGYNINE'
     if idx==0 and not light:
@@ -295,7 +311,7 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
         text(pos(72,1150),'7-OH' if is_h else 'MITRAGYNINE',
              font=f(42,True),fill=accent,role='hook')
         text(pos(72,1200),'No reaction',
-             font=f(36),fill=muted,role='disclosure')
+             font=f(42 if not light else 36),fill=muted,role='disclosure')
     elif idx==4 and not light:
         # The original ending was essentially an empty typographic slide. Put
         # the *actual* source-verified connectivity drawing back on screen,
@@ -322,11 +338,11 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
             text(pos(212,1170),'HUMAN EXPERIENCE',font=f(46,True),fill=fg)
     elif idx==5:
         text(pos(72,760),'PubChem',font=f(86,True),fill=fg,role='source')
-        text(pos(72,710),'Mitragynine • CID 3034396',font=f(36),fill=muted,role='source')
+        text(pos(72,710),'Mitragynine • CID 3034396',font=f(42 if not light else 36),fill=muted,role='source')
         text(pos(72,880),'7-OH • CID 44301524',font=f(51,True),fill=accent,role='source')
-        text(pos(72,940),'CID = compound record number',font=f(36),fill=muted,role='source')
+        text(pos(72,940),'CID = compound record number',font=f(42 if not light else 36),fill=muted,role='source')
         text(pos(72,1010),'C23H30N2O5',font=f(48),fill=fg,role='source')
-        text(pos(72,1120),'pubchem.ncbi.nlm.nih.gov',font=f(38),fill=muted,role='source')
+        text(pos(72,1120),'pubchem.ncbi.nlm.nih.gov',font=f(42 if not light else 38),fill=muted,role='source')
     elif light and idx==0:
         for name,y,label in [('mitragynine',585,'MITRAGYNINE'),('7_hydroxymitragynine',935,'7-HYDROXYMITRAGYNINE')]:
             diagram=assets[name]['diagram'].resize((round(510*scale),round(383*scale)))
@@ -350,7 +366,8 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
         image.alpha_composite(diagram,pos(dx,dy))
         if idx==2:
             draw=ImageDraw.Draw(image)
-            text(pos(72,520),'Dots mark atoms. Lines mark bonds.',font=f(36,True),fill=accent)
+            text(pos(72,520),'Dots mark atoms. Lines mark bonds.',font=f(42 if not light else 36,True),fill=accent,
+                 visual_lines=['Dots mark atoms.','Lines mark bonds.'] if not light else None)
             # Legacy preview may display all atom markers; the opt-in timed
             # source-teaching film instead reveals ONLY six actual connected
             # atom endpoints via draw_existing_bond_connections below.
@@ -378,18 +395,43 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
         # computed depth orbit, then "look closer" returning to the real OH.
         detail=1-p if idx==1 else p*.65 if idx==6 else 0
         angle=(-.40+.85*p) if idx==3 else -.10
-        model = spatial(hero, angle, (round(830*scale),round(730*scale)), detail=detail)
-        image.alpha_composite(model,pos(20,540))
+        if idx==3 and not light:
+            # Distinct source-to-computation grammar for the narrated 3D caveat.
+            # The left reference is the SAME verified 7-OH RDKit structure,
+            # not a second compound or an imagined molecular transformation.
+            # No arrow or motion connects the graphics: the right-hand pose
+            # is one calculated illustration, not filmed receptor binding.
+            draw.rounded_rectangle((*pos(68,456),*pos(430,727)),
+                                   radius=round(20*scale),fill=(14,39,51,255),
+                                   outline=(65,126,133,255),
+                                   width=max(2,round(3*scale)))
+            flat=hero['diagram'].resize(
+                (round(330*scale),round(248*scale)))
+            image.alpha_composite(flat,pos(84,472))
+            # Diagonally opposed source/reference and larger computed subject
+            # break the repeated centered-molecule-card presentation. Still
+            # leave the entire original scientific disclosure/caption clear.
+            model_size=(round(690*scale),round(480*scale))
+            model_pos=pos(170,645)
+        else:
+            model_height=600 if idx==3 and not light else 730
+            model_size=(round(830*scale),round(model_height*scale))
+            model_pos=pos(20,540)
+        model = spatial(hero, angle, model_size, detail=detail)
+        image.alpha_composite(model,model_pos)
         draw = ImageDraw.Draw(image)
         disclosure = 'DETAIL REVEAL • computed model' if idx in (1,6) else 'Computed 3D illustration • not filmed'
         if idx == 6:
             disclosure = 'Computed detail'
-        text(pos(72,1190),disclosure,font=f(38),fill=accent,role='disclosure')
-        text(pos(72,1235),'Hydrogens omitted' if idx==6 else 'Hydrogen atoms omitted',
-             font=f(36),fill=muted,role='disclosure')
+        text(pos(72,1140 if idx==3 and not light else 1190),disclosure,
+             font=f(42 if not light else 38),fill=accent,role='disclosure',
+             visual_lines=['Computed 3D illustration','• not filmed'] if idx==3 and not light else None)
+        text(pos(72,1250 if idx==3 and not light else 1235),
+             'Hydrogens omitted' if idx==6 else 'Hydrogen atoms omitted',
+             font=f(42 if not light else 36),fill=muted,role='disclosure')
     draw = ImageDraw.Draw(image)
     if idx not in (0,4,5) and not is_spatial:
-        text(pos(72,1260),hero_label,font=f(30,True),fill=muted)
+        text(pos(72,1260),hero_label,font=f(42 if not light else 30,True),fill=muted)
     # In the limitation beat, present each exact, source-aligned phrase only
     # when its meaning is spoken. Whole-sentence previews gave away "not"
     # almost 2.3 seconds before the narrator did. No ASR text replacement.
@@ -419,16 +461,38 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
         visible_words=visible_words[active['firstCue']:active['afterLastCue']] if active else []
         if [cue['text'] for cue in visible_words]!=now:
             raise ValueError('TREATMENT_HOLD:TIMED_CAPTION_SOURCE_DRIFT')
-    caption = wrapped(' '.join(w['text'] for w in visible_words),f(42,True),770*scale)
+    # Scene 2's encoded H264 OCR could not recover the important scientific
+    # word "hydroxyl" at the 42px research caption size. Correct the *pixels*:
+    # give this original-word-cued teaching line a slightly larger native font
+    # and an intentional dark reading stage, without rewriting, restretching,
+    # pre-revealing, or granting approval from author annotations.
+    clarity_stage = (not light and idx==1 and caption_mode=='timed_research')
+    # DejaVuSans-Bold can rasterize final lowercase "l" like "!" in the
+    # scientific word "hydroxyl" (a reproduced OCR false negative). The
+    # already-pinned regular DejaVuSans face retains the exact text while
+    # making the final glyph visually distinguishable from punctuation.
+    caption_font = f(48 if clarity_stage else 42,not clarity_stage)
+    caption = wrapped(' '.join(w['text'] for w in visible_words),
+                      caption_font,770*scale)
     if len(caption)>5:
         raise ValueError('TREATMENT_HOLD:CAPTION_TOO_DENSE')
+    caption_step=56 if clarity_stage else 50
+    if clarity_stage and visible_words:
+        # Preserve the platform-safe caption field and keep the legibility
+        # treatment entirely below the source drawing and its disclosures.
+        lower=1310+caption_step*(len(caption)-1)+62
+        draw.rounded_rectangle((*pos(59,1291),*pos(855,lower)),
+                               radius=round(16*scale),
+                               fill=(13,35,44,255))
     word_index=0
     for n,line in enumerate(caption):
-        x,y=pos(72,1310+50*n)
+        x,y=pos(72,1310+caption_step*n)
         for word in line.split():
             cue=visible_words[word_index]
-            text((x,y),word,font=f(42,True),fill=accent if cue['startSec']<=t<cue['endSec'] else fg,role='caption')
-            x += f(42,True).getlength(word+' ')
+            text((x,y),word,font=caption_font,
+                 fill=accent if cue['startSec']<=t<cue['endSec'] else fg,
+                 role='caption')
+            x += caption_font.getlength(word+' ')
             word_index+=1
     draw.line((pos(72,1640),pos(840,1640)),fill=accent,width=max(1,round(scale*2)))
     return image.convert('RGB')
