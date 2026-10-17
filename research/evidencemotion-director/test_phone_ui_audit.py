@@ -1842,6 +1842,45 @@ class TargetedEncodedRightUiInkTests(unittest.TestCase):
                 screen_targeted_encoded_right_ui_ink(
                     movie, frame_indices=[5, 6, 8, 9], **args)
 
+    @staticmethod
+    def physical_exact_edge_marker(root, x):
+        # Lossless native YUV420P H264, single-pixel bright text-like edge;
+        # this distinguishes x=863 (safe) from x=864 (unsafe) physically.
+        movie = root / f"single_native_column_{x}.mp4"
+        subprocess.run([
+            "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+            "-f", "lavfi", "-i", "color=c=black:s=1080x1920:r=30:d=0.2",
+            "-vf", f"drawbox=x={x}:y=840:w=1:h=35:color=white:t=fill",
+            "-c:v", "libx264", "-preset", "ultrafast", "-qp", "0",
+            "-pix_fmt", "yuv420p", "-an", str(movie),
+        ], capture_output=True, timeout=50, check=True)
+        return movie
+
+    def test_odd_native_crop_does_not_move_safe_x863_into_right_exclusion(self):
+        from phone_ui_audit import screen_targeted_encoded_right_ui_ink
+        with tempfile.TemporaryDirectory() as directory:
+            movie = self.physical_exact_edge_marker(Path(directory), 863)
+            receipt = screen_targeted_encoded_right_ui_ink(
+                movie,
+                expected_film_sha=hashlib.sha256(movie.read_bytes()).hexdigest(),
+                frame_indices=[0, 2, 5], roi=[861, 830, 961, 880])
+            self.assertTrue(all(
+                row["brightNeutralPixelsInRightExclusion"] == 0
+                for row in receipt["actualDecodedPixelObservations"]))
+            self.assertFalse(receipt["mayPublish"])
+
+    def test_odd_native_crop_still_detects_real_unsafe_x864_pixel(self):
+        from phone_ui_audit import screen_targeted_encoded_right_ui_ink
+        with tempfile.TemporaryDirectory() as directory:
+            movie = self.physical_exact_edge_marker(Path(directory), 864)
+            with self.assertRaisesRegex(
+                ValueError, "TARGETED_CRITICAL_INK_RIGHT_UI_EXCLUSION:0:"
+            ):
+                screen_targeted_encoded_right_ui_ink(
+                    movie,
+                    expected_film_sha=hashlib.sha256(movie.read_bytes()).hexdigest(),
+                    frame_indices=[0, 2, 5], roi=[861, 830, 961, 880])
+
     def test_wrong_movie_identity_and_fake_sample_and_roi_are_rejected(self):
         from phone_ui_audit import screen_targeted_encoded_right_ui_ink
         with tempfile.TemporaryDirectory() as directory:
