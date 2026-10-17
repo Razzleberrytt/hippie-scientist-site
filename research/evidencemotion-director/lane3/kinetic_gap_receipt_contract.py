@@ -60,3 +60,49 @@ def validate_receipt(data):
     wanted=("FAIL_RESEARCH_EDITORIAL_SPACING_NEGATIVE_GATE" if total_fail else "RESEARCH_GAP_NEGATIVE_SCREEN_ONLY")
     if data.get("status")!=wanted:raise GapHold("FALSE_GREEN_EDITORIAL_GATE")
     return {"receiptConsistent":True,"failedKineticFrames":total_fail,"mayPublish":False,"newAcceptedAtomicCards":0}
+
+
+def preflight_raised_credit_from_pinned_receipt(data, proposed_credit_bottom_native):
+    """Recalculate a proposed six-scene source/caption gap BEFORE rerender.
+
+    Source data must pass the exact prior 845-frame research receipt contract.
+    This predicts ONE geometric separation improvement only. It does NOT
+    verify that the proposed artwork was rendered, preserves claims/audio,
+    avoids art collisions, or passes phone/craft/clinical/release gates.
+    """
+    validate_receipt(data)
+    if (type(proposed_credit_bottom_native) is not int or
+            not 1200 <= proposed_credit_bottom_native <= CREDIT_BOTTOM):
+        raise GapHold("PROPOSED_CREDIT_NATIVE_ANCHOR_INVALID")
+    visible = [[] for _ in SCENES]
+    for row in data["perFrame"]:
+        y = row["kineticTopNativeY"]
+        if y is not None:
+            px = round((y - proposed_credit_bottom_native)*320/1080, 3)
+            visible[row["scene"]-1].append((row["f"],px))
+    if any(not entries for entries in visible):
+        raise GapHold("PROPOSED_SCENE_HAS_NO_TIMED_INK")
+    report = []
+    for i,entries in enumerate(visible,1):
+        worst=min(entries,key=lambda x:x[1])
+        report.append({
+            "scene":i,"kineticFrames":len(entries),
+            "worstSourceFrame":worst[0],
+            "predictedMinGapPx320":worst[1],
+            "predictedBelow12PxCount":sum(v<THRESHOLD_PHONE_PX for _,v in entries),
+        })
+    return {
+        "status":("PREFLIGHT_GAP_ONLY" if all(x["predictedBelow12PxCount"]==0 for x in report)
+                  else "HOLD_PROPOSED_CREDIT_TOO_CLOSE_TO_KINETIC"),
+        "sourceFilmSha256":FILM_SHA,
+        "proposedCreditBottomNativeY":proposed_credit_bottom_native,
+        "scenes":report,
+        "framesRecomputed":sum(len(x) for x in visible),
+        "sourceReceiptOnlyNotReencodedProof":True,
+        "newFilmIndependentlyDecoded":False,
+        "sourceScienceVerified":False,
+        "phoneHardwareApproved":False,
+        "excellentCertified":False,
+        "mayPublish":False,
+        "newAcceptedAtomicCards":0,
+    }
