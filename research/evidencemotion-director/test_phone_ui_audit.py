@@ -1790,6 +1790,58 @@ class TargetedEncodedRightUiInkTests(unittest.TestCase):
             self.assertFalse(screen["targetTextSemanticsVerified"])
             self.assertFalse(screen["mayPublish"])
 
+    def test_actual_h264_brief_caption_flash_between_sparse_samples_fails_full_scan(self):
+        from phone_ui_audit import screen_targeted_encoded_right_ui_ink
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = root / "brief_encoded_ui_intrusion.mp4"
+            # Physically encode only frames 10-12 with a bright unsafe caption
+            # proxy; three spaced frames 5/15/25 are clean. This proves that
+            # an earlier 3-phase research screen cannot establish temporal
+            # continuity or reject short intervening hazards.
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+                "-f", "lavfi", "-i", "color=c=black:s=1080x1920:r=30:d=1",
+                "-vf", "drawbox=x=800:y=840:w=220:h=35:color=white:t=fill:"
+                       "enable='between(n,10,12)'",
+                "-c:v", "libx264", "-preset", "ultrafast",
+                "-pix_fmt", "yuv420p", "-an", str(movie),
+            ], capture_output=True, timeout=50, check=True)
+            args = {"expected_film_sha": hashlib.sha256(movie.read_bytes()).hexdigest(),
+                    "roi": [720, 830, 1080, 880]}
+            sparse = screen_targeted_encoded_right_ui_ink(
+                movie, frame_indices=[5, 15, 25], **args)
+            self.assertEqual(sparse["decodedFramesExamined"], 3)
+            self.assertFalse(sparse["everyFrameInRequestedWindowChecked"])
+            self.assertFalse(sparse["mayPublish"])
+            with self.assertRaisesRegex(
+                ValueError, "TARGETED_CRITICAL_INK_RIGHT_UI_EXCLUSION:10:"
+            ):
+                screen_targeted_encoded_right_ui_ink(
+                    movie, frame_indices=list(range(5, 26)), **args)
+
+    def test_contiguous_review_window_rejects_silent_omission(self):
+        from phone_ui_audit import screen_targeted_encoded_right_ui_ink
+        with tempfile.TemporaryDirectory() as directory:
+            movie = self.physical_caption_proxy(Path(directory), overflows=False)
+            args = {
+                "expected_film_sha": hashlib.sha256(movie.read_bytes()).hexdigest(),
+                "roi": [720, 830, 1080, 880],
+            }
+            full = screen_targeted_encoded_right_ui_ink(
+                movie, frame_indices=list(range(5, 26)), **args)
+            self.assertEqual(full["decodedFramesExamined"], 21)
+            self.assertTrue(full["everyFrameInRequestedWindowChecked"])
+            self.assertEqual([x["decodedFrameIndex"] for x in
+                              full["actualDecodedPixelObservations"]],
+                             list(range(5, 26)))
+            self.assertFalse(full["viewerReadabilityVerified"])
+            self.assertFalse(full["mayPublish"])
+            with self.assertRaisesRegex(ValueError,
+                                        "TARGETED_UI_PROBE_FULL_WINDOW_MUST_BE_CONTIGUOUS"):
+                screen_targeted_encoded_right_ui_ink(
+                    movie, frame_indices=[5, 6, 8, 9], **args)
+
     def test_wrong_movie_identity_and_fake_sample_and_roi_are_rejected(self):
         from phone_ui_audit import screen_targeted_encoded_right_ui_ink
         with tempfile.TemporaryDirectory() as directory:
@@ -1803,7 +1855,7 @@ class TargetedEncodedRightUiInkTests(unittest.TestCase):
                     movie, **{**kwargs, "expected_film_sha": H})
             for indices in ([5, 5, 25], [5, True, 25], [5, 15, 9999]):
                 with self.subTest(indices=indices), self.assertRaisesRegex(
-                    ValueError, "TARGETED_UI_PROBE_THREE_DISTINCT_PRESENTED_FRAMES_REQUIRED"
+                    ValueError, "TARGETED_UI_PROBE_BOUNDED_DISTINCT_PRESENTED_FRAMES_REQUIRED"
                 ):
                     screen_targeted_encoded_right_ui_ink(
                         movie, **{**kwargs, "frame_indices": indices})
