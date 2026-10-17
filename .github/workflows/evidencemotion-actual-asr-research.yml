@@ -931,7 +931,7 @@ jobs:
           assert packet['independentScientificReviewPassed'] is False
           assert packet['mayPublish'] is False and packet['approvalToMerge'] is False
           out=Path(os.environ['RUNNER_TEMP'])/'em00707-original-wav-science-review-intake.json'
-          out.write_text(json.dumps(packet,indent=2,sort_keys=True)+'\\n')
+          out.write_text(json.dumps(packet,indent=2,sort_keys=True)+'\n')
           print('PASS_EXACT_ORIGINAL_FILM_EIGHT_WAV_TIMECODED_REVIEW_REQUEST_ONLY_HUMAN_REVIEW_HOLD')
           PY
       - name: Archive source-locked scientific reviewer intake only (no approval/media)
