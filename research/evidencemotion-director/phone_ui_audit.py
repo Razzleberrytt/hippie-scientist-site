@@ -990,7 +990,16 @@ def commit_decoded_review_images(output, stage, frame_receipts, previously_owned
         (output / name).unlink()
     for name in names:
         dest = output / name
-        os.replace(stage / name, dest)
+        # A different process can create an unowned same-name file AFTER
+        # the earlier collision preflight. os.replace would silently clobber
+        # it. The stage is a child of output (same filesystem), so a hard
+        # link provides an atomic *create-if-absent* for this research output.
+        # Leave the staged link in the temporary directory for automatic
+        # cleanup and never overwrite an existing destination.
+        try:
+            os.link(stage / name, dest)
+        except FileExistsError:
+            hold("UNOWNED_REVIEW_IMAGE_COLLISION_AT_COMMIT:" + name)
         # A success report is written *after* this function. Recheck the
         # physically committed bytes rather than trusting an earlier hash
         # of a temporary file. A failed transfer stays HOLD, not a stale PASS.
@@ -1140,7 +1149,17 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
         commit_decoded_review_images(output, stage, frame_receipts, previously_owned)
         staged_report = stage / "research-report.json"
         staged_report.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
-        os.replace(staged_report, report_path)
+        # A competing writer might have created a new report AFTER we
+        # invalidated the old one. Never overwrite that unrelated receipt:
+        # publish an exact staged file only if destination is still absent.
+        report_digest = sha256_file(staged_report)
+        try:
+            os.link(staged_report, report_path)
+        except FileExistsError:
+            hold("REVIEW_REPORT_COLLISION_AT_COMMIT")
+        if (report_path.is_symlink() or not report_path.is_file() or
+                sha256_file(report_path) != report_digest):
+            hold("COMMITTED_REVIEW_REPORT_HASH_MISMATCH")
     return receipt
 
 if __name__ == "__main__":
