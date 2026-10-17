@@ -1744,6 +1744,78 @@ class MutedStoryNegativeScreenTests(unittest.TestCase):
 
 
 
+class TargetedEncodedRightUiInkTests(unittest.TestCase):
+    """Real H.264 pixel samples, NOT an OCR or physical-device endorsement."""
+
+    @staticmethod
+    def physical_caption_proxy(root, *, overflows):
+        movie = root / ("overflow.mp4" if overflows else "inside.mp4")
+        # Deliberately synthetic bright rectangular proxy, not the 7-OH film.
+        # The actual revised-film ROI is separately replayed with source SHA.
+        x, width = (800, 220) if overflows else (730, 100)
+        subprocess.run([
+            "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+            "-f", "lavfi", "-i", "color=c=black:s=1080x1920:r=30:d=1",
+            "-vf", f"drawbox=x={x}:y=840:w={width}:h=35:color=white:t=fill",
+            "-c:v", "libx264", "-preset", "ultrafast",
+            "-pix_fmt", "yuv420p", "-an", str(movie),
+        ], capture_output=True, timeout=50, check=True)
+        return movie
+
+    def test_actual_h264_right_ui_bright_caption_proxy_is_explicit_hold(self):
+        from phone_ui_audit import screen_targeted_encoded_right_ui_ink
+        with tempfile.TemporaryDirectory() as directory:
+            movie = self.physical_caption_proxy(Path(directory), overflows=True)
+            sha = hashlib.sha256(movie.read_bytes()).hexdigest()
+            with self.assertRaisesRegex(
+                ValueError, "TARGETED_CRITICAL_INK_RIGHT_UI_EXCLUSION:5:"
+            ):
+                screen_targeted_encoded_right_ui_ink(
+                    movie, expected_film_sha=sha, frame_indices=[5, 15, 25],
+                    roi=[720, 830, 1080, 880])
+
+    def test_actual_h264_inside_zone_is_only_a_nonpublishing_negative_screen(self):
+        from phone_ui_audit import screen_targeted_encoded_right_ui_ink
+        with tempfile.TemporaryDirectory() as directory:
+            movie = self.physical_caption_proxy(Path(directory), overflows=False)
+            sha = hashlib.sha256(movie.read_bytes()).hexdigest()
+            screen = screen_targeted_encoded_right_ui_ink(
+                movie, expected_film_sha=sha, frame_indices=[5, 15, 25],
+                roi=[720, 830, 1080, 880])
+            self.assertEqual(len(screen["actualDecodedPixelObservations"]), 3)
+            self.assertTrue(all(
+                row["brightNeutralPixelsInRightExclusion"] == 0
+                for row in screen["actualDecodedPixelObservations"]))
+            self.assertFalse(screen["viewerReadabilityVerified"])
+            self.assertFalse(screen["targetTextSemanticsVerified"])
+            self.assertFalse(screen["mayPublish"])
+
+    def test_wrong_movie_identity_and_fake_sample_and_roi_are_rejected(self):
+        from phone_ui_audit import screen_targeted_encoded_right_ui_ink
+        with tempfile.TemporaryDirectory() as directory:
+            movie = self.physical_caption_proxy(Path(directory), overflows=True)
+            sha = hashlib.sha256(movie.read_bytes()).hexdigest()
+            kwargs = {"expected_film_sha": sha,
+                      "frame_indices": [5, 15, 25],
+                      "roi": [720, 830, 1080, 880]}
+            with self.assertRaisesRegex(ValueError, "TARGETED_UI_PROBE_EXACT_FILM_SHA_MISMATCH"):
+                screen_targeted_encoded_right_ui_ink(
+                    movie, **{**kwargs, "expected_film_sha": H})
+            for indices in ([5, 5, 25], [5, True, 25], [5, 15, 9999]):
+                with self.subTest(indices=indices), self.assertRaisesRegex(
+                    ValueError, "TARGETED_UI_PROBE_THREE_DISTINCT_PRESENTED_FRAMES_REQUIRED"
+                ):
+                    screen_targeted_encoded_right_ui_ink(
+                        movie, **{**kwargs, "frame_indices": indices})
+            for region in ([720, 830, 863, 880], [864, 830, 1080, 880],
+                           [720, 50, 1080, 880], [720, 830, 1080, True]):
+                with self.subTest(roi=region), self.assertRaisesRegex(
+                    ValueError, "TARGETED_UI_PROBE_ROI_MUST_CROSS_RIGHT_EXCLUSION|TARGETED_UI_PROBE_NATIVE_TEXT_ROI_REQUIRED"
+                ):
+                    screen_targeted_encoded_right_ui_ink(
+                        movie, **{**kwargs, "roi": region})
+
+
 class ActualMediaStreamIdentityTests(unittest.TestCase):
     """Real one-second FFmpeg fixtures, not mocked ffprobe metadata.
 
