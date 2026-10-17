@@ -25,6 +25,8 @@ on:
       - 'research/evidencemotion-director/test_visual_scene_repair_guard.py'
       - 'research/evidencemotion-director/caption_multiwindow_repair_guard.py'
       - 'research/evidencemotion-director/test_caption_multiwindow_repair_guard.py'
+      - 'research/evidencemotion-director/finished_master_caption_intake.py'
+      - 'research/evidencemotion-director/test_finished_master_caption_intake.py'
       - 'research/evidencemotion-director/exact_film_research_join.py'
       - 'research/evidencemotion-director/test_exact_film_research_join.py'
       - 'research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md'
@@ -120,6 +122,11 @@ jobs:
           set -euo pipefail
           python3 -m py_compile research/evidencemotion-director/caption_multiwindow_repair_guard.py
           python3 -m unittest discover -s research/evidencemotion-director -p 'test_caption_multiwindow_repair_guard.py' -v
+      - name: Reject stale prior-master caption QA evidence in actual physical video packages (research HOLD)
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/finished_master_caption_intake.py
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_finished_master_caption_intake.py' -v
       - name: Ensure no production publishing privileges are implied
         run: |
           set -euo pipefail
