@@ -2886,5 +2886,90 @@ class DecodedCaptionInkPhoneScreenTests(unittest.TestCase):
                         movie, expected_film_sha=identity,
                         frame_indices=list(range(4)), roi=[0, 0, 1080, 1920])
 
+class WholeEncodedRightUiFilmTests(unittest.TestCase):
+    """Every actual FFmpeg frame, with no eligible sparse/omitted final chunk."""
+
+    @staticmethod
+    def movie_and_hash(root, *, overflows):
+        movie = TargetedEncodedRightUiInkTests.physical_caption_proxy(
+            root, overflows=overflows)
+        return movie, hashlib.sha256(movie.read_bytes()).hexdigest()
+
+    def test_physical_30_frame_full_movie_reports_no_missing_windows(self):
+        from phone_ui_audit import measure_whole_encoded_right_ui_ink
+        with tempfile.TemporaryDirectory() as tmp:
+            movie, digest = self.movie_and_hash(Path(tmp), overflows=False)
+            result = measure_whole_encoded_right_ui_ink(
+                movie, expected_film_sha=digest, expected_frames=30,
+                roi=[720, 830, 1080, 880], window_frames=12)
+            self.assertEqual(result["decodedFramesExamined"], 30)
+            self.assertEqual(result["violationCount"], 0)
+            self.assertEqual(result["windows"], [
+                {"firstFrame": 0, "lastFrame": 11},
+                {"firstFrame": 12, "lastFrame": 23},
+                {"firstFrame": 24, "lastFrame": 29}])
+            self.assertEqual([row["decodedFrameIndex"] for row in
+                              result["actualDecodedPixelObservations"]],
+                             list(range(30)))
+            self.assertTrue(result["wholeFilmFramesCoveredExactlyOnce"])
+            self.assertEqual(result["publicationVerdict"], "HOLD")
+            self.assertIs(result["mayPublish"], False)
+
+    def test_physical_full_movie_detects_real_right_ui_ink(self):
+        from phone_ui_audit import (measure_whole_encoded_right_ui_ink,
+                                    screen_whole_encoded_right_ui_ink)
+        with tempfile.TemporaryDirectory() as tmp:
+            movie, digest = self.movie_and_hash(Path(tmp), overflows=True)
+            inputs = dict(expected_film_sha=digest, expected_frames=30,
+                          roi=[720, 830, 1080, 880], window_frames=12)
+            result = measure_whole_encoded_right_ui_ink(movie, **inputs)
+            self.assertEqual(result["violationCount"], 30)
+            self.assertEqual(result["firstViolatingFrameIndex"], 0)
+            with self.assertRaisesRegex(
+                    ValueError, "WHOLE_FILM_RIGHT_UI_EXCLUSION:0:30"):
+                screen_whole_encoded_right_ui_ink(movie, **inputs)
+
+    def test_short_final_window_cannot_be_mislabeled_sparse(self):
+        from phone_ui_audit import measure_whole_encoded_right_ui_ink
+        with tempfile.TemporaryDirectory() as tmp:
+            movie, digest = self.movie_and_hash(Path(tmp), overflows=False)
+            result = measure_whole_encoded_right_ui_ink(
+                movie, expected_film_sha=digest, expected_frames=30,
+                roi=[720, 830, 1080, 880], window_frames=28)
+            self.assertEqual(result["windows"], [
+                {"firstFrame": 0, "lastFrame": 25},
+                {"firstFrame": 26, "lastFrame": 29}])
+            self.assertEqual(result["decodedFramesExamined"], 30)
+
+    def test_stale_or_incorrect_total_frame_pin_rejected(self):
+        from phone_ui_audit import measure_whole_encoded_right_ui_ink
+        with tempfile.TemporaryDirectory() as tmp:
+            movie, digest = self.movie_and_hash(Path(tmp), overflows=False)
+            with self.assertRaisesRegex(ValueError, "EXACT_FRAME_COUNT_MISMATCH"):
+                measure_whole_encoded_right_ui_ink(
+                    movie, expected_film_sha=digest, expected_frames=29,
+                    roi=[720, 830, 1080, 880])
+            with self.assertRaisesRegex(ValueError, "EXACT_FILM_SHA_MISMATCH"):
+                measure_whole_encoded_right_ui_ink(
+                    movie, expected_film_sha="0" * 64, expected_frames=30,
+                    roi=[720, 830, 1080, 880])
+
+    def test_forged_partial_window_receipt_cannot_claim_whole_film(self):
+        from phone_ui_audit import measure_whole_encoded_right_ui_ink
+        with tempfile.TemporaryDirectory() as tmp:
+            movie, digest = self.movie_and_hash(Path(tmp), overflows=False)
+            forged = {"filmSha256": digest, "mayPublish": False,
+                      "everyFrameInRequestedWindowChecked": True,
+                      "actualDecodedPixelObservations": [
+                          {"decodedFrameIndex": 0,
+                           "targetPixelsInRightExclusion": 0}]}
+            with patch("phone_ui_audit.measure_targeted_encoded_right_ui_ink",
+                       return_value=forged):
+                with self.assertRaisesRegex(ValueError, "INVALID_WINDOW_RECEIPT"):
+                    measure_whole_encoded_right_ui_ink(
+                        movie, expected_film_sha=digest, expected_frames=30,
+                        roi=[720, 830, 1080, 880], window_frames=12)
+
+
 if __name__ == "__main__":
     unittest.main()
