@@ -17,15 +17,28 @@ rechecks the complete destination inventory and every final file hash; changed
 or extra destination bytes reject the transfer. Run intake again at the receiving side with the same
 independently obtained pin SHA. No network or paid service is used.
 
-## Current missing-film disposition
+## Current received-candidate disposition
 
-**HOLD.** [Lane 3's report](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6831#issuecomment-6222146443)
-names revised video SHA `e79e44746e8a8581ecc592e41de20bb67ded7e999042234902ed30b0142a0c9a`
-and conversation ZIP SHA `86d802f3819320c6d645c5a8d93e8880ac82d02ed77de833c1cf5a4d1aaffea9`.
-Those bytes were not delivered to this task. The checked-in
-`shot5-reported-expectation.json` records reported identities, **not verified
-ones**, and is deliberately INCOMPLETE. It can never yield PASS. Do not replace
-the film with an older archive or the synthetic unit fixture.
+**Actual revised bytes received; complete intake HOLD.** The sole received-candidate
+and blocker registry is [`CURRENT-HANDOFF.json`](CURRENT-HANDOFF.json), backed by
+[`receipts/revised-shot5-physical-receiver-20261017.json`](receipts/revised-shot5-physical-receiver-20261017.json).
+Lane6 independently downloaded the exact owner Library archive
+`EvidenceMotion_Lane3_Shot5_Mobile_Safe_Research_20261017.zip`, outer SHA
+`404df9ba41ffa3dde87d638d5500d5e7318c50b50681ce2c766ba7830adda196`.
+Revised movie SHA `fdece1d9bbd021d514c2510c5bf1e787a2555712f0fd48af8807994ed1816725`:
+ZIP CRC and 12/12 member hashes verified; both before/revised movies fully A/V
+decoded, 1031 native H264 frames each; AAC SHA and all 807 packet timing triples
+match. Original WAV and authored nine-shot story are physically received.
+
+Story binds this revised film/WAV but `phonePlanSha256` is null. No complete
+seven-role intake/claim/asset/caption/review package is present. Local shared
+attachment path and automatic Library retrieval route are recorded in the registry;
+other lanes must verify their access and exact bytes. This is candidate identity,
+not science/voice/craft/mobile/publication acceptance. `mayPublish=false`.
+
+The older `e79e4474...` candidate was never received here; its
+`shot5-reported-expectation.json` is a historical INCOMPLETE expectation, not a
+current candidate or verified fallback. Do not promote it or an archive to latest.
 
 ## Deliver, pin, check, transfer
 
@@ -115,7 +128,7 @@ the film with an older archive or the synthetic unit fixture.
    `--handoff`. Its `files` map must match the sender's receipt exactly. Lane 4
    then runs its own current exact-film OCR/pixel and muted-comprehension audits
    against the role paths. That includes early/middle/late same-crop ordered
-   `STRUCTURE ≠ HUMAN EXPERIENCE`, CIDs, computed/not-filmed caveats and mobile
+   `STRUCTURE â‰  HUMAN EXPERIENCE`, CIDs, computed/not-filmed caveats and mobile
    reading. The bridge does not invoke or award those independent reviews.
 
 Exit codes: `0 = PASS` for intake only, `1 = FAIL` for malformed/mismatched or

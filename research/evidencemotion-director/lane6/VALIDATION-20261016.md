@@ -738,3 +738,36 @@ No original/full latest film, ear/phoneme, science, craft, handset, deployment o
 publication approval. Previous Windows aggregate stays exit1; known Lane3 Windows
 canonical receipt error remains open; no all-project green claim. mayPublish=false,
 newAtomicCards=0, no merge or normal implementation WIP added.
+
+
+## October 17 actual revised-film receiver access unblocked
+
+Authenticated Chrome Library exact-name search/download independently retrieved
+`EvidenceMotion_Lane3_Shot5_Mobile_Safe_Research_20261017.zip`: 5,239,915 bytes,
+SHA `404df9ba41ffa3dde87d638d5500d5e7318c50b50681ce2c766ba7830adda196`.
+Browser download event timed out, but actual local download completed; subsequent
+physical file size/hash/CRC verification establishes receipt, not the browser call.
+Copied unchanged original archive and hash-verified payload to shared local
+`C:/Users/Will/.codex/attachments/lane6-revised-receiver-fdece1d9`.
+
+ZIP CRC PASS; exact inventory 12 hashed payload members plus SHA256SUMS; 12/12
+received-file hashes PASS. Before film53cbd9 and revised filmfdece1 both complete
+FFmpeg -xerror A/V decode exit0; independent ffprobe counts 1031 frames, H264,
+1080x1920, 30/1 each. AAC ADTS SHA f0057c19... matches sender-independent reported
+pin and both movies; all807 native integer PTS/DTS/duration triples equal. Original
+PCM WAV9dca049e... mono16bit24kHz824336samples; story3c48c814... binds actual revised
+film and WAV, 9 shots, but phonePlanSha256 explicitly null. No inferred PCM/AAC
+phonetic, scientific, craft, story comprehension or phone acceptance.
+
+Full receipt and local paths in `receipts/revised-shot5-physical-receiver-20261017.json`.
+`CURRENT-HANDOFF.json` is the one received-candidate/blocker registry. README now
+replaces obsolete current-missing-film text while retaining older candidate as
+historical unreceived. Cross-context access still needs receiver confirmation;
+exact Library download route is available without default user file shuttling.
+Next dependency: authored non-null phone plan plus remaining exact-candidate
+caption/claim/asset/lineage/review package. Do not create trusted approval from
+sender hashes or manufacture missing authored sidecars. Received-byte blocker
+closed THIS context only; complete seven-role intake HOLD, mayPublish=false,
+newAtomicCards=0. No other lane source or runtime behavior change. Access-only
+receipt/docs batch; no production build rerun. Existing media quality findings
+remain reported/pending current-SHA owner review, not duplicated here.

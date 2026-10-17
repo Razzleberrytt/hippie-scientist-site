@@ -1,0 +1,65 @@
+{
+  "schema": "em-lane6-current-handoff-1",
+  "scope": "one-exact-received-research-candidate-not-release",
+  "candidateVideoSha256": "fdece1d9bbd021d514c2510c5bf1e787a2555712f0fd48af8807994ed1816725",
+  "candidatePath": "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-fdece1d9/film/shot5_mobile_safe_research.mp4",
+  "archive": {
+    "name": "EvidenceMotion_Lane3_Shot5_Mobile_Safe_Research_20261017.zip",
+    "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-fdece1d9\\EvidenceMotion_Lane3_Shot5_Mobile_Safe_Research_20261017.zip",
+    "bytes": 5239915,
+    "sha256": "404df9ba41ffa3dde87d638d5500d5e7318c50b50681ce2c766ba7830adda196",
+    "zipCrc": "PASS",
+    "manifestMembersVerified": 12
+  },
+  "originalWavSha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+  "storySha256": "3c48c814244d9b3bb6ac1fdbb28e98a68c7cada48031eb0a410801c9ee978ffa",
+  "phonePlanSha256": null,
+  "receipt": "receipts/revised-shot5-physical-receiver-20261017.json",
+  "status": "HOLD_INCOMPLETE_SIDECARS",
+  "blockers": [
+    {
+      "id": "L6-REVISED-BYTES",
+      "status": "RESOLVED_THIS_CONTEXT",
+      "evidence": "SHA/CRC/12 member hashes; two full A/V decode exit0; 1031 native H264 frames each; AAC SHA and 807 timestamp triples identical"
+    },
+    {
+      "id": "L6-PHONE-PLAN",
+      "status": "OPEN",
+      "owner": "Lane3 source handoff, Lane4 receiver QA",
+      "evidence": "Authored story has phonePlanSha256:null; no phone plan member present"
+    },
+    {
+      "id": "L6-SEVEN-ROLE-PACKAGE",
+      "status": "OPEN",
+      "owner": "Lane3 source handoff with source-review owners",
+      "evidence": "Archive does not provide a complete independently pinned seven-role package, separate exact timed caption and claim/asset manifests, matching lineage and current review sidecars; do not synthesize authority from received manifest"
+    },
+    {
+      "id": "L6-CANDIDATE-QUALITY",
+      "status": "HOLD_NOT_REVIEWED_BY_LANE6",
+      "evidence": "Sender reports Scene4 mobile issue persists; prior-candidate reviews do not establish current SHA acceptance. This batch verifies bytes/decode only"
+    },
+    {
+      "id": "L6-CROSS-CONTEXT-ACCESS",
+      "status": "LOCAL_SHARED_PATH_READY_REMOTE_ACCESS_UNCONFIRMED",
+      "evidence": "Verified local attachment path and original Library filename allow automated receiver retrieval. No assertion every other lane can access this host path"
+    },
+    {
+      "id": "L6-WINDOWS-RECEIPT",
+      "status": "OPEN_AT_LAST_PINNED_TEST",
+      "evidence": "Known Lane3 staged-receipt newline failure at prior pinned integration snapshot; existing lane6 patch not applied to owner source; current owner head not retested here"
+    },
+    {
+      "id": "L6-LINUX-MEDIA-RUNTIME",
+      "status": "RESOLVED_TEST_ENVIRONMENT",
+      "evidence": "linux-media-eight-test-followup-20261017.json and linux-complete-replay-guards-20261017.json; not full original-film reproduction"
+    }
+  ],
+  "nextSingleDependency": "Receive an authored non-null phone-safe plan and remaining exact-candidate caption/claim/asset/lineage/review sidecars; original revised bytes no longer require manual user shuttling in this context",
+  "retrievalRoute": "Authenticated Chrome -> ChatGPT Library -> exact archive filename -> Download -> verify independently against archive SHA and member pins; do not use historical media as fallback",
+  "mayPublish": false,
+  "machineReviewed": "SHA/CRC/A-V decode and packet identities only",
+  "externalIndependentReviewed": false,
+  "physicalPhoneReviewed": false,
+  "newAtomicCards": 0
+}
