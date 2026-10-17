@@ -413,7 +413,7 @@ class SpectralNegativeTests(unittest.TestCase):
             subprocess.run(
                 ["ffmpeg", "-nostdin", "-v", "error", "-y",
                  "-i", str(old), "-i", str(aac), "-map", "0:v:0",
-                 "-map", "1:a:0", "-vf", "hflip", "-c:v", "libx264",
+                 "-map", "1:a:0", "-vf", "drawbox=x=8:y=10:w=30:h=25:color=yellow:t=fill", "-c:v", "libx264",
                  "-c:a", "copy", str(altered)],
                 check=True, timeout=30, capture_output=True)
             r=original_guard.audit_research_pinned_mux_identity(
