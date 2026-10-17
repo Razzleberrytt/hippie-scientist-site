@@ -52,7 +52,8 @@ export function assessEvidenceMotionAudienceQuality({
      repair.push('AUDIENCE_REVISE:'+fault.code)
    }
  }
- const valid=independentCritics.filter(c=>
+ if(!Array.isArray(independentCritics))invalid.push('INVALID_INDEPENDENT_REVIEW_COLLECTION')
+ const valid=(Array.isArray(independentCritics)?independentCritics:[]).filter(c=>
    c?.origin==='INDEPENDENT_CALIBRATED_FULL_FILM_AUDIENCE_CRITIC'
    &&c.filmSha256===filmSha256&&sha(c.modelRunSha256)
    &&sha(c.referenceSetSha256)&&clean(c.modelFamily)
