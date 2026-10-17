@@ -91,6 +91,68 @@ class SpectralNegativeTests(unittest.TestCase):
         self.assertFalse(result["filmEncodedAndDecoded"])
         self.assertFalse(result["productionAudioApproved"])
 
+    @staticmethod
+    def dynamic_source_fixture():
+        t = np.arange(24000)/24000
+        source = .06*np.sin(2*np.pi*300*t)
+        source[18000:] = 0
+        return source
+
+    def test_dynamic_gain_slew_safe_is_never_production_approval(self):
+        x = self.dynamic_source_fixture()
+        r = original_guard.audit_research_dynamic_gain_slew(
+            x, x*2.8, ((18000, 24000),))
+        self.assertEqual(r["status"], "RESEARCH_DYNAMIC_SLEW_SCREEN_HOLD")
+        for key in ("mayPublish", "productionAudioApproved",
+                    "phonemeIdentityVerified", "wordTimingCalibrated",
+                    "decodedAACTruePeakVerifiedByThisHelper",
+                    "perceptualPumpingOrVoiceQualityProven"):
+            self.assertFalse(r[key])
+
+    def test_dynamic_gain_slew_rejects_abrupt_splice(self):
+        x = self.dynamic_source_fixture()
+        y = x*2.8
+        y[6000:6240] = x[6000:6240]*.8
+        r = original_guard.audit_research_dynamic_gain_slew(
+            x, y, ((18000, 24000),))
+        self.assertIn("DYNAMIC_ABRUPT_GAIN_ENVELOPE", r["errors"])
+
+    def test_dynamic_gain_slew_rejects_unsafe_peak(self):
+        x = self.dynamic_source_fixture()
+        r = original_guard.audit_research_dynamic_gain_slew(
+            x, x*13, ((18000, 24000),))
+        self.assertIn("HEADROOM_EXCEEDED", r["errors"][0])
+
+    def test_dynamic_gain_slew_rejects_zero_hold_tampering(self):
+        x = self.dynamic_source_fixture()
+        y = x*2.8
+        y[19000] = .004
+        r = original_guard.audit_research_dynamic_gain_slew(
+            x, y, ((18000, 24000),))
+        self.assertIn("ZERO_SPANS_CHANGED", r["errors"][0])
+
+    def test_dynamic_gain_slew_rejects_invalid_and_silent_pcm(self):
+        x = self.dynamic_source_fixture()
+        for bad in (x[:-1], np.full(24000, float("nan")),
+                    np.zeros(24000), np.ones((24000, 2))):
+            r = original_guard.audit_research_dynamic_gain_slew(
+                x, bad, ((18000, 24000),))
+            self.assertEqual(r["status"], "HOLD")
+
+    def test_dynamic_gain_slew_rejects_polarity_substitution(self):
+        x = self.dynamic_source_fixture()
+        r = original_guard.audit_research_dynamic_gain_slew(
+            x, -x*2.8, ((18000, 24000),))
+        self.assertIn("POLARITY", r["errors"][0])
+
+    def test_dynamic_gain_slew_rejects_invalid_silence_intervals(self):
+        x = self.dynamic_source_fixture()
+        for invalid in (((-1, 2),), ((1, 24001),),
+                        ((True, 5),), ((1, 1),)):
+            r = original_guard.audit_research_dynamic_gain_slew(
+                x, x*2.8, invalid)
+            self.assertEqual(r["status"], "HOLD")
+
     def test_gain_independent_positive_is_not_phonetic_proof(self):
         a=tone(240)
         report=compare(a,a*.6,[tone(470),tone(860)])
