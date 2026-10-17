@@ -67,11 +67,16 @@ def decide(current, previous):
         current.get("denominator") != 1590):
         raise ValueError("CURRENT_UNVERIFIED_NO_CREDIT_OR_STALL_DECISION")
     distinct = set()
+    # Re-running the same source commit is one engineering checkpoint, not
+    # independent evidence of a persistent source-progress plateau.
+    distinct_heads = {current["headSha"]}
     records = []
-    for rec in previous:  # newest to oldest; ignore duplicate run IDs
-        if trustworthy_previous(rec, current) and rec["runId"] not in distinct:
+    for rec in previous:  # newest to oldest; dedupe run AND source revision
+        if (trustworthy_previous(rec, current) and rec["runId"] not in distinct
+            and rec["headSha"] not in distinct_heads):
             records.append(rec)
             distinct.add(rec["runId"])
+            distinct_heads.add(rec["headSha"])
             if len(records) == 2:
                 break
     counts = [r["atomicCount"] for r in records]
@@ -100,6 +105,33 @@ def decide(current, previous):
             "approvalToMerge": False}
 
 
+def authenticated_history_checkpoint(record, repo, branch, run, artifact_source, run_view):
+    """Trust GitHub's completed successful proof workflow, not a downloaded
+    checkpoint's self-declared PASS bit or caller-supplied run SHA alone.
+    Failure, pending, wrong branch/head/workflow, and mismatched receipt HOLD.
+    """
+    head = run_view.get("headSha") if isinstance(run_view, dict) else None
+    if (not isinstance(artifact_source, dict) or not isinstance(record, dict)
+        or not isinstance(run_view, dict)
+        or run_view.get("workflowName") != "EvidenceMotion atomic proof ledger gate"
+        or run_view.get("status") != "completed"
+        or run_view.get("conclusion") != "success"
+        or run_view.get("headBranch") != branch
+        or not isinstance(head, str)
+        or re.fullmatch(r"[a-f0-9]{40}", head) is None
+        or artifact_source.get("head_sha") != head
+        or str(artifact_source.get("id")) != str(run)
+        or record.get("repository") != repo
+        or record.get("branch") != branch
+        or record.get("runId") != str(run)
+        or record.get("headSha") != head
+        or record.get("schema") != SCHEMA
+        or record.get("proofValidatorPassed") is not True
+        or record.get("mayPublish") is not False):
+        return False
+    return True
+
+
 def _gh(args):
     return subprocess.run(["gh", *args], check=True, capture_output=True,
                           timeout=45).stdout
@@ -126,11 +158,24 @@ def history_from_github(repo, branch, current_run):
             seen.add(run)
             with tempfile.TemporaryDirectory() as tmp:
                 try:
+                    # A successful *workflow* is required; a prior artifact
+                    # can be uploaded before later workflow steps fail.
+                    run_view = json.loads(_gh([
+                        "run", "view", run, "--repo", repo,
+                        "--json", "workflowName,status,conclusion,headBranch,headSha"
+                    ]))
+                    if not (run_view.get("status") == "completed"
+                            and run_view.get("conclusion") == "success"):
+                        continue
                     _gh(["run", "download", run, "--repo", repo,
                          "--name", ARTIFACT, "--dir", tmp])
-                    history.append(json.loads((Path(tmp)/"snapshot.json").read_text()))
+                    record = json.loads((Path(tmp)/"snapshot.json").read_text())
+                    if not authenticated_history_checkpoint(
+                            record, repo, branch, run, source, run_view):
+                        continue
+                    history.append(record)
                 except (subprocess.CalledProcessError, FileNotFoundError,
-                        OSError, ValueError):
+                        OSError, ValueError, TypeError, json.JSONDecodeError):
                     continue
             if len(history) >= 2:
                 break
