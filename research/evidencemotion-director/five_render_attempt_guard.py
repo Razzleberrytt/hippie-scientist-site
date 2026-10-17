@@ -10,6 +10,7 @@ import json
 import math
 import os
 import re
+import stat
 import tempfile
 from pathlib import Path
 
@@ -153,13 +154,53 @@ def _has_symlinked_parent(path):
         ancestor = ancestor.parent
 
 
-def read_register(path, *, required_sha=None):
-    """A non-symlink JSON file with identity anchored outside its own contents."""
-    file = Path(path)
-    if (not file.is_file() or file.is_symlink() or _has_symlinked_parent(file)
-            or file.stat().st_size == 0 or file.stat().st_size > 2_000_000):
+def _read_stable_register_bytes(file):
+    """Bound the physical read and reject files replaced after path preflight.
+
+    Both the opened descriptor and the final directory entry must match the
+    preflight identity. O_NOFOLLOW independently rejects late symlink swaps on
+    platforms that support it. This is a local file-integrity check, not proof
+    that the first historical attempt was ever registered.
+    """
+    if _has_symlinked_parent(file):
         hold("REGISTER_FILE_MISSING_OR_UNSAFE")
-    raw = file.read_bytes()
+    try:
+        before = os.stat(file, follow_symlinks=False)
+        if not stat.S_ISREG(before.st_mode) or not 0 < before.st_size <= 2_000_000:
+            hold("REGISTER_FILE_MISSING_OR_UNSAFE")
+        flags = os.O_RDONLY | getattr(os, "O_BINARY", 0) | getattr(os, "O_NOFOLLOW", 0)
+        fd = os.open(file, flags)
+        try:
+            opened = os.fstat(fd)
+            if (not stat.S_ISREG(opened.st_mode)
+                    or (opened.st_dev, opened.st_ino) != (before.st_dev, before.st_ino)):
+                hold("REGISTER_FILE_MISSING_OR_UNSAFE")
+            # Dup keeps the original descriptor available for post-read fstat;
+            # read at most the configured limit plus one detection byte.
+            with os.fdopen(os.dup(fd), "rb") as stream:
+                raw = stream.read(2_000_001)
+            finished = os.fstat(fd)
+        finally:
+            os.close(fd)
+        after = os.stat(file, follow_symlinks=False)
+    except OSError:
+        hold("REGISTER_FILE_MISSING_OR_UNSAFE")
+    if (_has_symlinked_parent(file)
+            or not stat.S_ISREG(after.st_mode)
+            or len(raw) == 0 or len(raw) > 2_000_000
+            or any((s.st_dev, s.st_ino, s.st_size, s.st_mtime_ns, s.st_ctime_ns)
+                   != (before.st_dev, before.st_ino, before.st_size,
+                       before.st_mtime_ns, before.st_ctime_ns)
+                   for s in (opened, finished, after))
+            or len(raw) != before.st_size):
+        hold("REGISTER_FILE_MISSING_OR_UNSAFE")
+    return raw
+
+
+def read_register(path, *, required_sha=None):
+    """Read exact bounded file bytes before externally checking prior SHA."""
+    file = Path(path)
+    raw = _read_stable_register_bytes(file)
     digest = hashlib.sha256(raw).hexdigest()
     if required_sha is not None:
         if not isinstance(required_sha, str) or not HEX64.fullmatch(required_sha):

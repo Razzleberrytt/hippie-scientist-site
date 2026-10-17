@@ -1,11 +1,13 @@
 """Regression: iterations and malformed ledgers cannot fake an excellent streak."""
 import hashlib
 import json
+import os
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 from five_render_attempt_guard import (SCHEMA, verify, verify_append_only,
                                        read_register, write_report_no_clobber)
 
@@ -217,6 +219,54 @@ class FirstRenderIntegrityTests(unittest.TestCase):
             link.symlink_to(path)
             with self.assertRaisesRegex(ValueError, "REGISTER_FILE_MISSING_OR_UNSAFE"):
                 read_register(link)
+
+    def test_register_path_swap_between_preflight_and_open_is_rejected(self):
+        # Existing path-then-read logic can accept changed, still-valid JSON.
+        # Use a deterministic swap precisely at the descriptor-open boundary.
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            victim = root / "attempts.json"
+            replacement = root / "different-attempts.json"
+            first = json.dumps(register([attempt(0)])).encode("utf-8")
+            second = json.dumps(register([attempt(1)])).encode("utf-8")
+            self.assertEqual(len(first), len(second))
+            victim.write_bytes(first)
+            replacement.write_bytes(second)
+            real_open = os.open
+            def swap_before_open(path, *args, **kwargs):
+                if os.fspath(path) == os.fspath(victim):
+                    os.replace(replacement, victim)
+                return real_open(path, *args, **kwargs)
+            with mock.patch("five_render_attempt_guard.os.open",
+                            side_effect=swap_before_open):
+                with self.assertRaisesRegex(ValueError, "REGISTER_FILE_MISSING_OR_UNSAFE"):
+                    read_register(victim)
+            self.assertEqual(victim.read_bytes(), second)
+
+    def test_register_read_rejects_late_symlink_switch(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            victim = root / "attempts.json"
+            other = root / "replacement.json"
+            victim.write_text(json.dumps(register([attempt(0)])))
+            other.write_text(json.dumps(register([attempt(1)])))
+            real_open = os.open
+            def swap_for_symlink(path, *args, **kwargs):
+                if os.fspath(path) == os.fspath(victim):
+                    victim.unlink()
+                    victim.symlink_to(other)
+                return real_open(path, *args, **kwargs)
+            try:
+                probe = root / "symlink-check"
+                probe.symlink_to(other)
+                probe.unlink()
+            except (OSError, NotImplementedError) as exc:
+                self.skipTest(f"symlinks unavailable: {exc}")
+            with mock.patch("five_render_attempt_guard.os.open",
+                            side_effect=swap_for_symlink):
+                with self.assertRaisesRegex(ValueError, "REGISTER_FILE_MISSING_OR_UNSAFE"):
+                    read_register(victim)
+            self.assertEqual(other.read_text(), json.dumps(register([attempt(1)])))
 
     def test_json_duplicate_fields_nan_and_overflow_refused(self):
         prior = register([attempt(0)])
