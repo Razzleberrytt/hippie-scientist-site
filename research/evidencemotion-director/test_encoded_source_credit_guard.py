@@ -13,11 +13,16 @@ class DecodedSourceCreditTests(unittest.TestCase):
         for s in (
             "FORMULATIONS VARY", "USP 2040", "SOURCE USP", "SOURCE USP 2041",
             "SOURCE USP\n2040", "SOURCE NIH 2040", "Source: USP 2040 BAD 2041",
+            "NOT SOURCE USP 2040", "NO SOURCE USP 2040",
+            "SOURCE N/A USP 2040", "SOURCE USP 2040 NOT APPLICABLE",
+            "USP 2040 SOURCE", "SOURCE NOT USP 2040",
         ):
             with self.subTest(text=s):
                 self.assertFalse(guard.source_line_detected(s, "USP", "2040"))
         self.assertTrue(guard.source_line_detected(
             "SOURCE: USP <2040>\nFORMULATIONS VARY", "USP", "2040"))
+        self.assertTrue(guard.source_line_detected(
+            "SOURCE USP CHAPTER 2040", "USP", "2040"))
 
     def test_fake_source_ids_and_invalid_ocr_fail_closed(self):
         for authority,number in (("USP|NIDDK","2040"),("USP","04A0"),("USP","0")):
@@ -52,6 +57,11 @@ class DecodedSourceCreditTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,"EXACT_INDEPENDENT"):
                 guard.inspect(good,"f"*64,frame_indices=[2,13],roi=[20,70,570,130],
                               source_name="USP",source_number="2040")
+            negated,negatedpin=film("negated-attribution.mp4","NOT SOURCE USP 2040")
+            with self.assertRaisesRegex(ValueError,"IDENTIFIABLE_SCIENTIFIC_SOURCE"):
+                guard.inspect(negated,negatedpin,frame_indices=[2,13],
+                              roi=[20,70,570,130],source_name="USP",
+                              source_number="2040")
             bad,badpin=film("qualifier-only.mp4","FORMULATIONS VARY")
             with self.assertRaisesRegex(ValueError,"IDENTIFIABLE_SCIENTIFIC_SOURCE"):
                 guard.inspect(bad,badpin,frame_indices=[2,13],roi=[20,70,570,130],
