@@ -9,6 +9,7 @@ import argparse
 from decimal import Decimal, InvalidOperation
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -472,6 +473,115 @@ def _receive_phone_plan(story, film_sha, *, phone_plan_path=None,
     }, "PHONE_PLAN_BYTES_JOINED_RESEARCH_ONLY_PHONE_QA_UNVERIFIED"
 
 
+
+VISUAL_ISSUES = frozenset((
+    "MISSING_RECOGNIZABLE_SUBJECT_OR_NEAR_BLANK_CENTRAL_STAGE",
+    "REPETITIVE_SOURCE_LAYOUT_REQUIRES_ART_DIRECTION_REPAIR",
+    "SUSTAINED_REPEATED_SOURCE_LAYOUT_REQUIRES_ART_DIRECTION_REPAIR",
+))
+VISUAL_CANDIDATES = frozenset((
+    "CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION",
+    "TWO_STATE_LAYOUT_OSCILLATION_WITHOUT_VISUAL_PROGRESSION",
+    "INTERLEAVED_NEAR_BLANK_VISUAL_PHASE",
+))
+
+
+def _receive_decoded_visual_critic(film_sha, dimensions, *,
+                                   critic_path=None, expected_critic_sha=None):
+    """Join Lane 3's independently executed decoded-film negative-screen.
+
+    A hash-matched caller-supplied JSON is a research observation receipt,
+    not proof that the producer executed the critic or that the movie is good.
+    A negative observation may veto; a clean report never approves craft.
+    """
+    if (critic_path is None) != (expected_critic_sha is None):
+        hold("VISUAL_CRITIC_FILE_AND_EXTERNAL_PIN_REQUIRED_TOGETHER")
+    if critic_path is None:
+        return None, "SAME_FILM_DECODED_VISUAL_CRITIC_NOT_RECEIVED"
+    report, report_sha = _read_json(critic_path, expected_critic_sha)
+    if report.get("schemaVersion") != "ths-autonomous-film-critic-research-v1":
+        hold("UNRECOGNIZED_DECODED_VISUAL_CRITIC_SCHEMA")
+    if (report.get("actualVideoSha256") != film_sha
+            or report.get("actualSourceResolution") != list(dimensions[:2])):
+        hold("DECODED_VISUAL_CRITIC_DIFFERENT_FILM_OR_GEOMETRY")
+    if (report.get("critiqueScope") !=
+            "AUTONOMOUS_ACTUAL_PIXELS_NEGATIVE_SCREENING_NOT_HUMAN_QUALITY"
+            or report.get("mayPublish") is not False
+            or report.get("excellentFirstRenderCredited") is not False
+            or report.get("automaticallyApprovedScientificClaims") is not False
+            or report.get("automaticallyApprovedNaturalVoice") is not False
+            or report.get("automaticallyApprovedPremiumCraft") is not False):
+        hold("DECODED_VISUAL_CRITIC_FORGED_RELEASE_OR_SCOPE")
+    n, samples = report.get("oneHzOpticalScreenSamples"), report.get("samples")
+    duration = report.get("actualDurationSeconds")
+    if (type(n) is not int or n < 12 or type(samples) is not int
+            or samples != (n + 1) // 2
+            or report.get("sampleEverySeconds") != 2
+            or type(duration) not in (int, float) or not math.isfinite(duration)
+            or not 12 <= duration <= 90
+            or not (12 * FPS <= dimensions[2] <= 90 * FPS)
+            or abs(duration - dimensions[2] / FPS) > 1.1
+            or abs(n - duration) > 1.1):
+        hold("DECODED_VISUAL_CRITIC_SAMPLE_OR_DURATION_MISMATCH")
+    issues, candidates = report.get("issues"), report.get("reviewCandidates")
+    if (type(issues) is not list or type(candidates) is not list
+            or any(type(v) is not str for v in issues + candidates)
+            or len(set(issues)) != len(issues)
+            or len(set(candidates)) != len(candidates)
+            or not set(issues).issubset(VISUAL_ISSUES)
+            or not set(candidates).issubset(VISUAL_CANDIDATES)):
+        hold("DECODED_VISUAL_CRITIC_FINDINGS_INVALID")
+    expected_decision = ("AUTO_REVISE" if issues else
+                         "CRAFT_REVIEW_HOLD" if candidates else
+                         "AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE")
+    if report.get("decision") != expected_decision:
+        hold("DECODED_VISUAL_CRITIC_DECISION_FINDINGS_CONFLICT")
+    # A fake future/negative timestamp must not be forwarded as a repair
+    # timecode, even if the rest of the JSON and its SHA were reauthored.
+    for key in ("sustainedRepeatWindowsSec",
+                "centerHeroStasisPeripheralMotionWindowsSec",
+                "twoStateAlternationWindowsSec",
+                "interleavedBlankPhaseWindowsSec"):
+        windows = report.get(key)
+        if type(windows) is not list:
+            hold("DECODED_VISUAL_CRITIC_TIMECODE_LIST_MISSING:" + key)
+        for window in windows:
+            if type(window) is not dict:
+                hold("DECODED_VISUAL_CRITIC_TIMECODE_INVALID:" + key)
+            start, end = window.get("startSec"), window.get("endSec")
+            if (type(start) not in (int, float) or
+                    type(end) not in (int, float) or
+                    not math.isfinite(start) or not math.isfinite(end) or
+                    start < 0 or end <= start or end > duration + 2.1):
+                hold("DECODED_VISUAL_CRITIC_TIMECODE_INVALID:" + key)
+    # Declared visual warnings must agree with the decoded-sample windows:
+    # a rehashed, apparently clean report cannot hide a detected defect.
+    for key, code, named in (
+        ("sustainedRepeatWindowsSec",
+         "SUSTAINED_REPEATED_SOURCE_LAYOUT_REQUIRES_ART_DIRECTION_REPAIR", issues),
+        ("centerHeroStasisPeripheralMotionWindowsSec",
+         "CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION", candidates),
+        ("twoStateAlternationWindowsSec",
+         "TWO_STATE_LAYOUT_OSCILLATION_WITHOUT_VISUAL_PROGRESSION", candidates),
+        ("interleavedBlankPhaseWindowsSec",
+         "INTERLEAVED_NEAR_BLANK_VISUAL_PHASE", candidates),
+    ):
+        if bool(report[key]) != (code in named):
+            hold("DECODED_VISUAL_CRITIC_FINDING_TIMELINE_CONFLICT:" + key)
+    return {
+        "reportSha256": report_sha,
+        "filmSha256": film_sha,
+        "decision": expected_decision,
+        "issues": issues,
+        "reviewCandidates": candidates,
+        "sourceScope": "PINNED_PRODUCER_CRITIC_JSON_NEGATIVE_SCREEN_ONLY",
+        "independentCraftReviewed": False,
+        "mayPublish": False,
+    }, ("DECODED_VISUAL_REVISE_REPORTED" if issues else
+        "DECODED_VISUAL_CRAFT_REVIEW_CANDIDATES" if candidates else
+        "DECODED_VISUAL_NEGATIVE_SCREEN_CLEAN_NOT_QUALITY_APPROVAL")
+
+
 def _verified_original_pcm_samples(path, expected_sha):
     """Read *all* declared source PCM, not just the potentially forged WAV header.
 
@@ -508,7 +618,8 @@ def score_candidate(*, film, wav, story_path, screen_path,
                     expected_shot_count=9, previous_ink_path=None, current_ink_path=None,
                     expected_previous_ink_sha=None, expected_current_ink_sha=None,
                     previous_ink_film_sha=None, phone_plan_path=None,
-                    expected_phone_plan_sha=None):
+                    expected_phone_plan_sha=None, critic_path=None,
+                    expected_critic_sha=None):
     """Return an explicitly non-promotable scorecard for one physically decoded film."""
     if dimensions is None:
         hold("EXPLICIT_EXPECTED_NATIVE_DIMENSIONS_REQUIRED")
@@ -587,6 +698,10 @@ def score_candidate(*, film, wav, story_path, screen_path,
         expected_shots=expected_shot_count,
         native_frames=av["nativeFrames"], native_fps=av["fps"])
     blockers.append(phone_plan_hold)
+    visual_receipt, visual_hold = _receive_decoded_visual_critic(
+        film_sha, dimensions, critic_path=critic_path,
+        expected_critic_sha=expected_critic_sha)
+    blockers.append(visual_hold)
     # Lane 5 receives exact-byte proofs from Lanes 1–4; it cannot certify them.
     # Cross-lane identity and independent source/phone/craft gates cannot be
     # established by this same-process research scorecard.
@@ -618,6 +733,7 @@ def score_candidate(*, film, wav, story_path, screen_path,
         "priorCandidateComparison": previous,
         "sourceCardResearchGain": source_card_gain,
         "phonePlanResearchReceipt": phone_plan_receipt,
+        "decodedVisualNegativeScreenReceipt": visual_receipt,
         "calibratedPremiumCraftScore": None,
         "hardAndReviewHolds": blockers,
         "nextDependency": "LANE5_SAME_FILM_AUTHENTICATED_PHONE_PLAN_AND_CROSS_LANE_RECEIPTS",
@@ -693,6 +809,47 @@ def write_once(path, report):
                        ("actualRenderedSafeZonesValidated",
                         "physicalHandsetReviewed", "mayPublish"))):
             hold("PHONE_PLAN_RESEARCH_RECEIPT_FORGED")
+    visual = report.get("decodedVisualNegativeScreenReceipt")
+    visual_holds = {
+        "SAME_FILM_DECODED_VISUAL_CRITIC_NOT_RECEIVED",
+        "DECODED_VISUAL_REVISE_REPORTED",
+        "DECODED_VISUAL_CRAFT_REVIEW_CANDIDATES",
+        "DECODED_VISUAL_NEGATIVE_SCREEN_CLEAN_NOT_QUALITY_APPROVAL",
+    }
+    active = visual_holds.intersection(holds)
+    if len(active) != 1 or (visual is None) != (
+            "SAME_FILM_DECODED_VISUAL_CRITIC_NOT_RECEIVED" in active):
+        hold("DECODED_VISUAL_RECEIPT_AND_HOLD_INCONSISTENT")
+    if visual is not None:
+        if type(visual) is not dict:
+            hold("DECODED_VISUAL_RESEARCH_RECEIPT_FORGED")
+        keys = {"reportSha256", "filmSha256", "decision", "issues",
+                "reviewCandidates", "sourceScope", "independentCraftReviewed",
+                "mayPublish"}
+        issues, candidates = visual.get("issues"), visual.get("reviewCandidates")
+        if (set(visual) != keys
+                or type(visual.get("reportSha256")) is not str
+                or HEX.fullmatch(visual["reportSha256"]) is None
+                or visual.get("filmSha256") != report.get("filmSha256")
+                or visual.get("sourceScope") !=
+                    "PINNED_PRODUCER_CRITIC_JSON_NEGATIVE_SCREEN_ONLY"
+                or visual.get("independentCraftReviewed") is not False
+                or visual.get("mayPublish") is not False
+                or type(issues) is not list or type(candidates) is not list
+                or any(type(x) is not str for x in issues + candidates)
+                or len(set(issues)) != len(issues)
+                or len(set(candidates)) != len(candidates)
+                or not set(issues).issubset(VISUAL_ISSUES)
+                or not set(candidates).issubset(VISUAL_CANDIDATES)):
+            hold("DECODED_VISUAL_RESEARCH_RECEIPT_FORGED")
+        expected_decision = ("AUTO_REVISE" if issues else
+                             "CRAFT_REVIEW_HOLD" if candidates else
+                             "AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE")
+        expected_hold = ("DECODED_VISUAL_REVISE_REPORTED" if issues else
+                         "DECODED_VISUAL_CRAFT_REVIEW_CANDIDATES" if candidates else
+                         "DECODED_VISUAL_NEGATIVE_SCREEN_CLEAN_NOT_QUALITY_APPROVAL")
+        if visual.get("decision") != expected_decision or expected_hold not in active:
+            hold("DECODED_VISUAL_RECEIPT_AND_HOLD_INCONSISTENT")
     output = Path(path)
     if (output.exists() or output.is_symlink() or not output.parent.is_dir()
             or any(p.is_symlink() for p in output.parents)):
@@ -727,6 +884,8 @@ def main():
     p.add_argument("--previous-ink-film-sha")
     p.add_argument("--phone-plan-path")
     p.add_argument("--expected-phone-plan-sha")
+    p.add_argument("--critic-path")
+    p.add_argument("--expected-critic-sha")
     p.add_argument("--out", required=True)
     # Actual films differ: 7-OH=1031 frames, Gut=845, Phenibut=1112.
     # Preserve an external exact-frame expectation; never silently use the
@@ -746,7 +905,7 @@ def main():
             "previous_ink_path", "current_ink_path",
             "expected_previous_ink_sha", "expected_current_ink_sha",
             "previous_ink_film_sha", "phone_plan_path",
-            "expected_phone_plan_sha"
+            "expected_phone_plan_sha", "critic_path", "expected_critic_sha"
         )
     }, dimensions=(1080, 1920, a.expected_frames),
        expected_shot_count=a.expected_shots)
