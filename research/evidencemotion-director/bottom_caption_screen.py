@@ -11,7 +11,10 @@ import math
 import re
 import subprocess
 from pathlib import Path
-import numpy as np
+try:
+    import numpy as np  # optional acceleration; hosted research CI uses portable fallback
+except ImportError:
+    np = None
 
 CROP=(140,1576,800,160)    # actual pixels: start below 18% bottom UI baseline y=1574
 BRIGHT_THRESHOLDS=(120,140,165,195)
@@ -27,17 +30,36 @@ def fail(reason):
     raise ValueError('BOTTOM_CAPTION_HOLD:'+reason)
 
 def measure_bright_ink(rgb,*,threshold=140):
-    if not isinstance(rgb,np.ndarray) or rgb.dtype!=np.uint8 or rgb.shape!=(160,800,3):
+    """Pixel-accurate pale ink counter; works on raw RGB bytes without NumPy."""
+    if type(threshold) is not int or not 0<=threshold<=255:
+        fail('INVALID_BRIGHTNESS_THRESHOLD')
+    if np is not None and isinstance(rgb,np.ndarray):
+        if rgb.dtype!=np.uint8 or rgb.shape!=(160,800,3):
+            fail('EXACT_PIXEL_CROP_REQUIRED')
+        mn=rgb.min(axis=2);mx=rgb.max(axis=2)
+        near_neutral=(mx.astype(np.int16)-mn.astype(np.int16))<=90
+        mask=(mn>=threshold)&near_neutral
+        count=int(mask.sum())
+        if count:
+            ys,xs=np.where(mask)
+            bbox=[int(xs.min()+CROP[0]),int(ys.min()+CROP[1]),int(xs.max()+CROP[0]),int(ys.max()+CROP[1])]
+        else:bbox=None
+        return {'count':count,'nativeBBox':bbox,'flagged':count>=MIN_BRIGHT_PIXELS}
+    if not isinstance(rgb,(bytes,bytearray,memoryview)) or len(rgb)!=160*800*3:
         fail('EXACT_PIXEL_CROP_REQUIRED')
-    mn=rgb.min(axis=2)
-    mx=rgb.max(axis=2)
-    near_neutral=(mx.astype(np.int16)-mn.astype(np.int16))<=90
-    mask=(mn>=threshold)&near_neutral
-    count=int(mask.sum())
-    if count:
-        ys,xs=np.where(mask)
-        bbox=[int(xs.min()+CROP[0]),int(ys.min()+CROP[1]),int(xs.max()+CROP[0]),int(ys.max()+CROP[1])]
-    else:bbox=None
+    data=memoryview(rgb)
+    count=0;minx=800;miny=160;maxx=-1;maxy=-1
+    for y in range(160):
+        row=y*800*3
+        for x in range(800):
+            k=row+x*3
+            r,g,b=data[k],data[k+1],data[k+2]
+            mn=min(r,g,b)
+            if mn>=threshold and max(r,g,b)-mn<=90:
+                count+=1
+                minx=min(minx,x);maxx=max(maxx,x)
+                miny=min(miny,y);maxy=max(maxy,y)
+    bbox=[minx+CROP[0],miny+CROP[1],maxx+CROP[0],maxy+CROP[1]] if count else None
     return {'count':count,'nativeBBox':bbox,'flagged':count>=MIN_BRIGHT_PIXELS}
 
 def check_frames(frame_observations,*,expected_frames,expected_movie_sha):
@@ -80,7 +102,7 @@ def run_movie(movie,sha,expected_frames):
         for i in range(expected_frames):
             b=proc.stdout.read(frame_bytes)
             if len(b)!=frame_bytes:fail('TRUNCATED_PHYSICAL_VIDEO_AT_FRAME:'+str(i))
-            arr=np.frombuffer(b,dtype=np.uint8).reshape(h,w,3)
+            arr=np.frombuffer(b,dtype=np.uint8).reshape(h,w,3) if np is not None else b
             results={str(t):measure_bright_ink(arr,threshold=t)['count'] for t in BRIGHT_THRESHOLDS}
             observations.append({'index':i,'thresholds':results})
         if proc.stdout.read(1):fail('EXTRA_UNACCOUNTED_VIDEO_FRAMES')
