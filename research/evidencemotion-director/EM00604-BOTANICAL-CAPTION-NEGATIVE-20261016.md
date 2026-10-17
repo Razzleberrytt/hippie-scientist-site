@@ -27,3 +27,15 @@
 `EM-006.01` complete source/generator-prompt provenance is not fully inventoried; `EM-006.02/.03` require actual authored scene and real frame inspection; `EM-008.01` requires chosen native film exact botanical frame timestamp/pixel hashes, `EM-008.02/.03` require source-aware repair and rendered disclosure, and `EM-008.04` independent real handset/validated phone readability remains undone. No known actual named botanical clip was re-decoded here. A valid metadata caption is not evidence of a printed onscreen caption or a source-verified botanical species/7-OH assay. Independent clinical science `EM-007.07` remains HOLD; premium master **0/1**, consecutive varied first renders **0/5**; **no version/publishing/merge authorizations**.
 
 Parent canonical counter remains **26/46**. Research draft [#6840](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6840), issue [#6743](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6743).
+
+
+## Merge-gate lint repair - October 17, 2026
+
+Hosted CI 39048894758 failed lint: botanical_caption_honesty_gate.mjs declared
+OWN but never used it; max warnings is zero. Remove only that dead declaration.
+No scientific decision, asset pin, caption policy or approval flag changes.
+Fresh Node botanical-caption suite: 15/15 PASS, exit0. Focused ESLint 9.39.5
+with unchanged repository eslint.config.js and --max-warnings=0: PASS, exit0.
+Initial local lint attempts used an unsupported legacy flag and a wrong config
+extension; the corrected invocation passed. Full exact-head CI/build remains
+required after push. Existing research HOLD and mayPublish=false remain.

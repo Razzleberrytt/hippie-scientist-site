@@ -15,7 +15,6 @@ export const KNOWN_RESEARCH_BOTANICAL = Object.freeze({
 });
 
 const HEX=/^[a-f0-9]{64}$/;
-const OWN=(o,k)=>Object.prototype.hasOwnProperty.call(o,k);
 const ALLOWED=Object.freeze(['sourceAnnotation','admittedCropSha256','originType','depictionIntent','assertedEvidenceType','visibleCaption']);
 
 export function auditBotanicalCaption(input) {
