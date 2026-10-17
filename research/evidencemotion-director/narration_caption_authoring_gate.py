@@ -3,11 +3,17 @@
 This cannot prove that recorded audio *speaks* the script, true phonemes,
 word onsets, voice naturalness, on-screen pixels, or release approval.
 """
+import hashlib
+import io
+import json
 import math
 import re
 import unicodedata
+import wave
 
-TOKEN = re.compile(r"[a-z0-9]+(?:'[a-z0-9]+)?")
+# Retain percentages, decimals, hyphenated terms and ratios:
+# 15% != 15, 1.5 != 1 5, 7-OH != 7 OH.
+TOKEN = re.compile(r"[a-z0-9]+(?:'[a-z0-9]+)*(?:\.[0-9]+)*(?:[-/][a-z0-9]+(?:\.[0-9]+)*)*%?")
 # Fail closed instead of silently stripping unknown characters or markup.
 ALLOWED = re.compile(r"[a-z0-9\s.,;:!?()\[\]\-–—\"'/&%+]+", re.I)
 
@@ -35,11 +41,43 @@ def words(value):
     return tokens
 
 
-def check_authoring(provenance, cues):
-    """Inspect trusted metadata and parsed SRT tuples; no fake ASR verdict."""
+def check_authoring(provenance_raw, frozen_provenance_sha256,
+                    source_wav_raw, frozen_wav_sha256, cues):
+    """Bind original authored JSON and WAV to two independently frozen SHA pins.
+
+    The expected SHAs must come from trusted evidence, NOT be generated from
+    the candidate bytes by the caller. PCM inspection is not a phonetic verdict.
+    """
     try:
+        pins = (frozen_provenance_sha256, frozen_wav_sha256)
+        if not all(isinstance(x, str) and
+                   re.fullmatch(r"[0-9a-f]{64}", x) for x in pins):
+            return hold("INDEPENDENT_ORIGINAL_SOURCE_PINS_REQUIRED")
+        if (not isinstance(provenance_raw, bytes) or
+                not 2 <= len(provenance_raw) <= 100_000 or
+                not isinstance(source_wav_raw, bytes) or
+                not 44 <= len(source_wav_raw) <= 20_000_000):
+            return hold("SOURCE_BYTES_MISSING_OR_UNBOUNDED")
+        if hashlib.sha256(provenance_raw).hexdigest() != frozen_provenance_sha256:
+            return hold("ORIGINAL_VOICE_PROVENANCE_CHANGED")
+        if hashlib.sha256(source_wav_raw).hexdigest() != frozen_wav_sha256:
+            return hold("ORIGINAL_NARRATION_WAV_CHANGED")
+        try:
+            with wave.open(io.BytesIO(source_wav_raw), 'rb') as audio:
+                if (audio.getnchannels(), audio.getsampwidth(),
+                        audio.getframerate(), audio.getcomptype()) != (1, 2, 24000, "NONE"):
+                    return hold("PINNED_ORIGINAL_PCM16_WAV_FORMAT_REQUIRED")
+                sample_count = audio.getnframes()
+                pcm = audio.readframes(sample_count)
+                if (sample_count < 2400 or sample_count * 2 != len(pcm)):
+                    return hold("ORIGINAL_WAV_PCM_TRUNCATED_OR_TOO_SHORT")
+        except (EOFError, OSError, wave.Error):
+            return hold("ORIGINAL_NARRATION_WAV_UNREADABLE")
+        provenance = json.loads(provenance_raw)
         if not isinstance(provenance, dict) or not isinstance(cues, list) or not cues:
             return hold("AUTHORING_INVENTORY_INVALID")
+        if provenance.get("wav_sha256") != frozen_wav_sha256:
+            return hold("PROVENANCE_AUDIO_SOURCE_BINDING_INVALID")
         scenes = provenance.get("scenes")
         if not isinstance(scenes, list) or not scenes:
             return hold("NARRATION_SCENES_MISSING")
@@ -96,5 +134,5 @@ def check_authoring(provenance, cues):
                 "matchedScriptTokens": len(original_tokens), "matchedCueCount": len(cues),
                 "matchedSceneCount": len(scenes),
                 "thisOnlyProvesDeclaredScriptMatchesAuthoredCaptions": True}
-    except (ValueError, TypeError, KeyError, OverflowError) as exc:
+    except (ValueError, TypeError, KeyError, OverflowError, UnicodeError) as exc:
         return hold("AUTHORING_INPUT_INVALID", detail=str(exc)[:160])
