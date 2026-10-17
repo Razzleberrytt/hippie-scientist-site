@@ -40,6 +40,8 @@ on:
       - 'research/evidencemotion-director/test_gut_followup_science_guard.py'
       - 'research/evidencemotion-director/gut_exact_film_science_crosswalk.py'
       - 'research/evidencemotion-director/test_gut_exact_film_science_crosswalk.py'
+      - 'research/evidencemotion-director/encoded_source_credit_guard.py'
+      - 'research/evidencemotion-director/test_encoded_source_credit_guard.py'
       - 'research/evidencemotion-director/gut_current_three_cue_six_scene_manifest.json'
       - 'research/evidencemotion-director/GUT-LATEST-THREE-CUE-SIX-SCENE-SCIENCE-CROSSWALK-20261017.md'
       - 'research/evidencemotion-director/EM00701-FROZEN-SPOKEN-LEDGER-20261016.json'
@@ -865,9 +867,12 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director -p test_research_receipt_io.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_gut_release_science_guard.py -v
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends ffmpeg
+          # Encoded source-citation checks require physical H264 + OCR, never SKIP.
+          sudo apt-get install -y --no-install-recommends ffmpeg tesseract-ocr fonts-dejavu-core
           command -v ffmpeg
           command -v ffprobe
+          command -v tesseract
+          test -s /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
           ffmpeg -version | head -n 1
           python -m unittest discover -s research/evidencemotion-director -p test_gut_followup_science_guard.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_gut_exact_film_science_crosswalk.py -v
