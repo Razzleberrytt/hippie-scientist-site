@@ -132,7 +132,7 @@ def all_native_framehashes(movie, shots, nine_midpoints):
         raise SourceHold("AUTHOR_SHOT_FRAME_COVERAGE_INCOMPLETE")
     # Digest actual decoded frame *digests* in physical order, independent
     # of source-declared semantic shot class or synthesized JSON formatting.
-    digest_stream="\\n".join(digests)+"\\n"
+    digest_stream="\n".join(digests)+"\n"
     return {
         "actualDecodedFrameCount":len(timeline),
         "decodedFrameHashSequenceSha256":digest(digest_stream.encode("ascii")),
