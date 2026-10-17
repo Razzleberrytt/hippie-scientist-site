@@ -88,7 +88,8 @@ def physical_decode(path):
          "-i", str(path), "-map", "0:v:0", "-map", "0:a:0", "-f", "null", "-"])
 
 
-def inspect(*, source, remaster, source_sha, remaster_sha):
+def inspect(*, source, remaster, source_sha, remaster_sha,
+            expected_remaster_sample_rate=None):
     old = exact(source, source_sha)
     new = exact(remaster, remaster_sha)
     if old == new:
@@ -96,9 +97,21 @@ def inspect(*, source, remaster, source_sha, remaster_sha):
     a, b = probe(source), probe(remaster)
     if a["video"] != b["video"]:
         hold("VIDEO_STREAM_METADATA_CHANGED")
-    if (a["audio"].get("codec_name"), a["audio"].get("sample_rate"), a["audio"].get("channels")) != (
-        b["audio"].get("codec_name"), b["audio"].get("sample_rate"), b["audio"].get("channels")):
-        hold("AUDIO_CODEC_FORMAT_CHANGED")
+    if (a["audio"].get("codec_name"), a["audio"].get("channels")) != (
+        b["audio"].get("codec_name"), b["audio"].get("channels")):
+        hold("AUDIO_CODEC_OR_CHANNEL_COUNT_CHANGED")
+    old_rate, new_rate = int(a["audio"]["sample_rate"]), int(b["audio"]["sample_rate"])
+    if not (8000 <= old_rate <= 192000 and 8000 <= new_rate <= 192000):
+        hold("INVALID_AUDIO_SAMPLE_RATE")
+    # Legitimate 44.1 -> 48k remasters need a declared external output pin.
+    if old_rate != new_rate:
+        if (type(expected_remaster_sample_rate) is not int
+                or expected_remaster_sample_rate != new_rate):
+            hold("UNDECLARED_AUDIO_SAMPLE_RATE_CHANGE")
+    elif expected_remaster_sample_rate is not None and (
+            type(expected_remaster_sample_rate) is not int
+            or expected_remaster_sample_rate != new_rate):
+        hold("EXPECTED_AUDIO_SAMPLE_RATE_MISMATCH")
     av, bv = fingerprint(source, "0:v:0"), fingerprint(remaster, "0:v:0")
     if av != bv or video_packets(source) != video_packets(remaster):
         hold("NOT_AUDIO_ONLY_VIDEO_BYTES_OR_TIMING_DRIFT")
@@ -114,6 +127,9 @@ def inspect(*, source, remaster, source_sha, remaster_sha):
             "identicalH264ElementarySha256": av,
             "sourceAacElementarySha256": aa, "remasteredAacElementarySha256": ba,
             "frameCount": int(a["video"]["nb_read_frames"]),
+            "sourceAudioSampleRateHz": old_rate,
+            "remasterAudioSampleRateHz": new_rate,
+            "audioResamplingExplicitlyPinned": old_rate != new_rate,
             "sourceDurationSeconds": a["durationSeconds"],
             "remasteredDurationSeconds": b["durationSeconds"],
             "containerDurationDeltaSeconds": round(b["durationSeconds"] - a["durationSeconds"], 6),
@@ -134,10 +150,12 @@ def main():
     p.add_argument("--remaster", required=True)
     p.add_argument("--source-sha", required=True)
     p.add_argument("--remaster-sha", required=True)
+    p.add_argument("--expected-remaster-sample-rate", type=int)
     p.add_argument("--out", required=True)
     args = p.parse_args()
     result = inspect(source=args.source, remaster=args.remaster,
-                     source_sha=args.source_sha, remaster_sha=args.remaster_sha)
+                     source_sha=args.source_sha, remaster_sha=args.remaster_sha,
+                     expected_remaster_sample_rate=args.expected_remaster_sample_rate)
     output = Path(args.out)
     if output.exists() or output.is_symlink() or not output.parent.is_dir():
         hold("OUTPUT_ALREADY_EXISTS_OR_UNSAFE")
