@@ -60,15 +60,70 @@ class DecodedShotVarietyTests(unittest.TestCase):
         self.assertFalse(data['comparisons'][2]['nearDuplicateReviewCandidate'])
         self.assertEqual(data['nearDuplicateReviewCount'],2)
         self.assertEqual(data['schema'],'ths-lane3-decoded-visual-variety-negative-filter-v2')
-        self.assertEqual(data['uniqueDecodedFramesSampled'],27)
+        self.assertEqual(data['uniqueDecodedFramesSampled'],43)
         self.assertEqual(len(data['withinShotTemporalReview']),9)
         self.assertEqual(len(data['boundaryExitEntranceReview']),8)
+        self.assertEqual(len(data['boundaryActualCutAdjacentReview']),8)
+        self.assertTrue(all(c['adjacentEncodedFrames']
+                            for c in data['boundaryActualCutAdjacentReview']))
+        self.assertEqual([(c['exitFrame'],c['entryFrame'])
+                          for c in data['boundaryActualCutAdjacentReview']],
+                         [(10*n-1,10*n) for n in range(1,9)])
         self.assertTrue(data['withinShotTemporalReview'][0]['nearStaticBodyReviewCandidate'])
         self.assertTrue(data['withinShotTemporalReview'][5]['nearStaticBodyReviewCandidate'])
         self.assertTrue(data['boundaryExitEntranceReview'][5]['nearDuplicateReviewCandidate'])
         self.assertFalse(data['excellentCertified'])
         self.assertFalse(data['mayPublish'])
         self.assertFalse(data['creativeExceptionsAutomaticallyGranted'])
+
+    def test_real_h264_exact_cut_duplicate_hidden_by_quarter_shot_samples(self):
+        """Physical edited-cut adversary: repeated frames 9-10 across scene cut.
+
+        The two surrounding quarter-shot positions look different. Source
+        pixels are fabricated test art, not original clinical film evidence.
+        """
+        with tempfile.TemporaryDirectory() as tempdir:
+            root=Path(tempdir)
+            raw=root/'ninety-frames.gray'
+            film=root/'encoded-edit.mp4'
+            with raw.open('wb') as handle:
+                for n in range(90):
+                    x=38 if n in (9,10) else ([12,65][n//10]
+                              if n<20 else (9+n//10*7))
+                    frame=bytearray([14])*(96*170)
+                    for y in range(75,103):
+                        for xx in range(x,min(x+18,96)):
+                            frame[y*96+xx]=224
+                    handle.write(frame)
+            subprocess.run(['ffmpeg','-nostdin','-hide_banner','-loglevel','error',
+                            '-f','rawvideo','-pix_fmt','gray','-s','96x170',
+                            '-r','30','-i',str(raw),'-vf',
+                            'scale=1080:1920:flags=neighbor','-frames:v','90',
+                            '-an','-c:v','libx264','-preset','ultrafast',
+                            '-crf','18','-pix_fmt','yuv420p',str(film)],
+                           capture_output=True,check=True)
+            story={'nineShotsMapped':9,'encodedH264Sha256':D.file_sha256(film),
+                   'mayPublish':False,
+                   'shots':[{'shot':f'beat-{i}','startSec':i/3,
+                             'endSec':(i+1)/3} for i in range(9)]}
+            story_path=root/'story.json'
+            story_path.write_text(json.dumps(story))
+            review=audit(film,story_path)
+            self.assertEqual(review['uniqueDecodedFramesSampled'],43)
+            self.assertEqual(review['fullDecodedFrames'],90)
+            self.assertFalse(review['comparisons'][0]['nearDuplicateReviewCandidate'])
+            self.assertFalse(review['boundaryExitEntranceReview'][0][
+                'nearDuplicateReviewCandidate'])
+            cut=review['boundaryActualCutAdjacentReview'][0]
+            self.assertEqual((cut['exitFrame'],cut['entryFrame']),(9,10))
+            self.assertTrue(cut['adjacentEncodedFrames'])
+            self.assertTrue(cut['nearDuplicateReviewCandidate'])
+            self.assertLessEqual(cut['scienceRoiMeanAbsoluteGrayDifference'],
+                                 D.MIN_ROI_MAE)
+            self.assertGreaterEqual(review['nearDuplicateActualCutCount'],1)
+            self.assertFalse(review['creativeExceptionsAutomaticallyGranted'])
+            self.assertFalse(review['excellentCertified'])
+            self.assertFalse(review['mayPublish'])
 
     def test_single_midpoint_cannot_substitute_for_temporal_evidence(self):
         # This is an actual H264 film, not invented metadata. All three
@@ -424,7 +479,7 @@ class ArchivedFilmOptIn(unittest.TestCase):
         self.assertEqual(data['fullDecodedFrames'],1031)
         self.assertEqual(len(data['comparisons']),8)
         self.assertEqual(data['nearDuplicateReviewCount'],2)
-        self.assertEqual(data['uniqueDecodedFramesSampled'],27)
+        self.assertEqual(data['uniqueDecodedFramesSampled'],43)
         self.assertEqual(data['nearStaticShotCount'],6)
         self.assertEqual(data['nearDuplicateBoundaryCount'],1)
         self.assertEqual([(c['from'],c['to']) for c in data['comparisons'] if c['nearDuplicateReviewCandidate']],
