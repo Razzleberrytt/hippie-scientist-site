@@ -690,6 +690,7 @@ jobs:
         run: |
           set -euo pipefail
           python -m unittest discover -s research/evidencemotion-director -p test_science_gate_process_attestation.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_science_reviewer_handoff.py -v
           python research/evidencemotion-director/science_gate_process_attestation.py --source "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-source-context-join.json" --uncertainty "$RUNNER_TEMP/ths-mfa/specimen-timed-native/scientific-uncertainty-RESEARCH.json" --strength "$RUNNER_TEMP/ths-mfa/specimen-timed-native/claim-strength-RESEARCH.json" --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/science-gate-HOLD-RESEARCH.json"
           python - <<'PY'
           import json, os
@@ -888,6 +889,58 @@ jobs:
           assert r['mayPublish'] is False
           print('EM00708 original-file attestation replay completed; all qualified-science, human and publish gates HOLD')
           PY
+      - name: Produce original-source eight-claim qualified-review intake with WAV timecodes
+        env:
+          THS_EM00705_ARCHIVE_ROOT: ${{ runner.temp }}/em00705-real
+        run: |
+          set -euo pipefail
+          PYTHONPATH=research/evidencemotion-director python - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          from em00705_original_archive_replay import EXPECTED,SOURCE,UNCERTAINTY,FILM
+          from em00708_original_archive_hold_replay import replay as real_replay
+          from science_gate_process_attestation import strict_json,canonical,attest
+          from claim_strength_source_limits import evaluate
+          from science_reviewer_handoff import reviewer_packet,verify_packet,SCHEMA
+          root=Path(os.environ['THS_EM00705_ARCHIVE_ROOT'])
+          raw={name:(root/name).read_bytes() for name in EXPECTED}
+          confirmed=real_replay(raw)
+          source=strict_json(raw[SOURCE]);uncertainty=strict_json(raw[UNCERTAINTY])
+          digest=lambda value:hashlib.sha256(value).hexdigest()
+          strength=evaluate(source,uncertainty,
+                            source_join_sha=digest(raw[SOURCE]),
+                            uncertainty_sha=digest(raw[UNCERTAINTY]))
+          process=attest({'source':source,'uncertainty':uncertainty,'strength':strength},
+                         {'source':digest(raw[SOURCE]),'uncertainty':digest(raw[UNCERTAINTY]),
+                          'strength':digest(canonical(strength))})
+          packet=reviewer_packet(process)
+          assert verify_packet(packet,process)
+          assert packet['schema']==SCHEMA
+          assert packet['exactFilmSha256']==confirmed['originalArchivedFilmSha256']
+          assert packet['exactOriginalWavSha256']==process['sourceWavSha256']
+          assert len(packet['eightClaimsToReview'])==8
+          assert sum(item['material'] for item in packet['eightClaimsToReview'])==6
+          assert len(packet['frozenAlignedWordLedgerSha256'])==64
+          assert all(item['originalWavAlignedReviewWindow'][
+                    'independentQualifiedReviewerApproved'] is False
+                    for item in packet['eightClaimsToReview'])
+          assert all(item['originalWavAlignedReviewWindow'][
+                    'actualFilmPixelsIndependentlyReviewedForClaim'] is False
+                    for item in packet['eightClaimsToReview'])
+          assert packet['independentQualifiedReviewReceived'] is False
+          assert packet['independentScientificReviewPassed'] is False
+          assert packet['mayPublish'] is False and packet['approvalToMerge'] is False
+          out=Path(os.environ['RUNNER_TEMP'])/'em00707-original-wav-science-review-intake.json'
+          out.write_text(json.dumps(packet,indent=2,sort_keys=True)+'\\n')
+          print('PASS_EXACT_ORIGINAL_FILM_EIGHT_WAV_TIMECODED_REVIEW_REQUEST_ONLY_HUMAN_REVIEW_HOLD')
+          PY
+      - name: Archive source-locked scientific reviewer intake only (no approval/media)
+        uses: actions/upload-artifact@v4
+        with:
+          name: em00707-original-film-eight-claim-review-intake-HOLD
+          path: ${{ runner.temp }}/em00707-original-wav-science-review-intake.json
+          retention-days: 14
+          if-no-files-found: error
       - name: Preserve actual-source eight-claim HOLD attestation without film or WAV
         uses: actions/upload-artifact@v4
         with:
