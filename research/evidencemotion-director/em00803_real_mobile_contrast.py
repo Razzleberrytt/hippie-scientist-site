@@ -16,7 +16,7 @@ from em00805_botanical_video_probes import (
 
 BOX=(90,900,856,1138)
 LINES=(("AI-ILLUSTRATED BOTANICAL",50,108,942),
-       ("NOT PROOF OF 7-OH CONTENT",48,108,1034))
+       ("NOT A 7-OH PLANT ASSAY",48,108,1034))
 PHONE_WIDTH=375
 PHONE_HEIGHT=round(H*PHONE_WIDTH/W)
 THRESHOLD=7.0  # stronger than WCAG 4.5:1 regular-type nominal threshold
