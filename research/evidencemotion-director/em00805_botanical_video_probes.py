@@ -98,7 +98,7 @@ def audit_clip(film,expected_sha,mode,undisclosed,source_sha,expected_frame):
     frame=decode_frame(film)
     roi=frame.crop(RECT)
     diff=ImageChops.difference(roi,undisclosed.crop(RECT))
-    changed=sum(v>30 for v in diff.convert('L').get_flattened_data())
+    changed=sum(v>30 for v in diff.convert('L').tobytes())
     share=changed/(roi.width*roi.height)
     values=ImageStat.Stat(roi.convert('L'))
     expected_delta=ImageChops.difference(roi,expected_frame.crop(RECT))
