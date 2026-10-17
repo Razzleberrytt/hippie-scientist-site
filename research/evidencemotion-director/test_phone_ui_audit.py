@@ -11,6 +11,7 @@ import unittest
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).parent))
+from test_phone_glyph_receipt_guard import ReceiptGuardTests  # reuse Lane4 CI entrypoint for negative-control suite
 from phone_ui_audit import (audit, probe_movie, validate_manifest,
                             verify_decoded_shot_coverage, choose_decoded_sample,
                             decoded_overlay, validate_critical_ink_receipt_join,
