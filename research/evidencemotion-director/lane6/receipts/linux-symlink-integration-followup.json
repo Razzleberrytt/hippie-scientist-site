@@ -1,0 +1,52 @@
+{
+  "scope": "access-only-execution-of-previously-blocked-tests-no-code-mutation",
+  "sourceTree": "fb11bde189ecc1c69f0aa8e9ef880f3731a52b43",
+  "sourceIdentities": {
+    "phone_ui_audit.py": {
+      "sha256": "989235f78a3df6c08dba0e7474e5556f25674506838d0d35457d96f2b283f5b1",
+      "gitBlob": "81a33123a5804048b8fd5eb731a77ec768ef4854"
+    },
+    "test_phone_ui_audit.py": {
+      "sha256": "dc0a659676609ed480d6a605a0c56a93c3b9c26bdc8361f5f895e41dd297455d",
+      "gitBlob": "f2ba936168ec2c9efd54d373dd213d6bba076376"
+    },
+    "native_master_audit.py": {
+      "sha256": "f3b45af413629fb344a5421b0bdc2bcc28ccf481dafc59c93f0c8d542205cfae",
+      "gitBlob": "edd7f59b952709d7d6b1ced6e055bc9d9016ccac"
+    }
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "tempDirectory": "/tmp"
+  },
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-integration-9qgxip9n/research/evidencemotion-director",
+    "--exec",
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "test_phone_ui_audit.ReportOutputAliasSafety.test_symlinked_output_dir_cannot_hide_generated_input_path",
+    "test_phone_ui_audit.ReportOutputAliasSafety.test_symlinked_output_directory_cannot_bypass_alias_guard"
+  ],
+  "tests": [
+    "test_phone_ui_audit.ReportOutputAliasSafety.test_symlinked_output_dir_cannot_hide_generated_input_path",
+    "test_phone_ui_audit.ReportOutputAliasSafety.test_symlinked_output_directory_cannot_bypass_alias_guard"
+  ],
+  "testsRun": 2,
+  "passed": 2,
+  "errors": 0,
+  "skipped": 0,
+  "exitCode": 0,
+  "reportedTestSeconds": 0.003,
+  "status": "PASS_TWO_REAL_LINUX_SYMLINK_ALIAS_TESTS",
+  "previousWindowsResult": "201 PASS + 2 WinError1314 setup errors retained in six-lane-integration-probe.json",
+  "combinedCoverage": "203 distinct tests have passing executions across Windows and Linux for the pinned prior combined tree, not one all-green single-environment run or current advancing lane heads",
+  "mayPublish": false,
+  "newAtomicCards": 0
+}

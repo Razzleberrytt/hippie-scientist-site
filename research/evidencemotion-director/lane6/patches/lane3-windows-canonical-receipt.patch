@@ -1,0 +1,11 @@
+--- a/research/evidencemotion-director/lane3/source_locked_craft_splice.py
++++ b/research/evidencemotion-director/lane3/source_locked_craft_splice.py
+@@ -457,7 +457,7 @@
+         if (digest(source)!=manifest['sourceFilmSha256'] or
+                 digest(scene)!=manifest['craftSceneSha256']):
+             raise CraftHold('PINNED_SOURCE_CHANGED_DURING_SPLICE')
+-        staged_receipt.write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
++        staged_receipt.write_bytes((json.dumps(receipt,indent=2,allow_nan=False)+'\n').encode('utf-8'))
+         publish_verified_pair_no_clobber(temp,staged_receipt,output,receipt_path,
+             trusted_receipt=receipt)
+         return receipt
