@@ -974,6 +974,11 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
         self.assertGreaterEqual(report["rollingSignalScreen"]["exactDigitalSilenceWindowCount"], 6)
         self.assertEqual(report["rollingSignalScreen"]["belowThresholdWindows"], [])
         self.assertEqual(report["rollingSignalScreen"]["unexpectedAudioDuringExactSourceSilence"], [])
+        self.assertTrue(report["rollingSignalScreen"]["sourceWavEverySampleScreened"])
+        self.assertEqual(report["rollingSignalScreen"]["finalSourceTailScreen"][
+            "sampleCount"], 2336)
+        self.assertFalse(report["rollingSignalScreen"]["finalSourceTailScreen"][
+            "unmeasuredSourceTailRejected"])
         for item in report["diagnosticWindows"]:
             self.assertEqual(item["bestEnvelopeLagMs"], 0)
             self.assertGreater(item["zeroLagDecodedPcmCorrelation"], .99)
@@ -1029,6 +1034,21 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
         self.assertTrue(report["rollingSignalScreen"][
             "unexpectedAudioDuringExactSourceSilence"])
         self.assertFalse(report["mayPublish"])
+
+    def test_trailing_97ms_after_last_rolling_window_is_not_ignored(self):
+        source, film, receipt, decoded = self.encoded_aac_screen_fixture()
+        altered = decoded.copy()
+        # The original 500ms/250ms grid ends at sample 822000, but
+        # authenticated source ends at sample 824336.
+        altered[823200:824336] = 0
+        result = self.check_synthetic_encoded(
+            source, film, receipt, altered)
+        self.assertEqual(result["status"], "HOLD")
+        self.assertIn("ENCODED_AUDIO_LOCALIZED_SIGNAL_OR_SILENCE_HOLD",
+                      result["errors"])
+        self.assertTrue(result["rollingSignalScreen"][
+            "finalSourceTailScreen"]["unmeasuredSourceTailRejected"])
+        self.assertFalse(result["mayPublish"])
 
     def test_encoded_audio_forged_source_and_receipt_do_not_grant_sync(self):
         source, film, receipt, decoded = self.encoded_aac_screen_fixture()
