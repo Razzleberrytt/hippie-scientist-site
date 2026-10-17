@@ -40,7 +40,8 @@ jobs:
         shell: bash -el {0}
         run: |
           micromamba run -n mfa-env python research/evidencemotion-director/gut-20261017/mfa_original_wav_research.py
-      - name: Preserve research draft with no release authority
+      - name: Preserve alignment diagnostics whether PASS or HOLD
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: ths-gut-20261017-original-mfa-word-alignment-research
