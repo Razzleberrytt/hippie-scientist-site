@@ -4,6 +4,32 @@ from narration_locked_treatments import LINES, tokens, timeline, wrapped, chemis
 
 
 class NarrationTreatments(unittest.TestCase):
+    def test_real_raw_rgb_encoder_declares_square_pixels_for_phone_audit(self):
+        import json
+        import subprocess
+        import tempfile
+        from pathlib import Path
+        from narration_locked_treatments import encoder_command
+        from phone_ui_audit import probe_movie
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            wav, movie = root/'synthetic.wav', root/'synthetic.mp4'
+            subprocess.run(['ffmpeg', '-v', 'error', '-f', 'lavfi', '-i',
+                            'sine=frequency=440:sample_rate=24000:duration=1',
+                            str(wav)], check=True, capture_output=True)
+            subprocess.run(encoder_command((64, 96), wav, 30, movie),
+                           input=bytes([40, 80, 120]) * 64 * 96 * 30,
+                           check=True, capture_output=True, timeout=30)
+            # Use the real producer command, encoded bytes and independent FFprobe.
+            # This tiny synthetic fixture grants no original-film approval.
+            meta = json.loads(subprocess.check_output([
+                'ffprobe', '-v', 'error', '-select_streams', 'v:0',
+                '-show_entries', 'stream=sample_aspect_ratio,width,height',
+                '-of', 'json', str(movie)]))['streams'][0]
+            self.assertEqual(meta.get('sample_aspect_ratio'), '1:1')
+            self.assertEqual((meta['width'], meta['height']), (64, 96))
+            probe_movie(movie)
+
     def test_native_caption_plus_overlay_load_fits_observed_sentence_windows(self):
         # Scheduling regression from the observed source sentence windows.
         # This is not a new acoustic-alignment or audience calibration receipt.

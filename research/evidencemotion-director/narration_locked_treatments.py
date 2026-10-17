@@ -457,6 +457,16 @@ def native_phone_plan(video_sha,scenes,assets,treatment,font,*,caption_mode='leg
     return plan
 
 
+def encoder_command(size, wav, count, video):
+    # Gain plus latency-compensated peak limiting preserves performance timing.
+    # The original remains immutable; processed AAC has a declared new identity.
+    return ['ffmpeg','-v','error','-nostdin','-y','-f','rawvideo','-pixel_format','rgb24',
+               '-video_size',f'{size[0]}x{size[1]}','-framerate',str(FPS),'-i','pipe:0',
+               '-i',str(wav),'-map','0:v','-map','1:a','-c:v','libx264','-preset','fast',
+               '-crf','18','-pix_fmt','yuv420p','-vf','setsar=1','-af',AUDIO_FILTER,'-c:a','aac','-b:a','192k',
+               '-frames:v',str(count),'-movflags','+faststart',str(video)]
+
+
 def render(root, destination, font_dir, treatment, native=False, *, experimental_timed_captions=False):
     import PIL
     import rdkit
@@ -511,13 +521,7 @@ def render(root, destination, font_dir, treatment, native=False, *, experimental
     },indent=2)+'\n',encoding='utf-8')
     start = time.monotonic()
     video = out/(treatment+'_NEW_RESEARCH_CANDIDATE.mp4')
-    # Gain plus latency-compensated peak limiting preserves performance timing.
-    # The original remains immutable; processed AAC has a declared new identity.
-    command = ['ffmpeg','-v','error','-nostdin','-y','-f','rawvideo','-pixel_format','rgb24',
-               '-video_size',f'{size[0]}x{size[1]}','-framerate',str(FPS),'-i','pipe:0',
-               '-i',str(wav),'-map','0:v','-map','1:a','-c:v','libx264','-preset','fast',
-               '-crf','18','-pix_fmt','yuv420p','-af',AUDIO_FILTER,'-c:a','aac','-b:a','192k',
-               '-frames:v',str(count),'-movflags','+faststart',str(video)]
+    command = encoder_command(size, wav, count, video)
     snapshots = {0,60,120,360,540,750,870,1000}
     emitted_frames=[]  # only the separately rendered experimental original-WAV movie
     with (out/'encoder.log').open('wb') as log:
