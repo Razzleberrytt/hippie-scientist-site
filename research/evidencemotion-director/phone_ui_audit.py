@@ -1647,7 +1647,9 @@ if __name__ == "__main__":
                            ink_receipt=args.ink_receipt,
                            glyph_receipt=args.glyph_receipt)
         print(json.dumps(result, indent=2))
-        if args.diagnostic_json and (\n                args.targeted_right_ui_screen and result["violatingFrameCount"] or\n                args.whole_film_right_ui_screen and result["violationCount"]):
+        if args.diagnostic_json and (
+                args.targeted_right_ui_screen and result["violatingFrameCount"] or
+                args.whole_film_right_ui_screen and result["violationCount"]):
             # JSON on stdout is durable evidence, NOT a successful zero exit.
             raise SystemExit(2)
     except (ValueError, OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired,
