@@ -29,8 +29,8 @@ def validate(data,source_directory):
         or data.get("noDoubleCountAsserted") is not True):
         hold("DENOMINATOR_OR_ACCEPTANCE_CONTRACT_TAMPER")
     groups=data.get("proofGroups")
-    if not isinstance(groups,list) or len(groups)!=24:
-        hold("EXACT_TWENTY_FOUR_SOURCE_EVIDENCE_GROUPS_REQUIRED")
+    if not isinstance(groups,list) or len(groups)!=25:
+        hold("EXACT_TWENTY_FIVE_SOURCE_EVIDENCE_GROUPS_REQUIRED")
     sources={
         "EM-001.01":"EM00101-THREE-HOSTED-CPU-RUNS-20261016.md",
         "EM-001.02":"EM00102-CPU-ONLY-PLAYABLE-ARTIFACT-20261016.md",
@@ -48,6 +48,7 @@ def validate(data,source_directory):
         "EM-006.04":"EM00604-BOTANICAL-CAPTION-NEGATIVE-20261016.md",
         "EM-008.05":"EM00805-ENCODED-BOTANICAL-NEGATIVES-20261016.md",
         "EM-008.03":"EM00803-ACTUAL-375PX-PIXEL-RESEARCH-20261016.md",
+        "EM-008.04":"EM00804-ENCODED-375PX-OCR-RESEARCH-20261016.md",
         "EM-007.01":"EM00701-ATOMIC-SPOKEN-INVENTORY-20261016.md",
         "EM-014.01":"EM01401-ORIGINAL-PCM-TERM-ISOLATION-20261016.md",
         "EM-007.02":"EM00702-VISUAL-CLAIM-INVENTORY-20261016.md",
