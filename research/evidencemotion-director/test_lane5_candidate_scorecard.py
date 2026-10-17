@@ -48,7 +48,7 @@ class Lane5ScorecardTests(unittest.TestCase):
             empty = root / "empty.wav"
             with wave.open(str(full), "wb") as w:
                 w.setnchannels(1); w.setsampwidth(2); w.setframerate(24000)
-                w.writeframes(b"\\x01\\x00" * 24000)
+                w.writeframes(b"\x01\x00" * 24000)
             with wave.open(str(empty), "wb") as w:
                 w.setnchannels(1); w.setsampwidth(2); w.setframerate(24000)
                 w.writeframes(b"")
