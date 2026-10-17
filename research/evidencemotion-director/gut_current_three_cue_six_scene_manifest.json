@@ -16,8 +16,8 @@
     {
       "id": "release",
       "sampleFrame": 165,
-      "sourceScope": "GENERAL_FORMULATION_LIMITED",
-      "limitation": "many tablets/capsules can release contents before uptake; no universal stomach, dissolution, or in-frame primary formulation citation",
+      "sourceScope": "USP2040_DIETARY_SUPPLEMENT_DOSAGE_TESTS_ONLY",
+      "limitation": "USP chapter 2040 provides dietary-supplement disintegration/dissolution tests only where individual monographs specify; it does not establish in-vivo absorption, universal stomach release, or a visible film source credit",
       "inFrameSourceLabel": false,
       "sampleRgb540Sha256": "505c7af437e08fda61cbc73562e7ff2b903dbd505d2a832b495391e1f8f7f4ce",
       "sourceReviewState": "MACHINE_VISUAL_INTAKE_HOLD"
@@ -64,7 +64,8 @@
     "ods_vitamin_d": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
     "ods_iron": "https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/",
     "tea_trial_2017": "https://pubmed.ncbi.nlm.nih.gov/29046302/",
-    "polyphenol_trial_1999": "https://pubmed.ncbi.nlm.nih.gov/10999016/"
+    "polyphenol_trial_1999": "https://pubmed.ncbi.nlm.nih.gov/10999016/",
+    "usp_supplement_2040": "https://doi.usp.org/USPNF/USPNF_M99970_04_01.html"
   },
   "mayPublish": false,
   "qualifiedIndependentSciencePassed": false,
