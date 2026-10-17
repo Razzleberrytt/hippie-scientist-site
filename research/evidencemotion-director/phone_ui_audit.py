@@ -875,9 +875,12 @@ def screen_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indi
     """Fail closed on visible bright ink in a prequalified critical caption ROI.
 
     This is a narrow, manually targeted encoded-pixel negative screen for
-    cases like the actual revised Shot5 NOT SHOWN UI-zone overflow. It uses
-    FFmpeg's real decoded display-order frames, NOT storyboard declarations
-    or earlier movies' ink/word receipts. The ROI must be prequalified as
+    cases like the actual revised Shot5 NOT SHOWN UI-zone overflow. Supply
+    either exactly 3 ordered sparse phase frames OR 4-150 consecutive indices
+    for complete bounded-window coverage; no sparse result can prove that
+    intervening frames are clear. It uses FFmpeg's true decoded display-order
+    frames, NOT storyboard declarations or earlier movies' ink/word receipts.
+    The ROI must be prequalified as
     containing critical light text; bright science art can otherwise trigger
     a false alert. The absence of these pixels does NOT prove text position,
     dark text visibility, OCR, phone legibility, science or release fitness.
@@ -886,11 +889,19 @@ def screen_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indi
     if not is_hash(expected_film_sha) or sha256_file(movie) != expected_film_sha:
         hold("TARGETED_UI_PROBE_EXACT_FILM_SHA_MISMATCH")
     width, height, _, frames = probe_movie(movie)
-    if (not isinstance(frame_indices, list) or len(frame_indices) != 3 or
+    # Three sparse samples remain useful for fast triage, but can miss
+    # a real transient caption crossing the UI zone between those samples.
+    # A longer request MUST enumerate *every* index in a bounded contiguous
+    # window, with no silently omitted in-between physical frames.
+    if (not isinstance(frame_indices, list) or
+        not 3 <= len(frame_indices) <= 150 or
         any(type(index) is not int or index < 0 or index >= frames
             for index in frame_indices) or
         frame_indices != sorted(set(frame_indices))):
-        hold("TARGETED_UI_PROBE_THREE_DISTINCT_PRESENTED_FRAMES_REQUIRED")
+        hold("TARGETED_UI_PROBE_BOUNDED_DISTINCT_PRESENTED_FRAMES_REQUIRED")
+    full_window = len(frame_indices) > 3
+    if full_window and frame_indices != list(range(frame_indices[0], frame_indices[-1] + 1)):
+        hold("TARGETED_UI_PROBE_FULL_WINDOW_MUST_BE_CONTIGUOUS")
     if (not isinstance(roi, list) or len(roi) != 4 or
         any(type(value) is not int for value in roi)):
         hold("TARGETED_UI_PROBE_NATIVE_TEXT_ROI_REQUIRED")
@@ -901,20 +912,23 @@ def screen_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indi
         (x1 - x0) * (y1 - y0) > 150000):
         hold("TARGETED_UI_PROBE_ROI_MUST_CROSS_RIGHT_EXCLUSION")
     crop_width, crop_height = x1 - x0, y1 - y0
-    select = "+".join(f"eq(n\\,{index})" for index in frame_indices)
+    select = (f"between(n\\,{frame_indices[0]}\\,{frame_indices[-1]})"
+              if full_window else
+              "+".join(f"eq(n\\,{index})" for index in frame_indices))
     vf = (f"select={select},"
           f"crop={crop_width}:{crop_height}:{x0}:{y0},format=bgr24")
     cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
            "-xerror", "-err_detect", "explode", "-i", str(movie), "-an",
-           "-vf", vf, "-fps_mode", "vfr", "-frames:v", "3",
+           "-vf", vf, "-fps_mode", "vfr",
+           "-frames:v", str(len(frame_indices)),
            "-f", "rawvideo", "-pix_fmt", "bgr24", "pipe:1"]
     try:
         result = subprocess.run(cmd, capture_output=True, timeout=90, check=True)
     except (subprocess.CalledProcessError, subprocess.TimeoutExpired, OSError):
         hold("TARGETED_UI_PROBE_DECODE_FAILED")
     one_frame_bytes = crop_width * crop_height * 3
-    if len(result.stdout) != one_frame_bytes * 3:
-        hold("TARGETED_UI_PROBE_NOT_EXACTLY_THREE_DECODED_CROPS")
+    if len(result.stdout) != one_frame_bytes * len(frame_indices):
+        hold("TARGETED_UI_PROBE_INCOMPLETE_DECODED_FRAME_SELECTION")
     if sha256_file(movie) != expected_film_sha:
         hold("TARGETED_UI_PROBE_VIDEO_CHANGED_DURING_DECODE")
     observations = []
@@ -949,6 +963,8 @@ def screen_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indi
         "targetedRoiPx": roi,
         "rightUiExclusionBeginsNativeX": right_start,
         "actualDecodedPixelObservations": observations,
+        "decodedFramesExamined": len(observations),
+        "everyFrameInRequestedWindowChecked": full_window,
         "targetTextSemanticsVerified": False,
         "darkOrColoredInkExcluded": False,
         "actualPhoneLayoutVerified": False,
