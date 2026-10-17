@@ -615,6 +615,70 @@ class Tests(unittest.TestCase):
                         ValueError, "ARCHIVED_RENDERER_IMPORT_ORIGIN_DRIFT"):
                     assert_original_renderer_module_import_safe(root, loaded=module)
 
+    def test_original_import_cache_is_clean_between_two_real_python_imports(self):
+        import importlib
+        from original_native_stdin_replay import (
+            assert_original_renderer_module_import_safe,
+            release_owned_original_renderer_modules, replay)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "narration_locked_treatments.py"
+            source.write_bytes(b"REPLAY_FIXTURE_ID = 'archival'\\n")
+            with patch.dict("original_replay_source_restore.PINNED", {
+                    "narration_locked_treatments.py": digest(source.read_bytes())},
+                    clear=True):
+                sys.path.insert(0, str(root))
+                try:
+                    for iteration in range(2):
+                        with self.subTest(replay=iteration):
+                            self.assertTrue(assert_original_renderer_module_import_safe(root))
+                            loaded = importlib.import_module("narration_locked_treatments")
+                            self.assertEqual(loaded.REPLAY_FIXTURE_ID, "archival")
+                            self.assertTrue(assert_original_renderer_module_import_safe(
+                                root, loaded=loaded))
+                            self.assertEqual(release_owned_original_renderer_modules(root),
+                                             ("narration_locked_treatments",))
+                            self.assertNotIn("narration_locked_treatments", sys.modules)
+                finally:
+                    sys.path.remove(str(root))
+                    sys.modules.pop("narration_locked_treatments", None)
+        import inspect
+        code = inspect.getsource(replay)
+        self.assertIn("release_owned_original_renderer_modules(source_dir)", code)
+        self.assertLess(code.index("release_owned_original_renderer_modules(source_dir)"),
+                        code.index("sys.path.pop(0)"))
+
+    def test_original_import_cache_cleanup_never_evicts_foreign_module(self):
+        from types import ModuleType, SimpleNamespace
+        from original_native_stdin_replay import release_owned_original_renderer_modules
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            expected = root / "narration_locked_treatments.py"
+            expected.write_text("archival")
+            other = root / "source_locked_visual_direction.py"
+            other.write_text("archival-other")
+            foreign = root / "not-archival.py"
+            foreign.write_text("foreign")
+            legitimate = ModuleType("narration_locked_treatments")
+            legitimate.__file__ = str(expected)
+            legitimate.__spec__ = SimpleNamespace(origin=str(expected))
+            impostor = ModuleType("source_locked_visual_direction")
+            impostor.__file__ = str(foreign)
+            impostor.__spec__ = SimpleNamespace(origin=str(foreign))
+            with patch.dict("original_replay_source_restore.PINNED", {
+                    expected.name: digest(expected.read_bytes()),
+                    other.name: digest(other.read_bytes())}, clear=True):
+                with patch.dict(sys.modules, {
+                        "narration_locked_treatments": legitimate,
+                        "source_locked_visual_direction": impostor}):
+                    with self.assertRaisesRegex(
+                            ValueError, "ARCHIVED_RENDERER_CACHE_ORIGIN_DRIFT"):
+                        release_owned_original_renderer_modules(root)
+                    self.assertIs(sys.modules["narration_locked_treatments"],
+                                  legitimate)
+                    self.assertIs(sys.modules["source_locked_visual_direction"],
+                                  impostor)
+
     def test_downloaded_native_media_real_codec_fixture(self):
         from original_native_stdin_replay import audit_downloaded_original_movie
         with tempfile.TemporaryDirectory() as directory:
