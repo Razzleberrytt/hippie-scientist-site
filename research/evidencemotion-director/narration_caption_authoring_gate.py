@@ -13,7 +13,7 @@ import wave
 
 # Retain percentages, decimals, hyphenated terms and ratios:
 # 15% != 15, 1.5 != 1 5, 7-OH != 7 OH.
-TOKEN = re.compile(r"[a-z0-9]+(?:'[a-z0-9]+)*(?:\.[0-9]+)*(?:[-/][a-z0-9]+(?:\.[0-9]+)*)*%?")
+TOKEN = re.compile(r"[a-z0-9]+(?:'[a-z0-9]+)*(?:\.[0-9]+)*(?:[-/][a-z0-9]+(?:\.[0-9]+)*)*%?|[+&]")
 # Fail closed instead of silently stripping unknown characters or markup.
 ALLOWED = re.compile(r"[a-z0-9\s.,;:!?()\[\]\-–—\"'/&%+]+", re.I)
 
