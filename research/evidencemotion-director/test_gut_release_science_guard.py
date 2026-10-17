@@ -157,6 +157,49 @@ class GutReleaseScienceTests(unittest.TestCase):
                       result['sourceContractIssues'])
         self.assertFalse(result['mayPublish'])
 
+    def test_forged_usp_substring_is_not_source_provenance(self):
+        # Fake positive: has the correct chapter citation in the science
+        # text, but the on-scene source label explicitly denies USP.
+        source=(ORIGINAL_SCENES.replace('FIRST: DISSOLVE','RELEASE IS NOT')
+                .replace('IN THE GUT','ABSORPTION')
+                .replace("source='NIDDK digestive system'",
+                         "source='NIDDK (not USP) educational page'"))
+        scope=(USP_SUPPLEMENT_CHAPTER +
+               '\\nUSP chapter applies where individual monographs specify; '
+               'not in-vivo absorption.')
+        result=self.run_zip(archive(source=source,science=scope))
+        self.assertIn('NIDDK_DIGESTION_SOURCE_INSUFFICIENT_FOR_DOSAGE_FORM_CLAIM',
+                      result['sourceContractIssues'])
+        self.assertFalse(result['mayPublish'])
+
+    def test_forged_fda_substring_is_not_source_provenance(self):
+        source=(ORIGINAL_SCENES.replace('FIRST: DISSOLVE','RELEASE IS NOT')
+                .replace('IN THE GUT','ABSORPTION')
+                .replace("source='NIDDK digestive system'",
+                         "source='NIDDK, not FDA immediate-release guidance'"))
+        scope=(FDA_GUIDANCE +
+               '\\nFDA immediate-release drug scope is not universal.')
+        result=self.run_zip(archive(source=source,science=scope))
+        self.assertIn('NIDDK_DIGESTION_SOURCE_INSUFFICIENT_FOR_DOSAGE_FORM_CLAIM',
+                      result['sourceContractIssues'])
+        self.assertFalse(result['mayPublish'])
+
+    def test_source_label_keyword_alone_cannot_claim_provenance(self):
+        for label in ('USP', 'FDA', 'USP mixed FDA', 'unverified USP <2040>'):
+            source=(ORIGINAL_SCENES.replace('FIRST: DISSOLVE','RELEASE IS NOT')
+                    .replace('IN THE GUT','ABSORPTION')
+                    .replace("source='NIDDK digestive system'",
+                             "source='"+label+"'"))
+            scope=(USP_SUPPLEMENT_CHAPTER + '\\n' + FDA_GUIDANCE +
+                   '\\nwhere individual monographs specify; not in-vivo absorption. '
+                   'immediate-release drug evidence is not universal.')
+            with self.subTest(label=label):
+                result=self.run_zip(archive(source=source,science=scope))
+                self.assertIn(
+                    'NIDDK_DIGESTION_SOURCE_INSUFFICIENT_FOR_DOSAGE_FORM_CLAIM',
+                    result['sourceContractIssues'])
+                self.assertFalse(result['mayPublish'])
+
     def test_tampering_original_archive_sha_holds(self):
         with self.assertRaisesRegex(ValueError,'ARCHIVE_IDENTITY_MISMATCH'):
             self.run_zip(archive(), expected_sha='0'*64)

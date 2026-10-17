@@ -168,7 +168,19 @@ def review_release_scene(scenes, voice, science_text):
         flags.append('UNQUALIFIED_FIRST_DISSOLVE_HEADLINE')
     if title not in ('RELEASE IS NOT ABSORPTION', 'SOME CAPSULES RELEASE IN THE GUT'):
         flags.append('RELEASE_VS_ABSORPTION_HEADLINE_NEEDS_EDITORIAL_APPROVAL')
-    if 'USP' in source.upper():
+    # Never infer source identity from a substring such as "not USP" or
+    # "NIDDK/FDA". A source label is a provenance assertion, not a keyword.
+    # These are research-only labels; the encoded film still needs a physical
+    # legible attribution and qualified source/claim review.
+    source_label = ' '.join(source.casefold().split())
+    usp_labels = frozenset({
+        'usp <2040>',
+        'usp-nf <2040>',
+        'usp–nf <2040>',
+        'usp-nf <2040> supplement disintegration standard',
+    })
+    fda_labels = frozenset({'fda immediate-release oral dosage guidance'})
+    if source_label in usp_labels:
         # Chapter <2040> describes supplement laboratory tests only *where
         # specified by an individual monograph*. Not direct human uptake proof.
         if USP_SUPPLEMENT_CHAPTER not in science_text:
@@ -176,7 +188,7 @@ def review_release_scene(scenes, voice, science_text):
         if ('where individual monographs specify' not in science_text.lower() or
             'not in-vivo absorption' not in science_text.lower()):
             flags.append('USP_LAB_TEST_NOT_DISTINGUISHED_FROM_HUMAN_ABSORPTION')
-    elif 'FDA' in source.upper():
+    elif source_label in fda_labels:
         # FDA drug-dissolution guidance is only a bounded contrast; never
         # substitute it for human studies of a given supplement formulation.
         if FDA_GUIDANCE not in science_text:
