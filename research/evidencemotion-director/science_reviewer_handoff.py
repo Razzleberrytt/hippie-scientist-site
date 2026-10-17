@@ -685,6 +685,8 @@ def main():
         hold("INPUT_OUTPUT_PATH_ALIAS_NOT_ALLOWED")
     if args.candidate_movie and _same_output_as_source(args.candidate_movie, args.out):
         hold("CURRENT_MOVIE_OUTPUT_PATH_ALIAS_NOT_ALLOWED")
+    if _same_output_as_source(FROZEN_SPOKEN_LEDGER, args.out):
+        hold("FROZEN_SOURCE_WORD_LEDGER_OUTPUT_PATH_ALIAS_NOT_ALLOWED")
     out = prepare_report_destination(args.out)
     gate, _ = read_record(args.gate)
     if args.candidate_movie:
