@@ -635,3 +635,13 @@ Linux receipt remains historical, not a new execution. Production build pending
 at implementation checkpoint; final build outcome follows before completion.
 Only Lane6 source, tests, docs and receipts change. Actual revised-film handoff
 remains HOLD, mayPublish=false, atomic credit 0; no merge/deployment asserted.
+
+Final build log records **PASS: 36 steps / 840.59 seconds**. Process session ID
+expired across the continuation, so its raw exit code was not retained; the exact
+terminal build success marker was independently validated with structured exit 0.
+Machine receipt: `receipts/corrupt-deflate-build-and-tests.json` (log SHA included).
+Restored 1686 tracked generated paths outside Lane6, preserving existing
+untracked files. Both source/test files match implementation commit `bd0d2dec47e19138b087447a8436a27d5206fbcc`
+after build. No screenshots apply to this offline intake error-contract change.
+Final doc-link/whitespace checks and draft coordination update follow. No revised
+film, creative/science/voice/handset approval, deployment, merge or atomic credit.
