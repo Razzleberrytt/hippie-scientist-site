@@ -321,6 +321,16 @@ def audit(film, story_file, *, original_wav=None):
         pacing['everySilentFrameMotionReview']=measure_source_hold_motion(
             film,frame_count,silence_frames)
         result['originalVoiceSourceHoldPacing']=pacing
+    # A decoded-film review must be tied to the bytes that were decoded, not
+    # only the same filenames checked before launching external FFmpeg.
+    # Another writer changing film/story/WAV during either decode cannot
+    # inherit the original hash in this research receipt.
+    if file_sha256(film) != digest:
+        raise CraftHold('FILM_BYTES_CHANGED_DURING_CRAFT_AUDIT')
+    if file_sha256(source) != result['storySha256']:
+        raise CraftHold('STORY_BYTES_CHANGED_DURING_CRAFT_AUDIT')
+    if original_wav is not None and file_sha256(original_wav) != ORIGINAL_WAV_SHA256:
+        raise CraftHold('ORIGINAL_WAV_BYTES_CHANGED_DURING_CRAFT_AUDIT')
     return result
 
 
