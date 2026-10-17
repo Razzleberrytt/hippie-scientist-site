@@ -123,7 +123,7 @@ test('shot/source/camera/voice-anchor swaps hold despite otherwise plausible dec
 
 test('missing shot linkage is held even with green synthetic pixel measurements',()=>{
   const candidate=proposeShots(beat).candidates[0];
-  const {candidateId,...unbound}=receipt;
+  const {candidateId: _candidateId,...unbound}=receipt;
   const result=evaluatePreviz(candidate,unbound);
   assert.equal(result.status,'HOLD');
   assert.ok(result.reasons.includes('SHOT_REVIEW_SOURCE_OR_TIMING_IDENTITY_MISMATCH'));
