@@ -37,14 +37,24 @@ def run(args, *, binary=False):
 
 def media_info(path):
     raw=run(['ffprobe','-v','error','-show_entries',
-      'stream=codec_type,codec_name,width,height,r_frame_rate,nb_frames,sample_rate',
+      'stream=codec_type,codec_name,width,height,r_frame_rate,nb_frames,sample_rate,pix_fmt,sample_aspect_ratio',
       '-of','json',str(path)])
     streams=json.loads(raw).get('streams',[])
     video=[s for s in streams if s.get('codec_type')=='video']
     audio=[s for s in streams if s.get('codec_type')=='audio']
-    if len(video)!=1 or len(audio)>1:
+    # Reject unrecognized subtitle, data, attachment or secondary tracks:
+    # the editor maps only video+original AAC, so otherwise they are lost.
+    if len(video)!=1 or len(audio)>1 or len(streams)!=len(video)+len(audio):
         raise CraftHold('AMBIGUOUS_TRACK_LAYOUT')
     return video[0],audio
+
+
+def require_square_yuv420_video(stream,label):
+    """No silent color-depth or display-aspect rewrite during craft splice."""
+    if (stream.get('pix_fmt')!='yuv420p' or
+            stream.get('sample_aspect_ratio')!='1:1'):
+        raise CraftHold(label+'_PIXEL_FORMAT_OR_ASPECT_MISMATCH')
+    return True
 
 def trusted_manifest(path,expected_sha):
     if not isinstance(expected_sha,str) or not SHA.fullmatch(expected_sha):
@@ -122,6 +132,8 @@ def preflight(source,scene,manifest):
           (v.get('width'),v.get('height'),v.get('r_frame_rate'))!=props or
           str(v.get('nb_frames'))!=str(frames)):
             raise CraftHold(name+'_CODEC_FRAME_OR_SIZE_MISMATCH')
+    require_square_yuv420_video(a,'SOURCE')
+    require_square_yuv420_video(b,'CRAFT_SCENE')
     if len(aa)!=1 or aa[0].get('codec_name')!='aac' or aa[0].get('sample_rate')!='24000':
         raise CraftHold('SOURCE_ORIGINAL_AAC_REQUIRED')
     if bb:raise CraftHold('REPLACEMENT_MUST_BE_SILENT')
@@ -270,6 +282,7 @@ def verify_result(source,output,manifest,*,scene=None):
         str(v.get('nb_frames'))!=str(manifest['frames']) or
         len(a)!=1 or a[0].get('codec_name')!='aac'):
         raise CraftHold('SPLICED_OUTPUT_TECHNICAL_MISMATCH')
+    require_square_yuv420_video(v,'SPLICED_OUTPUT')
     require_exact_cfr_frame_grid(output,manifest['frames'])
     original,updated=aac_sha(source),aac_sha(output)
     if original!=updated:raise CraftHold('ORIGINAL_AAC_BYTES_CHANGED')
