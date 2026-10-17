@@ -126,6 +126,77 @@ class IndependentScienceIntakeTests(unittest.TestCase):
             verify_packet(packet,self.gate)
 
 
+
+    def test_known_original_no_reaction_ocr_risk_never_self_approves(self):
+        # Contract fixture only: the hosted original-film CI must physically
+        # recover "No reaction" from exact archived H264 frame 45.
+        from science_reviewer_handoff import (
+            original_no_reaction_ocr_verdict,NO_REACTION_STILL_SHA,
+            FILM_SHA,NO_REACTION_RISK_SCHEMA,
+        )
+        original={"claimId":"spoken-001","originalH264FrameIndex":45,
+                  "originalH264TimeSec":1.5,"pngSha256":NO_REACTION_STILL_SHA,
+                  "sourceFilmSha256":FILM_SHA,
+                  "qualifiedVisualOrScientificReviewCompleted":False,
+                  "mayPublish":False}
+        ocr={"psm6":"MITRAGYNINE\\nNo reaction\\nO H\\n",
+             "psm11":"THE HIPPIE SCIENTIST\\nNo reaction\\n"}
+        result=original_no_reaction_ocr_verdict(original,ocr)
+        self.assertEqual(result["schema"],NO_REACTION_RISK_SCHEMA)
+        self.assertEqual(result["claimId"],"spoken-001")
+        self.assertEqual(result["actualOriginalEncodedFrameIndex"],45)
+        self.assertEqual(len(result["actualOriginalPngIndependentOCR"]),2)
+        self.assertTrue(result["requiresQualifiedReview"])
+        self.assertFalse(result["qualifiedIndependentReviewerResolved"])
+        self.assertFalse(result["clinicalOrPlantAssayMeaningEstablished"])
+        self.assertFalse(result["reviewedEntireOriginalScene"])
+        self.assertFalse(result["mayPublish"])
+        self.assertFalse(result["approvalToMerge"])
+
+    def test_no_reaction_ocr_risk_refuses_false_or_absent_source_wording(self):
+        from science_reviewer_handoff import (
+            original_no_reaction_ocr_verdict,NO_REACTION_STILL_SHA,FILM_SHA
+        )
+        original={"claimId":"spoken-001","originalH264FrameIndex":45,
+                  "originalH264TimeSec":1.5,"pngSha256":NO_REACTION_STILL_SHA,
+                  "sourceFilmSha256":FILM_SHA,
+                  "qualifiedVisualOrScientificReviewCompleted":False,
+                  "mayPublish":False}
+        for corrupted in (
+            {"psm6":"no reaction","psm11":"No biology observed"},
+            {"psm6":"no reaction"},
+            {"psm6":"","psm11":"No reaction"},
+            {"psm6":"no reactionary event","psm11":"No reaction"},
+            {"psm6":"No reactions","psm11":"No reaction"},
+            {"psm6":"not reaction","psm11":"No reaction"},
+        ):
+            with self.subTest(ocr=corrupted),self.assertRaises(ValueError):
+                original_no_reaction_ocr_verdict(original,corrupted)
+
+    def test_no_reaction_ocr_risk_rejects_rehashed_swapped_or_preapproved_frame(self):
+        from science_reviewer_handoff import (
+            original_no_reaction_ocr_verdict,NO_REACTION_STILL_SHA,FILM_SHA
+        )
+        true={"claimId":"spoken-001","originalH264FrameIndex":45,
+              "originalH264TimeSec":1.5,"pngSha256":NO_REACTION_STILL_SHA,
+              "sourceFilmSha256":FILM_SHA,
+              "qualifiedVisualOrScientificReviewCompleted":False,
+              "mayPublish":False}
+        recovered={"psm6":"NO REACTION","psm11":"No reaction"}
+        for change in (
+            {"claimId":"spoken-004"},
+            {"originalH264FrameIndex":46},
+            {"originalH264TimeSec":1.533333},
+            {"pngSha256":"a"*64},
+            {"sourceFilmSha256":"b"*64},
+            {"qualifiedVisualOrScientificReviewCompleted":True},
+            {"mayPublish":True},
+        ):
+            original=dict(true,**change)
+            with self.subTest(change=change), self.assertRaisesRegex(
+                 ValueError,"AMBIGUOUS_CAPTION_SOURCE_IMAGE_OR_REVIEWER"):
+                original_no_reaction_ocr_verdict(original,recovered)
+
     def test_real_review_images_refuse_any_substituted_fake_film(self):
         from science_reviewer_handoff import original_review_stills
         packet=reviewer_packet(self.gate)
