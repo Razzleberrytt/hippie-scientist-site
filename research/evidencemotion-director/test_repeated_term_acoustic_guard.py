@@ -924,6 +924,132 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
 
 
     @staticmethod
+    def original_suffix_scene_fixture():
+        # Synthetic 73-/70-token research receipts, real-length physical
+        # digital-zero PCM and a stand-in receipt/film. NOT authentic media.
+        original, film, old_receipt = (
+            OriginalDigitalZeroNegativeTests.frame_native_plan_fixture())
+        mfa_words = [
+            {"word": f"w{i}", "startMs": 100+i*420,
+             "endMs": 300+i*420} for i in range(63)]
+        last_mfa = [
+            ("that", 31250, 31430), ("s", 31430, 31490),
+            ("the", 31490, 31580), ("kind", 31580, 31770),
+            ("of", 31770, 31870), ("detail", 31870, 32420),
+            ("worth", 32420, 32790), ("looking", 32850, 33170),
+            ("closer", 33170, 33650), ("at", 33650, 33890)]
+        mfa_words.extend({"word": w, "startMs": a, "endMs": b}
+                         for w, a, b in last_mfa)
+        alignment = json.dumps({
+            "inputSha256": {"wav": digest(original)},
+            "sampleRate": 24000, "sampleCount": 824336,
+            "mayPublish": False, "pronunciationVerified": False,
+            "timingAccuracyCalibrated": False,
+            "wordAlignment": mfa_words,
+        }).encode()
+        guesses = [
+            {"word": f"r{i}", "start": round(.15+i*.44, 4),
+             "end": round(.35+i*.44, 4)} for i in range(61)]
+        suffix_asr = [
+            ("That's", 30.8, 31.56), ("the", 31.56, 31.74),
+            ("kind", 31.74, 31.88), ("of", 31.88, 31.96),
+            ("detail", 31.96, 32.36), ("worth", 32.36, 32.88),
+            ("looking", 32.88, 33.28), ("closer", 33.28, 33.64),
+            ("at.", 33.64, 34.28)]
+        guesses.extend({"word": w, "start": a, "end": b}
+                       for w, a, b in suffix_asr)
+        asr = json.dumps({
+            "sourceWavSha256": digest(original), "mayPublish": False,
+            "recognizedWords": guesses,
+        }).encode()
+        receipt = json.loads(old_receipt)
+        cues = [
+            ("That's", 31.25, 31.49), ("the", 31.49, 31.58),
+            ("kind", 31.58, 31.77), ("of", 31.77, 31.87),
+            ("detail", 31.87, 32.42), ("worth", 32.42, 32.79),
+            ("looking", 32.85, 33.17), ("closer", 33.17, 33.65),
+            ("at.", 33.65, 33.89)]
+        receipt["scenes"][-1]["captionWords"] = [
+            {"text": word, "startSec": a, "endSec": b}
+            for word, a, b in cues]
+        receipt_raw = json.dumps(receipt).encode()
+        return original, alignment, asr, film, receipt_raw
+
+    @staticmethod
+    def check_suffix_scene(five):
+        original, alignment, asr, film, receipt = five
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE",
+                          digest(original)), (
+                patch.object(original_guard, "MFA_SOURCE_ALIGNMENT_SHA",
+                             digest(alignment))), (
+                patch.object(original_guard, "POSE_ASR_RECEIPT_SHA",
+                             digest(asr))), (
+                patch.object(original_guard, "ARCHIVED_TIMED_NATIVE_VIDEO_SHA",
+                             digest(film))), (
+                patch.object(original_guard, "ARCHIVED_TIMED_NATIVE_RECEIPT_SHA",
+                             digest(receipt))):
+            return original_guard.audit_archived_suffix_cue_hypotheses(
+                original, alignment, asr, film, receipt)
+
+    def test_archived_suffix_nine_hypothesis_cues_and_source_zero_veto(self):
+        five = self.original_suffix_scene_fixture()
+        report = self.check_suffix_scene(five)
+        self.assertEqual(report["status"],
+                         "RESEARCH_ARCHIVED_SUFFIX_WORD_REVIEW_HOLD", report)
+        self.assertEqual(report["cueCount"], 9)
+        self.assertEqual(report["impossibleAsrOnsetCount"], 1)
+        self.assertEqual(report["cueReviewRows"][0]["captionWord"], "That's")
+        self.assertEqual(report["cueReviewRows"][0][
+            "firstMathematicallyEligibleVideoFrame"], 938)
+        self.assertTrue(report["cueReviewRows"][0][
+            "asrClaimedOnsetDuringVerifiedPcmZero"])
+        self.assertEqual(report["cueReviewRows"][0]["decision"],
+                         "PHYSICALLY_IMPOSSIBLE_ASR_ONSET_REVIEW_HOLD")
+        self.assertFalse(report["decodedCaptionPixelsVerifiedByThisAudit"])
+        pcm = wave.open(io.BytesIO(five[0]), "rb").readframes(824336)
+        for row in report["cueReviewRows"]:
+            lo, hi = row["sourceReviewPcmRange"]
+            self.assertEqual(
+                digest(pcm[lo*2:hi*2]), row["sourceReviewPcmSha256"])
+        for key in ("mayPublish", "pronunciationVerified",
+                    "wordTimingCalibrated", "captionTimingApproved",
+                    "nativeFilmModified", "independentHumanListeningVerified"):
+            self.assertFalse(report[key])
+
+    def test_archived_suffix_source_pin_or_incorrect_text_holds(self):
+        five = self.original_suffix_scene_fixture()
+        # Pinned inputs must all join before any word/cue analysis.
+        for changed in (0, 1, 2, 3, 4):
+            data = list(five)
+            data[changed] += b"changed"
+            with self.subTest(source=changed):
+                self.assertEqual(self.check_suffix_scene(data)["status"], "HOLD")
+        data = list(five)
+        altered = json.loads(data[4])
+        altered["scenes"][-1]["captionWords"][4]["text"] = "fabricated"
+        data[4] = json.dumps(altered).encode()
+        result = self.check_suffix_scene(data)
+        self.assertIn("SUFFIX_CUES_SOURCE_LEXICAL_LAYOUT_CHANGED",
+                      result["errors"])
+        self.assertFalse(result["mayPublish"])
+
+    def test_archived_suffix_cannot_promote_asr_to_phonetic_truth(self):
+        original, mfa, asr, film, receipt = (
+            self.original_suffix_scene_fixture())
+        data = json.loads(asr)
+        # Moving the first guess outside original silence does not prove
+        # it became the right phoneme/word onset or approve the film.
+        data["recognizedWords"][61]["start"] = 31.12
+        asr = json.dumps(data).encode()
+        report = self.check_suffix_scene((original, mfa, asr, film, receipt))
+        self.assertEqual(report["status"],
+                         "RESEARCH_ARCHIVED_SUFFIX_WORD_REVIEW_HOLD")
+        self.assertEqual(report["impossibleAsrOnsetCount"], 0)
+        self.assertFalse(report["pronunciationVerified"])
+        self.assertFalse(report["captionTimingApproved"])
+        self.assertTrue(report["reviewerDecisionRequired"])
+
+    @staticmethod
     def encoded_aac_screen_fixture():
         """Real-duration synthetic speech carrier, NOT original media or AAC."""
         source, film, receipt = (
