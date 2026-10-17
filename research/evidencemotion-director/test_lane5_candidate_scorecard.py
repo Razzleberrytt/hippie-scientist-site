@@ -10,7 +10,7 @@ import wave
 from unittest.mock import patch
 
 from lane5_candidate_scorecard import (
-    _screen_stats, _windows, score_candidate, write_once, hold
+    _screen_stats, _windows, _physical_av, score_candidate, write_once, hold
 )
 
 
@@ -221,6 +221,37 @@ class Lane5ScorecardTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "PHYSICAL_AV_GEOMETRY_OR_CODEC_DRIFT"):
                 score_candidate(**{**kwargs, "dimensions": (96, 170, 91)},
                                 expected_shot_count=6)
+
+
+
+    def test_valid_video_with_truncated_aac_must_not_claim_full_audio_coverage(self):
+        """Both MP4s fully decode; only the continuous 3s AAC covers 90 video frames."""
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            def encode(name, audio_seconds):
+                output = root / name
+                subprocess.run([
+                    "/usr/bin/ffmpeg", "-nostdin", "-hide_banner", "-v", "error",
+                    "-f", "lavfi", "-i", "color=c=navy:s=96x170:r=30:d=3",
+                    "-f", "lavfi", "-i",
+                    f"sine=frequency=440:sample_rate=24000:duration={audio_seconds}",
+                    "-map", "0:v:0", "-map", "1:a:0",
+                    "-c:v", "libx264", "-pix_fmt", "yuv420p", "-frames:v", "90",
+                    "-c:a", "aac", "-ar", "24000", "-ac", "1",
+                    "-y", str(output),
+                ], check=True, capture_output=True, timeout=40)
+                return output
+            good = encode("complete.mp4", "3")
+            short = encode("valid-but-short-aac.mp4", "1.75")
+            complete = _physical_av(good, (96, 170, 90))
+            self.assertTrue(complete["fullVideoAudioPhysicalDecode"])
+            self.assertTrue(complete["audioCoverageTechnicallyComplete"])
+            self.assertGreaterEqual(complete["decodedAudioSamples"], 72000)
+            self.assertGreaterEqual(complete["audioDecodedEndSeconds"], 2.9)
+            # A successful FFmpeg decode used to incorrectly certify this.
+            with self.assertRaisesRegex(ValueError, "DECODED_AUDIO_EARLY_EOF"):
+                _physical_av(short, (96, 170, 90))
+
 
 
 
