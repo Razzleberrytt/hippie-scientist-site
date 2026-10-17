@@ -7,8 +7,12 @@ scientific acceptance, device verdict, or release authority.
 """
 import argparse
 import hashlib
+import json
 import math
+import os
 import re
+import subprocess
+import tempfile
 from pathlib import Path
 
 from scientific_uncertainty_ledger import frozen_claim_spans, FROZEN_SPOKEN_LEDGER
@@ -186,6 +190,105 @@ def verify_packet(packet, gate):
     if packet != expected:
         hold("REVIEW_INTAKE_MUTATED_OR_FABRICATED_APPROVAL")
     return True
+
+
+def _hash_file(path):
+    h=hashlib.sha256()
+    with open(path,"rb") as source:
+        for block in iter(lambda:source.read(1024*1024),b""):
+            h.update(block)
+    return h.hexdigest()
+
+
+def original_review_stills(movie, gate, packet, output_dir):
+    """Eight actual encoded original-frame PNGs for a *human* science handoff.
+
+    This only prepares a visual REVIEW REQUEST, not visually assesses pixels,
+    voice, human perception, chemistry, studies or authorization to publish.
+    Rehash exact archive MOVIE before running FFmpeg; no synthetic substitute.
+    """
+    verify_packet(packet,gate)
+    if gate["filmSha256"]!=FILM_SHA:
+        hold("ORIGINAL_ARCHIVED_FILM_GATE_REQUIRED")
+    movie=Path(movie)
+    target=Path(output_dir)
+    if (not movie.is_file() or movie.is_symlink()
+        or _hash_file(movie)!=FILM_SHA):
+        hold("ACTUAL_ARCHIVED_H264_BYTES_REQUIRED")
+    if (target.is_symlink() or target.exists()
+        or target.resolve()==movie.resolve()
+        or not target.parent.is_dir()):
+        hold("REVIEW_STILL_OUTPUT_MUST_BE_NEW_SAFE_DIRECTORY")
+    rows=packet["eightClaimsToReview"]
+    if len(rows)!=8:
+        hold("EIGHT_REVIEW_CLAIMS_REQUIRED")
+    indexes=[]
+    for row in rows:
+        span=row["originalWavAlignedReviewWindow"]
+        start,end=span["firstPotentiallyOverlappingFrame"],span["lastPotentiallyOverlappingFrame"]
+        if (not isinstance(start,int) or isinstance(start,bool)
+            or not isinstance(end,int) or isinstance(end,bool)
+            or not 0<=start<=end<FILM_FRAME_COUNT):
+            hold("ORIGINAL_REVIEW_FRAME_INDICES_INVALID")
+        indexes.append((start+end)//2)
+    if len(set(indexes))!=8 or indexes!=sorted(indexes):
+        hold("REVIEW_IMAGES_REQUIRE_EIGHT_DISTINCT_ORIGINAL_TIMES")
+    # FFmpeg reads one exact SHA-authenticated H264; only source frames selected
+    # by ORIGINAL sequential frame index are scaled to research thumbnails.
+    expr="+".join("eq(n\\,"+str(index)+")" for index in indexes)
+    with tempfile.TemporaryDirectory(prefix=".em00707-frames-",dir=target.parent) as folder:
+        temporary=Path(folder)
+        output=str(temporary/"original-claim-%02d.png")
+        ffmpeg=[
+            "ffmpeg","-hide_banner","-loglevel","error","-y",
+            "-threads","1","-filter_threads","1","-i",str(movie),
+            "-an","-vf","select="+expr+",scale=540:960",
+            "-fps_mode","passthrough","-frames:v","8",
+            "-start_number","0",output,
+        ]
+        try:
+            subprocess.run(ffmpeg,check=True,capture_output=True,timeout=100)
+        except (subprocess.CalledProcessError,subprocess.TimeoutExpired) as error:
+            hold("ORIGINAL_H264_FRAME_EXTRACTION_FAILED:"+type(error).__name__)
+        captures=[]
+        present=sorted(p.name for p in temporary.glob("original-claim-*.png"))
+        expected=[f"original-claim-{n:02d}.png" for n in range(8)]
+        if present!=expected:
+            hold("ORIGINAL_REVIEW_STILL_COUNT_OR_SEQUENCE_WRONG")
+        for n,(row,index) in enumerate(zip(rows,indexes)):
+            name=expected[n]
+            bytes_on_disk=(temporary/name).read_bytes()
+            if not bytes_on_disk.startswith(b"\\x89PNG\\r\\n\\x1a\\n") or len(bytes_on_disk)<100:
+                hold("ORIGINAL_REVIEW_STILL_NOT_VALID_PNG_HEADER")
+            captures.append({
+                "claimId":row["claimId"],
+                "originalH264FrameIndex":index,
+                "originalH264TimeSec":round(index/FILM_FPS,6),
+                "fileName":name,
+                "pngSha256":hashlib.sha256(bytes_on_disk).hexdigest(),
+                "sourceFilmSha256":FILM_SHA,
+                "displayWidth":540,"displayHeight":960,
+                "frameSource":"AUTHENTIC_ARCHIVED_H264_RESEARCH_SAMPLE",
+                "qualifiedVisualOrScientificReviewCompleted":False,
+                "mayPublish":False,
+            })
+        result={
+            "schema":"ths-em00707-original-film-review-thumbnails-v1",
+            "task":"EM-007.07",
+            "exactOriginalFilmSha256":FILM_SHA,
+            "sourceReviewPacketDigest":packet["processPacketDigest"],
+            "originalWavSha256":SOURCE_WAV_SHA,
+            "originalClaimFrameStills":captures,
+            "imagesAreOnlyEightMomentarySamples":True,
+            "allFilmFramesReviewedByHuman":False,
+            "qualifiedIndependentScienceReviewCompleted":False,
+            "mayPublish":False,
+            "approvalToMerge":False,
+        }
+        (temporary/"REVIEW-SAMPLES-RESEARCH-ONLY.json").write_text(
+            json.dumps(result,indent=2,sort_keys=True)+"\\n",encoding="utf8")
+        os.rename(temporary,target)
+    return result
 
 
 def main():
