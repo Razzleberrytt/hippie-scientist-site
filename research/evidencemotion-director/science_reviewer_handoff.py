@@ -17,8 +17,8 @@ from science_gate_process_attestation import (
     strict_json, verify_attestation, write_report_atomically,
 )
 
-SCHEMA = "ths-em00707-qualified-review-intake-v1"
-PACKET_DOMAIN = b"THS/EM00707/REVIEW_INTAKE_NOT_APPROVAL/v1\x00"
+SCHEMA = "ths-em00707-qualified-review-intake-v2"
+PACKET_DOMAIN = b"THS/EM00707/REVIEW_INTAKE_NOT_APPROVAL/v2\x00"
 SOURCES = {
     "pubchem:3034396": "https://pubchem.ncbi.nlm.nih.gov/compound/3034396",
     "pubchem:44301524": "https://pubchem.ncbi.nlm.nih.gov/compound/44301524",
@@ -54,6 +54,8 @@ def frozen_claim_review_windows(gate, frozen_spans):
         or ledger.get("alignmentRevisionSha256")!=SOURCE_ALIGNMENT_REVISION_SHA
         or ledger.get("wordCount")!=73 or ledger.get("assertionCount")!=8
         or ledger.get("mayPublish") is not False
+        or ledger.get("timingAccuracyCalibrated") is not False
+        or ledger.get("inputSha256",{}).get("wav")!=SOURCE_WAV_SHA
         or ledger.get("scienceApproved") is not False
         or gate.get("sourceWavSha256")!=SOURCE_WAV_SHA
         or gate.get("filmSha256")!=FILM_SHA):
