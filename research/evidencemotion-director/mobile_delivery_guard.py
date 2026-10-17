@@ -106,7 +106,10 @@ def screen_local_audio_energy(source, mobile, compared_samples):
     window = LOCAL_AUDIO_WINDOW_STEREO_FRAMES * 2  # interleaved stereo samples
     checked = 0
     minimum = None
-    for start in range(0, compared_samples, window):
+    # Four phase offsets catch complete 2.5ms dropouts straddling fixed bins.
+    # This is still a provisional PCM-energy screen, never phonetic proof.
+    stride = window // 4
+    for start in range(0, compared_samples, stride):
         stop = min(start + window, compared_samples)
         if stop - start < window // 2:
             continue  # tiny trailing fragment: insufficient window
@@ -127,7 +130,8 @@ def screen_local_audio_energy(source, mobile, compared_samples):
         raise Hold('LOCAL_AUDIO_MATERIAL_SOURCE_ENERGY_NOT_OBSERVED')
     return {
         'scope': 'PAIRED_PCM_2_5MS_SOURCE_ACTIVE_ENERGY_NEGATIVE_SCREEN_ONLY',
-        'windowDurationMs': 2.5, 'materialSourceWindowCount': checked,
+        'windowDurationMs': 2.5, 'windowStrideMs': 0.625,
+        'materialSourceWindowCount': checked,
         'sourceRmsFloor': LOCAL_AUDIO_SOURCE_RMS_FLOOR,
         'minimumMobileToSourceWindowEnergyRatio': round(minimum, 6),
         'dropoutRatioFloor': LOCAL_AUDIO_MIN_ENERGY_RATIO,
