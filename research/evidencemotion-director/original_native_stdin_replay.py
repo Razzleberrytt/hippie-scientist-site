@@ -500,7 +500,7 @@ def audit_downloaded_original_movie(artifact_dir, *, expected_geometry=NATIVE,
         probe = subprocess.run([
             original_media_executable("ffprobe"), "-v", "error",
             "-count_frames", "-show_entries",
-            "stream=codec_type,codec_name,width,height,pix_fmt,nb_read_frames,avg_frame_rate,sample_aspect_ratio",
+            "stream=codec_type,codec_name,width,height,pix_fmt,nb_read_frames,avg_frame_rate,sample_aspect_ratio,sample_rate",
             "-of", "json", str(movie),
         ], capture_output=True, check=True, text=True, timeout=80)
         streams = strict_json(probe.stdout).get("streams")
@@ -520,6 +520,24 @@ def audit_downloaded_original_movie(artifact_dir, *, expected_geometry=NATIVE,
             or str(v.get("nb_read_frames")) != str(frames)
             or audios[0].get("codec_name") != "aac"):
         raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_MEDIA_CODEC_OR_FRAME_DRIFT")
+    # Presence of an AAC track does not prove it covers the movie. The actual
+    # archived original is ~34.37 s; a valid 0.05 s AAC track attached to it
+    # still fully decodes and would formerly have passed. FFprobe -count_frames
+    # counts decoded AAC access units (normally 1024 samples). Allow two
+    # 1024-sample access units of encoder priming/end-padding tolerance.
+    audio = audios[0]
+    sr_text, count_text = audio.get("sample_rate"), audio.get("nb_read_frames")
+    if (not isinstance(sr_text, str) or not sr_text.isascii() or not sr_text.isdecimal()
+            or not isinstance(count_text, str) or not count_text.isascii()
+            or not count_text.isdecimal()):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_AAC_COVERAGE_UNPROVEN")
+    sample_rate, decoded_aac_frames = int(sr_text), int(count_text)
+    if not 8000 <= sample_rate <= 192000 or decoded_aac_frames < 1:
+        raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_AAC_COVERAGE_UNPROVEN")
+    minimum_aac_frames = max(
+        1, (frames * sample_rate + 30 * 1024 - 1) // (30 * 1024) - 2)
+    if decoded_aac_frames < minimum_aac_frames:
+        raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_AAC_TOO_SHORT_FOR_FILM")
     try:
         subprocess.run([
             original_media_executable("ffmpeg"), "-nostdin", "-v", "error",
