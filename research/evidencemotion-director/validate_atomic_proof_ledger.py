@@ -29,8 +29,8 @@ def validate(data,source_directory):
         or data.get("noDoubleCountAsserted") is not True):
         hold("DENOMINATOR_OR_ACCEPTANCE_CONTRACT_TAMPER")
     groups=data.get("proofGroups")
-    if not isinstance(groups,list) or len(groups)!=25:
-        hold("EXACT_TWENTY_FIVE_SOURCE_EVIDENCE_GROUPS_REQUIRED")
+    if not isinstance(groups,list) or len(groups)!=26:
+        hold("EXACT_TWENTY_SIX_SOURCE_EVIDENCE_GROUPS_REQUIRED")
     sources={
         "EM-001.01":"EM00101-THREE-HOSTED-CPU-RUNS-20261016.md",
         "EM-001.02":"EM00102-CPU-ONLY-PLAYABLE-ARTIFACT-20261016.md",
@@ -74,6 +74,10 @@ def validate(data,source_directory):
         ids=record.get("cards")
         if not isinstance(ids,list) or not ids:
             hold("NO_ACTUAL_EVIDENCE_CARD_IDS")
+        # EM00707 has ONLY machine-verifiable pre-review U/S/O; never count
+        # independent reviewer execution, outcome, negatives or signoff as passed.
+        if group == "EM-007.07" and (ids != ["EM-007.07.U", "EM-007.07.S", "EM-007.07.O"]):
+            hold("EM00707_INDEPENDENT_REVIEW_NOT_RECEIVED_NO_X_T_N_R_CREDIT")
         for card in ids:
             if not isinstance(card,str) or not CARD.fullmatch(card):
                 hold("INVALID_ATOMIC_CARD_ID")
