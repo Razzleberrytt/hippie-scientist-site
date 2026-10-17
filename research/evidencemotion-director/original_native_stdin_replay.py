@@ -111,6 +111,43 @@ def physical_environment(*, sources, fonts, wav, candidate, encoder_mode):
     return environment
 
 
+def assert_original_replay_inputs_unchanged(*, sources, fonts, wav, candidate,
+                                            environment):
+    """Fail closed if pinned physical inputs change during a long native render.
+
+    Environment fingerprinting before the render is insufficient: the 1,031
+    source frames plus independent encoded-film decode take time. Check the
+    original paths and bytes again *before* the successful job receipt.
+    This is an end-point continuity check, not an atomic filesystem snapshot.
+    """
+    from original_replay_source_restore import PINNED
+
+    source_hashes = environment.get("sourceHashesSha256")
+    font_hashes = environment.get("fontHashesSha256")
+    if (not isinstance(source_hashes, dict) or set(source_hashes) != set(PINNED)
+            or not isinstance(font_hashes, dict)
+            or set(font_hashes) != {"DejaVuSans.ttf", "DejaVuSans-Bold.ttf"}):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:ORIGINAL_REPLAY_INPUT_INVENTORY_CHANGED")
+
+    files = ([(Path(sources) / name, digest, "RENDERER_SOURCE")
+              for name, digest in sorted(source_hashes.items())] +
+             [(Path(fonts) / name, digest, "FONT")
+              for name, digest in sorted(font_hashes.items())] +
+             [(Path(wav), environment.get("wavSha256"), "NARRATION_WAV"),
+              (Path(candidate), environment.get("alignmentCandidateSha256"), "ALIGNMENT"),
+              (Path(original_media_executable("ffmpeg")),
+               environment.get("ffmpegExecutableSha256"), "ENCODER_BINARY")])
+    for path, expected, category in files:
+        if (not isinstance(expected, str) or len(expected) != 64
+                or any(ch not in "0123456789abcdef" for ch in expected)
+                or not path.is_file() or path.is_symlink()
+                or sha_file(path) != expected):
+            raise ValueError(
+                "NATIVE_ORIGINAL_HOLD:ORIGINAL_REPLAY_INPUT_CHANGED_DURING_RENDER:"
+                + category)
+    return True
+
+
 def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
     import PIL
     from PIL import Image
@@ -216,6 +253,16 @@ def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
             raise ValueError("NATIVE_ORIGINAL_HOLD:REAL_ENCODED_FILM_FRAME_OR_FORMAT_DRIFT")
         subprocess.run([original_media_executable("ffmpeg"), "-v", "error", "-xerror", "-i", str(movie),
                         "-f", "null", "-"], check=True, capture_output=True, timeout=120)
+        assert_original_replay_inputs_unchanged(
+            sources=source_dir, fonts=font_dir, wav=wav_path,
+            candidate=align_path, environment=environment)
+        if (sha_file(archive_root / "render-receipt.json") != ORIGINAL_TIMED_RECEIPT_SHA256
+                or any(sha_file(archive_root / f"source_frame_{index:04d}.png")
+                       != ARCHIVED_PNG_SHA[index] for index in SAMPLE_INDEX_SET)
+                or sha_file(out_dir / "environment.json") != sha(
+                    (json.dumps(environment, indent=2) + "\n").encode("utf-8"))
+                or sha_file(movie) != receipt["filmSha256"]):
+            raise ValueError("NATIVE_ORIGINAL_HOLD:ORIGINAL_REPLAY_EVIDENCE_CHANGED_DURING_RENDER")
         proof = {
             "schema": "ths-em-original-stdin-full-native-replay-job-v1",
             "status": "ONE_ORIGINAL_SOURCE_RENDER_RESEARCH_ONLY",
