@@ -2,7 +2,7 @@
 import copy,hashlib,sys,tempfile,unittest,subprocess
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-from caption_variant_review import parse_srt,row_stats,analyze,compare,physically_decode,fail,W,H
+from caption_variant_review import parse_srt,row_stats,analyze,compare,physically_decode,frame_pts_exact,fail,W,H
 HSH='a'*64;OTHER='b'*64
 
 def stamp(sec):
@@ -12,7 +12,7 @@ def synthetic_srt():
     return ('\n\n'.join(f'{i}\n{stamp(i-1)} --> {stamp(i)}\nexample phrase {i}' for i in range(1,20))+'\n').encode()
 def fixture():
     cues=parse_srt(synthetic_srt());n=570
-    a=[{'index':i,'brightPixels':80,'largestInkLinePx320':12,'inkEnvelopeY320':[476,487]} for i in range(n)]
+    a=[{'index':i,'pts':i/30,'brightPixels':80,'largestInkLinePx320':12,'inkEnvelopeY320':[476,487]} for i in range(n)]
     return a,cues,n
 
 class CaptionCounterfactualTests(unittest.TestCase):
@@ -36,6 +36,39 @@ class CaptionCounterfactualTests(unittest.TestCase):
         r=compare(a,b,c,n,HSH,OTHER)
         self.assertEqual(r['verdict'],'NEGATIVE_SCREENS_EMPTY_EXTERNAL_QA_STILL_REQUIRED')
         self.assertFalse(r['mayPublish']);self.assertFalse(r['qualifiedScienceApproved'])
+    def test_no_visible_caption_ink_yields_explicit_hold_instead_of_crash(self):
+        a,c,n=fixture();b=copy.deepcopy(a)
+        for record in b[:30]:
+            record['brightPixels']=0
+            record['largestInkLinePx320']=0
+            record['inkEnvelopeY320']=None
+        result=compare(a,b,c,n,HSH,OTHER)
+        self.assertEqual(result['after']['cuesWithoutDetectedInk'],[1])
+        self.assertIsNone(result['after']['perCue'][0]['minTopY320'])
+        self.assertIsNone(result['after']['perCue'][0]['maxBottomY320'])
+        self.assertEqual(result['verdict'],'NO_DETECTED_CAPTION_INK_RELEASE_HOLD')
+        self.assertFalse(result['mayPublish'])
+
+    def test_invalid_or_missing_actual_frame_pts_cannot_pass(self):
+        a,c,n=fixture()
+        for value in (None,float('nan'),0.25):
+            with self.subTest(value=value):
+                b=copy.deepcopy(a);b[0]['pts']=value
+                with self.assertRaisesRegex(ValueError,'INVALID_FRAME_SEQUENCE_OR_ANNOTATION'):
+                    compare(a,b,c,n,HSH,OTHER)
+
+    def test_shifted_but_encoded_30fps_presentation_timestamp_fails_closed(self):
+        # Real stream still declares 30 fps while every PTS is offset.
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'shifted.mp4'
+            cmd=['ffmpeg','-nostdin','-v','error','-f','lavfi',
+                 '-i','color=c=black:s=1080x1920:r=30:d=0.4',
+                 '-vf','setpts=PTS+0.5/TB','-c:v','libx264','-preset','ultrafast',
+                 '-pix_fmt','yuv420p','-an','-y',str(p)]
+            subprocess.run(cmd,check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=25)
+            with self.assertRaisesRegex(ValueError,'ACTUAL_PRESENTATION_TIMESTAMPS_NOT_ZERO_ORIGIN_CFR30'):
+                frame_pts_exact(p,12)
+
     def test_missing_duplicated_or_reordered_frame_holds(self):
         a,c,n=fixture()
         for invalid in (a[:-1],a+[dict(a[-1])],a[1:]+a[:1]):
