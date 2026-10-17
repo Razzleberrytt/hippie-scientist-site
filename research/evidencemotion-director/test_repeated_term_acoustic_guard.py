@@ -929,6 +929,17 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
         # digital-zero PCM and a stand-in receipt/film. NOT authentic media.
         original, film, old_receipt = (
             OriginalDigitalZeroNegativeTests.frame_native_plan_fixture())
+        # Preserve the exact 27.65..31.09s digital-zero interval; model the
+        # real-world low-level post-zero noise separately from audible attack.
+        with wave.open(io.BytesIO(original), "rb") as w:
+            original_pcm = np.frombuffer(
+                w.readframes(w.getnframes()), dtype="<i2").copy()
+        original_pcm[746160:round(31.26*24000)] = 1
+        out = io.BytesIO()
+        with wave.open(out, "wb") as w:
+            w.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            w.writeframes(original_pcm.tobytes())
+        original = out.getvalue()
         mfa_words = [
             {"word": f"w{i}", "startMs": 100+i*420,
              "endMs": 300+i*420} for i in range(63)]
@@ -998,6 +1009,13 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
                          "RESEARCH_ARCHIVED_SUFFIX_WORD_REVIEW_HOLD", report)
         self.assertEqual(report["cueCount"], 9)
         self.assertEqual(report["impossibleAsrOnsetCount"], 1)
+        rise = report["postSilenceSustainedSignalRise"]
+        self.assertEqual(rise["firstQualifyingWindowSec"], 31.26)
+        self.assertEqual(rise["firstCaptionCueMinusSignalRiseMs"], -10.0)
+        self.assertEqual(rise["firstEligibleVideoFrameMinusSignalRiseMs"], 6.667)
+        self.assertEqual(rise["signalRiseMinusFirstAsrHypothesisMs"], 460.0)
+        self.assertFalse(rise["phonemeOrWordOnsetIdentified"])
+        self.assertTrue(rise["researchEnergyHeuristicOnly"])
         self.assertEqual(report["cueReviewRows"][0]["captionWord"], "That's")
         self.assertEqual(report["cueReviewRows"][0][
             "firstMathematicallyEligibleVideoFrame"], 938)
@@ -1015,6 +1033,58 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
                     "wordTimingCalibrated", "captionTimingApproved",
                     "nativeFilmModified", "independentHumanListeningVerified"):
             self.assertFalse(report[key])
+
+    def test_post_silence_single_10ms_glitch_is_not_speech_onset(self):
+        original, mfa, asr, film, receipt = (
+            self.original_suffix_scene_fixture())
+        with wave.open(io.BytesIO(original), "rb") as w:
+            pcm = np.frombuffer(w.readframes(w.getnframes()), "<i2").copy()
+        pcm[round(31.14*24000):round(31.15*24000)] = 6000
+        stream = io.BytesIO()
+        with wave.open(stream, "wb") as w:
+            w.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            w.writeframes(pcm.tobytes())
+        amended = stream.getvalue()
+        a = json.loads(mfa)
+        a["inputSha256"]["wav"] = digest(amended)
+        b = json.loads(asr)
+        b["sourceWavSha256"] = digest(amended)
+        receipt_obj = json.loads(receipt)
+        receipt_obj["sourceWavSha256"] = digest(amended)
+        report = self.check_suffix_scene((
+            amended, json.dumps(a).encode(), json.dumps(b).encode(),
+            film, json.dumps(receipt_obj).encode()))
+        self.assertEqual(report["status"],
+                         "RESEARCH_ARCHIVED_SUFFIX_WORD_REVIEW_HOLD", report)
+        self.assertEqual(report["postSilenceSustainedSignalRise"][
+            "firstQualifyingWindowSec"], 31.26)
+        self.assertFalse(report["wordTimingCalibrated"])
+
+    def test_post_zero_without_sustained_rise_does_not_fake_time(self):
+        original, mfa, asr, film, receipt = (
+            self.original_suffix_scene_fixture())
+        with wave.open(io.BytesIO(original), "rb") as w:
+            pcm = np.frombuffer(w.readframes(w.getnframes()), "<i2").copy()
+        pcm[746160:round(31.60*24000)] = 1
+        stream = io.BytesIO()
+        with wave.open(stream, "wb") as w:
+            w.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            w.writeframes(pcm.tobytes())
+        amended = stream.getvalue()
+        a = json.loads(mfa)
+        a["inputSha256"]["wav"] = digest(amended)
+        b = json.loads(asr)
+        b["sourceWavSha256"] = digest(amended)
+        receipt_obj = json.loads(receipt)
+        receipt_obj["sourceWavSha256"] = digest(amended)
+        report = self.check_suffix_scene((
+            amended, json.dumps(a).encode(), json.dumps(b).encode(),
+            film, json.dumps(receipt_obj).encode()))
+        self.assertEqual(report["status"], "HOLD")
+        self.assertIn("SUFFIX_CUES_POST_ZERO_SUSTAINED_SIGNAL_NOT_FOUND",
+                      report["errors"])
+        self.assertFalse(report["mayPublish"])
+
 
     def test_archived_suffix_source_pin_or_incorrect_text_holds(self):
         five = self.original_suffix_scene_fixture()
