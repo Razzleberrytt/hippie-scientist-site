@@ -1201,6 +1201,149 @@ def audit_revised_aac_packet_timeline_files(archived_path, revised_path):
         return reject("REVISED_AUDIO_CONTAINER_PROBE_UNREADABLE")
 
 
+# Newer Lane3 first-party opt-in phone-footnotes film: UNAPPROVED research.
+REVISED_SCENE4_PHONE_FOOTNOTES_FILM_SHA = "7a3440aab731082233cb5f700fd40b030c1de0d4ee3d6b011b38e348a98f47c9"
+
+
+def audit_revised_caption_voice_gaps(source_raw, frame_ink_counts,
+                                      revised_film_sha, adts_sha):
+    """Screen actual frame caption presence against source voice energy.
+
+    Frame counts are caller-supplied. To bind them to the *physical* MP4,
+    use audit_revised_caption_voice_gaps_files, never the pure function alone.
+    No OCR or word-level phonetics are inferred from bright pixels.
+    """
+    base = {"schema": SCHEMA, "mayPublish": False,
+            "pronunciationVerified": False, "wordTimingCalibrated": False,
+            "captionTimingApproved": False, "audioCraftApproved": False,
+            "actualPhoneReviewApproved": False,
+            "sourceMediaModified": False,
+            "physicalVideoFrameDecodeVerifiedByThisFunction": False}
+    def reject(reason):
+        return {**base, "status": "HOLD", "errors": [reason]}
+    permitted = (REVISED_SCENE4_V2B_FILM_SHA,
+                 REVISED_SCENE4_PHONE_FOOTNOTES_FILM_SHA)
+    if (not isinstance(revised_film_sha, str)
+            or revised_film_sha not in permitted
+            or adts_sha != REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA):
+        return reject("CAPTION_GAP_REVISED_FILM_OR_AAC_NOT_SOURCE_PINNED")
+    if (not isinstance(source_raw, bytes)
+            or digest(source_raw) != SOURCE_WAV_REFERENCE):
+        return reject("CAPTION_GAP_ORIGINAL_VOICE_SHA_MISMATCH")
+    if (not isinstance(frame_ink_counts, (list, tuple))
+            or len(frame_ink_counts) != 94
+            or any(type(x) is not int or x < 0 or x > 79000
+                   for x in frame_ink_counts)):
+        return reject("CAPTION_GAP_FRAME_COUNT_OR_PIXEL_SCHEMA_INVALID")
+    try:
+        with wave.open(io.BytesIO(source_raw), "rb") as w:
+            if ((w.getnchannels(), w.getsampwidth(), w.getframerate(),
+                 w.getnframes()) != (1, 2, 24000, 824336)):
+                return reject("CAPTION_GAP_SOURCE_FORMAT_INVALID")
+            raw = w.readframes(w.getnframes())
+        samples = np.frombuffer(raw, "<i2").astype(np.float64)/32768
+        blank, voiced, ambiguous = [], [], []
+        for idx, count in enumerate(frame_ink_counts):
+            f = 937 + idx
+            lo, hi = f*800, min((f+1)*800, len(samples))
+            chunk = samples[lo:hi]
+            if not len(chunk):
+                return reject("CAPTION_GAP_SOURCE_FRAME_NOT_PRESENT")
+            rms = float(np.sqrt(np.mean(chunk*chunk)))
+            entry = {"frame": f, "startSec": round(f/30, 6),
+                     "sourceVoiceFrameRms": round(rms, 7),
+                     "captionRoiBrightPixels": count}
+            if count <= 50:
+                blank.append(entry)
+                if rms >= .01:
+                    voiced.append(entry)
+            elif count < 700:
+                ambiguous.append(entry)
+        summary = {
+            "filmSha256": revised_film_sha,
+            "sourceWavSha256": SOURCE_WAV_REFERENCE,
+            "encodedAudioAdtsSha256": adts_sha,
+            "decodedRoi": {"x":60, "y":1290,"width":790, "height":100,
+                           "pixelFormat":"gray8","brightThresholdInclusive":135},
+            "frameStartInclusive":937,"frameEndInclusive":1030,
+            "sourceSamplesPer30FpsFrame":800,
+            "sourceRmsVoicedThresholdInclusive":.01,
+            "captionConsideredAbsentMaxBrightPixels":50,
+            "captionConsideredPresentMinBrightPixels":700,
+            "totalFramesChecked":len(frame_ink_counts),
+            "visuallyBlankFrames":len(blank),
+            "captionPresentFrames":len(frame_ink_counts)-len(blank)-len(ambiguous),
+            "ambiguousRoiFrames":ambiguous[:30],
+            "blankFramesWithSourceSpeechEnergy":voiced[:30],
+            "allVisualBlankFrameMeasurements":blank,
+            "phonemeOrWordIdentityVerified":False,
+            "audioAndCaptionWordBoundariesCalibrated":False,
+            "realDecodedFramesRequiredForProductionClaim":True,
+        }
+        if ambiguous:
+            return {**base, "status":"HOLD",
+                    "errors":["CAPTION_GAP_ROI_INDETERMINATE"],
+                    **summary}
+        if voiced:
+            return {**base, "status":"HOLD",
+                    "errors":["CAPTION_GAP_VOICE_ACTIVE_WITHOUT_CAPTION"],
+                    **summary}
+        return {**base,
+                "status":"RESEARCH_REVISED_CAPTION_VOICE_GAP_SCREEN_HOLD",
+                "caution":"Sample-energy threshold is uncalibrated; true phones "
+                          "and words cannot be inferred from brightness or RMS.",
+                **summary}
+    except (OSError, EOFError, wave.Error, ValueError, TypeError,
+            FloatingPointError):
+        return reject("CAPTION_GAP_AUDIO_OR_ROI_PARSE_FAILED")
+
+
+def audit_revised_caption_voice_gaps_files(wav_path, film_path):
+    """Physically decode 94 real native H264 frames; source and AAC SHA-gated."""
+    import subprocess
+    def reject(reason):
+        return {"schema":SCHEMA, "status":"HOLD", "errors":[reason],
+                "mayPublish":False, "wordTimingCalibrated":False,
+                "captionTimingApproved":False}
+    try:
+        paths = (Path(wav_path), Path(film_path))
+        if any(p.is_symlink() or not p.is_file()
+               or not 1000 < p.stat().st_size <= lim
+               for p,lim in zip(paths,(3000000,10000000))):
+            return reject("CAPTION_GAP_REQUIRED_FILES_MISSING_OR_UNSAFE")
+        wav_raw, film_raw = (p.read_bytes() for p in paths)
+        film_sha = digest(film_raw)
+        if (digest(wav_raw) != SOURCE_WAV_REFERENCE or
+                film_sha not in (REVISED_SCENE4_V2B_FILM_SHA,
+                    REVISED_SCENE4_PHONE_FOOTNOTES_FILM_SHA)):
+            return reject("CAPTION_GAP_PINNED_SOURCES_CHANGED")
+        adts_cmd=["ffmpeg","-nostdin","-v","error","-xerror",
+                  "-i",str(paths[1]),"-map","0:a:0","-c:a","copy",
+                  "-f","adts","-"]
+        audio = subprocess.run(adts_cmd,capture_output=True,timeout=35)
+        if audio.returncode != 0 or digest(audio.stdout) != REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA:
+            return reject("CAPTION_GAP_ENCODED_AAC_SOURCE_CHANGED")
+        cmd=["ffmpeg","-nostdin","-v","error","-xerror",
+             "-i",str(paths[1]),"-map","0:v:0",
+             "-vf","select='between(n,937,1030)',crop=790:100:60:1290,format=gray",
+             "-fps_mode","passthrough","-f","rawvideo","-pix_fmt","gray","-"]
+        rendered=subprocess.run(cmd,capture_output=True,timeout=45)
+        if rendered.returncode != 0 or len(rendered.stdout)!=94*790*100:
+            return reject("CAPTION_GAP_ACTUAL_FRAME_DECODE_FAILED")
+        frames=np.frombuffer(rendered.stdout, np.uint8).reshape(94,100,790)
+        ink=[int(np.count_nonzero(f>=135)) for f in frames]
+        if digest(paths[0].read_bytes())!=SOURCE_WAV_REFERENCE or digest(paths[1].read_bytes())!=film_sha:
+            return reject("CAPTION_GAP_MEDIA_CHANGED_DURING_DECODE")
+        result=audit_revised_caption_voice_gaps(
+            wav_raw, ink, film_sha, digest(audio.stdout))
+        result["physicalVideoFrameDecodeVerifiedByThisFunction"]=True
+        result["actualDecodedGrayscaleRoiSha256"]=digest(rendered.stdout)
+        result["originalAndRevisedSourcesRehashedAfterDecode"]=True
+        return result
+    except (OSError, ValueError, TypeError, subprocess.TimeoutExpired):
+        return reject("CAPTION_GAP_PHYSICAL_DECODE_UNAVAILABLE")
+
+
 def audit_archived_encoded_audio_sync(source_raw, video_raw, receipt_raw, decoded_pcm_f32le):
     """Screen *original* WAV versus lossy encoded AAC signal, never phonemes.
 
@@ -2333,6 +2476,8 @@ def main(argv=None):
     p.add_argument("--original-wav", help="Pinned original full 24 kHz source WAV")
     p.add_argument("--mfa-receipt", help="Pinned first-party original MFA run receipt")
     p.add_argument("--mfa-alignment", help="Pinned original MFA word alignment candidate")
+    p.add_argument("--revised-caption-voice-gap", action="store_true",
+                   help="Physically decode pinned revised film subtitle ROI vs original source RMS")
     p.add_argument("--revised-aac-packet-timeline", action="store_true",
                    help="Research only: SHA-pinned archived vs revised AAC packets, not release")
     p.add_argument("--revised-research-film", help="SHA-pinned Scene4 v2b encoded film")
@@ -2364,7 +2509,23 @@ def main(argv=None):
     p.add_argument("--pose-internal-contrasts", action="store_true",
                    help="Produce source-pinned same-narrator comparisons; NEVER a phoneme verdict")
     a=p.parse_args(argv)
-    if a.revised_aac_packet_timeline:
+    if a.revised_caption_voice_gap:
+        if (not a.original_wav or not a.revised_research_film
+                or any((a.native_research_film, a.native_render_receipt,
+                        a.revised_aac_packet_timeline, a.mfa_receipt,
+                        a.mfa_alignment, a.archived_aac_sync_review,
+                        a.frame_native_pause_plan, a.original_pause_audition_audit,
+                        a.pause_preview_wav, a.pause_retained_ms,
+                        a.original_dead_air_review, a.cross_model_timing_review,
+                        a.human_review_json, a.mfa_zero_interval_audit,
+                        a.asr_zero_onset_audit, a.pose_asr_receipt,
+                        a.reference_benchmark_zip, a.reference_target_wav,
+                        a.pose_internal_contrasts, a.source_archive))):
+            result=hold("CAPTION_GAP_REQUIRES_EXCLUSIVE_ORIGINAL_WAV_AND_REVISED_FILM")
+        else:
+            result=audit_revised_caption_voice_gaps_files(
+                a.original_wav,a.revised_research_film)
+    elif a.revised_aac_packet_timeline:
         if (not a.native_research_film or not a.revised_research_film
                 or any((a.original_wav, a.mfa_receipt, a.mfa_alignment,
                         a.native_render_receipt, a.archived_aac_sync_review,
