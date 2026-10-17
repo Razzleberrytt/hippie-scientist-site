@@ -1,8 +1,8 @@
 {
   "schema": "ths-atomic-workcard-proof-ledger-v1",
-  "recordedDate": "2026-10-16",
+  "recordedDate": "2026-10-17",
   "authoritativePlanningIndex": "https://github.com/Razzleberrytt/hippie-scientist-site/blob/main/research/evidencemotion-director/ATOMIC-EXECUTION-INDEX.md",
-  "note": "25 exact-source machine research proof groups, 165 individually machine-audited research-only atoms + 707 inherited provisional NOT individually audited, total 872/1590. New EM-008.04 independent OCR Tesseract v5.3.4 recovered two exact disclosure lines 18/18 simulated phone-width/time/mode views from true H264 self-authored botanical test fixture and refused 8 missing/false assay negative controls. This is NOT physical iPhone or validated human-readability predictor; actual original botanically authenticated film, all-frame independent OCR, qualified science EM-007.07, first-render approval 0/1 + 0/5, production release all HOLD. No botanical assay claims, mayPublish=false.",
+  "note": "26 exact-source machine research evidence groups, 168 individually machine-audited research-only atomic stages + 707 inherited provisional NOT individually audited = 875/1590 (55.0314%). Newly reconciled EM-007.07 U/S/O are one source-locked original spoken-001 claim, real original H264/WAV/source IDs, and independent-review fail-closed acceptance oracle ONLY. EM-007.07 X/T/N/R remain deliberately UNVERIFIED: no qualified/calibrated independent scientific reviewer actual-film verdict, no human/device/craft acceptance. No 7-OH current-film science release or gut-absorption Scene2 remedy. Parent science milestone, excellent-first-render and varied-streak, promotion/merge/posting all remain HOLD; mayPublish=false.",
   "denominator": 1590,
   "inheritedMappedToAcceptedFoundationsNotIndividuallyAudited": 707,
   "status": "PROVISIONAL_COVERAGE_NOT_FINAL_ACCEPTANCE",
@@ -323,11 +323,20 @@
         "EM-008.04.N",
         "EM-008.04.R"
       ]
+    },
+    {
+      "group": "EM-007.07",
+      "source": "EM00707-ONE-CLAIM-INDEPENDENT-SCIENCE-PREREQUISITES-20261017.md",
+      "cards": [
+        "EM-007.07.U",
+        "EM-007.07.S",
+        "EM-007.07.O"
+      ]
     }
   ],
-  "individualMachineVerifiedResearchCardCount": 165,
-  "provisionalCoverageCardCount": 872,
-  "provisionalCoveragePercent": 54.8428,
+  "individualMachineVerifiedResearchCardCount": 168,
+  "provisionalCoverageCardCount": 875,
+  "provisionalCoveragePercent": 55.0314,
   "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
   "noDoubleCountAsserted": true
 }
