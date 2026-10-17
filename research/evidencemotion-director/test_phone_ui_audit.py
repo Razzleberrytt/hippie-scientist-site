@@ -1596,6 +1596,68 @@ class ActualMediaStreamIdentityTests(unittest.TestCase):
             self.assertEqual((w, h, frames), (160, 288, 30))
             self.assertAlmostEqual(duration, 1.0)
 
+    def encoded_color_signaled_h264(self, root, name, parameters):
+        # The actual x264 elementary bitstream carries these VUI flags.
+        # Re-probe each emitted MP4: a command-line argument alone is NOT
+        # evidence that the payload contains the intended transfer metadata.
+        movie = root / (name + ".mp4")
+        subprocess.run([
+            "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+            "-f", "lavfi", "-i", "color=c=blue:s=160x288:r=30:d=1",
+            "-c:v", "libx264", "-preset", "ultrafast", "-pix_fmt", "yuv420p",
+            "-x264-params", parameters, "-an", str(movie)
+        ], capture_output=True, timeout=50, check=True)
+        info = json.loads(subprocess.run([
+            "ffprobe", "-v", "error", "-select_streams", "v:0",
+            "-show_entries", "stream=codec_name,pix_fmt,color_transfer,color_primaries,color_space",
+            "-of", "json", str(movie)
+        ], capture_output=True, text=True, timeout=20, check=True).stdout)
+        self.assertEqual(info["streams"][0]["codec_name"], "h264")
+        self.assertEqual(info["streams"][0]["pix_fmt"], "yuv420p")
+        return movie, info["streams"][0]
+
+    def test_real_bt709_signaled_sdr_h264_remains_valid_research_source(self):
+        with tempfile.TemporaryDirectory() as directory:
+            movie, info = self.encoded_color_signaled_h264(
+                Path(directory), "bt709",
+                "colorprim=bt709:transfer=bt709:colormatrix=bt709")
+            for key in ("color_transfer", "color_primaries", "color_space"):
+                self.assertEqual(info[key], "bt709")
+            self.assertEqual(probe_movie(movie)[3], 30)
+
+    def test_real_pq_hdr_transfer_is_not_accepted_as_sdr_phone_overlay(self):
+        with tempfile.TemporaryDirectory() as directory:
+            movie, info = self.encoded_color_signaled_h264(
+                Path(directory), "pq",
+                "colorprim=bt709:transfer=smpte2084:colormatrix=bt709")
+            self.assertEqual(info["color_transfer"], "smpte2084")
+            self.assertEqual(info["color_primaries"], "bt709")
+            with self.assertRaisesRegex(ValueError,
+                                        "NON_SDR_PHONE_COLOR_METADATA:color_transfer"):
+                probe_movie(movie)
+
+    def test_real_hlg_hdr_transfer_is_not_accepted_as_sdr_phone_overlay(self):
+        with tempfile.TemporaryDirectory() as directory:
+            movie, info = self.encoded_color_signaled_h264(
+                Path(directory), "hlg",
+                "colorprim=bt709:transfer=arib-std-b67:colormatrix=bt709")
+            self.assertEqual(info["color_transfer"], "arib-std-b67")
+            self.assertEqual(info["color_space"], "bt709")
+            with self.assertRaisesRegex(ValueError,
+                                        "NON_SDR_PHONE_COLOR_METADATA:color_transfer"):
+                probe_movie(movie)
+
+    def test_real_bt2020_primaries_cannot_masquerade_as_rec709(self):
+        with tempfile.TemporaryDirectory() as directory:
+            movie, info = self.encoded_color_signaled_h264(
+                Path(directory), "bt2020",
+                "colorprim=bt2020:transfer=bt709:colormatrix=bt709")
+            self.assertEqual(info["color_primaries"], "bt2020")
+            self.assertEqual(info["color_transfer"], "bt709")
+            with self.assertRaisesRegex(ValueError,
+                                        "NON_SDR_PHONE_COLOR_METADATA:color_primaries"):
+                probe_movie(movie)
+
     def test_actual_matroska_renamed_mp4_does_not_pass_container_gate(self):
         # The filename is deliberately .mp4 but the real multiplexed bytes
         # are Matroska. Codec, SAR, chroma and timestamps stay valid.
