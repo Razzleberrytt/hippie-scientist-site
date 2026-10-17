@@ -1,0 +1,49 @@
+name: THS Phenibut Real Acoustic Captions (Research)
+on:
+  push:
+    branches:
+      - research/phenibut-20261017-video
+    paths:
+      - research/evidencemotion-director/phenibut-20261017/align_real_voice.py
+      - .github/workflows/phenibut-20261017-mfa.yml
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  acoustic-align:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-name: mfa-env
+          create-args: >-
+            -c conda-forge
+            python=3.11
+            montreal-forced-aligner
+          cache-environment: true
+      - name: Retrieve exact original narrator artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p phenibut-original-voice
+          gh run download 39042114855 -R Razzleberrytt/hippie-scientist-site -n phenibut-original-kokoro-unreviewed-speech -D phenibut-original-voice
+          echo '01717a6642e4f179ba5349252b20ac595f3662c746a01ca9a2f385cc3e012481  phenibut-original-voice/Phenibut_ORIGINAL_KOKORO.wav' | sha256sum -c -
+      - name: Fetch free offline MFA acoustic model and lexicon
+        shell: bash -el {0}
+        run: |
+          micromamba run -n mfa-env mfa model download acoustic english_us_arpa
+          micromamba run -n mfa-env mfa model download dictionary english_us_arpa
+      - name: Generate verified acoustic times (fail closed on mismatch)
+        shell: bash -el {0}
+        run: micromamba run -n mfa-env python research/evidencemotion-director/phenibut-20261017/align_real_voice.py
+      - name: Preserve raw alignment and draft even if run fails
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phenibut-20261017-original-acoustic-word-timings
+          path: phenibut-mfa/
+          if-no-files-found: warn
+          retention-days: 7
