@@ -38,6 +38,10 @@ def reconcile(ledger_data, source_directory, observation):
             raise ValueError("date conflict")
     except (ValueError,AttributeError,TypeError):
         raise ValueError("PROGRESS_HOLD:OBSERVATION_TIMESTAMP_NOT_SOURCE_BOUND")
+    window_start=observation.get("mergedWindowStart",observation["observedDate"])
+    if (not re.fullmatch(r"20\d{2}-\d{2}-\d{2}",str(window_start))
+        or window_start>observation["observedDate"]):
+        raise ValueError("PROGRESS_HOLD:INVALID_MERGE_WINDOW")
     merged=observation["mergedPRs"]
     numbers=set()
     commits=defaultdict(list)
@@ -53,7 +57,7 @@ def reconcile(ledger_data, source_directory, observation):
         title,sha,stamp=item.get("title"),item.get("mergeCommitSha"),item.get("mergedAt")
         if (not isinstance(title,str) or not title or not isinstance(sha,str)
             or not SHA.fullmatch(sha) or not isinstance(stamp,str)
-            or not stamp.startswith(observation["observedDate"]+"T")
+            or not (window_start<=stamp[:10]<=observation["observedDate"])
             or item.get("url")!=f"https://github.com/Razzleberrytt/hippie-scientist-site/pull/{n}"
             or not any(token in title.lower() for token in ("evidencemotion", "gut-absorption"))):
             raise ValueError("PROGRESS_HOLD:MERGE_SOURCE_OR_DAY_MISMATCH")
@@ -94,7 +98,8 @@ def reconcile(ledger_data, source_directory, observation):
         "schema":"ths-em-progress-reconciliation-v1",
         "sourceObservationDate":observation["observedDate"],
         "sourceObservationAtUtc":observation.get("observedAtUtc"),
-        "sourceMode":"DATED_VERIFIED_SNAPSHOT_NOT_LIVE",
+        "sourceMode":("LIVE_GITHUB_API_CHECKED" if observation.get("source")=="LIVE_GITHUB_API_VERIFIED" else "DATED_VERIFIED_SNAPSHOT_NOT_LIVE"),
+        "mergeWindowStart":window_start,
         "freshness":("DATED_CURRENT_OBSERVATION" if
                      datetime.now(timezone.utc).date().isoformat()==observation["observedDate"]
                      else "HISTORICAL_SNAPSHOT_NOT_LIVE"),
