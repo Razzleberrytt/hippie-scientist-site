@@ -44,6 +44,29 @@ class ExactMasterGateTests(unittest.TestCase):
     def test_true_peak_parser_is_separate_from_lufs(self):
         txt='Summary:\nIntegrated loudness:\nI: -16.0 LUFS\nLoudness range:\nLRA: 4.0 LU\nTrue peak:\nPeak: -0.2 dBFS'
         self.assertGreater(gate.extract_ebur128(txt)['true_peak_dbtp'],gate.MAX_TRUE_PEAK)
+    def test_early_exit_explicit_fail_status(self):
+        missing=gate.audit(Path('/missing/does-not-exist.mp4'),'0'*64,None,None,[])
+        self.assertEqual(missing['status'],'FAIL')
+        with tempfile.TemporaryDirectory() as tmp:
+            video=Path(tmp)/'bad.mp4'; video.write_bytes(b'garbage')
+            mismatch=gate.audit(video,'0'*64,None,None,[])
+            self.assertEqual(mismatch['status'],'FAIL')
+
+    def test_cli_never_overwrites_original_video_or_caption(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            video=Path(tmp)/'real.mp4'; video.write_bytes(b'precious-original')
+            caption=Path(tmp)/'text.srt'; caption.write_bytes(b'precious-srt')
+            for target in (video,caption):
+                rc=gate.main(['--video',str(video),'--expected-sha256',gate.sha256(video),
+                              '--captions',str(caption),'--output',str(target)])
+                self.assertEqual(rc,1)
+                self.assertEqual(video.read_bytes(),b'precious-original')
+                self.assertEqual(caption.read_bytes(),b'precious-srt')
+            alias=Path(tmp)/'alias.mp4'; alias.symlink_to(video)
+            self.assertEqual(gate.main(['--video',str(video),'--expected-sha256',gate.sha256(video),
+                                        '--output',str(alias)]),1)
+            self.assertEqual(video.read_bytes(),b'precious-original')
+
     def test_hash_lock_is_cryptographic(self):
         with tempfile.TemporaryDirectory() as tmp:
             f=Path(tmp)/'sample.mp4';f.write_bytes(b'123')
