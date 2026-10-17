@@ -39,6 +39,16 @@ class AudioOnlyRemasterTests(unittest.TestCase):
     def tearDownClass(cls):
         cls.temp.cleanup()
 
+    def test_short_nonsilent_aac_prefix_cannot_pass_as_complete_remaster(self):
+        short = self.root/'short-prefix.mp4'
+        subprocess.run(['ffmpeg','-v','error','-i',str(self.orig),
+                        '-map','0:v:0','-map','0:a:0','-c:v','copy',
+                        '-af','atrim=duration=0.1,volume=2','-c:a','aac',
+                        '-y',str(short)],check=True,timeout=30)
+        with self.assertRaisesRegex(ValueError, 'AUDIO_TRACK_DOES_NOT_COVER_VIDEO'):
+            inspect(source=self.orig, remaster=short,
+                    source_sha=sha(self.orig), remaster_sha=sha(short))
+
     def test_physical_audio_only_replay_held_not_promoted(self):
         result = inspect(source=self.orig, remaster=self.loud,
                          source_sha=sha(self.orig), remaster_sha=sha(self.loud))

@@ -60,6 +60,23 @@ class DualDeliveryTests(unittest.TestCase):
              master=master,master_sha=master_sha or sha_file(master),
              mobile=mobile,mobile_sha=mobile_sha or sha_file(mobile))
 
+    def test_identical_truncated_audio_on_both_deliveries_is_not_full_film_coverage(self):
+        short_master, short_mobile = self.root/'short-master.mp4', self.root/'short-mobile.mp4'
+        subprocess.run(['ffmpeg','-v','error','-i',str(self.master),
+                        '-map','0:v:0','-map','0:a:0','-c:v','copy',
+                        '-af','atrim=duration=0.15','-c:a','aac',
+                        '-y',str(short_master)],check=True,timeout=30)
+        subprocess.run(['ffmpeg','-v','error','-i',str(short_master),
+                        '-map','0:v:0','-map','0:a:0','-vf','scale=720:1280',
+                        '-c:v','libx264','-preset','ultrafast','-c:a','copy',
+                        '-y',str(short_mobile)],check=True,timeout=30)
+        qa={**self.qa,'videoSHA256':sha_file(short_master),
+            'mobileSHA256':sha_file(short_mobile)}
+        archive=self.package(qa=qa,mobile_override=short_mobile,
+            additions={'THS_Phenibut_EvidenceMotion_CLEAN_V4.mp4':short_master.read_bytes()})
+        with self.assertRaisesRegex(ValueError,'AUDIO_TRACK_DOES_NOT_COVER_VIDEO'):
+            self.check(archive,master=short_master,mobile=short_mobile)
+
     def test_physical_both_full_movies_verify_but_release_never(self):
         result=self.check(self.package())
         self.assertEqual(result['fullVideoFramesEach'],36)

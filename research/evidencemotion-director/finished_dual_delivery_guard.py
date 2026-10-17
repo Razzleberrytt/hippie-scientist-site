@@ -162,6 +162,11 @@ def inspect(*,archive,archive_sha,master,master_sha,mobile,mobile_sha):
         mae.append(sum(abs(x-y) for x,y in zip(pix0[st:en],pix1[st:en]))/step)
     if max(mae)>3.0: hold('DUAL_DISTRIBUTION_VISUAL_DRIFT')
     a,b=pcm(master),pcm(mobile)
+    # Pairwise agreement alone lets the same truncated track pass twice.
+    # Independently require each 24 kHz decode to cover its CFR video timeline.
+    for audio, frames in ((a,n0),(b,n1)):
+        if abs(len(audio) - frames*800) > 2400:
+            hold('AUDIO_TRACK_DOES_NOT_COVER_VIDEO')
     if abs(len(a)-len(b)) > 2400:
         hold('AUDIO_LENGTH_DIFFERENCE_GT100MS')
     n=min(len(a),len(b))
@@ -179,6 +184,8 @@ def inspect(*,archive,archive_sha,master,master_sha,mobile,mobile_sha):
             'allFrameProxyGrayMeanMae8bit':round(sum(mae)/len(mae),6),
             'allFrameProxyGrayMaxMae8bit':round(max(mae),6),
             'decodedAudioCosineSimilarity':round(similarity,7),
+            'decodedAudioSamplesAt24000Hz':[len(a),len(b)],
+            'audioVideoCoverageToleranceSeconds':0.1,
             'currentMasterEncodedCaptionQAPhysicallyVerified':has_master_current_caption_proof,
             'currentMobileEncodedCaptionQAPhysicallyVerified':has_mobile_current_caption_proof,
             'captionQAFilesPresentInPackage':qa_caption_files,

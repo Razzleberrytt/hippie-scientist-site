@@ -52,6 +52,16 @@ class LocalizedVisualRepairTests(unittest.TestCase):
                        old_sha=sha(self.original),new_sha=sha(candidate),
                        first_frame=kw.get('first_frame',30),last_frame=kw.get('last_frame',59))
 
+    def test_additional_unreviewed_audio_or_video_stream_is_rejected(self):
+        for extra in ('0:a:0', '0:v:0'):
+            with self.subTest(extra=extra):
+                candidate=self.edited.parent/('extra-'+extra[2]+'.mp4')
+                subprocess.run(['ffmpeg','-v','error','-i',str(self.edited),
+                                '-map','0:v:0','-map','0:a:0','-map',extra,
+                                '-c','copy','-y',str(candidate)],check=True,timeout=30)
+                with self.assertRaisesRegex(ValueError, 'EXACTLY_ONE_H264_VIDEO_AND_AAC_AUDIO_REQUIRED'):
+                    self.guard(candidate)
+
     def test_exact_scene_visual_repair_retains_unchanged_audio(self):
         receipt=self.guard()
         self.assertEqual(receipt['videoFrameCount'],90)

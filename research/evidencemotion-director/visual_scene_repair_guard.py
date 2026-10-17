@@ -47,9 +47,18 @@ def run(args):
 
 
 def probe(path, stream):
-    return json.loads(run(['ffprobe', '-v', 'error', '-select_streams', stream,
+    # Inventory the entire container; selecting v:0/a:0 hides unreviewed tracks.
+    data = json.loads(run(['ffprobe', '-v', 'error',
                            '-show_entries', 'stream=codec_name,codec_type,nb_frames,width,height,avg_frame_rate,r_frame_rate',
-                           '-of', 'json', str(path)]))['streams'][0]
+                           '-of', 'json', str(path)]))
+    tracks = data.get('streams', [])
+    videos = [s for s in tracks if s.get('codec_type') == 'video']
+    audios = [s for s in tracks if s.get('codec_type') == 'audio']
+    if (len(tracks) != 2 or len(videos) != 1 or len(audios) != 1
+            or videos[0].get('codec_name') != 'h264'
+            or audios[0].get('codec_name') != 'aac'):
+        hold('EXACTLY_ONE_H264_VIDEO_AND_AAC_AUDIO_REQUIRED')
+    return videos[0] if stream == 'v:0' else audios[0]
 
 
 def packets(path, stream):

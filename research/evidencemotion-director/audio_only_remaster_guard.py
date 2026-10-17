@@ -10,6 +10,8 @@ import json
 import re
 import subprocess
 from pathlib import Path
+from fractions import Fraction
+from finished_dual_delivery_guard import pcm
 
 HEX = re.compile(r"[0-9a-f]{64}\Z")
 
@@ -205,6 +207,15 @@ def inspect(*, source, remaster, source_sha, remaster_sha,
         hold("UNMODIFIED_AUDIO_NOT_A_HOTFIX")
     physical_decode(source)
     physical_decode(remaster)
+    # Reuse the existing full-track PCM decoder, independent of container duration.
+    decoded_samples = []
+    for movie, metadata in ((source,a),(remaster,b)):
+        count = len(pcm(movie))
+        expected = Fraction(int(metadata['video']['nb_read_frames'])) / Fraction(
+            metadata['video']['avg_frame_rate']) * 24000
+        if abs(count - expected) > 2400:
+            hold('AUDIO_TRACK_DOES_NOT_COVER_VIDEO')
+        decoded_samples.append(count)
     old_loudness, new_loudness = _audio_r128(source), _audio_r128(remaster)
     if exact(source, source_sha) != old or exact(remaster, remaster_sha) != new:
         hold("MOVIE_CHANGED_WHILE_TESTING")
@@ -229,6 +240,8 @@ def inspect(*, source, remaster, source_sha, remaster_sha,
             "containerDurationDeltaSeconds": round(b["durationSeconds"] - a["durationSeconds"], 6),
             "videoPacketsAndTimestampsIdentical": True,
             "bothFullAvStreamsPhysicallyDecoded": True,
+            "decodedAudioSamplesAt24000Hz": decoded_samples,
+            "audioVideoCoverageToleranceSeconds": 0.1,
             "measuredCompleteTrackEbuR128": {
                 "source": old_loudness,
                 "remaster": new_loudness,
