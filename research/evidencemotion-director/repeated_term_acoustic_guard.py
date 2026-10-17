@@ -1396,7 +1396,58 @@ def audit_archived_encoded_audio_sync(source_raw, video_raw, receipt_raw, decode
                 and np.isfinite(decoded_rms) and decoded_rms > 0):
             return refuse("ENCODED_AUDIO_GLOBAL_RMS_INVALID")
         gain_db = float(20*np.log10(decoded_rms/original_rms))
+        # Correlation cannot detect DC injection: Pearson correlation of a
+        # voiced waveform and that same waveform plus 0.05 is still ~1.0.
+        # Inspect one-second PCM means from the PHYSICALLY decoded soundtrack.
+        # These are source/encoded headroom diagnostics, NOT acoustic phoneme
+        # verification, perceptual sound judgments, or automatic filter consent.
+        dc_bins = []
+        for lo in range(0, len(original), 24000):
+            hi = min(lo+24000, len(original))
+            a, b = original[lo:hi], decoded[lo:hi]
+            source_bin_rms = float(np.sqrt(np.mean(a*a)))
+            encoded_bin_rms = float(np.sqrt(np.mean(b*b)))
+            active = source_bin_rms >= .01
+            src_mean = float(np.mean(a))
+            enc_mean = float(np.mean(b))
+            source_bias = (active and abs(src_mean) >= .005
+                           and abs(src_mean)/source_bin_rms >= .2)
+            encoded_bias = (active and abs(enc_mean) >= .02
+                            and abs(enc_mean)/max(encoded_bin_rms, 1e-12) >= .2)
+            dc_bins.append({
+                "startSec": round(lo/24000, 6),
+                "endSec": round(hi/24000, 6),
+                "activeBySourceRmsOnly": bool(active),
+                "sourceMeanFullScale": round(src_mean, 7),
+                "encodedMeanFullScale": round(enc_mean, 7),
+                "sourceDcOverRms": round(
+                    abs(src_mean)/max(source_bin_rms, 1e-12), 5),
+                "encodedDcOverRms": round(
+                    abs(enc_mean)/max(encoded_bin_rms, 1e-12), 5),
+                "sourcePositiveOrNegativeBiasFlag": bool(source_bias),
+                "encodedPositiveOrNegativeBiasFlag": bool(encoded_bias),
+            })
+        biased = [x for x in dc_bins if x["encodedPositiveOrNegativeBiasFlag"]]
+        source_biased = [x for x in dc_bins
+                         if x["sourcePositiveOrNegativeBiasFlag"]]
+        dc_research = {
+            "method": "SOURCE_PINNED_WAV_VS_ACTUALLY_DECODED_AAC_ONE_SECOND_MEANS",
+            "researchOnlyThresholdsNotCalibrated": True,
+            "intervalCount": len(dc_bins),
+            "activeSourceIntervals": sum(x["activeBySourceRmsOnly"] for x in dc_bins),
+            "sourceBiasedIntervals": len(source_biased),
+            "encodedBiasedIntervals": len(biased),
+            "dcBiasRequiresReview": len(biased) >= 3,
+            "sourceMayAlreadyCarryBias": len(source_biased) >= 3,
+            "encodedDcOverRmsReviewThreshold": .2,
+            "encodedAbsoluteMeanReviewThreshold": .02,
+            "originalVoiceOrFilmModified": False,
+            "automaticHighpassOrGainChangeApproved": False,
+            "phonemeOrListeningQualityProven": False,
+            "oneSecondIntervals": dc_bins,
+        }
         gain_diagnostics = {
+            "dcOffsetResearch": dc_research,
             "method": "SOURCE_PCM16_VS_DECODED_AAC_F32LE_SAMPLE_PEAK_AND_GLOBAL_RMS",
             "sampleRateHz": 24000,
             "comparedSourceSamples": len(original),

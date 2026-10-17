@@ -1244,6 +1244,36 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
                      "actualRevisedFilmReviewed", "decoderRunBoundToNativeFilm"):
             self.assertFalse(report[gate], gate)
 
+    def test_encoded_added_dc_is_visible_despite_perfect_correlation(self):
+        source, film, receipt, decoded = self.encoded_aac_screen_fixture()
+        baseline = self.check_synthetic_encoded(source, film, receipt, decoded)
+        self.assertEqual(baseline["status"],
+                         "RESEARCH_ARCHIVED_ENCODED_AUDIO_SYNC_HOLD", baseline)
+        self.assertFalse(baseline["gainAndHeadroomResearch"][
+            "dcOffsetResearch"]["dcBiasRequiresReview"])
+        with wave.open(io.BytesIO(source), "rb") as w:
+            pcm = np.frombuffer(w.readframes(w.getnframes()),
+                                dtype="<i2").copy()
+        # Synthetic encoded-only DC injection alters no original media.
+        # Preserve authentic source-zero intervals and original AAC length.
+        biased = decoded.copy()
+        biased[:len(pcm)][pcm != 0] += np.float32(.05)
+        out = self.check_synthetic_encoded(source, film, receipt, biased)
+        self.assertEqual(out["status"],
+                         "RESEARCH_ARCHIVED_ENCODED_AUDIO_SYNC_HOLD", out)
+        dc = out["gainAndHeadroomResearch"]["dcOffsetResearch"]
+        self.assertTrue(dc["dcBiasRequiresReview"], dc)
+        self.assertFalse(dc["sourceMayAlreadyCarryBias"])
+        self.assertGreaterEqual(dc["encodedBiasedIntervals"], 20)
+        self.assertFalse(dc["automaticHighpassOrGainChangeApproved"])
+        self.assertFalse(out["mayPublish"])
+        # The six and rolling Pearson correlation tests cannot distinguish
+        # additive DC from untouched phonetic carrier; the independent
+        # mean-amplitude diagnostic is therefore necessary.
+        self.assertTrue(all(x["signalSyncScreenPass"]
+                            for x in out["diagnosticWindows"]))
+        self.assertFalse(out["rollingSignalScreen"]["belowThresholdWindows"])
+
     def test_full_scale_aac_peak_cannot_hide_inside_perfect_sync(self):
         source, film, receipt, decoded = self.encoded_aac_screen_fixture()
         for val in (1.0, -1.0, 1.002, -1.002):
