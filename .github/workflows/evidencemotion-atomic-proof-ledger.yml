@@ -48,16 +48,25 @@ on:
       - 'research/evidencemotion-director/EM00702-VISUAL-CLAIM-INVENTORY-20261016.md'
       - 'research/evidencemotion-director/EM00703-PRIMARY-SOURCE-CONTEXT-20261016.md'
       - 'research/evidencemotion-director/EM00707-ONE-CLAIM-INDEPENDENT-SCIENCE-PREREQUISITES-20261017.md'
+      - 'research/evidencemotion-director/atomic_progress_stall_watch.py'
+      - 'research/evidencemotion-director/test_atomic_progress_stall_watch.py'
       - '.github/workflows/evidencemotion-atomic-proof-ledger.yml'
   workflow_dispatch:
+  # Runs from protected default branch after normal authorized merge; a draft
+  # branch does not get independent scheduling privilege.
+  schedule:
+    - cron: '17 * * * *'
 permissions:
   contents: read
+  actions: read
 jobs:
   honest-atomic-workcard-coverage:
     runs-on: ubuntu-latest
     timeout-minutes: 4
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -86,6 +95,48 @@ jobs:
           python research/evidencemotion-director/validate_em00201_decision_record.py
           node --test research/evidencemotion-director/illustrative-crop-gate.test.mjs
           node --test research/evidencemotion-director/test_em00604_botanical_caption_gate.mjs
+      - name: Test atomic-progress stall detector and rejection cases
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_atomic_progress_stall_watch.py' -v
+      - name: Check exact-current atomic history and recommend bounded unsticker
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXACT_SOURCE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+          EXACT_BRANCH: ${{ github.head_ref || github.ref_name }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/em-atomic-watch"
+          python research/evidencemotion-director/atomic_progress_stall_watch.py \
+            --repo "$GITHUB_REPOSITORY" \
+            --branch "$EXACT_BRANCH" \
+            --run-id "$GITHUB_RUN_ID" \
+            --head-sha "$EXACT_SOURCE_HEAD" \
+            --snapshot-out "$RUNNER_TEMP/em-atomic-watch/snapshot.json" \
+            --report-out "$RUNNER_TEMP/em-atomic-watch/report.json" \
+            --read-gh-history
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          report=json.loads((Path(os.environ["RUNNER_TEMP"])/"em-atomic-watch/report.json").read_text())
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a") as out:
+              out.write("### EvidenceMotion atomic progress fail-safe\\n")
+              out.write(f"Current source-validated: **{report['currentCount']}/1590 provisional**\\n")
+              out.write(f"State: **{report['status']}**; prior counts: {report['previousCounts']}\\n")
+              out.write(f"History: {report['historyFetchStatus']}\\n")
+              if report["requiresRecovery"]:
+                  out.write("**Recovery triggered; NO automatic credit/approval.**\\n")
+                  for x in report["namedBlockedRecoveryTargets"]:
+                      out.write(f"- {x['atomicId']} (Lane {x['lane']}): {x['blocker']} — {x['nextAction']}\\n")
+          PY
+      - name: Keep two-readback progress checkpoints without committing run state
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencemotion-atomic-progress-checkpoint
+          path: ${{ runner.temp }}/em-atomic-watch/
+          if-no-files-found: error
+          retention-days: 7
       - name: Preserve score interpretation
         if: always()
         run: |
