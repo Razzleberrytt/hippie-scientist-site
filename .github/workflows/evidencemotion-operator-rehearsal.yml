@@ -396,3 +396,35 @@ jobs:
           path: ${{ runner.temp }}/em-archived-pair/RECEIVER-RESEARCH-HOLD.json
           if-no-files-found: warn
           retention-days: 7
+  native-windows-owned-stage-and-canonical-lf-retest:
+    # One-time native Windows integration: no media binaries, source rerenders,
+    # publisher secrets or new WIP slot. Only the owner-admitted label event
+    # verifies two actual Lane6 Windows compatibility blockers.
+    if: github.event.pull_request.number == 6846 && github.event.action == 'labeled' && github.event.label.name == 'em-lane5-windows-fix-retest-admitted'
+    runs-on: windows-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Reproduce Windows original-source readonly and exact-LF pair invariants
+        shell: bash
+        run: |
+          set -euo pipefail
+          export PYTHONPATH="$GITHUB_WORKSPACE/research/evidencemotion-director"
+          python --version
+          git --version
+          python -m unittest -v \
+            test_native_stdin_capture_guard.Tests.test_original_source_restore_unavailable_git_commit_fails_atomically \
+            test_native_stdin_capture_guard.Tests.test_win_readonly_staging_cleanup_preserves_git_hold \
+            test_native_stdin_capture_guard.Tests.test_readonly_stage_cleanup_rejects_foreign_file_repair \
+            test_native_stdin_capture_guard.Tests.test_pair_fixture_is_actual_canonical_lf_bytes_not_windows_text_mode \
+            test_native_stdin_capture_guard.Tests.test_pair_fixture_physical_environment_crlf_mutation_still_hold \
+            test_native_stdin_capture_guard.Tests.test_physical_pair_json_valid_synthetic_fixture_still_research_only
+      - name: Keep research and release approval explicitly on HOLD
+        if: always()
+        shell: bash
+        run: |
+          echo 'Native Windows checks only test recovery staging and exact JSON bytes; Linux-pinned FFmpeg and independent science/voice/craft/device approvals still HOLD.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No production promotion, source film rewrite, premium first render, five-film streak, or posting implied.' >> "$GITHUB_STEP_SUMMARY"
