@@ -727,6 +727,40 @@ class ReviewImageOwnershipSafety(unittest.TestCase):
                     {"00-opening.png": hashlib.sha256(b"existing screenshot").hexdigest()})
             self.assertEqual(existing.read_bytes(), b"existing screenshot")
 
+    def test_late_unowned_image_collision_is_preserved_not_overwritten(self):
+        from phone_ui_audit import commit_decoded_review_images
+        import os
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            output, stage = root / "out", root / "stage"
+            output.mkdir()
+            stage.mkdir()
+            (stage / "00-opening.png").write_bytes(b"staged author-owned screenshot")
+            foreign = b"another process's unrelated screenshot"
+            real_link = os.link
+            triggered = [False]
+
+            def race_create_foreign(source, destination):
+                dest = Path(destination)
+                if dest.name == "00-opening.png" and not triggered[0]:
+                    triggered[0] = True
+                    dest.write_bytes(foreign)
+                return real_link(source, destination)
+
+            with patch("phone_ui_audit.os.link", side_effect=race_create_foreign):
+                with self.assertRaisesRegex(
+                    ValueError, "UNOWNED_REVIEW_IMAGE_COLLISION_AT_COMMIT"
+                ):
+                    commit_decoded_review_images(
+                        output, stage,
+                        [{"file": "00-opening.png",
+                          "frameSha256": hashlib.sha256(
+                              b"staged author-owned screenshot").hexdigest()}],
+                        {})
+            self.assertTrue(triggered[0])
+            self.assertEqual((output / "00-opening.png").read_bytes(), foreign)
+            self.assertFalse((output / "research-report.json").exists())
+
     def test_changed_committed_bytes_fail_before_report_can_be_published(self):
         from phone_ui_audit import commit_decoded_review_images
         import os
@@ -736,13 +770,13 @@ class ReviewImageOwnershipSafety(unittest.TestCase):
             output.mkdir()
             stage.mkdir()
             (stage / "00-opening.png").write_bytes(b"exact source screenshot")
-            real_replace = os.replace
+            real_link = os.link
 
             def corrupt_transfer(source, destination):
-                real_replace(source, destination)
-                Path(destination).write_bytes(b"changed after transfer")
+                real_link(source, destination)
+                Path(destination).write_bytes(b"changed after link")
 
-            with patch("phone_ui_audit.os.replace", side_effect=corrupt_transfer):
+            with patch("phone_ui_audit.os.link", side_effect=corrupt_transfer):
                 with self.assertRaisesRegex(ValueError, "COMMITTED_REVIEW_IMAGE_HASH_MISMATCH"):
                     commit_decoded_review_images(
                         output, stage, [{"file": "00-opening.png",
@@ -2173,6 +2207,46 @@ class ActualFilmSmoke(unittest.TestCase):
             self.assertEqual(recovered["publicationVerdict"], "HOLD")
             self.assertTrue((output / "research-report.json").exists())
             self.assertEqual(len(recovered["decodedOverlayFrames"]), 3)
+
+    def test_late_report_collision_preserves_other_writer_on_real_h264_audit(self):
+        # Real 1080x1920 H264 source and normal decoded screenshot pipeline.
+        # Inject an unrelated receipt at the exact final hard-link commit.
+        import os
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = root / "source.mp4"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+                "-f", "lavfi", "-i", "color=c=blue:s=1080x1920:r=30:d=3",
+                "-c:v", "libx264", "-preset", "ultrafast", "-pix_fmt", "yuv420p",
+                "-an", str(movie)
+            ], capture_output=True, timeout=50, check=True)
+            plan = root / "plan.json"
+            spec = fixture()
+            spec["expectedVideoSha256"] = hashlib.sha256(movie.read_bytes()).hexdigest()
+            plan.write_text(json.dumps(spec))
+            output = root / "review"
+            foreign_report = b'{"ownedBy":"independent writer","mayPublish":false}'
+            original_link = os.link
+            collision = [False]
+
+            def competing_report(source, destination):
+                dest = Path(destination)
+                if dest.name == "research-report.json" and not collision[0]:
+                    collision[0] = True
+                    dest.write_bytes(foreign_report)
+                return original_link(source, destination)
+
+            with patch("phone_ui_audit.os.link", side_effect=competing_report):
+                with self.assertRaisesRegex(ValueError,
+                                            "REVIEW_REPORT_COLLISION_AT_COMMIT"):
+                    audit(movie, plan, output)
+            self.assertTrue(collision[0])
+            self.assertEqual((output / "research-report.json").read_bytes(),
+                             foreign_report)
+            self.assertEqual(hashlib.sha256(movie.read_bytes()).hexdigest(),
+                             spec["expectedVideoSha256"])
+            self.assertFalse((output / ".phone-ui-stage").exists())
 
     def test_ffmpeg_generated_actual_mp4_frame_and_sha_receipts(self):
         with tempfile.TemporaryDirectory() as root:
