@@ -694,17 +694,37 @@ def audit_archived_frame_native_pause_plan(source_raw, video_raw, receipt_raw):
             remaining = (end-start-removed)
             shift = removed_frames/30
             suffix = []
+            previous_end = None
             for cue in post["captionWords"]:
+                if not isinstance(cue, dict):
+                    return reject("FRAME_PLAN_FOLLOWING_CAPTION_CUE_INVALID")
                 a, b = cue.get("startSec"), cue.get("endSec")
+                text = cue.get("text")
                 if (not isinstance(a, (float, int)) or isinstance(a, bool)
                         or not isinstance(b, (float, int)) or isinstance(b, bool)
+                        or not isinstance(text, str) or not text.strip()
                         or not np.isfinite(a) or not np.isfinite(b)
-                        or not cut_end/24000 <= a < b <= 1031/30):
+                        or not cut_end/24000 <= a < b <= 1031/30
+                        or (previous_end is not None and a < previous_end)):
                     return reject("FRAME_PLAN_FOLLOWING_CAPTION_CUE_INVALID")
-                suffix.append({"word": cue["text"],
+                previous_end = b
+                # Native 30fps cut != proof that word-cue transitions land
+                # on film frame boundaries. The original 31.25s cue begins
+                # HALF a frame off-grid; cutting N whole frames preserves
+                # that phase. Quantization remains a decoded-film review.
+                proposed_a, proposed_b = a-shift, b-shift
+                def frame_rounding_ms(seconds):
+                    frame_position = seconds * 30
+                    fractional = frame_position % 1
+                    return round(min(fractional, 1-fractional)*1000/30, 6)
+                suffix.append({"word": text,
                                "sourceStartSec": a,
-                               "proposalStartSec": round(a-shift, 6),
-                               "proposalEndSec": round(b-shift, 6)})
+                               "proposalStartSec": round(proposed_a, 6),
+                               "proposalEndSec": round(proposed_b, 6),
+                               "proposedStartNearestFrameErrorMs":
+                                   frame_rounding_ms(proposed_a),
+                               "proposedEndNearestFrameErrorMs":
+                                   frame_rounding_ms(proposed_b)})
             variants.append({
                 "label": label, "auditionApproximateTargetPauseMs": target_ms,
                 "audioAuditionExactDurationIsNotFrameAligned":
@@ -722,7 +742,8 @@ def audit_archived_frame_native_pause_plan(source_raw, video_raw, receipt_raw):
                 "researchProposedOriginalWavSamples": 824336-removed,
                 "firstFollowingCaptionProposalStartSec": suffix[0]["proposalStartSec"],
                 "lastFollowingCaptionProposalEndSec": suffix[-1]["proposalEndSec"],
-                "followingNineCaptionsResearchOnly": suffix})
+                "followingNineCaptionsResearchOnly": suffix,
+                "captionSubframeTransitionsStillRequireFilmQA": True})
         return {**base, "status": "RESEARCH_FRAME_NATIVE_PAUSE_PLAN_HOLD",
                 "originalWavSha256": SOURCE_WAV_REFERENCE,
                 "archivedResearchFilmSha256": ARCHIVED_TIMED_NATIVE_VIDEO_SHA,
