@@ -4,8 +4,11 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import json
+from unittest.mock import patch
+from array import array
 from pathlib import Path
-from mobile_delivery_guard import audit,Hold,sha_file
+from mobile_delivery_guard import audit,Hold,sha_file,audio_compare
 
 
 def ff(*a):
@@ -77,5 +80,42 @@ class MobileDeliveryGuardTests(unittest.TestCase):
     def test_no_real_iphone_claim_when_all_thresholds_pass(self):
         v=self.run_pair()
         self.assertFalse(v['realIPhonePlaybackVerified']);self.assertFalse(v['mayPublish'])
+
+    def test_main_44k1_aac_valid_under_source_equivalence(self):
+        phone=self.root/'main_44k1.mp4'
+        self.mkphone(phone,'-profile:v','main','-ar','44100')
+        v=self.run_pair(phone=phone)
+        self.assertEqual(v['mobileAACSampleRateHz'],44100)
+        self.assertEqual(v['h264TargetProfile'],'Main')
+        self.assertGreaterEqual(v['decodedAudioComparison']['codecTailDeltaStereoFrames'],0)
+        self.assertFalse(v['mayPublish'])
+        # No JSON NaN or Infinity from FFmpeg's legitimate identical-frame PSNR.
+        json.dumps(v,allow_nan=False)
+
+    def test_main_level_four_not_silently_accepted(self):
+        phone=self.root/'main_level4.mp4'
+        self.mkphone(phone,'-profile:v','main','-level:v','4.0','-ar','44100')
+        with self.assertRaisesRegex(Hold,'PHONE_H264_LEVEL_ABOVE_31'):
+            self.run_pair(phone=phone,visual=False)
+
+    def test_extra_aac_tail_more_than_six_ms_fails(self):
+        phone=self.root/'long_audio_tail.mp4'
+        self.mkphone(phone,'-af','apad=pad_dur=0.03', '-ar','44100','-profile:v','main')
+        with self.assertRaisesRegex(Hold,'DECODED_AUDIO_SAMPLE_COUNT_DIFFERENT'):
+            self.run_pair(phone=phone,visual=False)
+
+    def test_audible_tail_cannot_be_hidden_by_six_ms_pad(self):
+        baseline=array('f',[.01]*8000)
+        incoming=array('f',list(baseline)+[.1]*480)
+        with patch('mobile_delivery_guard.decoded_audio',side_effect=[baseline,incoming]):
+            with self.assertRaisesRegex(Hold,'AUDIBLE_AUDIO_TAIL_MISMATCH'):
+                audio_compare('original','reencoded')
+
+    def test_truncated_audible_source_tail_not_exempt(self):
+        original=array('f',[.02]*8000)
+        cut=array('f',[.02]*7520)
+        with patch('mobile_delivery_guard.decoded_audio',side_effect=[original,cut]):
+            with self.assertRaisesRegex(Hold,'AUDIBLE_AUDIO_TAIL_MISMATCH'):
+                audio_compare('original','short')
 
 if __name__=='__main__': unittest.main(verbosity=2)
