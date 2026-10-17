@@ -343,6 +343,73 @@ class SilentEveryFrameMotionTests(unittest.TestCase):
 
 
 
+    def test_hash_pinned_craft_report_refuses_mid_audit_source_changes(self):
+        """Adversarial file mutation after the initial SHA: never mislabel output.
+
+        These are synthetic path-identity fixtures; exact native film review
+        and actual source-WAV audition remain separate owner-media holds.
+        """
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)
+            movie=root/'original.mp4'
+            story_file=root/'story.json'
+            wav=root/'original.wav'
+            shots=[{'shot':f'unit{i}','startSec':i*3.5,
+                    'endSec':(i+1)*3.5} for i in range(9)]
+            story={'encodedH264Sha256':'placeholder','shots':shots,
+                   'mayPublish':False}
+            identical=(bytes([20])*7000,set())
+
+            for target,reason in (
+                ('film','FILM_BYTES_CHANGED_DURING_CRAFT_AUDIT'),
+                ('story','STORY_BYTES_CHANGED_DURING_CRAFT_AUDIT'),
+                ('wav','ORIGINAL_WAV_BYTES_CHANGED_DURING_CRAFT_AUDIT'),
+            ):
+                with self.subTest(target=target):
+                    movie.write_bytes(b'pinned film bytes')
+                    story_file.write_text(json.dumps(story))
+                    wav.write_bytes(b'pinned WAV bytes')
+                    expected_wav_sha=D.file_sha256(wav)
+
+                    def decode_and_maybe_mutate(_film,indices,_count):
+                        if target=='film':
+                            movie.write_bytes(b'changed movie AFTER initial hash')
+                        elif target=='story':
+                            story_file.write_bytes(b'changed story AFTER initial hash')
+                        return {n:identical for n in indices}
+
+                    def read_silence_motion(*_args):
+                        if target=='wav':
+                            wav.write_bytes(b'changed PCM AFTER initial hash')
+                        return {'mayPublish':False,'excellentCertified':False}
+
+                    with (patch.object(D,'read_metadata',return_value=1031),
+                          patch.object(D,'validate_story',return_value=shots),
+                          patch.object(D,'decode_samples',side_effect=decode_and_maybe_mutate),
+                          patch.object(D,'audit_source_hold_silence',
+                                       return_value={'mayPublish':False}),
+                          patch.object(D,'measure_source_hold_motion',
+                                       side_effect=read_silence_motion),
+                          patch.object(D,'ORIGINAL_WAV_SHA256',expected_wav_sha)):
+                        with self.assertRaisesRegex(D.CraftHold,reason):
+                            D.audit(movie,story_file,
+                                    original_wav=wav if target=='wav' else None)
+
+            # Unmodified inputs still yield a non-publishing research review.
+            movie.write_bytes(b'pinned film bytes')
+            story_file.write_text(json.dumps(story))
+            with (patch.object(D,'read_metadata',return_value=1031),
+                  patch.object(D,'validate_story',return_value=shots),
+                  patch.object(D,'decode_samples',
+                      side_effect=lambda _film,indices,_count:
+                          {n:identical for n in indices})):
+                audit=D.audit(movie,story_file)
+            self.assertEqual(audit['filmSha256'],D.file_sha256(movie))
+            self.assertEqual(audit['storySha256'],D.file_sha256(story_file))
+            self.assertFalse(audit['mayPublish'])
+
+
+
 class ArchivedFilmOptIn(unittest.TestCase):
     def test_full_archived_timed_movie_when_supplied(self):
         film=os.getenv('LANE3_ACTUAL_FILM')
