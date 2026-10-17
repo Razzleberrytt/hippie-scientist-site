@@ -11,13 +11,13 @@ class AtomicProofLedgerTests(unittest.TestCase):
 
     def test_exact_named_research_cards_and_honest_707_inherited_estimate(self):
         result=validate(self.good,LEDGER.parent)
-        self.assertEqual(result["evidenceGroupCount"],23)
-        self.assertEqual(result["individuallyAuditedMachineResearchOnly"],151)
+        self.assertEqual(result["evidenceGroupCount"],24)
+        self.assertEqual(result["individuallyAuditedMachineResearchOnly"],158)
         self.assertEqual(result["inheritedProvisionalCoverageNotIndividuallyAudited"],707)
-        self.assertEqual(result["provisionalCoverage"],858)
+        self.assertEqual(result["provisionalCoverage"],865)
         self.assertEqual(result["totalAtomicTemplates"],1590)
-        self.assertAlmostEqual(result["provisionalCoveragePercent"],53.9623,places=4)
-        self.assertEqual(len(result["individualResearchCardIDs"]),151)
+        self.assertAlmostEqual(result["provisionalCoveragePercent"],54.4025,places=4)
+        self.assertEqual(len(result["individualResearchCardIDs"]),158)
         self.assertIn("EM-001.01.R",result["individualResearchCardIDs"])
         self.assertIn("EM-001.02.R",result["individualResearchCardIDs"])
         self.assertIn("EM-001.04.R",result["individualResearchCardIDs"])
@@ -33,7 +33,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
     def test_em00704_receipt_cannot_be_missing_or_misbound(self):
         fake=copy.deepcopy(self.good)
         fake["proofGroups"]=[g for g in fake["proofGroups"] if g["group"]!="EM-007.04"]
-        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_THREE_SOURCE_EVIDENCE_GROUPS_REQUIRED"):
+        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_FOUR_SOURCE_EVIDENCE_GROUPS_REQUIRED"):
             validate(fake,LEDGER.parent)
         fake=copy.deepcopy(self.good)
         next(g for g in fake["proofGroups"] if g["group"]=="EM-007.04")["source"]="imaginary-review.md"
@@ -47,7 +47,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
             validate(fake,LEDGER.parent)
         fake=copy.deepcopy(self.good)
         fake["proofGroups"]=[g for g in fake["proofGroups"] if g["group"]!="EM-007.06"]
-        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_THREE_SOURCE_EVIDENCE_GROUPS_REQUIRED"):
+        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_FOUR_SOURCE_EVIDENCE_GROUPS_REQUIRED"):
             validate(fake,LEDGER.parent)
 
     def test_em00705_real_archive_proof_cannot_be_forged_or_dropped(self):
@@ -57,7 +57,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
             validate(fake,LEDGER.parent)
         fake=copy.deepcopy(self.good)
         fake["proofGroups"]=[g for g in fake["proofGroups"] if g["group"]!="EM-007.05"]
-        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_THREE_SOURCE_EVIDENCE_GROUPS_REQUIRED"):
+        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_FOUR_SOURCE_EVIDENCE_GROUPS_REQUIRED"):
             validate(fake,LEDGER.parent)
         fake=copy.deepcopy(self.good)
         next(g for g in fake["proofGroups"] if g["group"]=="EM-007.05")["cards"].append("EM-007.05.R")
@@ -72,7 +72,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
             validate(fake,LEDGER.parent)
         fake=copy.deepcopy(self.good)
         fake["proofGroups"]=[g for g in fake["proofGroups"] if g["group"]!="EM-007.08"]
-        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_THREE_SOURCE"):
+        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_FOUR_SOURCE"):
             validate(fake,LEDGER.parent)
         fake=copy.deepcopy(self.good)
         group=next(g for g in fake["proofGroups"] if g["group"]=="EM-007.08")
@@ -86,7 +86,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
         self.assertTrue(expected.issubset(set(report["individualResearchCardIDs"])))
         fake=copy.deepcopy(self.good)
         fake["proofGroups"]=[g for g in fake["proofGroups"] if g["group"]!="EM-001.01"]
-        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_THREE_SOURCE"):
+        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_FOUR_SOURCE"):
             validate(fake,LEDGER.parent)
         fake=copy.deepcopy(self.good)
         next(g for g in fake["proofGroups"] if g["group"]=="EM-001.01")["source"]="fictional-cpu-success.md"
@@ -103,7 +103,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
         self.assertTrue(ids.issubset(result["individualResearchCardIDs"]))
         fake=copy.deepcopy(self.good)
         fake["proofGroups"]=[g for g in fake["proofGroups"] if g["group"]!="EM-001.02"]
-        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_THREE_SOURCE"):
+        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_FOUR_SOURCE"):
             validate(fake,LEDGER.parent)
         fake=copy.deepcopy(self.good)
         next(g for g in fake["proofGroups"] if g["group"]=="EM-001.02")["source"]="fake-gpu-success.md"
@@ -119,7 +119,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
         self.assertTrue(ids.issubset(set(result["individualResearchCardIDs"])))
         fake=copy.deepcopy(self.good)
         fake["proofGroups"]=[g for g in fake["proofGroups"] if g["group"]!="EM-001.04"]
-        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_THREE_SOURCE"):
+        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_FOUR_SOURCE"):
             validate(fake,LEDGER.parent)
         fake=copy.deepcopy(self.good)
         next(g for g in fake["proofGroups"] if g["group"]=="EM-001.04")["source"]="gpu-required-unreviewed.md"
@@ -138,7 +138,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
         self.assertNotIn("EM-001.03.T",ids)
         fake=copy.deepcopy(self.good)
         fake["proofGroups"]=[g for g in fake["proofGroups"] if g["group"]!="EM-001.03"]
-        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_THREE_SOURCE"):
+        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_FOUR_SOURCE"):
             validate(fake,LEDGER.parent)
         fake=copy.deepcopy(self.good)
         next(g for g in fake["proofGroups"] if g["group"]=="EM-001.03")["source"]="imagined-phone-review.md"
@@ -160,7 +160,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
         self.assertFalse(result["mayPublish"])
         fake=copy.deepcopy(self.good)
         fake["proofGroups"]=[g for g in fake["proofGroups"] if g["group"]!="EM-002.02"]
-        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_THREE_SOURCE"):
+        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_FOUR_SOURCE"):
             validate(fake,LEDGER.parent)
         fake=copy.deepcopy(self.good)
         next(g for g in fake["proofGroups"] if g["group"]=="EM-002.02")["source"]="fake-owner-grant.md"
@@ -171,6 +171,24 @@ class AtomicProofLedgerTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"DUPLICATED_CARD_CLAIM"):
             validate(fake,LEDGER.parent)
 
+    def test_real_em00803_hosted_pixel_proof_is_source_bound_nonduplicated_and_no_release(self):
+        result=validate(self.good,LEDGER.parent)
+        ids=set(result["individualResearchCardIDs"])
+        self.assertTrue({f"EM-008.03.{stage}" for stage in "USOXTNR"}.issubset(ids))
+        self.assertFalse(result["mayPublish"])
+        altered=copy.deepcopy(self.good)
+        altered["proofGroups"]=[g for g in altered["proofGroups"] if g["group"]!="EM-008.03"]
+        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_FOUR_SOURCE"):
+            validate(altered,LEDGER.parent)
+        altered=copy.deepcopy(self.good)
+        next(g for g in altered["proofGroups"] if g["group"]=="EM-008.03")["source"]="fake-actual-iphone-human-approved.md"
+        with self.assertRaisesRegex(ValueError,"MISBOUND"):
+            validate(altered,LEDGER.parent)
+        altered=copy.deepcopy(self.good)
+        next(g for g in altered["proofGroups"] if g["group"]=="EM-008.03")["cards"].append("EM-008.03.R")
+        with self.assertRaisesRegex(ValueError,"DUPLICATED_CARD_CLAIM"):
+            validate(altered,LEDGER.parent)
+
     def test_real_em00805_h264_negative_proof_cannot_be_dropped_rebound_or_double_counted(self):
         result=validate(self.good,LEDGER.parent)
         ids=set(result["individualResearchCardIDs"])
@@ -179,7 +197,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
         self.assertFalse(result["mayPublish"])
         fake=copy.deepcopy(self.good)
         fake["proofGroups"]=[g for g in fake["proofGroups"] if g["group"]!="EM-008.05"]
-        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_THREE_SOURCE"):
+        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_FOUR_SOURCE"):
             validate(fake,LEDGER.parent)
         fake=copy.deepcopy(self.good)
         next(g for g in fake["proofGroups"] if g["group"]=="EM-008.05")["source"]="fabricated-clinical-reviewed-botanical.md"
@@ -197,7 +215,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
         self.assertFalse(report["mayPublish"])
         fake=copy.deepcopy(self.good)
         fake["proofGroups"]=[g for g in fake["proofGroups"] if g["group"]!="EM-006.04"]
-        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_THREE_SOURCE"):
+        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_FOUR_SOURCE"):
             validate(fake,LEDGER.parent)
         fake=copy.deepcopy(self.good)
         next(g for g in fake["proofGroups"] if g["group"]=="EM-006.04")["source"]="fake-independent-botanical-assay.md"
@@ -215,7 +233,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
         self.assertFalse(report["mayPublish"])
         fake=copy.deepcopy(self.good)
         fake["proofGroups"]=[g for g in fake["proofGroups"] if g["group"]!="EM-002.01"]
-        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_THREE_SOURCE"):
+        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_FOUR_SOURCE"):
             validate(fake,LEDGER.parent)
         fake=copy.deepcopy(self.good)
         next(g for g in fake["proofGroups"] if g["group"]=="EM-002.01")["source"]="unsourced-freeze-lift.md"
@@ -234,7 +252,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
         self.assertFalse(result["mayPublish"])
         fake=copy.deepcopy(self.good)
         fake["proofGroups"]=[g for g in fake["proofGroups"] if g["group"]!="EM-002.04"]
-        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_THREE_SOURCE"):
+        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_FOUR_SOURCE"):
             validate(fake,LEDGER.parent)
         fake=copy.deepcopy(self.good)
         next(g for g in fake["proofGroups"] if g["group"]=="EM-002.04")["source"]="fake-tracker-approval.md"
@@ -252,7 +270,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
         self.assertFalse(result["mayPublish"])
         fake=copy.deepcopy(self.good)
         fake["proofGroups"]=[g for g in fake["proofGroups"] if g["group"]!="EM-002.03"]
-        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_THREE_SOURCE"):
+        with self.assertRaisesRegex(ValueError,"EXACT_TWENTY_FOUR_SOURCE"):
             validate(fake,LEDGER.parent)
         fake=copy.deepcopy(self.good)
         next(g for g in fake["proofGroups"] if g["group"]=="EM-002.03")["source"]="fake-version-approved.md"
