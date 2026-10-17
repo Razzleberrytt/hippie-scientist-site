@@ -82,6 +82,68 @@ def width_frame(movie,index,width,overlay=False):
         draw.rectangle((0,round(height*.82),width,height),fill="black")
     return sized
 
+def scan_all_original_encoded_frames(movie):
+    """OCR *all 60* actual H264 frames; bounded synthetic research fixture only.
+
+    Stream RGB frames rather than loading hundreds of MB into memory. Fail
+    closed on missing/extra frames, decoder errors or unreadable disclosure.
+    This does not establish human/handset readability of any final film.
+    """
+    frame_bytes=1080*1920*3
+    args=["ffmpeg","-hide_banner","-loglevel","error","-threads","1",
+          "-filter_threads","1","-i",str(movie),"-an","-pix_fmt","rgb24",
+          "-f","rawvideo","pipe:1"]
+    proc=subprocess.Popen(args,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    rows=[]
+    try:
+        for index in range(60):
+            raw=proc.stdout.read(frame_bytes)
+            if len(raw)!=frame_bytes:
+                raise ValueError(f"ENCODED_TEMPORAL_FRAME_MISSING_HOLD:{index}:{len(raw)}")
+            native=Image.frombytes("RGB",(1080,1920),raw)
+            sized=native.resize((375,667),Image.Resampling.LANCZOS)
+            mask=ImageDraw.Draw(sized)
+            mask.rectangle((0,0,375,round(667*.10)),fill="black")
+            mask.rectangle((round(375*.80),0,375,667),fill="black")
+            mask.rectangle((0,round(667*.82),375,667),fill="black")
+            recognized=ocr_png(sized,6)
+            rows.append({
+                "frameIndex":index,
+                "simulatedWidth":375,
+                "ocrLayout":6,
+                "decodedMaskedRgbSha256":checksum(sized.tobytes()),
+                "ocrOutputSha256":checksum(recognized.encode()),
+                "ocrRawOutput":recognized.strip(),
+                "twoSafeDisclaimersAndNoVeto":check_recognition(recognized),
+                "contradictoryAssayRecognized":has_contradictory_plant_assay_claim(recognized)
+            })
+        if proc.stdout.read(1):
+            raise ValueError("ENCODED_TEMPORAL_EXTRA_FRAMES_HOLD")
+        if proc.wait(timeout=25)!=0:
+            raise ValueError("ENCODED_TEMPORAL_DECODER_FAILED_HOLD")
+    finally:
+        if proc.poll() is None:
+            proc.kill()
+            proc.wait(timeout=10)
+        if proc.stdout:
+            proc.stdout.close()
+        if proc.stderr:
+            proc.stderr.close()
+    return rows
+
+
+def encode_transient_fabrication(safe_still,misleading_still,out):
+    """Overlay the misleading *complete* still ONLY at frames 10..19."""
+    cmd=["ffmpeg","-hide_banner","-loglevel","error","-y","-threads","2",
+         "-loop","1","-framerate","30","-i",str(safe_still),
+         "-loop","1","-framerate","30","-i",str(misleading_still),
+         "-filter_complex","[0:v][1:v]overlay=enable='between(n,10,19)'[v]",
+         "-map","[v]","-frames:v","60","-an","-c:v","libx264",
+         "-preset","ultrafast","-crf","25","-pix_fmt","yuv420p",
+         "-movflags","+faststart",str(out)]
+    subprocess.run(cmd,check=True,capture_output=True,timeout=100)
+
+
 def run(out):
     out=Path(out)
     out.mkdir(parents=True,exist_ok=True)
@@ -201,6 +263,50 @@ def run(out):
                 "contradictoryAssayTextRecognized":True,
                 "unsafeApprovalRejected":True
             })
+    # Adversarial time-of-display experiment. Existing three checkpoint
+    # readings at 0,30,59 MISS ten unsafe frames in between; a streaming
+    # full-frame OCR pass must catch all of them, while rejecting OCR errors.
+    temporal=out/"transient-7oh-claim.mp4"
+    encode_transient_fabrication(
+        root/"legible.png",
+        out/"disclosed_but_fabricated_plant_measurement.png",
+        temporal)
+    sparse=[]
+    for frame in TIMES:
+        read=ocr_png(width_frame(temporal,frame,375,overlay=True),6)
+        sparse.append({"frameIndex":frame,
+                       "unsafeClaimMissed":check_recognition(read)})
+    if not all(x["unsafeClaimMissed"] for x in sparse):
+        raise ValueError("TEMPORAL_NEGATIVE_NOT_SPARSE_BLINDSPOT_HOLD")
+    safe_rows=scan_all_original_encoded_frames(positive)
+    bad_rows=scan_all_original_encoded_frames(temporal)
+    if len(safe_rows)!=60 or not all(x["twoSafeDisclaimersAndNoVeto"]
+                                     for x in safe_rows):
+        raise ValueError("ALL_FRAME_BASELINE_OCR_NOT_SAFE_HOLD")
+    rejected={x["frameIndex"] for x in bad_rows
+              if not x["twoSafeDisclaimersAndNoVeto"]
+              and x["contradictoryAssayRecognized"]}
+    if rejected!=set(range(10,20)):
+        raise ValueError("TEN_TRANSIENT_ENCODED_FALSE_FRAMES_NOT_ALL_HELD")
+    if any(not x["twoSafeDisclaimersAndNoVeto"]
+           for x in bad_rows if x["frameIndex"] not in range(10,20)):
+        raise ValueError("SAFE_TRANSIENT_NEIGHBOR_FRAMES_UNREADABLE_HOLD")
+    result["temporalFullFrameResearchProbe"]={
+        "researchFixtureOnly":True,
+        "fullEncodedSourceSha256":base,
+        "transientH264Sha256":sha(temporal),
+        "originalStaticFilmFramesOCRed":len(safe_rows),
+        "transientFilmFramesOCRed":len(bad_rows),
+        "originalStaticFilmReadings":safe_rows,
+        "transientFilmReadings":bad_rows,
+        "injectedAdversarialFrameIndices":list(range(10,20)),
+        "verifiedUnsafeFrameIndices":sorted(rejected),
+        "sparseCheckpointsWronglyAppearSafe":sparse,
+        "researchFixtureFullScanVerified":True,
+        "actualHandsetApproved":False,
+        "originalNarratedFilmApproved":False,
+        "mayPublish":False
+    }
     assert len(result["negativeCases"])==12
     path=out/"em00804-research-receipt.json"
     path.write_text(json.dumps(result,indent=2)+"\n")
