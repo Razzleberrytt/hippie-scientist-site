@@ -594,3 +594,26 @@ lane-owned source, workflow, renderer, narration or normal D/R/A slot changed.
 Atomic credit remains 0; first excellent 0/1 and varied streak 0/5 unchanged;
 `mayPublish=false`, actual revised film/story/phone/science/craft/voice gate HOLD.
 Protected controller only; no merge or deployment asserted.
+
+
+Portable-component implementation commit `d1f810f09273153b48caca7a4b3b81029d038a66`
+verified pushed. Four relevant hosted checks at that head SUCCESS: atomic contract,
+controller monitor, quality comparison and generator release suite. Generic hosted
+tests/build/content/site checks are path-skipped; Windows/Linux Python execution
+above is local, not relabeled hosted. Receipt-only successor CI remains separate.
+
+Fresh **production build PASS, exit 0**, all **36 steps / 898.93 seconds**. Generated
+1,722 routes; language audit 1,708 HTML pages / zero findings; structured-data
+regression 9,240 JSON-LD blocks / 1,652 routes; sitemap 1,098 URLs; Pagefind 1,605
+pages. Governed indexability reports herbs231/compounds102 while sitemap category
+counts are herbs213/compounds99; both inventories retained without a parity claim
+or unrelated repair. Machine test/build/log hashes:
+`receipts/portable-path-build-and-tests.json`.
+
+Restored 1,686 tracked build-generated paths outside Lane6 and preserved existing
+untracked generated files. Intake/test source bytes checked unchanged against
+implementation commit after build. Local production build is not clean-checkout
+reproducibility or deployment proof. README explains shared path-component rules
+and Linux test command. No UI behavior/theme change needing screenshots. Final
+doc-links and whitespace checks follow receipts. This scoped implementation is
+complete for draft review; sole controller merge/real-film approval remain separate.
