@@ -46,7 +46,7 @@ def make_overlay(crop:Image.Image,frame_index:int,font:Path, camera_study:bool=F
     out.rectangle((0,0,1079,449),fill=(5,24,37,255))
     out.rounded_rectangle((65,15,835,428),radius=22,fill=(9,33,47),outline=(64,150,158),width=4)
     regular=ImageFont.truetype(str(font),42)
-    bold=ImageFont.truetype(str(font),44)
+    bold=ImageFont.truetype(str(font),48)
     color=(88,220,199,255)
     stage_3d=frame_index>=THREED_START
     label='CALCULATED 3D VIEW' if stage_3d else 'VERIFIED 2D RECORD'
@@ -77,9 +77,9 @@ def make_overlay(crop:Image.Image,frame_index:int,font:Path, camera_study:bool=F
     if stage_3d:
         # Exact existing scientific disclaimer, unveiled at original f595.
         if frame_index>=CAVEAT_START:
-            out.text((127,377),'Not a receptor recording',font=bold,fill=(238,246,241,255))
+            out.text((127,354),'Not a receptor recording',font=bold,fill=(238,246,241,255))
     else:
-        out.text((157,377),'RDKit / source-linked',font=bold,fill=(238,246,241,255))
+        out.text((157,354),'RDKit / source-linked',font=bold,fill=(238,246,241,255))
     # Critical art never enters x>=864. Other source text is NOT edited.
     for y in list(range(0,8))+list(range(442,450)):
         alpha=min(255,int(255*(min(y,449-y)/7)))
