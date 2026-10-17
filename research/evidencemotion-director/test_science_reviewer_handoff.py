@@ -127,6 +127,57 @@ class IndependentScienceIntakeTests(unittest.TestCase):
 
 
 
+
+    def test_temporal_no_reaction_requires_actual_archived_h264(self):
+        from science_reviewer_handoff import screen_original_no_reaction_temporal
+        packet=reviewer_packet(self.gate)
+        with tempfile.TemporaryDirectory() as directory:
+            source=Path(directory)/"not-original.mp4"
+            source.write_bytes(b"local fictional movie")
+            with self.assertRaisesRegex(ValueError,
+                 "NO_REACTION_TIMELINE_REQUIRES_PINNED_ORIGINAL_H264"):
+                screen_original_no_reaction_temporal(source,self.gate,packet)
+
+    def test_temporal_no_reaction_refuses_missing_one_selected_frame(self):
+        import science_reviewer_handoff as handoff
+        packet=reviewer_packet(self.gate)
+        with tempfile.TemporaryDirectory() as directory:
+            source=Path(directory)/"fake.mp4";source.write_bytes(b"mock film")
+            def missing_one(command,**kwargs):
+                folder=Path(command[-1]).parent
+                for i in range(7):
+                    (folder/f"intro-{i:02d}.png").write_bytes(b"a"*200)
+            with patch.object(handoff,"_hash_file",return_value=handoff.FILM_SHA):
+                with patch.object(handoff.subprocess,"run",side_effect=missing_one):
+                    with self.assertRaisesRegex(ValueError,
+                         "NO_REACTION_TIMELINE_EIGHT_REAL_FRAMES_REQUIRED"):
+                        handoff.screen_original_no_reaction_temporal(source,self.gate,packet)
+
+    def test_temporal_no_reaction_refuses_ocr_without_source_phrase(self):
+        import science_reviewer_handoff as handoff
+        packet=reviewer_packet(self.gate)
+        with tempfile.TemporaryDirectory() as directory:
+            source=Path(directory)/"fake.mp4";source.write_bytes(b"mock film")
+            calls=[]
+            def mock_steps(command,**kwargs):
+                if command[0]=="ffmpeg":
+                    folder=Path(command[-1]).parent
+                    # These are mock PNG headers, NOT pixel-grounded proof.
+                    header=(b"\\x89PNG\\r\\n\\x1a\\n"+(13).to_bytes(4,"big")
+                            +b"IHDR"+(540).to_bytes(4,"big")
+                            +(960).to_bytes(4,"big")+b"a"*130)
+                    for i in range(8):
+                        (folder/f"intro-{i:02d}.png").write_bytes(header)
+                    return None
+                calls.append(command)
+                return type("R",(),{"stdout":"MITRAGYNINE; no biochemical study"})()
+            with patch.object(handoff,"_hash_file",return_value=handoff.FILM_SHA):
+                with patch.object(handoff.subprocess,"run",side_effect=mock_steps):
+                    with self.assertRaisesRegex(ValueError,
+                        "NO_REACTION_TIMELINE_VISIBLE_TEXT_NOT_RECOVERED"):
+                        handoff.screen_original_no_reaction_temporal(source,self.gate,packet)
+            self.assertEqual(len(calls),1)
+
     def test_known_original_no_reaction_ocr_risk_never_self_approves(self):
         # Contract fixture only: the hosted original-film CI must physically
         # recover "No reaction" from exact archived H264 frame 45.
