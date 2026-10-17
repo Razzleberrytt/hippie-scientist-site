@@ -2,6 +2,7 @@
 import hashlib
 import json
 import os
+import subprocess
 from pathlib import Path
 import tempfile
 import unittest
@@ -162,6 +163,64 @@ class Lane5ScorecardTests(unittest.TestCase):
                 _same_pin(p, h(b"foreign WAV"))
             with self.assertRaisesRegex(ValueError, "MISSING_INDEPENDENT_EXPECTED_SHA"):
                 _same_pin(p, True)
+
+
+
+    def test_actual_six_shot_h264_aac_intake_uses_explicit_shot_and_frame_count(self):
+        """Small real FFmpeg fixture tests shot/frame contract, not premium film."""
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            film, wav = root / "six_shot.mp4", root / "narrator.wav"
+            story, screenpath = root / "story.json", root / "screen.json"
+            subprocess.run([
+                "/usr/bin/ffmpeg", "-nostdin", "-hide_banner", "-v", "error",
+                "-f", "lavfi", "-i", "color=c=navy:s=96x170:r=30:d=3",
+                "-f", "lavfi", "-i", "sine=frequency=440:sample_rate=24000:duration=3",
+                "-map", "0:v:0", "-map", "1:a:0",
+                "-c:v", "libx264", "-pix_fmt", "yuv420p",
+                "-c:a", "aac", "-ar", "24000", "-ac", "1",
+                "-frames:v", "90", "-y", str(film)
+            ], check=True, timeout=40, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+            with wave.open(str(wav), "wb") as output:
+                output.setnchannels(1)
+                output.setsampwidth(2)
+                output.setframerate(24000)
+                output.writeframes(bytes([1, 0]) * 72000)
+            fsha, wsha = h(film.read_bytes()), h(wav.read_bytes())
+            story.write_text(json.dumps({
+                "schema": "ths-lane3-research-visual-treatment-story-v1",
+                "encodedH264Sha256": fsha,
+                "shots": [{"shot": str(i)} for i in range(6)],
+                "mayPublish": False, "realPhonePlaybackVerified": False,
+                "independentCraftCalibrationPassed": False, "phonePlanSha256": None
+            }))
+            story_sha = h(story.read_bytes())
+            screenpath.write_text(json.dumps(screen(fsha, story_sha, frames=90)))
+            kwargs = dict(
+                film=film, wav=wav, story_path=story, screen_path=screenpath,
+                expected_film_sha=fsha, expected_wav_sha=wsha,
+                expected_story_sha=story_sha,
+                expected_screen_sha=h(screenpath.read_bytes()),
+                dimensions=(96, 170, 90)
+            )
+            result = score_candidate(**kwargs, expected_shot_count=6)
+            self.assertTrue(result["observedTechnicalMedia"]["fullVideoAudioPhysicalDecode"])
+            self.assertEqual(result["observedTechnicalMedia"]["nativeFrames"], 90)
+            self.assertEqual(result["declaredStoryShotCount"], 6)
+            self.assertEqual(result["observedStoryShotCount"], 6)
+            self.assertEqual(result["status"], "RESEARCH_HOLD_NO_PROMOTION")
+            self.assertFalse(result["mayPublish"])
+            self.assertFalse(result["firstExcellentMasterAccepted"])
+            self.assertFalse(result["fiveRenderStreakAccepted"])
+            self.assertEqual(result["atomicCardsNewlyAccepted"], 0)
+            with self.assertRaisesRegex(ValueError, "STORY_SHOT_INVENTORY_DRIFT"):
+                score_candidate(**kwargs)
+            for invalid_shots in (True, 0, 31):
+                with self.assertRaisesRegex(ValueError, "INVALID_EXPECTED_SHOT_COUNT"):
+                    score_candidate(**kwargs, expected_shot_count=invalid_shots)
+            with self.assertRaisesRegex(ValueError, "PHYSICAL_AV_GEOMETRY_OR_CODEC_DRIFT"):
+                score_candidate(**{**kwargs, "dimensions": (96, 170, 91)},
+                                expected_shot_count=6)
 
 
 
