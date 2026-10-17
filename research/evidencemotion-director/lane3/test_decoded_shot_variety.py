@@ -171,9 +171,9 @@ class OriginalSilenceSourceHoldTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.path=Path(self.temp.name)/'fixture.wav'
         a,z=D.ORIGINAL_SILENCE
-        self.frames=(b'\\x02\\x00'*a+
-                     b'\\x00\\x00'*(z-a)+
-                     b'\\x02\\x00'*(D.ORIGINAL_WAV_FRAMES-z))
+        self.frames=(b'\x02\x00'*a+
+                     b'\x00\x00'*(z-a)+
+                     b'\x02\x00'*(D.ORIGINAL_WAV_FRAMES-z))
         with wave.open(str(self.path),'wb') as w:
             w.setnchannels(1);w.setsampwidth(2);w.setframerate(24000)
             w.writeframes(self.frames)
@@ -231,7 +231,7 @@ class OriginalSilenceSourceHoldTests(unittest.TestCase):
     def test_added_speech_inside_original_zero_run_is_not_silent(self):
         damaged=bytearray(self.frames)
         sample=D.ORIGINAL_SILENCE[0]+30000
-        damaged[sample*2:sample*2+2]=b'\\x12\\x00'
+        damaged[sample*2:sample*2+2]=b'\x12\x00'
         wav=Path(self.temp.name)/'not-silent.wav'
         with wave.open(str(wav),'wb') as w:
             w.setnchannels(1);w.setsampwidth(2);w.setframerate(24000)
