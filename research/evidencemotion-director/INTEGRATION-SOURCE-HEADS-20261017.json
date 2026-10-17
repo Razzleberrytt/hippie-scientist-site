@@ -1,10 +1,10 @@
 {
   "schema": "ths-evidencemotion-four-lane-merge-source-pins-v1",
-  "baseMain": "7882858ebcdd948d37ac00a1b0594c75d7920fe0",
+  "baseMain": "4472c696c483fffa2a6344225f1956861d9d5b18",
   "laneHeads": [
     {
       "pr": 6845,
-      "head": "078fcd43b2e49121fc0e6fcebc84517812eaa784"
+      "head": "4ce9605f883c411f9a906c733da240dc4a947a40"
     },
     {
       "pr": 6840,
@@ -106,5 +106,23 @@
       "exitCode": 0
     },
     "sourceChanges": "Only phone audit, science package guard and scorecard source/tests beyond prior snapshot"
+  },
+  "previousBaseMain": "7882858ebcdd948d37ac00a1b0594c75d7920fe0",
+  "mainMovementFollowup": {
+    "head": "a5b692a27305df7d9780f1e66a49b849a8f35298",
+    "baselineChange": "Already merged gut-v9 audit #6850, four research audit files",
+    "lane4Change": "Local paired-PCM dropout negative and explicit codec-tail limits",
+    "windowsMobileTests": {
+      "pass": 33,
+      "skip": 1,
+      "exitCode": 0
+    },
+    "linuxMobileTests": {
+      "pass": 34,
+      "skip": 0,
+      "exitCode": 0
+    },
+    "priorFullCi": "39053394527 SUCCESS on c283602da; not a final-head claim",
+    "priorNativeRun": "39053394553 SUCCESS on c283602da; not a final-head claim"
   }
 }

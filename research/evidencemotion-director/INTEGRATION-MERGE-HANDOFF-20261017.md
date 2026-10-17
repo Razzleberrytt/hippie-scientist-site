@@ -106,3 +106,16 @@ Fresh Linux affected suites: phone246/246 PASS; science26 PASS/one optional
 original-archive SKIP; scorecard21/21 PASS; exits0. Machine receipt retains
 prior snapshots rather than relabeling their earlier tests as final-head proof.
 Final hosted CI/build/research validation and protected controller remain pending.
+
+
+## Exact-base race reconciliation
+
+All applicable c283602da checks passed, including CI39053394527 and repaired
+native39053394553. Before controller merge, main advanced via PR #6850 to
+4472c696c483fffa2a6344225f1956861d9d5b18 (four research gut-v9 audit files).
+Synchronized main normally; no gate or source history bypass. Also included final
+Lane4 snapshot4ce9605f883c411f9a906c733da240dc4a947a40: paired 2.5ms source-active
+PCM dropout negative screen and honest codec-tail scope, not phonetic acceptance.
+Fresh mobile suite Windows33 PASS/one symlink privilege SKIP, Linux34/34 PASS,
+exits0. The earlier full CI/native success remains proof of that earlier head,
+not final readiness. Current exact-head checks/controller/deployment still needed.
