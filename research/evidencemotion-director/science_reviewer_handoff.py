@@ -261,7 +261,7 @@ def verify_original_review_stills(folder, gate, packet):
         raw=(folder/name).read_bytes()
         # Require a correctly dimensioned PNG IHDR as well as original
         # individual exported PNG byte SHA; a filename alone isn't evidence.
-        if (len(raw)<100 or raw[:8]!=b"\\x89PNG\\r\\n\\x1a\\n"
+        if (len(raw)<100 or raw[:8]!=b"\x89PNG\r\n\x1a\n"
             or raw[12:16]!=b"IHDR"
             or int.from_bytes(raw[16:20],"big")!=540
             or int.from_bytes(raw[20:24],"big")!=960
