@@ -18,7 +18,7 @@ class FitContracts(unittest.TestCase):
                              self.current.tobytes())
     def test_model_reframe_preserves_every_pixel_outside_edit_box(self):
         out=M.reframe(self.current,self.archived,M.COMPUTED)
-        x0,y0,x1,y1=M.TARGET
+        x0,y0,x1,y1=M.ERASE
         for region in ((0,0,M.W,y0),(0,y1,M.W,M.H),(0,y0,x0,y1),(x1,y0,M.W,y1)):
             self.assertIsNone(ImageChops.difference(out.crop(region),
                                                     self.current.crop(region)).getbbox())
@@ -31,6 +31,24 @@ class FitContracts(unittest.TestCase):
         self.assertTrue(any(p[0]>180 and p[1]>180 and p[2]>180 for p in values))
         values=zip(data[::3],data[1::3],data[2::3])
         self.assertTrue(any(p[0]>180 and p[1]<120 and p[2]<120 for p in values))
+    def test_truncated_model_fragments_erased_but_footer_glyph_pixels_untouched(self):
+        # Physical screenshot discovered ghost fragments immediately above
+        # the authored disclosure. A negative fixture reproduces the hazard.
+        source=self.current.copy()
+        pen=ImageDraw.Draw(source)
+        pen.rectangle((565,945,930,959),fill=(220,216,209))
+        pen.rectangle((565,964,870,981),fill=(204,208,216))
+        cleaned=M.reframe(source,self.archived,630)
+        # White model tail removed all the way to the footer threshold.
+        self.assertEqual(cleaned.crop((565,945,930,960)).getpixel((0,7)),
+                         (14,36,48))
+        for y in (960,963,964,972,981,985):
+            self.assertEqual(cleaned.crop((507,y,997,y+1)).tobytes(),
+                             source.crop((507,y,997,y+1)).tobytes())
+        # No pre-onset erasure is permitted, even if bad pixels exist.
+        self.assertEqual(M.reframe(source,self.archived,554).tobytes(),source.tobytes())
+        self.assertFalse(M.reframe(source,self.archived,630).tobytes()==source.tobytes())
+
     def test_bounds_missing_source_wrong_shape_and_unknown_media_fail_closed(self):
         for n in (M.FIRST-1,M.LAST):
             with self.assertRaisesRegex(M.CraftHold,'OUT_OF_BOUNDS'):
@@ -45,7 +63,9 @@ class FitContracts(unittest.TestCase):
         self.assertEqual((M.W,M.H,M.FPS,M.N),(1080,1920,30,1031))
         self.assertEqual((M.FIRST,M.COMPUTED,M.LAST),(498,555,702))
         self.assertEqual(M.ORIGINAL_MODEL,(35,650,800,1080))
-        self.assertEqual(M.TARGET,(507,670,997,958))
+        self.assertEqual(M.TARGET,(507,650,997,932))
+        self.assertEqual(M.ERASE,(507,650,997,960))
+        self.assertEqual(M.FOOTER_START,960)
         for key in ('REVISED_SHA','ORIGINAL_SHA','STORY_SHA','MOL_SHA','NARRATION_SHA'):
             self.assertRegex(getattr(M,key),r'^[a-f0-9]{64}$')
 if __name__=='__main__':unittest.main()
