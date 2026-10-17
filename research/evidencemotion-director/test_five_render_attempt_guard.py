@@ -268,6 +268,52 @@ class FirstRenderIntegrityTests(unittest.TestCase):
                 write_report_no_clobber(alias, report)
             self.assertEqual(output.read_bytes(), original)
 
+    def test_research_report_writer_rejects_forged_approval_and_extra_fields(self):
+        original = verify(register([attempt(0), attempt(1, decision="FAIL")]))
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            bogus = [
+                ("publish", {**original, "mayPublish": True}),
+                ("first-excellent", {**original, "firstExcellentMasterAccepted": True}),
+                ("five-render", {**original, "fiveRenderMilestoneAccepted": True}),
+                ("independent", {**original,
+                                 "independentScienceVoiceCraftHandsetAudienceAndVarietyVerified": True}),
+                ("foreign-field", {**original, "externalReviewerApproved": True}),
+                ("missing", {k: v for k, v in original.items() if k != "mayPublish"}),
+                ("coerced", {**original, "authorizedPromotion": 0}),
+                ("forged-attempt", {**original, "attempts": [
+                    {**original["attempts"][0], "independentlyApproved": True},
+                    original["attempts"][1]]}),
+                ("extra-attempt", {**original, "attempts": [
+                    {**original["attempts"][0], "humanApproved": True},
+                    original["attempts"][1]]}),
+                ("false-count", {**original, "registeredAttempts": 500}),
+                ("fake-five", {**original, "lastFiveFirstAttemptsDeclaredPass": True}),
+            ]
+            for label, candidate in bogus:
+                with self.subTest(label=label):
+                    output = root / (label + ".json")
+                    with self.assertRaisesRegex(ValueError,
+                                                "UNAUTHORIZED_RESEARCH_REPORT_CONTENT"):
+                        write_report_no_clobber(output, candidate)
+                    self.assertFalse(output.exists())
+            self.assertFalse(any(root.iterdir()))
+
+    def test_research_report_writer_allows_real_append_only_hold(self):
+        previous = register([attempt(0, decision="FAIL")])
+        current = register(previous["attempts"] + [attempt(1)])
+        report = verify_append_only(current, previous, atom("previous-register"))
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            output = root / "valid-append-HOLD.json"
+            write_report_no_clobber(output, report)
+            self.assertEqual(json.loads(output.read_text()), report)
+            tampered = {**report, "newAppendedRunIds": ["invented-run"]}
+            with self.assertRaisesRegex(ValueError,
+                                        "UNAUTHORIZED_RESEARCH_REPORT_CONTENT"):
+                write_report_no_clobber(root / "invented.json", tampered)
+            self.assertEqual([p.name for p in root.iterdir()], ["valid-append-HOLD.json"])
+
     def test_nested_symlinked_ancestor_refused_for_input_and_new_report(self):
         # A non-symlink final parent is not sufficient: an earlier folder
         # in the same lexical path could redirect the owner evidence store.
