@@ -21,7 +21,7 @@ const INTENTS=Object.freeze({
   'source-bound-scale':'G6',
 });
 const clean=v=>String(v??'').trim();
-const uniqueIds=a=>Array.isArray(a)&&a.length>0&&a.every(x=>typeof x==='string'&&x.trim()!=='')&&new Set(a).size===a.length;
+const uniqueIds=a=>Array.isArray(a)&&a.length>0&&a.every(x=>typeof x==='string'&&x.trim()!==''&&x===x.trim())&&new Set(a).size===a.length;
 const fail=(code)=>({status:'HOLD',code,candidates:[],productionEligible:false});
 
 export function proposeShots(beat,{previousGrammar=null,previousCamera=null}={}){

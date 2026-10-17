@@ -201,3 +201,11 @@ test('missing, duplicated or malformed film-scene inputs fail closed',()=>{
     assert.equal(r.excellentCertified,false);
   }
 });
+
+
+test('whitespace aliases cannot hide repeated scientific assets',()=>{
+  const r=auditShotRepetition([stagedShot(0,{scientificAssetIds:['asset']}),
+    stagedShot(1,{scientificAssetIds:[' asset']}),stagedShot(2,{scientificAssetIds:['asset ']})]);
+  assert.equal(r.status,'HOLD');
+  assert.equal(r.craftRemediationRequired,true);
+});

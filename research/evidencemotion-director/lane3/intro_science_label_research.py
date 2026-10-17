@@ -7,6 +7,8 @@ The actual re-render was verified against the untouched audio and all decoded
 import argparse
 import hashlib
 import json
+import os
+import tempfile
 import subprocess
 from pathlib import Path
 
@@ -58,26 +60,30 @@ def render(source, output):
             output.parent.is_symlink()):
         raise ResearchHold("FRESH_NONALIAS_OUTPUT_REQUIRED")
     check_native(source)
-    cmd = ["ffmpeg", "-nostdin", "-hide_banner", "-loglevel", "error",
-        "-xerror", "-n", "-i", str(source), "-vf", source_scoped_filter(),
-        "-map", "0:v:0", "-map", "0:a:0", "-c:v", "libx264",
-        "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p",
-        "-r", "30", "-fps_mode:v", "cfr", "-frames:v", str(EXPECTED_FRAMES),
-        "-video_track_timescale", "15360", "-c:a", "copy",
-        "-movflags", "+faststart", str(output)]
-    try:
+    # The destination may be created after the initial freshness check.
+    # Encode/validate privately; an atomic hard link publishes without clobbering.
+    with tempfile.TemporaryDirectory(prefix='.lane3-intro-', dir=output.parent) as tmp:
+        staged = Path(tmp)/'candidate.mp4'
+        cmd = ["ffmpeg", "-nostdin", "-hide_banner", "-loglevel", "error",
+            "-xerror", "-n", "-i", str(source), "-vf", source_scoped_filter(),
+            "-map", "0:v:0", "-map", "0:a:0", "-c:v", "libx264",
+            "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p",
+            "-r", "30", "-fps_mode:v", "cfr", "-frames:v", str(EXPECTED_FRAMES),
+            "-video_track_timescale", "15360", "-c:a", "copy",
+            "-movflags", "+faststart", str(staged)]
         run(cmd)
-        check_native(output)
+        check_native(staged)
         run(["ffmpeg", "-nostdin", "-hide_banner", "-loglevel", "error",
-             "-xerror", "-err_detect", "explode", "-i", str(output),
+             "-xerror", "-err_detect", "explode", "-i", str(staged),
              "-map", "0:v:0", "-map", "0:a:0", "-f", "null", "-"])
         if sha(source) != SOURCE_SHA:
             raise ResearchHold("SOURCE_CHANGED_DURING_REPLAY")
-    except BaseException:
-        if output.exists():
-            output.unlink()
-        raise
-    return dict(sourceSha256=SOURCE_SHA, candidateFilmSha256=sha(output),
+        candidate_sha = sha(staged)
+        try:
+            os.link(staged, output)
+        except FileExistsError as error:
+            raise ResearchHold("FRESH_NONALIAS_OUTPUT_REQUIRED") from error
+    return dict(sourceSha256=SOURCE_SHA, candidateFilmSha256=candidate_sha,
                 editedFramesInclusive=[FIRST, LAST], targetedRoi=NATIVE_ROI,
                 removedAmbiguousLabel="No reaction",
                 soundtrackCopiedNotResynthesized=True,
