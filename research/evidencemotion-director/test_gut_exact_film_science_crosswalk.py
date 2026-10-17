@@ -6,6 +6,10 @@ import tempfile
 import unittest
 from pathlib import Path
 
+# Run reusable physical science-credit tests in the existing source-science CI.
+# This does not waive scientific review or release gates.
+from test_encoded_source_credit_guard import DecodedSourceCreditTests
+
 from gut_exact_film_science_crosswalk import (
  parse_manifest, audit, SCHEMA, MOVIE_SHA, SRT_SHA, SCENES, SOURCES)
 
