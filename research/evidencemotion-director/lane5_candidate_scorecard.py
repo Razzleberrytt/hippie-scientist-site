@@ -514,9 +514,8 @@ def main():
             "previous_ink_path", "current_ink_path",
             "expected_previous_ink_sha", "expected_current_ink_sha",
             "previous_ink_film_sha"
-        ),
-        dimensions=(1080, 1920, a.expected_frames),
-    })
+        )
+    }, dimensions=(1080, 1920, a.expected_frames))
     write_once(a.out, result)
     print(result["status"], result["filmSha256"])
 
