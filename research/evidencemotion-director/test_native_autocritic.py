@@ -31,6 +31,21 @@ def _center_static_peripheral_kinetic_frames():
     return np.asarray(frames)
 
 
+def _two_state_layout_frames(count=9):
+    from PIL import Image, ImageDraw
+    frames = []
+    for i in range(count):
+        im = Image.new("L", (m.FRAME_W, m.FRAME_H), 15)
+        d = ImageDraw.Draw(im)
+        if i % 2 == 0:
+            d.rounded_rectangle((22, 80, 67, 158), radius=8,
+                                fill=210, outline=235, width=3)
+        else:
+            d.ellipse((104, 100, 158, 168), fill=210, outline=240, width=3)
+        frames.append(np.asarray(im).copy())
+    return np.asarray(frames)
+
+
 class AutonomousFilmCriticTests(unittest.TestCase):
     def test_invalid_decoded_samples_are_rejected(self):
         with self.assertRaisesRegex(ValueError,'ACTUAL_DECODED_SAMPLES_REQUIRED'):
@@ -131,6 +146,54 @@ class AutonomousFilmCriticTests(unittest.TestCase):
         report = m.review_decoded_samples(frames)
         self.assertEqual(report["centerHeroStasisPeripheralMotionWindowsSec"], [])
         self.assertEqual(report["reviewCandidates"], [])
+
+    def test_abab_detected_without_automatic_creative_veto(self):
+        report = m.review_decoded_samples(_two_state_layout_frames())
+        self.assertEqual(report["repeatedSamplePairsStartSec"], [])
+        self.assertEqual(report["issues"], [])
+        self.assertEqual(report["twoStateAlternationWindowsSec"],
+                         [{"startSec": 0, "endSec": 16, "lagTwoMatchedPairs": 7}])
+        self.assertIn("TWO_STATE_LAYOUT_OSCILLATION_WITHOUT_VISUAL_PROGRESSION",
+                      report["reviewCandidates"])
+
+    def test_short_intentional_two_way_comparison_not_auto_flagged(self):
+        report = m.review_decoded_samples(_two_state_layout_frames(5))
+        self.assertEqual(report["twoStateAlternationWindowsSec"], [])
+
+    def test_progressive_subject_positions_not_two_state(self):
+        from PIL import Image, ImageDraw
+        frames = []
+        for i in range(9):
+            im = Image.new("L", (180, 320), 15)
+            d = ImageDraw.Draw(im)
+            x = 10 + i * 15
+            d.rounded_rectangle((x, 75, x + 36, 145), radius=6,
+                                fill=210, outline=235, width=3)
+            frames.append(np.asarray(im).copy())
+        report = m.review_decoded_samples(np.asarray(frames))
+        self.assertEqual(report["twoStateAlternationWindowsSec"], [])
+
+    def test_actual_h264_abab_sample_is_sha_bound_and_cannot_publish(self):
+        if not shutil.which("ffmpeg") or not shutil.which("ffprobe"):
+            self.skipTest("Native FFmpeg required")
+        from PIL import Image
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            for i, frame in enumerate(_two_state_layout_frames()):
+                Image.fromarray(frame).save(root / f"frame-{i:02d}.png")
+            video = root / "two-state-h264.mp4"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
+                "-framerate", "1/2", "-i", str(root / "frame-%02d.png"),
+                "-vf", "fps=12", "-c:v", "libx264", "-pix_fmt", "yuv420p",
+                "-y", str(video)], check=True, capture_output=True, timeout=40)
+            pinned = m.sha256(video)
+            actual = m.analyze_video(video, pinned)
+            self.assertEqual(actual["actualVideoSha256"], pinned)
+            self.assertEqual(actual["decision"], "CRAFT_REVIEW_HOLD")
+            self.assertIn("TWO_STATE_LAYOUT_OSCILLATION_WITHOUT_VISUAL_PROGRESSION",
+                          actual["reviewCandidates"])
+            self.assertFalse(actual["mayPublish"])
 
     def test_real_encoded_kinetic_chrome_static_hero_generates_sha_bound_hold(self):
         if not shutil.which("ffmpeg") or not shutil.which("ffprobe"):
