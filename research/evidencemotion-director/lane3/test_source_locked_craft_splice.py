@@ -386,9 +386,9 @@ class CraftSourceLockedContractTests(unittest.TestCase):
 
 
   def test_corrupted_h264_with_unchanged_frame_pts_is_strictly_refused(self):
-    """Physical damage: ffprobe sees all frames and normal FFmpeg exits 0.
+    """Physical damaged H264 can retain normal frame timestamps.
 
-    Strict decode and the actual full splice must both HOLD before publishing.
+    Strict decode and the actual full splice must HOLD before publishing.
     Not the archived film; a controlled 35-frame source with copied AAC.
     """
     if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
@@ -406,36 +406,43 @@ class CraftSourceLockedContractTests(unittest.TestCase):
         '-c:v','libx264','-pix_fmt','yuv420p',str(scene)],
         check=True,capture_output=True)
       raw=original.read_bytes()
-      mdat=raw.find(b'mdat')
-      self.assertGreater(mdat,0)
+      # Absolute FFprobe video packet positions are independent of MP4 mux
+      # interleaving (AAC and H264 can be laid out differently by FFmpeg 6/7).
+      packets=json.loads(subprocess.check_output([
+        'ffprobe','-v','error','-select_streams','v:0',
+        '-show_packets','-show_entries','packet=pos,size',
+        '-of','json',str(original)]))['packets']
+      self.assertEqual(len(packets),35)
       source=folder/'damaged.mp4'
-      # Search within a known video-bearing mdat range, not MP4 headers.
-      # Different FFmpeg versions choose different H264 packet layouts.
       found=False
       observations=[]
-      for offset in (500,800,1000,1200,1800,2500,3000,4500,6000,8000,10000):
-        if mdat+offset+120>=len(raw):continue
-        altered=bytearray(raw)
-        altered[mdat+offset:mdat+offset+120]=bytes(120)
-        source.write_bytes(altered)
-        basic=['ffmpeg','-nostdin','-v','error','-i',str(source),
-          '-map','0:v:0','-f','null','-']
-        normal=subprocess.run(basic,capture_output=True)
-        strict=subprocess.run(basic[:4]+['-xerror']+basic[4:],
-                              capture_output=True)
-        try:
-          S.require_exact_cfr_frame_grid(source,35)
-          complete_pts=True
-        except S.CraftHold:
-          complete_pts=False
-        observations.append((offset,normal.returncode,strict.returncode,complete_pts))
-        # Some FFmpeg versions exit nonzero even in non-strict mode; it is
-        # the *actual* 35-frame PTS illusion and strict rejection that matter.
-        if strict.returncode!=0 and complete_pts:
-          found=True
-          break
+      for index in (1,6,18,0,2,10,25,30):
+        packet=packets[index]
+        pos,size=int(packet['pos']),int(packet['size'])
+        if size<150:continue
+        for fraction in (0.25,0.10,0.50):
+          begin=pos+int(size*fraction)
+          finish=min(begin+120,pos+size-4)
+          if finish<=begin or finish>len(raw):continue
+          altered=bytearray(raw)
+          altered[begin:finish]=bytes(finish-begin)
+          source.write_bytes(altered)
+          basic=['ffmpeg','-nostdin','-v','error','-i',str(source),
+            '-map','0:v:0','-f','null','-']
+          strict=subprocess.run(basic[:4]+['-xerror']+basic[4:],
+                                capture_output=True)
+          if strict.returncode==0:
+            observations.append((index,fraction,'NO_STRICT_CODEC_ERROR'))
+            continue
+          try:
+            S.require_exact_cfr_frame_grid(source,35)
+            found=True
+            break
+          except S.CraftHold as e:
+            observations.append((index,fraction,str(e)))
+        if found:break
       self.assertTrue(found,
-        'Expected damaged H264 with 35 valid PTS and strict decoder failure; '+repr(observations))
+        'Real video-packet damage failed to preserve a 35-frame PTS illusion: '+repr(observations))
       with self.assertRaisesRegex(S.CraftHold,'DECODED_VIDEO_STREAM_FAILED'):
         list(S._decoded_rgb_frames(source,width=96,height=170))
       manifest={'frames':35,'width':96,'height':170,'fps':30,
