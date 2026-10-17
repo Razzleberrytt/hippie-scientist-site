@@ -29,3 +29,21 @@ remain required. Synthetic file-safety fixtures mock media validation explicitly
 they are not physical original-film, source science, visual or release receipts.
 Hard-link publication requires filesystem support and fails rather than weakening
 no-overwrite semantics on an unsupported filesystem. No immutable film rewritten.
+
+
+## Shot 5 concurrent-output follow-up
+
+The same unconditional failure cleanup existed in shot5_mobile_safe_research.py.
+New synthetic output-ownership tests reproduced deletion of concurrently created
+overlay/movie files and a missed film publication collision. Encode both outputs
+in private staging on each destination filesystem, then publish using no-clobber
+hard links. Never unlink public destinations during failure cleanup; temporary
+contexts clean only their owned staging files. If overlay publication succeeds
+and movie publication collides, that invocation's own overlay may remain; this
+is not an atomic two-file transaction, and no success receipt is emitted.
+
+Windows pinned visual Python: 3/3 output-ownership tests PASS, no skips, exit0.
+Linux isolated visual Python: complete Shot5 suite 9/9 PASS, no skips, exit0.
+Tests mock media generation explicitly; no new real-film or creative approval.
+Original source pixels, font pins, edited frame interval and audio-copy commands
+remain unchanged. Fresh hosted Lane3 suite and full CI/build remain required.

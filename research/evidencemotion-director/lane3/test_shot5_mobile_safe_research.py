@@ -1,6 +1,7 @@
 """Synthetic fail-closed tests for Lane 3 opt-in Shot5 phone-safe source pixels."""
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 from PIL import Image,ImageDraw
 import shot5_mobile_safe_research as S
@@ -56,5 +57,52 @@ class Shot5PhoneSafeTests(unittest.TestCase):
             self.assertRegex(getattr(S,item),r'^[a-f0-9]{64}$')
         with self.assertRaisesRegex(S.Shot5Hold,'NON_NATIVE_FRAME'):
             S.draw_overlay(Image.new('RGB',(100,100)),self.font)
+
+class ReplayOutputOwnershipTests(unittest.TestCase):
+    def test_encoder_failure_preserves_concurrently_created_outputs(self):
+        with tempfile.TemporaryDirectory() as td:
+            source,font,overlay,film=[Path(td)/n for n in ('source.mp4','font.ttf','patch.png','out.mp4')]
+            source.write_bytes(b'synthetic source');font.write_bytes(b'synthetic font')
+            def fail_encoder(command):
+                overlay.write_bytes(b'concurrent overlay');film.write_bytes(b'concurrent film')
+                raise S.Shot5Hold('synthetic encoder failure')
+            with patch.object(S,'SOURCE_SHA',S.digest(source)), patch.object(S,'FONT_SHA',S.digest(font)), \
+                 patch.object(S,'source_frame'), patch.object(S,'draw_overlay',return_value=Image.new('RGBA',(1,1))), \
+                 patch.object(S,'shell',side_effect=fail_encoder):
+                with self.assertRaises(S.Shot5Hold): S.replay(source,font,overlay,film)
+            self.assertEqual(overlay.read_bytes(),b'concurrent overlay')
+            self.assertEqual(film.read_bytes(),b'concurrent film')
+
+    def test_publication_collision_preserves_existing_film(self):
+        with tempfile.TemporaryDirectory() as td:
+            source,font,overlay,film=[Path(td)/n for n in ('source.mp4','font.ttf','patch.png','out.mp4')]
+            source.write_bytes(b'synthetic source');font.write_bytes(b'synthetic font')
+            def finish_encoder(command):
+                Path(command[-1]).write_bytes(b'synthetic encoded candidate')
+                film.write_bytes(b'concurrent film')
+                return b''
+            with patch.object(S,'SOURCE_SHA',S.digest(source)), patch.object(S,'FONT_SHA',S.digest(font)), \
+                 patch.object(S,'source_frame'), patch.object(S,'draw_overlay',return_value=Image.new('RGBA',(1,1))), \
+                 patch.object(S,'shell',side_effect=finish_encoder):
+                with self.assertRaisesRegex(S.Shot5Hold,'OUTPUT_MUST_BE_FRESH'):
+                    S.replay(source,font,overlay,film)
+            self.assertEqual(film.read_bytes(),b'concurrent film')
+
+    def test_fresh_output_pair_publishes_without_creative_approval(self):
+        with tempfile.TemporaryDirectory() as td:
+            source,font,overlay,film=[Path(td)/n for n in ('source.mp4','font.ttf','patch.png','out.mp4')]
+            source.write_bytes(b'synthetic source');font.write_bytes(b'synthetic font')
+            def finish_encoder(command):
+                Path(command[-1]).write_bytes(b'synthetic encoded candidate')
+                return b''
+            with patch.object(S,'SOURCE_SHA',S.digest(source)), patch.object(S,'FONT_SHA',S.digest(font)), \
+                 patch.object(S,'source_frame'), patch.object(S,'draw_overlay',return_value=Image.new('RGBA',(1,1))), \
+                 patch.object(S,'shell',side_effect=finish_encoder):
+                report=S.replay(source,font,overlay,film)
+            self.assertEqual(report['overlaySha256'],S.digest(overlay))
+            self.assertEqual(report['outputFilmSha256'],S.digest(film))
+            self.assertFalse(report['mayPublish'])
+            self.assertEqual(set(Path(td).iterdir()),{source,font,overlay,film})
+
 
 if __name__=='__main__':unittest.main()

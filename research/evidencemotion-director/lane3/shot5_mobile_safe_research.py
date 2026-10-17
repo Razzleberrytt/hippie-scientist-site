@@ -5,7 +5,7 @@ Whole-film audio is copied unchanged, no narration/video speed adjustment.
 Original molecule pixels are copied 1:1 from the source H264 frame.
 """
 from __future__ import annotations
-import argparse,hashlib,json,subprocess
+import argparse,hashlib,json,subprocess,os,tempfile
 from io import BytesIO
 from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont
@@ -76,26 +76,34 @@ def replay(source,font,overlay_out,film_out):
     if digest(font)!=FONT_SHA:raise Shot5Hold('FONT_SHA_CHANGED')
     overlay_out.parent.mkdir(parents=True,exist_ok=True)
     film_out.parent.mkdir(parents=True,exist_ok=True)
-    try:
-        draw_overlay(source_frame(source),font).save(overlay_out)
+    # Stage each output on its destination filesystem. Never remove a public
+    # destination on failure: it may belong to another process after preflight.
+    with tempfile.TemporaryDirectory(prefix='.shot5-overlay-',dir=overlay_out.parent) as overlay_tmp, \
+         tempfile.TemporaryDirectory(prefix='.shot5-film-',dir=film_out.parent) as film_tmp:
+        overlay_stage=Path(overlay_tmp)/'overlay.png'
+        film_stage=Path(film_tmp)/'candidate.mp4'
+        draw_overlay(source_frame(source),font).save(overlay_stage)
         shell(['ffmpeg','-nostdin','-hide_banner','-v','error','-xerror','-n',
-           '-i',str(source),'-loop','1','-framerate','30','-i',str(overlay_out),
+           '-i',str(source),'-loop','1','-framerate','30','-i',str(overlay_stage),
            '-filter_complex',f"[0:v][1:v]overlay=x=0:y=0:format=yuv420:enable='between(n,{FIRST},{LAST})'[v]",
            '-map','[v]','-map','0:a:0','-c:v','libx264','-preset','veryfast',
            '-crf','18','-pix_fmt','yuv420p','-fps_mode:v','cfr','-r','30',
            '-frames:v','1031','-video_track_timescale','15360',
-           '-c:a','copy','-movflags','+faststart',str(film_out)])
+           '-c:a','copy','-movflags','+faststart',str(film_stage)])
         if digest(source)!=SOURCE_SHA or digest(font)!=FONT_SHA:
             raise Shot5Hold('INPUT_BYTES_CHANGED_DURING_REPLAY')
+        try:
+            os.link(overlay_stage, overlay_out)
+            os.link(film_stage, film_out)
+        except FileExistsError as error:
+            raise Shot5Hold('OUTPUT_MUST_BE_FRESH') from error
         return {'schema':'ths-lane3-shot5-mobile-card-research-v1',
-            'inputFilmSha256':SOURCE_SHA,'overlaySha256':digest(overlay_out),
-            'outputFilmSha256':digest(film_out),'expectedOriginalAACSha256':AUDIO_SHA,
+            'inputFilmSha256':SOURCE_SHA,'overlaySha256':digest(overlay_stage),
+            'outputFilmSha256':digest(film_stage),'expectedOriginalAACSha256':AUDIO_SHA,
             'firstEditedFrame':FIRST,'lastEditedFrameInclusive':LAST,
             'criticalCardEndsBeforeX':SAFE_RIGHT_START,'source2DPixelsReused':True,
             'scienceApproved':False,'craftApproved':False,
             'phonePlaybackApproved':False,'mayPublish':False}
-    except BaseException:
-        overlay_out.unlink(missing_ok=True);film_out.unlink(missing_ok=True);raise
 
 if __name__=='__main__':
     p=argparse.ArgumentParser()
