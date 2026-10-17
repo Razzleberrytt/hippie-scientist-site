@@ -529,6 +529,51 @@ class IndependentScienceIntakeTests(unittest.TestCase):
                 main()
             self.assertFalse(out.exists())
 
+    def test_current_movie_alias_never_unlinks_source_before_validation(self):
+        # These are filesystem safety fixtures, NOT authentic encoded film.
+        # The old CLI cleaned --out BEFORE checking a current-movie alias.
+        import os
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            gate = root / "gate.json"
+            gate.write_text(json.dumps(self.gate), encoding="utf8")
+            movie = root / "current.mp4"
+            original = b"precious current encoded film bytes"
+            movie.write_bytes(original)
+            hardlink = root / "different-name-output.json"
+            os.link(movie, hardlink)
+            alias_dir = root / "alias-directory"
+            alias_dir.symlink_to(root, target_is_directory=True)
+            inputs = (movie, hardlink, alias_dir / "current.mp4")
+            for output in inputs:
+                with self.subTest(output=str(output)):
+                    argv = ["science_reviewer_handoff.py", "--gate",
+                            str(gate), "--candidate-movie", str(movie),
+                            "--out", str(output)]
+                    with patch("sys.argv", argv), self.assertRaisesRegex(
+                            ValueError, "CURRENT_MOVIE_OUTPUT_PATH_ALIAS"):
+                        main()
+                    self.assertEqual(movie.read_bytes(), original)
+                    self.assertEqual(hardlink.read_bytes(), original)
+                    self.assertTrue(gate.is_file())
+
+    def test_gate_hardlink_alias_rejected_before_report_cleanup(self):
+        import os
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            gate = root / "gate.json"
+            payload = (json.dumps(self.gate) + "\\n").encode("utf8")
+            gate.write_bytes(payload)
+            same_inode_output = root / "report.json"
+            os.link(gate, same_inode_output)
+            argv = ["science_reviewer_handoff.py", "--gate",
+                    str(gate), "--out", str(same_inode_output)]
+            with patch("sys.argv", argv), self.assertRaisesRegex(
+                    ValueError, "INPUT_OUTPUT_PATH_ALIAS"):
+                main()
+            self.assertEqual(gate.read_bytes(), payload)
+            self.assertEqual(same_inode_output.read_bytes(), payload)
+
     def test_cannot_overwrite_input_and_symlink_target(self):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
