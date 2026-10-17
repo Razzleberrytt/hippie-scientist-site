@@ -7,9 +7,11 @@ scientific acceptance, device verdict, or release authority.
 """
 import argparse
 import hashlib
+import math
+import re
 from pathlib import Path
 
-from scientific_uncertainty_ledger import frozen_claim_spans
+from scientific_uncertainty_ledger import frozen_claim_spans, FROZEN_SPOKEN_LEDGER
 from science_gate_process_attestation import (
     GATE, canonical, hold, prepare_report_destination, read_record,
     strict_json, verify_attestation, write_report_atomically,
@@ -23,6 +25,85 @@ SOURCES = {
     "media:render": None,
     "media:story": None,
 }
+# Fixed archive: original 34.3667s, 1080x1920 @ 30fps / 1031 frames.
+# Frozen MFA word-boundary observations, not certified phonetic accuracy.
+FILM_FRAME_COUNT = 1031
+FILM_FPS = 30
+# Separate expected oracle for eight claim boundary pairs; if somebody edits
+# the frozen JSON and simply rehashes its own report, this review handoff HOLDS.
+SOURCE_CLAIM_BOUNDS_MS = (
+    (160.0,2920.0), (3470.0,10270.0),
+    (10850.0,15990.0), (16580.0,19150.0),
+    (19590.0,22860.001), (23379.999,25389.999),
+    (25709.999,27350.0), (31250.0,33889.999),
+)
+SOURCE_WAV_SHA = "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435"
+SOURCE_ALIGNMENT_REVISION_SHA = "2414833bfd35c18ad6c629c3d10cbfab8501b09e296cc1963db01638b854bbaf"
+FILM_SHA = "4a36305c08e422d85a006332c4e83d39dac4a8f12c87502ad842cb99b8f874e3"
+
+
+def frozen_claim_review_windows(gate, frozen_spans):
+    """Bind known source-WAV-aligned claims to actual film frame *indices*.
+
+    Indices are deterministic timing prompts for a qualified reviewer,
+    NOT proof a caption or biological claim is visible in each frame.
+    """
+    ledger, ledger_file_sha = read_record(FROZEN_SPOKEN_LEDGER)
+    if (ledger.get("schema")!="ths-frozen-spoken-claim-ledger-v1"
+        or ledger.get("sourceWavSha256")!=SOURCE_WAV_SHA
+        or ledger.get("alignmentRevisionSha256")!=SOURCE_ALIGNMENT_REVISION_SHA
+        or ledger.get("wordCount")!=73 or ledger.get("assertionCount")!=8
+        or ledger.get("mayPublish") is not False
+        or ledger.get("scienceApproved") is not False
+        or gate.get("sourceWavSha256")!=SOURCE_WAV_SHA
+        or gate.get("filmSha256")!=FILM_SHA):
+        hold("ORIGINAL_WAV_FILM_OR_FROZEN_ALIGNMENT_IDENTITY_DRIFT")
+    words,claims=ledger.get("words"),ledger.get("assertions")
+    if not isinstance(words,list) or len(words)!=73 or not isinstance(claims,list) or len(claims)!=8:
+        hold("FROZEN_SOURCE_WORDS_OR_CLAIMS_MISSING")
+    windows=[]
+    previous_end=-1.0
+    for n,(indices,verbatim) in enumerate(frozen_spans):
+        cid=f"spoken-{n+1:03d}"
+        claim=claims[n]
+        if (claim.get("id")!=cid or claim.get("wordIndices")!=indices
+            or claim.get("text")!=verbatim):
+            hold("FROZEN_WORD_TO_CLAIM_BINDING_CHANGED:"+cid)
+        t=[]
+        for idx in indices:
+            word=words[idx]
+            if word.get("index")!=idx or word.get("assertionId")!=cid or (
+                not isinstance(word.get("word"),str) or not word["word"]
+            ) or (not isinstance(word.get("startMs"),(int,float))
+                or isinstance(word.get("startMs"),bool)
+                or not isinstance(word.get("endMs"),(int,float))
+                or isinstance(word.get("endMs"),bool)):
+                hold("FROZEN_WORD_RECORD_BAD:"+cid)
+            a,b=word["startMs"],word["endMs"]
+            if not (math.isfinite(a) and math.isfinite(b)
+                and previous_end-0.02 <= a < b <= 1000*FILM_FRAME_COUNT/FILM_FPS):
+                hold("ORIGINAL_WAV_CUE_TIME_INVALID:"+cid)
+            previous_end=b
+            t.append((a,b))
+        a,b=t[0][0],t[-1][1]
+        expected_a,expected_b=SOURCE_CLAIM_BOUNDS_MS[n]
+        if abs(a-expected_a)>0.005 or abs(b-expected_b)>0.005:
+            hold("CLAIM_TIME_BOUNDS_DIFFER_FROM_PINNED_WAV:"+cid)
+        first=int(math.floor(a*FILM_FPS/1000))
+        last=int(math.ceil(b*FILM_FPS/1000)-1)
+        if not 0<=first<=last<FILM_FRAME_COUNT:
+            hold("CLAIM_TIME_POINTS_OUTSIDE_ORIGINAL_FILM:"+cid)
+        windows.append({
+            "sourceAlignment":"FROZEN_MFA_RESEARCH_OBSERVATION_NOT_HUMAN_AUDITION",
+            "spokenStartMs":a,"spokenEndMs":b,
+            "firstPotentiallyOverlappingFrame":first,
+            "lastPotentiallyOverlappingFrame":last,
+            "actualFilmPixelsIndependentlyReviewedForClaim":False,
+            "independentQualifiedReviewerApproved":False,
+        })
+    return ledger_file_sha,windows
+
+
 REVIEWER_QUESTIONS = (
     "Compare each frozen spoken claim and qualifier against the exact audio and encoded film.",
     "Independently verify source identity and distinguish computed structure from observed biological effects.",
@@ -44,6 +125,7 @@ def reviewer_packet(gate):
     frozen_spans = frozen_claim_spans()
     if len(frozen_spans) != 8:
         hold("EIGHT_FROZEN_SPOKEN_SPANS_REQUIRED")
+    frozen_ledger_sha, time_windows = frozen_claim_review_windows(gate, frozen_spans)
     for index, claim in enumerate(gate["claims"]):
         indices, verbatim = frozen_spans[index]
         refs = []
@@ -58,6 +140,7 @@ def reviewer_packet(gate):
             "claimId": claim["claimId"],
             "verbatimFrozenSpokenClaim": verbatim,
             "sourceWordIndices": list(indices),
+            "originalWavAlignedReviewWindow": time_windows[index],
             "material": claim["material"],
             "originalSupportedMeaningScope": claim["sourceScope"],
             "exactSourceIdentifiers": refs,
@@ -72,6 +155,7 @@ def reviewer_packet(gate):
         "sourceScienceGateProcessDigest": gate["processAttestation"]["domainSeparatedDigest"],
         "exactFilmSha256": gate["filmSha256"],
         "exactOriginalWavSha256": gate["sourceWavSha256"],
+        "frozenAlignedWordLedgerSha256": frozen_ledger_sha,
         "exactClaimSourceJoinSha256": gate["sourceJoinSha256"],
         "eightClaimsToReview": rows,
         "reviewer": {
