@@ -16,6 +16,7 @@ import platform
 import subprocess
 import sys
 import time
+import tempfile
 
 from native_stdin_capture_guard import Capture, compare_pair, digest, NATIVE
 from original_frame_replay_probe import (
@@ -494,6 +495,51 @@ def audit_downloaded_original_movie(artifact_dir, *, expected_geometry=NATIVE):
     }
 
 
+
+def write_original_pair_research_hold(destination, report):
+    """Stage a complete research-only receipt, then expose it without clobber.
+
+    Do not overwrite a prior receipt, follow a destination symlink, or publish
+    a partial JSON report on a failing write. Local atomic hardlink creation
+    makes pre-existing output names a HOLD (same principle as film handoff).
+    """
+    if (not isinstance(report, dict)
+            or report.get("mayPublish") is not False
+            or report.get("status") != "SINGLE_THREAD_ORIGINAL_SOURCE_H264_BITWISE_REPLAY_RESEARCH_HOLD"
+            or report.get("twoActualIndependentJobExecutionsAuthenticated") is not False
+            or report.get("nativeFullMediaDecodeAndCraftApproved") is not False):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:UNAUTHORIZED_RECEIPT_CONTENT")
+    final = Path(destination)
+    parent = final.parent
+    if (not parent.is_dir() or parent.is_symlink()
+            or not final.name or final.name in (".", "..")
+            or final.exists() or final.is_symlink()):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:RESEARCH_RECEIPT_DESTINATION_UNSAFE")
+    blob = (json.dumps(report, indent=2, allow_nan=False) + "\n").encode("utf-8")
+    staged = None
+    try:
+        with tempfile.NamedTemporaryFile(
+                dir=str(parent), prefix=".em-original-receipt-", suffix=".tmp",
+                mode="wb", delete=False) as stream:
+            staged = Path(stream.name)
+            stream.write(blob)
+            stream.flush()
+            os.fsync(stream.fileno())
+        if staged.stat().st_size != len(blob) or sha_file(staged) != sha(blob):
+            raise ValueError("NATIVE_ORIGINAL_HOLD:RESEARCH_RECEIPT_STAGE_DRIFT")
+        # Hardlink is atomic and refuses existing paths, unlike os.replace().
+        try:
+            os.link(staged, final)
+        except FileExistsError as exc:
+            raise ValueError("NATIVE_ORIGINAL_HOLD:RESEARCH_RECEIPT_ALREADY_EXISTS") from exc
+        if sha_file(final) != sha(blob):
+            raise ValueError("NATIVE_ORIGINAL_HOLD:RESEARCH_RECEIPT_COMMIT_DRIFT")
+    finally:
+        if staged is not None:
+            staged.unlink(missing_ok=True)
+    return str(final)
+
+
 def sha(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -530,5 +576,5 @@ if __name__ == "__main__":
         report["twoPhysicalX264DisabledCpuAsmLogsIndependentlyValidated"] = (
             verified_a["physicalEncoderCpuAsmDisabledLogConfirmed"]
             and verified_b["physicalEncoderCpuAsmDisabledLogConfirmed"])
-        Path(args.out).write_text(json.dumps(report, indent=2) + "\n")
+        write_original_pair_research_hold(args.out, report)
         print(json.dumps(report, indent=2))
