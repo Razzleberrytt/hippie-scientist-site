@@ -314,6 +314,60 @@ class FirstRenderIntegrityTests(unittest.TestCase):
                 write_report_no_clobber(root / "invented.json", tampered)
             self.assertEqual([p.name for p in root.iterdir()], ["valid-append-HOLD.json"])
 
+    def test_research_report_replays_first_render_math_instead_of_trusting_it(self):
+        from copy import deepcopy
+        original = verify(register([
+            attempt(0), attempt(1), attempt(2, decision="FAIL"),
+            attempt(3), attempt(4), attempt(5)]))
+        self.assertEqual(original["provisionalDeclaredConsecutiveFirstPasses"], 3)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            modified = []
+            def mutate(name, change):
+                candidate = deepcopy(original)
+                change(candidate)
+                modified.append((name, candidate))
+            mutate("inflated-streak", lambda c: (
+                c.__setitem__("provisionalDeclaredConsecutiveFirstPasses", 5),
+                c.__setitem__("provisionalMaxDeclaredFirstPasses", 5),
+                c.__setitem__("lastFiveFirstAttemptsDeclaredPass", True)))
+            mutate("fake-eligible-failure", lambda c:
+                   c["attempts"][2].__setitem__("declaredEligible", True))
+            mutate("fake-event-streak", lambda c:
+                   c["attempts"][3].__setitem__("declaredStreakAfterEvent", 4))
+            mutate("coerced-event-boolean", lambda c:
+                   c["attempts"][0].__setitem__("declaredStreakAfterEvent", True))
+            mutate("disguised-revision", lambda c: (
+                c["attempts"][4].__setitem__("subjectId", "topic-0"),
+                c["attempts"][4].__setitem__("renderOrdinal", 2),
+                c["attempts"][4].__setitem__("firstFinal", False)))
+            mutate("forged-break-reason", lambda c:
+                   c["attempts"][2].__setitem__("streakBreakReason", None))
+            mutate("duplicate-run", lambda c:
+                   c["attempts"][3].__setitem__("runId", "run-0"))
+            mutate("false-distinct-subject-count", lambda c:
+                   c.__setitem__("registeredDistinctSubjects", 1))
+            for name, candidate in modified:
+                with self.subTest(name=name):
+                    target = root / (name + ".json")
+                    with self.assertRaisesRegex(ValueError,
+                                                "RESEARCH_REPORT_TIMELINE_DRIFT"):
+                        write_report_no_clobber(target, candidate)
+                    self.assertFalse(target.exists())
+            self.assertEqual(list(root.iterdir()), [])
+
+    def test_research_report_true_declared_five_still_never_authorizes_release(self):
+        report = verify(register([attempt(i) for i in range(5)]))
+        self.assertTrue(report["lastFiveFirstAttemptsDeclaredPass"])
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "declared-only-HOLD.json"
+            write_report_no_clobber(output, report)
+            result = json.loads(output.read_text())
+            self.assertEqual(result["provisionalDeclaredConsecutiveFirstPasses"], 5)
+            self.assertFalse(result["fiveRenderMilestoneAccepted"])
+            self.assertFalse(result["authorizedPromotion"])
+            self.assertFalse(result["mayPublish"])
+
     def test_nested_symlinked_ancestor_refused_for_input_and_new_report(self):
         # A non-symlink final parent is not sufficient: an earlier folder
         # in the same lexical path could redirect the owner evidence store.
