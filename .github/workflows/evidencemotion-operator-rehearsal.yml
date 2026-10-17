@@ -325,3 +325,74 @@ jobs:
         if: always()
         run: |
           echo 'Two original source-algorithm runs are not verification of historical FFmpeg/x264 bytes, independent trust attestation, creator/craft/science/handset judgment or publication. First excellent remains 0/1, streak 0/5.' >> "$GITHUB_STEP_SUMMARY"
+
+  verify-archived-original-receiver-once:
+    # Only an explicit labelled PR event is allowed to pull the earlier known
+    # original A/B artifacts. This is a cheap receiver regression, never a new
+    # render, publisher release, WIP admission, or repeatability re-attestation.
+    # The pinned 2026-10-16 source artifacts have finite 7-day retention.
+    if: github.event.pull_request.number == 6846 && github.event.action == 'labeled' && github.event.label.name == 'em-lane5-archived-receiver-admitted'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact current Lane 5 consumer implementation
+        uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install independent FFmpeg for received film verification
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg
+          test -x /usr/bin/ffmpeg
+          test -x /usr/bin/ffprobe
+      - name: Download specifically pinned older first-party full original films
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/em-archived-pair/a" "$RUNNER_TEMP/em-archived-pair/b"
+          gh run download 38975231562 --repo "$GITHUB_REPOSITORY" \
+            --name em-lane5-native-full-a --dir "$RUNNER_TEMP/em-archived-pair/a"
+          gh run download 38975231562 --repo "$GITHUB_REPOSITORY" \
+            --name em-lane5-native-full-b --dir "$RUNNER_TEMP/em-archived-pair/b"
+          for tag in a b; do
+            root="$RUNNER_TEMP/em-archived-pair/$tag"
+            test "$(find "$root" -maxdepth 1 -type f | wc -l)" -eq 4
+            printf 'c100779c2c6c15005fdef9c5166da957c8dd6f51226d45f7c2264f0a89206322  %s\n' \
+              "$root/specimen_NEW_RESEARCH_CANDIDATE.mp4" | sha256sum -c -
+            printf '401c5c7eec184d77aeaf16bd55c430e4515106b130d4cdcd0ce39d052cbc7a88  %s\n' \
+              "$root/environment.json" | sha256sum -c -
+          done
+      - name: Run CURRENT consumer against physically downloaded original A/B
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/original_native_stdin_replay.py compare \
+            --first "$RUNNER_TEMP/em-archived-pair/a" \
+            --second "$RUNNER_TEMP/em-archived-pair/b" \
+            --out "$RUNNER_TEMP/em-archived-pair/RECEIVER-RESEARCH-HOLD.json"
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          p = Path(os.environ["RUNNER_TEMP"]) / "em-archived-pair/RECEIVER-RESEARCH-HOLD.json"
+          result = json.loads(p.read_text())
+          assert result["twoResearchSingleThreadEncodedMoviesBitwiseIdentical"] is True
+          assert result["downloadedMovieBytesRehashedAgainstBothEncoderReceipts"] is True
+          assert result["twoDownloadedNativeMoviesIndependentlyFullyDecoded"] is True
+          assert result["twoPhysicalX264DisabledCpuAsmLogsIndependentlyValidated"] is True
+          assert result["mayPublish"] is False
+          assert result["twoActualIndependentJobExecutionsAuthenticated"] is False
+          assert result["nativeFullMediaDecodeAndCraftApproved"] is False
+          assert result["status"] == "SINGLE_THREAD_ORIGINAL_SOURCE_H264_BITWISE_REPLAY_RESEARCH_HOLD"
+          print("RECEIVER_REPLAY_PASS: both physically downloaded original H264/AAC films decoded; research HOLD maintained")
+          PY
+      - name: Preserve small independently created acceptance-HOLD research record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: em-lane5-archived-receiver-only-hold
+          path: ${{ runner.temp }}/em-archived-pair/RECEIVER-RESEARCH-HOLD.json
+          if-no-files-found: warn
+          retention-days: 7
