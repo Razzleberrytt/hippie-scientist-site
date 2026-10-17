@@ -144,6 +144,7 @@ def audit(video, expected, captions, caption_sha, boundaries):
     add('ONSCREEN_TEXT_DENSITY','HOLD','Decoded pixels need an approved full overlay+caption text inventory; text detection from source authoring not supplied')
     add('VISUAL_ARTIFACT_AND_CRAFT','HOLD','Not certified by codec decode, numerical motion, or internal self-score; require adversarial exact-frame visual review')
     add('REAL_HANDSET_PLAYBACK','HOLD','No actual device/UI playback receipt in package; do not ask owner to provide routine engineering critique')
+    add('SOURCE_PCM_AND_MIX_PROVENANCE','HOLD','Original untampered voice WAV/source PCM is absent from supplied package; video AAC and README cannot prove preservation of performance or mix quality')
     add('INDEPENDENT_SCIENCE_AND_SPEECH','HOLD','Assistant source check is not qualified independent human review or phonetic verification')
     result['status']='FAIL' if any(c['status']=='FAIL' for c in evidence) else 'HOLD' if any(c['status']=='HOLD' for c in evidence) else 'REVIEW'
     return result
