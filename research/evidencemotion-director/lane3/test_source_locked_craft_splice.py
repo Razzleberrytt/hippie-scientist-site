@@ -412,7 +412,8 @@ class CraftSourceLockedContractTests(unittest.TestCase):
       # Search within a known video-bearing mdat range, not MP4 headers.
       # Different FFmpeg versions choose different H264 packet layouts.
       found=False
-      for offset in (800,1000,1800,2500,3000,4500,6000,8000):
+      observations=[]
+      for offset in (500,800,1000,1200,1800,2500,3000,4500,6000,8000,10000):
         if mdat+offset+120>=len(raw):continue
         altered=bytearray(raw)
         altered[mdat+offset:mdat+offset+120]=bytes(120)
@@ -422,14 +423,19 @@ class CraftSourceLockedContractTests(unittest.TestCase):
         normal=subprocess.run(basic,capture_output=True)
         strict=subprocess.run(basic[:4]+['-xerror']+basic[4:],
                               capture_output=True)
-        if normal.returncode==0 and strict.returncode!=0:
-          try:
-            S.require_exact_cfr_frame_grid(source,35)
-            found=True
-            break
-          except S.CraftHold:
-            pass
-      self.assertTrue(found,'Expected physically damaged H264 with a deceptively valid 35-PTS probe')
+        try:
+          S.require_exact_cfr_frame_grid(source,35)
+          complete_pts=True
+        except S.CraftHold:
+          complete_pts=False
+        observations.append((offset,normal.returncode,strict.returncode,complete_pts))
+        # Some FFmpeg versions exit nonzero even in non-strict mode; it is
+        # the *actual* 35-frame PTS illusion and strict rejection that matter.
+        if strict.returncode!=0 and complete_pts:
+          found=True
+          break
+      self.assertTrue(found,
+        'Expected damaged H264 with 35 valid PTS and strict decoder failure; '+repr(observations))
       with self.assertRaisesRegex(S.CraftHold,'DECODED_VIDEO_STREAM_FAILED'):
         list(S._decoded_rgb_frames(source,width=96,height=170))
       manifest={'frames':35,'width':96,'height':170,'fps':30,
