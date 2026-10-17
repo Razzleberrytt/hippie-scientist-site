@@ -1,0 +1,34 @@
+{
+  "scope": "corrupt-deflate-structured-failure-not-film-approval",
+  "sourceCommit": "bd0d2dec47e19138b087447a8436a27d5206fbcc",
+  "before": {
+    "focusedTests": 2,
+    "errors": 2,
+    "module": "uncaught zlib.error",
+    "cli": "empty stdout instead of JSON"
+  },
+  "after": {
+    "command": "python -B -m unittest -v test_artifact_intake",
+    "exitCode": 0,
+    "discovered": 45,
+    "passed": 44,
+    "skipped": 1,
+    "errors": 0,
+    "failures": 0,
+    "seconds": 7.164,
+    "skip": "Windows case-sensitive directory test; unchanged"
+  },
+  "productionBuild": {
+    "command": "npm run build",
+    "result": "PASS",
+    "steps": 36,
+    "seconds": 840.59,
+    "logSha256": "e214e8cfef4493e90758f3b5f53b389c9c392dd42eb3d12fd5564f785d8d3923",
+    "processExitCode": "not retained after session transition; build success verified from terminal PASS marker",
+    "logValidationExitCode": 0
+  },
+  "restoredTrackedBuildPaths": 1686,
+  "workspaceBoundary": "existing untracked generated files preserved; local build, not clean-checkout or deployment proof",
+  "mayPublish": false,
+  "newAtomicCards": 0
+}
