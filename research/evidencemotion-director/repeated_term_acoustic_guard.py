@@ -584,6 +584,98 @@ def audit_research_pinned_aac_files(preencode_wav_path, encoded_aac_path,
         return refuse("PINNED_AAC_PHYSICAL_DECODE_UNAVAILABLE")
 
 
+
+def audit_research_pinned_mux_identity(archived_film_path, candidate_aac_path,
+                                      muxed_film_path, expected_archived_sha,
+                                      expected_aac_sha, expected_muxed_sha):
+    """Inspect physical stream-copy H264/AAC source and receiver; research HOLD.
+
+    The expected SHA values MUST come from independent trusted receipts.
+    Caller-chosen SHA pins prove only internal transport consistency, not
+    trustworthy scientific content or production-film authorisation.
+    """
+    import subprocess
+    base = {"schema": SCHEMA, "mayPublish": False,
+            "productionAudioApproved": False, "phonemeIdentityVerified": False,
+            "wordTimingCalibrated": False, "captionTimingApproved": False,
+            "qualifiedListenerApproved": False, "phonePlaybackVerified": False,
+            "sourceHashesIndependentlyTrustedByThisHelper": False,
+            "newFilmRenderedWithProductionPipeline": False}
+    def refuse(reason):
+        return {**base, "status": "HOLD", "errors": [reason]}
+    try:
+        paths = tuple(Path(p) for p in (
+            archived_film_path, candidate_aac_path, muxed_film_path))
+        expected = (expected_archived_sha, expected_aac_sha, expected_muxed_sha)
+        if any(not isinstance(x, str) or
+               re.fullmatch(r"[0-9a-f]{64}", x) is None for x in expected):
+            return refuse("NATIVE_MUX_EXPECTED_SHA_INVALID")
+        for p, sha in zip(paths, expected):
+            if digest(p.read_bytes()) != sha:
+                return refuse("NATIVE_MUX_SOURCE_OR_OUTPUT_SHA_CHANGED")
+
+        def packets(path, stream):
+            raw = subprocess.run(
+                ["ffprobe", "-v", "error", "-select_streams", stream,
+                 "-show_packets", "-show_data_hash", "sha256",
+                 "-show_entries",
+                 "packet=pts_time,dts_time,duration_time,size,data_hash",
+                 "-of", "json", str(path)], check=True,
+                capture_output=True, timeout=60).stdout
+            rows = json.loads(raw)["packets"]
+            if (not isinstance(rows, list) or len(rows) < 10 or
+                    any(not isinstance(p.get("data_hash"), str) or
+                        re.fullmatch(r"SHA256:[0-9a-f]{64}", p["data_hash"])
+                        is None for p in rows)):
+                raise ValueError("NATIVE_MUX_PACKET_PROOF_MISSING")
+            return rows
+
+        def decoded(path, video):
+            args = (["-map", "0:v:0", "-vf",
+                     "scale=96:170:flags=bicubic,format=gray",
+                     "-f", "rawvideo"] if video else
+                    ["-map", "0:a:0", "-ac", "1", "-ar", "24000",
+                     "-f", "f32le"])
+            return subprocess.run(
+                ["ffmpeg", "-nostdin", "-v", "error", "-xerror",
+                 "-err_detect", "explode", "-i", str(path),
+                 *args, "pipe:1"], capture_output=True, check=True,
+                timeout=120).stdout
+
+        old_video = packets(paths[0], "v:0")
+        new_video = packets(paths[2], "v:0")
+        aac = packets(paths[1], "a:0")
+        new_audio = packets(paths[2], "a:0")
+        if old_video != new_video:
+            return refuse("NATIVE_MUX_VIDEO_PACKET_OR_TIMELINE_CHANGED")
+        if aac != new_audio:
+            return refuse("NATIVE_MUX_AAC_PACKET_OR_PTS_CHANGED")
+        old_frames = decoded(paths[0], True)
+        new_frames = decoded(paths[2], True)
+        if (not old_frames or len(old_frames) != len(old_video)*96*170
+                or old_frames != new_frames):
+            return refuse("NATIVE_MUX_DECODED_VIDEO_FRAMES_CHANGED")
+        old_pcm = decoded(paths[1], False)
+        new_pcm = decoded(paths[2], False)
+        if not old_pcm or len(old_pcm) % 4 or old_pcm != new_pcm:
+            return refuse("NATIVE_MUX_DECODED_AUDIO_CHANGED")
+        return {**base, "status": "RESEARCH_NATIVE_MUX_IDENTITY_HOLD",
+                "errors": [], "researchPacketAndDecodedSignalIdentical": True,
+                "archivedFilmSha256": expected_archived_sha,
+                "candidateStandaloneAacSha256": expected_aac_sha,
+                "researchMuxSha256": expected_muxed_sha,
+                "h264PacketsCompared": len(old_video),
+                "aacPacketsCompared": len(aac),
+                "decodedVideoGraySequenceSha256": digest(new_frames),
+                "decodedAacF32leSha256": digest(new_pcm),
+                "decodedAacSampleCount": len(new_pcm)//4,
+                "warning": "Mux identity does not prove phones, true peaks, "
+                           "captions, science, creative quality or release."}
+    except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError,
+            subprocess.SubprocessError):
+        return refuse("NATIVE_MUX_PHYSICAL_PROBE_OR_DECODE_UNAVAILABLE")
+
+
 def audit_original_asr_digital_zero_onsets(source_raw, asr_raw):
     """Negative-only source-WAV proof: ASR cannot start speech in 150ms of zeros.
 
