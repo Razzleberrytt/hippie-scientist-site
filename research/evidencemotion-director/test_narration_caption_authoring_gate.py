@@ -1,5 +1,9 @@
 """Synthetic machine negatives, never original phonetic or phone verification."""
 import copy
+import hashlib
+import io
+import json
+import wave
 import unittest
 
 from narration_caption_authoring_gate import check_authoring, words
@@ -10,16 +14,29 @@ SCENES = [
     {"id": "second", "text": "If you're dependent, get medical advice before stopping.",
      "voice_start_s": 3.2, "voice_end_s": 7.0},
 ]
+SOURCE_WAV = io.BytesIO()
+with wave.open(SOURCE_WAV, 'wb') as stream:
+    stream.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+    stream.writeframes(b"\x00\x00" * 24000)
+SOURCE_WAV = SOURCE_WAV.getvalue()
+WAV_SHA = hashlib.sha256(SOURCE_WAV).hexdigest()
 PROVENANCE = {"scenes": SCENES, "word_alignment": "NOT_PERFORMED",
-              "phonetic_qa": "NOT_PERFORMED", "mayPublish": False}
+              "phonetic_qa": "NOT_PERFORMED", "mayPublish": False,
+              "wav_sha256": WAV_SHA}
+PROVENANCE_RAW = json.dumps(PROVENANCE, sort_keys=True).encode()
+SOURCE_PROVENANCE_SHA = hashlib.sha256(PROVENANCE_RAW).hexdigest()
 CUES = [(1, .2, 1.2, "The FDA says it isn't"),
         (2, 1.2, 2.6, "a dietary ingredient."),
         (3, 3.3, 4.5, "If you're dependent,"),
         (4, 4.5, 6.8, "get medical advice before stopping.")]
 
 class NarrationCaptionAuthoringTests(unittest.TestCase):
-    def review(self, cues=None, prov=None):
-        return check_authoring(copy.deepcopy(PROVENANCE if prov is None else prov),
+    def review(self, cues=None, prov=None, pin=None, wav=None, wav_pin=None):
+        source = (PROVENANCE_RAW if prov is None
+                  else json.dumps(prov, sort_keys=True).encode())
+        return check_authoring(source, SOURCE_PROVENANCE_SHA if pin is None else pin,
+                               SOURCE_WAV if wav is None else wav,
+                               WAV_SHA if wav_pin is None else wav_pin,
                                copy.deepcopy(CUES if cues is None else cues))
 
     def test_matching_declared_text_never_grants_spoken_or_publish_approval(self):
@@ -77,5 +94,44 @@ class NarrationCaptionAuthoringTests(unittest.TestCase):
             if mutation=='claimed_aligned':prov['word_alignment']='VERIFIED'
             with self.subTest(mutation=mutation):
                 self.assertEqual(self.review(prov=prov)['status'],'HOLD')
+
+
+    def test_realistic_joint_negation_change_cannot_repin_original_source(self):
+        changed = copy.deepcopy(PROVENANCE)
+        changed['scenes'][0]['text'] = changed['scenes'][0]['text'].replace("isn't", "is")
+        captions = copy.deepcopy(CUES)
+        captions[0] = (1, .2, 1.2, "The FDA says it is")
+        self.assertEqual(self.review(captions, changed)['errors'],
+                         ['ORIGINAL_VOICE_PROVENANCE_CHANGED'])
+
+    def test_semantic_quantities_and_ratios_not_erased_by_normalization(self):
+        from narration_caption_authoring_gate import words
+        for a, b in [('15%', '15'), ('1.5', '1 5'),
+                     ('1/2', '1 2'), ('7-OH', '7 OH')]:
+            with self.subTest(a=a, b=b):
+                self.assertNotEqual(words(a), words(b))
+
+    def test_changed_original_audio_bytes_and_wrong_external_pin_rejected(self):
+        changed = bytearray(SOURCE_WAV)
+        changed[-2:] = b'\x33\x12'
+        self.assertEqual(self.review(wav=bytes(changed))['errors'],
+                         ['ORIGINAL_NARRATION_WAV_CHANGED'])
+        self.assertEqual(self.review(pin='0'*64)['errors'],
+                         ['ORIGINAL_VOICE_PROVENANCE_CHANGED'])
+        self.assertEqual(self.review(wav_pin='not-a-sha')['errors'],
+                         ['INDEPENDENT_ORIGINAL_SOURCE_PINS_REQUIRED'])
+
+    def test_provenance_references_wrong_wav_even_if_provenance_rehashed(self):
+        changed = copy.deepcopy(PROVENANCE)
+        changed['wav_sha256'] = 'f'*64
+        pinned = hashlib.sha256(json.dumps(changed, sort_keys=True).encode()).hexdigest()
+        self.assertEqual(self.review(prov=changed, pin=pinned)['errors'],
+                         ['PROVENANCE_AUDIO_SOURCE_BINDING_INVALID'])
+
+    def test_truncated_or_nonnative_voice_file_does_not_certify_provenance(self):
+        for invalid in (b'not wav', SOURCE_WAV[:50]):
+            with self.subTest(size=len(invalid)):
+                pinned = hashlib.sha256(invalid).hexdigest()
+                self.assertEqual(self.review(wav=invalid, wav_pin=pinned)['status'], 'HOLD')
 
 if __name__ == '__main__': unittest.main()
