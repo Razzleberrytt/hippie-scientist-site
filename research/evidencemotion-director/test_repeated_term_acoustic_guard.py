@@ -974,6 +974,9 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
             "recognizedWords": guesses,
         }).encode()
         receipt = json.loads(old_receipt)
+        # All three independently checked provenance joins must now point to
+        # this changed SYNTHETIC source; don't weaken the source-pin guard.
+        receipt["sourceWavSha256"] = digest(original)
         cues = [
             ("That's", 31.25, 31.49), ("the", 31.49, 31.58),
             ("kind", 31.58, 31.77), ("of", 31.77, 31.87),
