@@ -41,7 +41,13 @@ jobs:
           from pathlib import Path
           data=json.loads(Path(os.environ['THS_EM00804_RECEIPT']).read_text())
           assert data['schema']=='ths-em00804-true-encoded-phone-width-ocr-research-v1'
-          assert len(data['positiveReadings'])==18 and len(data['negativeCases'])==8
+          assert len(data['positiveReadings'])==18 and len(data['negativeCases'])==10
+          assert len([x for x in data['negativeCases']
+                      if x['mode']=='disclosed_but_fabricated_plant_measurement'])==2
+          assert all(x['unsafeApprovalRejected'] for x in data['negativeCases'])
+          assert all(x['contradictoryAssayTextRecognized']
+                     for x in data['negativeCases']
+                     if x['mode']=='disclosed_but_fabricated_plant_measurement')
           assert len({(x['frameIndex'],x['width'],x['tesseractPSM'])
                       for x in data['positiveReadings']})==18
           assert all(x['bothExpectedLinesRecovered'] for x in data['positiveReadings'])
