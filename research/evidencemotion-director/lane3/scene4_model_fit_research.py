@@ -21,7 +21,11 @@ NARRATION_SHA='9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435'
 W,H,FPS,N=1080,1920,30,1031
 FIRST,LAST=498,702
 COMPUTED=555
-TARGET=(507,670,997,958)
+TARGET=(507,650,997,932)
+# Erase the entire lower tail of the originally clipped molecule, stopping
+# ABOVE the immutable 'Not a receptor recording' footer glyphs.
+ERASE=(507,650,997,960)
+FOOTER_START=960
 ORIGINAL_MODEL=(35,650,800,1080)
 
 class CraftHold(ValueError):pass
@@ -69,7 +73,7 @@ def reframe(revised_frame,archived_frame,n):
         for x in range(dest_w):
             d=min(x,y,dest_w-1-x,dest_h-1-y)
             pixels[x,y]=max(0,min(255,round(255*d/16)))
-    result.paste((14,36,48),TARGET)
+    result.paste((14,36,48),ERASE)
     result.paste(contained,(TARGET[0],TARGET[1]),mask)
     return result
 
@@ -115,7 +119,7 @@ def render(revised,archived,story,mol,output):
         for proc in (deca,decb):
             proc.stdout.close();proc.stderr.close()
         enc.stderr.close()
-    return {'schema':'ths-lane3-original-source-model-fit-research-v1',
+    return {'schema':'ths-lane3-original-source-model-fit-research-v2',
             'sourceFilmSha256':REVISED_SHA,'archivedModelFilmSha256':ORIGINAL_SHA,
             'originalNarrationSha256':NARRATION_SHA,'moleculeSha256':MOL_SHA,
             'silentSceneSha256':sha(out),'startFrame':FIRST,'endFrameExclusive':LAST,
