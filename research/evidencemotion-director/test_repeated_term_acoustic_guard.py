@@ -923,6 +923,120 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
 
 
 
+    @staticmethod
+    def encoded_aac_screen_fixture():
+        """Real-duration synthetic speech carrier, NOT original media or AAC."""
+        source, film, receipt = (
+            OriginalDigitalZeroNegativeTests.frame_native_plan_fixture())
+        with wave.open(io.BytesIO(source), "rb") as w:
+            raw = np.frombuffer(w.readframes(w.getnframes()),
+                                dtype="<i2").copy()
+        # Physical nonconstant modulated synthetic tone permits genuinely
+        # independent source-vs-decode waveform-lag negative controls.
+        t = np.arange(len(raw), dtype=np.float64)/24000
+        audio = .20*np.sin(2*np.pi*(155*t + 8*np.sin(t*.7)))
+        audio *= (0.75 + .2*np.sin(2*np.pi*.75*t))
+        raw[:] = np.rint(audio*32768).astype("<i2")
+        raw[663600:746160] = 0
+        out = io.BytesIO()
+        with wave.open(out, "wb") as w:
+            w.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            w.writeframes(raw.tobytes())
+        source = out.getvalue()
+        report = json.loads(receipt)
+        report["sourceWavSha256"] = digest(source)
+        receipt = json.dumps(report).encode()
+        # Synthetic proxy of decoded f32le samples, not forged hosted AAC.
+        decoded = np.concatenate(
+            (raw.astype("<f4")/32768*.92, np.zeros(1008, dtype="<f4")))
+        return source, film, receipt, decoded
+
+    @staticmethod
+    def check_synthetic_encoded(source, film, receipt, decoded):
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE",
+                          digest(source)), (
+                patch.object(original_guard,
+                             "ARCHIVED_TIMED_NATIVE_VIDEO_SHA", digest(film))), (
+                patch.object(original_guard,
+                             "ARCHIVED_TIMED_NATIVE_RECEIPT_SHA",
+                             digest(receipt))):
+            return original_guard.audit_archived_encoded_audio_sync(
+                source, film, receipt, decoded.astype("<f4").tobytes())
+
+    def test_encoded_audio_six_actual_signal_windows_synthetic_only(self):
+        source, film, receipt, decoded = self.encoded_aac_screen_fixture()
+        report = self.check_synthetic_encoded(source, film, receipt, decoded)
+        self.assertEqual(report["status"],
+                         "RESEARCH_ARCHIVED_ENCODED_AUDIO_SYNC_HOLD", report)
+        self.assertEqual(report["testedRealSignalWindows"], 6)
+        self.assertEqual(report["decodedAacSampleCount"], 825344)
+        for item in report["diagnosticWindows"]:
+            self.assertEqual(item["bestEnvelopeLagMs"], 0)
+            self.assertGreater(item["zeroLagDecodedPcmCorrelation"], .99)
+            self.assertTrue(item["signalSyncScreenPass"])
+        for gate in ("mayPublish", "pronunciationVerified",
+                     "phonemeIdentityVerified", "wordTimingCalibrated",
+                     "captionTimingApproved", "audioCraftApproved",
+                     "actualRevisedFilmReviewed", "decoderRunBoundToNativeFilm"):
+            self.assertFalse(report[gate], gate)
+
+    def test_encoded_audio_shifted_and_corrupted_pcm_fail_closed(self):
+        source, film, receipt, decoded = self.encoded_aac_screen_fixture()
+        shifted = np.concatenate(
+            (np.zeros(720, dtype="<f4"), decoded[:-720]))
+        self.assertEqual(self.check_synthetic_encoded(
+            source, film, receipt, shifted)["status"], "HOLD")
+        self.assertIn("ENCODED_AUDIO_SIGNAL_LAG_OR_CORRELATION_HOLD",
+                      self.check_synthetic_encoded(
+                          source, film, receipt, shifted)["errors"])
+        for bad in (
+                np.zeros_like(decoded),
+                np.full_like(decoded, np.nan),
+                decoded[:-1009],
+                decoded[:-1]):
+            with self.subTest(case=len(bad), rms=float(
+                    np.nan_to_num(bad).std())):
+                self.assertEqual(self.check_synthetic_encoded(
+                    source, film, receipt, bad)["status"], "HOLD")
+
+    def test_encoded_audio_forged_source_and_receipt_do_not_grant_sync(self):
+        source, film, receipt, decoded = self.encoded_aac_screen_fixture()
+        self.assertIn("ENCODED_AUDIO_PINNED_SOURCE_PREFLIGHT_FAILED",
+                      self.check_synthetic_encoded(
+                          source, film+b"changed", receipt, decoded)["errors"])
+        data = json.loads(receipt)
+        data["scenes"][-2]["endSec"] = 31.24
+        altered = json.dumps(data).encode()
+        self.assertEqual(self.check_synthetic_encoded(
+            source, film, altered, decoded)["status"], "HOLD")
+        self.assertFalse(self.check_synthetic_encoded(
+            source, film, receipt, decoded)["decoderRunBoundToNativeFilm"])
+
+    def test_encoded_audio_cli_missing_or_mixed_modes_fail_closed(self):
+        script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
+        cases = [
+            (["--archived-aac-sync-review",
+              "--original-wav", "/not-here.wav",
+              "--native-research-film", "/not-here.mp4",
+              "--native-render-receipt", "/not-here.json"],
+             "ENCODED_AUDIO_FILES_MISSING_OR_UNSAFE"),
+            (["--archived-aac-sync-review",
+              "--original-wav", "/not-here.wav",
+              "--native-research-film", "/not-here.mp4"],
+             "ENCODED_AUDIO_REQUIRES_EXCLUSIVE_ARCHIVED_THREE_INPUTS"),
+            (["--archived-aac-sync-review", "--frame-native-pause-plan"],
+             "ENCODED_AUDIO_REQUIRES_EXCLUSIVE_ARCHIVED_THREE_INPUTS"),
+        ]
+        for args, message in cases:
+            with self.subTest(message=message):
+                p = subprocess.run([sys.executable, script, *args],
+                                   capture_output=True, text=True, timeout=20)
+                self.assertEqual(p.returncode, 2, p.stdout+p.stderr)
+                self.assertIn(message, p.stdout)
+                self.assertIn('"mayPublish": false', p.stdout)
+
+
+
 class SyntheticMasterLinkTests(unittest.TestCase):
     """Synthetic controls only; original 34.35s master is NOT in hosted checkout."""
 
