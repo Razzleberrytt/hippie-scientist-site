@@ -312,6 +312,20 @@ def assess_source_card_glyph_gain(*, previous_path, current_path,
     }
 
 
+def _phone_plan_claim_hold(story):
+    """A storyboard digest is a producer assertion, not received/verified bytes.
+
+    This scorecard has no trusted plan-receiving interface yet. Do not silently
+    clear the missing-plan blocker when a producer types a plausible SHA.
+    """
+    claim = story.get("phonePlanSha256")
+    if claim is None:
+        return "AUTHENTICATED_CURRENT_PHONE_PLAN_MISSING"
+    if type(claim) is not str or HEX.fullmatch(claim) is None:
+        hold("INVALID_UNVERIFIED_PHONE_PLAN_DIGEST")
+    return "PHONE_PLAN_DIGEST_CLAIM_WITHOUT_INDEPENDENT_PLAN_BYTES"
+
+
 def score_candidate(*, film, wav, story_path, screen_path,
                     expected_film_sha, expected_wav_sha, expected_story_sha,
                     expected_screen_sha, previous_screen_path=None,
@@ -386,8 +400,7 @@ def score_candidate(*, film, wav, story_path, screen_path,
         blockers.append("BRIGHT_CRITICAL_CANDIDATES_RIGHT_APP_EXCLUSION")
     if colors:
         blockers.append("COLOR_RIGHT_EXCLUSION_REQUIRES_SEMANTIC_CLASSIFICATION")
-    if story.get("phonePlanSha256") is None:
-        blockers.append("AUTHENTICATED_CURRENT_PHONE_PLAN_MISSING")
+    blockers.append(_phone_plan_claim_hold(story))
     # Cross-lane identity and independent source/phone/craft gates cannot be
     # established by this same-process research scorecard.
     blockers += ["INDEPENDENT_SCIENCE_AND_CLAIM_REVIEW_MISSING",
@@ -485,7 +498,13 @@ def main():
     p.add_argument("--expected-current-ink-sha")
     p.add_argument("--previous-ink-film-sha")
     p.add_argument("--out", required=True)
+    # Actual films differ: 7-OH=1031 frames, Gut=845, Phenibut=1112.
+    # Preserve an external exact-frame expectation; never silently use the
+    # historical 1031-frame example for another candidate's full-film QA.
+    p.add_argument("--expected-frames", type=int, required=True)
     a = p.parse_args()
+    if not 1 <= a.expected_frames <= 5400:
+        hold("EXPECTED_FRAMES_OUT_OF_RANGE")
     result = score_candidate(**{
         key: getattr(a, key) for key in (
             "film", "wav", "story_path", "screen_path",
@@ -495,7 +514,8 @@ def main():
             "previous_ink_path", "current_ink_path",
             "expected_previous_ink_sha", "expected_current_ink_sha",
             "previous_ink_film_sha"
-        )
+        ),
+        dimensions=(1080, 1920, a.expected_frames),
     })
     write_once(a.out, result)
     print(result["status"], result["filmSha256"])
