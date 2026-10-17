@@ -175,10 +175,13 @@ def verify_append_only(current, previous, previous_sha):
         hold("EXTERNAL_PREVIOUS_REGISTER_SHA_REQUIRED")
     old = previous["attempts"]
     new = current["attempts"]
-    if len(new) <= len(old):
-        hold("NO_NEW_APPEND_ONLY_ATTEMPT")
-    if new[:len(old)] != old:
+    # Detect missing/altered historical rows before comparing event counts.
+    # Equal-length attempts with one removed and another substituted must
+    # report rewritten history, not merely "nothing appended".
+    if len(new) < len(old) or new[:len(old)] != old:
         hold("PREVIOUS_ATTEMPTS_REWRITTEN_OR_DELETED")
+    if len(new) == len(old):
+        hold("NO_NEW_APPEND_ONLY_ATTEMPT")
     report.update({
         "appendOnlyAgainstPinnedPrior": True,
         "externalPreviousRegisterSha256": previous_sha,
