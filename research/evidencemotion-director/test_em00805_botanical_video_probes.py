@@ -1,5 +1,6 @@
 """EM-008.05: real encoded 1080p botanical footage and adversarial disclosure controls."""
 import tempfile
+import os
 import unittest
 from pathlib import Path
 from PIL import Image
@@ -19,6 +20,13 @@ class EncodedBotanicalVideoSafetyTests(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
+        # Persist ONLY an immutable research receipt, not the negative-example
+        # MP4s that knowingly contain a fabricated assay claim.
+        destination=os.environ.get('THS_EM00805_RECEIPT')
+        if destination:
+            out=Path(destination)
+            out.parent.mkdir(parents=True,exist_ok=True)
+            out.write_bytes((cls.out/'receipt.json').read_bytes())
         cls.tmp.cleanup()
 
     def test_real_encoded_native_frames_and_source_sha(self):
