@@ -109,8 +109,72 @@ def _audio_r128(path):
             "truePeakDBTP": float(peak.group(1))}
 
 
+
+def inherited_source_holds(*, receipt_path, receipt_sha, source_film_sha,
+                           source_h264_sha, video_frames):
+    """Carry forward externally SHA-pinned earlier OPEN video findings.
+
+    Prior review is external INPUT, not proven human truth by hash alone.
+    Identical H264 cannot remedy known visual defects.
+    """
+    if not isinstance(receipt_sha, str) or HEX.fullmatch(receipt_sha) is None:
+        hold("KNOWN_HOLD_RECEIPT_SHA_REQUIRED")
+    source = Path(receipt_path)
+    if source.stat().st_size > 65536:
+        hold("KNOWN_HOLD_RECEIPT_TOO_LARGE")
+    if sha(source) != receipt_sha:
+        hold("KNOWN_HOLD_RECEIPT_SHA_MISMATCH")
+    def no_duplicates(pairs):
+        out = {}
+        for key, value in pairs:
+            if key in out:
+                hold("KNOWN_HOLD_DUPLICATE_JSON_FIELD")
+            out[key] = value
+        return out
+    try:
+        data = json.loads(source.read_text(encoding="utf-8"),
+                          object_pairs_hook=no_duplicates)
+    except (UnicodeError, ValueError) as exc:
+        if str(exc).startswith("AUDIO_ONLY_REMASTER_HOLD:"):
+            raise
+        hold("KNOWN_HOLD_RECEIPT_INVALID_JSON:" + type(exc).__name__)
+    required = {"schema", "sourceFilmSha256", "sourceH264Sha256", "scope",
+                "status", "mayPublish", "knownOpenHolds"}
+    if (not isinstance(data, dict) or set(data) != required
+            or data["schema"] != "ths-em-lane5-prior-video-defects-v1"
+            or data["sourceFilmSha256"] != source_film_sha
+            or data["sourceH264Sha256"] != source_h264_sha
+            or data["scope"] != "INTERNAL_SOURCE_REVIEW_NOT_QUALIFIED"
+            or data["status"] != "RESEARCH_HOLD"
+            or data["mayPublish"] is not False):
+        hold("KNOWN_HOLD_WRONG_FILM_SCOPE_OR_FALSE_AUTHORITY")
+    items = data["knownOpenHolds"]
+    if not isinstance(items, list) or not 1 <= len(items) <= 32:
+        hold("KNOWN_HOLD_ITEMS_MISSING")
+    seen = set()
+    for item in items:
+        if (not isinstance(item, dict)
+                or set(item) != {"id", "firstFrame", "lastFrame", "sourceReviewUrl"}
+                or not isinstance(item["id"], str)
+                or re.fullmatch(r"[A-Z0-9][A-Z0-9-]{2,63}", item["id"]) is None
+                or item["id"] in seen
+                or type(item["firstFrame"]) is not int
+                or type(item["lastFrame"]) is not int
+                or not 0 <= item["firstFrame"] <= item["lastFrame"] < video_frames
+                or not isinstance(item["sourceReviewUrl"], str)
+                or not item["sourceReviewUrl"].startswith("https://github.com/")
+                or len(item["sourceReviewUrl"]) > 500):
+            hold("KNOWN_HOLD_ITEM_INVALID_OR_DUPLICATE")
+        seen.add(item["id"])
+    return {"sourceHoldReceiptSha256": receipt_sha,
+            "inheritedVideoSourceReviewScope": "INTERNAL_SOURCE_REVIEW_NOT_QUALIFIED",
+            "openKnownVideoHolds": items,
+            "knownVisualDefectsCannotBeClearedByAudioOnlyRemaster": True,
+            "priorDefectActualFramesReinspectedByThisFunction": False}
+
 def inspect(*, source, remaster, source_sha, remaster_sha,
-            expected_remaster_sample_rate=None):
+            expected_remaster_sample_rate=None, known_hold_receipt=None,
+            known_hold_receipt_sha=None):
     old = exact(source, source_sha)
     new = exact(remaster, remaster_sha)
     if old == new:
@@ -144,6 +208,14 @@ def inspect(*, source, remaster, source_sha, remaster_sha,
     old_loudness, new_loudness = _audio_r128(source), _audio_r128(remaster)
     if exact(source, source_sha) != old or exact(remaster, remaster_sha) != new:
         hold("MOVIE_CHANGED_WHILE_TESTING")
+    if (known_hold_receipt is None) != (known_hold_receipt_sha is None):
+        hold("KNOWN_HOLD_RECEIPT_AND_EXTERNAL_SHA_REQUIRED_TOGETHER")
+    source_holds = None
+    if known_hold_receipt is not None:
+        source_holds = inherited_source_holds(
+            receipt_path=known_hold_receipt, receipt_sha=known_hold_receipt_sha,
+            source_film_sha=old, source_h264_sha=av,
+            video_frames=int(a["video"]["nb_read_frames"]))
     return {"schema": "ths-em-lane5-audio-only-remaster-research-v1",
             "sourceFilmSha256": old, "remasteredFilmSha256": new,
             "identicalH264ElementarySha256": av,
@@ -165,6 +237,8 @@ def inspect(*, source, remaster, source_sha, remaster_sha,
                 "masteringQualityIndependentlyCertified": False,
                 "measurementLimit": "EBU R128 loudness and intersample peak; no naturalness, distortion or phone audition verdict"},
             "editorialAndVoicePhoneticsInheritedFromSource": "REQUIRES_SEPARATE_REVIEW",
+            "priorKnownVideoHolds": source_holds,
+            "priorOpenHoldsExplicitlyReconciled": source_holds is not None,
             "machineTechnicalVerdict": "AUDIO_ONLY_STRUCTURE_VERIFIED_EDITORIAL_HOLD",
             "independentHumanOrPhoneApproval": False,
             "firstExcellentMasterAccepted": False,
@@ -180,11 +254,15 @@ def main():
     p.add_argument("--source-sha", required=True)
     p.add_argument("--remaster-sha", required=True)
     p.add_argument("--expected-remaster-sample-rate", type=int)
+    p.add_argument("--known-hold-receipt")
+    p.add_argument("--known-hold-receipt-sha")
     p.add_argument("--out", required=True)
     args = p.parse_args()
     result = inspect(source=args.source, remaster=args.remaster,
                      source_sha=args.source_sha, remaster_sha=args.remaster_sha,
-                     expected_remaster_sample_rate=args.expected_remaster_sample_rate)
+                     expected_remaster_sample_rate=args.expected_remaster_sample_rate,
+                     known_hold_receipt=args.known_hold_receipt,
+                     known_hold_receipt_sha=args.known_hold_receipt_sha)
     output = Path(args.out)
     if output.exists() or output.is_symlink() or not output.parent.is_dir():
         hold("OUTPUT_ALREADY_EXISTS_OR_UNSAFE")
