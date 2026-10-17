@@ -397,5 +397,53 @@ class SourceCardGainTests(unittest.TestCase):
             reject(value, "SOURCE_CARD_REVIEW_SCOPE_OR_AUTHORITY_INVALID")
 
 
+class ExactFrameScopeAndPhonePlanClaimTests(unittest.TestCase):
+    """Regression: changing film length or claiming a plan SHA cannot fake QA."""
+
+    def test_missing_or_self_reported_phone_plan_still_holds(self):
+        from lane5_candidate_scorecard import _phone_plan_claim_hold
+        self.assertEqual(_phone_plan_claim_hold({"phonePlanSha256": None}),
+                         "AUTHENTICATED_CURRENT_PHONE_PLAN_MISSING")
+        self.assertEqual(_phone_plan_claim_hold(
+            {"phonePlanSha256": h(b"plan bytes never received")}),
+            "PHONE_PLAN_DIGEST_CLAIM_WITHOUT_INDEPENDENT_PLAN_BYTES")
+        for bad in ("yes", True, 123, "", "A" * 64, "0" * 63):
+            with self.subTest(bad=bad):
+                with self.assertRaisesRegex(ValueError,
+                                            "INVALID_UNVERIFIED_PHONE_PLAN_DIGEST"):
+                    _phone_plan_claim_hold({"phonePlanSha256": bad})
+
+    def test_cli_externally_scopes_all_current_native_film_lengths(self):
+        import lane5_candidate_scorecard as unit
+        from unittest.mock import patch
+        required = []
+        for name in ("film", "wav", "story-path", "screen-path",
+                     "expected-film-sha", "expected-wav-sha",
+                     "expected-story-sha", "expected-screen-sha"):
+            required.extend(("--" + name, "test-source"))
+        required.extend(("--out", "report.json"))
+        for frames in (845, 1031, 1112):
+            with self.subTest(frames=frames):
+                with patch("sys.argv", ["lane5_candidate_scorecard.py", *required,
+                                        "--expected-frames", str(frames)]), \\
+                     patch.object(unit, "score_candidate", return_value={
+                         "status": "RESEARCH_HOLD_NO_PROMOTION",
+                         "filmSha256": "a" * 64}) as scorer, \\
+                     patch.object(unit, "write_once") as writer:
+                    unit.main()
+                self.assertEqual(scorer.call_args.kwargs["dimensions"],
+                                 (1080, 1920, frames))
+                self.assertEqual(writer.call_count, 1)
+        for count in (0, -1, 5401):
+            with self.subTest(bad_frames=count):
+                with patch("sys.argv", ["lane5_candidate_scorecard.py", *required,
+                                        "--expected-frames", str(count)]), \\
+                     patch.object(unit, "score_candidate") as scorer:
+                    with self.assertRaisesRegex(ValueError,
+                                                "EXPECTED_FRAMES_OUT_OF_RANGE"):
+                        unit.main()
+                scorer.assert_not_called()
+
+
 if __name__ == "__main__":
     unittest.main()
