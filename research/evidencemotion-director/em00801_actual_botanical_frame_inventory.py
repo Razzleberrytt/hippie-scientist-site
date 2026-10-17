@@ -215,7 +215,7 @@ def main():
     result=audit(a.movie,a.plan,a.receipt,a.inventory)
     path=Path(a.out);path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(json.dumps(result,indent=2)+"\n",encoding="utf-8")
-    print(json.dumps({k:v for k,v in result.items() if k not in ("sampledDecodedPixelHashes",)},indent=2))
+    print(json.dumps({k:v for k,v in result.items() if k not in ("sampledDecodedPixelHashes","fullEncodedTimeline")},indent=2))
 
 if __name__=="__main__":
     main()
