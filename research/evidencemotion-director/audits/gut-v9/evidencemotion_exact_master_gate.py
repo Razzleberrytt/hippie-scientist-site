@@ -89,7 +89,7 @@ def scene_motion(video,duration,boundaries):
 def audit(video, expected, captions, caption_sha, boundaries):
     evidence=[]
     def add(code,status,detail): evidence.append({'code':code,'status':status,'detail':detail})
-    result={'schema':'ths.exact-master-technical-triage.v1','tool_scope':'INTERNAL_MACHINE_TRIAGE_ONLY','mayPublish':False,'independently_verified':False,'owner_phone_verified':False,'film':str(video),'expected_sha256':expected,'checks':evidence}
+    result={'schema':'ths.exact-master-technical-triage.v1','tool_scope':'INTERNAL_MACHINE_TRIAGE_ONLY','mayPublish':False,'independently_verified':False,'owner_phone_verified':False,'film':str(video),'expected_sha256':expected,'checks':evidence,'status':'FAIL'}
     if not video.is_file():
         add('MEDIA_MISSING','FAIL',str(video));return result
     actual=sha256(video); result['actual_sha256']=actual
@@ -102,8 +102,13 @@ def audit(video, expected, captions, caption_sha, boundaries):
     if rc: add('FFPROBE','FAIL',err[:500]);return result
     try: info=json.loads(meta)
     except json.JSONDecodeError: add('FFPROBE_JSON','FAIL','Invalid probe output');return result
-    streams=info['streams']; v=next((x for x in streams if x.get('codec_type')=='video'),None); a=next((x for x in streams if x.get('codec_type')=='audio'),None)
-    duration=float(info['format']['duration']);result['duration_s']=duration
+    try:
+        streams=info['streams']
+        duration=float(info['format']['duration'])
+    except (KeyError, TypeError, ValueError) as exc:
+        add('FFPROBE_INCOMPLETE','FAIL',f'Malformed or missing video metadata: {type(exc).__name__}'); return result
+    v=next((x for x in streams if x.get('codec_type')=='video'),None); a=next((x for x in streams if x.get('codec_type')=='audio'),None)
+    result['duration_s']=duration
     result['video_stream']={k:v.get(k) for k in ('codec_name','width','height','r_frame_rate','nb_frames','bit_rate')} if v else None
     result['audio_stream']={k:a.get(k) for k in ('codec_name','sample_rate','channels')} if a else None
     if not v or not a: add('AV_STREAMS','FAIL','Missing H264 video or audio stream');return result
@@ -164,6 +169,13 @@ def main(argv=None):
         # last boundary must include exact film duration; if unknown, probe below in audit would reject.
         bounds=starts
     else: bounds=[]
+    # Prevent a read-only QA job from destroying its own immutable source by
+    # targeting either input as the report (including via a symlink/alias).
+    source_paths=[args.video.resolve()]
+    if args.captions is not None: source_paths.append(args.captions.resolve())
+    if args.output.resolve() in source_paths:
+        print('REFUSED: report output aliases original video or captions',file=sys.stderr)
+        return 1
     r=audit(args.video,args.expected_sha256,args.captions,args.caption_sha256,bounds)
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(r,indent=2)+'\n',encoding='utf-8')
