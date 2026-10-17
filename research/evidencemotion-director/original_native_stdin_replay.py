@@ -496,6 +496,22 @@ def audit_downloaded_original_movie(artifact_dir, *, expected_geometry=NATIVE):
 
 
 
+def _original_receipt_has_symlinked_ancestor(path):
+    """Refuse folder aliases even above the immediate output parent.
+
+    Preserve lexical '..' path elements while inspecting: resolving or
+    normalizing first can conceal a symlink traversed by the filesystem.
+    """
+    candidate = Path(path)
+    parent = (candidate if candidate.is_absolute() else Path.cwd() / candidate).parent
+    while True:
+        if parent.is_symlink():
+            return True
+        if parent == parent.parent:
+            return False
+        parent = parent.parent
+
+
 def write_original_pair_research_hold(destination, report):
     """Stage a complete research-only receipt, then expose it without clobber.
 
@@ -511,7 +527,7 @@ def write_original_pair_research_hold(destination, report):
         raise ValueError("NATIVE_ORIGINAL_HOLD:UNAUTHORIZED_RECEIPT_CONTENT")
     final = Path(destination)
     parent = final.parent
-    if (not parent.is_dir() or parent.is_symlink()
+    if (not parent.is_dir() or _original_receipt_has_symlinked_ancestor(final)
             or not final.name or final.name in (".", "..")
             or final.exists() or final.is_symlink()):
         raise ValueError("NATIVE_ORIGINAL_HOLD:RESEARCH_RECEIPT_DESTINATION_UNSAFE")
