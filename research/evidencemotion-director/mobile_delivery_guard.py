@@ -37,11 +37,15 @@ def probe(path):
     if len(videos)!=1 or len(audios)!=1: raise Hold('ONE_VIDEO_AND_AUDIO_TRACK_REQUIRED')
     return videos[0],audios[0]
 
-def require_undistorted_portrait(video):
-    # A nominal 720x1280 stream with anamorphic SAR or a 90-degree
-    # display matrix is NOT the same as an actual upright 9:16 phone video.
+def require_undistorted_portrait(video, size):
+    # Pixel-true portrait must preserve its declared exact geometry, not
+    # force 9:16 onto deliberately smaller 40:71 physical-test fixtures.
+    # A real 1080x1920 / 720x1280 delivery still requires 9:16.
+    width,height=size
+    common=math.gcd(width,height)
+    expected_aspect=f'{width//common}:{height//common}'
     if (video.get('sample_aspect_ratio')!='1:1'
-            or video.get('display_aspect_ratio')!='9:16'):
+            or video.get('display_aspect_ratio')!=expected_aspect):
         raise Hold('NON_SQUARE_PIXEL_PORTRAIT')
     angles=[(video.get('tags') or {}).get('rotate',0)]
     angles += [side['rotation'] for side in (video.get('side_data_list') or [])
@@ -157,8 +161,8 @@ def audit(before,after,sha_before,sha_after,*,source_size=(1080,1920),mobile_siz
             raise Hold('FILM_SHA256_DOES_NOT_MATCH_PIN')
     v0,a0=probe(before);v1,a1=probe(after)
     if (v0['width'],v0['height'])!=source_size or (v1['width'],v1['height'])!=mobile_size:raise Hold('WRONG_SOURCE_OR_MOBILE_GEOMETRY')
-    require_undistorted_portrait(v0)
-    require_undistorted_portrait(v1)
+    require_undistorted_portrait(v0,source_size)
+    require_undistorted_portrait(v1,mobile_size)
     if (v0['codec_name'],v1['codec_name'])!=('h264','h264') or v1.get('profile') not in ('Constrained Baseline','Baseline','Main') or v1.get('pix_fmt')!='yuv420p':raise Hold('NOT_PHONE_COMPATIBLE_H264')
     if int(v1.get('level',999))>31:raise Hold('PHONE_H264_LEVEL_ABOVE_31')
     # Display geometry, not just coded pixel dimensions, must be portrait 9:16.
