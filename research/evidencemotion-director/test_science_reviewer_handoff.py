@@ -164,7 +164,7 @@ class IndependentScienceIntakeTests(unittest.TestCase):
                                             isinstance(x,str) and x.startswith("select=")))
                 for n in range(8):
                     (Path(command[-1]).parent/f"original-claim-{n:02d}.png").write_bytes(
-                        b"\x89PNG\r\n\x1a\n"+b"a"*130)
+                        (b"\x89PNG\r\n\x1a\n"+(13).to_bytes(4,"big")+b"IHDR"+(540).to_bytes(4,"big")+(960).to_bytes(4,"big")+b"a"*130))
                 return None
             with patch.object(handoff,"_hash_file",return_value=FILM_SHA):
                 with patch.object(handoff.subprocess,"run",side_effect=mock_ffmpeg) as subprocess_run:
@@ -181,6 +181,28 @@ class IndependentScienceIntakeTests(unittest.TestCase):
                                 for x in result["originalClaimFrameStills"]))
             self.assertFalse(result["qualifiedIndependentScienceReviewCompleted"])
             self.assertFalse(result["mayPublish"])
+            from science_reviewer_handoff import verify_original_review_stills
+            self.assertTrue(verify_original_review_stills(root/"out",self.gate,packet))
+            img=root/"out/original-claim-03.png"
+            original=img.read_bytes()
+            img.write_bytes(original+b"tampered")
+            with self.assertRaisesRegex(ValueError,"REVIEW_STILL_ARCHIVE_PNG_PIXELS"):
+                verify_original_review_stills(root/"out",self.gate,packet)
+            img.write_bytes(original)
+            manifest=root/"out/REVIEW-SAMPLES-RESEARCH-ONLY.json"
+            raw=manifest.read_text()
+            fake=json.loads(raw)
+            fake["qualifiedIndependentScienceReviewCompleted"]=True
+            manifest.write_text(json.dumps(fake))
+            with self.assertRaisesRegex(ValueError,"REVIEW_STILL_ARCHIVE_MANIFEST"):
+                verify_original_review_stills(root/"out",self.gate,packet)
+            manifest.write_text(raw)
+            extra=root/"out/secret-review-approval.json"
+            extra.write_text("{}")
+            with self.assertRaisesRegex(ValueError,"REVIEW_STILL_ARCHIVE_MISSING_EXTRA"):
+                verify_original_review_stills(root/"out",self.gate,packet)
+            extra.unlink()
+            self.assertTrue(verify_original_review_stills(root/"out",self.gate,packet))
             with self.assertRaisesRegex(ValueError,"REVIEW_STILL_OUTPUT_MUST_BE_NEW"):
                 with patch.object(handoff,"_hash_file",return_value=FILM_SHA):
                     original_review_stills(film,self.gate,packet,root/"out")
@@ -195,7 +217,7 @@ class IndependentScienceIntakeTests(unittest.TestCase):
             film.write_bytes(b"mock-media")
             def incomplete(command,**kwargs):
                 (Path(command[-1]).parent/"original-claim-00.png").write_bytes(
-                    b"\x89PNG\r\n\x1a\n"+b"a"*130)
+                    (b"\x89PNG\r\n\x1a\n"+(13).to_bytes(4,"big")+b"IHDR"+(540).to_bytes(4,"big")+(960).to_bytes(4,"big")+b"a"*130))
             with patch.object(handoff,"_hash_file",return_value=FILM_SHA):
                 with patch.object(handoff.subprocess,"run",side_effect=incomplete):
                     with self.assertRaisesRegex(ValueError,"ORIGINAL_REVIEW_STILL_COUNT_OR_SEQUENCE"):
