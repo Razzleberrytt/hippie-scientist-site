@@ -357,6 +357,118 @@ def screen_original_no_reaction_caption(folder, gate, packet):
 
 
 
+
+# Eight authentic original-film samples across spoken-001; four depict the
+# MITRAGYNINE label and four depict 7-OH. Not a full 88-frame semantic audit.
+FIRST_SCENE_ORIGINAL_FRAME_SAMPLES = (8,20,35,45,55,65,75,85)
+FIRST_SCENE_SAMPLE_SCHEMA = "ths-em00707-original-no-reaction-temporal-ocr-HOLD-v1"
+
+
+def screen_original_no_reaction_temporal(movie, gate, packet):
+    """Decode source-authenticated original intro frames and OCR REAL pixels.
+
+    Eight samples assess caption presence across TWO changing chemical
+    diagram labels, not reactions, pharmacology, human interpretation or
+    all 88 scene frames. Any dropped frame/OCR phrase/source identity HOLDS.
+    """
+    verify_packet(packet,gate)
+    movie=Path(movie)
+    if (not movie.is_file() or movie.is_symlink()
+        or gate["filmSha256"]!=FILM_SHA or _hash_file(movie)!=FILM_SHA):
+        hold("NO_REACTION_TIMELINE_REQUIRES_PINNED_ORIGINAL_H264")
+    indexes=FIRST_SCENE_ORIGINAL_FRAME_SAMPLES
+    if not all(0 <= x < FILM_FRAME_COUNT for x in indexes):
+        hold("NO_REACTION_TIMELINE_INDEX_OUT_OF_FILM")
+    original_window=packet["eightClaimsToReview"][0][
+        "originalWavAlignedReviewWindow"]
+    if not all(
+        original_window["firstPotentiallyOverlappingFrame"]<=i<=
+        original_window["lastPotentiallyOverlappingFrame"] for i in indexes
+    ):
+        hold("NO_REACTION_TIMELINE_NOT_WITHIN_FROZEN_SPOKEN_CLAIM")
+    rows=[]
+    with tempfile.TemporaryDirectory(prefix="em00707-source-film-") as temp:
+        folder=Path(temp)
+        expression="+".join("eq(n\\,"+str(index)+")" for index in indexes)
+        command=["ffmpeg","-hide_banner","-loglevel","error","-y",
+                 "-threads","1","-filter_threads","1","-i",str(movie),
+                 "-an","-vf","select="+expression+",scale=540:960",
+                 "-fps_mode","passthrough","-frames:v",str(len(indexes)),
+                 "-start_number","0",str(folder/"intro-%02d.png")]
+        try:
+            subprocess.run(command,check=True,capture_output=True,timeout=100)
+        except (subprocess.CalledProcessError,subprocess.TimeoutExpired,
+                FileNotFoundError) as error:
+            hold("NO_REACTION_TIMELINE_ARCHIVE_DECODE_FAILED:"+
+                 type(error).__name__)
+        if sorted(p.name for p in folder.iterdir())!=[
+            f"intro-{i:02d}.png" for i in range(len(indexes))
+        ]:
+            hold("NO_REACTION_TIMELINE_EIGHT_REAL_FRAMES_REQUIRED")
+        for i,frame_index in enumerate(indexes):
+            image=folder/f"intro-{i:02d}.png"
+            raw=image.read_bytes()
+            if (len(raw)<100 or raw[:8]!=b"\\x89PNG\\r\\n\\x1a\\n"
+                or raw[12:16]!=b"IHDR"
+                or int.from_bytes(raw[16:20],"big")!=540
+                or int.from_bytes(raw[20:24],"big")!=960):
+                hold("NO_REACTION_TIMELINE_EXTRACTED_FRAME_NOT_PNG")
+            digest=hashlib.sha256(raw).hexdigest()
+            if frame_index==NO_REACTION_FRAME and digest!=NO_REACTION_STILL_SHA:
+                hold("NO_REACTION_TIMELINE_MIDPOINT_NOT_ORIGINAL_SOURCE")
+            want="MITRAGYNINE" if i<4 else "7-OH"
+            readings={}
+            for mode in (6,11):
+                try:
+                    result=subprocess.run([
+                        "tesseract",str(image),"stdout","--psm",str(mode)],
+                        check=True,capture_output=True,text=True,timeout=45)
+                except (subprocess.CalledProcessError,subprocess.TimeoutExpired,
+                        FileNotFoundError) as error:
+                    hold("NO_REACTION_TIMELINE_ORIGINAL_OCR_FAILED:"+
+                         type(error).__name__)
+                ocr=result.stdout
+                visible=" ".join(ocr.casefold().split())
+                if (re.search(r"(?<![a-z])no\\s+reaction(?![a-z])",visible)
+                    is None or want.casefold() not in visible):
+                    hold("NO_REACTION_TIMELINE_VISIBLE_TEXT_NOT_RECOVERED:"
+                         +str(frame_index)+":"+str(mode))
+                readings["psm"+str(mode)]={
+                    "recoverNoReaction":True,
+                    "recoverChemicalLabel":want,
+                    "ocrStdoutSha256":hashlib.sha256(ocr.encode()).hexdigest(),
+                }
+            rows.append({
+                "frameIndex":frame_index,"timeSec":round(frame_index/FILM_FPS,6),
+                "originalFilmSha256":FILM_SHA,"actualDecodedPngSha256":digest,
+                "sourceChemicalLabelIndependentlyOCRed":want,
+                "actualOcr":readings,
+                "scienceMeaningOrHumanComprehensionApproved":False,
+                "mayPublish":False,
+            })
+    if len(rows)!=8:
+        hold("NO_REACTION_TIMELINE_8_OF_8_NOT_VERIFIED")
+    return {
+        "schema":FIRST_SCENE_SAMPLE_SCHEMA,
+        "task":"EM-007.07","originalFilmSha256":FILM_SHA,
+        "sourceWavSha256":SOURCE_WAV_SHA,
+        "sourceReviewPacketDigest":packet["processPacketDigest"],
+        "sampleCount":8,"selectedSampleFrameIndices":list(indexes),
+        "physicallyRecoveredNoReactionSamples":len(rows),
+        "pairedMitragynineSamples":4,"paired7OHSamples":4,
+        "actualNativeH264Frames":rows,
+        "limitation":"Only eight independent time-sampled frames from the opening claim were OCRed. Does not prove unbroken caption presence in all frames or how a person understands it.",
+        "requiresQualifiedEditorialScientificInterpretation":True,
+        "sceneSemanticsApproved":False,
+        "realHumanUnderstandingMeasured":False,
+        "firstExcellentRenderApproved":False,
+        "mayPublish":False,
+        "approvalToMerge":False,
+    }
+
+
+
+
 def original_review_stills(movie, gate, packet, output_dir):
     """Eight actual encoded original-frame PNGs for a *human* science handoff.
 
