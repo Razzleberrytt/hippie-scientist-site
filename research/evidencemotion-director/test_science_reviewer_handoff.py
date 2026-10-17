@@ -139,8 +139,8 @@ class IndependentScienceIntakeTests(unittest.TestCase):
                   "sourceFilmSha256":FILM_SHA,
                   "qualifiedVisualOrScientificReviewCompleted":False,
                   "mayPublish":False}
-        ocr={"psm6":"MITRAGYNINE\\nNo reaction\\nO H\\n",
-             "psm11":"THE HIPPIE SCIENTIST\\nNo reaction\\n"}
+        ocr={"psm6":"MITRAGYNINE\nNo reaction\nO H\n",
+             "psm11":"THE HIPPIE SCIENTIST\nNo reaction\n"}
         result=original_no_reaction_ocr_verdict(original,ocr)
         self.assertEqual(result["schema"],NO_REACTION_RISK_SCHEMA)
         self.assertEqual(result["claimId"],"spoken-001")
