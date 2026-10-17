@@ -384,6 +384,66 @@ class CraftSourceLockedContractTests(unittest.TestCase):
 
 
 
+
+  def test_corrupted_h264_with_unchanged_frame_pts_is_strictly_refused(self):
+    """Physical damage: ffprobe sees all frames and normal FFmpeg exits 0.
+
+    Strict decode and the actual full splice must both HOLD before publishing.
+    Not the archived film; a controlled 35-frame source with copied AAC.
+    """
+    if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
+      self.skipTest('Physical FFmpeg corruption negative needs native codec')
+    with tempfile.TemporaryDirectory() as td:
+      folder=Path(td)
+      original=folder/'source.mp4';scene=folder/'white-scene.mp4'
+      subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi',
+        '-i','testsrc2=s=96x170:r=30',
+        '-f','lavfi','-i','anullsrc=r=24000:cl=mono',
+        '-frames:v','35','-shortest','-c:v','libx264','-pix_fmt','yuv420p',
+        '-c:a','aac',str(original)],check=True,capture_output=True)
+      subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi',
+        '-i','color=c=white:s=96x170:r=30','-frames:v','4',
+        '-c:v','libx264','-pix_fmt','yuv420p',str(scene)],
+        check=True,capture_output=True)
+      raw=original.read_bytes()
+      mdat=raw.find(b'mdat')
+      self.assertGreater(mdat,0)
+      source=folder/'damaged.mp4'
+      # Search within a known video-bearing mdat range, not MP4 headers.
+      # Different FFmpeg versions choose different H264 packet layouts.
+      found=False
+      for offset in (800,1000,1800,2500,3000,4500,6000,8000):
+        if mdat+offset+120>=len(raw):continue
+        altered=bytearray(raw)
+        altered[mdat+offset:mdat+offset+120]=bytes(120)
+        source.write_bytes(altered)
+        basic=['ffmpeg','-nostdin','-v','error','-i',str(source),
+          '-map','0:v:0','-f','null','-']
+        normal=subprocess.run(basic,capture_output=True)
+        strict=subprocess.run(basic[:4]+['-xerror']+basic[4:],
+                              capture_output=True)
+        if normal.returncode==0 and strict.returncode!=0:
+          try:
+            S.require_exact_cfr_frame_grid(source,35)
+            found=True
+            break
+          except S.CraftHold:
+            pass
+      self.assertTrue(found,'Expected physically damaged H264 with a deceptively valid 35-PTS probe')
+      with self.assertRaisesRegex(S.CraftHold,'DECODED_VIDEO_STREAM_FAILED'):
+        list(S._decoded_rgb_frames(source,width=96,height=170))
+      manifest={'frames':35,'width':96,'height':170,'fps':30,
+        'startFrame':14,'endFrameExclusive':18,
+        'sourceFilmSha256':S.digest(source),
+        'craftSceneSha256':S.digest(scene)}
+      self.assertTrue(S.preflight(source,scene,manifest))
+      output=folder/'should-not-exist.mp4'
+      with self.assertRaisesRegex(S.CraftHold,'FFMPEG_HOLD'):
+        S.splice(source,scene,output,manifest)
+      self.assertFalse(output.exists())
+      self.assertFalse(output.with_suffix('.receipt.json').exists())
+      self.assertEqual(list(folder.glob('.lane3-splice-*')),[])
+
   def test_real_h264_aac_full_splice_preserves_unedited_frames_and_sound(self):
     """Exercise preflight, concat, encoded QA and handoff with *real* FFmpeg.
 
