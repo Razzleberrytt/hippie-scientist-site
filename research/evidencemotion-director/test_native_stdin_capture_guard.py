@@ -226,6 +226,35 @@ class Tests(unittest.TestCase):
                                                   self._pair_hold_for_write())
             self.assertEqual(list(real.iterdir()), [])
 
+    def test_original_pair_receipt_rejects_nested_ancestor_alias_and_dotdot(self):
+        from original_native_stdin_replay import write_original_pair_research_hold
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            real = root / "real" / "nested"
+            real.mkdir(parents=True)
+            alias = root / "alias"
+            try:
+                alias.symlink_to(root / "real", target_is_directory=True)
+            except (OSError, NotImplementedError) as exc:
+                self.skipTest(f"directory symlinks unavailable: {exc}")
+            nested = alias / "nested" / "HOLD.json"
+            self.assertFalse(nested.parent.is_symlink())
+            with self.assertRaisesRegex(ValueError, "RESEARCH_RECEIPT_DESTINATION_UNSAFE"):
+                write_original_pair_research_hold(nested, self._pair_hold_for_write())
+            self.assertFalse((real / "HOLD.json").exists())
+
+            # Keep the lexical symlink rather than normalizing it away at '..'.
+            (root / "safe").mkdir()
+            dotdot = alias / ".." / "safe" / "HOLD.json"
+            self.assertTrue(dotdot.parent.is_dir())
+            with self.assertRaisesRegex(ValueError, "RESEARCH_RECEIPT_DESTINATION_UNSAFE"):
+                write_original_pair_research_hold(dotdot, self._pair_hold_for_write())
+            self.assertFalse((root / "safe" / "HOLD.json").exists())
+            # Legitimate physical destination still works under the same policy.
+            direct = real / "HOLD.json"
+            write_original_pair_research_hold(direct, self._pair_hold_for_write())
+            self.assertEqual(json.loads(direct.read_text())["mayPublish"], False)
+
     def test_research_pair_receipt_cannot_self_approve_or_relabel(self):
         from original_native_stdin_replay import write_original_pair_research_hold
         with tempfile.TemporaryDirectory() as directory:
