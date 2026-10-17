@@ -448,6 +448,8 @@ class CraftSourceLockedContractTests(unittest.TestCase):
                    {'duration_time':'NaN'},
                    {'pts_time':'Infinity'},
                    {'dts_time':'1e999'},
+                   {'pts_time':'-300'},
+                   {'duration_time':'2.0'},
                    {'duration_time':None}):
       bad=json.loads(json.dumps(baseline))
       bad['packets'][0].update(change)
