@@ -278,6 +278,47 @@ def validate_report_for_write(report):
             or report.get("lastFiveFirstAttemptsDeclaredPass") is not
                (report["provisionalDeclaredConsecutiveFirstPasses"] >= 5)):
         hold("UNAUTHORIZED_RESEARCH_REPORT_CONTENT")
+    # Recompute the entire provisional timeline from the report's own rows.
+    # Structural checks alone admit forged streaks (including five claimed
+    # consecutive PASSes after a recorded FAIL). Report rows intentionally do
+    # not carry source/film hashes; this is mathematical consistency only,
+    # NOT original-film authenticity or historical-completeness attestation.
+    seen_runs, next_ordinal, streak, maximum, revisions = set(), {}, 0, 0, 0
+    for row in entries:
+        run, subject, ordinal = row["runId"], row["subjectId"], row["renderOrdinal"]
+        decision = row["declaredDecision"]
+        if (not isinstance(run, str) or not ID.fullmatch(run)
+                or run in seen_runs or not isinstance(subject, str)
+                or not ID.fullmatch(subject) or type(ordinal) is not int
+                or ordinal != next_ordinal.get(subject, 0) + 1
+                or type(row["firstFinal"]) is not bool
+                or row["firstFinal"] is not (ordinal == 1)
+                or not isinstance(decision, str) or decision not in DECISIONS):
+            hold("RESEARCH_REPORT_TIMELINE_DRIFT")
+        seen_runs.add(run)
+        next_ordinal[subject] = ordinal
+        before = streak
+        if ordinal != 1:
+            revisions += 1
+            streak = 0
+            eligible, reason = False, "REVISION_NOT_FIRST_RENDER"
+        else:
+            eligible = decision == "PASS"
+            streak = streak + 1 if eligible else 0
+            reason = None if eligible else "DECLARED_" + decision
+            maximum = max(maximum, streak)
+        if (row["declaredEligible"] is not eligible
+                or type(row["declaredStreakBeforeEvent"]) is not int
+                or row["declaredStreakBeforeEvent"] != before
+                or type(row["declaredStreakAfterEvent"]) is not int
+                or row["declaredStreakAfterEvent"] != streak
+                or row["streakBreakReason"] != reason):
+            hold("RESEARCH_REPORT_TIMELINE_DRIFT")
+    if (report["registeredDistinctSubjects"] != len(next_ordinal)
+            or report["registeredRevisionsExcluded"] != revisions
+            or report["provisionalDeclaredConsecutiveFirstPasses"] != streak
+            or report["provisionalMaxDeclaredFirstPasses"] != maximum):
+        hold("RESEARCH_REPORT_TIMELINE_DRIFT")
     if set(report) == RESEARCH_REPORT_FIELDS | RESEARCH_APPEND_FIELDS:
         prior = report.get("previousRegisteredAttempts")
         count = report.get("newAppendedAttemptCount")
