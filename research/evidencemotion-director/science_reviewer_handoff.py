@@ -258,7 +258,7 @@ def original_review_stills(movie, gate, packet, output_dir):
         for n,(row,index) in enumerate(zip(rows,indexes)):
             name=expected[n]
             bytes_on_disk=(temporary/name).read_bytes()
-            if not bytes_on_disk.startswith(b"\\x89PNG\\r\\n\\x1a\\n") or len(bytes_on_disk)<100:
+            if not bytes_on_disk.startswith(b"\x89PNG\r\n\x1a\n") or len(bytes_on_disk)<100:
                 hold("ORIGINAL_REVIEW_STILL_NOT_VALID_PNG_HEADER")
             captures.append({
                 "claimId":row["claimId"],
@@ -286,7 +286,7 @@ def original_review_stills(movie, gate, packet, output_dir):
             "approvalToMerge":False,
         }
         (temporary/"REVIEW-SAMPLES-RESEARCH-ONLY.json").write_text(
-            json.dumps(result,indent=2,sort_keys=True)+"\\n",encoding="utf8")
+            json.dumps(result,indent=2,sort_keys=True)+"\n",encoding="utf8")
         os.rename(temporary,target)
     return result
 
