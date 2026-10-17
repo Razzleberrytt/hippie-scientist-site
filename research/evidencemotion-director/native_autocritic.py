@@ -27,6 +27,8 @@ MIN_VISIBLE_SUBJECT_STD = 4.5
 CENTER_HERO_BOX = (58, 86, 122, 190)  # x0,y0,x1,y1 at 180x320
 CENTER_HERO_MATCH_LIMIT = 0.985
 MIN_MASKED_HERO_REPEAT_PAIRS = 3  # 6s at the existing 2s cadence
+TWO_STATE_MATCH_LIMIT = 0.985  # sampled A/B/A/B loop advisory
+MIN_TWO_STATE_MATCHED_PAIRS = 4  # needs six sampled layouts
 MIN_SEC, MAX_SEC = 12, 90
 
 
@@ -99,6 +101,17 @@ def review_decoded_samples(samples):
     # card or a focal subject located elsewhere can be good direction.
     masked_core_runs = [run for run in consecutive_runs(masked_core_pairs)
                         if len(run) >= MIN_MASKED_HERO_REPEAT_PAIRS]
+    # A/B/A/B cycles can evade consecutive-pair screening despite static ideas.
+    # This is advisory: deliberate comparisons can be appropriate teaching.
+    two_state_pairs = [
+        i for i in range(len(vectors) - 2)
+        if min(visible_stds[i:i + 3]) >= MIN_VISIBLE_SUBJECT_STD
+        and similarities[i] <= EDGE_MATCH_LIMIT
+        and similarities[i + 1] <= EDGE_MATCH_LIMIT
+        and similarity(vectors[i], vectors[i + 2]) >= TWO_STATE_MATCH_LIMIT
+    ]
+    two_state_runs = [run for run in consecutive_runs(two_state_pairs)
+                      if len(run) >= MIN_TWO_STATE_MATCHED_PAIRS]
     longest_run_sec = max((len(run) for run in runs), default=0) * SAMPLE_STEP_SECONDS
     empty_subject = float(np.median(visible_stds)) < MIN_VISIBLE_SUBJECT_STD
     issues = []
@@ -129,9 +142,17 @@ def review_decoded_samples(samples):
              "endSec": (run[-1] + 1) * SAMPLE_STEP_SECONDS,
              "repeatedPairCount": len(run)} for run in masked_core_runs
         ],
+        "twoStateAlternationWindowsSec": [
+            {"startSec": run[0] * SAMPLE_STEP_SECONDS,
+             "endSec": (run[-1] + 2) * SAMPLE_STEP_SECONDS,
+             "lagTwoMatchedPairs": len(run)} for run in two_state_runs
+        ],
         "reviewCandidates": (
-            ["CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION"]
-            if masked_core_runs else []),
+            (["CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION"]
+             if masked_core_runs else []) +
+            (["TWO_STATE_LAYOUT_OSCILLATION_WITHOUT_VISUAL_PROGRESSION"]
+             if two_state_runs else [])),
+        "twoStateScope": "2s-sampled lag-two negative advisory; deliberate A/B teaching may be valid and intermediate frames are not exhaustively judged. Never quality approval.",
         "centerHeroScope": "A centered-hero 2s-sampled negative advisory; intentional holds and off-center subjects require separate source-bound craft reasoning. Never a quality PASS.",
         "issues": issues,
         "critiqueScope": "AUTONOMOUS_ACTUAL_PIXELS_NEGATIVE_SCREENING_NOT_HUMAN_QUALITY",
