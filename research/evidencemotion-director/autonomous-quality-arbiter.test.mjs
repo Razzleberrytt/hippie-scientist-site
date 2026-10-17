@@ -43,6 +43,25 @@ test('decoded centered-hero craft advisory survives handoff and requests more ma
  assert.equal(x.contentMayPublish,false);
  assert.equal(x.requiredOwnerTasteVerdict,false);
 });
+test('one-second phase-aliased actual-pixel craft warning survives without quality approval',()=>{
+ const d={...frame(),decision:'CRAFT_REVIEW_HOLD',
+  reviewCandidates:['INTERLEAVED_NEAR_BLANK_VISUAL_PHASE'],
+  interleavedBlankPhaseWindowsSec:[{startSec:1,endSec:16,blankSamples:8,blankPhase:1}]};
+ const x=adjudicateFilm({...full(),decodedVisual:d});
+ assert.deepEqual(x.blockers,[]);
+ assert.ok(x.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_INTERLEAVED_BLANK_INTERVALS'));
+ assert.equal(x.contentMayPublish,false);
+ assert.equal(x.qualityAcceptableForResearch,false);
+ for(const bad of [
+  {...d,interleavedBlankPhaseWindowsSec:[]},
+  {...d,interleavedBlankPhaseWindowsSec:[{startSec:1,endSec:15,blankSamples:8,blankPhase:1}]},
+  {...d,interleavedBlankPhaseWindowsSec:[{startSec:0,endSec:15,blankSamples:8,blankPhase:1}]},
+  {...d,reviewCandidates:['INTERLEAVED_NEAR_BLANK_VISUAL_PHASE','FORGED']}
+ ]){
+  assert.equal(adjudicateFilm({...full(),decodedVisual:bad}).decision,'AUTO_HOLD_INVALID_PROOF');
+ }
+});
+
 test('unbound or empty craft warnings cannot pose as verified decoded-screen work',()=>{
  const base={...frame(),decision:'CRAFT_REVIEW_HOLD',
    reviewCandidates:['CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION'],
