@@ -1056,15 +1056,40 @@ def measure_whole_encoded_right_ui_ink(movie, *, expected_film_sha,
             movie, expected_film_sha=expected_film_sha,
             frame_indices=indices, roi=roi, pixel_mode=pixel_mode)
         rows = receipt.get("actualDecodedPixelObservations")
+        # A window counted under another optical rule or a displaced crop
+        # is not evidence for this exact film-wide screen. Verify returned
+        # scope and the window's internal counter before accepting its rows.
+        # The child remains a negative research screen, never release proof.
+        forbidden_width = x1 - int((1 - RIGHT) * width)
+        max_forbidden_pixels = forbidden_width * (y1 - y0)
         if (receipt.get("filmSha256") != expected_film_sha or
+                receipt.get("targetedRoiPx") != roi or
+                receipt.get("pixelMode") != pixel_mode or
+                receipt.get("rightUiExclusionBeginsNativeX") !=
+                    int((1 - RIGHT) * width) or
+                receipt.get("decodedFramesExamined") != count or
+                receipt.get("publicationVerdict") != "HOLD" or
                 receipt.get("mayPublish") is not False or
+                receipt.get("actualPhoneLayoutVerified") is not False or
                 receipt.get("everyFrameInRequestedWindowChecked") is not True or
                 not isinstance(rows, list) or len(rows) != count or
-                any(type(row.get("decodedFrameIndex")) is not int or
+                any(not isinstance(row, dict) or
+                    type(row.get("decodedFrameIndex")) is not int or
                     row["decodedFrameIndex"] != index or
                     type(row.get("targetPixelsInRightExclusion")) is not int or
-                    row["targetPixelsInRightExclusion"] < 0
-                    for index, row in zip(indices, rows))):
+                    not 0 <= row["targetPixelsInRightExclusion"] <= max_forbidden_pixels or
+                    (row.get("rightmostDetectedX") is None) !=
+                        (row["targetPixelsInRightExclusion"] == 0) or
+                    (row["targetPixelsInRightExclusion"] > 0 and
+                     (type(row["rightmostDetectedX"]) is not int or
+                      not int((1 - RIGHT) * width) <=
+                          row["rightmostDetectedX"] < x1))
+                    for index, row in zip(indices, rows)) or
+                receipt.get("violatingFrameCount") != sum(
+                    row["targetPixelsInRightExclusion"] > 0 for row in rows) or
+                receipt.get("firstViolatingFrameIndex") != next(
+                    (row["decodedFrameIndex"] for row in rows
+                     if row["targetPixelsInRightExclusion"] > 0), None)):
             hold("WHOLE_UI_SCREEN_INVALID_WINDOW_RECEIPT")
         observations.extend(rows)
         windows.append({"firstFrame": cursor, "lastFrame": cursor + count - 1})
