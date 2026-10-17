@@ -74,6 +74,21 @@ class MobileDeliveryGuardTests(unittest.TestCase):
                     with self.assertRaisesRegex(Hold,'INVALID_ACTUAL_FRAME_PTS'):
                         frame_pts('source.mp4')
 
+    def test_identical_but_non_30fps_timestamps_fail(self):
+        # Agreement between source and phone does not prove true CFR30.
+        for raw in (b'0\n0.040000\n0.080000\n',
+                    b'0.500000\n0.533333\n0.566667\n',
+                    b'0.000000\n0.033333\n0.100000\n'):
+            with self.subTest(pts=raw):
+                with patch('mobile_delivery_guard.cmd',return_value=raw):
+                    with self.assertRaisesRegex(Hold,'NON_30FPS_PRESENTATION_TIMESTAMP_GRID'):
+                        frame_pts('source.mp4')
+
+    def test_bad_ffprobe_utf8_fails_closed(self):
+        with patch('mobile_delivery_guard.cmd',return_value=b'\xff\xfe\xfe'):
+            with self.assertRaisesRegex(Hold,'INVALID_ACTUAL_FRAME_PTS'):
+                frame_pts('source.mp4')
+
     def test_empty_actual_pts_rejected(self):
         with patch('mobile_delivery_guard.cmd',return_value=b''):
             with self.assertRaisesRegex(Hold,'INVALID_ACTUAL_FRAME_PTS'):
