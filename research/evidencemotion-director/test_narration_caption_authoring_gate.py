@@ -159,4 +159,27 @@ class NarrationCaptionAuthoringTests(unittest.TestCase):
             self.review(caption, source_provenance, frozen_sha)['errors'],
             ['SCENE_CAPTION_SCRIPT_WORD_MISMATCH'])
 
+    def test_unicode_range_dash_preserved_against_numeric_corruption(self):
+        for original, changed in (
+                ('5–10', '5 10'), ('5—10', '5 10'),
+                ('7–OH', '7 OH'), ('20–40%', '20 40%'),
+                ('5–10', '5-10')):
+            with self.subTest(original=original, changed=changed):
+                self.assertNotEqual(words(original), words(changed))
+
+        original = copy.deepcopy(PROVENANCE)
+        original['scenes'][0]['text'] = (
+            "The FDA says it isn't a dietary ingredient at 5–10 mg.")
+        frozen = hashlib.sha256(
+            json.dumps(original, sort_keys=True).encode()).hexdigest()
+        cues = copy.deepcopy(CUES)
+        cues[1] = (2, 1.2, 2.6, "a dietary ingredient at 5–10 mg.")
+        self.assertEqual(
+            self.review(cues, original, frozen)['status'],
+            'RESEARCH_AUTHORING_PARITY_HOLD')
+        cues[1] = (2, 1.2, 2.6, "a dietary ingredient at 5 10 mg.")
+        self.assertEqual(
+            self.review(cues, original, frozen)['errors'],
+            ['SCENE_CAPTION_SCRIPT_WORD_MISMATCH'])
+
 if __name__ == '__main__': unittest.main()
