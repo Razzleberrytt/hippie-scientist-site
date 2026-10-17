@@ -1030,7 +1030,16 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
            for source in sources
            for candidate in (source, source.resolve())):
         hold("GENERATED_OUTPUT_ALIASES_SOURCE_INPUT")
+    # The report name is not proof of ownership: a foreign JSON file (or a
+    # symlink to another writer's report) must never be silently unlinked.
+    # A prior self-described HOLD report grants retirement only if its actual
+    # enumerated screenshot bytes are still present and SHA-verified. This is
+    # a narrow cleanup authorization, not authentication of a reviewer.
+    if report_path.is_symlink():
+        hold("UNOWNED_PREVIOUS_REVIEW_REPORT")
     previous_report_bytes = report_path.read_bytes() if report_path.is_file() else None
+    if report_path.exists() and not verified_prior_review_images(output, previous_report_bytes):
+        hold("UNOWNED_PREVIOUS_REVIEW_REPORT")
     output.mkdir(parents=True, exist_ok=True)
     # Fail closed BEFORE probing / validation: a prior successful report must
     # never survive a new failed attempt against changed inputs.
