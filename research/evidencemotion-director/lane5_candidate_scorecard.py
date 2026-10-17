@@ -500,13 +500,14 @@ def score_candidate(*, film, wav, story_path, screen_path,
     if colors:
         blockers.append("COLOR_RIGHT_EXCLUSION_REQUIRES_SEMANTIC_CLASSIFICATION")
     blockers.append(_phone_plan_claim_hold(story))
+    # Lane 5 receives exact-byte proofs from Lanes 1–4; it cannot certify them.
     # Cross-lane identity and independent source/phone/craft gates cannot be
     # established by this same-process research scorecard.
     blockers += ["INDEPENDENT_SCIENCE_AND_CLAIM_REVIEW_MISSING",
                  "ACTUAL_PCM_TO_AAC_PHONETIC_AND_CAPTION_REVIEW_MISSING",
                  "CALIBRATED_INDEPENDENT_CRAFT_REVIEW_MISSING",
                  "REAL_HANDSET_REVIEW_MISSING",
-                 "SIX_LANE_INDEPENDENT_EXACT_BYTE_RECEIPTS_INCOMPLETE"]
+                 "FIVE_LANE_INDEPENDENT_EXACT_BYTE_RECEIPTS_INCOMPLETE"]
     return {
         "schema": SCHEMA, "status": "RESEARCH_HOLD_NO_PROMOTION",
         "filmSha256": film_sha, "originalWavSha256": wav_sha,
@@ -531,7 +532,7 @@ def score_candidate(*, film, wav, story_path, screen_path,
         "sourceCardResearchGain": source_card_gain,
         "calibratedPremiumCraftScore": None,
         "hardAndReviewHolds": blockers,
-        "nextDependency": "LANE6_SAME_FILM_AUTHENTICATED_PHONE_PLAN_AND_CROSS_LANE_RECEIPTS",
+        "nextDependency": "LANE5_SAME_FILM_AUTHENTICATED_PHONE_PLAN_AND_CROSS_LANE_RECEIPTS",
     }
 
 
@@ -543,7 +544,7 @@ RESEARCH_REQUIRED_HOLDS = frozenset((
     "ACTUAL_PCM_TO_AAC_PHONETIC_AND_CAPTION_REVIEW_MISSING",
     "CALIBRATED_INDEPENDENT_CRAFT_REVIEW_MISSING",
     "REAL_HANDSET_REVIEW_MISSING",
-    "SIX_LANE_INDEPENDENT_EXACT_BYTE_RECEIPTS_INCOMPLETE",
+    "FIVE_LANE_INDEPENDENT_EXACT_BYTE_RECEIPTS_INCOMPLETE",
 ))
 RESEARCH_FALSE_FIELDS = (
     "mayPublish", "externalIndependentReviewed", "physicalPhoneReviewed",
