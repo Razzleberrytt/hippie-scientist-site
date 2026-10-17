@@ -2802,9 +2802,10 @@ class DecodedCaptionInkPhoneScreenTests(unittest.TestCase):
 
     def scan(self, raw=None, **kwargs):
         from phone_ui_audit import measure_decoded_caption_ink_rows
+        params = {"crop_width": 60, "crop_height": 65, "native_video_width": 1080}
+        params.update(kwargs)
         return measure_decoded_caption_ink_rows(
-            self.two_lines() if raw is None else raw,
-            crop_width=60, crop_height=65, native_video_width=1080, **kwargs)
+            self.two_lines() if raw is None else raw, **params)
 
     def test_actual_decoded_glyph_ink_small_on_320_phone_is_review_hold(self):
         r = self.scan()
