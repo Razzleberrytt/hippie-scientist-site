@@ -67,3 +67,20 @@ test('unknown timecoded issues are rejected as invalid evidence',()=>{
  const x=assessEvidenceMotionAudienceQuality({...full(),decodedPixelReview:pixel([{code:'I_DO_NOT_EXIST',seconds:1,whatFailed:'x'}])})
  assert.equal(x.decision,'HOLD_INVALID_EVIDENCE')
 })
+
+
+test('rejects nonarray critic collections with an explainable HOLD instead of crashing',()=>{
+ for(const critics of [null,{},'two independent reviewers',42]){
+   const x=assessEvidenceMotionAudienceQuality({...full(),independentCritics:critics})
+   assert.equal(x.decision,'HOLD_INVALID_EVIDENCE')
+   assert.ok(x.failedReasons.includes('INVALID_INDEPENDENT_REVIEW_COLLECTION'))
+   assert.ok(x.missingReviews.includes('TWO_CALIBRATED_INDEPENDENT_AUDIENCE_REVIEWS_REQUIRED'))
+   assert.equal(x.mayRecommendPosting,false)
+ }
+})
+test('missing independent critic collection remains review pending, never approved',()=>{
+ const x=assessEvidenceMotionAudienceQuality({...full(),independentCritics:undefined})
+ assert.equal(x.decision,'REVIEW_PENDING')
+ assert.equal(x.audienceQualityApproved,false)
+ assert.equal(x.mayRecommendPosting,false)
+})
