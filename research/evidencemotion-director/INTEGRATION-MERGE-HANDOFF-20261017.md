@@ -92,3 +92,17 @@ Focused tests: encoded-caption suite Linux9/9 and Windows9/9 PASS; pixel-recover
 suite Linux16/16 PASS; all exits0. Full final-head CI/build and regenerated native
 replay remain required. All-frame OCR=false, independent comprehension=false,
 mayPublish=false, qualified science/voice/craft/physical-phone/release HOLD retained.
+
+
+## Current-main and source-head follow-up
+
+Main advanced with Lane3 PR #6831 as 7882858ebcdd948d37ac00a1b0594c75d7920fe0.
+Integrated that actual base without rewriting history. Included current Lane1
+be2d4be798c2c66fed5096a725bc20e37831fad3, Lane4
+078fcd43b2e49121fc0e6fcebc84517812eaa784 and Lane5
+a18034a998b83bb875f286d391f93404ebd0d4ba. Beyond the prior snapshot these changed
+only science-package, phone-audit and scorecard source/tests. All merges clean.
+Fresh Linux affected suites: phone246/246 PASS; science26 PASS/one optional
+original-archive SKIP; scorecard21/21 PASS; exits0. Machine receipt retains
+prior snapshots rather than relabeling their earlier tests as final-head proof.
+Final hosted CI/build/research validation and protected controller remain pending.

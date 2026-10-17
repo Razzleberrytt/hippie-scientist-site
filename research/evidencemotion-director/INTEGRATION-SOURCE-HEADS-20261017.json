@@ -1,14 +1,14 @@
 {
   "schema": "ths-evidencemotion-four-lane-merge-source-pins-v1",
-  "baseMain": "09032fc9593ff45d76343dc05ab1eac70b769338",
+  "baseMain": "7882858ebcdd948d37ac00a1b0594c75d7920fe0",
   "laneHeads": [
     {
       "pr": 6845,
-      "head": "1bfb3395afc2b104f37f9fbf56f6ba36c7c86cf7"
+      "head": "078fcd43b2e49121fc0e6fcebc84517812eaa784"
     },
     {
       "pr": 6840,
-      "head": "b30af0ba355509c5ee94dcad51cdad5201285abb"
+      "head": "be2d4be798c2c66fed5096a725bc20e37831fad3"
     },
     {
       "pr": 6831,
@@ -16,7 +16,7 @@
     },
     {
       "pr": 6846,
-      "head": "2b56b51d144d68c540eb9d3098fb972ae430e7f8"
+      "head": "a18034a998b83bb875f286d391f93404ebd0d4ba"
     }
   ],
   "preflightPython": {
@@ -67,5 +67,44 @@
   "researchOnly": true,
   "mayPublish": false,
   "protectedMergeVerified": false,
-  "deploymentVerified": false
+  "deploymentVerified": false,
+  "priorSnapshotLaneHeads": [
+    {
+      "pr": 6845,
+      "head": "078fcd43b2e49121fc0e6fcebc84517812eaa784"
+    },
+    {
+      "pr": 6840,
+      "head": "be2d4be798c2c66fed5096a725bc20e37831fad3"
+    },
+    {
+      "pr": 6831,
+      "head": "c1f051185805a53dc71eb29c4fd8160b9abd17d9"
+    },
+    {
+      "pr": 6846,
+      "head": "a18034a998b83bb875f286d391f93404ebd0d4ba"
+    }
+  ],
+  "initialBaseMain": "09032fc9593ff45d76343dc05ab1eac70b769338",
+  "postMainGuardFollowup": {
+    "head": "702117c63c3b70b1221d3a04a62088e053db7d21",
+    "phoneTests": {
+      "pass": 246,
+      "skip": 0,
+      "exitCode": 0
+    },
+    "sciencePackageTests": {
+      "pass": 26,
+      "skip": 1,
+      "reason": "optional original gut archive absent",
+      "exitCode": 0
+    },
+    "scorecardTests": {
+      "pass": 21,
+      "skip": 0,
+      "exitCode": 0
+    },
+    "sourceChanges": "Only phone audit, science package guard and scorecard source/tests beyond prior snapshot"
+  }
 }
