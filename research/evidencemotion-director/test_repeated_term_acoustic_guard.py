@@ -2450,6 +2450,43 @@ class BlindReferenceArchiveTests(unittest.TestCase):
             self.assertEqual(report["status"], "HOLD")
             self.assertFalse(report["calibrationComplete"])
 
+    def test_corrupt_deflate_member_fails_closed_as_json_not_traceback(self):
+        # A valid ZIP central directory can conceal invalid raw DEFLATE bytes.
+        # zipfile.read() raises zlib.error (not zipfile.BadZipFile) in this case.
+        rows, samples = BlindReferenceBenchmarkTests.fixture()
+        with tempfile.TemporaryDirectory() as td:
+            archive = Path(td) / "corrupted-compressed-reference.zip"
+            with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED) as z:
+                z.writestr("manifest.json", json.dumps({
+                    "schema": "ths-lane2-blind-contrast-benchmark-v1",
+                    "mayPublish": False, "cases": rows}, sort_keys=True))
+                for row in rows:
+                    z.writestr("clips/" + row["sampleId"] + ".wav",
+                               samples[row["sampleId"]])
+            with zipfile.ZipFile(archive) as z:
+                entry = z.getinfo("clips/" + rows[0]["sampleId"] + ".wav")
+                self.assertGreater(entry.compress_size, 0)
+                offset = (entry.header_offset + 30 +
+                          len(entry.filename.encode("utf-8")) + len(entry.extra))
+            tampered = bytearray(archive.read_bytes())
+            tampered[offset] = 0xff  # Invalid DEFLATE block header, intact ZIP directory.
+            archive.write_bytes(tampered)
+            report = audit_reference_archive(archive)
+            self.assertEqual(report["status"], "HOLD", report)
+            self.assertTrue(report["errors"][0].startswith(
+                "REFERENCE_BENCHMARK_ZIP_READ_FAILED:"), report)
+            self.assertFalse(report["mayPublish"])
+            self.assertFalse(report["calibrationComplete"])
+            script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
+            cli = subprocess.run([sys.executable, script, "--reference-benchmark-zip",
+                                  str(archive)], capture_output=True, text=True,
+                                 timeout=20)
+            self.assertEqual(cli.returncode, 2, cli.stderr)
+            self.assertNotIn("Traceback", cli.stderr)
+            self.assertIn('"status": "HOLD"', cli.stdout)
+            self.assertIn('"mayPublish": false', cli.stdout)
+
+
     def test_archive_rejects_cross_split_pcm_duplicate_with_distinct_wav_sha(self):
         rows, samples = BlindReferenceBenchmarkTests.fixture()
         original, target = rows[0], rows[-1]

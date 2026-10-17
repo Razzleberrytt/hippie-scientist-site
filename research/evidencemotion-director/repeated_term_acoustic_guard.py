@@ -12,6 +12,7 @@ import re
 from pathlib import Path
 import wave
 import zipfile
+import zlib
 
 import numpy as np
 
@@ -2228,7 +2229,7 @@ def audit_reference_archive(archive_file, target_original_wav_path=None):
                        for case, name in zip(rows, sample_names)}
         return evaluate_blind_reference_pairs(rows, samples, set(), target_raw)
     except (OSError, ValueError, TypeError, KeyError, EOFError,
-            zipfile.BadZipFile, UnicodeError) as exc:
+            zipfile.BadZipFile, zlib.error, UnicodeError) as exc:
         return fail("REFERENCE_BENCHMARK_ZIP_READ_FAILED:" + str(exc)[:80])
 
 
