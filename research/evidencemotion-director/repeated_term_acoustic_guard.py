@@ -890,7 +890,40 @@ def audit_archived_encoded_audio_sync(source_raw, video_raw, receipt_raw, decode
                     silence_leaks.append({
                         "startSeconds": round(lo/24000, 3),
                         "decodedRms": round(decoded_rms, 6)})
+        # A hop grid does not necessarily divide the WAV's final sample
+        # exactly. Explicitly check the otherwise unmeasured trailing samples;
+        # never let an added tail burst hide behind AAC encoder padding.
+        last_covered = ((len(original)-frame_len)//hop)*hop + frame_len
+        tail_start = min(len(original), last_covered)
+        tail_original = original[tail_start:]
+        tail_encoded = decoded[tail_start:len(original)]
+        tail_source_rms = (float(np.sqrt(np.mean(tail_original**2)))
+                           if len(tail_original) else 0.0)
+        tail_decoded_rms = (float(np.sqrt(np.mean(tail_encoded**2)))
+                            if len(tail_encoded) else 0.0)
+        tail_correlation = None
+        tail_pass = True
+        if tail_source_rms >= 0.01:
+            tail_correlation = float(np.corrcoef(
+                tail_original, tail_encoded)[0, 1])
+            tail_pass = np.isfinite(tail_correlation) and tail_correlation >= 0.95
+        elif tail_source_rms == 0.0:
+            tail_pass = tail_decoded_rms <= 0.001
+        else:
+            tail_pass = tail_decoded_rms <= max(0.001, tail_source_rms*6)
+        tail_scan = {
+            "sourceStartSample": tail_start,
+            "sampleCount": len(tail_original),
+            "sourceRms": round(tail_source_rms, 7),
+            "decodedRms": round(tail_decoded_rms, 7),
+            "zeroLagCorrelation": (
+                round(tail_correlation, 6)
+                if tail_correlation is not None else None),
+            "unmeasuredSourceTailRejected": not bool(tail_pass),
+        }
         scan = {
+            "sourceWavEverySampleScreened": True,
+            "finalSourceTailScreen": tail_scan,
             "overlappingWindowDurationMs": 500,
             "overlappingWindowHopMs": 250,
             "minimumActiveSourceRms": 0.01,
@@ -909,7 +942,7 @@ def audit_archived_encoded_audio_sync(source_raw, video_raw, receipt_raw, decode
             return {**base, "status": "HOLD",
                     "errors": ["ENCODED_AUDIO_ROLLING_SOURCE_COVERAGE_INSUFFICIENT"],
                     "rollingSignalScreen": scan}
-        if rolling_failures or silence_leaks:
+        if rolling_failures or silence_leaks or not tail_pass:
             return {**base, "status": "HOLD",
                     "errors": ["ENCODED_AUDIO_LOCALIZED_SIGNAL_OR_SILENCE_HOLD"],
                     "sourceWavSha256": SOURCE_WAV_REFERENCE,
