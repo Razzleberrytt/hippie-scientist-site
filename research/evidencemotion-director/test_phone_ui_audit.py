@@ -367,6 +367,90 @@ def create_directory_alias_for_test(alias, target, *, platform=None):
 
 
 
+class StrictEvidenceJSONIntakeTests(unittest.TestCase):
+    def test_duplicate_approval_in_nested_receipt_is_rejected_regardless_of_order(self):
+        from phone_ui_audit import strict_json_bytes
+        for values in (b'true,false', b'false,true'):
+            with self.subTest(values=values):
+                first, second = values.split(b',')
+                text = (b'{"nested":{"mayPublish":' + first
+                        + b',"mayPublish":' + second + b'}}')
+                with self.assertRaisesRegex(ValueError,
+                                            "DUPLICATE_EVIDENCE_JSON_KEY:mayPublish"):
+                    strict_json_bytes(text)
+
+    def test_nonfinite_json_number_is_rejected_in_nested_science_data(self):
+        from phone_ui_audit import strict_json_bytes
+        for token in (b'NaN', b'Infinity', b'-Infinity'):
+            with self.subTest(token=token):
+                with self.assertRaisesRegex(ValueError,
+                                            "NONFINITE_EVIDENCE_JSON_VALUE"):
+                    strict_json_bytes(b'{"science":{"measurement":' + token + b'}}')
+        self.assertEqual(strict_json_bytes(b'{"science":{"measurement":null}}'),
+                         {"science": {"measurement": None}})
+
+    def test_ambiguous_prior_report_never_authorizes_image_deletion(self):
+        from phone_ui_audit import verified_prior_review_images
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory)
+            original = b"unowned user image"
+            (output / "00-opening.png").write_bytes(original)
+            digest = hashlib.sha256(original).hexdigest()
+            # Default last-wins JSON parser would accept the last false
+            # permission. No ambiguous prior report may establish ownership.
+            forged = (b'{"mayPublish":true,"mayPublish":false,'
+                      b'"publicationVerdict":"HOLD",'
+                      b'"decodedOverlayFrames":[{"file":"00-opening.png",'
+                      b'"frameSha256":"' + digest.encode("ascii") + b'"}]}')
+            self.assertEqual(verified_prior_review_images(output, forged), {})
+            self.assertEqual((output / "00-opening.png").read_bytes(), original)
+
+    def test_manifest_duplicate_claim_fails_after_prior_report_invalidation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = root / "source.mp4"
+            movie.write_bytes(b"not required to be decoded")
+            manifest = root / "manifest.json"
+            manifest.write_bytes(b'{"releaseApproved":true,"releaseApproved":false}')
+            output = root / "frames"
+            output.mkdir()
+            prior = output / "research-report.json"
+            prior.write_text('{"prior":"stale"}')
+            with self.assertRaisesRegex(ValueError,
+                                        "DUPLICATE_EVIDENCE_JSON_KEY:releaseApproved"):
+                audit(movie, manifest, output)
+            self.assertFalse(prior.exists())
+            self.assertEqual(movie.read_bytes(), b"not required to be decoded")
+
+    def test_ink_duplicate_claim_fails_before_source_validation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie, manifest, ink = (root / "movie.mp4", root / "manifest.json",
+                                    root / "ink.json")
+            movie.write_bytes(b"some source")
+            manifest.write_bytes(b'{"status":"RESEARCH_ONLY"}')
+            ink.write_bytes(b'{"mayPublish":true,"mayPublish":false}')
+            with self.assertRaisesRegex(ValueError,
+                                        "DUPLICATE_EVIDENCE_JSON_KEY:mayPublish"):
+                audit(movie, manifest, root / "frames", ink_receipt=ink)
+
+    def test_glyph_nonfinite_claim_fails_before_science_and_ocr_join(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie, manifest = root / "movie.mp4", root / "manifest.json"
+            ink, glyph = root / "ink.json", root / "glyph.json"
+            movie.write_bytes(b"unparsed film")
+            manifest.write_bytes(b'{"status":"RESEARCH_ONLY"}')
+            ink.write_bytes(b'{}')
+            glyph.write_bytes(b'{"confidence":Infinity}')
+            with patch("phone_ui_audit.validate_critical_ink_receipt_join",
+                       return_value={"mayPublish": False}):
+                with self.assertRaisesRegex(ValueError,
+                                            "NONFINITE_EVIDENCE_JSON_VALUE"):
+                    audit(movie, manifest, root / "frames",
+                          ink_receipt=ink, glyph_receipt=glyph)
+
+
 class DirectoryAliasSetupContract(unittest.TestCase):
     def test_windows_privilege_denial_invokes_junction_not_skip(self):
         # Control-flow test only; two following real path-alias tests must
