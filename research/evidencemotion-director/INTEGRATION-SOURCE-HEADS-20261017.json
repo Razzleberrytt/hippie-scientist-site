@@ -1,0 +1,71 @@
+{
+  "schema": "ths-evidencemotion-four-lane-merge-source-pins-v1",
+  "baseMain": "09032fc9593ff45d76343dc05ab1eac70b769338",
+  "laneHeads": [
+    {
+      "pr": 6845,
+      "head": "1bfb3395afc2b104f37f9fbf56f6ba36c7c86cf7"
+    },
+    {
+      "pr": 6840,
+      "head": "b30af0ba355509c5ee94dcad51cdad5201285abb"
+    },
+    {
+      "pr": 6831,
+      "head": "c1f051185805a53dc71eb29c4fd8160b9abd17d9"
+    },
+    {
+      "pr": 6846,
+      "head": "4c2778dca7f40ac07113e190f7075a3d89643ec2"
+    }
+  ],
+  "preflightPython": {
+    "head": "e919b2457df6a3254e5c9eea0fb134fd1934c646",
+    "modules": [
+      "test_narration_locked_treatments",
+      "test_phone_ui_audit",
+      "test_caption_variant_review",
+      "test_mobile_delivery_guard",
+      "test_audio_only_remaster_guard",
+      "test_finished_dual_delivery_guard",
+      "test_visual_scene_repair_guard",
+      "test_caption_multiwindow_repair_guard",
+      "test_lane5_candidate_scorecard",
+      "test_intro_science_label_research",
+      "test_shot5_mobile_safe_research",
+      "test_gut_release_science_guard",
+      "test_em00705_original_archive_replay.ReplayOutputSafetyTests"
+    ],
+    "testsRun": 403,
+    "failures": [],
+    "errors": [],
+    "skips": [
+      [
+        "test_real_owner_v8_archive_is_physically_read_and_known_defect_detected (test_gut_release_science_guard.GutReleaseScienceTests.test_real_owner_v8_archive_is_physically_read_and_known_defect_detected)",
+        "Owner original archive not mounted on hosted CI"
+      ]
+    ],
+    "seconds": 75.226,
+    "exitCode": 0,
+    "scope": "Focused synthetic/mechanical integration; not original-film or human approval"
+  },
+  "followup": {
+    "head": "0e97924401e3061e6a6a53aa3eddbaa8b235508b",
+    "delta": "Lane5 AAC anomaly persistence; only scorecard source and tests changed",
+    "linuxScorecardTests": 20,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "exitCode": 0
+  },
+  "nodeDirectorAndBotanicalTests": {
+    "tests": 62,
+    "failures": 0,
+    "skips": 0,
+    "exitCode": 0
+  },
+  "researchOnly": true,
+  "mayPublish": false,
+  "protectedMergeVerified": false,
+  "deploymentVerified": false
+}
