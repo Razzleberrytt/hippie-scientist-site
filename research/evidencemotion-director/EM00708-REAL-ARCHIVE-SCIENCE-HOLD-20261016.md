@@ -28,3 +28,22 @@ Real archived film mutation, altered source-context and uncertainty bytes, fabri
 | `EM-007.08.R` | **VERIFIED_MACHINE_RESEARCH** — immutable source/artifact/process hashes in this machine-only **HOLD** receipt and original hosted-run link; no outside approval |
 
 **Provisional atomic coverage** (subject to exact-head gate): 82 prior individual machine-audited research cards + **7 new** = **89 individually machine-verified**; 707 inherited provisional (not audited) = **796/1,590 (50.0629%)**. The canonical milestone acceptance remains **26/46**, first excellent master **0/1**, varied premium streak **0/5**. EM-007 parent milestone and qualified independent clinical/scientific reviewer child `EM-007.07` still open. `mayPublish=false`. 
+
+## EM-007.07 — original-WAV timecoded independent scientific-review handoff (October 16)
+
+To make qualified independent **actual-film** scientific review actionable, `science_reviewer_handoff.py` now emits a versioned **HOLD-only** packet that binds the eight frozen exact spoken claims to the **original SHA-pinned narration's** 73 MFA-aligned word times and the matching 1,031-frame / 30fps native archived film identity. Reviewers receive exact spoken start/end milliseconds and the first/last potentially overlapping H264 frame index; these are **review navigation intervals, not observed pixel verdicts**. They also receive the original claim source URLs/scope and all unresolved qualified-review questions. The intact source WAV and film remain separately byte-pinned and are never included in the small review JSON.
+
+| Frozen claim | Source-WAV word span (seconds; approximate) | Qualified-review target |
+|---|---|---|
+| spoken-001 | 0.160–2.920 | Chemical identity comparison framing |
+| spoken-002 | 3.470–10.270 | Structural hydroxyl difference |
+| spoken-003 | 10.850–15.990 | Chemical-record provenance assertion |
+| spoken-004 | 16.580–19.150 | Computed 3D pose qualifier |
+| spoken-005 | 19.590–22.860 | Not actual receptor-binding footage |
+| spoken-006 | 23.380–25.390 | Structural explanation only |
+| spoken-007 | 25.710–27.350 | No inference about felt effects |
+| spoken-008 | 31.250–33.890 | Nonclinical editorial invitation |
+
+Source: original `EM00701-FROZEN-SPOKEN-LEDGER-20261016.json` (source original 24kHz WAV SHA `9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435`), 73 original acoustic word windows, with frozen alignment revision `2414833bfd35c18ad6c629c3d10cbfab8501b09e296cc1963db01638b854bbaf`; pinned archived H264 SHA `4a36305c08e422d85a006332c4e83d39dac4a8f12c87502ad842cb99b8f874e3`. A separate immutable oracle enforces all eight claim boundary pairs. Any changed original film/WAV identity, claim-word mapping, moved boundary, forged reviewer signoff, or release claim **HOLDs**, even if the mutable review request's SHA is recalculated. Acoustic timing is **uncalibrated source-alignment research**, not independent phonetic/narration ear-check or real viewing of each timed frame.
+
+The existing original-WAV science-source CI job is wired to execute the reviewer-packet regressions and generate an actual-source process-bound review **intake JSON artifact** directly after real original-film science HOLD replay. If and only if exact-head hosted validation succeeds, that artifact can be handed to an independently qualified reviewer; CI success itself never marks a claim as reviewed. No reviewer identity, finding, external clinical literature survey, physical iPhone, craft acceptance, merge, or posting authority is provided. **EM-007.07 remains OPEN**, `independentScientificReviewPassed=false`, `mayPublish=false`, premium first `0/1`, five-varied `0/5`. No additional uniquely accepted atomic cards; prior branch research estimate **872/1590 provisional** is unchanged.
