@@ -149,10 +149,12 @@ def aac_sha(path):
 def _decoded_rgb_frames(path,width=96,height=170):
     """Read each independently decoded original-resolution frame through RGB downscale.
 
+    Strict FFmpeg -xerror means concealed damaged H264 macroblocks cannot
+    pass merely because an ordinary decoder exits 0 after printing warnings.
     This is a conservative negative filter, NOT pixel-identical proof or a
     creative/clinical approval. Frame count and order are still checked.
     """
-    command=['ffmpeg','-hide_banner','-loglevel','error','-i',str(path),
+    command=['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-xerror','-i',str(path),
              '-map','0:v:0','-vf',f'scale={width}:{height}:flags=area,format=rgb24',
              '-fps_mode','passthrough','-f','rawvideo','-pix_fmt','rgb24','-']
     process=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL)
@@ -378,7 +380,7 @@ def splice(source,scene,output,manifest):
     with tempfile.TemporaryDirectory(prefix='.lane3-splice-',dir=output.parent) as staging:
         temp=Path(staging)/('candidate'+output.suffix)
         staged_receipt=Path(staging)/'candidate.receipt.json'
-        run(['ffmpeg','-hide_banner','-loglevel','error','-y','-i',str(source),
+        run(['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-xerror','-y','-i',str(source),
            '-i',str(scene),'-filter_complex',graph,'-map','[out]','-map','0:a:0',
            '-c:v','libx264','-preset','veryfast','-crf','18','-pix_fmt','yuv420p',
            '-c:a','copy','-movflags','+faststart',str(temp)])
