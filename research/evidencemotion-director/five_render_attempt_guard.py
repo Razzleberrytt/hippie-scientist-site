@@ -7,13 +7,24 @@ handset or production evidence. This module cannot grant acceptance.
 import argparse
 import hashlib
 import json
+import math
+import os
 import re
+import stat
+import tempfile
 from pathlib import Path
 
 SCHEMA = "ths-em-five-render-first-attempt-register-v1"
 HEX64 = re.compile(r"^[a-f0-9]{64}$")
 ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:-]{1,95}$")
 DECISIONS = frozenset(("PASS", "FAIL", "HOLD"))
+
+REGISTER_FIELDS = frozenset(("schema", "mayPublish", "claimedAcceptedStreak", "attempts"))
+ATTEMPT_FIELDS = frozenset((
+    "runId", "subjectId", "renderOrdinal", "firstFinal", "sourceSha256",
+    "filmSha256", "declaredDecision",
+))
+
 
 
 def hold(msg):
@@ -25,8 +36,10 @@ def verify(register):
         hold("UNKNOWN_REGISTER_SCHEMA")
     if register.get("mayPublish") is not False:
         hold("PUBLICATION_NOT_AUTHORIZED")
-    if register.get("claimedAcceptedStreak", 0) != 0:
+    if type(register.get("claimedAcceptedStreak")) is not int or register["claimedAcceptedStreak"] != 0:
         hold("SELF_APPROVED_STREAK_FORBIDDEN")
+    if set(register) != REGISTER_FIELDS:
+        hold("UNRECOGNIZED_REGISTER_FIELDS")
     attempts = register.get("attempts")
     if not isinstance(attempts, list):
         hold("APPEND_ONLY_ATTEMPTS_REQUIRED")
@@ -35,6 +48,8 @@ def verify(register):
     for index, item in enumerate(attempts):
         if not isinstance(item, dict):
             hold("MALFORMED_ATTEMPT:" + str(index))
+        if set(item) != ATTEMPT_FIELDS:
+            hold("UNRECOGNIZED_ATTEMPT_FIELDS:" + str(index))
         run, subject = item.get("runId"), item.get("subjectId")
         if (not isinstance(run, str) or not ID.fullmatch(run)
                 or not isinstance(subject, str) or not ID.fullmatch(subject)):
@@ -99,18 +114,312 @@ def verify(register):
             "attempts": evaluated}
 
 
+
+def _no_duplicate_keys(pairs):
+    obj = {}
+    for key, value in pairs:
+        if key in obj:
+            hold("DUPLICATED_JSON_FIELD:" + key)
+        obj[key] = value
+    return obj
+
+
+def _reject_invalid_number(value):
+    hold("INVALID_NONFINITE_JSON_NUMBER:" + str(value))
+
+
+def _all_numbers_finite(value):
+    if isinstance(value, float):
+        if not math.isfinite(value):
+            hold("NONFINITE_REGISTER_NUMBER")
+    elif isinstance(value, dict):
+        for v in value.values():
+            _all_numbers_finite(v)
+    elif isinstance(value, list):
+        for v in value:
+            _all_numbers_finite(v)
+
+
+def _has_symlinked_parent(path):
+    """Refuse indirect folder aliases, not just a symlink at the last parent."""
+    candidate = Path(path)
+    # Keep literal ".." components: abspath/normpath can erase a traversed
+    # symlink before we check the path that the filesystem will actually walk.
+    ancestor = (candidate if candidate.is_absolute() else Path.cwd() / candidate).parent
+    while True:
+        if ancestor.is_symlink():
+            return True
+        if ancestor == ancestor.parent:
+            return False
+        ancestor = ancestor.parent
+
+
+def _read_stable_register_bytes(file):
+    """Bound the physical read and reject files replaced after path preflight.
+
+    Both the opened descriptor and the final directory entry must match the
+    preflight identity. O_NOFOLLOW independently rejects late symlink swaps on
+    platforms that support it. This is a local file-integrity check, not proof
+    that the first historical attempt was ever registered.
+    """
+    if _has_symlinked_parent(file):
+        hold("REGISTER_FILE_MISSING_OR_UNSAFE")
+    try:
+        before = os.stat(file, follow_symlinks=False)
+        if not stat.S_ISREG(before.st_mode) or not 0 < before.st_size <= 2_000_000:
+            hold("REGISTER_FILE_MISSING_OR_UNSAFE")
+        flags = os.O_RDONLY | getattr(os, "O_BINARY", 0) | getattr(os, "O_NOFOLLOW", 0)
+        fd = os.open(file, flags)
+        try:
+            opened = os.fstat(fd)
+            if (not stat.S_ISREG(opened.st_mode)
+                    or (opened.st_dev, opened.st_ino) != (before.st_dev, before.st_ino)):
+                hold("REGISTER_FILE_MISSING_OR_UNSAFE")
+            # Dup keeps the original descriptor available for post-read fstat;
+            # read at most the configured limit plus one detection byte.
+            with os.fdopen(os.dup(fd), "rb") as stream:
+                raw = stream.read(2_000_001)
+            finished = os.fstat(fd)
+        finally:
+            os.close(fd)
+        after = os.stat(file, follow_symlinks=False)
+    except OSError:
+        hold("REGISTER_FILE_MISSING_OR_UNSAFE")
+    if (_has_symlinked_parent(file)
+            or not stat.S_ISREG(after.st_mode)
+            or len(raw) == 0 or len(raw) > 2_000_000
+            or any((s.st_dev, s.st_ino, s.st_size, s.st_mtime_ns, s.st_ctime_ns)
+                   != (before.st_dev, before.st_ino, before.st_size,
+                       before.st_mtime_ns, before.st_ctime_ns)
+                   for s in (opened, finished, after))
+            or len(raw) != before.st_size):
+        hold("REGISTER_FILE_MISSING_OR_UNSAFE")
+    return raw
+
+
+def read_register(path, *, required_sha=None):
+    """Read exact bounded file bytes before externally checking prior SHA."""
+    file = Path(path)
+    raw = _read_stable_register_bytes(file)
+    digest = hashlib.sha256(raw).hexdigest()
+    if required_sha is not None:
+        if not isinstance(required_sha, str) or not HEX64.fullmatch(required_sha):
+            hold("EXTERNAL_PREVIOUS_REGISTER_SHA_REQUIRED")
+        if digest != required_sha:
+            hold("PREVIOUS_REGISTER_BYTES_CHANGED")
+    try:
+        content = json.loads(raw.decode("utf-8"), object_pairs_hook=_no_duplicate_keys,
+                             parse_constant=_reject_invalid_number)
+    except (UnicodeError, ValueError) as exc:
+        hold("MALFORMED_REGISTER_JSON:" + str(exc))
+    _all_numbers_finite(content)
+    verify(content)
+    return content, digest
+
+
+def verify_append_only(current, previous, previous_sha):
+    """One anchored prior ledger protects failures/revisions from retroactive deletion.
+
+    This is *continuity to an externally pinned snapshot*, not a historical
+    completeness audit. Someone could have omitted attempts before that first
+    externally trusted snapshot, so the authoritative streak stays unapproved.
+    """
+    verify(previous)
+    report = verify(current)
+    if not isinstance(previous_sha, str) or not HEX64.fullmatch(previous_sha):
+        hold("EXTERNAL_PREVIOUS_REGISTER_SHA_REQUIRED")
+    old = previous["attempts"]
+    new = current["attempts"]
+    # Detect missing/altered historical rows before comparing event counts.
+    # Equal-length attempts with one removed and another substituted must
+    # report rewritten history, not merely "nothing appended".
+    if len(new) < len(old) or new[:len(old)] != old:
+        hold("PREVIOUS_ATTEMPTS_REWRITTEN_OR_DELETED")
+    if len(new) == len(old):
+        hold("NO_NEW_APPEND_ONLY_ATTEMPT")
+    report.update({
+        "appendOnlyAgainstPinnedPrior": True,
+        "externalPreviousRegisterSha256": previous_sha,
+        "previousRegisteredAttempts": len(old),
+        "newAppendedAttemptCount": len(new) - len(old),
+        "newAppendedRunIds": [a["runId"] for a in new[len(old):]],
+        "allHistoricalAttemptsProvenPresent": False,
+        "independentScienceVoiceCraftHandsetAudienceAndVarietyVerified": False,
+        "firstExcellentMasterAccepted": False,
+        "fiveRenderMilestoneAccepted": False,
+        "authorizedPromotion": False,
+        "mayPublish": False,
+    })
+    return report
+
+
+RESEARCH_REPORT_FIELDS = frozenset((
+    "schema", "status", "registeredAttempts", "registeredDistinctSubjects",
+    "registeredRevisionsExcluded", "provisionalDeclaredConsecutiveFirstPasses",
+    "provisionalMaxDeclaredFirstPasses", "lastFiveFirstAttemptsDeclaredPass",
+    "allHistoricalAttemptsProvenPresent",
+    "independentScienceVoiceCraftHandsetAudienceAndVarietyVerified",
+    "firstExcellentMasterAccepted", "fiveRenderMilestoneAccepted",
+    "authorizedPromotion", "mayPublish", "attempts",
+))
+RESEARCH_APPEND_FIELDS = frozenset((
+    "appendOnlyAgainstPinnedPrior", "externalPreviousRegisterSha256",
+    "previousRegisteredAttempts", "newAppendedAttemptCount",
+    "newAppendedRunIds",
+))
+RESEARCH_ATTEMPT_FIELDS = frozenset((
+    "runId", "subjectId", "renderOrdinal", "firstFinal",
+    "declaredDecision", "declaredEligible", "declaredStreakBeforeEvent",
+    "declaredStreakAfterEvent", "streakBreakReason",
+    "independentlyApproved",
+))
+RESEARCH_WITHHELD_APPROVALS = frozenset((
+    "allHistoricalAttemptsProvenPresent",
+    "independentScienceVoiceCraftHandsetAudienceAndVarietyVerified",
+    "firstExcellentMasterAccepted", "fiveRenderMilestoneAccepted",
+    "authorizedPromotion", "mayPublish",
+))
+
+
+def validate_report_for_write(report):
+    """Never persist arbitrary approval claims as our guarded streak report.
+
+    This enforces report structure and withheld authority; it does not
+    authenticate an input run, independent review, or a historical attempt.
+    """
+    if (not isinstance(report, dict)
+            or set(report) not in (RESEARCH_REPORT_FIELDS,
+                                   RESEARCH_REPORT_FIELDS | RESEARCH_APPEND_FIELDS)
+            or report.get("schema") != "ths-em-five-render-integrity-report-v1"
+            or report.get("status") != "RESEARCH_INTEGRITY_ONLY_NO_STREAK_APPROVAL"
+            or any(report.get(key) is not False for key in RESEARCH_WITHHELD_APPROVALS)):
+        hold("UNAUTHORIZED_RESEARCH_REPORT_CONTENT")
+    entries = report.get("attempts")
+    if not isinstance(entries, list):
+        hold("UNAUTHORIZED_RESEARCH_REPORT_CONTENT")
+    for item in entries:
+        if (not isinstance(item, dict)
+                or set(item) != RESEARCH_ATTEMPT_FIELDS
+                or item.get("independentlyApproved") is not False):
+            hold("UNAUTHORIZED_RESEARCH_REPORT_CONTENT")
+    total = len(entries)
+    for key in ("registeredAttempts", "registeredDistinctSubjects",
+                "registeredRevisionsExcluded",
+                "provisionalDeclaredConsecutiveFirstPasses",
+                "provisionalMaxDeclaredFirstPasses"):
+        if type(report.get(key)) is not int or report[key] < 0:
+            hold("UNAUTHORIZED_RESEARCH_REPORT_CONTENT")
+    if (report["registeredAttempts"] != total
+            or report["registeredDistinctSubjects"] > total
+            or report["registeredRevisionsExcluded"] > total
+            or report["provisionalDeclaredConsecutiveFirstPasses"] > total
+            or report["provisionalMaxDeclaredFirstPasses"] > total
+            or report["provisionalMaxDeclaredFirstPasses"]
+               < report["provisionalDeclaredConsecutiveFirstPasses"]
+            or report.get("lastFiveFirstAttemptsDeclaredPass") is not
+               (report["provisionalDeclaredConsecutiveFirstPasses"] >= 5)):
+        hold("UNAUTHORIZED_RESEARCH_REPORT_CONTENT")
+    # Recompute the entire provisional timeline from the report's own rows.
+    # Structural checks alone admit forged streaks (including five claimed
+    # consecutive PASSes after a recorded FAIL). Report rows intentionally do
+    # not carry source/film hashes; this is mathematical consistency only,
+    # NOT original-film authenticity or historical-completeness attestation.
+    seen_runs, next_ordinal, streak, maximum, revisions = set(), {}, 0, 0, 0
+    for row in entries:
+        run, subject, ordinal = row["runId"], row["subjectId"], row["renderOrdinal"]
+        decision = row["declaredDecision"]
+        if (not isinstance(run, str) or not ID.fullmatch(run)
+                or run in seen_runs or not isinstance(subject, str)
+                or not ID.fullmatch(subject) or type(ordinal) is not int
+                or ordinal != next_ordinal.get(subject, 0) + 1
+                or type(row["firstFinal"]) is not bool
+                or row["firstFinal"] is not (ordinal == 1)
+                or not isinstance(decision, str) or decision not in DECISIONS):
+            hold("RESEARCH_REPORT_TIMELINE_DRIFT")
+        seen_runs.add(run)
+        next_ordinal[subject] = ordinal
+        before = streak
+        if ordinal != 1:
+            revisions += 1
+            streak = 0
+            eligible, reason = False, "REVISION_NOT_FIRST_RENDER"
+        else:
+            eligible = decision == "PASS"
+            streak = streak + 1 if eligible else 0
+            reason = None if eligible else "DECLARED_" + decision
+            maximum = max(maximum, streak)
+        if (row["declaredEligible"] is not eligible
+                or type(row["declaredStreakBeforeEvent"]) is not int
+                or row["declaredStreakBeforeEvent"] != before
+                or type(row["declaredStreakAfterEvent"]) is not int
+                or row["declaredStreakAfterEvent"] != streak
+                or row["streakBreakReason"] != reason):
+            hold("RESEARCH_REPORT_TIMELINE_DRIFT")
+    if (report["registeredDistinctSubjects"] != len(next_ordinal)
+            or report["registeredRevisionsExcluded"] != revisions
+            or report["provisionalDeclaredConsecutiveFirstPasses"] != streak
+            or report["provisionalMaxDeclaredFirstPasses"] != maximum):
+        hold("RESEARCH_REPORT_TIMELINE_DRIFT")
+    if set(report) == RESEARCH_REPORT_FIELDS | RESEARCH_APPEND_FIELDS:
+        prior = report.get("previousRegisteredAttempts")
+        count = report.get("newAppendedAttemptCount")
+        newly_added = report.get("newAppendedRunIds")
+        if (report.get("appendOnlyAgainstPinnedPrior") is not True
+                or not isinstance(report.get("externalPreviousRegisterSha256"), str)
+                or not HEX64.fullmatch(report["externalPreviousRegisterSha256"])
+                or type(prior) is not int or prior < 0 or prior >= total
+                or type(count) is not int or count != total - prior
+                or not isinstance(newly_added, list)
+                or newly_added != [item["runId"] for item in entries[prior:]]):
+            hold("UNAUTHORIZED_RESEARCH_REPORT_CONTENT")
+    return True
+
+
+def write_report_no_clobber(path, report):
+    """Do not overwrite an older research report or follow a final-file alias."""
+    validate_report_for_write(report)
+    output = Path(path)
+    if (not output.parent.is_dir() or _has_symlinked_parent(output)
+            or output.exists() or output.is_symlink()):
+        hold("REPORT_PATH_ALREADY_EXISTS_OR_UNSAFE")
+    blob = (json.dumps(report, indent=2, allow_nan=False) + "\n").encode("utf-8")
+    staged = None
+    try:
+        with tempfile.NamedTemporaryFile(dir=output.parent, prefix=".em-streak-",
+                                         suffix=".tmp", delete=False) as f:
+            staged = Path(f.name)
+            f.write(blob)
+            f.flush()
+            os.fsync(f.fileno())
+        if hashlib.sha256(staged.read_bytes()).digest() != hashlib.sha256(blob).digest():
+            hold("STAGED_REPORT_HASH_MISMATCH")
+        try:
+            os.link(staged, output)
+        except FileExistsError:
+            hold("REPORT_ALREADY_EXISTS")
+    finally:
+        if staged is not None:
+            staged.unlink(missing_ok=True)
+    return output
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--register", required=True)
+    parser.add_argument("--previous-register")
+    parser.add_argument("--previous-sha")
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
-    path = Path(args.register)
-    if not path.is_file() or path.is_symlink():
-        hold("REGISTRY_FILE_REQUIRED")
-    report = verify(json.loads(path.read_text(encoding="utf-8")))
-    dest = Path(args.out)
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    if bool(args.previous_register) != bool(args.previous_sha):
+        hold("PREVIOUS_REGISTER_AND_EXTERNAL_SHA_REQUIRED_TOGETHER")
+    current, _ = read_register(args.register)
+    if args.previous_register:
+        previous, pinned_sha = read_register(
+            args.previous_register, required_sha=args.previous_sha)
+        report = verify_append_only(current, previous, pinned_sha)
+    else:
+        report = verify(current)
+    write_report_no_clobber(args.out, report)
     print(report["status"])
 
 
