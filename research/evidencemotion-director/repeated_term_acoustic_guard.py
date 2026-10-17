@@ -1019,6 +1019,153 @@ def audit_archived_suffix_cue_hypotheses(
         return refuse("SUFFIX_CUES_SOURCE_REPORT_PARSE_FAILED")
 
 
+# First-party Scene4 CleanPanel v2b film from the owner's archived library
+# package, not an approved/published/recent-revision identity.
+REVISED_SCENE4_V2B_FILM_SHA = "3c4e91b37958f1e86b6a04486933bbfc719bf6a196203711d6421eca58b70d31"
+REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA = "f0057c19c9d06b8a2f3c6d8fec948ca4555966114579fd1a48b0bcfccc84aa98"
+
+
+def compare_revised_aac_packet_timeline(archived_packets, revised_packets,
+                                        archived_adts_sha, revised_adts_sha):
+    """One source-timeline comparison, not a voice/film release oracle.
+
+    AAC payload bytes are a different assertion from container PTS/DTS/
+    duration metadata. Require both; don't allow an audio-copy receipt to
+    conceal one altered AAC packet's advertised presentation duration.
+    """
+    base = {"schema": SCHEMA, "mayPublish": False, "audioCraftApproved": False,
+            "wordTimingCalibrated": False, "pronunciationVerified": False,
+            "revisedFilmVerifiedForRelease": False,
+            "originalAudioOrFilmModified": False}
+    def reject(reason):
+        return {**base, "status": "HOLD", "errors": [reason]}
+    if (not isinstance(archived_adts_sha, str)
+            or archived_adts_sha != REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA
+            or not isinstance(revised_adts_sha, str)
+            or revised_adts_sha != REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA):
+        return reject("REVISED_AUDIO_ADTS_PAYLOAD_NOT_PINNED_OR_IDENTICAL")
+    if (not isinstance(archived_packets, list)
+            or not isinstance(revised_packets, list)
+            or not 100 <= len(archived_packets) <= 10000
+            or len(archived_packets) != len(revised_packets)):
+        return reject("REVISED_AUDIO_PACKET_COUNT_INVALID")
+    fields = ("pts", "dts", "duration", "size")
+    def canonical(rows):
+        clean = []
+        prior = None
+        for row in rows:
+            if not isinstance(row, dict) or set(row) != set(fields):
+                raise ValueError("PACKET_FIELDS_INVALID")
+            x = {}
+            for f in fields:
+                v = row[f]
+                # ffprobe emits string-formatted packet size, integers for
+                # most timestamp fields. Don't parse booleans or floats.
+                if isinstance(v, bool) or isinstance(v, (list, dict)):
+                    raise ValueError("PACKET_FIELDS_INVALID")
+                if isinstance(v, str):
+                    if not v.isdecimal():raise ValueError("PACKET_FIELDS_INVALID")
+                    v = int(v)
+                if not isinstance(v, int):
+                    raise ValueError("PACKET_FIELDS_INVALID")
+                x[f] = v
+            if (x["duration"] <= 0 or x["duration"] > 1024
+                    or x["size"] <= 0 or x["size"] > 100000
+                    or x["dts"] != x["pts"]
+                    or (prior is not None and
+                        x["pts"] != prior["pts"] + prior["duration"])):
+                raise ValueError("PACKET_TIME_SEQUENCE_INVALID")
+            clean.append(x)
+            prior = x
+        return clean
+    try:
+        a, b = canonical(archived_packets), canonical(revised_packets)
+    except (TypeError, ValueError, OverflowError):
+        return reject("REVISED_AUDIO_PACKET_TIMESTAMP_OR_SCHEMA_INVALID")
+    differences = []
+    for idx, (left, right) in enumerate(zip(a, b)):
+        if left != right:
+            differences.append({
+                "packetIndex": idx,
+                "archived": left,
+                "revised": right,
+                "revisedMinusArchivedDurationSamples":
+                    right["duration"] - left["duration"],
+                "revisedMinusArchivedDurationMs": round(
+                    (right["duration"]-left["duration"])*1000/24000, 6),
+            })
+    return {
+        **base, "status": ("RESEARCH_REVISED_AAC_METADATA_MISMATCH_HOLD"
+                           if differences else
+                           "RESEARCH_REVISED_AAC_BITSTREAM_TIMELINE_MATCH_HOLD"),
+        "sourceArchivedFilmSha256": ARCHIVED_TIMED_NATIVE_VIDEO_SHA,
+        "revisedFilmSha256": REVISED_SCENE4_V2B_FILM_SHA,
+        "sourceAudioAdtsSha256": REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA,
+        "revisedAudioAdtsSha256": revised_adts_sha,
+        "bitExactAacPayloadPreserved": True,
+        "audioPacketCount": len(a),
+        "packetTimelineMetadataEqual": not bool(differences),
+        "timelineMetadataDisagreementCount": len(differences),
+        "packetTimelineDifferences": differences[:32],
+        "nominalAudioSampleRateHz": 24000,
+        "originalTotalPacketDurationSamples": sum(x["duration"] for x in a),
+        "revisedTotalPacketDurationSamples": sum(x["duration"] for x in b),
+        "decodedPcmSamplesNotInferredFromPacketDuration": True,
+        "qualifiedListeningStillRequired": True,
+        "caution": "Byte-identical AAC alone does not prove MP4 packet duration "
+                   "or PTS identity. Metadata mismatch is not evidence of "
+                   "audible loss or wrong phonemes. No release approval.",
+    }
+
+
+def audit_revised_aac_packet_timeline_files(archived_path, revised_path):
+    """Opt-in SHA-pinned archived/revised packet and payload research screen."""
+    import subprocess
+    def reject(reason):
+        return {"schema": SCHEMA, "status": "HOLD", "errors": [reason],
+                "mayPublish": False, "pronunciationVerified": False,
+                "wordTimingCalibrated": False}
+    try:
+        paths = (Path(archived_path), Path(revised_path))
+        if any(p.is_symlink() or not p.is_file()
+               or not 1000 <= p.stat().st_size <= 10000000 for p in paths):
+            return reject("REVISED_AUDIO_PINNED_FILMS_NOT_PRESENT")
+        raw = [p.read_bytes() for p in paths]
+        if (digest(raw[0]) != ARCHIVED_TIMED_NATIVE_VIDEO_SHA
+                or digest(raw[1]) != REVISED_SCENE4_V2B_FILM_SHA):
+            return reject("REVISED_AUDIO_FILM_SHA_CHANGED")
+        packet_lists, audio_hashes = [], []
+        for p in paths:
+            probe = subprocess.run([
+                "ffprobe", "-v", "error", "-select_streams", "a:0",
+                "-show_entries", "packet=pts,dts,duration,size",
+                "-of", "json", str(p)], capture_output=True,
+                timeout=30, check=False)
+            if probe.returncode or len(probe.stdout) > 2000000:
+                return reject("REVISED_AUDIO_FFPROBE_FAILED")
+            obj = json.loads(probe.stdout)
+            packet_lists.append(obj["packets"])
+            audio = subprocess.run([
+                "ffmpeg", "-nostdin", "-v", "error", "-xerror", "-i", str(p),
+                "-map", "0:a:0", "-c:a", "copy", "-f", "adts", "-"],
+                capture_output=True, timeout=30, check=False)
+            if audio.returncode or not 10000 < len(audio.stdout) <= 3000000:
+                return reject("REVISED_AUDIO_FFMPEG_ADTS_EXTRACTION_FAILED")
+            audio_hashes.append(digest(audio.stdout))
+        if any(digest(p.read_bytes()) != expected
+               for p, expected in zip(paths,
+                   (ARCHIVED_TIMED_NATIVE_VIDEO_SHA, REVISED_SCENE4_V2B_FILM_SHA))):
+            return reject("REVISED_AUDIO_FILM_CHANGED_DURING_READ")
+        result = compare_revised_aac_packet_timeline(
+            packet_lists[0], packet_lists[1], *audio_hashes)
+        result["physicalFfprobeAndFfmpegBothExecuted"] = True
+        result["originalAndRevisedSourceBytesRehashedAfterProbe"] = True
+        return result
+    except (OSError, UnicodeError, ValueError, TypeError, KeyError,
+            subprocess.TimeoutExpired):
+        return reject("REVISED_AUDIO_CONTAINER_PROBE_UNREADABLE")
+
+
 def audit_archived_encoded_audio_sync(source_raw, video_raw, receipt_raw, decoded_pcm_f32le):
     """Screen *original* WAV versus lossy encoded AAC signal, never phonemes.
 
@@ -2151,6 +2298,9 @@ def main(argv=None):
     p.add_argument("--original-wav", help="Pinned original full 24 kHz source WAV")
     p.add_argument("--mfa-receipt", help="Pinned first-party original MFA run receipt")
     p.add_argument("--mfa-alignment", help="Pinned original MFA word alignment candidate")
+    p.add_argument("--revised-aac-packet-timeline", action="store_true",
+                   help="Research only: SHA-pinned archived vs revised AAC packets, not release")
+    p.add_argument("--revised-research-film", help="SHA-pinned Scene4 v2b encoded film")
     p.add_argument("--archived-aac-sync-review", action="store_true",
                    help="Original source vs actual decoded archived AAC research screen only")
     p.add_argument("--frame-native-pause-plan", action="store_true",
@@ -2179,7 +2329,24 @@ def main(argv=None):
     p.add_argument("--pose-internal-contrasts", action="store_true",
                    help="Produce source-pinned same-narrator comparisons; NEVER a phoneme verdict")
     a=p.parse_args(argv)
-    if a.archived_aac_sync_review:
+    if a.revised_aac_packet_timeline:
+        if (not a.native_research_film or not a.revised_research_film
+                or any((a.original_wav, a.mfa_receipt, a.mfa_alignment,
+                        a.native_render_receipt, a.archived_aac_sync_review,
+                        a.frame_native_pause_plan, a.original_pause_audition_audit,
+                        a.pause_preview_wav, a.pause_retained_ms,
+                        a.original_dead_air_review, a.cross_model_timing_review,
+                        a.human_review_json, a.mfa_zero_interval_audit,
+                        a.asr_zero_onset_audit, a.pose_asr_receipt,
+                        a.reference_benchmark_zip, a.reference_target_wav,
+                        a.pose_internal_contrasts, a.source_archive))):
+            result = hold("REVISED_AAC_TIMELINE_REQUIRES_EXCLUSIVE_TWO_FILMS")
+        else:
+            result = audit_revised_aac_packet_timeline_files(
+                a.native_research_film, a.revised_research_film)
+    elif a.revised_research_film is not None:
+        result = hold("REVISED_AAC_FILM_REQUIRES_EXPLICIT_RESEARCH_MODE")
+    elif a.archived_aac_sync_review:
         if (not a.original_wav or not a.native_research_film
                 or not a.native_render_receipt
                 or any((a.frame_native_pause_plan, a.original_pause_audition_audit,
