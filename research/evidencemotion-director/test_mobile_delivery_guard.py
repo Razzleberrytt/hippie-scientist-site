@@ -8,7 +8,7 @@ import json
 from unittest.mock import patch
 from array import array
 from pathlib import Path
-from mobile_delivery_guard import audit,Hold,sha_file,audio_compare
+from mobile_delivery_guard import audit,Hold,sha_file,audio_compare,frame_pts
 
 
 def ff(*a):
@@ -49,6 +49,36 @@ class MobileDeliveryGuardTests(unittest.TestCase):
         self.assertGreater(v['decodedAudioComparison']['normalizedCorrelation'],.995)
         for k in ('realIPhonePlaybackVerified','captionOCRVerified','scienceOrSourceReviewApproved','fontReadabilityApproved','mayPublish'):
             self.assertIs(v[k],False)
+    def test_skipped_visual_replay_never_returns_positive_receipt(self):
+        # A valid, physically encoded pair is not eligible for a positive
+        # compatibility report when callers explicitly skip pixel replay.
+        with self.assertRaisesRegex(Hold,'FULL_VIDEO_COMPARISON_REQUIRED_FOR_POSITIVE_RECEIPT'):
+            self.run_pair(visual=False)
+
+    def test_exact_presented_pts_happy_path(self):
+        with patch('mobile_delivery_guard.cmd',return_value=b'0.000000\\n0.033333\\n0.066667\\n'):
+            self.assertEqual(frame_pts('source.mp4'),[0.0,0.033333,0.066667])
+
+    def test_nonfinite_actual_frame_pts_rejected(self):
+        for bad in (b'nan',b'NaN',b'inf',b'-inf',b'1e999'):
+            with self.subTest(pts=bad):
+                with patch('mobile_delivery_guard.cmd',return_value=b'0.000000\\n'+bad+b'\\n'):
+                    with self.assertRaisesRegex(Hold,'INVALID_ACTUAL_FRAME_PTS'):
+                        frame_pts('source.mp4')
+
+    def test_repeated_reversed_and_negative_actual_pts_rejected(self):
+        for raw in (b'0\\n0',b'0.066667\\n0.033333',
+                    b'-0.033333\\n0',b'0.000000\\n0.0000003'):
+            with self.subTest(stamps=raw):
+                with patch('mobile_delivery_guard.cmd',return_value=raw+b'\\n'):
+                    with self.assertRaisesRegex(Hold,'INVALID_ACTUAL_FRAME_PTS'):
+                        frame_pts('source.mp4')
+
+    def test_empty_actual_pts_rejected(self):
+        with patch('mobile_delivery_guard.cmd',return_value=b''):
+            with self.assertRaisesRegex(Hold,'INVALID_ACTUAL_FRAME_PTS'):
+                frame_pts('source.mp4')
+
     def test_source_hash_tamper_rejected(self):
         with self.assertRaisesRegex(Hold,'FILM_SHA256_DOES_NOT_MATCH_PIN'):
             self.run_pair(source_hash='0'*64)
