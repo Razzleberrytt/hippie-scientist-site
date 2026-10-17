@@ -652,10 +652,16 @@ def audit_downloaded_original_movie(artifact_dir, *, expected_geometry=NATIVE,
     sample_rate, decoded_aac_frames = int(sr_text), int(count_text)
     if not 8000 <= sample_rate <= 192000 or decoded_aac_frames < 1:
         raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_AAC_COVERAGE_UNPROVEN")
-    minimum_aac_frames = max(
-        1, (frames * sample_rate + 30 * 1024 - 1) // (30 * 1024) - 2)
+    expected_aac_frames = (frames * sample_rate + 30 * 1024 - 1) // (30 * 1024)
+    # Permit only two AAC access units (priming and end-padding) of drift in
+    # either direction. A much longer AAC track also fully decodes, but can
+    # smuggle an unrelated extra tail into an otherwise valid 1,031-frame MP4.
+    minimum_aac_frames = max(1, expected_aac_frames - 2)
+    maximum_aac_frames = expected_aac_frames + 2
     if decoded_aac_frames < minimum_aac_frames:
         raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_AAC_TOO_SHORT_FOR_FILM")
+    if decoded_aac_frames > maximum_aac_frames:
+        raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_AAC_TOO_LONG_FOR_FILM")
     try:
         subprocess.run([
             original_media_executable("ffmpeg"), "-nostdin", "-v", "error",
