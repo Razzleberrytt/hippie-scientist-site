@@ -11,7 +11,7 @@ MOVIE_SHA="044c1f0573f01d3fe850cbd74f270c90019cc3e37b364a0fa627d56e7ecb39f2"
 SRT_SHA="40622b677cd6db8c493eff55727904c5017c4a3d7803b22d4c361e84a1ff9bee"
 SCENES=(
  ("hook",45,"NIDDK_GENERAL_DIGESTION","NIDDK digestive-system description cannot quantify a supplement absorbed dose",True),
- ("release",165,"GENERAL_FORMULATION_LIMITED","many tablets/capsules can release contents before uptake; no universal stomach, dissolution, or in-frame primary formulation citation",False),
+ ("release",165,"USP2040_DIETARY_SUPPLEMENT_DOSAGE_TESTS_ONLY","USP chapter 2040 provides dietary-supplement disintegration/dissolution tests only where individual monographs specify; it does not establish in-vivo absorption, universal stomach release, or a visible film source credit",False),
  ("small_intestine",320,"NIDDK_NUTRIENTS_FROM_FOOD","most dietary nutrients from food are absorbed in small intestine; some lipids/vitamins use lymph",True),
  ("vitamin_d",480,"NIH_ODS_VITAMIN_D","fat can enhance vitamin D absorption but dietary fat is not always required; no percent-effect claim",True),
  ("iron",615,"NIH_ODS_IRON_AND_CONDITIONED_TEA_TRIALS","vitamin C can enhance nonheme iron; certain tea polyphenols may inhibit meal-bound nonheme iron; no population-independent clinical endpoint",True),
@@ -23,6 +23,7 @@ SOURCES={
  "ods_iron":"https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/",
  "tea_trial_2017":"https://pubmed.ncbi.nlm.nih.gov/29046302/",
  "polyphenol_trial_1999":"https://pubmed.ncbi.nlm.nih.gov/10999016/",
+ "usp_supplement_2040":"https://doi.usp.org/USPNF/USPNF_M99970_04_01.html",
 }
 
 def digest(path):
