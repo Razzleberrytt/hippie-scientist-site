@@ -18,9 +18,20 @@ describe('cluster-member production runtime boundary', () => {
     const core = coreRecord('herbs', slug)
 
     expect(record).not.toBeNull()
-    expect(record?.safety).toBe(core.safety)
-    expect(record?.safetyNotes).toBe(core.safety)
-    expect(record?.safety).toMatch(/^Safety evidence:/)
+    // Only a named Batch 8 high-risk extract may extend core-owned safety;
+    // core caution text must remain intact and renderer aliases must match.
+    if (slug === 'green-tea-extract') {
+      expect(String(record?.safety)).toContain(String(core.safety))
+      expect(String(record?.safety)).toMatch(/liver warning|liver.injury/i)
+      expect(record?.safetyNotes).toBe(record?.safety)
+    } else {
+      expect(record?.safety).toBe(core.safety)
+      expect(record?.safetyNotes).toBe(core.safety)
+    }
+    // Urgent Batch 8 extract warnings must lead the compact text; the original
+    // core Safety evidence context must still be present below them.
+    expect(record?.safety).toMatch(slug === 'green-tea-extract' ? /^CONCENTRATED .*LIVER WARNING:/ : /^Safety evidence:/)
+    expect(record?.safety).toContain('Safety evidence:')
     expect(record?.side_effects).toEqual(expect.arrayContaining([expect.any(String)]))
     expect(record?.interactions).toEqual([])
     expect(record?.indexability_status).toBe(core.indexability_status)
@@ -33,9 +44,18 @@ describe('cluster-member production runtime boundary', () => {
     const core = coreRecord('compounds', slug)
 
     expect(record).not.toBeNull()
-    expect(record?.safety).toBe(core.safety)
-    expect(record?.safetyNotes).toBe(core.safety)
-    expect(record?.safety).toMatch(/^Safety evidence:/)
+    // Only a named Batch 8 high-risk extract may extend core-owned safety;
+    // core caution text must remain intact and renderer aliases must match.
+    if (slug === 'green-tea-extract-egcg') {
+      expect(String(record?.safety)).toContain(String(core.safety))
+      expect(String(record?.safety)).toMatch(/liver warning|liver.injury/i)
+      expect(record?.safetyNotes).toBe(record?.safety)
+    } else {
+      expect(record?.safety).toBe(core.safety)
+      expect(record?.safetyNotes).toBe(core.safety)
+    }
+    expect(record?.safety).toMatch(slug === 'green-tea-extract-egcg' ? /^CONCENTRATED .*LIVER WARNING:/ : /^Safety evidence:/)
+    expect(record?.safety).toContain('Safety evidence:')
     expect(record?.contraindications).toEqual(expect.arrayContaining([expect.any(String)]))
     expect(record?.side_effects).toEqual(expect.arrayContaining([expect.any(String)]))
     expect(record?.indexability_status).toBe(core.indexability_status)
