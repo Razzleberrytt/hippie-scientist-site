@@ -5,6 +5,68 @@ import unittest
 from validate_atomic_proof_ledger import LEDGER,validate
 
 class AtomicProofLedgerTests(unittest.TestCase):
+    def test_new_proof_group_requires_canonical_card_sha_and_real_run_identity(self):
+        # Positive case is a synthetic ledger-structure fixture, NOT an
+        # independent real-film/clinical/phone approval.
+        import hashlib
+        import shutil
+        import tempfile
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as temporary:
+            directory=Path(temporary)
+            for group in self.good["proofGroups"]:
+                shutil.copyfile(LEDGER.parent/group["source"],
+                                directory/group["source"])
+            shutil.copyfile(LEDGER.parent/"COMPLETION-CHECKLIST.md",directory/"COMPLETION-CHECKLIST.md")
+            (directory/"atomic").mkdir()
+            for planning_file in sorted((LEDGER.parent/"atomic").glob("0[1-5]-*.md")):
+                shutil.copyfile(planning_file,directory/"atomic"/planning_file.name)
+            merge="a"*40
+            run=39060226925
+            proof="".join((
+                "# Machine-only research proof\n",
+                "https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/"+str(run)+"\n",
+                "merge "+merge+"\nmayPublish=false\n",
+                "| ID | Status | Receipt |\n| --- | --- | --- |\n",
+                "| \`EM-034.08.U\` | VERIFIED_MACHINE_RESEARCH | exact unit only |\n",
+                "| \`EM-034.08.S\` | VERIFIED_MACHINE_RESEARCH | source SHA only |\n",
+            )).replace(r"\`", chr(96))
+            name="EM03408-MACHINE-ONLY-20261017.md"
+            (directory/name).write_text(proof,encoding="utf-8")
+            extra={"group":"EM-034.08","source":name,
+                "sourceSha256":hashlib.sha256(proof.encode()).hexdigest(),
+                "mergeCommitSha":merge,"workflowRunId":run,
+                "cards":["EM-034.08.U","EM-034.08.S"]}
+            candidate=copy.deepcopy(self.good)
+            candidate["proofGroups"].append(extra)
+            candidate["individualMachineVerifiedResearchCardCount"]=170
+            candidate["provisionalCoverageCardCount"]=877
+            candidate["provisionalCoveragePercent"]=round(877/1590*100,4)
+            result=validate(candidate,directory)
+            self.assertEqual(result["evidenceGroupCount"],27)
+            self.assertEqual(result["individuallyAuditedMachineResearchOnly"],170)
+            self.assertEqual(result["provisionalCoverage"],877)
+            self.assertFalse(result["mayPublish"])
+            same_accepted=copy.deepcopy(candidate)
+            same_accepted["proofGroups"][-1]["group"]="EM-001.05"
+            with self.assertRaisesRegex(ValueError,"ACCEPTED_PARENT_REQUIRES_INHERITED_RECLASSIFICATION"):
+                validate(same_accepted,directory)
+            for corrupt,why in (
+                ({"sourceSha256":"0"*64},"NEW_EVIDENCE_SOURCE_SHA_UNVERIFIED"),
+                ({"workflowRunId":None},"NEW_EVIDENCE_MERGE_RUN_OR_HOLD"),
+                ({"cards":["EM-034.08.U","EM-034.08.U"]},"DUPLICATED_CARD_CLAIM"),
+                ({"cards":["EM-034.08.X"]},"NO_EXPLICIT_RESEARCH_PROOF_TABLE_ROW"),
+                ({"cards":["EM-034.99.U"]},"WRONG_PROOF_GROUP_FOR_CARD"),
+            ):
+                bad=copy.deepcopy(candidate)
+                bad["proofGroups"][-1].update(corrupt)
+                bad["individualMachineVerifiedResearchCardCount"]=168+len(bad["proofGroups"][-1]["cards"])
+                bad["provisionalCoverageCardCount"]=707+bad["individualMachineVerifiedResearchCardCount"]
+                bad["provisionalCoveragePercent"]=round(100*bad["provisionalCoverageCardCount"]/1590,4)
+                with self.assertRaisesRegex(ValueError,why):
+                    validate(bad,directory)
+
+
     @classmethod
     def setUpClass(cls):
         cls.good=json.loads(LEDGER.read_text(encoding="utf-8"))
