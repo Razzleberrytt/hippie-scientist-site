@@ -58,6 +58,8 @@ class AudioOnlyRemasterTests(unittest.TestCase):
         self.assertFalse(result["mayPublish"])
         self.assertFalse(result["firstExcellentMasterAccepted"])
         self.assertFalse(result["fiveRenderStreakAccepted"])
+        self.assertFalse(result["measuredCompleteTrackEbuR128"]["masteringQualityIndependentlyCertified"])
+        self.assertTrue(result["measuredCompleteTrackEbuR128"]["remasterTruePeakBelow0DBTP"])
 
     def test_resample_without_correct_external_pin_fails_closed(self):
         for pin in (None, 44100, 96000, True):
@@ -72,6 +74,15 @@ class AudioOnlyRemasterTests(unittest.TestCase):
             inspect(source=self.orig, remaster=self.loud,
                     source_sha=sha(self.orig), remaster_sha=sha(self.loud),
                     expected_remaster_sample_rate=48000)
+
+    def test_unmeasurable_r128_cannot_fake_audio_qc_success(self):
+        from audio_only_remaster_guard import _audio_r128
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        with patch("audio_only_remaster_guard.subprocess.run",
+                   return_value=SimpleNamespace(stderr="Summary:\n  Integrated loudness:\n I: -inf LUFS")):
+            with self.assertRaisesRegex(ValueError, "AUDIO_R128_UNMEASURABLE"):
+                _audio_r128(self.orig)
 
     def test_tampered_source_external_hash_refused(self):
         with self.assertRaisesRegex(ValueError, "MEDIA_PIN_MISMATCH"):
