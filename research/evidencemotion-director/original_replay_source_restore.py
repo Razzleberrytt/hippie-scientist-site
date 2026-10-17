@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 import re
 import shutil
+import stat
 import subprocess
 import tempfile
 
@@ -36,6 +37,34 @@ REFS = {name: (PHONE_COMMIT if name == "phone_ui_audit.py" else BASE_COMMIT)
         for name in PINNED}
 SAFE_NAME = re.compile(r"^[a-z][a-z0-9_]*\.py$")
 SAFE_REF = re.compile(r"^[0-9a-f]{40}$")
+
+
+
+def _cleanup_owned_readonly_stage(stage):
+    """Remove only our fresh private stage, including Windows 0444 files.
+
+    Windows refuses os.unlink on read-only files; the archival source should
+    remain immutable in the successfully committed destination, but disposable
+    staging files can be made writable for removal. Never repair symlinks,
+    foreign paths, or arbitrary directories passed to a failed rmtree().
+    """
+    stage = Path(stage)
+    if not stage.is_dir() or stage.is_symlink():
+        raise ValueError("ORIGINAL_SOURCE_HOLD:UNSAFE_STAGE_CLEANUP")
+
+    def on_readonly_error(operation, failed_path, exc_info):
+        cause = exc_info[1]
+        entry = Path(failed_path)
+        if (not isinstance(cause, PermissionError)
+                or operation not in (os.unlink, os.remove)
+                or stage not in entry.parents
+                or entry.is_symlink() or not entry.is_file()):
+            raise cause
+        entry.chmod(stat.S_IREAD | stat.S_IWRITE)
+        operation(failed_path)
+
+    shutil.rmtree(stage, onerror=on_readonly_error)
+
 
 
 def restore_pinned_sources(repo, destination, *, pins=PINNED, refs=REFS):
@@ -69,9 +98,17 @@ def restore_pinned_sources(repo, destination, *, pins=PINNED, refs=REFS):
                              "sha256": observed, "bytes": len(result.stdout)})
         # Atomically publish a complete new isolated tree. No production edits.
         os.replace(stage, destination)
-    finally:
+    except BaseException as primary:
+        # The root cause (bad ref/SHA etc.) must not be replaced by WinError5
+        # while removing our private, read-only 0444 staging files.
         if stage.exists():
-            shutil.rmtree(stage)
+            try:
+                _cleanup_owned_readonly_stage(stage)
+            except Exception as cleanup:
+                if hasattr(primary, "add_note"):
+                    primary.add_note("ORIGINAL_SOURCE_HOLD:STAGE_CLEANUP_INCOMPLETE:"
+                                     + type(cleanup).__name__)
+        raise
     return {"schema": "ths-em-original-11-source-recovery-v1",
             "status": "PINNED_SOURCES_ONLY_RESTORED",
             "destination": str(destination.resolve()),
