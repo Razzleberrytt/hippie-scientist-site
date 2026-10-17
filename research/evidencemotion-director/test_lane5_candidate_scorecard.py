@@ -11,7 +11,7 @@ import wave
 from unittest.mock import patch
 
 from lane5_candidate_scorecard import (
-    _screen_stats, _windows, _physical_av, _decoded_audio_coverage, score_candidate, write_once, _verified_original_pcm_samples, _receive_phone_plan, hold
+    _screen_stats, _windows, _physical_av, _decoded_audio_coverage, score_candidate, write_once, _verified_original_pcm_samples, _receive_phone_plan, _receive_decoded_visual_critic, hold
 )
 
 
@@ -38,6 +38,178 @@ def screen(film, story, frames=12, bright=(), colored=()):
 
 
 class Lane5ScorecardTests(unittest.TestCase):
+    def test_visual_critic_exact_film_negative_receipt_and_adversarial_holds(self):
+        movie = h(b"exact-current-encoded-film")
+        dims = (1080, 1920, 360)
+        with tempfile.TemporaryDirectory() as td:
+            path = Path(td) / "actual-visual-critic.json"
+            base = {
+                "schemaVersion": "ths-autonomous-film-critic-research-v1",
+                "actualVideoSha256": movie,
+                "actualSourceResolution": [1080, 1920],
+                "actualDurationSeconds": 12,
+                "oneHzOpticalScreenSamples": 12,
+                "samples": 6,
+                "sampleEverySeconds": 2,
+                "critiqueScope": "AUTONOMOUS_ACTUAL_PIXELS_NEGATIVE_SCREENING_NOT_HUMAN_QUALITY",
+                "mayPublish": False,
+                "excellentFirstRenderCredited": False,
+                "automaticallyApprovedScientificClaims": False,
+                "automaticallyApprovedNaturalVoice": False,
+                "automaticallyApprovedPremiumCraft": False,
+                "issues": [],
+                "reviewCandidates": [],
+                "decision": "AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE",
+                "sustainedRepeatWindowsSec": [],
+                "centerHeroStasisPeripheralMotionWindowsSec": [],
+                "twoStateAlternationWindowsSec": [],
+                "interleavedBlankPhaseWindowsSec": [],
+            }
+
+            def inspect(changes=None):
+                data = json.loads(json.dumps(base))
+                if changes:
+                    changes(data)
+                path.write_text(json.dumps(data))
+                sha = h(path.read_bytes())
+                return _receive_decoded_visual_critic(
+                    movie, dims, critic_path=path, expected_critic_sha=sha)
+
+            receipt, reason = inspect()
+            self.assertEqual(
+                reason, "DECODED_VISUAL_NEGATIVE_SCREEN_CLEAN_NOT_QUALITY_APPROVAL")
+            self.assertEqual(receipt["filmSha256"], movie)
+            self.assertEqual(receipt["reportSha256"], h(path.read_bytes()))
+            self.assertFalse(receipt["independentCraftReviewed"])
+            self.assertFalse(receipt["mayPublish"])
+
+            def red(data):
+                data["issues"] = ["SUSTAINED_REPEATED_SOURCE_LAYOUT_REQUIRES_ART_DIRECTION_REPAIR"]
+                data["decision"] = "AUTO_REVISE"
+                data["sustainedRepeatWindowsSec"] = [
+                    {"startSec": 2, "endSec": 8, "repeatedPairCount": 3}]
+            result, reason = inspect(red)
+            self.assertEqual(reason, "DECODED_VISUAL_REVISE_REPORTED")
+            self.assertEqual(result["issues"], [
+                "SUSTAINED_REPEATED_SOURCE_LAYOUT_REQUIRES_ART_DIRECTION_REPAIR"])
+
+            def advisory(data):
+                data["reviewCandidates"] = [
+                    "CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION"]
+                data["decision"] = "CRAFT_REVIEW_HOLD"
+                data["centerHeroStasisPeripheralMotionWindowsSec"] = [
+                    {"startSec": 2, "endSec": 8, "repeatedPairCount": 3}]
+            self.assertEqual(inspect(advisory)[1],
+                             "DECODED_VISUAL_CRAFT_REVIEW_CANDIDATES")
+            no_receipt, reason = _receive_decoded_visual_critic(movie, dims)
+            self.assertIsNone(no_receipt)
+            self.assertEqual(reason, "SAME_FILM_DECODED_VISUAL_CRITIC_NOT_RECEIVED")
+            with self.assertRaisesRegex(ValueError, "REQUIRED_TOGETHER"):
+                _receive_decoded_visual_critic(
+                    movie, dims, critic_path=path)
+            with self.assertRaisesRegex(ValueError, "JSON_PIN_MISMATCH"):
+                _receive_decoded_visual_critic(
+                    movie, dims, critic_path=path, expected_critic_sha=h(b"stale"))
+            with self.assertRaisesRegex(ValueError, "DIFFERENT_FILM_OR_GEOMETRY"):
+                inspect(lambda d: d.update(actualVideoSha256=h(b"different-film")))
+            with self.assertRaisesRegex(ValueError, "FORGED_RELEASE_OR_SCOPE"):
+                inspect(lambda d: d.update(automaticallyApprovedPremiumCraft=True))
+            with self.assertRaisesRegex(ValueError, "SAMPLE_OR_DURATION_MISMATCH"):
+                inspect(lambda d: d.update(oneHzOpticalScreenSamples=30))
+            with self.assertRaisesRegex(ValueError, "DECISION_FINDINGS_CONFLICT"):
+                inspect(lambda d: d.update(decision="AUTO_REVISE"))
+            with self.assertRaisesRegex(ValueError, "TIMECODE_INVALID"):
+                inspect(lambda d: d.update(sustainedRepeatWindowsSec=[
+                    {"startSec": 95, "endSec": 100, "repeatedPairCount": 2}]))
+            with self.assertRaisesRegex(ValueError, "FINDING_TIMELINE_CONFLICT"):
+                inspect(lambda d: d.update(sustainedRepeatWindowsSec=[
+                    {"startSec": 2, "endSec": 8, "repeatedPairCount": 3}]))
+            with self.assertRaisesRegex(ValueError, "FINDING_TIMELINE_CONFLICT"):
+                inspect(lambda d: d.update(
+                    reviewCandidates=[
+                        "TWO_STATE_LAYOUT_OSCILLATION_WITHOUT_VISUAL_PROGRESSION"],
+                    decision="CRAFT_REVIEW_HOLD"))
+            with self.assertRaisesRegex(ValueError, "FINDINGS_INVALID"):
+                inspect(lambda d: d.update(issues=["UNSUPPORTED_NEW_CODE"]))
+            with self.assertRaisesRegex(ValueError, "FINDINGS_INVALID"):
+                inspect(lambda d: d.update(reviewCandidates=[
+                    "TWO_STATE_LAYOUT_OSCILLATION_WITHOUT_VISUAL_PROGRESSION"] * 2))
+
+    def test_scorecard_same_film_visual_critic_veto_cannot_be_erased(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            film, wav = root / "film.mp4", root / "voice.wav"
+            story_path = root / "story.json"
+            screen_path = root / "screen.json"
+            visual_path = root / "visual.json"
+            film.write_bytes(b"mocked decoded film media research fixture")
+            with wave.open(str(wav), "wb") as wavefile:
+                wavefile.setnchannels(1)
+                wavefile.setsampwidth(2)
+                wavefile.setframerate(24000)
+                wavefile.writeframes(b"\x00\x00" * 24000)
+            movie_sha, wav_sha = h(film.read_bytes()), h(wav.read_bytes())
+            story_path.write_text(json.dumps({
+                "schema": "ths-lane3-research-visual-treatment-story-v1",
+                "encodedH264Sha256": movie_sha,
+                "shots": [{"shot": str(i)} for i in range(9)],
+                "mayPublish": False,
+                "realPhonePlaybackVerified": False,
+                "independentCraftCalibrationPassed": False,
+                "phonePlanSha256": None,
+            }))
+            story_sha = h(story_path.read_bytes())
+            screen_path.write_text(json.dumps(screen(movie_sha, story_sha, frames=360)))
+            visual_path.write_text(json.dumps({
+                "schemaVersion": "ths-autonomous-film-critic-research-v1",
+                "actualVideoSha256": movie_sha,
+                "actualSourceResolution": [1080, 1920],
+                "actualDurationSeconds": 12,
+                "oneHzOpticalScreenSamples": 12,
+                "samples": 6,
+                "sampleEverySeconds": 2,
+                "critiqueScope": "AUTONOMOUS_ACTUAL_PIXELS_NEGATIVE_SCREENING_NOT_HUMAN_QUALITY",
+                "mayPublish": False,
+                "excellentFirstRenderCredited": False,
+                "automaticallyApprovedScientificClaims": False,
+                "automaticallyApprovedNaturalVoice": False,
+                "automaticallyApprovedPremiumCraft": False,
+                "issues": ["MISSING_RECOGNIZABLE_SUBJECT_OR_NEAR_BLANK_CENTRAL_STAGE"],
+                "reviewCandidates": [],
+                "decision": "AUTO_REVISE",
+                "sustainedRepeatWindowsSec": [],
+                "centerHeroStasisPeripheralMotionWindowsSec": [],
+                "twoStateAlternationWindowsSec": [],
+                "interleavedBlankPhaseWindowsSec": [],
+            }))
+            with patch("lane5_candidate_scorecard._physical_av", return_value={
+                "fullVideoAudioPhysicalDecode": True,
+                "nativeFrames": 360, "width": 1080,
+                "height": 1920, "fps": 30, "audioCodec": "aac",
+            }):
+                result = score_candidate(
+                    film=film, wav=wav, story_path=story_path,
+                    screen_path=screen_path, expected_film_sha=movie_sha,
+                    expected_wav_sha=wav_sha, expected_story_sha=story_sha,
+                    expected_screen_sha=h(screen_path.read_bytes()),
+                    critic_path=visual_path,
+                    expected_critic_sha=h(visual_path.read_bytes()),
+                    dimensions=(1080, 1920, 360))
+            self.assertIn("DECODED_VISUAL_REVISE_REPORTED",
+                          result["hardAndReviewHolds"])
+            self.assertEqual(result["decodedVisualNegativeScreenReceipt"]["decision"],
+                             "AUTO_REVISE")
+            self.assertFalse(result["mayPublish"])
+            write_once(root / "valid.json", result)
+            altered = json.loads(json.dumps(result))
+            altered["hardAndReviewHolds"].remove("DECODED_VISUAL_REVISE_REPORTED")
+            with self.assertRaisesRegex(ValueError, "RECEIPT_AND_HOLD_INCONSISTENT"):
+                write_once(root / "erased.json", altered)
+            altered = json.loads(json.dumps(result))
+            altered["decodedVisualNegativeScreenReceipt"]["independentCraftReviewed"] = True
+            with self.assertRaisesRegex(ValueError, "RESEARCH_RECEIPT_FORGED"):
+                write_once(root / "forged.json", altered)
+
     def test_exact_phone_plan_bytes_join_keeps_all_actual_phone_gates_held(self):
         movie = h(b"current exact film")
         with tempfile.TemporaryDirectory() as td:
