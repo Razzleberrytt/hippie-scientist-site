@@ -1322,17 +1322,54 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--movie", required=True)
-    parser.add_argument("--manifest", required=True)
-    parser.add_argument("--output", required=True)
+    parser.add_argument("--manifest", default=None,
+                        help="Full phone-plan audit only; required unless --targeted-right-ui-screen")
+    parser.add_argument("--output", default=None,
+                        help="Full phone-plan audit only; required unless --targeted-right-ui-screen")
     parser.add_argument("--ink-receipt", default=None,
                         help="Optional exact-film 27-sample research ink proxy; no approval")
     parser.add_argument("--glyph-receipt", default=None,
                         help="Optional exact-film 48-observation OCR receipt, requires ink; no approval")
+    parser.add_argument("--targeted-right-ui-screen", action="store_true",
+                        help="Read-only exact-film negative screen, no phone plan or publication approval")
+    parser.add_argument("--expected-video-sha256", default=None,
+                        help="Required immutable lowercase SHA-256 in targeted screen mode")
+    parser.add_argument("--start-frame", type=int, default=None,
+                        help="Inclusive start index of 4-150 contiguous decoded display-order frames")
+    parser.add_argument("--end-frame", type=int, default=None,
+                        help="Inclusive end index of 4-150 contiguous decoded display-order frames")
+    parser.add_argument("--roi", type=int, nargs=4, metavar=("X0", "Y0", "X1", "Y1"),
+                        default=None,
+                        help="Prequalified native critical text/art viewport crossing right safe-area boundary")
+    parser.add_argument("--pixel-mode",
+                        choices=("bright_neutral_caption", "scientific_visual_highlights"),
+                        default="bright_neutral_caption",
+                        help="Choose critical white caption or visibly highlighted science-art screen")
     args = parser.parse_args()
     try:
-        print(json.dumps(audit(args.movie, args.manifest, args.output,
-                               ink_receipt=args.ink_receipt,
-                               glyph_receipt=args.glyph_receipt), indent=2))
+        if args.targeted_right_ui_screen:
+            if any(value is not None for value in (
+                    args.manifest, args.output, args.ink_receipt, args.glyph_receipt)):
+                hold("TARGETED_UI_SCREEN_MUST_NOT_MIX_FULL_AUDIT_FILES")
+            if (args.expected_video_sha256 is None or args.start_frame is None or
+                    args.end_frame is None or args.roi is None or
+                    not 4 <= args.end_frame - args.start_frame + 1 <= 150):
+                hold("TARGETED_UI_SCREEN_COMPLETE_BOUNDED_INPUT_REQUIRED")
+            result = screen_targeted_encoded_right_ui_ink(
+                args.movie,
+                expected_film_sha=args.expected_video_sha256,
+                frame_indices=list(range(args.start_frame, args.end_frame + 1)),
+                roi=args.roi, pixel_mode=args.pixel_mode)
+        else:
+            if (args.manifest is None or args.output is None or
+                    args.expected_video_sha256 is not None or
+                    args.start_frame is not None or args.end_frame is not None or
+                    args.roi is not None or args.pixel_mode != "bright_neutral_caption"):
+                hold("FULL_PHONE_AUDIT_REQUIRES_ITS_OWN_MANIFEST_OUTPUT_ARGUMENTS")
+            result = audit(args.movie, args.manifest, args.output,
+                           ink_receipt=args.ink_receipt,
+                           glyph_receipt=args.glyph_receipt)
+        print(json.dumps(result, indent=2))
     except (ValueError, OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired,
             KeyError, IndexError, TypeError) as error:
         raise SystemExit("PHONE_UI_HOLD:" + str(error)) from error
