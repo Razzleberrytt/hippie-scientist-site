@@ -323,3 +323,72 @@ phone playback/science/voice/craft approval or new 46/1590 credit. `mayPublish=f
 excellent-first 0/1 and varied streak 0/5 unchanged. This record + one receipt only;
 access-only operation under AGENTS.md rule 10, no repeated production build.
 Doc-links/whitespace checks run after these edits; protected merge remains controller-only.
+
+
+## Lane 6 access-only continuation — audio/replay integration gaps and Windows findings
+
+Starting lane6 head `3dc392a0b64d9d9fbed396373a4635f03a26dd6a`; main unchanged
+`ecc249f5f460ca38be8850375b8b4f4a4d98b448`. Prior receipt-head atomic/controller/
+quality/release hosted checks SUCCESS; generic unrelated checks skipped. New lane
+heads changed since the previous probe, justifying fresh bounded integration tests.
+Acceptance: pin all six heads, combine only in temporary source tree, exercise
+previously uncovered Lane2/Lane5 guards plus shared renderer/intake/splice seams,
+classify observed failures without editing another lane's owned source or waiving
+checks. No new normal WIP slot. Exact heads/intermediate trees/commands/log hashes:
+`receipts/audio-replay-integration-probe.json`.
+
+Six sequential merge-tree operations again textually clean; combined tree
+`bf1d306d4218ebb7047f8f497bf618cb274a7699`. Research and workflow files exported
+to private temp staging; no real branch/ref/owned-source integration. Existing
+Python 3.12.14 visual runtime + pinned fonts used for Windows tests.
+
+| Suite | Actual Windows result |
+|---|---|
+| repeated-term acoustic guard | 68 PASS / 16 source-input SKIP |
+| exact-WAV alignment (imports acoustic tests too) | 131 PASS / 17 source-input SKIP |
+| native stdin/replay guard | 63 PASS / 13 ERRORS |
+| narration treatments | 19/19 PASS |
+| caption windows | 7/7 PASS |
+| Lane6 intake with latest combined phone auditor | 38/38 PASS |
+| physical synthetic full-film splice | 1 ERROR after actual H264/AAC operation |
+
+373 test executions contain 84 imported repeats: **289 distinct tests = 258 PASS,
+14 ERRORS, 17 SKIP on Windows**. No duplicate or skipped result becomes credit.
+Native replay errors classify as seven Windows symlink privilege errors, four
+fixed `/usr/bin/ffmpeg`/ffprobe admission cases unavailable here, one Windows
+read-only staging cleanup error, one fixture raw-byte mismatch. Nine of these
+cases (seven symlink + cleanup + byte fixture) then **9/9 PASS unchanged on WSL
+Linux**, exit 0. Initial local follow-up launcher incorrectly duplicated method
+suffixes (nine loader errors, no real tests executed); corrected IDs and reran.
+No test exclusion or code change. WSL lacks FFmpeg; four fixed-binary media cases
+remain unexecuted in a supported environment by Lane6.
+
+Concrete findings for owning lanes, not silent patches to their source:
+
+1. **Lane3 Windows producer bug:** `splice()` stages JSON using `write_text`,
+   which writes CRLF on Windows; its own publisher compares exact LF canonical
+   UTF-8 bytes, producing `STAGED_RECEIPT_CONTENT_CHANGED` after real codec work.
+   Independent unchanged-publisher unit reproduction: text-write yields CRLF and
+   HOLD with no output; canonical-byte write passes the same identity guard.
+   The latter uses unit identity bytes, not movie acceptance. Small candidate:
+   write exact UTF-8 canonical receipt bytes, retaining finite-JSON/no-clobber and
+   exact hash checks. Do not normalize or relax the receiver's byte guard.
+2. **Lane5 Windows staging cleanup:** earlier pinned sources are chmod 0444;
+   on later unavailable revision the finally `shutil.rmtree(stage)` raises
+   WinError5 on that earlier read-only file, masking the original HOLD and leaving
+   staging behind. Exact test passes Linux. Owner must preserve safe owned-stage
+   cleanup and source/admission constraints in any Windows repair.
+3. **Lane5 fixture portability:** `_write_pair_fixture` writes receipt/environment
+   text with platform newline conversion but pins canonical encoded bytes.
+   Windows positive test fails `PHYSICAL_ENV_FILE_SHA_MISMATCH`, Linux passes.
+   Fix fixture writes to exact pinned bytes; preserve strict receiver checking.
+
+No other lane source edited; findings handed to existing #6743 coordination and
+#6847 review. New source acceptance is **partial**, not all-green cross-lane CI.
+Actual revised film remains undelivered in latest Lane3/Lane5 updates; no film,
+voice/science/phone/craft approval or new 46/1590 credit. `mayPublish=false`,
+excellent-first 0/1 and varied streak 0/5 unchanged. Only this record + new receipt
+change. Access-only testing under AGENTS.md rule 10; no repeated production build.
+Doc-links/whitespace validation follows mutation. Next: owners repair their named
+platform findings, then rerun affected pinned checks; exact combined movie and
+source sidecars are still required for the real handoff. Controller-only merge.
