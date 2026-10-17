@@ -452,3 +452,60 @@ Only this record + new receipt change; doc-links/whitespace checks follow. No
 production build rerun for this explicitly access-only operation under AGENTS.md
 rule 10. Prior lane6 receipt-head relevant hosted checks SUCCESS; this new head
 requires separate hosted observation. Protected controller remains sole merge path.
+
+
+## Lane 6 access-only continuation — actual historical movie pause-window scan
+
+Starting lane6 `bee839fe703789d349f0d4a8098298cb23a8c98e`; relevant hosted checks
+SUCCESS, generic unrelated site checks skipped. Latest Lane3 source pinned at
+`00290fbc4c3c807d29c56702ba0701540a63928a`; its receipt text-write issue remains
+unchanged, and exact revised-film delivery remains unavailable. No owner code edited.
+
+New unblocked input: Lane6 now physically possesses historical movie
+`c100779c2c6c15005fdef9c5166da957c8dd6f51226d45f7c2264f0a89206322` and original
+WAV `9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435`.
+Observable acceptance: use existing Lane3 measurement functions on these actual
+bytes to inspect every nominal-clock movie frame intersecting the source zero
+window, preserve hashes before/after, distinguish historical-film measurements
+from the still-blocked exact revised movie/storyboard audit and creative decision.
+
+Copied the exact source-Git `decoded_shot_variety.py` to temporary execution staging,
+no source mutation; reused `read_metadata`, `frame_midpoint_lattice_in_zero_run`
+and `measure_source_hold_motion`. Original source WAV physically opened and its
+pinned **[663600,746160)** sample interval verified all-zero (3.44s at 24kHz),
+with nonzero signal found in neighboring 20ms windows. Actual movie frame count
+1,031. Integral frame-midpoint mapping selects **104 frames 829–932 inclusive**.
+Full linear H264 decode produced all selected body-area ROIs and **103/103 adjacent
+comparisons**: mean gray MAE **0.000100/255**, maximum **0.000467/255**, all below
+existing diagnostic **0.5/255** threshold; longest low-motion range **[829,933)**,
+104 frames. These are measured values, not synthetic examples or an artistic veto.
+
+Independently decoded actual movie AAC to mono PCM16 24kHz: **825,344 samples**
+(includes codec/container duration behavior, not asserted sample-equivalent to
+824,336-sample WAV). Conservative movie-clock **[28.0,30.8)s** window has
+**67,200 samples, all exactly zero**. No audio retiming, trimming or production
+caption change. Film and WAV hashes match again after decoding.
+
+Decoded actual movie frame **875** and visually inspected it: visible SOURCE /
+PubChem card with mitragynine and 7-OH CID labels. This is one frame review,
+not all-frame OCR, science identity approval, handset or audience comprehension.
+Sample retained outside the checkout:
+`C:/Users/Will/.codex/attachments/lane6-original-motion-c100779c/original-film-frame-0875.png`.
+Machine report: `receipts/original-film-source-window-motion.json`, including exact
+module Git blob/hash, source input identities, measurements and image SHA.
+
+**Boundary:** the source recovery render receipt names a different encoded movie
+identity, so no matched story was forged or relabeled. Full Lane3 `audit()` was
+NOT called; only its existing low-level measurement functions were used, with
+explicit nominal-clock association. This is a direct historical movie/audio
+observation, NOT original+revised story-linked source-hold acceptance. The static
+card may intentionally permit source reading. Only owner listening/craft decision
+can choose any pacing edit, and a new film/caption/source identity plus full QA
+would then be required. No original/revised film rerender, bytes changed or
+publication approval. No new atomic/parent credit, excellent-first 0/1 and varied
+streak 0/5 unchanged; `mayPublish=false`.
+
+Only this record + new receipt change. Access-only under AGENTS.md rule 10, no
+repeat production build; doc-links/whitespace checks follow. New receipt-head CI
+separately unverified. Protected controller retains merge authority; actual revised
+film and matching story/caption/phone/source sidecars remain the handoff dependency.

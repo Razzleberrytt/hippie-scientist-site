@@ -1,0 +1,73 @@
+{
+  "scope": "actual-historical-film-motion-and-source-PCM-research-only-not-revised-film-story-audit",
+  "status": "MEASURED_ORIGINAL_FILM_ONLY_CREATIVE_AND_REVISED_FILM_HOLD",
+  "lane3Source": "00290fbc4c3c807d29c56702ba0701540a63928a",
+  "moduleGitBlob": "651639b332a217c9f99adcddf0272f16bebc4539",
+  "moduleSha256": "66da0081030548745999bddb05ec3572e5a1d12cb5c69e12959ee39032717f7b",
+  "film": "C:\\Users\\Will\\.codex\\attachments\\lane6-original-recovery-12084799185\\payload\\film-a\\specimen_NEW_RESEARCH_CANDIDATE.mp4",
+  "filmSha256": "c100779c2c6c15005fdef9c5166da957c8dd6f51226d45f7c2264f0a89206322",
+  "originalWav": "C:\\Users\\Will\\.codex\\attachments\\lane6-original-recovery-12084799185\\payload\\original-inputs\\voice\\narration.wav",
+  "originalWavSha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+  "originalWavVerifiedZeroSampleRange": [
+    663600,
+    746160
+  ],
+  "originalWavZeroDurationSeconds": 3.44,
+  "frameClockBasis": "Frame midpoints at actual nominal 30fps intersect source PCM time range; no matching movie storyboard supplied; no caption or narration remapping",
+  "frameRangeInclusive": [
+    829,
+    932
+  ],
+  "motion": {
+    "metric": "full-linear-H264-decode-every-silent-frame-center-science-body-gray-MAE",
+    "firstSilentFrame": 829,
+    "lastSilentFrameInclusive": 932,
+    "silentFramesCompared": 104,
+    "adjacentFrameTransitionsCompared": 103,
+    "lowMotionTransitionThresholdGrayMae255": 0.5,
+    "meanAdjacentGrayMae255": 0.0001,
+    "maxAdjacentGrayMae255": 0.000467,
+    "lowMotionTransitions": 103,
+    "longestConsecutiveLowMotionFrames": 104,
+    "longestLowMotionFrameRangeExclusive": [
+      829,
+      933
+    ],
+    "limits": "Every decoded silence-frame ROI, not captions/title; compression, gentle drift or static educational reading card may be valid; creative reviewer required",
+    "excellentCertified": false,
+    "mayPublish": false
+  },
+  "movieDecodedAudio": {
+    "format": "mono PCM16 24000Hz",
+    "totalSamples": 825344,
+    "checkedTimeWindowSeconds": [
+      28,
+      30.8
+    ],
+    "samplesChecked": 67200,
+    "allSamplesExactlyZero": true,
+    "pcmSha256": "661e16425319e7236af4f52ef36b3721cbe8899341834afaeec4a1b52a882988"
+  },
+  "singleFrameSample": {
+    "frame": 875,
+    "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-original-motion-c100779c\\original-film-frame-0875.png",
+    "sha256": "9bb4a9883f75c756237b9889d753cda871d16ccec34560a2f4ae9ce6575e5c38"
+  },
+  "sourceFilesUnchangedAfterDecode": true,
+  "fullStoryAuditExecuted": false,
+  "revisedFilmMeasured": false,
+  "mayPublish": false,
+  "newAtomicCards": 0,
+  "singleFrameVisualObservation": {
+    "frame": 875,
+    "observed": "PubChem SOURCE card with mitragynine and 7-OH CID labels visible",
+    "scope": "One actual decoded frame reviewed; not all-frame text/OCR/safety/phone comprehension approval"
+  },
+  "unverifiedBoundaries": [
+    "Historical c100779c replay film only; requested e79e4474 revised film unavailable",
+    "Matching story/phone plan for this encoded film not supplied; full audit() deliberately not invoked",
+    "No source or movie audio/caption editing, trim or retiming",
+    "Low-motion threshold is a heuristic, not creative failure or permission to remove source-card reading time",
+    "No source chemistry/science, listening/voice, real device, craft or publication approval"
+  ]
+}
