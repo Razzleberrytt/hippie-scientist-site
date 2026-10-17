@@ -54,7 +54,7 @@ def classify(frame):
 
 def decoded_crops(path):
     filt = (f'select=between(n\\,{FIRST}\\,{LAST}),'
-            f'crop={CROP_W}:{CROP_H}:{CROP_X}:{CROP_Y}')
+            f'crop={CROP_W}:{CROP_H}:{CROP_X}:{CROP_Y}:exact=1')
     cmd = ['ffmpeg','-nostdin','-v','error','-xerror','-i',str(path),
            '-map','0:v:0','-vf',filt,'-vsync','0',
            '-f','rawvideo','-pix_fmt','rgb24','-']
