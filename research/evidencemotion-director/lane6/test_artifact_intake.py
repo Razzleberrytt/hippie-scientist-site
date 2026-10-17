@@ -9,7 +9,7 @@ import unittest
 from unittest.mock import patch
 import zipfile
 
-from artifact_intake import FLAGS, digest, intake, relative
+from artifact_intake import FLAGS, IntakeError, digest, intake, relative, snapshot
 
 
 def write(path, value):
@@ -394,6 +394,62 @@ class IntakeTests(unittest.TestCase):
         write(self.bundle/'review.json', self.review)
         self.repin()
         self.rejected('MEDIA_PROBE_FAILED')
+
+
+class PortableSnapshotTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+
+    def copy_zip(self, entries):
+        archive = self.root/'bundle.zip'
+        with zipfile.ZipFile(archive, 'w') as z:
+            for name, data in entries:
+                z.writestr(name, data)
+        stage = self.root/'stage'
+        stage.mkdir()
+        snapshot(archive, stage)
+        return stage
+
+    def test_zip_rejects_parent_component_case_aliases(self):
+        with self.assertRaisesRegex(IntakeError, 'PATH_COMPONENT_CASE_ALIAS'):
+            self.copy_zip([('Sources/one.bin', b'one'), ('sources/two.bin', b'two')])
+
+    def test_zip_rejects_empty_directory_case_alias(self):
+        with self.assertRaisesRegex(IntakeError, 'PATH_COMPONENT_CASE_ALIAS'):
+            self.copy_zip([('Sources/', b''), ('sources/', b'')])
+
+    def test_zip_rejects_file_directory_collision_in_either_order(self):
+        for entries in [ [('Source', b'file'), ('Source/child.bin', b'child')],
+                         [('Source/child.bin', b'child'), ('Source', b'file')] ]:
+            with self.subTest(entries=entries):
+                stage = self.root/('stage-'+str(len(list(self.root.iterdir()))))
+                stage.mkdir()
+                archive = stage.parent/(stage.name+'.zip')
+                with zipfile.ZipFile(archive, 'w') as z:
+                    for name, data in entries:
+                        z.writestr(name, data)
+                with self.assertRaisesRegex(IntakeError, 'PATH_COMPONENT_KIND_CONFLICT'):
+                    snapshot(archive, stage)
+
+    def test_consistent_explicit_and_implicit_directories_preserve_bytes(self):
+        stage = self.copy_zip([('Sources/', b''), ('Sources/one.bin', b'one'),
+                               ('Sources/Nested/two.bin', b'two'), ('Sources/Nested/', b'')])
+        self.assertEqual((stage/'Sources/one.bin').read_bytes(), b'one')
+        self.assertEqual((stage/'Sources/Nested/two.bin').read_bytes(), b'two')
+
+    @unittest.skipIf(__import__('os').name == 'nt', 'Case-distinct directories require a case-sensitive filesystem; run on Linux')
+    def test_directory_rejects_case_distinct_components(self):
+        source = self.root/'source'
+        (source/'Sources').mkdir(parents=True)
+        (source/'sources').mkdir()
+        (source/'Sources/one.bin').write_bytes(b'one')
+        (source/'sources/two.bin').write_bytes(b'two')
+        stage = self.root/'stage'
+        stage.mkdir()
+        with self.assertRaisesRegex(IntakeError, 'PATH_COMPONENT_CASE_ALIAS'):
+            snapshot(source, stage)
 
 
 if __name__ == '__main__':

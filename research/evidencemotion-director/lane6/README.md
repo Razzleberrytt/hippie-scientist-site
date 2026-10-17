@@ -96,7 +96,10 @@ the film with an older archive or the synthetic unit fixture.
    Python 3.10+ and FFmpeg/ffprobe on PATH are required. The destination's parent
    must exist, and the destination itself must not exist. Files use portable
    relative names, at most 256 members / 512 MiB, with no symlinks, junctions,
-   absolute paths, traversal, device names, ADS or case aliases.
+   absolute paths, traversal, device names, ADS or case aliases. Every parent
+   component must keep identical spelling/case throughout the package, including
+   explicit or empty ZIP directories. A path cannot be both file and directory;
+   ambiguous packages fail before media decoding or delivery.
 
    ```powershell
    python research/evidencemotion-director/lane6/artifact_intake.py `
@@ -166,3 +169,15 @@ python -B -m unittest discover -s research/evidencemotion-director/lane3 -p test
 Owner must run its remaining required gates and preserve controller-only merge.
 Do not assume this patch applies after owner drift; it adds no permission to edit
 another lane's source or grant film/science/voice/phone/publication approval.
+
+
+Portable path regression tests can run without FFmpeg on Linux:
+
+```sh
+cd research/evidencemotion-director/lane6
+python3 -B -m unittest -v test_artifact_intake.PortableSnapshotTests
+```
+
+The case-distinct directory-source test requires a case-sensitive filesystem and
+is explicitly skipped on Windows; the ZIP cases execute on both systems. Retain
+both platform results rather than treating the Windows skip as a passing case.

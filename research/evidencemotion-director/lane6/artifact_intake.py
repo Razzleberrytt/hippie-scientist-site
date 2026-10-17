@@ -100,11 +100,27 @@ def snapshot(source, stage):
     """Copy bytes to private staging; never extract ZIP entries by their paths."""
     no_links(source)
     names, total = set(), 0
+    components = {}
+
+    def register_path(name, is_directory):
+        # Windows folds every path component, not only complete filenames.
+        # Record implicit parent directories as well as explicit ZIP entries.
+        parts = relative(name).split('/')
+        for end in range(1, len(parts)+1):
+            prefix = '/'.join(parts[:end])
+            kind = 'directory' if end < len(parts) or is_directory else 'file'
+            prior = components.get(prefix.casefold())
+            if prior is not None:
+                require(prior[0] == prefix, 'PATH_COMPONENT_CASE_ALIAS')
+                require(prior[1] == kind, 'PATH_COMPONENT_KIND_CONFLICT')
+            else:
+                components[prefix.casefold()] = (prefix, kind)
 
     def copy(name, size, stream):
         nonlocal total
         name = relative(name)
         require(name.casefold() not in names, 'DUPLICATE_OR_CASE_ALIAS')
+        register_path(name, False)
         names.add(name.casefold())
         total += size
         require(len(names) <= MAX_FILES and total <= LIMIT, 'BUNDLE_LIMIT')
@@ -123,7 +139,9 @@ def snapshot(source, stage):
             raise error
         for base, dirs, files in os.walk(source, followlinks=False, onerror=walk_error):
             for directory in dirs:
-                no_links(Path(base) / directory)
+                item = Path(base) / directory
+                no_links(item)
+                register_path(item.relative_to(source).as_posix(), True)
             for name in files:
                 item = Path(base) / name
                 regular(item)
@@ -134,14 +152,16 @@ def snapshot(source, stage):
         with zipfile.ZipFile(source) as archive:
             require(len(archive.infolist()) <= MAX_FILES, 'BUNDLE_LIMIT')
             for member in archive.infolist():
-                relative(member.filename.rstrip('/'))
+                name = relative(member.filename[:-1] if member.is_dir() else member.filename)
                 mode = member.external_attr >> 16
                 require(not mode or stat.S_IFMT(mode) in (0, stat.S_IFREG, stat.S_IFDIR),
                         'ZIP_LINK_OR_SPECIAL_FILE')
                 require(not member.flag_bits & 1, 'ENCRYPTED_ZIP')
-                if not member.is_dir():
+                if member.is_dir():
+                    register_path(name, True)
+                else:
                     with archive.open(member) as stream:
-                        copy(member.filename, member.file_size, stream)
+                        copy(name, member.file_size, stream)
 
 
 def verify(stage, pin):

@@ -556,3 +556,41 @@ Doc-links, patch whitespace and staged diff checks follow artifact mutations.
 and execute full owner gates; no all-suite green or integration/merge claim. Actual
 revised movie + full sidecars still unavailable. No new 46/1590 credit, first
 excellent 0/1 and varied streak 0/5 unchanged; `mayPublish=false`. Controller-only merge.
+
+
+## Lane 6 independent implementation — portable path-component identity
+
+Owner requested a different unblocked EvidenceMotion implementation, independent
+of missing film and other lanes. Starting lane6 `4a6bd1b8c10ef24a2e107e9e77f2e98274b674ec`.
+Scope: extend existing offline snapshot intake, no new protocol/dependency, owned
+Lane6 files only. Acceptance: reject case aliases at EVERY parent component,
+including implicit/explicit/empty ZIP directories; reject file/directory namespace
+collisions consistently on Windows/Linux; preserve valid nested file bytes and
+existing source/pin/media/approval behavior.
+
+Observed defect: only complete filenames were case-folded. Actual ZIPs with
+`Sources/one.bin` and `sources/two.bin`, or `Sources/` and `sources/`, were accepted
+by snapshot. File/directory collisions raised platform-dependent raw filesystem
+errors rather than a portable admission decision. Before repair new full suite:
+**43 discovered, 2 failures + 2 subcase errors + 1 Linux-only skip** on Windows.
+
+`artifact_intake.py` now tracks each case-folded path prefix with its exact spelling
+and file/directory kind. Existing portable path validation and snapshot mechanism
+reused. A component spelling alias fails `PATH_COMPONENT_CASE_ALIAS`; a namespace
+kind collision fails `PATH_COMPONENT_KIND_CONFLICT`. Both directory walking and
+ZIP entries use the same registry; valid matching explicit/implicit directories
+remain accepted. No overwrite, pin rewrite, source conversion or publication flag.
+
+Fresh checks after implementation: Windows complete intake suite **43 discovered,
+42 PASS / 1 explicit skip**, zero errors/failures (6.476s). The skipped case needs
+case-distinct real source directories; independently ran unchanged portable test
+class under Ubuntu/WSL on `/tmp`: **5/5 PASS**, zero errors/skips (0.011s), including
+that real directory case. Real-codec existing intake fixtures remain synthetic
+protocol tests, not latest revised-film acceptance. Full production build starts
+for this real implementation mutation; result recorded below before completion.
+
+Only intake module/tests, README and Lane6 receipt/control record change. No other
+lane-owned source, workflow, renderer, narration or normal D/R/A slot changed.
+Atomic credit remains 0; first excellent 0/1 and varied streak 0/5 unchanged;
+`mayPublish=false`, actual revised film/story/phone/science/craft/voice gate HOLD.
+Protected controller only; no merge or deployment asserted.
