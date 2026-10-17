@@ -111,8 +111,11 @@ export function auditShotRepetition(shots){
     const outcome=clean(shot.viewerLearns).normalize('NFKC').toLowerCase()
       .replace(/[^\p{L}\p{N}]+/gu,' ').trim();
     if(!outcome)return null; // missing authoring proof never implies progress
-    const evidence=Array.isArray(shot.sourceClaimIds)
-      ? [...shot.sourceClaimIds].sort() : [];
+    // Missing or malformed source IDs cannot establish identical evidence.
+    // Do not fabricate an empty but apparently matching evidence identity.
+    if(!Array.isArray(shot.sourceClaimIds)||!uniqueIds(shot.sourceClaimIds))
+      return null;
+    const evidence=[...shot.sourceClaimIds].sort();
     return JSON.stringify([outcome,[...shot.scientificAssetIds].sort(),evidence]);
   });
   // Three or more consecutive shots promising the identical learning with

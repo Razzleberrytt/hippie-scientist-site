@@ -139,7 +139,7 @@ test('valid source-bound metadata still requires independent perceptual evaluati
 
 const stagedShot=(i,override={})=>({
   beatId:'shot-'+i,grammarId:'G5',startSec:2*i,endSec:2*(i+1),
-  scientificAssetIds:['molecule:verified'],primaryCamera:i%2?'LOCKED_HOLD':'FOCUS_TRANSFER',
+  scientificAssetIds:['molecule:verified'],sourceClaimIds:['claim:verified'],primaryCamera:i%2?'LOCKED_HOLD':'FOCUS_TRANSFER',
   transition:i%2?'HARD_CUT':'OCCLUSION_REVEAL',
   viewerLearns:'Distinct explanatory payoff for shot '+i,
   ...override
@@ -270,4 +270,17 @@ test('same wording with a genuinely different source does not imply identical ev
     sourceClaimIds:['claim:independent-'+i]
   }));
   assert.equal(auditShotRepetition(shots).findings.length,0);
+});
+
+test('missing scientific claim identity cannot be mistaken for matching teaching evidence',()=>{
+  const promise='An identical verbal promise';
+  const shots=[0,1,2].map((i)=>stagedShot(i,{
+    grammarId:['G1','G3','G5'][i],viewerLearns:promise,
+    sourceClaimIds:i===1?undefined:[],
+    scientificAssetIds:['asset:source']
+  }));
+  const r=auditShotRepetition(shots);
+  assert.equal(r.status,'SEQUENCE_REVIEW_REQUIRED');
+  assert.equal(r.findings.length,0);
+  assert.equal(r.mayPublish,false);
 });
