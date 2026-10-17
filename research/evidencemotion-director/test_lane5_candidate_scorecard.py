@@ -11,7 +11,7 @@ import wave
 from unittest.mock import patch
 
 from lane5_candidate_scorecard import (
-    _screen_stats, _windows, _physical_av, _decoded_audio_coverage, score_candidate, write_once, hold
+    _screen_stats, _windows, _physical_av, _decoded_audio_coverage, score_candidate, write_once, _verified_original_pcm_samples, hold
 )
 
 
@@ -38,6 +38,32 @@ def screen(film, story, frames=12, bright=(), colored=()):
 
 
 class Lane5ScorecardTests(unittest.TestCase):
+    def test_original_pcm_header_cannot_hide_a_physically_truncated_source(self):
+        # An intact WAV header can claim one second of PCM while the file
+        # contains only 5 ms. The legacy scorecard trusted getnframes alone.
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            full = root / "complete.wav"
+            partial = root / "truncated.wav"
+            empty = root / "empty.wav"
+            with wave.open(str(full), "wb") as w:
+                w.setnchannels(1); w.setsampwidth(2); w.setframerate(24000)
+                w.writeframes(b"\\x01\\x00" * 24000)
+            with wave.open(str(empty), "wb") as w:
+                w.setnchannels(1); w.setsampwidth(2); w.setframerate(24000)
+                w.writeframes(b"")
+            partial.write_bytes(full.read_bytes()[:44 + 240])
+            with wave.open(str(partial), "rb") as w:
+                self.assertEqual(w.getnframes(), 24000)
+                self.assertEqual(len(w.readframes(24000)), 240)
+            self.assertEqual(_verified_original_pcm_samples(full, h(full.read_bytes())), 24000)
+            with self.assertRaisesRegex(ValueError, "ORIGINAL_WAV_PCM_TRUNCATED"):
+                _verified_original_pcm_samples(partial, h(partial.read_bytes()))
+            with self.assertRaisesRegex(ValueError, "EMPTY_ORIGINAL_WAV_PCM"):
+                _verified_original_pcm_samples(empty, h(empty.read_bytes()))
+            with self.assertRaisesRegex(ValueError, "ORIGINAL_WAV_CHANGED_DURING_PCM_READ"):
+                _verified_original_pcm_samples(full, h(b"wrong-original"))
+
     def test_groups_report_contiguous_native_times_without_hiding_gaps(self):
         self.assertEqual(_windows([5, 6, 9]), [
             {"firstFrame": 5, "lastFrame": 6, "firstSecond": 0.167,
