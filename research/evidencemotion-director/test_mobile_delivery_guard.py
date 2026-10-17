@@ -8,7 +8,7 @@ import json
 from unittest.mock import patch
 from array import array
 from pathlib import Path
-from mobile_delivery_guard import audit,Hold,sha_file,audio_compare,frame_pts,validate_report_target
+from mobile_delivery_guard import audit,Hold,sha_file,audio_compare,frame_pts,validate_report_target,require_undistorted_portrait
 
 
 def ff(*a):
@@ -136,6 +136,30 @@ class MobileDeliveryGuardTests(unittest.TestCase):
     def test_mobile_hash_tamper_rejected(self):
         with self.assertRaisesRegex(Hold,'FILM_SHA256_DOES_NOT_MATCH_PIN'):
             self.run_pair(phone_hash='0'*64)
+    def test_actual_anamorphic_phone_video_rejected(self):
+        phone=self.root/'anamorphic_phone.mp4'
+        self.mkphone(phone,'-aspect','3:2')
+        with self.assertRaisesRegex(Hold,'NON_SQUARE_PIXEL_PORTRAIT'):
+            self.run_pair(phone=phone,visual=False)
+
+    def test_rotated_display_matrix_and_nan_angle_rejected(self):
+        base={'sample_aspect_ratio':'1:1','display_aspect_ratio':'9:16'}
+        require_undistorted_portrait(base)
+        for angle in ('90','-90','nan','inf','invalid'):
+            with self.subTest(angle=angle):
+                probe=dict(base,side_data_list=[{'rotation':angle}])
+                with self.assertRaisesRegex(Hold,
+                        'ROTATED_DISPLAY_METADATA_NOT_ALLOWED|INVALID_DISPLAY_ROTATION_METADATA'):
+                    require_undistorted_portrait(probe)
+        with self.assertRaisesRegex(Hold,'ROTATED_DISPLAY_METADATA_NOT_ALLOWED'):
+            require_undistorted_portrait(dict(base,tags={'rotate':'180'}))
+
+    def test_missing_pixel_shape_metadata_fails_closed(self):
+        with self.assertRaisesRegex(Hold,'NON_SQUARE_PIXEL_PORTRAIT'):
+            require_undistorted_portrait({'sample_aspect_ratio':'1:1'})
+        with self.assertRaisesRegex(Hold,'NON_SQUARE_PIXEL_PORTRAIT'):
+            require_undistorted_portrait({'display_aspect_ratio':'9:16'})
+
     def test_original_high_profile_is_not_forged_phone_compatible(self):
         with self.assertRaisesRegex(Hold,'WRONG_SOURCE_OR_MOBILE_GEOMETRY'):
             self.run_pair(phone=self.source,visual=False)
