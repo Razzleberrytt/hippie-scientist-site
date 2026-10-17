@@ -703,25 +703,38 @@ jobs:
           assert report['processAttestation']['notHumanSigned'] is True
           print('Eight original-claim source identities reconciled, research HOLD report preserved and process digest checked')
           PY
-      - name: Export source-bound eight-claim qualified-science review intake without fabricating approval (EM-007.07)
+      - name: Export separate CURRENT-render eight-claim science-review intake without inheriting original H264 approval (EM-007.07)
         shell: micromamba-shell {0}
         run: |
           set -euo pipefail
           python -m unittest discover -s research/evidencemotion-director -p test_science_reviewer_handoff.py -v
           python research/evidencemotion-director/science_reviewer_handoff.py \
             --gate "$RUNNER_TEMP/ths-mfa/specimen-timed-native/science-gate-HOLD-RESEARCH.json" \
+            --candidate-movie "$RUNNER_TEMP/ths-mfa/specimen-timed-native/specimen_NEW_RESEARCH_CANDIDATE.mp4" \
             --out "$RUNNER_TEMP/ths-mfa/specimen-timed-native/qualified-science-review-INTAKE-ONLY.json"
           python - <<'PY'
-          import json,os
+          import json,os,hashlib
           from pathlib import Path
           root=Path(os.environ['RUNNER_TEMP'])/'ths-mfa/specimen-timed-native'
+          movie=root/'specimen_NEW_RESEARCH_CANDIDATE.mp4'
+          gate=json.loads((root/'science-gate-HOLD-RESEARCH.json').read_text())
           packet=json.loads((root/'qualified-science-review-INTAKE-ONLY.json').read_text())
+          sha=hashlib.sha256(movie.read_bytes()).hexdigest()
+          assert packet['schema']=='ths-em00707-current-render-science-review-INTAKE-v1'
+          assert packet['exactCurrentEncodedH264Sha256']==sha==gate['filmSha256']
+          assert packet['sourceScienceGateProcessDigest']==gate['processAttestation']['domainSeparatedDigest']
           assert len(packet['eightClaimsToReview'])==8
           assert sum(x['material'] for x in packet['eightClaimsToReview'])==6
+          assert all(x['currentH264FrameContentInspectedForThisClaim'] is False
+                     for x in packet['eightClaimsToReview'])
+          assert packet['sourceOnlyTimecodesNotCurrentFilmVerified'] is True
+          assert packet['pastArchivedPixelAndOcrPassNotInherited'] is True
+          assert packet['currentFilmPixelReviewCompleted'] is False
+          assert packet['currentFilmHumanReviewCompleted'] is False
           assert packet['independentQualifiedReviewReceived'] is False
           assert packet['independentScientificReviewPassed'] is False
           assert packet['mayPublish'] is False and packet['approvalToMerge'] is False
-          print('Eight source-locked reviewer questions ready; no independent science approval received')
+          print('CURRENT encoded H264 SHA directly matches CURRENT science-gate SHA; review OPEN; archived pixels NOT inherited')
           PY
       - name: Independently measure actual encoded science camera movement and reject static or strobing visuals
         shell: micromamba-shell {0}
