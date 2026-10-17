@@ -905,7 +905,7 @@ jobs:
           from em00708_original_archive_hold_replay import replay as real_replay
           from science_gate_process_attestation import strict_json,canonical,attest
           from claim_strength_source_limits import evaluate
-          from science_reviewer_handoff import reviewer_packet,verify_packet,SCHEMA,original_review_stills
+          from science_reviewer_handoff import reviewer_packet,verify_packet,SCHEMA,original_review_stills,verify_original_review_stills
           root=Path(os.environ['THS_EM00705_ARCHIVE_ROOT'])
           raw={name:(root/name).read_bytes() for name in EXPECTED}
           confirmed=real_replay(raw)
@@ -940,6 +940,7 @@ jobs:
           thumb=Path(os.environ['RUNNER_TEMP'])/'em00707-original-archive-claim-stills'
           film=root/FILM
           data=original_review_stills(film,process,packet,thumb)
+          assert verify_original_review_stills(thumb,process,packet)
           assert len(data['originalClaimFrameStills'])==8
           assert all(r['sourceFilmSha256']==confirmed['originalArchivedFilmSha256']
                      for r in data['originalClaimFrameStills'])
