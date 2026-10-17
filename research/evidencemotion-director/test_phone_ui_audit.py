@@ -407,7 +407,7 @@ class StrictEvidenceJSONIntakeTests(unittest.TestCase):
             self.assertEqual(verified_prior_review_images(output, forged), {})
             self.assertEqual((output / "00-opening.png").read_bytes(), original)
 
-    def test_manifest_duplicate_claim_fails_after_prior_report_invalidation(self):
+    def test_manifest_duplicate_claim_fails_without_generating_report(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             movie = root / "source.mp4"
@@ -417,7 +417,6 @@ class StrictEvidenceJSONIntakeTests(unittest.TestCase):
             output = root / "frames"
             output.mkdir()
             prior = output / "research-report.json"
-            prior.write_text('{"prior":"stale"}')
             with self.assertRaisesRegex(ValueError,
                                         "DUPLICATE_EVIDENCE_JSON_KEY:releaseApproved"):
                 audit(movie, manifest, output)
@@ -589,6 +588,44 @@ class ReportOutputAliasSafety(unittest.TestCase):
 
 
 class ReviewImageOwnershipSafety(unittest.TestCase):
+    def test_foreign_prior_report_is_preserved_before_any_media_operation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = root / "source.mp4"
+            movie.write_bytes(b"media remains unchanged")
+            plan = root / "plan.json"
+            plan.write_bytes(b"{}")
+            output = root / "review"
+            output.mkdir()
+            report = output / "research-report.json"
+            foreign = b'{"ownedBy":"unrelated writer","mayPublish":false}'
+            report.write_bytes(foreign)
+            with self.assertRaisesRegex(ValueError, "UNOWNED_PREVIOUS_REVIEW_REPORT"):
+                audit(movie, plan, output)
+            self.assertEqual(report.read_bytes(), foreign)
+            self.assertEqual(movie.read_bytes(), b"media remains unchanged")
+            self.assertFalse(list(output.glob("*.png")))
+
+    def test_foreign_prior_report_symlink_is_preserved(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = root / "source.mp4"
+            movie.write_bytes(b"untouched movie")
+            plan = root / "plan.json"
+            plan.write_bytes(b"{}")
+            output = root / "review"
+            output.mkdir()
+            foreign = root / "personal-report.json"
+            original = b'{"memo":"not an EvidenceMotion receipt"}'
+            foreign.write_bytes(original)
+            alias = output / "research-report.json"
+            alias.symlink_to(foreign)
+            with self.assertRaisesRegex(ValueError, "UNOWNED_PREVIOUS_REVIEW_REPORT"):
+                audit(movie, plan, output)
+            self.assertTrue(alias.is_symlink())
+            self.assertEqual(alias.resolve(), foreign.resolve())
+            self.assertEqual(foreign.read_bytes(), original)
+
     def test_unowned_pattern_matching_png_is_never_deleted(self):
         from phone_ui_audit import verified_prior_review_images, commit_decoded_review_images
         with tempfile.TemporaryDirectory() as root:
@@ -895,7 +932,7 @@ class ExactVariantCriticalInkJoinTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "CRITICAL_INK_PROXY_CRITERIA_NOT_PROVEN"):
             self.join(old)
 
-    def test_failed_new_variant_join_clears_old_success_before_decoder(self):
+    def test_failed_new_variant_join_cannot_generate_report(self):
         with tempfile.TemporaryDirectory() as root:
             root = Path(root)
             movie = root / "actual-timed.mp4"
@@ -909,7 +946,6 @@ class ExactVariantCriticalInkJoinTests(unittest.TestCase):
             output = root / "frames"
             output.mkdir()
             prior = output / "research-report.json"
-            prior.write_text('{"old_success":true}')
             with self.assertRaisesRegex(ValueError, "CRITICAL_INK_RECEIPT_DIFFERENT_FILM"):
                 audit(movie, plan, output, ink_receipt=ink)
             self.assertFalse(prior.exists())
@@ -2002,7 +2038,8 @@ class ActualFilmSmoke(unittest.TestCase):
             output = root / "frames"
             output.mkdir()
             old_report = output / "research-report.json"
-            old_report.write_text('{"old":"should not survive"}')
+            audit(movie, plan, output)
+            self.assertTrue(old_report.is_file())
             with patch("phone_ui_audit.verify_complete_media_decode",
                        side_effect=ValueError("PHONE_UI_HOLD:FULL_ENCODED_MEDIA_DECODE_FAILED")):
                 with self.assertRaisesRegex(ValueError, "FULL_ENCODED_MEDIA_DECODE_FAILED"):
@@ -2150,7 +2187,6 @@ class ActualFilmSmoke(unittest.TestCase):
                     plan.write_text(json.dumps(manifest))
                     output = root / "frames"
                     output.mkdir()
-                    (output / "research-report.json").write_text('{"prior":"stale success"}')
                     import phone_ui_audit
                     original = phone_ui_audit.decoded_overlay
                     did_change = [False]
