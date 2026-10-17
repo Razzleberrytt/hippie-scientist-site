@@ -500,6 +500,73 @@ class Tests(unittest.TestCase):
             self.assertFalse(report["humanCraftOrPhoneApproved"])
             self.assertFalse(report["mayPublish"])
 
+    def test_original_receiver_requires_physically_pinned_film_on_cli_path(self):
+        from original_native_stdin_replay import audit_downloaded_original_movie
+        with tempfile.TemporaryDirectory() as directory:
+            movie = self._small_h264_aac_original_codec_fixture(directory)
+            film_sha = digest(movie.read_bytes())
+            report = audit_downloaded_original_movie(
+                directory, expected_geometry=(64, 64, 12),
+                expected_film_sha256=film_sha)
+            self.assertTrue(report["originalNativeFullMediaPhysicalDecode"])
+            with self.assertRaisesRegex(ValueError, "DOWNLOADED_FILM_NOT_PRODUCER_PINNED"):
+                audit_downloaded_original_movie(
+                    directory, expected_geometry=(64, 64, 12),
+                    expected_film_sha256=digest(b"different film"))
+            with self.assertRaisesRegex(ValueError, "EXPECTED_DOWNLOADED_FILM_SHA_INVALID"):
+                audit_downloaded_original_movie(
+                    directory, expected_geometry=(64, 64, 12),
+                    expected_film_sha256=True)
+
+    def test_original_receiver_refuses_movie_replaced_during_actual_decode(self):
+        from original_native_stdin_replay import audit_downloaded_original_movie
+        real_run = subprocess.run
+        with tempfile.TemporaryDirectory() as directory:
+            movie = self._small_h264_aac_original_codec_fixture(directory)
+            old_sha = digest(movie.read_bytes())
+            observed = []
+            def after_decode(cmd, *args, **kwargs):
+                result = real_run(cmd, *args, **kwargs)
+                if "-xerror" in cmd and "-f" in cmd and "null" in cmd:
+                    observed.append("real-full-decode")
+                    movie.write_bytes(movie.read_bytes() + b"late-substitution")
+                return result
+            with patch("original_native_stdin_replay.subprocess.run",
+                       side_effect=after_decode):
+                with self.assertRaisesRegex(
+                        ValueError, "DOWNLOADED_MEDIA_BYTES_CHANGED_DURING_AUDIT"):
+                    audit_downloaded_original_movie(
+                        directory, expected_geometry=(64, 64, 12),
+                        expected_film_sha256=old_sha)
+            self.assertEqual(observed, ["real-full-decode"])
+            self.assertNotEqual(digest(movie.read_bytes()), old_sha)
+
+    def test_original_receiver_refuses_encoder_proof_changed_during_decode(self):
+        from original_native_stdin_replay import audit_downloaded_original_movie
+        real_run = subprocess.run
+        with tempfile.TemporaryDirectory() as directory:
+            movie = self._small_h264_aac_original_codec_fixture(directory)
+            film_sha = digest(movie.read_bytes())
+            log = Path(directory) / "encoder.log"
+            before = digest(log.read_bytes())
+            observed = []
+            def after_decode(cmd, *args, **kwargs):
+                result = real_run(cmd, *args, **kwargs)
+                if "-xerror" in cmd and "-f" in cmd and "null" in cmd:
+                    observed.append("real-full-decode")
+                    log.write_bytes(log.read_bytes() + b"forged-second-encoder-log")
+                return result
+            with patch("original_native_stdin_replay.subprocess.run",
+                       side_effect=after_decode):
+                with self.assertRaisesRegex(
+                        ValueError, "DOWNLOADED_MEDIA_BYTES_CHANGED_DURING_AUDIT"):
+                    audit_downloaded_original_movie(
+                        directory, expected_geometry=(64, 64, 12),
+                        expected_film_sha256=film_sha)
+            self.assertEqual(observed, ["real-full-decode"])
+            self.assertNotEqual(digest(log.read_bytes()), before)
+            self.assertEqual(digest(movie.read_bytes()), film_sha)
+
     def test_downloaded_native_media_rejects_removed_or_faked_encoder_control(self):
         from original_native_stdin_replay import audit_downloaded_original_movie
         with tempfile.TemporaryDirectory() as directory:
