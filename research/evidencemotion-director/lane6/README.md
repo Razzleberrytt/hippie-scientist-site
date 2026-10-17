@@ -181,3 +181,7 @@ python3 -B -m unittest -v test_artifact_intake.PortableSnapshotTests
 The case-distinct directory-source test requires a case-sensitive filesystem and
 is explicitly skipped on Windows; the ZIP cases execute on both systems. Retain
 both platform results rather than treating the Windows skip as a passing case.
+
+Corrupt DEFLATE members return a structured `FAIL` receipt with the stable
+`CORRUPT_ZIP_COMPRESSION` error. The CLI exits 1 and does not create a handoff
+directory; this error does not grant any approval or atomic credit.

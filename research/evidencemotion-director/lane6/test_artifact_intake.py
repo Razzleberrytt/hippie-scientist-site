@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 import shutil
 import subprocess
+import struct
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -142,6 +144,44 @@ class IntakeTests(unittest.TestCase):
             for item in self.bundle.iterdir():
                 z.write(item, item.name)
         return archive
+
+    def corrupt_deflate_zip(self):
+        archive = self.root/'corrupt.zip'
+        with zipfile.ZipFile(archive, 'w', compression=zipfile.ZIP_DEFLATED) as z:
+            for item in self.bundle.iterdir():
+                z.write(item, item.name)
+        data = bytearray(archive.read_bytes())
+        name_size, extra_size = struct.unpack_from('<HH', data, 26)
+        # Reserved DEFLATE block type in a real compressed member.
+        data[30 + name_size + extra_size] = 0x07
+        archive.write_bytes(data)
+        return archive
+
+    def test_corrupt_deflate_returns_structured_failure(self):
+        dest = self.root/'lane4'
+        result = self.run_intake(source=self.corrupt_deflate_zip(), destination=dest)
+        self.assertEqual(result['status'], 'FAIL', result)
+        self.assertIn('CORRUPT_ZIP_COMPRESSION', result['errors'])
+        self.assertFalse(dest.exists())
+        self.assertNotIn('handoffDirectory', result)
+        self.assertTrue(all(result[f] is False for f in FLAGS))
+        self.assertEqual(result['newAtomicCards'], 0)
+
+    def test_corrupt_deflate_cli_emits_json_and_exit_one(self):
+        dest = self.root/'lane4'
+        process = subprocess.run([
+            sys.executable, str(Path(__file__).with_name('artifact_intake.py')),
+            '--bundle', str(self.corrupt_deflate_zip()), '--pin', str(self.pinfile),
+            '--pin-sha256', digest(self.pinfile), '--handoff', str(dest)],
+            capture_output=True, text=True)
+        self.assertEqual(process.returncode, 1)
+        result = json.loads(process.stdout)
+        self.assertEqual(result['status'], 'FAIL', result)
+        self.assertIn('CORRUPT_ZIP_COMPRESSION', result['errors'])
+        self.assertEqual(process.stderr, '')
+        self.assertFalse(dest.exists())
+        self.assertTrue(all(result[f] is False for f in FLAGS))
+        self.assertEqual(result['newAtomicCards'], 0)
 
     def test_zip_transfer(self):
         r = self.run_intake(source=self.make_zip(), destination=self.root/'lane4')

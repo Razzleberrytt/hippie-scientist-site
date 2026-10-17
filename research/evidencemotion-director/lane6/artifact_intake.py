@@ -14,6 +14,7 @@ import subprocess
 import sys
 import tempfile
 import zipfile
+import zlib
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from native_source_provenance import digest, validate as provenance
@@ -290,6 +291,9 @@ def intake(source, pin_path, expected_pin_sha, destination=None):
                     require(digest(item) == result['files'][name], 'TRANSFER_FINAL_HASH_MISMATCH:'+name)
                 result['handoffDirectory'] = str(destination.absolute())
             result['status'] = 'PASS'
+    except zlib.error:
+        result['status'] = 'FAIL'
+        result['errors'].append('CORRUPT_ZIP_COMPRESSION')
     except FileNotFoundError as error:
         result['errors'].append('MISSING_INPUT:'+str(error))
     except (ValueError, KeyError, TypeError, OSError, RuntimeError,

@@ -617,3 +617,21 @@ reproducibility or deployment proof. README explains shared path-component rules
 and Linux test command. No UI behavior/theme change needing screenshots. Final
 doc-links and whitespace checks follow receipts. This scoped implementation is
 complete for draft review; sole controller merge/real-film approval remain separate.
+
+
+## Corrupt ZIP compression error contract
+
+Reproduced an actual reserved DEFLATE block in a compressed ZIP member. Before
+repair, both focused tests errored: the module leaked `zlib.error`, and CLI stdout
+was empty instead of JSON. The smallest repair catches that specific exception
+and emits `FAIL` / `CORRUPT_ZIP_COMPRESSION`; existing failure policy remains.
+Two actual-byte regressions cover the module and a fresh CLI subprocess, exit 1,
+empty stderr, no destination, all approval flags false and newAtomicCards=0.
+
+`python -B -m unittest -v test_artifact_intake` on Windows Python 3.14: exit 0,
+45 discovered, 44 PASS, 1 explicit case-sensitive-directory skip, no failures or
+errors, 7.164s. The skipped portable test source is unchanged and its earlier
+Linux receipt remains historical, not a new execution. Production build pending
+at implementation checkpoint; final build outcome follows before completion.
+Only Lane6 source, tests, docs and receipts change. Actual revised-film handoff
+remains HOLD, mayPublish=false, atomic credit 0; no merge/deployment asserted.
