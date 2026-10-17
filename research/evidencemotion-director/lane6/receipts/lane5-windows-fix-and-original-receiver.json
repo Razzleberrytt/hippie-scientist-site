@@ -1,0 +1,372 @@
+{
+  "scope": "access-only-independent-receiver-and-owner-fix-verification",
+  "lane5Source": "0aabf6dd8c66e7ca922d8fd70b60e2f98e68304c",
+  "lane3ObservedSource": "a0b5b370a26afe4023f462ff0161a7ebf0582c98",
+  "snapshot": "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-lane5-receiver-ftt06x42",
+  "sourceArchiveSha256": "9dfaaee7019efad82d1c1673658ce46819ccdf9ba87d33f2145a82b2447fa595",
+  "windowsChecks": {
+    "command": [
+      "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_native_stdin_capture_guard.Tests.test_pair_fixture_is_actual_canonical_lf_bytes_not_windows_text_mode",
+      "test_native_stdin_capture_guard.Tests.test_pair_fixture_physical_environment_crlf_mutation_still_hold",
+      "test_native_stdin_capture_guard.Tests.test_physical_pair_json_valid_synthetic_fixture_still_research_only",
+      "test_native_stdin_capture_guard.Tests.test_win_readonly_staging_cleanup_preserves_git_hold",
+      "test_native_stdin_capture_guard.Tests.test_readonly_stage_cleanup_rejects_foreign_file_repair",
+      "test_native_stdin_capture_guard.Tests.test_original_source_restore_unavailable_git_commit_fails_atomically"
+    ],
+    "tests": [
+      "test_pair_fixture_is_actual_canonical_lf_bytes_not_windows_text_mode",
+      "test_pair_fixture_physical_environment_crlf_mutation_still_hold",
+      "test_physical_pair_json_valid_synthetic_fixture_still_research_only",
+      "test_win_readonly_staging_cleanup_preserves_git_hold",
+      "test_readonly_stage_cleanup_rejects_foreign_file_repair",
+      "test_original_source_restore_unavailable_git_commit_fails_atomically"
+    ],
+    "exitCode": 0,
+    "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-lane5-windows-recheck.log",
+    "logSha256": "a4e703e4fcb74a6750c6bd84d6a63c87c5eef16b12f2804a4b6891ea85aab114",
+    "tail": "test_pair_fixture_is_actual_canonical_lf_bytes_not_windows_text_mode (test_native_stdin_capture_guard.Tests.test_pair_fixture_is_actual_canonical_lf_bytes_not_windows_text_mode) ... ok\ntest_pair_fixture_physical_environment_crlf_mutation_still_hold (test_native_stdin_capture_guard.Tests.test_pair_fixture_physical_environment_crlf_mutation_still_hold) ... ok\ntest_physical_pair_json_valid_synthetic_fixture_still_research_only (test_native_stdin_capture_guard.Tests.test_physical_pair_json_valid_synthetic_fixture_still_research_only) ... ok\ntest_win_readonly_staging_cleanup_preserves_git_hold (test_native_stdin_capture_guard.Tests.test_win_readonly_staging_cleanup_preserves_git_hold)\nSimulate Windows WinError5 on staged 0444 file on hosted Linux. ... ok\ntest_readonly_stage_cleanup_rejects_foreign_file_repair (test_native_stdin_capture_guard.Tests.test_readonly_stage_cleanup_rejects_foreign_file_repair) ... ok\ntest_original_source_restore_unavailable_git_commit_fails_atomically (test_native_stdin_capture_guard.Tests.test_original_source_restore_unavailable_git_commit_fails_atomically) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 1.137s\n\nOK\n"
+  },
+  "mayPublish": false,
+  "newAtomicCards": 0,
+  "recoveredInputs": {
+    "artifactId": 12084799185,
+    "runId": 38991294207,
+    "outerZipSha256": "ef3c3cfecad862ea457d246ade8e7fbf1aa896b6e7a42602824cc0ed50eb2187",
+    "innerZipSha256": "dfce925fb2474c46da975ce94b46437e371a8fcac4758326515363cf21146c8d",
+    "innerZipBytes": 7093290,
+    "allZipCrc": "PASS",
+    "manifestEntriesVerified": 31,
+    "originalRendererPinsVerified": 11,
+    "localArchive": "C:\\Users\\Will\\.codex\\attachments\\lane6-original-recovery-12084799185\\EvidenceMotion_Original_Source_WAV_Film_Research_HOLD.zip",
+    "localPayload": "C:\\Users\\Will\\.codex\\attachments\\lane6-original-recovery-12084799185\\payload",
+    "files": [
+      {
+        "path": "RECOVERED-FILES-SHA256SUMS",
+        "sha256": "9d3a1f6f361ae221fdaf2969f80c643174b3c7c0ce72a409386b46cb6e29b5f6",
+        "bytes": 3520,
+        "manifestBound": false
+      },
+      {
+        "path": "RECOVERY-NOT-RELEASE.txt",
+        "sha256": "030688e869346b6aef4b4179c84a3893d3a14cf8b1b9c0e312d622e2e2f530c3",
+        "bytes": 1112,
+        "manifestBound": false
+      },
+      {
+        "path": "film-a/encoder.log",
+        "sha256": "90a879cb2caade25ee7d16129916a05d8e57e8c77daf6e8afc24aa8d03c39634",
+        "bytes": 35832,
+        "manifestBound": true
+      },
+      {
+        "path": "film-a/environment.json",
+        "sha256": "401c5c7eec184d77aeaf16bd55c430e4515106b130d4cdcd0ce39d052cbc7a88",
+        "bytes": 2229,
+        "manifestBound": true
+      },
+      {
+        "path": "film-a/full-original-replay.json",
+        "sha256": "d3f2b482e3986432150da9a80b9aa4ee432ed0c1db938558560564acd10d2039",
+        "bytes": 78288,
+        "manifestBound": true
+      },
+      {
+        "path": "film-a/specimen_NEW_RESEARCH_CANDIDATE.mp4",
+        "sha256": "c100779c2c6c15005fdef9c5166da957c8dd6f51226d45f7c2264f0a89206322",
+        "bytes": 2391213,
+        "manifestBound": true
+      },
+      {
+        "path": "film-b/encoder.log",
+        "sha256": "db2bd73a0f7e8bcfa70fbc168c671af76dfda49a63f1552829ec44f92b44cf2e",
+        "bytes": 24961,
+        "manifestBound": true
+      },
+      {
+        "path": "film-b/environment.json",
+        "sha256": "401c5c7eec184d77aeaf16bd55c430e4515106b130d4cdcd0ce39d052cbc7a88",
+        "bytes": 2229,
+        "manifestBound": true
+      },
+      {
+        "path": "film-b/full-original-replay.json",
+        "sha256": "43ec3b12095e91e5579c3eda609786b906108cc92a6e46479596132c8d3750c4",
+        "bytes": 78288,
+        "manifestBound": true
+      },
+      {
+        "path": "film-b/specimen_NEW_RESEARCH_CANDIDATE.mp4",
+        "sha256": "c100779c2c6c15005fdef9c5166da957c8dd6f51226d45f7c2264f0a89206322",
+        "bytes": 2391213,
+        "manifestBound": true
+      },
+      {
+        "path": "original-inputs/PINNED-FILE-SHA256SUMS",
+        "sha256": "453d335ba3e05017eb279f59cb03908a96eed3093a9573e0c9678af6a5b60ab4",
+        "bytes": 1242,
+        "manifestBound": true
+      },
+      {
+        "path": "original-inputs/source/result/alignment-candidate.json",
+        "sha256": "a034f00c4fdffaa3574058093e506f184c6b347a5b5561556005c28ec86db626",
+        "bytes": 42886,
+        "manifestBound": true
+      },
+      {
+        "path": "original-inputs/source/specimen-timed-native/render-receipt.json",
+        "sha256": "7b23cdcd007cc4ba8ef97122c3ee321c87e7a629e9a184b548392c7fc2b6017e",
+        "bytes": 13738,
+        "manifestBound": true
+      },
+      {
+        "path": "original-inputs/source/specimen-timed-native/source_frame_0000.png",
+        "sha256": "580b8a55936a2acd661945f6a0349c16bee7570acfbd1d76d6dfd016c4c4bbf6",
+        "bytes": 140733,
+        "manifestBound": true
+      },
+      {
+        "path": "original-inputs/source/specimen-timed-native/source_frame_0060.png",
+        "sha256": "4a6de568e68a11618055ce643eecef5c6ee5293a790be84153474a3baee2cd56",
+        "bytes": 148800,
+        "manifestBound": true
+      },
+      {
+        "path": "original-inputs/source/specimen-timed-native/source_frame_0120.png",
+        "sha256": "ff13249df8bdeba53d863a2cdc575331231a05d49006a1ddd4f832312b6d0c0e",
+        "bytes": 179999,
+        "manifestBound": true
+      },
+      {
+        "path": "original-inputs/source/specimen-timed-native/source_frame_0360.png",
+        "sha256": "3fea33d6b398e20e9dc8e4157f78969c2c86cc836d599bf50684a369e9d2ddeb",
+        "bytes": 182917,
+        "manifestBound": true
+      },
+      {
+        "path": "original-inputs/source/specimen-timed-native/source_frame_0540.png",
+        "sha256": "31207bacc022c3aeceec5b964e4c9a8b03da9cf1606dfa94843c907973987f92",
+        "bytes": 156248,
+        "manifestBound": true
+      },
+      {
+        "path": "original-inputs/source/specimen-timed-native/source_frame_0750.png",
+        "sha256": "c5b050aa7c4faa806283fb16293f06ed7432207c401f83fc709eda442e4062af",
+        "bytes": 115682,
+        "manifestBound": true
+      },
+      {
+        "path": "original-inputs/source/specimen-timed-native/source_frame_0870.png",
+        "sha256": "fbf8795aedff1cc197d16b0f5f35d50c1bf12fca2f037773d2ebdad494b56ebb",
+        "bytes": 132007,
+        "manifestBound": true
+      },
+      {
+        "path": "original-inputs/source/specimen-timed-native/source_frame_1000.png",
+        "sha256": "09736c1db02818f17e31bbfab302fd0d6dfc5f8bc98fe6fae6c47666b9aa9e32",
+        "bytes": 151652,
+        "manifestBound": true
+      },
+      {
+        "path": "original-inputs/voice/narration.wav",
+        "sha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+        "bytes": 1648716,
+        "manifestBound": true
+      },
+      {
+        "path": "original-renderer/autonomous_script_asr_research.py",
+        "sha256": "eccb4efad548b76566bd7ce0d163a8b18b2db4d03fdfab01b2d90eeebfe6bc18",
+        "bytes": 8920,
+        "manifestBound": true
+      },
+      {
+        "path": "original-renderer/editorial_2d_cpu_research.py",
+        "sha256": "2cb1eeaca6931e95e3fd8aa7d7040855d327c9877619a7f339adcb734b082e45",
+        "bytes": 6868,
+        "manifestBound": true
+      },
+      {
+        "path": "original-renderer/exact_wav_alignment.py",
+        "sha256": "9088919f78a68ab730a13a064e98a1326c2ff29e4794e13aabd9b2ed1acbe65e",
+        "bytes": 12507,
+        "manifestBound": true
+      },
+      {
+        "path": "original-renderer/narration_locked_treatments.py",
+        "sha256": "2e3a0cf029c5e5f8badb5236a6ab4d4690a08260bc4e542162544f146045c8bf",
+        "bytes": 33712,
+        "manifestBound": true
+      },
+      {
+        "path": "original-renderer/native_master_audit.py",
+        "sha256": "f3b45af413629fb344a5421b0bdc2bcc28ccf481dafc59c93f0c8d542205cfae",
+        "bytes": 7952,
+        "manifestBound": true
+      },
+      {
+        "path": "original-renderer/phone_ui_audit.py",
+        "sha256": "d66170eb8e30e66c920c11b26ad3bdb9da7db703881908c1895d501b092e44f2",
+        "bytes": 19952,
+        "manifestBound": true
+      },
+      {
+        "path": "original-renderer/source_bond_trace_direction.py",
+        "sha256": "c9702e6ffab9ea612d7d36d6e7c2f2477fcb6b24adbd05ae48c5bdda682afe20",
+        "bytes": 7012,
+        "manifestBound": true
+      },
+      {
+        "path": "original-renderer/source_locked_visual_direction.py",
+        "sha256": "866a6793204b03627c13d0992673a84b0ab2ba447b9a8c1702292d1967455947",
+        "bytes": 3363,
+        "manifestBound": true
+      },
+      {
+        "path": "original-renderer/temporal_caption_audit.py",
+        "sha256": "7d94fe9b550b8470730f7e6592f984568648f04d358df15a5ae379edc0d68463",
+        "bytes": 7180,
+        "manifestBound": true
+      },
+      {
+        "path": "original-renderer/timed_caption_windows.py",
+        "sha256": "cabc6b4f56217c932ea0e437630083fae18119fa3232fa10fd79c7de5d3cf855",
+        "bytes": 2895,
+        "manifestBound": true
+      },
+      {
+        "path": "original-renderer/verified_molecular_comparison.py",
+        "sha256": "80de958d89c8e0466147cb58c60b2c7a42cb1eee2f74633bf8c53e223c8e5db7",
+        "bytes": 2687,
+        "manifestBound": true
+      }
+    ],
+    "wavSha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+    "wavFormat": {
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "sampleRate": 24000,
+      "samples": 824336
+    },
+    "movies": [
+      {
+        "path": "film-a/specimen_NEW_RESEARCH_CANDIDATE.mp4",
+        "sha256": "c100779c2c6c15005fdef9c5166da957c8dd6f51226d45f7c2264f0a89206322",
+        "frames": 1031,
+        "width": 1080,
+        "height": 1920,
+        "fps": "30/1",
+        "videoCodec": "h264",
+        "pixelFormat": "yuv420p",
+        "audioCodec": "aac",
+        "fullDecodeExitCode": 0
+      },
+      {
+        "path": "film-b/specimen_NEW_RESEARCH_CANDIDATE.mp4",
+        "sha256": "c100779c2c6c15005fdef9c5166da957c8dd6f51226d45f7c2264f0a89206322",
+        "frames": 1031,
+        "width": 1080,
+        "height": 1920,
+        "fps": "30/1",
+        "videoCodec": "h264",
+        "pixelFormat": "yuv420p",
+        "audioCodec": "aac",
+        "fullDecodeExitCode": 0
+      }
+    ],
+    "isRequestedRevisedFilm": false,
+    "revisedExpectedSha256": "e79e44746e8a8581ecc592e41de20bb67ded7e999042234902ed30b0142a0c9a",
+    "historicalEncoderOrFontEscrowProven": false,
+    "receiverFfmpeg": "C:\\Users\\Will\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.EXE",
+    "sourceOrigins": [
+      {
+        "path": "narration_locked_treatments.py",
+        "sourceCommit": "ecc249f5f460ca38be8850375b8b4f4a4d98b448",
+        "sha256": "2e3a0cf029c5e5f8badb5236a6ab4d4690a08260bc4e542162544f146045c8bf",
+        "gitBlob": "14ecad5c15a735387b51fbd906cce3a34f7cd695",
+        "receivedBytesMatchGit": true
+      },
+      {
+        "path": "verified_molecular_comparison.py",
+        "sourceCommit": "ecc249f5f460ca38be8850375b8b4f4a4d98b448",
+        "sha256": "80de958d89c8e0466147cb58c60b2c7a42cb1eee2f74633bf8c53e223c8e5db7",
+        "gitBlob": "b7f3fd0aea91b194fd9618065c59e50720b69b7d",
+        "receivedBytesMatchGit": true
+      },
+      {
+        "path": "editorial_2d_cpu_research.py",
+        "sourceCommit": "ecc249f5f460ca38be8850375b8b4f4a4d98b448",
+        "sha256": "2cb1eeaca6931e95e3fd8aa7d7040855d327c9877619a7f339adcb734b082e45",
+        "gitBlob": "fd1322f66e464273a60f411f2628fb4ee2bd5633",
+        "receivedBytesMatchGit": true
+      },
+      {
+        "path": "exact_wav_alignment.py",
+        "sourceCommit": "ecc249f5f460ca38be8850375b8b4f4a4d98b448",
+        "sha256": "9088919f78a68ab730a13a064e98a1326c2ff29e4794e13aabd9b2ed1acbe65e",
+        "gitBlob": "971e0c25bfaf03e65fd54c75d16e763ae34dd2f0",
+        "receivedBytesMatchGit": true
+      },
+      {
+        "path": "autonomous_script_asr_research.py",
+        "sourceCommit": "ecc249f5f460ca38be8850375b8b4f4a4d98b448",
+        "sha256": "eccb4efad548b76566bd7ce0d163a8b18b2db4d03fdfab01b2d90eeebfe6bc18",
+        "gitBlob": "b8088f144280cedc7f86be28a4fe92f2e8efc8d8",
+        "receivedBytesMatchGit": true
+      },
+      {
+        "path": "phone_ui_audit.py",
+        "sourceCommit": "5fde6994c09e8464606074e5a1f21b06385b95e5",
+        "sha256": "d66170eb8e30e66c920c11b26ad3bdb9da7db703881908c1895d501b092e44f2",
+        "gitBlob": "049330b6cba1f470e3e024bb7422b270bcde0a86",
+        "receivedBytesMatchGit": true
+      },
+      {
+        "path": "native_master_audit.py",
+        "sourceCommit": "ecc249f5f460ca38be8850375b8b4f4a4d98b448",
+        "sha256": "f3b45af413629fb344a5421b0bdc2bcc28ccf481dafc59c93f0c8d542205cfae",
+        "gitBlob": "edd7f59b952709d7d6b1ced6e055bc9d9016ccac",
+        "receivedBytesMatchGit": true
+      },
+      {
+        "path": "timed_caption_windows.py",
+        "sourceCommit": "ecc249f5f460ca38be8850375b8b4f4a4d98b448",
+        "sha256": "cabc6b4f56217c932ea0e437630083fae18119fa3232fa10fd79c7de5d3cf855",
+        "gitBlob": "491ff53e285b28318101e08f8655529f4b02c71b",
+        "receivedBytesMatchGit": true
+      },
+      {
+        "path": "temporal_caption_audit.py",
+        "sourceCommit": "ecc249f5f460ca38be8850375b8b4f4a4d98b448",
+        "sha256": "7d94fe9b550b8470730f7e6592f984568648f04d358df15a5ae379edc0d68463",
+        "gitBlob": "920d514e850ff31a2ee8749111c1cc5962c35aa2",
+        "receivedBytesMatchGit": true
+      },
+      {
+        "path": "source_locked_visual_direction.py",
+        "sourceCommit": "ecc249f5f460ca38be8850375b8b4f4a4d98b448",
+        "sha256": "866a6793204b03627c13d0992673a84b0ab2ba447b9a8c1702292d1967455947",
+        "gitBlob": "0a44dc954622b660e02d06d146e3f09a8ee34c4c",
+        "receivedBytesMatchGit": true
+      },
+      {
+        "path": "source_bond_trace_direction.py",
+        "sourceCommit": "ecc249f5f460ca38be8850375b8b4f4a4d98b448",
+        "sha256": "c9702e6ffab9ea612d7d36d6e7c2f2477fcb6b24adbd05ae48c5bdda682afe20",
+        "gitBlob": "18bb4f0c19ea7ae146b5a9cee3091b8fe4b13f18",
+        "receivedBytesMatchGit": true
+      }
+    ]
+  },
+  "status": "PASS_LANE5_WINDOWS_FIXES_AND_ORIGINAL_INPUT_RECEIVER_ONLY_REVISED_FILM_HOLD",
+  "unverifiedBoundaries": [
+    "Not the revised Lane3 e79e4474 movie; no complete revised caption/plan/source sidecars",
+    "No bridge PASS for this differently structured original recovery package",
+    "No original encoder/font byte escrow or voice/science/craft/device/publication approval",
+    "Lane3 staged receipt text write remains unchanged at inspected a0b5b370 head",
+    "No new canonical milestones or atomic credit"
+  ]
+}

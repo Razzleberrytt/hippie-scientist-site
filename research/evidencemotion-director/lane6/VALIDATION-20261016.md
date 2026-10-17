@@ -392,3 +392,63 @@ change. Access-only testing under AGENTS.md rule 10; no repeated production buil
 Doc-links/whitespace validation follows mutation. Next: owners repair their named
 platform findings, then rerun affected pinned checks; exact combined movie and
 source sidecars are still required for the real handoff. Controller-only merge.
+
+
+## Lane 6 access-only continuation — Lane5 fixes and real original-input receiver
+
+Starting lane6 `441defdbb567897230e66318f9919515c8a01920`. Observable acceptance:
+independently rerun the owner-fixed Windows failures and verify newly available
+first-party recovery bytes into a physical receiver copy; keep revised-film and
+publication identity boundaries explicit. Scope access-only execution and local
+receipt, no other lane-owned source edit/new normal WIP slot or protected merge.
+
+**Lane5 source `0aabf6dd8c66e7ca922d8fd70b60e2f98e68304c`: six targeted Windows
+checks PASS**, exit 0, zero errors/skips, unittest 1.137s. Includes original missing
+Git-revision cleanup test, read-only cleanup/error preservation, foreign-file
+cleanup refusal, canonical-LF fixture, physical positive fixture, CRLF-mutation
+negative. Thus the two earlier Lane5 Windows findings are independently verified
+fixed at this source. Symlink privileges and fixed `/usr/bin` media-policy limits
+are separate. Lane3 inspected `a0b5b370a26afe4023f462ff0161a7ebf0582c98` still uses
+`staged_receipt.write_text`; that producer newline finding remains unresolved.
+
+Actually downloaded first-party [artifact 12084799185](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/38991294207/artifacts/12084799185):
+outer ZIP **7,090,029 bytes**, SHA
+`ef3c3cfecad862ea457d246ade8e7fbf1aa896b6e7a42602824cc0ed50eb2187`;
+inner portable ZIP **7,093,290 bytes**, SHA
+`dfce925fb2474c46da975ce94b46437e371a8fcac4758326515363cf21146c8d`.
+Outer/inner CRC checks PASS. Exact file inventory is 31 hash-manifest entries plus
+the manifest and release-HOLD note. All **31/31** entries independently rehashed;
+all **11/11 original renderer** files match owner-frozen PINNED constants AND
+independently read exact source-Git revisions/bytes (source commit/blob identities
+recorded in receipt). No archived executable was run to validate itself.
+
+Original received WAV SHA
+`9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435`,
+physically opened as **PCM16 mono, 24,000Hz, 824,336 samples**. Both A/B movies
+hash `c100779c2c6c15005fdef9c5166da957c8dd6f51226d45f7c2264f0a89206322`;
+independent `ffprobe -count_frames` reads exactly one H264 video + one AAC audio,
+**1,031 decoded frames, 1080x1920, 30/1fps, yuv420p** each. Separate full FFmpeg
+`-xerror` audio+video decodes **exit 0 for each received movie**. The receiver's
+local FFmpeg binary is recorded; this does not recover historical encoder bytes.
+No new full source render or source/narration modification.
+
+Concrete receiver copy retained OUTSIDE repository checkouts:
+`C:/Users/Will/.codex/attachments/lane6-original-recovery-12084799185/` contains
+the unchanged portable ZIP and verified `payload/`. This is an available local
+copy, not a permanent external escrow guarantee. Complete paths, test command,
+log SHA, WAV/movie observations and 31 file identities:
+`receipts/lane5-windows-fix-and-original-receiver.json`.
+
+**Revised-film HOLD remains:** neither recovered MP4 has requested revised SHA
+`e79e44746e8a8581ecc592e41de20bb67ded7e999042234902ed30b0142a0c9a`.
+This historical input recovery package is not the bridge's full revised-film role
+bundle; no `artifact_intake.py` PASS is asserted. Exact revised caption/phone-plan/
+source sidecars remain necessary, followed by sender/receiver and actual Lane4 QA.
+No acoustic WAV-to-AAC equivalence, original-font/encoder escrow, science, real
+phone, craft, voice or publication approval. New atomic/parent credit 0,
+excellent-first 0/1 and varied streak 0/5 unchanged; `mayPublish=false`.
+
+Only this record + new receipt change; doc-links/whitespace checks follow. No
+production build rerun for this explicitly access-only operation under AGENTS.md
+rule 10. Prior lane6 receipt-head relevant hosted checks SUCCESS; this new head
+requires separate hosted observation. Protected controller remains sole merge path.
