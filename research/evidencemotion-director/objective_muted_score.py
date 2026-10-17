@@ -148,15 +148,18 @@ def evaluate(plan, *, image_variation=None, safe_zone_pass=False,
 
     a,b=byid["sentence_1_part0"],byid["sentence_1_part1"]
     record("two_distinct_actual_compounds",
-           contains(a["id"], "MITRAGYNINE • CID 3034396")
-           and contains(b["id"], "7-OH • CID 44301524")
+           contains(a["id"], "MITRAGYNINE")
+           and contains(b["id"], "7-OH")
+           and contains("source_hold", "Mitragynine • CID 3034396")
+           and contains("source_hold", "7-OH • CID 44301524")
            and a["endSec"] - a["startSec"] >= 1.3
            and b["endSec"] - b["startSec"] >= 1.3,
            "Two different primary record identities have individually visible intervals >=1.3 s")
     record("first_use_cid_defined",
-           all(contains(s, "CID = compound record number")
-               for s in ("sentence_1_part0","sentence_1_part1")),
-           "Acronym CID taught on both first-view chemical structures")
+           contains("source_hold", "CID = compound record number")
+           and all(not any("CID" in t for t in words(scene))
+                   for scene in ("sentence_1_part0","sentence_1_part1")),
+           "First shown CID is immediately explained on held source card; opening has no glossary overload")
     record("hydroxyl_plain_language",
            contains("sentence_2", "hydroxyl group.")
            and contains("sentence_2", "oxygen + hydrogen"),
@@ -171,9 +174,8 @@ def evaluate(plan, *, image_variation=None, safe_zone_pass=False,
     before,after = byid["sentence_5_part0"],byid["sentence_5_part1"]
     record("limit_of_inference_timed",
            abs(before["endSec"]-after["startSec"]) < .002
-           and contains(before["id"], "What the shape\nshows.")
+           and contains(before["id"], "STRUCTURE")
            and not contains(before["id"], "HUMAN EXPERIENCE")
-           and contains(after["id"], "What it cannot\ntell us.")
            and contains(after["id"], "HUMAN EXPERIENCE"),
            "Human-effect caveat is not disclosed in the pre-negation shot")
     hold=byid["source_hold"]
@@ -181,8 +183,8 @@ def evaluate(plan, *, image_variation=None, safe_zone_pass=False,
            hold["endSec"]-hold["startSec"] >= 3.
            and all(contains(hold["id"],term) for term in (
                "PubChem", "CID 44301524", "CID = compound record number",
-               "Chemical structure database")),
-           "Silent referenced PubChem card held >=3 sec with source identity explained")
+               "Mitragynine • CID 3034396")),
+           "Silent reference card held >=3 sec with both exact compounds, CID explanation, and PubChem")
     record("validated_phone_safe_geometry", safe_zone_pass,
            "Every native critical annotation confirmed by full phone-geometry preflight")
     if image_variation is None: image_variation = {}

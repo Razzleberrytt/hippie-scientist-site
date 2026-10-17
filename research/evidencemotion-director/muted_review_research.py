@@ -102,8 +102,8 @@ def reject_untrusted(movie, manifest, receipt, claim, width, height, duration):
     annotations = {s["id"]: " ".join(a["text"] for a in s["annotations"])
                    for s in scenes}
     for shot, required in {
-        "sentence_1_part0": "CID 3034396",
-        "sentence_1_part1": "CID 44301524",
+        "sentence_1_part0": "MITRAGYNINE",
+        "sentence_1_part1": "7-OH",
         "sentence_2": "hydroxyl",
         "sentence_4": "Computed 3D illustration",
         "sentence_5_part1": "HUMAN EXPERIENCE",
@@ -111,6 +111,11 @@ def reject_untrusted(movie, manifest, receipt, claim, width, height, duration):
     }.items():
         if required not in annotations[shot]:
             fail("MISSING_SOUND_OFF_TEACHING_EVIDENCE_" + shot.upper())
+    if ("CID 3034396" not in annotations["source_hold"]
+            or "CID = compound record number" not in annotations["source_hold"]):
+        fail("BOTH_SOURCE_IDENTITIES_AND_FIRST_CID_DEFINITION_REQUIRED")
+    if any("CID" in annotations[s] for s in ("sentence_1_part0","sentence_1_part1")):
+        fail("READING_OVERLOAD_FIRST_CID_MUST_BE_ON_HELD_SOURCE_CARD")
     return plan, data, movie_sha
 
 

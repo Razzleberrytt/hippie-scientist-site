@@ -1,0 +1,41 @@
+name: EvidenceMotion offline operator rehearsal tests
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/operator_evidence_rehearsal.py'
+      - 'research/evidencemotion-director/test_operator_evidence_rehearsal.py'
+      - 'research/evidencemotion-director/five_render_attempt_guard.py'
+      - 'research/evidencemotion-director/test_five_render_attempt_guard.py'
+      - 'research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md'
+      - '.github/workflows/evidencemotion-operator-rehearsal.yml'
+permissions:
+  contents: read
+jobs:
+  offline-operator-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout exact proposed research code
+        uses: actions/checkout@v4
+      - name: Compile and test offline operator handoff and negative controls
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/operator_evidence_rehearsal.py
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_operator_evidence_rehearsal.py' -v
+      - name: Reject forged five-render first-attempt streaks (research only)
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_five_render_attempt_guard.py' -v
+      - name: Ensure no production publishing privileges are implied
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          t=Path('research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md').read_text()
+          p=Path('research/evidencemotion-director/operator_evidence_rehearsal.py').read_text()
+          assert 'PASS_RESEARCH_ONLY_RELEASE_HELD' in t and 'PASS_RESEARCH_ONLY_RELEASE_HELD' in p
+          assert "'mayPublish':False" in p
+          assert "'realProductionRollbackExecuted':False" in p
+          assert 'Do not mark EvidenceMotion checklist #46 complete' in t
+          print('Operator pass is research-only, no deployment or publication authorization.')
+          PY
