@@ -104,6 +104,40 @@ class Lane5ScorecardTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "SCORECARD_OUTPUT_UNSAFE"):
                 write_once(out, report)
             self.assertEqual(out.read_bytes(), original)
+            # A downstream consumer must not persist apparently-approved
+            # results just by mutating this report after its physical checks.
+            baseline = json.loads(json.dumps(report))
+            authority_forgeries = {
+                "mayPublish": True,
+                "externalIndependentReviewed": True,
+                "physicalPhoneReviewed": True,
+                "firstFinalRenderProven": True,
+                "firstExcellentMasterAccepted": True,
+                "fiveRenderStreakAccepted": True,
+                "atomicCardsNewlyAccepted": 1,
+                "calibratedPremiumCraftScore": 100,
+                "machineReviewed": False,
+                "status": "PRODUCTION_APPROVED",
+            }
+            for field, invalid_value in authority_forgeries.items():
+                with self.subTest(forged=field):
+                    forged = dict(baseline)
+                    forged[field] = invalid_value
+                    with self.assertRaisesRegex(ValueError, "UNSAFE_SCORECARD"):
+                        write_once(root / ("forged-" + field + ".json"), forged)
+            forged = dict(baseline)
+            forged["hardAndReviewHolds"] = []
+            with self.assertRaisesRegex(ValueError, "UNSAFE_SCORECARD"):
+                write_once(root / "no-required-holds.json", forged)
+            forged = dict(baseline)
+            forged.pop("physicalPhoneReviewed")
+            with self.assertRaisesRegex(ValueError, "UNSAFE_SCORECARD"):
+                write_once(root / "missing-approval-field.json", forged)
+            forged = dict(baseline)
+            forged["atomicCardsNewlyAccepted"] = False  # bool is NOT zero cards
+            with self.assertRaisesRegex(ValueError, "UNSAFE_SCORECARD"):
+                write_once(root / "boolean-atom-credit.json", forged)
+            self.assertEqual(out.read_bytes(), original)
             report["mayPublish"] = True
             with self.assertRaisesRegex(ValueError, "UNSAFE_SCORECARD"):
                 write_once(root / "forged.json", report)
