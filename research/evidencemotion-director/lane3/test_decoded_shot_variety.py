@@ -487,5 +487,47 @@ class ArchivedFilmOptIn(unittest.TestCase):
         self.assertFalse(data['mayPublish'])
 
 
+
+class ReportOutputSafetyTests(unittest.TestCase):
+    def test_original_media_and_story_cannot_be_overwritten(self):
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            film = folder / 'film.mp4'
+            story = folder / 'story.json'
+            wav = folder / 'original.wav'
+            for source in (film, story, wav):
+                source.write_bytes(b'original-pinned-evidence-' + source.name.encode())
+            before = {p: p.read_bytes() for p in (film, story, wav)}
+            for source in before:
+                with self.subTest(path=source):
+                    with self.assertRaisesRegex(CraftHold, 'REPORT_OUTPUT_ALIASES_AUDITED_INPUT'):
+                        D.write_new_report_safely(source, '{}', before)
+                symlink = folder / ('symbolic-' + source.name)
+                symlink.symlink_to(source)
+                with self.assertRaisesRegex(CraftHold, 'REPORT_OUTPUT_ALIASES_AUDITED_INPUT'):
+                    D.write_new_report_safely(symlink, '{}', before)
+                symlink.unlink()
+                hardlink = folder / ('hard-' + source.name)
+                hardlink.hardlink_to(source)
+                with self.assertRaisesRegex(CraftHold, 'REPORT_OUTPUT_ALIASES_AUDITED_INPUT'):
+                    D.write_new_report_safely(hardlink, '{}', before)
+                hardlink.unlink()
+            self.assertEqual({p: p.read_bytes() for p in before}, before)
+
+    def test_concurrent_existing_report_is_never_overwritten(self):
+        with tempfile.TemporaryDirectory() as temp:
+            folder=Path(temp)
+            source=folder/'film.mp4'; source.write_bytes(b'immutable-source')
+            output=folder/'result.json'
+            output.write_text('written-by-another-process')
+            with self.assertRaisesRegex(CraftHold, 'REPORT_OUTPUT_NOT_FRESH'):
+                D.write_new_report_safely(output, 'forged overwrite', [source])
+            self.assertEqual(output.read_text(), 'written-by-another-process')
+            fresh=folder/'new-result.json'
+            D.write_new_report_safely(fresh, '{"mayPublish": false}', [source])
+            self.assertEqual(fresh.read_text(), '{"mayPublish": false}')
+            self.assertEqual(source.read_bytes(), b'immutable-source')
+
+
 if __name__=='__main__':
     unittest.main()
