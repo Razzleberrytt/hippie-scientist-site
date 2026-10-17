@@ -9,6 +9,7 @@ import ast
 import hashlib
 import json
 import re
+import stat
 import zipfile
 from pathlib import Path, PurePosixPath
 
@@ -25,6 +26,14 @@ FDA_GUIDANCE = ('https://www.fda.gov/files/drugs/published/'
                 'Drug-Substances-Guidance-for-Industry.pdf')
 ORIGINAL_NARRATION = 'A capsule can open in your gut, but release is not absorption.'
 
+# Archive ingestion is untrusted even with a matching pinned SHA.
+# Reject bombs and malicious ZIP entries before decompressing any member.
+MAX_PACKAGE_BYTES = 75 * 1024 * 1024
+MAX_ARCHIVE_MEMBERS = 128
+MAX_MEMBER_BYTES = 45 * 1024 * 1024
+MAX_TOTAL_UNCOMPRESSED_BYTES = 96 * 1024 * 1024
+MAX_MANIFEST_BYTES = 1024 * 1024
+
 
 def sha256(raw):
     return hashlib.sha256(raw).hexdigest()
@@ -35,27 +44,45 @@ def hold(reason):
 
 
 def read_pinned_package(path, expected_sha):
-    """Read first-party packaged evidence bytes; never extract or execute code."""
+    """Read first-party packaged evidence bytes; never extract or execute code.
+
+    Bound advertised payloads before decompressing even an exactly pinned ZIP.
+    An independent SHA proves identity, not safety.
+    """
     path = Path(path)
-    if not re.fullmatch(r'[a-f0-9]{64}', expected_sha):
+    if not isinstance(expected_sha, str) or not re.fullmatch(r'[a-f0-9]{64}', expected_sha):
         hold('EXACT_ARCHIVE_SHA_REQUIRED')
-    if not path.is_file() or path.is_symlink() or sha256(path.read_bytes()) != expected_sha:
+    if (not path.is_file() or path.is_symlink() or
+            path.stat().st_size > MAX_PACKAGE_BYTES):
+        hold('ARCHIVE_IDENTITY_OR_SIZE_INVALID')
+    if sha256(path.read_bytes()) != expected_sha:
         hold('ARCHIVE_IDENTITY_MISMATCH')
     with zipfile.ZipFile(path) as z:
         infos = z.infolist()
         names = [i.filename for i in infos]
         if (len(names) != len(set(names)) or not infos or
+            len(infos) > MAX_ARCHIVE_MEMBERS or
             any(i.is_dir() or len(PurePosixPath(n).parts) != 1 or
-                n.startswith('.') or '\\' in n or n in ('', '..')
+                n.startswith('.') or '\\' in n or n in ('', '..') or
+                (i.create_system == 3 and
+                 stat.S_IFMT(i.external_attr >> 16) == stat.S_IFLNK)
                 for i, n in zip(infos, names))):
             hold('UNTRUSTED_ARCHIVE_STRUCTURE')
+        if (any(i.file_size <= 0 or i.file_size > MAX_MEMBER_BYTES or
+                i.flag_bits & 1 for i in infos) or
+                sum(i.file_size for i in infos) > MAX_TOTAL_UNCOMPRESSED_BYTES):
+            hold('ARCHIVE_RESOURCE_LIMIT_OR_ENCRYPTION')
         if MANIFEST_RECORD not in names:
             hold('DELIVERY_MANIFEST_MISSING')
+        if z.getinfo(MANIFEST_RECORD).file_size > MAX_MANIFEST_BYTES:
+            hold('MANIFEST_RESOURCE_LIMIT')
         try:
             manifest = json.loads(z.read(MANIFEST_RECORD), object_pairs_hook=_unique)
         except (UnicodeError, json.JSONDecodeError) as exc:
             hold('MANIFEST_NOT_STRICT_JSON:' + type(exc).__name__)
-        files = manifest.get('files') if isinstance(manifest, dict) else None
+        if not isinstance(manifest, dict):
+            hold('MANIFEST_NOT_OBJECT')
+        files = manifest.get('files')
         required = {SOURCE_RECORD, VOICE_RECORD, SCIENCE_RECORD, FILM_RECORD, BUILD_RECORD}
         if (manifest.get('schema') != 'ths.gut_absorption.delivery_review.v8' or
             manifest.get('mayPublish') is not False or not isinstance(files, dict) or
@@ -66,7 +93,9 @@ def read_pinned_package(path, expected_sha):
             rec = files[name]
             if (not isinstance(rec, dict) or set(rec) != {'sha256', 'bytes'} or
                 not isinstance(rec['bytes'], int) or isinstance(rec['bytes'], bool) or
-                rec['bytes'] < 1 or not re.fullmatch('[a-f0-9]{64}', rec['sha256'])):
+                rec['bytes'] < 1 or rec['bytes'] != z.getinfo(name).file_size or
+                not isinstance(rec['sha256'], str) or
+                not re.fullmatch('[a-f0-9]{64}', rec['sha256'])):
                 hold('MALFORMED_FILE_IDENTITY:' + name)
             data = z.read(name)
             if len(data) != rec['bytes'] or sha256(data) != rec['sha256']:
