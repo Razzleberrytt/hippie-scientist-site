@@ -140,3 +140,29 @@ WAV-to-AAC encoding relationship, acoustic caption alignment, native semantic
 pixels, calibrated viewer comprehension, craft, real-phone playback, excellent
 first renders or publication approval. Preserve and review original supporting
 receipts separately. An intake PASS cannot upgrade any of these gates.
+
+
+## Verified owner patch: Windows canonical staged receipt
+
+`patches/lane3-windows-canonical-receipt.patch` is a one-line proposal for Lane 3
+source head `12c4bb5cf3f052473c68c01cccbc625eabce3313`. It changes only the staged
+receipt producer from platform text mode to exact canonical UTF-8 bytes. Existing
+publisher, source hash, no-clobber and false-approval guards remain intact. It is
+**not applied to Lane 3 or production** by this PR.
+
+Proof: `receipts/lane3-windows-canonical-patch-proof.json`. On an isolated exact-head
+copy, the existing physical Windows synthetic H264/AAC splice test fails before
+and passes after patch application, including original AAC and all 60 untouched
+frame comparisons plus tamper rejection. No actual revised film is accepted.
+
+The owning lane can retrieve this patch, verify its current source against the
+pinned head, run `git apply --check <patch-path>`, apply within its authorized
+checkout, and run the focused test:
+
+```powershell
+python -B -m unittest discover -s research/evidencemotion-director/lane3 -p test_synthetic_craft_splice.py -v
+```
+
+Owner must run its remaining required gates and preserve controller-only merge.
+Do not assume this patch applies after owner drift; it adds no permission to edit
+another lane's source or grant film/science/voice/phone/publication approval.

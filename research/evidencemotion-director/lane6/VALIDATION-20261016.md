@@ -509,3 +509,50 @@ Only this record + new receipt change. Access-only under AGENTS.md rule 10, no
 repeat production build; doc-links/whitespace checks follow. New receipt-head CI
 separately unverified. Protected controller retains merge authority; actual revised
 film and matching story/caption/phone/source sidecars remain the handoff dependency.
+
+
+## Lane 6 isolated repair candidate — Windows staged-receipt canonical bytes
+
+Starting lane6 `036dfeb7b853dd83f8a3fbabbb640c4be6ed39b1`, relevant hosted checks
+SUCCESS. Lane3 current source pinned `12c4bb5cf3f052473c68c01cccbc625eabce3313`
+still has observed Windows receipt mismatch. Acceptance: provide smallest concrete
+owner-applicable repair, prove existing physical regression red/green on that exact
+head without editing the owner branch/source, preserve byte-integrity/no-clobber
+checks and original media/voice. No new normal WIP slot or production behavior.
+
+Generated `patches/lane3-windows-canonical-receipt.patch`: one statement replacement,
+`staged_receipt.write_text(...)` to `write_bytes` of explicit canonical UTF-8 JSON
+plus LF (`allow_nan=False`, matching the existing publisher's strict canonical
+serialization). No receiver normalization, weakened hash, source/voice/scene/cut
+change or new dependency. Patch is an inert review artifact in Lane6, not an applied
+source mutation to Lane3 or site behavior.
+
+Fresh exact-head temp export before patch: existing
+`test_actual_h264_aac_splice_and_outside_scene_tamper` **ERROR**,
+`STAGED_RECEIPT_CONTENT_CHANGED` (2.652s). Applied only in fresh temp source with
+`git apply --check` PASS; local Git wrote CRLF Python source checkout endings, so
+verification compared normalized source text and confirmed exactly one semantic
+statement changed. Initial raw source-byte comparison stopped before patched test
+execution; normalized comparison corrected without any additional source edit.
+Publisher and verifier ASTs confirmed identical before/after.
+
+Patched existing physical test **PASS**, zero errors/skips, **3.842s**, exit 0.
+It physically encodes 1080x1920 H264/AAC source + replacement scene, runs actual
+splice/decoded checks, validates **90 output frames** and **60 untouched decoded
+frames**, exact original AAC stream identity, all false approval flags, refuses
+outside-scene tampering and rejects unpinned replacement revision. This is real
+codec work using explicitly synthetic color fixtures, not the missing actual
+revised film or qualified voice/science/craft/phone proof.
+
+Source/archive/patch hashes, original Git blob, exact command, both local log
+hashes and results: `receipts/lane3-windows-canonical-patch-proof.json`. README
+contains owner application/recheck procedure. Only Lane6 patch/README/proof/this
+record change. No executable repository module or workflow changed; this isolated
+proposal/verification changes no repository behavior, so production build is not
+rerun or claimed for this access-only candidate preparation (AGENTS.md rule 10).
+Doc-links, patch whitespace and staged diff checks follow artifact mutations.
+
+**Not yet fixed in owner branch:** Lane3 must review/apply at its current exact head
+and execute full owner gates; no all-suite green or integration/merge claim. Actual
+revised movie + full sidecars still unavailable. No new 46/1590 credit, first
+excellent 0/1 and varied streak 0/5 unchanged; `mayPublish=false`. Controller-only merge.
