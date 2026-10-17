@@ -569,7 +569,7 @@ def bind_self_reported_listening_notes(source_report, notes_raw):
                 or notes.get("mayPublish") is not False
                 or not isinstance(notes.get("reviewedAt"), str)
                 or not re.fullmatch(
-                    r"\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z",
+                    "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:[.][0-9]{1,6})?Z",
                     notes["reviewedAt"])
                 or not isinstance(notes.get("decisions"), list)
                 or len(notes["decisions"]) != 36):
@@ -600,7 +600,7 @@ def bind_self_reported_listening_notes(source_report, notes_raw):
             if (not isinstance(heard, str) or heard not in heard_options
                     or not isinstance(timing, str) or timing not in time_options
                     or not isinstance(free_text, str) or len(free_text) > 2000
-                    or any(ord(ch) < 32 and ch not in "\\t\\n\\r"
+                    or any(ord(ch) < 32 and ord(ch) not in (9, 10, 13)
                            for ch in free_text)):
                 return reject("LISTENING_NOTES_DECISION_VALUE_INVALID")
             src = expected[identity]
