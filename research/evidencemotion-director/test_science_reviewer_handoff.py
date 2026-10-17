@@ -125,6 +125,83 @@ class IndependentScienceIntakeTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"REVIEW_INTAKE_MUTATED"):
             verify_packet(packet,self.gate)
 
+
+    def test_real_review_images_refuse_any_substituted_fake_film(self):
+        from science_reviewer_handoff import original_review_stills
+        packet=reviewer_packet(self.gate)
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            movie=root/"substitute.mp4"
+            movie.write_bytes(b"not-the-real-original-source")
+            with self.assertRaisesRegex(ValueError,"ACTUAL_ARCHIVED_H264_BYTES_REQUIRED"):
+                original_review_stills(movie,self.gate,packet,root/"review-stills")
+            self.assertFalse((root/"review-stills").exists())
+
+    def test_real_review_images_refuse_rehashed_forged_review_packet(self):
+        from science_reviewer_handoff import original_review_stills
+        packet=reviewer_packet(self.gate)
+        packet["eightClaimsToReview"][1]["originalWavAlignedReviewWindow"][
+            "lastPotentiallyOverlappingFrame"]=99
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            film=root/"archive.mp4"
+            film.write_bytes(b"untrusted")
+            with self.assertRaisesRegex(ValueError,"REVIEW_INTAKE_MUTATED"):
+                original_review_stills(film,self.gate,packet,root/"out")
+
+    def test_mocked_png_extraction_has_exact_eight_original_claim_ids(self):
+        # A mocked FFmpeg call exercises output protocol only. THE separate
+        # hosted original-archive run must prove actual movie frame extraction.
+        from science_reviewer_handoff import original_review_stills,FILM_SHA
+        import science_reviewer_handoff as handoff
+        packet=reviewer_packet(self.gate)
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            film=root/"mock.mp4"
+            film.write_bytes(b"mock-bytes-not-actual-media")
+            def mock_ffmpeg(command,**kwargs):
+                self.assertIn("select=",next(x for x in command if
+                                            isinstance(x,str) and x.startswith("select=")))
+                for n in range(8):
+                    (Path(command[-1]).parent/f"original-claim-{n:02d}.png").write_bytes(
+                        b"\\x89PNG\\r\\n\\x1a\\n"+b"a"*130)
+                return None
+            with patch.object(handoff,"_hash_file",return_value=FILM_SHA):
+                with patch.object(handoff.subprocess,"run",side_effect=mock_ffmpeg) as subprocess_run:
+                    result=original_review_stills(film,self.gate,packet,root/"out")
+                self.assertEqual(subprocess_run.call_count,1)
+            self.assertTrue((root/"out/REVIEW-SAMPLES-RESEARCH-ONLY.json").is_file())
+            stored=json.loads((root/"out/REVIEW-SAMPLES-RESEARCH-ONLY.json").read_text())
+            self.assertEqual(stored,result)
+            self.assertEqual(len(result["originalClaimFrameStills"]),8)
+            self.assertEqual([x["claimId"] for x in result["originalClaimFrameStills"]],
+                             [f"spoken-{i:03d}" for i in range(1,9)])
+            self.assertTrue(all(x["qualifiedVisualOrScientificReviewCompleted"] is False
+                                and x["mayPublish"] is False
+                                for x in result["originalClaimFrameStills"]))
+            self.assertFalse(result["qualifiedIndependentScienceReviewCompleted"])
+            self.assertFalse(result["mayPublish"])
+            with self.assertRaisesRegex(ValueError,"REVIEW_STILL_OUTPUT_MUST_BE_NEW"):
+                with patch.object(handoff,"_hash_file",return_value=FILM_SHA):
+                    original_review_stills(film,self.gate,packet,root/"out")
+
+    def test_incomplete_frame_render_refuses_and_leaves_no_approved_manifest(self):
+        from science_reviewer_handoff import original_review_stills,FILM_SHA
+        import science_reviewer_handoff as handoff
+        packet=reviewer_packet(self.gate)
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            film=root/"mock.mp4"
+            film.write_bytes(b"mock-media")
+            def incomplete(command,**kwargs):
+                (Path(command[-1]).parent/"original-claim-00.png").write_bytes(
+                    b"\\x89PNG\\r\\n\\x1a\\n"+b"a"*130)
+            with patch.object(handoff,"_hash_file",return_value=FILM_SHA):
+                with patch.object(handoff.subprocess,"run",side_effect=incomplete):
+                    with self.assertRaisesRegex(ValueError,"ORIGINAL_REVIEW_STILL_COUNT_OR_SEQUENCE"):
+                        original_review_stills(film,self.gate,packet,root/"out")
+            self.assertFalse((root/"out").exists())
+
     def test_human_axes_are_requested_without_implying_no_trials_exist(self):
         packet = reviewer_packet(self.gate)
         for row in packet["eightClaimsToReview"]:
