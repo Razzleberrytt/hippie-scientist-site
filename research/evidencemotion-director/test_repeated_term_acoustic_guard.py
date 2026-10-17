@@ -153,6 +153,78 @@ class SpectralNegativeTests(unittest.TestCase):
                 x, x*2.8, invalid)
             self.assertEqual(r["status"], "HOLD")
 
+    @staticmethod
+    def quiet_source_fixture():
+        t = np.arange(24000)/24000
+        source = np.zeros(24000)
+        source[:4000] = .06*np.sin(2*np.pi*300*t[:4000])
+        source[4000:14000] = .002*np.sin(2*np.pi*300*t[4000:14000])
+        return source
+
+    def test_quiet_source_pass_still_holds_publication(self):
+        x=self.quiet_source_fixture()
+        r=original_guard.audit_research_quiet_speech_preservation(x,x*2.8)
+        self.assertEqual(r["status"],"RESEARCH_QUIET_SIGNAL_SCREEN_HOLD")
+        self.assertGreater(r["quietSourceWindows"],10)
+        for field in ("mayPublish","productionAudioApproved",
+                      "phonemeIdentityVerified","qualifiedListenerReviewed",
+                      "sourceHashesVerifiedByThisHelper","physicalFilmAudioVerified"):
+            self.assertFalse(r[field])
+
+    def test_quiet_source_muted_word_tail_is_rejected(self):
+        x=self.quiet_source_fixture()
+        y=x*2.8; y[6000:6240]=0
+        r=original_guard.audit_research_quiet_speech_preservation(x,y)
+        self.assertIn("QUIET_SPEECH_DROP",r["errors"][0])
+        self.assertIn(.25,r["firstFailingQuietWindowStartSeconds"])
+
+    def test_quiet_source_substituted_fragment_is_rejected(self):
+        x=self.quiet_source_fixture()
+        y=x*2.8
+        y[6000:6480]=.002*np.sin(np.arange(480)*2*np.pi*900/24000)*2.8
+        r=original_guard.audit_research_quiet_speech_preservation(x,y)
+        self.assertIn("QUIET_SPEECH_DROP",r["errors"][0])
+
+    def test_quiet_source_unbounded_gain_is_rejected(self):
+        x=self.quiet_source_fixture()
+        y=x*2.8; y[6000:6240]=x[6000:6240]*10
+        r=original_guard.audit_research_quiet_speech_preservation(x,y)
+        self.assertIn("QUIET_SPEECH_DROP",r["errors"][0])
+
+    def test_quiet_source_exact_digital_zero_cannot_fill(self):
+        x=self.quiet_source_fixture()
+        y=x*2.8; y[18000]=.01
+        r=original_guard.audit_research_quiet_speech_preservation(x,y)
+        self.assertIn("QUIET_SOURCE_ZERO_WINDOW_FILLED",r["errors"][0])
+
+    def test_quiet_source_invalid_truncated_nan_or_2d_fails(self):
+        x=self.quiet_source_fixture()
+        for bad in (np.zeros(24000), x[:-1], np.full(24000,np.nan),
+                    np.ones((24000,1))):
+            r=original_guard.audit_research_quiet_speech_preservation(x,bad)
+            self.assertEqual(r["status"],"HOLD")
+
+    def test_quiet_source_trailing_silent_partial_frame_must_stay_silent(self):
+        x=np.pad(self.quiet_source_fixture(),(0,176))
+        y=x*2.8; y[-1]=.01
+        r=original_guard.audit_research_quiet_speech_preservation(x,y)
+        self.assertIn("QUIET_UNMEASURED_TAIL_SILENCE_CHANGED",r["errors"][0])
+
+    def test_quiet_source_nonzero_partial_frame_is_checked(self):
+        x=np.pad(self.quiet_source_fixture(),(0,176))
+        x[-176:]=.003*np.sin(np.arange(176)*2*np.pi*400/24000)
+        y=x*2.8
+        r=original_guard.audit_research_quiet_speech_preservation(x,y)
+        self.assertEqual(r["status"],"RESEARCH_QUIET_SIGNAL_SCREEN_HOLD")
+        y[-176:]=0
+        r=original_guard.audit_research_quiet_speech_preservation(x,y)
+        self.assertIn("QUIET_UNMEASURED_TAIL_GAIN_INVALID",r["errors"][0])
+
+    def test_quiet_source_intact_silent_partial_frame_accepted_research_only(self):
+        x=np.pad(self.quiet_source_fixture(),(0,176))
+        r=original_guard.audit_research_quiet_speech_preservation(x,x*2.8)
+        self.assertEqual(r["status"],"RESEARCH_QUIET_SIGNAL_SCREEN_HOLD")
+
     def test_gain_independent_positive_is_not_phonetic_proof(self):
         a=tone(240)
         report=compare(a,a*.6,[tone(470),tone(860)])
