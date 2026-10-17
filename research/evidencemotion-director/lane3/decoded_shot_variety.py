@@ -448,6 +448,27 @@ def audit_source_hold_silence(original_wav, story, decoded):
         'limits':'Original WAV zero run, 3 shot samples and optional full-silence-frame ROI audit; no captions, phone comprehension or human creative approval'
     }
 
+
+def write_new_report_safely(output, payload, protected_inputs):
+    """Write to a fresh path only, never overwrite source media/proof.
+
+    Exclusive creation also closes the exists-check -> concurrent-writer race.
+    """
+    target = Path(output)
+    for src in protected_inputs:
+        if src is None:
+            continue
+        source = Path(src)
+        if target.resolve() == source.resolve() or (
+                target.exists() and source.exists() and target.samefile(source)):
+            raise CraftHold('REPORT_OUTPUT_ALIASES_AUDITED_INPUT')
+    try:
+        with target.open('x', encoding='utf-8') as stream:
+            stream.write(payload)
+    except FileExistsError as exc:
+        raise CraftHold('REPORT_OUTPUT_NOT_FRESH') from exc
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--film', type=Path, required=True)
@@ -465,7 +486,14 @@ def main():
         code = 0
     payload = json.dumps(result, indent=2, sort_keys=True) + '\n'
     if args.output:
-        args.output.write_text(payload)
+        try:
+            write_new_report_safely(args.output, payload,
+                                    (args.film, args.story, args.original_wav))
+        except (CraftHold, OSError) as exc:
+            print(json.dumps({'schema':'ths-lane3-report-output-hold-v1',
+                              'status':'HOLD','reason':str(exc),
+                              'mayPublish':False}))
+            return 3
     else:
         print(payload, end='')
     return code
