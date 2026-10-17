@@ -1935,6 +1935,68 @@ class TargetedEncodedRightUiInkTests(unittest.TestCase):
                 screen_targeted_encoded_right_ui_ink(
                     movie, **args, pixel_mode="anything-goes")
 
+    @staticmethod
+    def run_targeted_cli(movie, *, sha, first=5, last=25, kind="bright_neutral_caption",
+                         extras=()):
+        return subprocess.run([
+            sys.executable, str(Path(__file__).with_name("phone_ui_audit.py")),
+            "--targeted-right-ui-screen", "--movie", str(movie),
+            "--expected-video-sha256", sha,
+            "--start-frame", str(first), "--end-frame", str(last),
+            "--roi", "720", "830", "1080", "880",
+            "--pixel-mode", kind, *extras,
+        ], capture_output=True, text=True, timeout=90)
+
+    def test_cli_readonly_21_frame_actual_h264_science_art_overlap_holds(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = self.physical_colored_science_proxy(root, unsafe=True)
+            sha = hashlib.sha256(movie.read_bytes()).hexdigest()
+            before = sorted(p.name for p in root.iterdir())
+            result = self.run_targeted_cli(
+                movie, sha=sha, kind="scientific_visual_highlights")
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("TARGETED_CRITICAL_ART_RIGHT_UI_EXCLUSION", result.stderr)
+            self.assertEqual(hashlib.sha256(movie.read_bytes()).hexdigest(), sha)
+            self.assertEqual(sorted(p.name for p in root.iterdir()), before)
+
+    def test_cli_readonly_21_frame_actual_h264_safe_control_stays_review_required(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = self.physical_colored_science_proxy(root, unsafe=False)
+            sha = hashlib.sha256(movie.read_bytes()).hexdigest()
+            result = self.run_targeted_cli(
+                movie, sha=sha, kind="scientific_visual_highlights")
+            self.assertEqual(result.returncode, 0, result.stderr)
+            data = json.loads(result.stdout)
+            self.assertEqual(data["decodedFramesExamined"], 21)
+            self.assertTrue(data["everyFrameInRequestedWindowChecked"])
+            self.assertFalse(data["mayPublish"])
+            self.assertFalse(data["viewerReadabilityVerified"])
+            self.assertEqual(sorted(p.name for p in root.iterdir()), [movie.name])
+
+    def test_cli_requires_exact_sha_and_no_mixed_manifest_or_sparse_window(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = self.physical_colored_science_proxy(root, unsafe=False)
+            sha = hashlib.sha256(movie.read_bytes()).hexdigest()
+            for overrides, expected in [
+                ({"sha": H}, "TARGETED_UI_PROBE_EXACT_FILM_SHA_MISMATCH"),
+                ({"first": 5, "last": 7},
+                 "TARGETED_UI_SCREEN_COMPLETE_BOUNDED_INPUT_REQUIRED"),
+                ({"extras": ("--manifest", "other.json")},
+                 "TARGETED_UI_SCREEN_MUST_NOT_MIX_FULL_AUDIT_FILES"),
+                ({"extras": ("--output", "frames")},
+                 "TARGETED_UI_SCREEN_MUST_NOT_MIX_FULL_AUDIT_FILES"),
+            ]:
+                with self.subTest(overrides=overrides):
+                    result = self.run_targeted_cli(
+                        movie, **{**{"sha": sha}, **overrides})
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertIn(expected, result.stderr)
+                    self.assertFalse((root / "frames").exists())
+            self.assertEqual(hashlib.sha256(movie.read_bytes()).hexdigest(), sha)
+
     def test_wrong_movie_identity_and_fake_sample_and_roi_are_rejected(self):
         from phone_ui_audit import screen_targeted_encoded_right_ui_ink
         with tempfile.TemporaryDirectory() as directory:
