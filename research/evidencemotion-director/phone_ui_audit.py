@@ -915,8 +915,12 @@ def screen_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indi
     select = (f"between(n\\,{frame_indices[0]}\\,{frame_indices[-1]})"
               if full_window else
               "+".join(f"eq(n\\,{index})" for index in frame_indices))
+    # YUV420P's crop filter defaults to rounding odd native x/y positions
+    # to the chroma grid. An ROI at x=861 can silently decode from x=860
+    # while our exclusion math still believes x=861, falsely counting
+    # safe x=863 text as forbidden x=864. Preserve requested coordinates.
     vf = (f"select={select},"
-          f"crop={crop_width}:{crop_height}:{x0}:{y0},format=bgr24")
+          f"crop={crop_width}:{crop_height}:{x0}:{y0}:exact=1,format=bgr24")
     cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
            "-xerror", "-err_detect", "explode", "-i", str(movie), "-an",
            "-vf", vf, "-fps_mode", "vfr",
