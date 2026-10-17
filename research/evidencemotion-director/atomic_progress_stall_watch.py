@@ -138,7 +138,7 @@ def _gh(args):
 
 
 def history_from_github(repo, branch, current_run):
-    """Fetch two earlier GitHub Actions artifacts. Read only; missing is unknown."""
+    """Fetch two earlier distinct verified source revisions, not mere CI reruns."""
     if not os.environ.get("GH_TOKEN"):
         return [], "NO_GITHUB_READ_TOKEN"
     try:
@@ -148,6 +148,7 @@ def history_from_github(repo, branch, current_run):
             return [], "INVALID_ARTIFACT_INDEX"
         history = []
         seen = set()
+        seen_source_heads = set()
         for a in sorted(artifacts, key=lambda x: x.get("created_at", ""), reverse=True):
             source = a.get("workflow_run") or {}
             run = str(source.get("id", ""))
@@ -167,6 +168,11 @@ def history_from_github(repo, branch, current_run):
                     if not (run_view.get("status") == "completed"
                             and run_view.get("conclusion") == "success"):
                         continue
+                    # Separate reruns of one commit are not independent
+                    # source revisions. Keep scanning for an earlier distinct
+                    # verified source instead of stopping at two artifacts.
+                    if run_view.get("headSha") in seen_source_heads:
+                        continue
                     _gh(["run", "download", run, "--repo", repo,
                          "--name", ARTIFACT, "--dir", tmp])
                     record = json.loads((Path(tmp)/"snapshot.json").read_text())
@@ -174,6 +180,7 @@ def history_from_github(repo, branch, current_run):
                             record, repo, branch, run, source, run_view):
                         continue
                     history.append(record)
+                    seen_source_heads.add(record["headSha"])
                 except (subprocess.CalledProcessError, FileNotFoundError,
                         OSError, ValueError, TypeError, json.JSONDecodeError):
                     continue
