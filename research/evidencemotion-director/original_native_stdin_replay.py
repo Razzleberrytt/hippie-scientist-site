@@ -31,6 +31,37 @@ EXPECTED_FRAME_COUNT = 1031
 SAMPLE_INDEX_SET = frozenset(ARCHIVED_PNG_SHA)
 ORIGINAL_NAME = "specimen_NEW_RESEARCH_CANDIDATE.mp4"
 
+# Exactly the fields produced by compare_pair -> inspect_both -> decoded
+# physical A/B receiver. No additional self-asserted approval or missing
+# evidence fields may be smuggled into a stored research HOLD receipt.
+ORIGINAL_PAIR_RESEARCH_FIELDS = frozenset((
+    "schema", "status", "sourceFrameDigestsMatchAcrossTwoDeclaredRuns",
+    "twoActualIndependentJobExecutionsAuthenticated",
+    "originalFullStdinExternallyCapturedAndReplayed",
+    "nativeFullMediaDecodeAndCraftApproved", "mayPublish",
+    "firstExcellentMasterAccepted", "fiveRenderStreakAccepted",
+    "twoGitHubHostedRunnerNamesDifferent",
+    "twoPhysicalFullNativeSourceRendersProduced",
+    "twoNativeDecodedMoviesVerified", "sourceFrameBitwiseMatch",
+    "actualOriginalHistoricalFFmpegBinaryPinned",
+    "twoResearchSingleThreadEncodedMoviesBitwiseIdentical",
+    "downloadedMovieBytesRehashedAgainstBothEncoderReceipts",
+    "twoDownloadedNativeMoviesIndependentlyFullyDecoded",
+    "twoPhysicalX264DisabledCpuAsmLogsIndependentlyValidated",
+))
+ORIGINAL_PAIR_RESEARCH_FALSE = frozenset((
+    "twoActualIndependentJobExecutionsAuthenticated",
+    "nativeFullMediaDecodeAndCraftApproved", "mayPublish",
+    "firstExcellentMasterAccepted", "fiveRenderStreakAccepted",
+    "actualOriginalHistoricalFFmpegBinaryPinned",
+))
+ORIGINAL_PAIR_RESEARCH_TRUE = (
+    ORIGINAL_PAIR_RESEARCH_FIELDS - ORIGINAL_PAIR_RESEARCH_FALSE -
+    {"schema", "status"}
+)
+
+
+
 
 def original_media_executable(tool):
     """Bind both probes and encodes to a real fixed binary, not a PATH shadow.
@@ -520,10 +551,11 @@ def write_original_pair_research_hold(destination, report):
     makes pre-existing output names a HOLD (same principle as film handoff).
     """
     if (not isinstance(report, dict)
-            or report.get("mayPublish") is not False
+            or set(report) != ORIGINAL_PAIR_RESEARCH_FIELDS
+            or report.get("schema") != "ths-em-native-stdin-pair-research-v1"
             or report.get("status") != "SINGLE_THREAD_ORIGINAL_SOURCE_H264_BITWISE_REPLAY_RESEARCH_HOLD"
-            or report.get("twoActualIndependentJobExecutionsAuthenticated") is not False
-            or report.get("nativeFullMediaDecodeAndCraftApproved") is not False):
+            or any(report.get(field) is not False for field in ORIGINAL_PAIR_RESEARCH_FALSE)
+            or any(report.get(field) is not True for field in ORIGINAL_PAIR_RESEARCH_TRUE)):
         raise ValueError("NATIVE_ORIGINAL_HOLD:UNAUTHORIZED_RECEIPT_CONTENT")
     final = Path(destination)
     parent = final.parent
