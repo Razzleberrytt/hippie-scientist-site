@@ -49,3 +49,37 @@ test('tagged source roles do not excuse an unrelated cluster of decorative banne
  '<text data-em-role="provenance">https://example.org/source</text></svg>'
  assert.throws(()=>assertMobileOpeningHookSvg(xml),/TEXT_BLOCKS_EXCEED_4/)
 })
+
+
+test('twelve role-tagged headline fragments cannot bypass semantic-group count',()=>{
+ const xml='<svg xmlns="http://www.w3.org/2000/svg">'+
+   Array.from({length:12},(_,i)=>'<text data-em-role="headline">WORD'+i+'</text>').join('')+'</svg>'
+ assert.throws(()=>assertMobileOpeningHookSvg(xml),/HEADLINE_LINES_EXCEED_2/)
+})
+test('ten fake brand labels cannot bypass clutter ceiling',()=>{
+ const xml='<svg xmlns="http://www.w3.org/2000/svg">'+
+   Array.from({length:10},()=>'<text data-em-role="brand">The Hippie Scientist</text>').join('')+
+   '<text data-em-role="headline">What happens?</text></svg>'
+ assert.throws(()=>assertMobileOpeningHookSvg(xml),/DUPLICATE_TRUST_ROLE_BRAND/)
+})
+test('untrusted explanatory paragraph cannot masquerade as provenance',()=>{
+ const xml='<svg xmlns="http://www.w3.org/2000/svg">'+
+   '<text data-em-role="provenance">Supplement absorption differs from merely swallowing a capsule.</text></svg>'
+ assert.throws(()=>assertMobileOpeningHookSvg(xml),/NONCANONICAL_PROVENANCE_URL/)
+})
+test('disclosure tag cannot hide arbitrary teaching copy',()=>{
+ const xml='<svg xmlns="http://www.w3.org/2000/svg">'+
+   '<text data-em-role="disclosure">Absorption depends on the body and the dose that is swallowed.</text></svg>'
+ assert.throws(()=>assertMobileOpeningHookSvg(xml),/UNTRUSTED_DISCLOSURE_COPY/)
+})
+test('the canonical source URL in scene metadata binds any provenance label',()=>{
+ const xml='<svg xmlns="http://www.w3.org/2000/svg">'+
+   '<text data-em-role="provenance">https://example.org/wrong</text>'+
+   '<metadata>{&quot;sourceUrl&quot;:&quot;https://example.org/actual&quot;}</metadata></svg>'
+ assert.throws(()=>assertMobileOpeningHookSvg(xml),/NONCANONICAL_PROVENANCE_URL/)
+})
+test('brand trust tag cannot be used for oversized headline art',()=>{
+ const xml='<svg xmlns="http://www.w3.org/2000/svg">'+
+   '<text data-em-role="brand" font-size="96">The Hippie Scientist</text></svg>'
+ assert.throws(()=>assertMobileOpeningHookSvg(xml),/UNTRUSTED_LABEL_FONT_SIZE_BRAND/)
+})
