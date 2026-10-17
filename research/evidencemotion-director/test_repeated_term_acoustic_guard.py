@@ -225,6 +225,106 @@ class SpectralNegativeTests(unittest.TestCase):
         r=original_guard.audit_research_quiet_speech_preservation(x,x*2.8)
         self.assertEqual(r["status"],"RESEARCH_QUIET_SIGNAL_SCREEN_HOLD")
 
+
+    @staticmethod
+    def pcm_aac_clock_fixture():
+        # Repeatable broadband stand-in: a timing test, NOT real speech.
+        rng = np.random.default_rng(9)
+        a = rng.normal(0, .1, 48000)
+        a[:10000] = 0
+        a[24000:26000] = 0
+        return a
+
+    def test_pcm_aac_aligned_signal_research_holds_approval(self):
+        x = self.pcm_aac_clock_fixture()
+        r = original_guard.audit_research_pcm_aac_delivery(
+            x, np.pad(x, (0, 1008)))
+        self.assertEqual(r["status"], "RESEARCH_AAC_SOURCE_CLOCK_HOLD")
+        self.assertFalse(r["mayPublish"])
+        self.assertFalse(r["finishedFilmVerified"])
+        self.assertFalse(r["wordTimingCalibrated"])
+        self.assertEqual(r["trailingCodecPaddingSamples"], 1008)
+
+    def test_pcm_aac_10ms_shift_is_rejected(self):
+        x = self.pcm_aac_clock_fixture()
+        shifted = np.pad(x[:-240], (240, 1008))
+        r = original_guard.audit_research_pcm_aac_delivery(x, shifted)
+        self.assertEqual(r["status"], "HOLD")
+
+    def test_pcm_aac_dropped_spoken_window_is_rejected(self):
+        x = self.pcm_aac_clock_fixture()
+        changed = np.pad(x, (0, 1008))
+        changed[30000:36000] = 0
+        r = original_guard.audit_research_pcm_aac_delivery(x, changed)
+        self.assertIn("DISCREPANCY", r["errors"][0])
+
+    def test_pcm_aac_source_silence_filled_is_rejected(self):
+        x = self.pcm_aac_clock_fixture()
+        changed = np.pad(x, (0, 1008))
+        changed[1000:2000] = .1
+        r = original_guard.audit_research_pcm_aac_delivery(x, changed)
+        self.assertEqual(r["status"], "HOLD")
+
+    def test_pcm_aac_nonzero_codec_padding_is_rejected(self):
+        x = self.pcm_aac_clock_fixture()
+        changed = np.pad(x, (0, 1008))
+        changed[-10:] = .2
+        r = original_guard.audit_research_pcm_aac_delivery(x, changed)
+        self.assertIn("TRAILING_PADDING", r["errors"][0])
+
+    def test_pcm_aac_excessive_padding_is_rejected(self):
+        x = self.pcm_aac_clock_fixture()
+        r = original_guard.audit_research_pcm_aac_delivery(
+            x, np.pad(x, (0, 2000)))
+        self.assertEqual(r["status"], "HOLD")
+
+    def test_pcm_aac_invalid_and_truncated_pcm_is_rejected(self):
+        x = self.pcm_aac_clock_fixture()
+        for bad in (np.zeros((48000, 1)), np.full(48000, np.nan),
+                    np.array([.2]), np.zeros(48000), x[:-1]):
+            r = original_guard.audit_research_pcm_aac_delivery(x, bad)
+            self.assertEqual(r["status"], "HOLD")
+
+    def test_pcm_aac_no_source_speech_is_rejected(self):
+        x = np.zeros(48000)
+        r = original_guard.audit_research_pcm_aac_delivery(x, x)
+        self.assertEqual(r["status"], "HOLD")
+
+    def test_pcm_aac_actual_ffmpeg_decode_and_tampered_identity(self):
+        import shutil
+        if not (shutil.which("ffmpeg") and shutil.which("ffprobe")):
+            self.skipTest("native FFmpeg not available")
+        x = self.pcm_aac_clock_fixture()
+        # Keep a generous signal-only fixture with full zeros on the first
+        # second and strong synthetic broadband content elsewhere.
+        pcm = np.asarray(np.rint(np.clip(x, -1, 1)*32767),
+                         dtype="<i2").tobytes()
+        with tempfile.TemporaryDirectory() as td:
+            source = Path(td)/"source.wav"
+            encoded = Path(td)/"encoded.m4a"
+            with wave.open(str(source), "wb") as wav:
+                wav.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+                wav.writeframes(pcm)
+            subprocess.run(
+                ["ffmpeg", "-nostdin", "-v", "error", "-xerror", "-y",
+                 "-i", str(source), "-c:a", "aac", "-b:a", "160k",
+                 str(encoded)], capture_output=True, check=True, timeout=30)
+            good = original_guard.audit_research_pinned_aac_files(
+                source, encoded, digest(source.read_bytes()),
+                digest(encoded.read_bytes()))
+            # Physical decoding must be demonstrable, regardless of whether
+            # a synthetic codec screening oracle holds this particular noise.
+            self.assertTrue(good.get("standaloneAACBytesPhysicallyDecoded"),
+                            good)
+            self.assertFalse(good["mayPublish"])
+            self.assertFalse(good["finishedFilmVerified"])
+            rejected = original_guard.audit_research_pinned_aac_files(
+                source, encoded, "0"*64, digest(encoded.read_bytes()))
+            self.assertIn("PREENCODE_WAV_SHA_MISMATCH", rejected["errors"])
+            rejected = original_guard.audit_research_pinned_aac_files(
+                source, encoded, digest(source.read_bytes()), "0"*64)
+            self.assertIn("ENCODED_AAC_SHA_MISMATCH", rejected["errors"])
+
     def test_gain_independent_positive_is_not_phonetic_proof(self):
         a=tone(240)
         report=compare(a,a*.6,[tone(470),tone(860)])
