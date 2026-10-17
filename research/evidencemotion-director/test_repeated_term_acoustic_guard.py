@@ -435,6 +435,133 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
 
 
 
+    @staticmethod
+    def source_bound_listening_fixture():
+        wav_raw, mfa, asr = OriginalDigitalZeroNegativeTests.cross_model_fixture()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(wav_raw)), (
+                patch.object(original_guard, "MFA_SOURCE_ALIGNMENT_SHA", digest(mfa))), (
+                patch.object(original_guard, "POSE_ASR_RECEIPT_SHA", digest(asr))):
+            queue = original_guard.audit_original_cross_model_word_timing(
+                wav_raw, mfa, asr)
+        assert queue["status"] == "RESEARCH_ORIGINAL_WORD_REVIEW_QUEUE_HOLD"
+        decisions = [
+            {"id": f"LEX-{i:02d}", "heard": "unreviewed",
+             "timing": "unreviewed", "notes": ""}
+            for i in range(1, 7)]
+        decisions += [
+            {"id": f"TIME-{i:02d}", "heard": "unreviewed",
+             "timing": "unreviewed", "notes": ""}
+            for i in range(1, 31)]
+        notes = {"schema": "ths-lane2-human-listening-notes-v1",
+                 "originalWavSha256": digest(wav_raw),
+                 "reviewerSelfReported": True,
+                 "phoneticGroundTruthIndependentlyValidated": False,
+                 "mayPublish": False,
+                 "reviewedAt": "2026-10-16T23:47:20.123Z",
+                 "decisions": decisions}
+        return queue, notes
+
+    def test_offline_player_blank_and_partial_notes_bind_without_gold_promotion(self):
+        queue, notes = self.source_bound_listening_fixture()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE",
+                          queue["sourceWavSha256"]):
+            result = original_guard.bind_self_reported_listening_notes(
+                queue, json.dumps(notes).encode())
+            self.assertEqual(result["status"],
+                             "RESEARCH_SELF_REPORTED_LISTENING_HANDOFF_HOLD", result)
+            self.assertEqual(result["sourceCaseCount"], 36)
+            self.assertEqual(result["selfReportedCaseCount"], 0)
+            self.assertEqual(result["unreviewedCaseCount"], 36)
+            # Import the actual browser's choices and multiline textarea values.
+            notes["decisions"][0].update({
+                "heard": "written_mfa", "timing": "unclear",
+                "notes": "possible phoneme?\\nneeds independent ear review"})
+            notes["decisions"][-1].update({
+                "heard": "unreviewed", "timing": "asr_closer", "notes": ""})
+            result = original_guard.bind_self_reported_listening_notes(
+                queue, json.dumps(notes).encode())
+        self.assertEqual(result["selfReportedCaseCount"], 2)
+        self.assertEqual(result["unreviewedCaseCount"], 34)
+        self.assertTrue(result["selfReportValuesJoinedToPinnedSourceCases"])
+        one = next(x for x in result["caseNotes"] if x["caseId"] == "LEX-01")
+        self.assertEqual(one["originalSourcePcmSha256"],
+                         queue["lexicalDisagreements"][0]["sourcePcmSha256"])
+        self.assertEqual(one["originalStartSample"],
+                         queue["lexicalDisagreements"][0]["sourceStartSample"])
+        self.assertIn("independent ear review", one["selfReportedNotes"])
+        for name in ("mayPublish", "captionTimingApproved", "wordTimingCalibrated",
+                     "pronunciationVerified", "phonemeIdentityVerified",
+                     "independentHumanAnnotationVerified", "speakerIdentityVerified"):
+            self.assertFalse(result[name], name)
+        self.assertIsNone(result["lexicalWinner"])
+
+    def test_offline_review_rejects_duplication_missing_cases_wrong_source(self):
+        queue, notes = self.source_bound_listening_fixture()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE",
+                          queue["sourceWavSha256"]):
+            scenarios = [
+                ("duplicate", lambda x: x["decisions"][-1].update(
+                    {"id": "LEX-01"}), "LISTENING_NOTES_UNKNOWN_OR_DUPLICATE_CASE"),
+                ("missing", lambda x: x["decisions"].pop(),
+                 "LISTENING_NOTES_SCHEMA_SOURCE_OR_STATUS_INVALID"),
+                ("source", lambda x: x.update({"originalWavSha256": "0"*64}),
+                 "LISTENING_NOTES_SCHEMA_SOURCE_OR_STATUS_INVALID"),
+                ("publish", lambda x: x.update({"mayPublish": True}),
+                 "LISTENING_NOTES_SCHEMA_SOURCE_OR_STATUS_INVALID"),
+                ("independent", lambda x: x.update({
+                    "phoneticGroundTruthIndependentlyValidated": True}),
+                 "LISTENING_NOTES_SCHEMA_SOURCE_OR_STATUS_INVALID"),
+                ("unknown", lambda x: x["decisions"][0].update({
+                    "heard": "confirmed_pose", "timing": "approved"}),
+                 "LISTENING_NOTES_DECISION_VALUE_INVALID"),
+                ("extra", lambda x: x.update({"captionTimingApproved": True}),
+                 "LISTENING_NOTES_SCHEMA_SOURCE_OR_STATUS_INVALID"),
+                ("notes_oversize", lambda x: x["decisions"][0].update({
+                    "notes": "x"*2001}),
+                 "LISTENING_NOTES_DECISION_VALUE_INVALID"),
+            ]
+            for name, modifier, expected in scenarios:
+                with self.subTest(name=name):
+                    candidate = json.loads(json.dumps(notes))
+                    modifier(candidate)
+                    result = original_guard.bind_self_reported_listening_notes(
+                        queue, json.dumps(candidate).encode())
+                    self.assertEqual(result["status"], "HOLD", result)
+                    self.assertIn(expected, result["errors"], result)
+                    self.assertFalse(result["mayPublish"])
+            # Fail even if an attacker inserts a duplicate key in a different
+            # order to exploit first-wins/last-wins JSON parsers.
+            raw = json.dumps(notes)
+            duplicate = raw.replace('"mayPublish": false',
+                                    '"mayPublish": true, "mayPublish": false', 1)
+            result = original_guard.bind_self_reported_listening_notes(
+                queue, duplicate.encode())
+            self.assertEqual(result["status"], "HOLD")
+            self.assertIn("LISTENING_NOTES_JSON_OR_CASES_UNREADABLE", result["errors"])
+
+    def test_offline_review_cli_must_use_cross_model_mode(self):
+        script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
+        request = subprocess.run([
+            sys.executable, script, "--human-review-json",
+            "/nonexistent/listener-export.json"], capture_output=True, text=True,
+            timeout=20)
+        self.assertEqual(request.returncode, 2)
+        self.assertIn("LISTENING_NOTES_REQUIRES_EXCLUSIVE_CROSS_MODEL_SOURCE_MODE",
+                      request.stdout)
+        self.assertIn('"mayPublish": false', request.stdout)
+        request = subprocess.run([
+            sys.executable, script, "--cross-model-timing-review",
+            "--human-review-json", "/nonexistent/listener-export.json",
+            "--original-wav", "/nonexistent/master.wav",
+            "--mfa-alignment", "/nonexistent/mfa.json",
+            "--pose-asr-receipt", "/nonexistent/asr.json"],
+            capture_output=True, text=True, timeout=20)
+        self.assertEqual(request.returncode, 2)
+        self.assertIn("CROSS_MODEL_REVIEW_FILES_MISSING_OR_UNSAFE", request.stdout)
+        self.assertIn('"mayPublish": false', request.stdout)
+
+
+
 class SyntheticMasterLinkTests(unittest.TestCase):
     """Synthetic controls only; original 34.35s master is NOT in hosted checkout."""
 
