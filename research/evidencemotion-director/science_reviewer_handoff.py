@@ -270,6 +270,94 @@ def verify_original_review_stills(folder, gate, packet):
     return True
 
 
+
+# This *exact* first-party original H264 still was downloaded, visually
+# inspected and independently OCR'd (PSM 6 and 11), not a synthetic fixture.
+# SHA pins this known screenshot, never used to infer claims about other films.
+NO_REACTION_FRAME = 45
+NO_REACTION_STILL_SHA = "7129a6e676b450d57c47913c7790744db9a19d1903d2488daf3039dc331820c2"
+NO_REACTION_RISK_SCHEMA = "ths-em00707-original-no-reaction-semantic-hold-v1"
+
+
+def original_no_reaction_ocr_verdict(still, observations):
+    """Never treat a real caption as certified chemical or clinical meaning.
+
+    Real Tesseract reads are produced by screen_original_no_reaction_caption.
+    Caller-supplied observations alone are NOT physical source verification.
+    """
+    if (not isinstance(still,dict)
+        or still.get("claimId")!="spoken-001"
+        or still.get("originalH264FrameIndex")!=NO_REACTION_FRAME
+        or still.get("originalH264TimeSec")!=1.5
+        or still.get("pngSha256")!=NO_REACTION_STILL_SHA
+        or still.get("sourceFilmSha256")!=FILM_SHA
+        or still.get("qualifiedVisualOrScientificReviewCompleted") is not False
+        or still.get("mayPublish") is not False):
+        hold("AMBIGUOUS_CAPTION_SOURCE_IMAGE_OR_REVIEWER_APPROVAL_DRIFT")
+    if not isinstance(observations,dict) or set(observations)!={"psm6","psm11"}:
+        hold("AMBIGUOUS_CAPTION_REQUIRES_TWO_INDEPENDENT_OCR_LAYOUT_READS")
+    ocr=[]
+    for mode in ("psm6","psm11"):
+        words=observations[mode]
+        if not isinstance(words,str) or not words.strip() or len(words)>30000:
+            hold("AMBIGUOUS_CAPTION_REAL_OCR_TEXT_MISSING_OR_INVALID")
+        flattened=" ".join(words.casefold().split())
+        if re.search(r"(?<![a-z])no\s+reaction(?![a-z])",flattened) is None:
+            hold("AMBIGUOUS_CAPTION_SOURCE_TEXT_NOT_RECOVERED:"+mode)
+        ocr.append({"mode":mode,"recognizedNoReaction":True,
+                    "originalOcrStdoutSha256":hashlib.sha256(
+                        words.encode("utf8")).hexdigest(),
+                    "excerpt":flattened[-500:]})
+    return {
+        "schema":NO_REACTION_RISK_SCHEMA,
+        "task":"EM-007.07",
+        "sourceFilmSha256":FILM_SHA,
+        "sourceWavSha256":SOURCE_WAV_SHA,
+        "claimId":"spoken-001",
+        "actualOriginalEncodedFrameIndex":NO_REACTION_FRAME,
+        "actualOriginalFrameTimeSec":1.5,
+        "originalExportedPngSha256":NO_REACTION_STILL_SHA,
+        "actualOriginalPngIndependentOCR":ocr,
+        "sourceVisibleWording":"No reaction",
+        "semanticRisk":"Could mean no molecular conversion in the graphic OR be misread as no physiological/drug reaction.",
+        "reviewInstruction":"Qualified independent reviewer must inspect the full 0.16-2.92s original narrated interval and determine whether the image wording is scientifically and audience clear; record original-source citations and correction only if warranted.",
+        "reviewedEntireOriginalScene":False,
+        "clinicalOrPlantAssayMeaningEstablished":False,
+        "qualifiedIndependentReviewerResolved":False,
+        "requiresQualifiedReview":True,
+        "mayPublish":False,
+        "approvalToMerge":False,
+    }
+
+
+def screen_original_no_reaction_caption(folder, gate, packet):
+    """Source-authenticated *original* PNG + real OCR → semantic-review HOLD.
+
+    Technically verified ink != editorial/science interpretation. An absent
+    OCR tool, swapped source PNG, new film or missing ink must fail CLOSED.
+    """
+    verify_original_review_stills(folder,gate,packet)
+    original=Path(folder)/"original-claim-00.png"
+    if _hash_file(original)!=NO_REACTION_STILL_SHA:
+        hold("AMBIGUOUS_CAPTION_ORIGINAL_SOURCE_THUMBNAIL_SHA_CHANGED")
+    observations={}
+    for mode in (6,11):
+        try:
+            process=subprocess.run(
+                ["tesseract",str(original),"stdout","--psm",str(mode)],
+                capture_output=True,text=True,check=True,timeout=45)
+        except (subprocess.CalledProcessError,subprocess.TimeoutExpired,
+                FileNotFoundError) as error:
+            hold("AMBIGUOUS_CAPTION_INDEPENDENT_OCR_NOT_AVAILABLE:"+
+                 type(error).__name__)
+        observations["psm"+str(mode)]=process.stdout
+    return original_no_reaction_ocr_verdict(
+        packet["eightClaimsToReview"] and
+        strict_json((Path(folder)/"REVIEW-SAMPLES-RESEARCH-ONLY.json").read_bytes())[
+            "originalClaimFrameStills"][0], observations)
+
+
+
 def original_review_stills(movie, gate, packet, output_dir):
     """Eight actual encoded original-frame PNGs for a *human* science handoff.
 
