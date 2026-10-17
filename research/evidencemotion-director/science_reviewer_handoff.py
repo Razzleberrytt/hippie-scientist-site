@@ -561,19 +561,128 @@ def original_review_stills(movie, gate, packet, output_dir):
     return result
 
 
+
+# Current renderer output is a different H264 file.  It is *not* the pinned
+# archival movie; the archived v2 intake must not accept its film hash.
+CURRENT_SCHEMA = "ths-em00707-current-render-science-review-INTAKE-v1"
+CURRENT_DOMAIN = b"THS/EM00707/CURRENT_RENDER_REVIEW_INTAKE_HOLD/v1\x00"
+
+
+def current_candidate_reviewer_packet(gate, current_movie):
+    """Issue an independently checkable CURRENT-movie science-review request.
+
+    The original-WAV spoken claims/speech cue bounds are inherited as acoustic
+    source prompts ONLY. Never inherit old film pixel/OCR verification, viewer
+    conclusions, or release approval from the earlier archived candidate.
+    """
+    verify_attestation(gate)
+    movie=Path(current_movie)
+    if not movie.is_file() or movie.is_symlink():
+        hold("CURRENT_FILM_REQUIRED_FOR_DISTINCT_REVIEW_PACKET")
+    film_sha=_hash_file(movie)
+    if (film_sha != gate["filmSha256"] or
+        gate["sourceWavSha256"]!=SOURCE_WAV_SHA or
+        gate["scienceGate"]!=GATE or
+        gate["mayPublish"] is not False or
+        gate["approvalToMerge"] is not False):
+        hold("CURRENT_RENDER_NOT_BOUND_TO_ITS_EXACT_SCIENCE_GATE")
+    ledger,ledger_sha=read_record(FROZEN_SPOKEN_LEDGER)
+    if (ledger.get("schema")!="ths-frozen-spoken-claim-ledger-v1" or
+        ledger.get("sourceWavSha256")!=SOURCE_WAV_SHA or
+        ledger.get("alignmentRevisionSha256")!=SOURCE_ALIGNMENT_REVISION_SHA or
+        ledger.get("wordCount")!=73 or
+        ledger.get("assertionCount")!=8 or
+        ledger.get("wordCoverageVerified") is not True or
+        ledger.get("mayPublish") is not False or
+        ledger.get("scienceApproved") is not False):
+        hold("CURRENT_RENDER_FROZEN_NARRATION_NOT_RECONCILED")
+    spans=frozen_claim_spans()
+    if len(spans)!=8 or len(gate["claims"])!=8 or len(ledger.get("assertions",[]))!=8:
+        hold("CURRENT_RENDER_REVIEW_REQUIRES_EIGHT_LOCKED_SPOKEN_CLAIMS")
+    items=[]
+    for i,(claim,(indices,spoken)) in enumerate(zip(gate["claims"],spans)):
+        original=ledger["assertions"][i]
+        if (claim["claimId"]!=f"spoken-{i+1:03d}" or
+            original["id"]!=claim["claimId"] or
+            original["text"]!=spoken or original["wordIndices"]!=indices or
+            claim["qualifiedIndependentScienceVerdict"]!="NOT_RECEIVED" or
+            claim["scientificAcceptance"]!=GATE):
+            hold("CURRENT_RENDER_AUDIO_SCIENCE_CLAIM_DRIFT")
+        start,end=SOURCE_CLAIM_BOUNDS_MS[i]
+        refs=[]
+        for identifier in claim["sourceIds"]:
+            if identifier not in SOURCES:
+                hold("CURRENT_RENDER_UNSUPPORTED_SOURCE_ID")
+            refs.append({"id":identifier,"url":SOURCES[identifier]})
+        items.append({
+            "claimId":claim["claimId"],
+            "frozenOriginalWavSpokenWords":spoken,
+            "sourceWordIndices":indices,
+            "originalWavAlignedStartMs":start,
+            "originalWavAlignedEndMs":end,
+            "timingScope":"ORIGINAL_WAV_SOURCE_CUE_NOT_INDEPENDENT_CURRENT_FILM_PIXEL_SYNC",
+            "currentH264FrameContentInspectedForThisClaim":False,
+            "sourceScope":claim["sourceScope"],
+            "material":claim["material"],
+            "sourceIds":refs,
+            "independentQualifiedReviewerRequired":True,
+            "unresolvedHolds":list(claim["unresolvedHoldReasons"]),
+            "submittedReviewerFinding":None,
+            "scientificApproval":False,
+        })
+    report={
+        "schema":CURRENT_SCHEMA, "task":"EM-007.07",
+        "exactCurrentEncodedH264Sha256":film_sha,
+        "exactOriginalSourceWavSha256":SOURCE_WAV_SHA,
+        "frozenWordLedgerSha256":ledger_sha,
+        "sourceScienceGateProcessDigest":gate["processAttestation"]["domainSeparatedDigest"],
+        "scienceGate":GATE,
+        "eightClaimsToReview":items,
+        "independentQualifiedReviewReceived":False,
+        "independentScientificReviewPassed":False,
+        "sourceOnlyTimecodesNotCurrentFilmVerified":True,
+        "pastArchivedPixelAndOcrPassNotInherited":True,
+        "currentFilmPixelReviewCompleted":False,
+        "currentFilmHumanReviewCompleted":False,
+        "mayPublish":False,
+        "approvalToMerge":False,
+    }
+    report["currentFilmReviewRequestDigest"]=hashlib.sha256(
+        CURRENT_DOMAIN+canonical(report)).hexdigest()
+    return report
+
+
+def verify_current_candidate_reviewer_packet(packet, gate, current_movie):
+    """Reject a mutated or rehashed pseudo-review even with matching digest."""
+    expected=current_candidate_reviewer_packet(gate,current_movie)
+    if packet!=expected:
+        hold("CURRENT_FILM_REVIEW_REQUEST_MUTATED_OR_FABRICATED_APPROVAL")
+    return True
+
+
 def main():
     parser = argparse.ArgumentParser(description="Build science review intake (HOLD only)")
     parser.add_argument("--gate", required=True)
     parser.add_argument("--out", required=True)
+    parser.add_argument("--candidate-movie", default=None,
+                        help="Current rendered film to bind a distinct unapproved intake; never reuses the original H264 v2 packet")
     args = parser.parse_args()
     if Path(args.gate).resolve() == Path(args.out).resolve():
         hold("INPUT_OUTPUT_PATH_ALIAS_NOT_ALLOWED")
     out = prepare_report_destination(args.out)
     gate, _ = read_record(args.gate)
-    packet = reviewer_packet(gate)
-    verify_packet(packet, gate)
-    write_report_atomically(out, packet)
-    print("EM-007.07: review packet emitted; 8 claims, qualified review MISSING, mayPublish=false")
+    if args.candidate_movie:
+        if Path(args.candidate_movie).resolve()==Path(args.out).resolve():
+            hold("CURRENT_MOVIE_OUTPUT_PATH_ALIAS_NOT_ALLOWED")
+        packet=current_candidate_reviewer_packet(gate,args.candidate_movie)
+        verify_current_candidate_reviewer_packet(packet,gate,args.candidate_movie)
+        write_report_atomically(out,packet)
+        print("EM-007.07: CURRENT rendered H264 SHA bound; eight original spoken claims, no current pixel approval, qualified review MISSING, mayPublish=false")
+    else:
+        packet = reviewer_packet(gate)
+        verify_packet(packet, gate)
+        write_report_atomically(out, packet)
+        print("EM-007.07: EXACT ARCHIVE review packet emitted; 8 claims, qualified review MISSING, mayPublish=false")
 
 
 if __name__ == "__main__":
