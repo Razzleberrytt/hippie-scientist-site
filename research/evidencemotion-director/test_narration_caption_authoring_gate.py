@@ -134,4 +134,29 @@ class NarrationCaptionAuthoringTests(unittest.TestCase):
                 pinned = hashlib.sha256(invalid).hexdigest()
                 self.assertEqual(self.review(wav=invalid, wav_pin=pinned)['status'], 'HOLD')
 
+
+    def test_plus_ampersand_and_quantity_bounds_are_not_erased(self):
+        for original, changed in (
+                ('15+', '15'), ('15%+', '15%'),
+                ('Caffeine + alcohol', 'Caffeine alcohol'),
+                ('A&B', 'A B'), ('drug A & B', 'drug A B')):
+            with self.subTest(original=original, changed=changed):
+                self.assertNotEqual(words(original), words(changed))
+
+    def test_operator_deleted_from_pinned_authoring_caption_is_rejected(self):
+        source_provenance = copy.deepcopy(PROVENANCE)
+        source_provenance['scenes'][0]['text'] = (
+            "The FDA says it isn't a dietary ingredient at 15+.")
+        frozen_raw = json.dumps(source_provenance, sort_keys=True).encode()
+        frozen_sha = hashlib.sha256(frozen_raw).hexdigest()
+        caption = copy.deepcopy(CUES)
+        caption[1] = (2, 1.2, 2.6, "a dietary ingredient at 15+.")
+        self.assertEqual(
+            self.review(caption, source_provenance, frozen_sha)['status'],
+            'RESEARCH_AUTHORING_PARITY_HOLD')
+        caption[1] = (2, 1.2, 2.6, "a dietary ingredient at 15.")
+        self.assertEqual(
+            self.review(caption, source_provenance, frozen_sha)['errors'],
+            ['SCENE_CAPTION_SCRIPT_WORD_MISMATCH'])
+
 if __name__ == '__main__': unittest.main()
