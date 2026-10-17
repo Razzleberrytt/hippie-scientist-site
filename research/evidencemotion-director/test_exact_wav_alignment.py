@@ -249,5 +249,34 @@ class Lane2GuardRegistrationTests(unittest.TestCase):
                          + ", ".join(missing))
 
 
+class Lane2AudioWorkflowTriggerTests(unittest.TestCase):
+    """Make new acoustic guard changes activate the hosted audio test workflow."""
+
+    def test_guard_only_pull_requests_are_in_audio_workflow_paths(self):
+        workflow = (Path(__file__).resolve().parents[2] / ".github" /
+                    "workflows" / "evidencemotion-autonomous-audio-screen.yml")
+        yaml_text = workflow.read_text(encoding="utf-8")
+        self.assertIn("  pull_request:\n    paths:\n", yaml_text)
+        paths_text = yaml_text.split("  pull_request:\n    paths:\n", 1)[1].split(
+            "\npermissions:", 1)[0]
+        for file_name in (
+            "test_exact_wav_alignment.py",
+            "repeated_term_acoustic_guard.py",
+            "test_repeated_term_acoustic_guard.py",
+            "gut_caption_audio_gate.py",
+        ):
+            with self.subTest(file=file_name):
+                self.assertIn(
+                    "      - 'research/evidencemotion-director/" +
+                    file_name + "'",
+                    paths_text,
+                    "Changes to this Lane 2 file must launch native hosted audio tests",
+                )
+        self.assertIn(
+            "-p 'test_exact_wav_alignment.py'", yaml_text,
+            "Hosted workflow must actually run the aggregated test entrypoint",
+        )
+
+
 if __name__ == '__main__':
     unittest.main()
