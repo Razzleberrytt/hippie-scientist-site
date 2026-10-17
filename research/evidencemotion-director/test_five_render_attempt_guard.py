@@ -1,7 +1,13 @@
 """Regression: iterations and malformed ledgers cannot fake an excellent streak."""
 import hashlib
+import json
+import subprocess
+import sys
+import tempfile
 import unittest
-from five_render_attempt_guard import SCHEMA, verify
+from pathlib import Path
+from five_render_attempt_guard import (SCHEMA, verify, verify_append_only,
+                                       read_register, write_report_no_clobber)
 
 
 def atom(value):
@@ -148,6 +154,147 @@ class FirstRenderIntegrityTests(unittest.TestCase):
         x["claimedAcceptedStreak"] = 1
         with self.assertRaisesRegex(ValueError, "SELF_APPROVED_STREAK"):
             verify(x)
+
+
+    def test_pinned_previous_history_one_new_event_accepted_research_only(self):
+        prior = register([attempt(0), attempt(1, decision="FAIL")])
+        current = register(prior["attempts"] + [attempt(2)])
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "previous.json"
+            raw = (json.dumps(prior) + "\n").encode()
+            path.write_bytes(raw)
+            parsed, sha = read_register(path, required_sha=hashlib.sha256(raw).hexdigest())
+            report = verify_append_only(current, parsed, sha)
+            self.assertTrue(report["appendOnlyAgainstPinnedPrior"])
+            self.assertEqual(report["previousRegisteredAttempts"], 2)
+            self.assertEqual(report["newAppendedAttemptCount"], 1)
+            self.assertEqual(report["newAppendedRunIds"], ["run-2"])
+            self.assertEqual(report["provisionalDeclaredConsecutiveFirstPasses"], 1)
+            self.assertFalse(report["allHistoricalAttemptsProvenPresent"])
+            self.assertFalse(report["fiveRenderMilestoneAccepted"])
+            self.assertFalse(report["mayPublish"])
+
+    def test_pinned_previous_failed_attempt_cannot_be_deleted(self):
+        prior = register([attempt(0), attempt(1, decision="FAIL"), attempt(2)])
+        rewritten = register([attempt(0), attempt(2), attempt(3)])
+        with self.assertRaisesRegex(ValueError, "PREVIOUS_ATTEMPTS_REWRITTEN_OR_DELETED"):
+            verify_append_only(rewritten, prior, atom("prior"))
+
+    def test_pinned_previous_decision_and_first_final_cannot_be_rewritten(self):
+        prior = register([attempt(0), attempt(1, decision="FAIL")])
+        changed = register([attempt(0), attempt(1), attempt(2)])
+        with self.assertRaisesRegex(ValueError, "PREVIOUS_ATTEMPTS_REWRITTEN_OR_DELETED"):
+            verify_append_only(changed, prior, atom("prior"))
+        changed = register([attempt(0), attempt(1, decision="HOLD"), attempt(2)])
+        with self.assertRaisesRegex(ValueError, "PREVIOUS_ATTEMPTS_REWRITTEN_OR_DELETED"):
+            verify_append_only(changed, prior, atom("prior"))
+
+    def test_pinned_previous_rerender_cannot_be_omitted(self):
+        prior = register([attempt(0, subject="original"),
+                          attempt(1, subject="original", ordinal=2)])
+        edited = register([attempt(0, subject="original"), attempt(2), attempt(3)])
+        with self.assertRaisesRegex(ValueError, "PREVIOUS_ATTEMPTS_REWRITTEN_OR_DELETED"):
+            verify_append_only(edited, prior, atom("prior"))
+
+    def test_pinned_previous_order_change_or_no_new_entry_refused(self):
+        prior = register([attempt(0), attempt(1)])
+        with self.assertRaisesRegex(ValueError, "NO_NEW_APPEND_ONLY_ATTEMPT"):
+            verify_append_only(prior, prior, atom("prior"))
+        reordered = register([attempt(1), attempt(0), attempt(2)])
+        with self.assertRaisesRegex(ValueError, "PREVIOUS_ATTEMPTS_REWRITTEN_OR_DELETED"):
+            verify_append_only(reordered, prior, atom("prior"))
+
+    def test_prior_file_bytes_require_external_sha(self):
+        prior = register([attempt(0)])
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "pinned.json"
+            path.write_text(json.dumps(prior))
+            with self.assertRaisesRegex(ValueError, "PREVIOUS_REGISTER_BYTES_CHANGED"):
+                read_register(path, required_sha=atom("wrong"))
+            with self.assertRaisesRegex(ValueError, "EXTERNAL_PREVIOUS_REGISTER_SHA_REQUIRED"):
+                read_register(path, required_sha="not-a-hash")
+            link = Path(directory) / "alias.json"
+            link.symlink_to(path)
+            with self.assertRaisesRegex(ValueError, "REGISTER_FILE_MISSING_OR_UNSAFE"):
+                read_register(link)
+
+    def test_json_duplicate_fields_nan_and_overflow_refused(self):
+        prior = register([attempt(0)])
+        with tempfile.TemporaryDirectory() as directory:
+            file = Path(directory) / "candidate.json"
+            for invalid in (
+                    '{"schema":"wrong","schema":"'+SCHEMA+'","mayPublish":false,'
+                    '"claimedAcceptedStreak":0,"attempts":[]}',
+                    json.dumps(prior).replace('"mayPublish": false',
+                                             '"mayPublish": false, "mayPublish": true'),
+                    json.dumps(prior).replace('"claimedAcceptedStreak": 0',
+                                             '"claimedAcceptedStreak": NaN'),
+                    json.dumps(prior).replace('"claimedAcceptedStreak": 0',
+                                             '"claimedAcceptedStreak": 1e999'),
+            ):
+                with self.subTest(invalid=invalid[:75]):
+                    file.write_text(invalid)
+                    with self.assertRaisesRegex(ValueError, "MALFORMED_REGISTER_JSON|NONFINITE_REGISTER_NUMBER"):
+                        read_register(file)
+
+    def test_register_fields_and_false_zero_coercion_refused(self):
+        r = register([attempt(0)])
+        r["externalReviewerApproved"] = True
+        with self.assertRaisesRegex(ValueError, "UNRECOGNIZED_REGISTER_FIELDS"):
+            verify(r)
+        r = register([attempt(0)])
+        r["attempts"][0]["mayPublish"] = True
+        with self.assertRaisesRegex(ValueError, "UNRECOGNIZED_ATTEMPT_FIELDS"):
+            verify(r)
+        r = register([attempt(0)])
+        r["claimedAcceptedStreak"] = False
+        with self.assertRaisesRegex(ValueError, "SELF_APPROVED_STREAK"):
+            verify(r)
+
+    def test_report_no_clobber_and_symlink_target_preserved(self):
+        report = verify(register([attempt(0)]))
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            output = root / "held-report.json"
+            write_report_no_clobber(output, report)
+            self.assertEqual(json.loads(output.read_text()), report)
+            original = output.read_bytes()
+            with self.assertRaisesRegex(ValueError, "REPORT_PATH_ALREADY_EXISTS_OR_UNSAFE"):
+                write_report_no_clobber(output, report)
+            self.assertEqual(output.read_bytes(), original)
+            alias = root / "alias.json"
+            alias.symlink_to(output)
+            with self.assertRaisesRegex(ValueError, "REPORT_PATH_ALREADY_EXISTS_OR_UNSAFE"):
+                write_report_no_clobber(alias, report)
+            self.assertEqual(output.read_bytes(), original)
+
+    def test_append_cli_requires_prior_sha_and_never_says_approved(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            prev = root / "prev.json"
+            prev.write_text(json.dumps(register([attempt(0, decision="FAIL")])))
+            cur = root / "current.json"
+            cur.write_text(json.dumps(register([attempt(0, decision="FAIL"), attempt(1)])))
+            destination = root / "research-HOLD.json"
+            script = Path(__file__).with_name("five_render_attempt_guard.py")
+            base = [sys.executable, str(script), "--register", str(cur),
+                    "--previous-register", str(prev), "--out", str(destination)]
+            missing = subprocess.run(base, capture_output=True, text=True)
+            self.assertNotEqual(missing.returncode, 0)
+            self.assertFalse(destination.exists())
+            raw = prev.read_bytes()
+            p = subprocess.run(base + ["--previous-sha", hashlib.sha256(raw).hexdigest()],
+                               capture_output=True, text=True)
+            self.assertEqual(p.returncode, 0, p.stderr)
+            result = json.loads(destination.read_text())
+            self.assertTrue(result["appendOnlyAgainstPinnedPrior"])
+            self.assertFalse(result["firstExcellentMasterAccepted"])
+            self.assertFalse(result["mayPublish"])
+            p2 = subprocess.run(base + ["--previous-sha", hashlib.sha256(raw).hexdigest()],
+                                capture_output=True, text=True)
+            self.assertNotEqual(p2.returncode, 0)
+            self.assertIn("REPORT_PATH_ALREADY_EXISTS_OR_UNSAFE", p2.stderr)
+
 
 
 if __name__ == "__main__":
