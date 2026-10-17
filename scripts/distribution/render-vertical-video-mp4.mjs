@@ -8,6 +8,7 @@ import { validateR809CaptionsSrt, renderR809CaptionAss } from './r809-caption-tr
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
 import { verifyR819CanonicalHandoff } from './r819-canonical-handoff.mjs'
 import { verifyR819LayerInventory, compositeR819Frame } from './r819-native-layer-compositor.mjs'
+import { assertMobileOpeningHookSvg } from './mobile-hook-clarity-gate.mjs'
 import { renderR810AlignedCaptionTracks, renderR817ProgressiveWordCaptions } from './r810-aligned-captions.mjs'
 import { measureR817FinalMotion, assertR817FinalMotion, R817_MOTION_LIMITS } from './r817-motion-qa.mjs'
 import { measureR817CaptionHighlightPixels, assertR817CaptionPixelQA } from './r817-caption-pixel-qa.mjs'
@@ -56,6 +57,9 @@ function verifyScene({ packageDir, asset, sourceUrl, sourceContentHash }) {
   const bytes = fs.readFileSync(file)
   if (sha256(bytes) !== clean(asset.sha256)) throw new Error(`video scene hash mismatch: ${asset.file}`)
   assertNoDecorativeVideoChrome(bytes.toString('utf8'))
+  // Fail before MP4 production if the first frame repeats the phenibut clutter pattern.
+  // Governed sources still belong in their designated proof/source beat.
+  if (Number(asset.start) === 0) assertMobileOpeningHookSvg(bytes.toString('utf8'))
   const metadata = parseSceneMetadata(bytes.toString('utf8'))
   if (clean(metadata.sourceUrl) !== sourceUrl) throw new Error(`video scene source URL mismatch: ${asset.file}`)
   if (clean(metadata.contentHash) !== sourceContentHash) throw new Error(`video scene source content hash mismatch: ${asset.file}`)
