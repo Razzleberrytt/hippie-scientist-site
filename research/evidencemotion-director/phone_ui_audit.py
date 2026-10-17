@@ -707,7 +707,7 @@ def probe_movie(movie):
     # source video. Muted H.264 films remain eligible for research inspection;
     # an audio-bearing film must have exactly one AAC track.
     cmd = ["ffprobe", "-v", "error", "-show_entries",
-           "stream=codec_type,codec_name,width,height,avg_frame_rate,pix_fmt,sample_aspect_ratio",
+           "stream=codec_type,codec_name,width,height,avg_frame_rate,pix_fmt,sample_aspect_ratio,color_transfer,color_primaries,color_space",
            "-show_entries", "stream_tags=rotate:stream_side_data=side_data_type,rotation,displaymatrix",
            "-show_entries", "format=duration,format_name:format_tags=major_brand",
            "-of", "json", str(movie)]
@@ -748,6 +748,15 @@ def probe_movie(movie):
         hold("EXPECTED_MOBILE_YUV420P_PIXEL_FORMAT")
     if track.get("sample_aspect_ratio") != "1:1":
         hold("EXPECTED_SQUARE_VIDEO_SAMPLE_PIXELS")
+    # A native 8-bit H.264 stream can still declare HDR PQ/HLG transfer,
+    # BT.2020 primaries or a non-SDR color matrix. A display pipeline may
+    # then remap text contrast/hues relative to the decoded RGB phone
+    # overlays, which are authored as SDR. Preserve the valid historical
+    # x264 default (unspecified) and explicitly signaled BT.709 only;
+    # neither case is a substitute for physical phone contrast review.
+    for field in ("color_transfer", "color_primaries", "color_space"):
+        if track.get(field) not in (None, "unknown", "bt709"):
+            hold("NON_SDR_PHONE_COLOR_METADATA:" + field)
     # MP4's track-header display matrix may rotate, reflect or translate a
     # perfectly square-pixel H.264 stream *at display time*. Raw FFmpeg
     # screenshot coordinates are not proof of phone safe-area geometry when
