@@ -562,6 +562,91 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
 
 
 
+    @staticmethod
+    def original_dead_air_fixture(inject=True):
+        original, mfa, asr = OriginalDigitalZeroNegativeTests.cross_model_fixture()
+        if not inject:
+            return original, mfa, asr
+        with wave.open(io.BytesIO(original), "rb") as source:
+            samples = np.frombuffer(source.readframes(source.getnframes()),
+                                    dtype="<i2").copy()
+        samples[663600:746160] = 0  # 27.65–31.09s: 3.44s source-like pause
+        out = io.BytesIO()
+        with wave.open(out, "wb") as audio:
+            audio.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            audio.writeframes(samples.tobytes())
+        changed = out.getvalue()
+        m = json.loads(mfa)
+        m["inputSha256"]["wav"] = digest(changed)
+        mfa = json.dumps(m).encode()
+        a = json.loads(asr)
+        a["sourceWavSha256"] = digest(changed)
+        asr = json.dumps(a).encode()
+        return changed, mfa, asr
+
+    def test_long_original_zero_pause_creative_hold_and_conflicting_asr(self):
+        wav_raw, mfa, asr = self.original_dead_air_fixture()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(wav_raw)), (
+                patch.object(original_guard, "MFA_SOURCE_ALIGNMENT_SHA", digest(mfa))), (
+                patch.object(original_guard, "POSE_ASR_RECEIPT_SHA", digest(asr))):
+            report = original_guard.audit_original_narration_dead_air(
+                wav_raw, mfa, asr)
+        self.assertEqual(report["status"], "RESEARCH_DEAD_AIR_CREATIVE_REVIEW_HOLD",
+                         report)
+        self.assertEqual(report["longDigitalZeroIntervalCount"], 1, report)
+        pause = report["longDigitalZeroIntervals"][0]
+        self.assertEqual(pause["startSample"], 663600)
+        self.assertEqual(pause["endSample"], 746160)
+        self.assertEqual(pause["durationMs"], 3440)
+        self.assertTrue(pause["allOriginalPcmSamplesAreZero"])
+        self.assertTrue(pause["asrOnsetsClaimedDuringDigitalZero"])
+        self.assertEqual(pause["zeroPcmSha256"],
+                         digest(bytes((746160 - 663600)*2)))
+        for key in ("mayPublish", "pronunciationVerified",
+                    "phonemeIdentityVerified", "wordTimingCalibrated",
+                    "captionTimingApproved", "pauseCraftApproved",
+                    "audioAltered", "automaticPauseRemovalAllowed",
+                    "automaticCaptionShiftAllowed"):
+            self.assertFalse(report[key], key)
+
+    def test_audio_without_long_digital_zero_grants_no_approval(self):
+        wav_raw, mfa, asr = self.original_dead_air_fixture(inject=False)
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(wav_raw)), (
+                patch.object(original_guard, "MFA_SOURCE_ALIGNMENT_SHA", digest(mfa))), (
+                patch.object(original_guard, "POSE_ASR_RECEIPT_SHA", digest(asr))):
+            result = original_guard.audit_original_narration_dead_air(
+                wav_raw, mfa, asr)
+        self.assertEqual(result["longDigitalZeroIntervalCount"], 0)
+        self.assertEqual(result["status"], "RESEARCH_DEAD_AIR_CREATIVE_REVIEW_HOLD")
+        self.assertFalse(result["mayPublish"])
+        self.assertFalse(result["captionTimingApproved"])
+
+    def test_dead_air_tampered_master_and_wrong_mode_refused(self):
+        wav_raw, mfa, asr = self.original_dead_air_fixture()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(wav_raw)), (
+                patch.object(original_guard, "MFA_SOURCE_ALIGNMENT_SHA", digest(mfa))), (
+                patch.object(original_guard, "POSE_ASR_RECEIPT_SHA", digest(asr))):
+            bad = wav_raw[:-2] + bytes([wav_raw[-2] ^ 1, wav_raw[-1]])
+            result = original_guard.audit_original_narration_dead_air(
+                bad, mfa, asr)
+        self.assertEqual(result["status"], "HOLD")
+        self.assertIn("DEAD_AIR_REQUIRES_AUTHENTICATED_CROSS_MODEL_SOURCES",
+                      result["errors"])
+        script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
+        process = subprocess.run([
+            sys.executable, script, "--original-dead-air-review",
+            "--original-wav", "/nonexistent/voice.wav",
+            "--mfa-alignment", "/nonexistent/mfa.json",
+            "--pose-asr-receipt", "/nonexistent/asr.json",
+            "--cross-model-timing-review"],
+            capture_output=True, text=True, timeout=20)
+        self.assertEqual(process.returncode, 2, process.stderr)
+        self.assertIn("DEAD_AIR_REQUIRES_EXCLUSIVE_ORIGINAL_THREE_SOURCE_MODE",
+                      process.stdout)
+        self.assertIn('"mayPublish": false', process.stdout)
+
+
+
 class SyntheticMasterLinkTests(unittest.TestCase):
     """Synthetic controls only; original 34.35s master is NOT in hosted checkout."""
 
