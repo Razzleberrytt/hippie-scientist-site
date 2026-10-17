@@ -113,16 +113,20 @@ def validate(data,source_directory):
                 hold("INVALID_ATOMIC_CARD_ID")
             if card in cards:
                 hold("DUPLICATED_CARD_CLAIM:"+card)
-            if group not in sources:
-                # Only canonical pre-existing workcards may earn new credit;
-                # creating new code/tests never creates a new atomic ID.
-                plan_dir=source_directory/"atomic"
-                canonical="\n".join(f.read_text(encoding="utf-8") for f in sorted(plan_dir.glob("0[1-5]-*.md")))
-                if ("**"+card+"**") not in canonical:
-                    hold("NEW_CARD_NOT_IN_CANONICAL_1590_TEMPLATES:"+card)
             permitted=("EM-034.04.","EM-034.02.") if group=="EM-034.04" else (group+".",)
             if not card.startswith(permitted):
                 hold("WRONG_PROOF_GROUP_FOR_CARD:"+card)
+            if group not in sources:
+                # Only canonical pre-existing workcards may earn new credit.
+                # Reject missing or empty plan inventory instead of trusting
+                # merely well-formed IDs or newly invented markdown proofs.
+                plan_dir=source_directory/"atomic"
+                plan_files=sorted(plan_dir.glob("0[1-5]-*.md"))
+                if len(plan_files)!=5:
+                    hold("CANONICAL_ATOMIC_INVENTORY_REQUIRED")
+                canonical="\n".join(f.read_text(encoding="utf-8") for f in plan_files)
+                if ("**"+card+"**") not in canonical:
+                    hold("NEW_CARD_NOT_IN_CANONICAL_1590_TEMPLATES:"+card)
             good=any(line.strip().startswith("|") and
                      (chr(96)+card+chr(96)) in line and
                      "VERIFIED_MACHINE_RESEARCH" in line
