@@ -1,0 +1,136 @@
+{
+  "schema": "ths-evidencemotion-four-lane-merge-source-pins-v1",
+  "baseMain": "4472c696c483fffa2a6344225f1956861d9d5b18",
+  "laneHeads": [
+    {
+      "pr": 6845,
+      "head": "4ce9605f883c411f9a906c733da240dc4a947a40"
+    },
+    {
+      "pr": 6840,
+      "head": "d944ae1e88839c14e038faec6e927d4a4817c5cd"
+    },
+    {
+      "pr": 6831,
+      "head": "c1f051185805a53dc71eb29c4fd8160b9abd17d9"
+    },
+    {
+      "pr": 6846,
+      "head": "a18034a998b83bb875f286d391f93404ebd0d4ba"
+    }
+  ],
+  "preflightPython": {
+    "head": "e919b2457df6a3254e5c9eea0fb134fd1934c646",
+    "modules": [
+      "test_narration_locked_treatments",
+      "test_phone_ui_audit",
+      "test_caption_variant_review",
+      "test_mobile_delivery_guard",
+      "test_audio_only_remaster_guard",
+      "test_finished_dual_delivery_guard",
+      "test_visual_scene_repair_guard",
+      "test_caption_multiwindow_repair_guard",
+      "test_lane5_candidate_scorecard",
+      "test_intro_science_label_research",
+      "test_shot5_mobile_safe_research",
+      "test_gut_release_science_guard",
+      "test_em00705_original_archive_replay.ReplayOutputSafetyTests"
+    ],
+    "testsRun": 403,
+    "failures": [],
+    "errors": [],
+    "skips": [
+      [
+        "test_real_owner_v8_archive_is_physically_read_and_known_defect_detected (test_gut_release_science_guard.GutReleaseScienceTests.test_real_owner_v8_archive_is_physically_read_and_known_defect_detected)",
+        "Owner original archive not mounted on hosted CI"
+      ]
+    ],
+    "seconds": 75.226,
+    "exitCode": 0,
+    "scope": "Focused synthetic/mechanical integration; not original-film or human approval"
+  },
+  "followup": {
+    "head": "9870a3c9d16d87805921770f66e9ce235744edf5",
+    "delta": "Lane5 persisted AAC anomaly holds and repeated timestamp drift; only scorecard source/test changed",
+    "linuxScorecardTests": 21,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "exitCode": 0
+  },
+  "nodeDirectorAndBotanicalTests": {
+    "tests": 62,
+    "failures": 0,
+    "skips": 0,
+    "exitCode": 0
+  },
+  "researchOnly": true,
+  "mayPublish": false,
+  "protectedMergeVerified": false,
+  "deploymentVerified": false,
+  "priorSnapshotLaneHeads": [
+    {
+      "pr": 6845,
+      "head": "078fcd43b2e49121fc0e6fcebc84517812eaa784"
+    },
+    {
+      "pr": 6840,
+      "head": "be2d4be798c2c66fed5096a725bc20e37831fad3"
+    },
+    {
+      "pr": 6831,
+      "head": "c1f051185805a53dc71eb29c4fd8160b9abd17d9"
+    },
+    {
+      "pr": 6846,
+      "head": "a18034a998b83bb875f286d391f93404ebd0d4ba"
+    }
+  ],
+  "initialBaseMain": "09032fc9593ff45d76343dc05ab1eac70b769338",
+  "postMainGuardFollowup": {
+    "head": "702117c63c3b70b1221d3a04a62088e053db7d21",
+    "phoneTests": {
+      "pass": 246,
+      "skip": 0,
+      "exitCode": 0
+    },
+    "sciencePackageTests": {
+      "pass": 26,
+      "skip": 1,
+      "reason": "optional original gut archive absent",
+      "exitCode": 0
+    },
+    "scorecardTests": {
+      "pass": 21,
+      "skip": 0,
+      "exitCode": 0
+    },
+    "sourceChanges": "Only phone audit, science package guard and scorecard source/tests beyond prior snapshot"
+  },
+  "lane1ProvenanceFollowup": {
+    "head": "d944ae1e88839c14e038faec6e927d4a4817c5cd",
+    "scope": "Completed successful GitHub workflow provenance and distinct-source-head stall history",
+    "windowsTests": 15,
+    "failures": 0,
+    "skips": 0,
+    "exitCode": 0
+  },
+  "previousBaseMain": "7882858ebcdd948d37ac00a1b0594c75d7920fe0",
+  "mainMovementFollowup": {
+    "head": "a5b692a27305df7d9780f1e66a49b849a8f35298",
+    "baselineChange": "Already merged gut-v9 audit #6850, four research audit files",
+    "lane4Change": "Local paired-PCM dropout negative and explicit codec-tail limits",
+    "windowsMobileTests": {
+      "pass": 33,
+      "skip": 1,
+      "exitCode": 0
+    },
+    "linuxMobileTests": {
+      "pass": 34,
+      "skip": 0,
+      "exitCode": 0
+    },
+    "priorFullCi": "39053394527 SUCCESS on c283602da; not a final-head claim",
+    "priorNativeRun": "39053394553 SUCCESS on c283602da; not a final-head claim"
+  }
+}

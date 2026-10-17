@@ -31,6 +31,45 @@ test('actual decoded repetitive visual layout automatically REJECTS without an o
  assert.equal(r.requiredHumanListener,false);
  assert.equal(r.contentMayPublish,false);
 });
+test('decoded centered-hero craft advisory survives handoff and requests more machine craft work',()=>{
+ const decoded={...frame(),decision:'CRAFT_REVIEW_HOLD',
+   reviewCandidates:['CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION'],
+   centerHeroStasisPeripheralMotionWindowsSec:[{startSec:0,endSec:16,repeatedPairCount:8}]};
+ const x=adjudicateFilm({...full(),decodedVisual:decoded});
+ assert.equal(x.decision,'AUTO_RUN_MISSING_REVIEWS');
+ assert.deepEqual(x.blockers,[]);
+ assert.ok(x.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_STATIC_CENTER_HERO'));
+ assert.equal(x.qualityAcceptableForResearch,false);
+ assert.equal(x.contentMayPublish,false);
+ assert.equal(x.requiredOwnerTasteVerdict,false);
+});
+test('unbound or empty craft warnings cannot pose as verified decoded-screen work',()=>{
+ const base={...frame(),decision:'CRAFT_REVIEW_HOLD',
+   reviewCandidates:['CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION'],
+   centerHeroStasisPeripheralMotionWindowsSec:[{startSec:0,endSec:6,repeatedPairCount:3}]};
+ const variants=[
+   {...base,reviewCandidates:[]},
+   {...base,centerHeroStasisPeripheralMotionWindowsSec:[]},
+   {...base,centerHeroStasisPeripheralMotionWindowsSec:[{startSec:0,endSec:2,repeatedPairCount:3}]},
+   {...base,centerHeroStasisPeripheralMotionWindowsSec:[{startSec:0,endSec:NaN,repeatedPairCount:3}]},
+   {...base,actualVideoSha256:V},
+ ];
+ for(const decodedVisual of variants){
+   const x=adjudicateFilm({...full(),decodedVisual});
+   assert.equal(x.decision,'AUTO_HOLD_INVALID_PROOF');
+   assert.equal(x.contentMayPublish,false);
+ }
+});
+test('hard decoded-frame defect overrides advisory and stays AUTO_REVISE',()=>{
+ const decoded={...frame(),decision:'CRAFT_REVIEW_HOLD',
+   issues:['MISSING_RECOGNIZABLE_SUBJECT_OR_NEAR_BLANK_CENTRAL_STAGE'],
+   reviewCandidates:['CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION'],
+   centerHeroStasisPeripheralMotionWindowsSec:[{startSec:0,endSec:6,repeatedPairCount:3}]};
+ const x=adjudicateFilm({...full(),decodedVisual:decoded});
+ assert.equal(x.decision,'AUTO_REVISE');
+ assert.ok(x.fixes.includes('MISSING_RECOGNIZABLE_SUBJECT_OR_NEAR_BLANK_CENTRAL_STAGE'));
+ assert.equal(x.contentMayPublish,false);
+});
 test('missing machine reviewers schedules more evidence, never asks an owner to be the judge',()=>{
  const x=adjudicateFilm({...full(),voice:undefined,critics:[]});
  assert.equal(x.decision,'AUTO_RUN_MISSING_REVIEWS');
@@ -105,4 +144,91 @@ test('unsigned or mismatched video identities reject before any purported film r
  const p=full();p.decodedVisual.actualVideoSha256='f'.repeat(64);
  const x=adjudicateFilm(p);
  assert.equal(x.decision,'AUTO_HOLD_INVALID_PROOF');
+});
+
+test('two-state layout loops request autonomous source-bound craft review',()=>{
+ const decoded={...frame(),decision:'CRAFT_REVIEW_HOLD',
+  reviewCandidates:['TWO_STATE_LAYOUT_OSCILLATION_WITHOUT_VISUAL_PROGRESSION'],
+  twoStateAlternationWindowsSec:[{startSec:0,endSec:16,lagTwoMatchedPairs:7}]};
+ const x=adjudicateFilm({...full(),decodedVisual:decoded});
+ assert.equal(x.decision,'AUTO_RUN_MISSING_REVIEWS');
+ assert.deepEqual(x.blockers,[]);
+ assert.ok(x.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_TWO_STATE_LAYOUT_LOOP'));
+ assert.equal(x.contentMayPublish,false);
+});
+test('invalid and forged two-state receipts remain a hard HOLD',()=>{
+ const valid={...frame(),decision:'CRAFT_REVIEW_HOLD',
+  reviewCandidates:['TWO_STATE_LAYOUT_OSCILLATION_WITHOUT_VISUAL_PROGRESSION'],
+  twoStateAlternationWindowsSec:[{startSec:0,endSec:16,lagTwoMatchedPairs:7}]};
+ for(const decodedVisual of [
+  {...valid,reviewCandidates:[]},
+  {...valid,reviewCandidates:[...valid.reviewCandidates,'INVENTED_PASS']},
+  {...valid,twoStateAlternationWindowsSec:[]},
+  {...valid,twoStateAlternationWindowsSec:[{startSec:0,endSec:6,lagTwoMatchedPairs:7}]},
+  {...valid,twoStateAlternationWindowsSec:[{startSec:0,endSec:16,lagTwoMatchedPairs:NaN}]},
+  {...valid,actualVideoSha256:V}
+ ]){
+  const x=adjudicateFilm({...full(),decodedVisual});
+  assert.equal(x.decision,'AUTO_HOLD_INVALID_PROOF');
+  assert.equal(x.contentMayPublish,false);
+ }
+});
+test('multiple craft issues remain separately visible without premium credit',()=>{
+ const decoded={...frame(),decision:'CRAFT_REVIEW_HOLD',
+  reviewCandidates:['TWO_STATE_LAYOUT_OSCILLATION_WITHOUT_VISUAL_PROGRESSION',
+    'CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION'],
+  twoStateAlternationWindowsSec:[{startSec:0,endSec:16,lagTwoMatchedPairs:7}],
+  centerHeroStasisPeripheralMotionWindowsSec:[{startSec:0,endSec:16,repeatedPairCount:8}]};
+ const x=adjudicateFilm({...full(),decodedVisual:decoded});
+ assert.ok(x.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_TWO_STATE_LAYOUT_LOOP'));
+ assert.ok(x.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_STATIC_CENTER_HERO'));
+ assert.equal(x.contentMayPublish,false);
+});
+
+
+test('real-phase blank warning remains a SHA-bound research hold rather than a publish pass',()=>{
+ const d={...frame(),samples:8,actualDurationSeconds:16,
+  oneHzOpticalScreenSamples:16,decision:'CRAFT_REVIEW_HOLD',
+  reviewCandidates:['INTERLEAVED_NEAR_BLANK_VISUAL_PHASE'],
+  interleavedBlankPhaseWindowsSec:[{startSec:1,endSec:16,blankSamples:8,blankPhase:1}]};
+ const x=adjudicateFilm({...full(),decodedVisual:d});
+ assert.deepEqual(x.blockers,[]);
+ assert.equal(x.decision,'AUTO_RUN_MISSING_REVIEWS');
+ assert.ok(x.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_INTERLEAVED_BLANK_INTERVALS'));
+ assert.equal(x.contentMayPublish,false);
+ assert.equal(x.qualityAcceptableForResearch,false);
+});
+test('blank-phase proof cannot cite intervals beyond actual decoded movie samples',()=>{
+ const good={...frame(),samples:8,actualDurationSeconds:16,
+  oneHzOpticalScreenSamples:16,decision:'CRAFT_REVIEW_HOLD',
+  reviewCandidates:['INTERLEAVED_NEAR_BLANK_VISUAL_PHASE'],
+  interleavedBlankPhaseWindowsSec:[{startSec:1,endSec:16,blankSamples:8,blankPhase:1}]};
+ const window={startSec:1,endSec:16,blankSamples:8,blankPhase:1};
+ for(const bad of [
+  {...good,oneHzOpticalScreenSamples:8},
+  {...good,oneHzOpticalScreenSamples:undefined},
+  {...good,samples:4},
+  {...good,actualDurationSeconds:6},
+  {...good,interleavedBlankPhaseWindowsSec:[{...window,endSec:1000,blankSamples:500}]},
+  {...good,interleavedBlankPhaseWindowsSec:[{...window,endSec:15}]},
+  {...good,interleavedBlankPhaseWindowsSec:[{...window,startSec:0}]},
+  {...good,interleavedBlankPhaseWindowsSec:[]},
+  {...good,reviewCandidates:['INTERLEAVED_NEAR_BLANK_VISUAL_PHASE','FORGED']}
+ ]){
+  const x=adjudicateFilm({...full(),decodedVisual:bad});
+  assert.equal(x.decision,'AUTO_HOLD_INVALID_PROOF');
+  assert.equal(x.contentMayPublish,false);
+ }
+});
+test('two-state and opposite-second blank defects coexist without hiding either',()=>{
+ const d={...frame(),samples:8,actualDurationSeconds:16,
+  oneHzOpticalScreenSamples:16,decision:'CRAFT_REVIEW_HOLD',
+  reviewCandidates:['TWO_STATE_LAYOUT_OSCILLATION_WITHOUT_VISUAL_PROGRESSION','INTERLEAVED_NEAR_BLANK_VISUAL_PHASE'],
+  twoStateAlternationWindowsSec:[{startSec:0,endSec:16,lagTwoMatchedPairs:7}],
+  interleavedBlankPhaseWindowsSec:[{startSec:1,endSec:16,blankSamples:8,blankPhase:1}]};
+ const x=adjudicateFilm({...full(),decodedVisual:d});
+ assert.equal(x.decision,'AUTO_RUN_MISSING_REVIEWS');
+ assert.ok(x.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_TWO_STATE_LAYOUT_LOOP'));
+ assert.ok(x.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_INTERLEAVED_BLANK_INTERVALS'));
+ assert.equal(x.contentMayPublish,false);
 });

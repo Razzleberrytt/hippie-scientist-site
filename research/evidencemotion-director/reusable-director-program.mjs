@@ -2,7 +2,7 @@
  * Reuses the existing G1–G6 previz director, source-first instead of 7-OH shot
  * hardcoding. Does NOT approve narration, science, craft, release or publishing.
  */
-import {proposeShots,GRAMMAR} from './previz-director.mjs';
+import {proposeShots,GRAMMAR,auditShotRepetition} from './previz-director.mjs';
 const HASH=x=>typeof x==='string'&&/^[0-9a-f]{64}$/.test(x);
 const ID=x=>typeof x==='string'&&/^[a-z0-9][a-z0-9_.:-]{1,90}$/.test(x);
 const unique=a=>Array.isArray(a)&&a.length>0&&new Set(a).size===a.length;
@@ -88,9 +88,17 @@ export function compileReusableDirector(program){
     add(errors,'EPISODE_NOT_TIMED_TO_ORIGINAL_VOICE');
  if(errors.length)return {status:'HOLD',errors:[...new Set(errors)],productionEligible:false,
                              excellentCertified:false,shots:[]};
+ // Mechanical negative review only: no grammar/camera variation, storyboard
+ // claim or decoded-pixel quantity is sufficient to certify good craft.
+ const sequenceCraft=auditShotRepetition(outputs);
+ if(sequenceCraft.status==='HOLD')return {status:'HOLD',
+  errors:sequenceCraft.errors,shots:[],productionEligible:false,
+  excellentCertified:false,mayPublish:false};
  return {status:'REUSABLE_G1_G6_PROGRAM_PROPOSED',topicId:program.topicId,
   grammarCoverage:[...new Set(outputs.map(x=>x.grammarId))].sort(),
   shots:outputs,errors:[],
+  sequenceCraftReview:sequenceCraft,
+  compositionRedirectionRequired:sequenceCraft.craftRemediationRequired,
   exactSourceManifestSha256:program.sourceManifestSha256,
   exactOriginalNarrationSha256:program.originalNarrationSha256,
   generatedScience:false,productionEligible:false,excellentCertified:false,

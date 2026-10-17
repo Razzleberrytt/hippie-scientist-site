@@ -1,0 +1,272 @@
+{
+  "schema": "ths-em-integration-caption-layout-replay-v1",
+  "failedHostedRun": 39051581769,
+  "failedHead": "3c4215c2a9c9792506203da6069afd19e03dccab",
+  "failure": "ENCODED_CAPTION_HOLD:CRITICAL_WORD_NOT_READABLE:sentence_2:hydroxyl",
+  "replay": {
+    "schema": "ths-encoded-critical-caption-ocr-v1",
+    "status": "CRITICAL_ENCODED_CAPTION_OCR_PASS_REVIEW_REQUIRED",
+    "exactH264Sha256": "5028e671d7e0525dc6768d6b93e252fab57cb149affc47e235ae66b397e39d7d",
+    "exactReceiptSha256": "b17b9af0224b21096e20faed2ac1b8782cfe674fd170456e0be7a3976c5fea53",
+    "duringCueWordsRecovered": 8,
+    "preRevealWordAbsencesVerified": 3,
+    "encodedSourceCardPairingRecovered": true,
+    "sampledDecodedEncodedFrames": 12,
+    "rows": [
+      {
+        "scene": "sentence_1",
+        "term": "different",
+        "phase": "during",
+        "frameIndex": 53,
+        "t": 1.76667,
+        "croppedImageSha256": "fe0808532713cbd8bcda4ea41a1e0dc7c1a3963ebbb51325ba4a7b6131986f56",
+        "ocrText": "different\n",
+        "ocrPixelLayout": {
+          "detectedInkLines": 1,
+          "pageSegmentation": 7,
+          "lineBandsPx": [
+            [
+              14,
+              77
+            ]
+          ],
+          "contrastMask": "LUMA_GE130_BLACK_ELSE_WHITE",
+          "contrastMaskSha256": "5f0ea2b7171181c688df05cb1ef9204f82de6d2977ccd7da4dc696f528e6fca7"
+        }
+      },
+      {
+        "scene": "sentence_2",
+        "term": "hydroxyl",
+        "phase": "during",
+        "frameIndex": 123,
+        "t": 4.1,
+        "croppedImageSha256": "f6ae6996594b6f47e570c3347127be84b3c9dce587e40db1052e3974a90e7a10",
+        "ocrText": "This hydroxyl\n",
+        "ocrPixelLayout": {
+          "detectedInkLines": 1,
+          "pageSegmentation": 7,
+          "lineBandsPx": [
+            [
+              18,
+              109
+            ]
+          ],
+          "contrastMask": "LUMA_GE130_BLACK_ELSE_WHITE",
+          "contrastMaskSha256": "512d4d5a222ff1b683cc5a193cd9218d6c706ad9ae71a6fd892f080c4852640f"
+        }
+      },
+      {
+        "scene": "sentence_3",
+        "term": "record",
+        "phase": "during",
+        "frameIndex": 427,
+        "t": 14.23333,
+        "croppedImageSha256": "5c99598508957f617850c1b3cdc860763de18fb6d379e93a3eaab120722bb46c",
+        "ocrText": "record,\n",
+        "ocrPixelLayout": {
+          "detectedInkLines": 1,
+          "pageSegmentation": 7,
+          "lineBandsPx": [
+            [
+              14,
+              88
+            ]
+          ],
+          "contrastMask": "LUMA_GE130_BLACK_ELSE_WHITE",
+          "contrastMaskSha256": "2f74250a4c417ae31fbe49e5bfc3931440b94e0e71c3f583868d7489f36bde55"
+        }
+      },
+      {
+        "scene": "sentence_4",
+        "term": "computed",
+        "phase": "during",
+        "frameIndex": 564,
+        "t": 18.8,
+        "croppedImageSha256": "def81fd2e01cb07790c1ff404ad0cbd1cdeef8ac0713140d7291150741f31d57",
+        "ocrText": "computed.\n",
+        "ocrPixelLayout": {
+          "detectedInkLines": 1,
+          "pageSegmentation": 7,
+          "lineBandsPx": [
+            [
+              14,
+              95
+            ]
+          ],
+          "contrastMask": "LUMA_GE130_BLACK_ELSE_WHITE",
+          "contrastMaskSha256": "bbb4574219024046bf8b34ecf91facb9625ae61cdf4f4e7a052c7abbb715dc7a"
+        }
+      },
+      {
+        "scene": "sentence_4",
+        "term": "not",
+        "phase": "during",
+        "frameIndex": 598,
+        "t": 19.93333,
+        "croppedImageSha256": "b6a747ce79d65b52298a86a8cf9e5c10049809f1a19b12f67fa50b3455ea77fb",
+        "ocrText": "not\n",
+        "ocrPixelLayout": {
+          "detectedInkLines": 1,
+          "pageSegmentation": 7,
+          "lineBandsPx": [
+            [
+              20,
+              77
+            ]
+          ],
+          "contrastMask": "LUMA_GE130_BLACK_ELSE_WHITE",
+          "contrastMaskSha256": "3bd6497b19bfaf55bd5d5bbbffe15033c14f59ee9f2deef4d1aa94fef21deca7"
+        }
+      },
+      {
+        "scene": "sentence_5",
+        "term": "not",
+        "phase": "during",
+        "frameIndex": 775,
+        "t": 25.83333,
+        "croppedImageSha256": "ded644efb8aba56fa909cc49b8c01f29449643a954ce30cb203968114c750834",
+        "ocrText": "not\n",
+        "ocrPixelLayout": {
+          "detectedInkLines": 1,
+          "pageSegmentation": 7,
+          "lineBandsPx": [
+            [
+              20,
+              77
+            ]
+          ],
+          "contrastMask": "LUMA_GE130_BLACK_ELSE_WHITE",
+          "contrastMaskSha256": "459761feeecacc8267087bcde20ab0e30e30696ce165b32f41e4509badde30ee"
+        }
+      },
+      {
+        "scene": "sentence_5",
+        "term": "effects",
+        "phase": "during",
+        "frameIndex": 794,
+        "t": 26.46667,
+        "croppedImageSha256": "9e8414db76751add1ae1819e511167c6aff18320ba1ad56011e523de7440c7e9",
+        "ocrText": "effects\n",
+        "ocrPixelLayout": {
+          "detectedInkLines": 1,
+          "pageSegmentation": 7,
+          "lineBandsPx": [
+            [
+              14,
+              77
+            ]
+          ],
+          "contrastMask": "LUMA_GE130_BLACK_ELSE_WHITE",
+          "contrastMaskSha256": "c98581fc1911c1b7cfdaf7b79050c3d9ef93eed8e9af2a139897697276b3ad19"
+        }
+      },
+      {
+        "scene": "sentence_6",
+        "term": "closer",
+        "phase": "during",
+        "frameIndex": 1002,
+        "t": 33.4,
+        "croppedImageSha256": "af89a9b433ab800534d5cb0756ee25b829b80f3f77193476e0a08946a2ab12a4",
+        "ocrText": "looking closer\n",
+        "ocrPixelLayout": {
+          "detectedInkLines": 1,
+          "pageSegmentation": 7,
+          "lineBandsPx": [
+            [
+              14,
+              95
+            ]
+          ],
+          "contrastMask": "LUMA_GE130_BLACK_ELSE_WHITE",
+          "contrastMaskSha256": "9916be49bc09ce8818d1f7b7af63b861462a67c5850ba7a9490fb239c4514402"
+        }
+      },
+      {
+        "scene": "sentence_1",
+        "term": "different",
+        "phase": "before",
+        "frameIndex": 48,
+        "t": 1.6,
+        "croppedImageSha256": "791804a77ef79a8fc4c00172699e10c89644df25f44ec94412ed05540b2e8f88",
+        "ocrText": "So\n",
+        "ocrPixelLayout": {
+          "detectedInkLines": 0,
+          "pageSegmentation": 7,
+          "lineBandsPx": [],
+          "contrastMask": "LUMA_GE130_BLACK_ELSE_WHITE",
+          "contrastMaskSha256": "9b50ae82ecd41304fc2ce340ebc0d5cee4a369897d8475ec5055bc05d9263ff8"
+        }
+      },
+      {
+        "scene": "sentence_4",
+        "term": "not",
+        "phase": "before",
+        "frameIndex": 594,
+        "t": 19.8,
+        "croppedImageSha256": "fb997dc48103973acd38bbd9cf44c2ee0e75d880015bfe4b130535b2c9cd5141",
+        "ocrText": "computed. It Is\n",
+        "ocrPixelLayout": {
+          "detectedInkLines": 1,
+          "pageSegmentation": 7,
+          "lineBandsPx": [
+            [
+              14,
+              95
+            ]
+          ],
+          "contrastMask": "LUMA_GE130_BLACK_ELSE_WHITE",
+          "contrastMaskSha256": "1efe713413d23c40ab5111f793f2a9dbb08c4b0cb1090290d3fa264cdb8375ec"
+        }
+      },
+      {
+        "scene": "sentence_5",
+        "term": "not",
+        "phase": "before",
+        "frameIndex": 771,
+        "t": 25.7,
+        "croppedImageSha256": "39eb7169c7fb5feebb9131b4b508b00ede356ee2e0cab4ea260a73dad2020dcb",
+        "ocrText": "So\n",
+        "ocrPixelLayout": {
+          "detectedInkLines": 0,
+          "pageSegmentation": 7,
+          "lineBandsPx": [],
+          "contrastMask": "LUMA_GE130_BLACK_ELSE_WHITE",
+          "contrastMaskSha256": "9b50ae82ecd41304fc2ce340ebc0d5cee4a369897d8475ec5055bc05d9263ff8"
+        }
+      },
+      {
+        "scene": "source_hold",
+        "term": "cid_pair",
+        "phase": "source",
+        "t": 29.3,
+        "frameIndex": 879,
+        "croppedImageSha256": "f298f9a672f7d794301b82a443c7cd614ea991f6580e71224c71e36372c40cf6",
+        "ocrText": "THE HIPPIE SCIENTIST\n\nSOURCE\n\nMitragynine * CID 3034396\n\nPubChem\n\n7-OH \u00a2 CID 44301524\n\nCID = compound record number\n\nC23H30N205\n\npubchem.ncbi.nIm.nih.gov\n"
+      }
+    ],
+    "allFrameEncodedOCR": false,
+    "independentAudienceComprehensionVerified": false,
+    "mayPublish": false
+  },
+  "actualOcrSyntheticNegatives": {
+    "blankCaptionActualOcr": "So\n",
+    "missingCriticalWordHold": "ENCODED_CAPTION_HOLD:CRITICAL_WORD_NOT_READABLE:sentence_1:different",
+    "prematureCaptionActualOcr": "not\n",
+    "prematureWordHold": "ENCODED_CAPTION_HOLD:PREMATURE_PROTECTED_WORD:sentence_4:not",
+    "syntheticPixelNegativesOnly": true,
+    "exitCode": 0
+  },
+  "focusedTests": {
+    "linuxEncodedCaption": 9,
+    "windowsEncodedCaption": 9,
+    "linuxPixelRecovery": 16,
+    "allExitCodes": 0
+  },
+  "codeGitBlobs": {
+    "encoded_caption_cue_audit.py": "8c2e0010e2bbd66dfc0fb5523571aef06169db01",
+    "actual_pixel_text_recovery.py": "1f904315ab013b97eb906512a2ae06b434e32054"
+  },
+  "mayPublish": false,
+  "moviePixelsChanged": false,
+  "sourceWavChanged": false
+}
