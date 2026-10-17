@@ -468,12 +468,13 @@ def verify_uploaded_movie(artifact_dir, report):
 
 
 
-def audit_downloaded_original_movie(artifact_dir, *, expected_geometry=NATIVE):
-    """Independently decode the DOWNLOADED file; never trust producer booleans.
+def audit_downloaded_original_movie(artifact_dir, *, expected_geometry=NATIVE,
+                                    expected_film_sha256=None):
+    """Physically decode the exact downloaded video, with input identity held.
 
-    The ordinary CLI always supplies the original 1080x1920x1031 requirement.
-    Synthetic codec fixtures may pass a small geometry from explicit unit
-    calls only. Both streams are decoded, not just probed for container tags.
+    The CLI supplies the producer's verified encoded-film hash. A fixture
+    may omit that external pin but must still pass the before/after byte
+    continuity check. This cannot replace independent craft/phone review.
     """
     if (not isinstance(expected_geometry, tuple) or len(expected_geometry) != 3
             or any(type(n) is not int or n < 1 for n in expected_geometry)):
@@ -483,7 +484,18 @@ def audit_downloaded_original_movie(artifact_dir, *, expected_geometry=NATIVE):
     movie = base / ORIGINAL_NAME
     if not movie.is_file() or movie.is_symlink():
         raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_FILM_UNAVAILABLE")
-    validate_disabled_x264_cpu_asm(base / "encoder.log")
+    if expected_film_sha256 is not None and (
+            not isinstance(expected_film_sha256, str)
+            or len(expected_film_sha256) != 64
+            or any(c not in "0123456789abcdef" for c in expected_film_sha256)):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:EXPECTED_DOWNLOADED_FILM_SHA_INVALID")
+    encoder_log = base / "encoder.log"
+    validate_disabled_x264_cpu_asm(encoder_log)
+    movie_sha_before = sha_file(movie)
+    encoder_log_sha_before = sha_file(encoder_log)
+    if (expected_film_sha256 is not None
+            and movie_sha_before != expected_film_sha256):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_FILM_NOT_PRODUCER_PINNED")
     try:
         probe = subprocess.run([
             original_media_executable("ffprobe"), "-v", "error",
@@ -516,6 +528,13 @@ def audit_downloaded_original_movie(artifact_dir, *, expected_geometry=NATIVE):
         ], check=True, capture_output=True, timeout=120)
     except (OSError, subprocess.SubprocessError) as exc:
         raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_MEDIA_FULL_DECODE_FAILED") from exc
+    # Metadata/probe/decode verdicts only apply to the exact bytes we saw
+    # before starting. No successful receipt for a replaced movie/log.
+    if (not movie.is_file() or movie.is_symlink()
+            or not encoder_log.is_file() or encoder_log.is_symlink()
+            or sha_file(movie) != movie_sha_before
+            or sha_file(encoder_log) != encoder_log_sha_before):
+        raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_MEDIA_BYTES_CHANGED_DURING_AUDIT")
     return {
         "originalNativeFullMediaPhysicalDecode": True,
         "actualDecodedSourceFrameCount": frames,
@@ -614,8 +633,10 @@ if __name__ == "__main__":
     else:
         a, ae = read_original_pair_dir(args.first)
         b, be = read_original_pair_dir(args.second)
-        verified_a = audit_downloaded_original_movie(args.first)
-        verified_b = audit_downloaded_original_movie(args.second)
+        verified_a = audit_downloaded_original_movie(
+            args.first, expected_film_sha256=a["sourceToEncoderStdinReceipt"]["filmSha256"])
+        verified_b = audit_downloaded_original_movie(
+            args.second, expected_film_sha256=b["sourceToEncoderStdinReceipt"]["filmSha256"])
         report = inspect_both(a, b, ae, be)
         report["downloadedMovieBytesRehashedAgainstBothEncoderReceipts"] = True
         report["twoDownloadedNativeMoviesIndependentlyFullyDecoded"] = (
