@@ -37,6 +37,23 @@ def probe(path):
     if len(videos)!=1 or len(audios)!=1: raise Hold('ONE_VIDEO_AND_AUDIO_TRACK_REQUIRED')
     return videos[0],audios[0]
 
+def require_undistorted_portrait(video):
+    # A nominal 720x1280 stream with anamorphic SAR or a 90-degree
+    # display matrix is NOT the same as an actual upright 9:16 phone video.
+    if (video.get('sample_aspect_ratio')!='1:1'
+            or video.get('display_aspect_ratio')!='9:16'):
+        raise Hold('NON_SQUARE_PIXEL_PORTRAIT')
+    angles=[(video.get('tags') or {}).get('rotate',0)]
+    angles += [side['rotation'] for side in (video.get('side_data_list') or [])
+               if 'rotation' in side]
+    try:
+        readings=[float(v) for v in angles]
+    except (ValueError, TypeError, OverflowError):
+        raise Hold('INVALID_DISPLAY_ROTATION_METADATA')
+    if any(not math.isfinite(v) or abs(v)>0.01 for v in readings):
+        raise Hold('ROTATED_DISPLAY_METADATA_NOT_ALLOWED')
+
+
 def frame_pts(path):
     b=cmd(['ffprobe','-v','error','-select_streams','v:0','-show_entries','frame=best_effort_timestamp_time','-of','csv=p=0',str(path)])
     try:
@@ -140,6 +157,8 @@ def audit(before,after,sha_before,sha_after,*,source_size=(1080,1920),mobile_siz
             raise Hold('FILM_SHA256_DOES_NOT_MATCH_PIN')
     v0,a0=probe(before);v1,a1=probe(after)
     if (v0['width'],v0['height'])!=source_size or (v1['width'],v1['height'])!=mobile_size:raise Hold('WRONG_SOURCE_OR_MOBILE_GEOMETRY')
+    require_undistorted_portrait(v0)
+    require_undistorted_portrait(v1)
     if (v0['codec_name'],v1['codec_name'])!=('h264','h264') or v1.get('profile') not in ('Constrained Baseline','Baseline','Main') or v1.get('pix_fmt')!='yuv420p':raise Hold('NOT_PHONE_COMPATIBLE_H264')
     if int(v1.get('level',999))>31:raise Hold('PHONE_H264_LEVEL_ABOVE_31')
     if v0.get('r_frame_rate')!='30/1' or v1.get('r_frame_rate')!='30/1':raise Hold('NOT_EXACT_30FPS')
