@@ -1,0 +1,187 @@
+{
+  "scope": "inert-owner-patch-only-not-applied-to-Lane5",
+  "lane5Head": "0da9c00f8d5b301dfd61dd669e3f2dca5db99c54",
+  "sourceCombinedTree": "0af00db278f31dbfd15298ac76582291224da14d",
+  "stage": "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-scorecard-patch-ptjsj8ck",
+  "diagnosis": {
+    "passed": false,
+    "records": [
+      {
+        "kind": "path",
+        "path": "C:\\Users\\Will\\AppData\\Local\\Temp\\tmpl071mdhn\\film.mp4",
+        "signature": {
+          "st_dev": 16575020226984077153,
+          "st_ino": 2814749769580138,
+          "st_size": 51,
+          "st_mtime_ns": 1792240606331575500,
+          "st_ctime_ns": 1792240606331575500,
+          "st_birthtime_ns": 1792240606331575500
+        }
+      },
+      {
+        "kind": "fd",
+        "signature": {
+          "st_dev": 16575020226984077153,
+          "st_ino": 2814749769580138,
+          "st_size": 51,
+          "st_mtime_ns": 1792240606331575500,
+          "st_ctime_ns": 1792240606331575500,
+          "st_birthtime_ns": 1792240606331575500
+        }
+      },
+      {
+        "kind": "fd",
+        "signature": {
+          "st_dev": 16575020226984077153,
+          "st_ino": 2814749769580138,
+          "st_size": 51,
+          "st_mtime_ns": 1792240606331575500,
+          "st_ctime_ns": 1792240606331575500,
+          "st_birthtime_ns": 1792240606331575500
+        }
+      },
+      {
+        "kind": "path",
+        "path": "C:\\Users\\Will\\AppData\\Local\\Temp\\tmpl071mdhn\\film.mp4",
+        "signature": {
+          "st_dev": 16575020226984077153,
+          "st_ino": 2814749769580138,
+          "st_size": 51,
+          "st_mtime_ns": 1792240606331575500,
+          "st_ctime_ns": 1792240606331575500,
+          "st_birthtime_ns": 1792240606331575500
+        }
+      },
+      {
+        "kind": "path",
+        "path": "C:\\Users\\Will\\AppData\\Local\\Temp\\tmpl071mdhn\\narrator.wav",
+        "signature": {
+          "st_dev": 16575020226984077153,
+          "st_ino": 2814749769580139,
+          "st_size": 24044,
+          "st_mtime_ns": 1792240606332576900,
+          "st_ctime_ns": 1792240606331575500,
+          "st_birthtime_ns": 1792240606331575500
+        }
+      },
+      {
+        "kind": "fd",
+        "signature": {
+          "st_dev": 16575020226984077153,
+          "st_ino": 2814749769580139,
+          "st_size": 24044,
+          "st_mtime_ns": 1792240606332576900,
+          "st_ctime_ns": 1792240606332576900,
+          "st_birthtime_ns": 1792240606331575500
+        }
+      },
+      {
+        "kind": "fd",
+        "signature": {
+          "st_dev": 16575020226984077153,
+          "st_ino": 2814749769580139,
+          "st_size": 24044,
+          "st_mtime_ns": 1792240606332576900,
+          "st_ctime_ns": 1792240606332576900,
+          "st_birthtime_ns": 1792240606331575500
+        }
+      },
+      {
+        "kind": "path",
+        "path": "C:\\Users\\Will\\AppData\\Local\\Temp\\tmpl071mdhn\\narrator.wav",
+        "signature": {
+          "st_dev": 16575020226984077153,
+          "st_ino": 2814749769580139,
+          "st_size": 24044,
+          "st_mtime_ns": 1792240606332576900,
+          "st_ctime_ns": 1792240606331575500,
+          "st_birthtime_ns": 1792240606331575500
+        }
+      }
+    ]
+  },
+  "red": {
+    "command": [
+      "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_lane5_candidate_scorecard.PhysicalStatSurfaceTests"
+    ],
+    "exitCode": 1,
+    "output": "test_descriptor_ctime_change_rejected_with_stable_path (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_descriptor_ctime_change_rejected_with_stable_path) ... ok\r\ntest_path_ctime_change_rejected_with_stable_descriptor (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_path_ctime_change_rejected_with_stable_descriptor) ... ok\r\ntest_path_replacement_after_open_rejected (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_path_replacement_after_open_rejected) ... ok\r\ntest_stable_path_birthtime_and_descriptor_changetime_may_differ (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_stable_path_birthtime_and_descriptor_changetime_may_differ) ... ERROR\r\n\r\n======================================================================\r\nERROR: test_stable_path_birthtime_and_descriptor_changetime_may_differ (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_stable_path_birthtime_and_descriptor_changetime_may_differ)\r\n----------------------------------------------------------------------\r\nTraceback (most recent call last):\r\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-scorecard-patch-ptjsj8ck\\test_lane5_candidate_scorecard.py\", line 152, in test_stable_path_birthtime_and_descriptor_changetime_may_differ\r\n    self.assertEqual(self.check_surfaces(), h(b'payload'))\r\n                     ^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-scorecard-patch-ptjsj8ck\\test_lane5_candidate_scorecard.py\", line 149, in check_surfaces\r\n    return _physical_sha(candidate)\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-scorecard-patch-ptjsj8ck\\lane5_candidate_scorecard.py\", line 61, in _physical_sha\r\n    hold(\"FILE_CHANGED_DURING_REVIEW\")\r\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-scorecard-patch-ptjsj8ck\\lane5_candidate_scorecard.py\", line 30, in hold\r\n    raise ValueError(\"LANE5_CANDIDATE_HOLD:\" + reason)\r\nValueError: LANE5_CANDIDATE_HOLD:FILE_CHANGED_DURING_REVIEW\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.022s\r\n\r\nFAILED (errors=1)\r\n",
+    "testsRun": 4,
+    "passed": 3,
+    "errorEvents": 1
+  },
+  "green": {
+    "command": [
+      "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_lane5_candidate_scorecard"
+    ],
+    "exitCode": 0,
+    "output": "test_mutation_with_restored_mtime_is_rejected (test_lane5_candidate_scorecard.ActualFileMutationTests.test_mutation_with_restored_mtime_is_rejected) ... ok\r\ntest_all_research_flags_stay_false_even_when_screen_is_clear (test_lane5_candidate_scorecard.Lane5ScorecardTests.test_all_research_flags_stay_false_even_when_screen_is_clear) ... ok\r\ntest_duplicate_json_keys_and_cross_film_screen_are_never_accepted (test_lane5_candidate_scorecard.Lane5ScorecardTests.test_duplicate_json_keys_and_cross_film_screen_are_never_accepted) ... ok\r\ntest_external_original_wav_pin_required (test_lane5_candidate_scorecard.Lane5ScorecardTests.test_external_original_wav_pin_required) ... ok\r\ntest_groups_report_contiguous_native_times_without_hiding_gaps (test_lane5_candidate_scorecard.Lane5ScorecardTests.test_groups_report_contiguous_native_times_without_hiding_gaps) ... ok\r\ntest_screen_rejects_mixed_candidate_identity_and_rewritten_counts (test_lane5_candidate_scorecard.Lane5ScorecardTests.test_screen_rejects_mixed_candidate_identity_and_rewritten_counts) ... ok\r\ntest_descriptor_ctime_change_rejected_with_stable_path (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_descriptor_ctime_change_rejected_with_stable_path) ... ok\r\ntest_path_ctime_change_rejected_with_stable_descriptor (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_path_ctime_change_rejected_with_stable_descriptor) ... ok\r\ntest_path_replacement_after_open_rejected (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_path_replacement_after_open_rejected) ... ok\r\ntest_stable_path_birthtime_and_descriptor_changetime_may_differ (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_stable_path_birthtime_and_descriptor_changetime_may_differ) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 10 tests in 0.067s\r\n\r\nOK\r\n",
+    "testsRun": 10,
+    "passed": 10,
+    "errors": 0,
+    "skips": 0
+  },
+  "patch": "patches/lane5-consistent-stat-surfaces.patch",
+  "mayPublish": false,
+  "newAtomicCards": 0,
+  "applyCheckExitCode": 0,
+  "temporaryApplyExitCode": 0,
+  "temporaryApplyRoot": "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-owner-patch-c79btssf",
+  "linuxGreen": {
+    "command": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--cd",
+      "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-owner-patch-c79btssf/research/evidencemotion-director",
+      "--exec",
+      "env",
+      "PYTHONPATH=/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-exhaustive-uff8cped/research/evidencemotion-director",
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_lane5_candidate_scorecard"
+    ],
+    "exitCode": 0,
+    "output": "test_mutation_with_restored_mtime_is_rejected (test_lane5_candidate_scorecard.ActualFileMutationTests.test_mutation_with_restored_mtime_is_rejected) ... ok\ntest_all_research_flags_stay_false_even_when_screen_is_clear (test_lane5_candidate_scorecard.Lane5ScorecardTests.test_all_research_flags_stay_false_even_when_screen_is_clear) ... ok\ntest_duplicate_json_keys_and_cross_film_screen_are_never_accepted (test_lane5_candidate_scorecard.Lane5ScorecardTests.test_duplicate_json_keys_and_cross_film_screen_are_never_accepted) ... ok\ntest_external_original_wav_pin_required (test_lane5_candidate_scorecard.Lane5ScorecardTests.test_external_original_wav_pin_required) ... ok\ntest_groups_report_contiguous_native_times_without_hiding_gaps (test_lane5_candidate_scorecard.Lane5ScorecardTests.test_groups_report_contiguous_native_times_without_hiding_gaps) ... ok\ntest_screen_rejects_mixed_candidate_identity_and_rewritten_counts (test_lane5_candidate_scorecard.Lane5ScorecardTests.test_screen_rejects_mixed_candidate_identity_and_rewritten_counts) ... ok\ntest_descriptor_ctime_change_rejected_with_stable_path (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_descriptor_ctime_change_rejected_with_stable_path) ... ok\ntest_path_ctime_change_rejected_with_stable_descriptor (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_path_ctime_change_rejected_with_stable_descriptor) ... ok\ntest_path_replacement_after_open_rejected (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_path_replacement_after_open_rejected) ... ok\ntest_stable_path_birthtime_and_descriptor_changetime_may_differ (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_stable_path_birthtime_and_descriptor_changetime_may_differ) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.016s\n\nOK\n",
+    "testsRun": 10,
+    "passed": 10,
+    "errors": 0,
+    "skips": 0
+  },
+  "safetyBoundary": "Inert owner patch; source branches untouched. Retains same-API identity/size/mtime/ctime checks; confirms streamed content twice to detect observed same-size restored-mtime mutation within one metadata tick. Adds one bounded streaming reread per hash. No claim of atomic snapshot under arbitrary concurrent writes. Owner independent review and required gates remain necessary.",
+  "patchCreationCorrection": "First apply-check failed because generated patch file used Windows CRLF against exact LF Git blobs. Rewrote patch bytes as UTF-8 LF; fresh exact-owner snapshot apply-check then0. No owner-source change.",
+  "metadataOnlyIntermediateLinuxResult": {
+    "command": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--cd",
+      "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-owner-patch-7bah_49c/research/evidencemotion-director",
+      "--exec",
+      "env",
+      "PYTHONPATH=/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-exhaustive-uff8cped/research/evidencemotion-director",
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_lane5_candidate_scorecard"
+    ],
+    "exitCode": 1,
+    "output": "test_mutation_with_restored_mtime_is_rejected (test_lane5_candidate_scorecard.ActualFileMutationTests.test_mutation_with_restored_mtime_is_rejected) ... FAIL\ntest_all_research_flags_stay_false_even_when_screen_is_clear (test_lane5_candidate_scorecard.Lane5ScorecardTests.test_all_research_flags_stay_false_even_when_screen_is_clear) ... ok\ntest_duplicate_json_keys_and_cross_film_screen_are_never_accepted (test_lane5_candidate_scorecard.Lane5ScorecardTests.test_duplicate_json_keys_and_cross_film_screen_are_never_accepted) ... ok\ntest_external_original_wav_pin_required (test_lane5_candidate_scorecard.Lane5ScorecardTests.test_external_original_wav_pin_required) ... ok\ntest_groups_report_contiguous_native_times_without_hiding_gaps (test_lane5_candidate_scorecard.Lane5ScorecardTests.test_groups_report_contiguous_native_times_without_hiding_gaps) ... ok\ntest_screen_rejects_mixed_candidate_identity_and_rewritten_counts (test_lane5_candidate_scorecard.Lane5ScorecardTests.test_screen_rejects_mixed_candidate_identity_and_rewritten_counts) ... ok\ntest_descriptor_ctime_change_rejected_with_stable_path (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_descriptor_ctime_change_rejected_with_stable_path) ... ok\ntest_path_ctime_change_rejected_with_stable_descriptor (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_path_ctime_change_rejected_with_stable_descriptor) ... ok\ntest_path_replacement_after_open_rejected (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_path_replacement_after_open_rejected) ... ok\ntest_stable_path_birthtime_and_descriptor_changetime_may_differ (test_lane5_candidate_scorecard.PhysicalStatSurfaceTests.test_stable_path_birthtime_and_descriptor_changetime_may_differ) ... ok\n\n======================================================================\nFAIL: test_mutation_with_restored_mtime_is_rejected (test_lane5_candidate_scorecard.ActualFileMutationTests.test_mutation_with_restored_mtime_is_rejected)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-owner-patch-7bah_49c/research/evidencemotion-director/test_lane5_candidate_scorecard.py\", line 192, in test_mutation_with_restored_mtime_is_rejected\n    with self.assertRaisesRegex(ValueError, 'FILE_CHANGED_DURING_REVIEW'):\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 10 tests in 0.019s\n\nFAILED (failures=1)\n"
+  },
+  "patchSha256": "40e1df5b310f4a5b0cac68919c73e5944e17a816f66a8716687925f8426d3a5a"
+}

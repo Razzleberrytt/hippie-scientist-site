@@ -1,0 +1,129 @@
+{
+  "scope": "access-only-updated-Lane5-integration-guard-replay",
+  "priorCombinedTree": "785fa8a27b2da7d56306ec3f704adeafbd780833",
+  "priorHeads": [
+    {
+      "lane": "lane1",
+      "head": "ed172d6f5ba3554c3be415789243db21e317d203",
+      "mergeTreeExitCode": 0,
+      "tree": "09f6883e27ceef0c347117c8295b8d07718d83ca"
+    },
+    {
+      "lane": "lane2",
+      "head": "4d1468adc77f3440346ac3c7289f406f7a8d2ad7",
+      "mergeTreeExitCode": 0,
+      "tree": "4a5e0c8a33714acb1373ee0c2106f7476d387ae2"
+    },
+    {
+      "lane": "lane3",
+      "head": "16580d70575505680951d881d73ba1ad19513062",
+      "mergeTreeExitCode": 0,
+      "tree": "9354503cbdb8ff8870a82318dfd6b442cd580729"
+    },
+    {
+      "lane": "lane4",
+      "head": "cb5bb5dd45364fe60a370f00d13434054491992a",
+      "mergeTreeExitCode": 0,
+      "tree": "ecb45cfe8a9329945e3b94823f392f9eb5ce80f3"
+    },
+    {
+      "lane": "lane5",
+      "head": "fcafcd50f7bd32dec35d003c77f99decd8c369b4",
+      "mergeTreeExitCode": 0,
+      "tree": "56dced47ce51fe5785fedbcc56d9f8c847d2e16b"
+    },
+    {
+      "lane": "lane6",
+      "head": "9ea973e2406585db3f0d6db298bbddfc8b19f5ef",
+      "mergeTreeExitCode": 0,
+      "tree": "785fa8a27b2da7d56306ec3f704adeafbd780833"
+    }
+  ],
+  "lane5Head": "3489cbdfd1c8c069c6fd5f26e6c46ce2decdcf6c",
+  "mergeTreeExitCode": 0,
+  "mergeOutput": "d2a9b70e81241fd8e876ad5fbafbed6e9b8cac2a\n",
+  "mergeStderr": "",
+  "mayPublish": false,
+  "newAtomicCards": 0,
+  "combinedTree": "d2a9b70e81241fd8e876ad5fbafbed6e9b8cac2a",
+  "snapshot": "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-linux-full-guard-1ut4wgaz",
+  "archiveSha256": "7e10aa53026852458eb3458a0e6dafc10a4bd39d98f86a5d67de638aa3270ea4",
+  "checks": [
+    {
+      "module": "test_native_stdin_capture_guard",
+      "command": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--cd",
+        "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-linux-full-guard-1ut4wgaz/research/evidencemotion-director",
+        "--exec",
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "test_native_stdin_capture_guard"
+      ],
+      "exitCode": 0,
+      "seconds": 9.249,
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-linux-full-test_native_stdin_capture_guard.log",
+      "logSha256": "7c809d8b322dab7fe07cfcba46c0a82a4c6c5514d6056f647db88ebf2f73998e",
+      "output": "test_actual_frame_hashes_and_stream_bytes_from_physical_sink (test_native_stdin_capture_guard.Tests.test_actual_frame_hashes_and_stream_bytes_from_physical_sink) ... ok\ntest_actual_pair_report_assembly_stays_compatible_with_strict_writer (test_native_stdin_capture_guard.Tests.test_actual_pair_report_assembly_stays_compatible_with_strict_writer) ... ok\ntest_changed_source_is_rejected (test_native_stdin_capture_guard.Tests.test_changed_source_is_rejected) ... ok\ntest_changed_wav_is_rejected (test_native_stdin_capture_guard.Tests.test_changed_wav_is_rejected) ... ok\ntest_cloned_run_identifiers_rejected (test_native_stdin_capture_guard.Tests.test_cloned_run_identifiers_rejected) ... ok\ntest_complete_two_run_synthetic_still_hold (test_native_stdin_capture_guard.Tests.test_complete_two_run_synthetic_still_hold) ... ok\ntest_downloaded_media_rejects_real_overlong_aac_attached_to_full_video (test_native_stdin_capture_guard.Tests.test_downloaded_media_rejects_real_overlong_aac_attached_to_full_video)\nA playable overlong AAC stream must not pass mere full-decode tests. ... ok\ntest_downloaded_media_rejects_real_short_aac_attached_to_full_video (test_native_stdin_capture_guard.Tests.test_downloaded_media_rejects_real_short_aac_attached_to_full_video) ... ok\ntest_downloaded_native_media_real_codec_fixture (test_native_stdin_capture_guard.Tests.test_downloaded_native_media_real_codec_fixture) ... ok\ntest_downloaded_native_media_rejects_removed_or_faked_encoder_control (test_native_stdin_capture_guard.Tests.test_downloaded_native_media_rejects_removed_or_faked_encoder_control) ... ok\ntest_downloaded_native_media_rejects_truncated_actual_encoded_movie (test_native_stdin_capture_guard.Tests.test_downloaded_native_media_rejects_truncated_actual_encoded_movie) ... ok\ntest_empty_encoded_output_rejected (test_native_stdin_capture_guard.Tests.test_empty_encoded_output_rejected) ... ok\ntest_encoder_nonzero_exit_rejected_without_supplied_zero (test_native_stdin_capture_guard.Tests.test_encoder_nonzero_exit_rejected_without_supplied_zero) ... ok\ntest_environment_v1_changed_encoder_hash_with_old_digest_is_rejected (test_native_stdin_capture_guard.Tests.test_environment_v1_changed_encoder_hash_with_old_digest_is_rejected) ... ok\ntest_environment_v1_changed_version_with_old_internal_digest_is_rejected (test_native_stdin_capture_guard.Tests.test_environment_v1_changed_version_with_old_internal_digest_is_rejected) ... ok\ntest_environment_v1_injected_approval_or_unknown_field_is_rejected (test_native_stdin_capture_guard.Tests.test_environment_v1_injected_approval_or_unknown_field_is_rejected) ... ok\ntest_environment_v1_recompute_realistic_fixture (test_native_stdin_capture_guard.Tests.test_environment_v1_recompute_realistic_fixture) ... ok\ntest_environment_v1_recomputed_forgery_cannot_change_archived_source (test_native_stdin_capture_guard.Tests.test_environment_v1_recomputed_forgery_cannot_change_archived_source) ... ok\ntest_environment_v1_wrong_flag_type_missing_field_and_schema_fail_closed (test_native_stdin_capture_guard.Tests.test_environment_v1_wrong_flag_type_missing_field_and_schema_fail_closed) ... ok\ntest_extra_frame_attempt_poisoned_even_if_exception_caught (test_native_stdin_capture_guard.Tests.test_extra_frame_attempt_poisoned_even_if_exception_caught) ... ok\ntest_extra_frame_rejected (test_native_stdin_capture_guard.Tests.test_extra_frame_rejected) ... ok\ntest_failed_encoder_rejected (test_native_stdin_capture_guard.Tests.test_failed_encoder_rejected) ... ok\ntest_false_native_geometry_rejected (test_native_stdin_capture_guard.Tests.test_false_native_geometry_rejected) ... ok\ntest_forged_media_approval_rejected (test_native_stdin_capture_guard.Tests.test_forged_media_approval_rejected) ... ok\ntest_forged_publication_rejected (test_native_stdin_capture_guard.Tests.test_forged_publication_rejected) ... ok\ntest_forged_streak_rejected (test_native_stdin_capture_guard.Tests.test_forged_streak_rejected) ... ok\ntest_incomplete_inventory_rejected (test_native_stdin_capture_guard.Tests.test_incomplete_inventory_rejected) ... ok\ntest_missing_canonical_field_rejected (test_native_stdin_capture_guard.Tests.test_missing_canonical_field_rejected) ... ok\ntest_missing_output_file_rejected (test_native_stdin_capture_guard.Tests.test_missing_output_file_rejected) ... ok\ntest_modified_frame_digest_is_rejected (test_native_stdin_capture_guard.Tests.test_modified_frame_digest_is_rejected) ... ok\ntest_modified_stream_digest_is_rejected (test_native_stdin_capture_guard.Tests.test_modified_stream_digest_is_rejected) ... ok\ntest_non_buffer_input_poisoned (test_native_stdin_capture_guard.Tests.test_non_buffer_input_poisoned) ... ok\ntest_noncontiguous_rgb_input_poisoned (test_native_stdin_capture_guard.Tests.test_noncontiguous_rgb_input_poisoned) ... ok\ntest_original_admission_changed_font_fails_before_encode (test_native_stdin_capture_guard.Tests.test_original_admission_changed_font_fails_before_encode) ... ok\ntest_original_admission_changed_renderer_fails_before_encode (test_native_stdin_capture_guard.Tests.test_original_admission_changed_renderer_fails_before_encode) ... ok\ntest_original_admission_changed_wav_fails_before_encode (test_native_stdin_capture_guard.Tests.test_original_admission_changed_wav_fails_before_encode) ... ok\ntest_original_admission_font_symlink_rejected (test_native_stdin_capture_guard.Tests.test_original_admission_font_symlink_rejected) ... ok\ntest_original_admission_missing_font_fails_before_encode (test_native_stdin_capture_guard.Tests.test_original_admission_missing_font_fails_before_encode) ... ok\ntest_original_admission_missing_source_fails_before_encode (test_native_stdin_capture_guard.Tests.test_original_admission_missing_source_fails_before_encode) ... ok\ntest_original_admission_receipt_edit_fails_even_if_pins_look_plausible (test_native_stdin_capture_guard.Tests.test_original_admission_receipt_edit_fails_even_if_pins_look_plausible) ... ok\ntest_original_admission_synthetic_exact_pins_allow_local_only (test_native_stdin_capture_guard.Tests.test_original_admission_synthetic_exact_pins_allow_local_only) ... ok\ntest_original_admission_version_drift_fails_before_encode (test_native_stdin_capture_guard.Tests.test_original_admission_version_drift_fails_before_encode) ... ok\ntest_original_import_cache_cleanup_never_evicts_foreign_module (test_native_stdin_capture_guard.Tests.test_original_import_cache_cleanup_never_evicts_foreign_module) ... ok\ntest_original_import_cache_is_clean_between_two_real_python_imports (test_native_stdin_capture_guard.Tests.test_original_import_cache_is_clean_between_two_real_python_imports) ... ok\ntest_original_job_v1_blocks_forged_approvals (test_native_stdin_capture_guard.Tests.test_original_job_v1_blocks_forged_approvals) ... ok\ntest_original_job_v1_blocks_unrecognized_keys_false_machine_claims (test_native_stdin_capture_guard.Tests.test_original_job_v1_blocks_unrecognized_keys_false_machine_claims) ... ok\ntest_original_job_v1_valid_bounded_fixture (test_native_stdin_capture_guard.Tests.test_original_job_v1_valid_bounded_fixture) ... ok\ntest_original_media_executables_ignore_path_shadow (test_native_stdin_capture_guard.Tests.test_original_media_executables_ignore_path_shadow)\nThe file hashed as encoder must actually be the binary executed. ... ok\ntest_original_pair_receipt_refuses_extra_approval_and_missing_proof (test_native_stdin_capture_guard.Tests.test_original_pair_receipt_refuses_extra_approval_and_missing_proof) ... ok\ntest_original_pair_receipt_rejects_nested_ancestor_alias_and_dotdot (test_native_stdin_capture_guard.Tests.test_original_pair_receipt_rejects_nested_ancestor_alias_and_dotdot) ... ok\ntest_original_receiver_refuses_encoder_proof_changed_during_decode (test_native_stdin_capture_guard.Tests.test_original_receiver_refuses_encoder_proof_changed_during_decode) ... ok\ntest_original_receiver_refuses_movie_replaced_during_actual_decode (test_native_stdin_capture_guard.Tests.test_original_receiver_refuses_movie_replaced_during_actual_decode) ... ok\ntest_original_receiver_requires_physically_pinned_film_on_cli_path (test_native_stdin_capture_guard.Tests.test_original_receiver_requires_physically_pinned_film_on_cli_path) ... ok\ntest_original_renderer_unmodified_call_intercept_real_ffmpeg (test_native_stdin_capture_guard.Tests.test_original_renderer_unmodified_call_intercept_real_ffmpeg) ... ok\ntest_original_replay_checks_all_pinned_input_bytes_after_render (test_native_stdin_capture_guard.Tests.test_original_replay_checks_all_pinned_input_bytes_after_render) ... ok\ntest_original_replay_input_recheck_is_before_successful_job_receipt (test_native_stdin_capture_guard.Tests.test_original_replay_input_recheck_is_before_successful_job_receipt) ... ok\ntest_original_replay_rejects_preloaded_archival_renderer_module (test_native_stdin_capture_guard.Tests.test_original_replay_rejects_preloaded_archival_renderer_module) ... ok\ntest_original_replay_rejects_wrong_module_origin_despite_source_pin (test_native_stdin_capture_guard.Tests.test_original_replay_rejects_wrong_module_origin_despite_source_pin) ... ok\ntest_original_source_restore_existing_directory_not_overwritten (test_native_stdin_capture_guard.Tests.test_original_source_restore_existing_directory_not_overwritten) ... ok\ntest_original_source_restore_modified_blob_fails_atomically (test_native_stdin_capture_guard.Tests.test_original_source_restore_modified_blob_fails_atomically) ... ok\ntest_original_source_restore_two_historical_commits_physically_verified (test_native_stdin_capture_guard.Tests.test_original_source_restore_two_historical_commits_physically_verified) ... ok\ntest_original_source_restore_unavailable_git_commit_fails_atomically (test_native_stdin_capture_guard.Tests.test_original_source_restore_unavailable_git_commit_fails_atomically) ... ok\ntest_pair_fixture_is_actual_canonical_lf_bytes_not_windows_text_mode (test_native_stdin_capture_guard.Tests.test_pair_fixture_is_actual_canonical_lf_bytes_not_windows_text_mode) ... ok\ntest_pair_fixture_physical_environment_crlf_mutation_still_hold (test_native_stdin_capture_guard.Tests.test_pair_fixture_physical_environment_crlf_mutation_still_hold) ... ok\ntest_partial_writes_are_completed_not_silently_truncated (test_native_stdin_capture_guard.Tests.test_partial_writes_are_completed_not_silently_truncated) ... ok\ntest_physical_pair_json_valid_synthetic_fixture_still_research_only (test_native_stdin_capture_guard.Tests.test_physical_pair_json_valid_synthetic_fixture_still_research_only) ... ok\ntest_physical_pair_rejects_duplicate_json_keys_and_nonfinite_values (test_native_stdin_capture_guard.Tests.test_physical_pair_rejects_duplicate_json_keys_and_nonfinite_values) ... ok\ntest_physical_pair_rejects_symlink_or_mutated_film (test_native_stdin_capture_guard.Tests.test_physical_pair_rejects_symlink_or_mutated_film) ... ok\ntest_readonly_stage_cleanup_rejects_foreign_file_repair (test_native_stdin_capture_guard.Tests.test_readonly_stage_cleanup_rejects_foreign_file_repair) ... ok\ntest_real_completed_encoder_binds_process_and_film_bytes (test_native_stdin_capture_guard.Tests.test_real_completed_encoder_binds_process_and_film_bytes) ... ok\ntest_real_ffmpeg_pipe_and_decoded_fixture (test_native_stdin_capture_guard.Tests.test_real_ffmpeg_pipe_and_decoded_fixture) ... ok\ntest_reject_ignored_x264_cpu_asm_param_and_invalid_encoder_log (test_native_stdin_capture_guard.Tests.test_reject_ignored_x264_cpu_asm_param_and_invalid_encoder_log) ... ok\ntest_renderer_hook_rejects_stale_movie_even_if_film_is_valid (test_native_stdin_capture_guard.Tests.test_renderer_hook_rejects_stale_movie_even_if_film_is_valid) ... ok\ntest_renderer_hook_rejects_wrong_original_wav_bytes (test_native_stdin_capture_guard.Tests.test_renderer_hook_rejects_wrong_original_wav_bytes) ... ok\ntest_renderer_hook_requires_observed_real_encoder (test_native_stdin_capture_guard.Tests.test_renderer_hook_requires_observed_real_encoder) ... ok\ntest_research_pair_receipt_cannot_self_approve_or_relabel (test_native_stdin_capture_guard.Tests.test_research_pair_receipt_cannot_self_approve_or_relabel) ... ok\ntest_research_pair_receipt_fresh_complete_atomically_published (test_native_stdin_capture_guard.Tests.test_research_pair_receipt_fresh_complete_atomically_published) ... ok\ntest_research_pair_receipt_no_clobber_original_bytes (test_native_stdin_capture_guard.Tests.test_research_pair_receipt_no_clobber_original_bytes) ... ok\ntest_research_pair_receipt_nonfinite_or_unserializable_blocks_without_file (test_native_stdin_capture_guard.Tests.test_research_pair_receipt_nonfinite_or_unserializable_blocks_without_file) ... ok\ntest_research_pair_receipt_rejects_symlink_without_target_change (test_native_stdin_capture_guard.Tests.test_research_pair_receipt_rejects_symlink_without_target_change) ... ok\ntest_research_pair_receipt_untrusted_parent_link_rejected (test_native_stdin_capture_guard.Tests.test_research_pair_receipt_untrusted_parent_link_rejected) ... ok\ntest_short_frame_cannot_be_caught_then_retried_as_clean (test_native_stdin_capture_guard.Tests.test_short_frame_cannot_be_caught_then_retried_as_clean) ... ok\ntest_short_frame_rejected (test_native_stdin_capture_guard.Tests.test_short_frame_rejected) ... ok\ntest_symlinked_output_file_rejected (test_native_stdin_capture_guard.Tests.test_symlinked_output_file_rejected) ... ok\ntest_truncated_frame_inventory_is_rejected (test_native_stdin_capture_guard.Tests.test_truncated_frame_inventory_is_rejected) ... ok\ntest_unclosed_stdin_rejected (test_native_stdin_capture_guard.Tests.test_unclosed_stdin_rejected) ... ok\ntest_unrecognized_self_approved_field_rejected (test_native_stdin_capture_guard.Tests.test_unrecognized_self_approved_field_rejected) ... ok\ntest_uploaded_original_movie_identity_matches_actual_bytes (test_native_stdin_capture_guard.Tests.test_uploaded_original_movie_identity_matches_actual_bytes) ... ok\ntest_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected (test_native_stdin_capture_guard.Tests.test_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected) ... ok\ntest_uploaded_original_movie_mutation_rejected (test_native_stdin_capture_guard.Tests.test_uploaded_original_movie_mutation_rejected) ... ok\ntest_win_readonly_staging_cleanup_preserves_git_hold (test_native_stdin_capture_guard.Tests.test_win_readonly_staging_cleanup_preserves_git_hold)\nSimulate Windows WinError5 on staged 0444 file on hosted Linux. ... ok\ntest_wrong_real_encoder_process_rejected (test_native_stdin_capture_guard.Tests.test_wrong_real_encoder_process_rejected) ... ok\ntest_x264_cpu_asm_0_physically_confirmed_on_small_ffmpeg_fixture (test_native_stdin_capture_guard.Tests.test_x264_cpu_asm_0_physically_confirmed_on_small_ffmpeg_fixture) ... ok\ntest_zero_write_rejected (test_native_stdin_capture_guard.Tests.test_zero_write_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 94 tests in 2.804s\n\nOK\n",
+      "testsRun": 94,
+      "unittestSeconds": 2.804,
+      "passed": 94,
+      "errors": 0,
+      "failures": 0,
+      "skips": 0
+    },
+    {
+      "module": "test_five_render_attempt_guard",
+      "command": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--cd",
+        "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-linux-full-guard-1ut4wgaz/research/evidencemotion-director",
+        "--exec",
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "test_five_render_attempt_guard"
+      ],
+      "exitCode": 0,
+      "seconds": 0.611,
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-linux-full-test_five_render_attempt_guard.log",
+      "logSha256": "d4101e4df08edffd40b0429735697abcb85fecf57d0d8065d8390e36d23a328a",
+      "output": "test_append_cli_requires_prior_sha_and_never_says_approved (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_append_cli_requires_prior_sha_and_never_says_approved) ... ok\ntest_boolean_ordinal_rejected (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_boolean_ordinal_rejected) ... ok\ntest_duplicate_movie_bytes_rejected (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_duplicate_movie_bytes_rejected) ... ok\ntest_duplicate_run_rejected (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_duplicate_run_rejected) ... ok\ntest_empty_is_not_excellence (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_empty_is_not_excellence) ... ok\ntest_failed_first_attempt_has_auditable_break_reason (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_failed_first_attempt_has_auditable_break_reason) ... ok\ntest_failed_revision_also_breaks_streak (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_failed_revision_also_breaks_streak) ... ok\ntest_failure_resets_declared_streak (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_failure_resets_declared_streak) ... ok\ntest_five_distinct_declared_passes_never_self_approve (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_five_distinct_declared_passes_never_self_approve) ... ok\ntest_forged_publication_or_accepted_streak_rejected (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_forged_publication_or_accepted_streak_rejected) ... ok\ntest_hidden_first_or_gapped_ordinal_rejected (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_hidden_first_or_gapped_ordinal_rejected) ... ok\ntest_hold_resets_declared_streak (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_hold_resets_declared_streak) ... ok\ntest_invalid_source_hash_rejected (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_invalid_source_hash_rejected) ... ok\ntest_json_duplicate_fields_nan_and_overflow_refused (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_json_duplicate_fields_nan_and_overflow_refused) ... ok\ntest_nested_symlinked_ancestor_refused_for_input_and_new_report (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_nested_symlinked_ancestor_refused_for_input_and_new_report) ... ok\ntest_new_distinct_five_run_sequence_can_restart_after_revision (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_new_distinct_five_run_sequence_can_restart_after_revision) ... ok\ntest_pinned_previous_decision_and_first_final_cannot_be_rewritten (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_pinned_previous_decision_and_first_final_cannot_be_rewritten) ... ok\ntest_pinned_previous_failed_attempt_cannot_be_deleted (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_pinned_previous_failed_attempt_cannot_be_deleted) ... ok\ntest_pinned_previous_history_one_new_event_accepted_research_only (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_pinned_previous_history_one_new_event_accepted_research_only) ... ok\ntest_pinned_previous_order_change_or_no_new_entry_refused (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_pinned_previous_order_change_or_no_new_entry_refused) ... ok\ntest_pinned_previous_rerender_cannot_be_omitted (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_pinned_previous_rerender_cannot_be_omitted) ... ok\ntest_prior_file_bytes_require_external_sha (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_prior_file_bytes_require_external_sha) ... ok\ntest_register_fields_and_false_zero_coercion_refused (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_register_fields_and_false_zero_coercion_refused) ... ok\ntest_register_path_swap_between_preflight_and_open_is_rejected (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_register_path_swap_between_preflight_and_open_is_rejected) ... ok\ntest_register_read_rejects_late_symlink_switch (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_register_read_rejects_late_symlink_switch) ... ok\ntest_relabelled_revision_rejected (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_relabelled_revision_rejected) ... ok\ntest_report_no_clobber_and_symlink_target_preserved (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_report_no_clobber_and_symlink_target_preserved) ... ok\ntest_research_report_replays_first_render_math_instead_of_trusting_it (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_research_report_replays_first_render_math_instead_of_trusting_it) ... ok\ntest_research_report_true_declared_five_still_never_authorizes_release (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_research_report_true_declared_five_still_never_authorizes_release) ... ok\ntest_research_report_writer_allows_real_append_only_hold (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_research_report_writer_allows_real_append_only_hold) ... ok\ntest_research_report_writer_rejects_forged_approval_and_extra_fields (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_research_report_writer_rejects_forged_approval_and_extra_fields) ... ok\ntest_revision_after_five_first_attempt_passes_resets_current_streak (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_revision_after_five_first_attempt_passes_resets_current_streak) ... ok\ntest_revision_cannot_bridge_two_plus_three_first_attempts (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_revision_cannot_bridge_two_plus_three_first_attempts) ... ok\ntest_revisions_cannot_accumulate_first_render_streak (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_revisions_cannot_accumulate_first_render_streak) ... ok\ntest_unknown_decision_rejected (test_five_render_attempt_guard.FirstRenderIntegrityTests.test_unknown_decision_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 35 tests in 0.392s\n\nOK\n",
+      "testsRun": 35,
+      "unittestSeconds": 0.392,
+      "passed": 35,
+      "errors": 0,
+      "failures": 0,
+      "skips": 0
+    }
+  ],
+  "status": "PASS",
+  "postTestSourceCheck": {
+    "pythonFilesByteIdenticalToPinnedTree": 171,
+    "exitCode": 0
+  },
+  "result": {
+    "testsRun": 129,
+    "passed": 129,
+    "errors": 0,
+    "failures": 0,
+    "skips": 0,
+    "exitCode": 0
+  },
+  "boundary": "Updated Lane5 source on prior pinned other-lane snapshot, not rolling latest six-head proof. Isolated suite processes; real synthetic media fixtures, not current or original full-film acceptance. Prior Windows aggregate and known Lane3 canonical-receipt error not relabeled green. Access-only validation/docs, no repository behavior or owner-source change; no production build rerun.",
+  "runtime": {
+    "platform": "WSL Ubuntu",
+    "python": "3.12.3",
+    "ffmpegPackage": "7:6.1.1-3ubuntu5",
+    "fixedBinaries": "/usr/bin/ffmpeg and /usr/bin/ffprobe; see linux-media-eight-test-followup-20261017.json for binary hashes"
+  }
+}
