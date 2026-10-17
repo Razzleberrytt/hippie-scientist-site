@@ -43,12 +43,20 @@ class SourceLockedDirectionTests(unittest.TestCase):
 
     def test_wrong_molecule_or_invented_hydroxyl_cannot_be_highlighted(self):
         asset=self.fixture()
+        # Preserve the exact 30-atom coordinate inventory when testing just
+        # the selected OH position. A one-atom coordinate fixture rightfully
+        # fails the earlier inventory guard, not the intended geometry gate.
+        oxygen=asset["oh"][0]
+        offscreen=[list(xy) for xy in asset["diagramAtomXY"]]
+        offscreen[oxygen]=[1800,320]
+        nonfinite=[list(xy) for xy in asset["diagramAtomXY"]]
+        nonfinite[oxygen]=[620,float("nan")]
         for change,code in [
             ({"source":replace(HYDROXYMITRAGYNINE,pubchem_cid=3034396)},"WRONG_CHEMICAL"),
             ({"oh":[]},"UNVERIFIED_HYDROXYL"),
             ({"oh":[0,1]},"UNVERIFIED_HYDROXYL"),
-            ({"diagramAtomXY":[[1800,320]]},"GRAPH_COORDS_OFF"),
-            ({"diagramAtomXY":[[620,float('nan')]]},"INVALID_GRAPH"),
+            ({"diagramAtomXY":offscreen},"GRAPH_COORDS_OFF"),
+            ({"diagramAtomXY":nonfinite},"INVALID_GRAPH"),
         ]:
             with self.subTest(code=code):
                 with self.assertRaisesRegex(ValueError,code):
