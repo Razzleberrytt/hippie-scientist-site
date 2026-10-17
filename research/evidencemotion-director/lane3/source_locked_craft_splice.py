@@ -146,6 +146,66 @@ def aac_sha(path):
               '-c:a','copy','-f','adts','-'],binary=True)
     return hashlib.sha256(data).hexdigest()
 
+
+def original_aac_packet_timeline(path):
+    """Actual stream-copied AAC packet timestamps, not elementary audio bytes."""
+    try:
+        raw=run(['ffprobe','-v','error','-select_streams','a:0',
+                 '-show_packets','-show_entries',
+                 'packet=pts_time,dts_time,duration_time',
+                 '-of','json',str(path)])
+        rows=json.loads(raw).get('packets')
+    except (OSError,ValueError,TypeError) as exc:
+        raise CraftHold('AAC_PACKET_TIMELINE_UNAVAILABLE') from exc
+    if not isinstance(rows,list) or not rows:
+        raise CraftHold('AAC_PACKET_TIMELINE_UNAVAILABLE')
+    timeline=[]
+    for packet in rows:
+        if not isinstance(packet,dict):
+            raise CraftHold('AAC_PACKET_TIMELINE_UNAVAILABLE')
+        fields=[]
+        for key in ('pts_time','dts_time','duration_time'):
+            try:
+                value=Decimal(str(packet[key]))
+            except (KeyError,InvalidOperation,TypeError,ValueError) as exc:
+                raise CraftHold('AAC_PACKET_TIMELINE_UNAVAILABLE') from exc
+            if not value.is_finite():
+                raise CraftHold('AAC_PACKET_TIMELINE_UNAVAILABLE')
+            fields.append(value)
+        if fields[2]<=0:
+            raise CraftHold('AAC_PACKET_DURATION_INVALID')
+        timeline.append(tuple(fields))
+    return timeline
+
+
+def audit_original_aac_timing(source,output):
+    """Reject soundtrack offset/drift even when AAC payload hashes match.
+
+    This compares actual AAC packet PTS, DTS and duration on the source and
+    rewrapped output; finite 1.5ms tolerance handles legal MP4 tick rounding.
+    It is not word-level forced alignment or human listening approval.
+    """
+    original=original_aac_packet_timeline(source)
+    finished=original_aac_packet_timeline(output)
+    if len(original)!=len(finished):
+        raise CraftHold('ORIGINAL_AAC_PACKET_COUNT_CHANGED')
+    maximum=Decimal(0)
+    for src_pkt,out_pkt in zip(original,finished):
+        for a,b in zip(src_pkt,out_pkt):
+            maximum=max(maximum,abs(a-b))
+            if abs(a-b)>Decimal('0.0015'):
+                raise CraftHold('ORIGINAL_AAC_PACKET_TIMING_CHANGED')
+    return {
+      'packetsCompared':len(original),
+      'firstPacketPtsSec':str(original[0][0]),
+      'lastPacketPtsSec':str(original[-1][0]),
+      'maxTimestampOrDurationDriftMs':float(maximum*1000),
+      'toleranceMs':1.5,
+      'metric':'independent-ffprobe-AAC-packet-PTS-DTS-duration',
+      'limits':'AAC timeline preserved relative to source; not independent speech timing or audible sync approval'
+    }
+
+
 def _decoded_rgb_frames(path,width=96,height=170):
     """Read each independently decoded original-resolution frame through RGB downscale.
 
@@ -288,12 +348,14 @@ def verify_result(source,output,manifest,*,scene=None):
     require_exact_cfr_frame_grid(output,manifest['frames'])
     original,updated=aac_sha(source),aac_sha(output)
     if original!=updated:raise CraftHold('ORIGINAL_AAC_BYTES_CHANGED')
+    audio_timing=audit_original_aac_timing(source,output)
     visual=audit_outside_scene_frames(source,output,manifest)
     inserted=(audit_inserted_scene_frames(source,scene,output,manifest)
               if scene is not None else None)
     return {'schema':SCHEMA,'status':'RESEARCH_ONLY_AUDIO_AND_OUTSIDE_SCENE_VERIFIED',
       'sourceFilmSha256':digest(source),'sceneSha256':manifest['craftSceneSha256'],
       'outputFilmSha256':digest(output),'aacAdtsSha256':original,
+      'aacPacketTimelineAudit':audio_timing,
       'frames':manifest['frames'],'startFrame':manifest['startFrame'],
       'endFrameExclusive':manifest['endFrameExclusive'],'outsideSceneVisualAudit':visual,
       'insertedSceneVisualAudit':inserted,
