@@ -645,3 +645,38 @@ untracked files. Both source/test files match implementation commit `bd0d2dec47e
 after build. No screenshots apply to this offline intake error-contract change.
 Final doc-link/whitespace checks and draft coordination update follow. No revised
 film, creative/science/voice/handset approval, deployment, merge or atomic credit.
+
+
+## October 17 access-only six-lane integration replay
+
+Research-only continuation checks reused shared auditors in an unreferenced
+six-step merge-tree simulation and private source archive. All six merge-tree
+commands exit 0; no branch/ref, owner source, workflow or runtime behavior changed.
+Pinned heads/tree/archive/log hashes and exact commands are in
+`receipts/current-source-integration-20261017.json`. Lane1 advanced during fetch;
+this is an explicit pinned-snapshot result, not a latest-head or protected-merge claim.
+
+Combined Windows Python 3.12.14/real FFmpeg run: **543 distinct test methods**,
+**505 PASS / 18 error-affected parent tests / 20 SKIP**, exit 1 in 61.031s.
+There are **19 error events**, including two subtest errors in one parent.
+The initial subtraction counted events instead of parents (504); receipt preserves
+that counting correction. No duplicate imported IDs counted twice.
+
+Error classification and unchanged-source follow-ups:
+- 8 Windows symlink privilege errors: exact eight tests PASS under Ubuntu, exit 0.
+- 8 fixed `/usr/bin/ffmpeg`/`ffprobe` lookup errors on Windows: Linux media-runtime
+  follow-up not executed; do not weaken binary pinning or claim these pass.
+- 2 renderer-preloaded subtest errors in one parent from combined-process harness:
+  unchanged parent test PASS in a fresh Python process, exit 0. No lane defect claimed.
+- 1 known Lane3 Windows `STAGED_RECEIPT_CONTENT_CHANGED` error persists. Existing
+  canonical receipt patch remains owner-unapplied; no duplicate fix or owner edit.
+
+Linux portable-path class: 5/5 PASS, exit 0, including Windows-skipped real
+case-distinct source directories. Initial root-directory invocation failed to
+resolve `artifact_intake`; corrected unchanged command runs from lane6. Both
+launch corrections are retained in receipt rather than counted as product defects.
+Missing-original and host-capability skips remain explicit. This does not establish
+latest film, chemistry, voice, craft, handset, clean-checkout, CI or deployment proof.
+Latest reported Lane3 film remains conversation-only and not independently received.
+No production build rerun: access-only snapshot/docs/receipts, no repository behavior
+changed. mayPublish=false, newAtomicCards=0; no normal WIP slot or merge authority.
