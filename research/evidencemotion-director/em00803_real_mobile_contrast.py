@@ -123,12 +123,18 @@ def audit(movie,expected_sha,mode,font_path=FONT):
             "independentHumanReadabilityValidated":False,
             "mayPublish":False}
 
-def execute(output,source=None):
+def execute(output,source=None,expected_source_sha=None):
     output=Path(output);output.mkdir(parents=True,exist_ok=True)
     if source is None:
+        if expected_source_sha is not None:
+            raise ValueError("SOURCE_HASH_PROVIDED_WITHOUT_EXTERNAL_SOURCE_HOLD")
         source=fixture_art(output/"authored-leaf-fixture.png")
+    elif expected_source_sha is None:
+        raise ValueError("UNPINNED_EXTERNAL_BOTANICAL_ART_HOLD")
     if not Path(source).is_file() or Path(source).is_symlink():
         raise ValueError("NO_PINNED_LOCAL_NONFACTUAL_IMAGE")
+    if expected_source_sha is not None and sha(source)!=expected_source_sha:
+        raise ValueError("BINARY_SOURCE_ART_SHA_MISMATCH_HOLD")
     with Image.open(source) as im:
         if im.size!=(W,H):
             raise ValueError("FIXTURE_DIMENSIONS_DRIFT")
