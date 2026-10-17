@@ -707,7 +707,7 @@ def probe_movie(movie):
     # source video. Muted H.264 films remain eligible for research inspection;
     # an audio-bearing film must have exactly one AAC track.
     cmd = ["ffprobe", "-v", "error", "-show_entries",
-           "stream=codec_type,codec_name,width,height,avg_frame_rate,pix_fmt,sample_aspect_ratio,color_transfer,color_primaries,color_space",
+           "stream=codec_type,codec_name,profile,level,width,height,avg_frame_rate,pix_fmt,sample_aspect_ratio,color_transfer,color_primaries,color_space",
            "-show_entries", "stream_tags=rotate:stream_side_data=side_data_type,rotation,displaymatrix",
            "-show_entries", "format=duration,format_name:format_tags=major_brand",
            "-of", "json", str(movie)]
@@ -722,6 +722,16 @@ def probe_movie(movie):
     track = videos[0]
     if track.get("codec_name") != "h264":
         hold("EXPECTED_H264_VIDEO_CODEC")
+    # H.264 alone does not establish a portable mobile decoder target.
+    # Reject advanced profiles and SPS levels above 4.2; at 1080x1920/30fps
+    # the accepted ceiling has adequate macroblock capacity, while Level
+    # 5.x/6.x may demand capabilities absent on older phone decoders.
+    # Read the encoded stream profile/level, not the FFmpeg preset or extension.
+    if track.get("profile") not in ("Constrained Baseline", "Baseline", "Main", "High"):
+        hold("UNSUPPORTED_PHONE_H264_PROFILE")
+    level = track.get("level")
+    if type(level) is not int or not 9 <= level <= 42:
+        hold("UNSUPPORTED_PHONE_H264_LEVEL")
     if audios and audios[0].get("codec_name") != "aac":
         hold("EXPECTED_AAC_AUDIO_CODEC")
     # ffprobe stream codecs and a .mp4 filename are not a delivery-container
