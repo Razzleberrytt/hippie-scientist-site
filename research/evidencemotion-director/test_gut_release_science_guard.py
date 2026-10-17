@@ -222,6 +222,40 @@ class GutReleaseScienceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'DYNAMIC_SCENE_NOT_VERIFIABLE'):
             self.run_zip(archive(source=source))
 
+    def test_extra_non_dict_narration_scene_cannot_be_silently_filtered(self):
+        for forged_entry in ('untrusted shadow scene', None, []):
+            voice=json.loads(json.dumps(VOICE))
+            voice['scenes'].append(forged_entry)
+            with self.subTest(entry=repr(forged_entry)):
+                with self.assertRaisesRegex(
+                    ValueError, 'ORIGINAL_NARRATION_RECEIPT_INVALID'
+                ):
+                    self.run_zip(archive(voice=voice))
+
+    def test_blank_nonspoken_voice_text_cannot_clear_source_guard(self):
+        voice=json.loads(json.dumps(VOICE))
+        voice['scenes'][0]['text']=''
+        with self.assertRaisesRegex(ValueError,'ORIGINAL_NARRATION_RECEIPT_INVALID'):
+            self.run_zip(archive(voice=voice))
+        voice['scenes'][0]['text']='restored'
+        voice['scenes'][2]['id']='   '
+        with self.assertRaisesRegex(ValueError,'ORIGINAL_NARRATION_RECEIPT_INVALID'):
+            self.run_zip(archive(voice=voice))
+
+    def test_invalid_master_audio_digest_cannot_claim_a_verified_receipt(self):
+        for fake in (None, 'not-a-sha256', 'z'+'e'*63, True):
+            voice=json.loads(json.dumps(VOICE))
+            voice['master_sha256']=fake
+            with self.subTest(master=fake):
+                with self.assertRaisesRegex(
+                    ValueError, 'ORIGINAL_NARRATION_RECEIPT_INVALID'
+                ):
+                    self.run_zip(archive(voice=voice))
+        voice=json.loads(json.dumps(VOICE))
+        voice.pop('master_sha256')
+        with self.assertRaisesRegex(ValueError,'ORIGINAL_NARRATION_RECEIPT_INVALID'):
+            self.run_zip(archive(voice=voice))
+
     def test_voice_narration_swapped_and_rehashed_holds(self):
         voice=json.loads(json.dumps(VOICE))
         voice['scenes'][1]['text']='All supplements dissolve first in the gut.'
