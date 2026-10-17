@@ -92,6 +92,58 @@ def parse_framehash(output, indices):
         hashes.append(cells[5])
     return hashes
 
+def all_native_framehashes(movie, shots, nine_midpoints):
+    """Decode every pinned H264 frame into FFmpeg SHA256 RGB24 framehashes.
+
+    This proves encoded temporal/frame coverage only; names are authored
+    shot-boundary labels, never independent pixel/scene classification.
+    No raw uncompressed frames are buffered in Python or published.
+    """
+    args=["ffmpeg","-hide_banner","-loglevel","error",
+          "-threads","1","-filter_threads","1","-i",str(movie),"-an",
+          "-fps_mode","passthrough","-pix_fmt","rgb24",
+          "-f","framehash","-hash","sha256","pipe:1"]
+    try:
+        decoded=subprocess.run(args,capture_output=True,text=True,check=True,timeout=240)
+    except (subprocess.CalledProcessError,subprocess.TimeoutExpired) as exc:
+        raise SourceHold("FULL_ENCODED_FRAMEHASH_EXTRACTION_FAILED") from exc
+    digests=parse_framehash(decoded.stdout,range(FRAME_COUNT))
+    if len(digests)!=FRAME_COUNT:
+        raise SourceHold("FULL_ENCODED_FRAME_COUNT_MISMATCH")
+    for sample in nine_midpoints:
+        if digests[sample["frameIndex"]]!=sample["decodedRgb24Sha256"]:
+            raise SourceHold("NINE_ARCHIVED_MIDPOINTS_DISAGREE_WITH_FULL_FRAME_PASS")
+    timeline=[]
+    counts={shot["id"]:0 for shot in shots}
+    shot_index=0
+    for index, pixel_sha in enumerate(digests):
+        # Label using AUTHORED timeline interval only; no claim of a
+        # computer-vision evaluation of what the corresponding pixels show.
+        center=(index+0.5)/FPS
+        while shot_index<len(shots)-1 and center >= shots[shot_index]["endSec"]:
+            shot_index+=1
+        ident=shots[shot_index]["id"]
+        counts[ident]+=1
+        timeline.append({
+            "frameIndex":index, "timeCenterSec":round(center,6),
+            "authorDeclaredShotId":ident, "decodedRgb24Sha256":pixel_sha,
+        })
+    if len(timeline)!=FRAME_COUNT or set(counts)!=set(SHOT_IDS) or not all(counts.values()):
+        raise SourceHold("AUTHOR_SHOT_FRAME_COVERAGE_INCOMPLETE")
+    # Digest actual decoded frame *digests* in physical order, independent
+    # of source-declared semantic shot class or synthesized JSON formatting.
+    digest_stream="\\n".join(digests)+"\\n"
+    return {
+        "actualDecodedFrameCount":len(timeline),
+        "decodedFrameHashSequenceSha256":digest(digest_stream.encode("ascii")),
+        "authorDeclaredShotFrameCounts":counts,
+        "allActualDecodedFrameHashes":timeline,
+        "allFramesBotanicallyClassified":False,
+        "allFramesIndependentlyScientificallyReviewed":False,
+        "mayPublish":False,
+    }
+
+
 def audit(movie,plan_path,receipt_path,inventory_path):
     movie=Path(movie)
     if not movie.is_file() or movie.is_symlink():
@@ -135,8 +187,9 @@ def audit(movie,plan_path,receipt_path,inventory_path):
             "shotId":shot["id"],"sourceClass":shot["assetKind"],
             "frameIndex":index,"timeSec":round(index/FPS,6),
             "decodedRgb24Sha256":pixel_sha})
+    all_frame_hashes=all_native_framehashes(movie,plan["shots"],samples)
     return {
-        "status":"ACTUAL_NINE_SHOT_SAMPLES_VERIFIED_BOTANICAL_CONTENT_HOLD",
+        "status":"ACTUAL_ALL_1031_FRAMEHASHES_VERIFIED_BOTANICAL_CONTENT_HOLD",
         "filmSha256":film_sha,
         "manifestSha256":{name:digest_file(path) for name,path in zip(
             ("phonePlan","renderReceipt","visualInventory"),paths)},
@@ -144,13 +197,14 @@ def audit(movie,plan_path,receipt_path,inventory_path):
         "width":WIDTH,"height":HEIGHT,"fps":FPS,"encodedFrames":FRAME_COUNT,
         "declaredBotanicalArtShots":0,"declaredDeterministicScienceShots":9,
         "actualDecodedShotsSampled":len(samples),"sampledDecodedPixelHashes":samples,
+        "fullEncodedTimeline":all_frame_hashes,
         "actualFullFrameContentBotanicallyClassified":False,
         "actualBotanicalAbsenceFromAllFramesEstablished":False,
         "sourceArtPixelProvenanceIndependentlyEstablished":False,
         "qualifiedScienceApproved":False,"actualPhonePlaybackVerified":False,
         "firstExcellentRenderApproved":False,
         "publicationApproved":False,"mayPublish":False,
-        "limitation":"No botanical art is declared in this selected native film; nine exact H264 frames were decoded and hashed. Human/model classification across ALL 1031 decoded frames, and future films containing botanical art, remain unverified."
+        "limitation":"All 1031 archived H264 frames decoded and SHA256-hashed, plus 9 shot midpoints independently cross-matched. Shot names follow author-provided time intervals only. Human/model botanical classification, science approval and disclosure review across the actual pixels of all frames remain unverified."
     }
 
 def main():
