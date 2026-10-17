@@ -560,6 +560,61 @@ class Tests(unittest.TestCase):
         self.assertLess(source.index("assert_original_replay_inputs_unchanged("),
                         source.index('"full-original-replay.json").write_text'))
 
+    def test_original_replay_rejects_preloaded_archival_renderer_module(self):
+        from types import ModuleType
+        from original_native_stdin_replay import (
+            assert_original_renderer_module_import_safe, replay)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            # sys.path insertion alone cannot outrank a cached module.
+            with patch.dict(sys.modules, {
+                    "narration_locked_treatments": ModuleType("narration_locked_treatments")}):
+                with self.assertRaisesRegex(
+                        ValueError, "ARCHIVED_RENDERER_MODULE_PRELOADED"):
+                    assert_original_renderer_module_import_safe(root)
+            with patch.dict(sys.modules, {
+                    "source_locked_visual_direction": ModuleType("source_locked_visual_direction")}):
+                with self.assertRaisesRegex(
+                        ValueError, "ARCHIVED_RENDERER_MODULE_PRELOADED"):
+                    assert_original_renderer_module_import_safe(root)
+            import inspect
+            source = inspect.getsource(replay)
+            self.assertLess(
+                source.index("assert_original_renderer_module_import_safe(source_dir)"),
+                source.index("sys.path.insert(0, str(source_dir))"))
+            self.assertLess(
+                source.index('importlib.import_module("narration_locked_treatments")'),
+                source.index("assert_original_renderer_module_import_safe(source_dir, loaded=r)"))
+
+    def test_original_replay_rejects_wrong_module_origin_despite_source_pin(self):
+        from types import ModuleType, SimpleNamespace
+        from original_native_stdin_replay import assert_original_renderer_module_import_safe
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            physical = root / "narration_locked_treatments.py"
+            physical.write_bytes(b"archived fixture source\n")
+            source_sha = digest(physical.read_bytes())
+            module = ModuleType("narration_locked_treatments")
+            module.__file__ = str(physical)
+            module.__spec__ = SimpleNamespace(origin=str(physical))
+            # The exact historical hash is patched only in this isolated
+            # synthetic unit test; the real production PINNED map is untouched.
+            with patch.dict("original_replay_source_restore.PINNED", {
+                    "narration_locked_treatments.py": source_sha}, clear=True):
+                self.assertTrue(assert_original_renderer_module_import_safe(
+                    root, loaded=module))
+                foreign = root / "foreign.py"
+                foreign.write_bytes(physical.read_bytes())
+                module.__spec__ = SimpleNamespace(origin=str(foreign))
+                with self.assertRaisesRegex(
+                        ValueError, "ARCHIVED_RENDERER_IMPORT_ORIGIN_DRIFT"):
+                    assert_original_renderer_module_import_safe(root, loaded=module)
+                module.__spec__ = SimpleNamespace(origin=str(physical))
+                physical.write_bytes(b"changed source bytes\n")
+                with self.assertRaisesRegex(
+                        ValueError, "ARCHIVED_RENDERER_IMPORT_ORIGIN_DRIFT"):
+                    assert_original_renderer_module_import_safe(root, loaded=module)
+
     def test_downloaded_native_media_real_codec_fixture(self):
         from original_native_stdin_replay import audit_downloaded_original_movie
         with tempfile.TemporaryDirectory() as directory:
