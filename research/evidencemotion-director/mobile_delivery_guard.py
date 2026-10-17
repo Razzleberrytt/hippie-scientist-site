@@ -96,6 +96,44 @@ def decoded_audio(path):
     if sys.byteorder!='little':samples.byteswap()
     return samples
 
+# Deliberately conservative research screen, not phoneme or listening QA.
+# Check short source-active windows: whole-track SNR can bury 6ms dropouts.
+LOCAL_AUDIO_WINDOW_STEREO_FRAMES = 120       # 2.5ms at 48 kHz
+LOCAL_AUDIO_SOURCE_RMS_FLOOR = 0.025         # exclude background/noise windows
+LOCAL_AUDIO_MIN_ENERGY_RATIO = 0.25          # target/source squared-energy floor
+
+def screen_local_audio_energy(source, mobile, compared_samples):
+    window = LOCAL_AUDIO_WINDOW_STEREO_FRAMES * 2  # interleaved stereo samples
+    checked = 0
+    minimum = None
+    for start in range(0, compared_samples, window):
+        stop = min(start + window, compared_samples)
+        if stop - start < window // 2:
+            continue  # tiny trailing fragment: insufficient window
+        source_energy = mobile_energy = 0.0
+        for i in range(start, stop):
+            x = float(source[i])
+            y = float(mobile[i])
+            source_energy += x * x
+            mobile_energy += y * y
+        if source_energy / (stop - start) < LOCAL_AUDIO_SOURCE_RMS_FLOOR ** 2:
+            continue
+        checked += 1
+        ratio = mobile_energy / source_energy
+        minimum = ratio if minimum is None else min(minimum, ratio)
+        if ratio < LOCAL_AUDIO_MIN_ENERGY_RATIO:
+            raise Hold('LOCAL_AUDIO_ENERGY_DROPOUT')
+    if checked == 0:
+        raise Hold('LOCAL_AUDIO_MATERIAL_SOURCE_ENERGY_NOT_OBSERVED')
+    return {
+        'scope': 'PAIRED_PCM_2_5MS_SOURCE_ACTIVE_ENERGY_NEGATIVE_SCREEN_ONLY',
+        'windowDurationMs': 2.5, 'materialSourceWindowCount': checked,
+        'sourceRmsFloor': LOCAL_AUDIO_SOURCE_RMS_FLOOR,
+        'minimumMobileToSourceWindowEnergyRatio': round(minimum, 6),
+        'dropoutRatioFloor': LOCAL_AUDIO_MIN_ENERGY_RATIO,
+        'phonemeIdentityVerified': False, 'humanAudibilityVerified': False,
+    }
+
 def audio_compare(before,after):
     a=decoded_audio(before);b=decoded_audio(after)
     # AAC encoder/44.1->48k resampling may add a few milliseconds of inaudible
@@ -128,7 +166,14 @@ def audio_compare(before,after):
     corr=(ab-sa*sb/n)/math.sqrt(ca*cb)
     snr=(10*math.log10(aa/err)) if err else 120.
     if corr<0.995 or snr<25.:raise Hold('AUDIO_REENCODE_NOT_SOURCE_EQUIVALENT')
-    return {'decodedChannels':2,'decodedSamples':n,'totalSourceSamples':len(a),'totalMobileSamples':len(b),'codecTailDeltaStereoFrames':delta//2,'codecTailExtraNonSpeechVerified':True,'rate':48000,'normalizedCorrelation':round(corr,7),'snrDb':round(snr,3),'bitwiseAACCopyRequired':False}
+    local = screen_local_audio_energy(a, b, n)
+    return {'decodedChannels':2,'decodedSamples':n,'totalSourceSamples':len(a),
+            'totalMobileSamples':len(b),'codecTailDeltaStereoFrames':delta//2,
+            'codecTailAmplitudeScreened':bool(delta),
+            'codecTailSpeechIdentityVerified':False,
+            'rate':48000,'normalizedCorrelation':round(corr,7),
+            'snrDb':round(snr,3),'localAudioEnergyScreen':local,
+            'bitwiseAACCopyRequired':False}
 
 def video_psnr(before,after,expected_frames):
     # A complete FFmpeg frame-by-frame compare at the same phone reference width.
