@@ -180,6 +180,18 @@ class AlignmentTests(unittest.TestCase):
         args['previousAlignmentRevisionSha256'] = 'b'*64
         self.assertIn('STALE_CUTS_REALIGNMENT_REQUIRED', run()['errors'])
         del args['previousAlignmentRevisionSha256']
+        # Simulate a changed take whose new MFA inputs/report are already valid:
+        # a client retaining its old narration SHA must not reuse earlier cuts.
+        args['previousNarrationSha256'] = 'b'*64
+        self.assertIn('STALE_NARRATION_REVISION_REQUIRES_NEW_CUTS', run()['errors'])
+        del args['previousNarrationSha256']
+        args['previousNarrationSha256'] = report['inputSha256']['wav']
+        self.assertEqual(run()['status'], 'PREVIZ_EDL_READY_FOR_INDEPENDENT_MEDIA_QA')
+        del args['previousNarrationSha256']
+        args['previousNarrationSha256'] = 'not-a-real-sha'
+        self.assertIn('STALE_NARRATION_REVISION_REQUIRES_NEW_CUTS', run()['errors'])
+        del args['previousNarrationSha256']
+
         report['wordAlignment'][0]['startMs'] = 300
         forged = (json.dumps(report)+'\n').encode()
         (self.root/'report.json').write_bytes(forged)
@@ -190,6 +202,17 @@ class AlignmentTests(unittest.TestCase):
         (self.root/'original.wav').write_bytes(b'changed narration')
         self.assertIn('ALIGNMENT_INPUT_CHANGED:wav', run()['errors'])
 
+
+# Existing exact-WAV CI lane runs these source-waveform boundary regressions too.
+# Imported test class stays research-only; no new release/publishing authority.
+from test_audio_cut_edge_qa import CutEdgeTests  # noqa: F401
+from test_voice_revision_invalidation import RevisionInvalidationTests  # noqa: F401
+
+# Compare byte-pinned original-WAV ASR/MFA evidence in the same hosted audio suite.
+# This triages word disagreements but never gives pronunciation or release approval.
+from test_asr_mfa_disagreement_gate import CrossModelResearchTests  # noqa: F401
+from test_caption_word_cue_integrity import CaptionWordCueTests  # noqa: F401
+from test_encoded_caption_transition_gate import EncodedCaptionBandTests  # noqa: F401
 
 if __name__ == '__main__':
     unittest.main()

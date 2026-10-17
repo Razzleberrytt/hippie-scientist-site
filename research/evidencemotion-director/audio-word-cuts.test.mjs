@@ -71,3 +71,44 @@ test('non-text alignment token fails closed rather than throwing',()=>{
  const x=sample();x.wordAlignment[0].word=42;
  assert.ok(plan(x).errors.includes('WORD_TIMING_INVALID'));
 });
+
+test('sparse word-alignment entries fail closed instead of skipping validation',()=>{
+ const x=sample();
+ delete x.wordAlignment[4];
+ const r=plan(x);
+ assert.equal(r.status,'HOLD');
+ assert.ok(r.errors.includes('WORD_TIMING_INVALID'));
+ assert.deepEqual(r.shots,[]);
+ assert.equal(r.finalRenderEligible,false);
+});
+
+test('sparse shot/beat entries fail closed instead of throwing during shot composition',()=>{
+ const x=sample();
+ delete x.beats[1];
+ const r=plan(x);
+ assert.equal(r.status,'HOLD');
+ assert.ok(r.errors.includes('SHOT_ASSET_LINEAGE_MISSING'));
+ assert.ok(r.errors.includes('SHOT_WORD_ANCHORS_INVALID'));
+ assert.deepEqual(r.shots,[]);
+ assert.equal(r.finalRenderEligible,false);
+});
+
+test('sparse scientific-asset lineage fails closed, not silently emitting an undefined asset',()=>{
+ const x=sample();
+ x.beats[1].scientificAssetIDs.length=2;
+ const r=plan(x);
+ assert.equal(r.status,'HOLD');
+ assert.ok(r.errors.includes('SHOT_ASSET_LINEAGE_MISSING'));
+ assert.deepEqual(r.shots,[]);
+ assert.equal(r.finalRenderEligible,false);
+});
+
+test('duplicate shot identifiers are rejected before generating an edit decision list',()=>{
+ const x=sample();
+ x.beats[1].id=x.beats[0].id;
+ const r=plan(x);
+ assert.equal(r.status,'HOLD');
+ assert.ok(r.errors.includes('SHOT_IDENTIFIERS_NOT_UNIQUE'));
+ assert.deepEqual(r.shots,[]);
+ assert.equal(r.finalRenderEligible,false);
+});
