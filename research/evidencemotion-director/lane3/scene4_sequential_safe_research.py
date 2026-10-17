@@ -36,7 +36,7 @@ def run(args,**kw):
     if r.returncode:raise ResearchHold('ENCODE_OR_PROBE_FAILURE '+r.stderr[-800:].decode(errors='replace'))
     return r.stdout
 
-def make_overlay(crop:Image.Image,frame_index:int,font:Path, camera_study:bool=False)->Image.Image:
+def make_overlay(crop:Image.Image,frame_index:int,font:Path, camera_study:bool=False,padding_study:bool=False)->Image.Image:
     if crop.size!=(1080,450) or not FIRST<=frame_index<=LAST:
         raise ResearchHold('BAD_REAL_FRAME_INPUT')
     work=Image.new('RGBA',(1080,450),(0,0,0,0))
@@ -44,7 +44,7 @@ def make_overlay(crop:Image.Image,frame_index:int,font:Path, camera_study:bool=F
     # Full old two-column card is suppressed; boundary rows fade to original.
     # A new ONE-column card stays within the reviewer-prequalified x<864 zone.
     out.rectangle((0,0,1079,449),fill=(5,24,37,255))
-    out.rounded_rectangle((65,15,835,428),radius=22,fill=(9,33,47),outline=(64,150,158),width=4)
+    out.rounded_rectangle((65,15,835,443 if padding_study else 428),radius=22,fill=(9,33,47),outline=(64,150,158),width=4)
     regular=ImageFont.truetype(str(font),42)
     bold=ImageFont.truetype(str(font),48)
     color=(88,220,199,255)
@@ -77,11 +77,11 @@ def make_overlay(crop:Image.Image,frame_index:int,font:Path, camera_study:bool=F
     if stage_3d:
         # Exact existing scientific disclaimer, unveiled at original f595.
         if frame_index>=CAVEAT_START:
-            out.text((127,354),'Not a receptor recording',font=bold,fill=(238,246,241,255))
+            out.text((110,366) if padding_study else (127,354),'Not a receptor recording',font=bold,fill=(238,246,241,255))
     else:
-        out.text((157,354),'RDKit / source-linked',font=bold,fill=(238,246,241,255))
+        out.text((150,366) if padding_study else (157,354),'RDKit / source-linked',font=bold,fill=(238,246,241,255))
     # Critical art never enters x>=864. Other source text is NOT edited.
-    for y in list(range(0,8))+list(range(442,450)):
+    for y in list(range(0,8))+list(range(446 if padding_study else 442,450)):
         alpha=min(255,int(255*(min(y,449-y)/7)))
         out.line((0,y,1079,y),fill=(5,24,37,alpha))
     return work
@@ -92,7 +92,7 @@ def probe_count(movie):
     if (s['width'],s['height'],s['r_frame_rate'],int(s['nb_read_frames']))!=(1080,1920,'30/1',1031):
         raise ResearchHold('WRONG_SOURCE_H264_GRID')
 
-def prepare(source,font,output_directory,camera_study:bool=False):
+def prepare(source,font,output_directory,camera_study:bool=False,padding_study:bool=False):
     source,font,output_directory=Path(source),Path(font),Path(output_directory)
     if output_directory.resolve()==source.resolve() or output_directory.is_symlink():raise ResearchHold('OUTPUT_ALIASES_SOURCE')
     if output_directory.exists(): raise ResearchHold('FRESH_OUTPUT_DIRECTORY_REQUIRED')
@@ -109,7 +109,7 @@ def prepare(source,font,output_directory,camera_study:bool=False):
             b=proc.stdout.read(FRAME_BYTES)
             if len(b)!=FRAME_BYTES:raise ResearchHold('TRUNCATED_SOURCE_FRAME_'+str(idx))
             roi=Image.frombytes('RGB',(1080,450),b)
-            overlay=make_overlay(roi,idx,font,camera_study=camera_study)
+            overlay=make_overlay(roi,idx,font,camera_study=camera_study,padding_study=padding_study)
             overlay.save(overlays/f'frame_{idx:04d}.png',compress_level=1)
         if proc.stdout.read(1):raise ResearchHold('EXTRA_SOURCE_FRAMES')
         if proc.wait()!=0:raise ResearchHold('SOURCE_FFMPEG_READ_FAILURE '+proc.stderr.read().decode(errors='replace')[-600:])
@@ -129,16 +129,16 @@ def encode(source,overlays,output):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--source',required=True);p.add_argument('--font',required=True)
-    p.add_argument('--workdir',required=True);p.add_argument('--output',required=True);p.add_argument('--preview-only',action='store_true');p.add_argument('--camera-study',action='store_true');a=p.parse_args()
+    p.add_argument('--workdir',required=True);p.add_argument('--output',required=True);p.add_argument('--preview-only',action='store_true');p.add_argument('--camera-study',action='store_true');p.add_argument('--padding-study',action='store_true');a=p.parse_args()
     source=Path(a.source);font=Path(a.font);workdir=Path(a.workdir);output=Path(a.output)
     if output.resolve() in (source.resolve(),font.resolve()) or output.exists():raise ResearchHold('OUTPUT_NOT_FRESH')
-    overlays=prepare(source,font,workdir,camera_study=a.camera_study)
+    overlays=prepare(source,font,workdir,camera_study=a.camera_study,padding_study=a.padding_study)
     if not a.preview_only:encode(source,overlays,output)
     if digest(source)!=SOURCE_SHA:raise ResearchHold('SOURCE_CHANGED_DURING_REPLAY')
     result={'schema':'ths-em-lane3-scene4-sequential-source-pinned-research-v1','originalFilmSha256':SOURCE_SHA,
        'candidateFilmSha256':None if a.preview_only else digest(output),
        'originalScene4FirstFrame':FIRST,'last':LAST,'stage3DStart':THREED_START,'rightCaveatStart':CAVEAT_START,
-       'rightSafeZoneStart':SAFE_LIMIT,'preservedSourceMoving3D':True,'cameraStudy':a.camera_study,'originalAACNeedsIndependentPacketProof':True,
+       'rightSafeZoneStart':SAFE_LIMIT,'preservedSourceMoving3D':True,'cameraStudy':a.camera_study,'paddingStudy':a.padding_study,'originalAACNeedsIndependentPacketProof':True,
        **NO_RELEASE}
     print(json.dumps(result,indent=2))
 if __name__=='__main__':main()
