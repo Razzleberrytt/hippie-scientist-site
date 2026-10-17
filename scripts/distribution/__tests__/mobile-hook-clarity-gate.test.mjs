@@ -4,7 +4,7 @@ import {assertMobileOpeningHookSvg} from '../mobile-hook-clarity-gate.mjs'
 const svg=(texts,attrs='')=>'<svg '+attrs+' xmlns="http://www.w3.org/2000/svg">'+texts.map(t=>'<text x="60" y="220">'+t+'</text>').join('')+'</svg>'
 test('restraint: three visible text blocks and approved pill survive',()=>{
  const x=assertMobileOpeningHookSvg(svg(['PHENIBUT','CALMING OR ADDICTIVE?','Withdrawal can be severe.'],'data-hero-kind="capsule" data-hero-template="clean-capsule-v1"'))
- assert.equal(x.texts,3)
+ assert.equal(x.visibleTextNodes,3)
 })
 test('original screenshot overload is rejected',()=>{
  const prior=['THE HIPPIE SCIENTIST','EVIDENCEMOTION · HARM REDUCTION','THE SIDE THEY SKIP','01/06','CALMING OR ADDICTIVE?','WITHDRAWAL CAN BE SEVERE','Sold as a calming','SOURCE: CDC / SYSTEMATIC REVIEWS','PHENIBUT: THE OTHER SIDE','FOLLOW FOR THE SCIENCE, NOT THE HYPE']
@@ -21,3 +21,31 @@ test('freeform unlabeled capsule cannot obtain proof by assertion',()=>{
 })
 test('valid short scientific claim remains permitted',()=>assert.doesNotThrow(()=>assertMobileOpeningHookSvg(svg(['PHENIBUT','GABA-B','Dependence can develop']))))
 test('long single label also fails',()=>assert.throws(()=>assertMobileOpeningHookSvg(svg(['A calming supplement may affect the central nervous system and has been associated with a number of serious withdrawal reactions requiring medical attention'])),/VISIBLE_WORDS_EXCEED_17/))
+
+test('existing producer can retain small governed trust labels and a wrapped two-line headline',()=>{
+ const xml='<svg xmlns="http://www.w3.org/2000/svg">'+
+ '<text data-em-role="brand">The Hippie Scientist</text>'+
+ '<text data-em-role="headline">CALMING OR</text>'+
+ '<text data-em-role="headline">ADDICTIVE?</text>'+
+ '<text data-em-role="disclosure">Educational; not medical advice.</text>'+
+ '<text data-em-role="provenance">https://thehippiescientist.net/articles/phenibut</text>'+
+ '<metadata>{&quot;teachingObject&quot;:&quot;danger signal&quot;}</metadata>'+
+ '</svg>'
+ const x=assertMobileOpeningHookSvg(xml)
+ assert.equal(x.visibleTextNodes,5)
+ assert.equal(x.semanticGroups,1)
+ assert.equal(x.governedTrustLabelsRetained,3)
+})
+test('declared capsule without approved template cannot bypass gate by omitting optional marker',()=>{
+ const xml='<svg xmlns="http://www.w3.org/2000/svg"><text>PHENIBUT</text>'+
+ '<metadata>{&quot;teachingObject&quot;:&quot;capsule&quot;}</metadata></svg>'
+ assert.throws(()=>assertMobileOpeningHookSvg(xml),/CAPSULE_REQUIRES_APPROVED_SHAPE_TEMPLATE/)
+})
+test('tagged source roles do not excuse an unrelated cluster of decorative banners',()=>{
+ const xml='<svg xmlns="http://www.w3.org/2000/svg">'+
+ '<text data-em-role="brand">THS</text>'+
+ ['THE SIDE THEY SKIP','01/06','CALMING OR ADDICTIVE?','WITHDRAWAL','THREE MORE LABELS']
+   .map(t=>'<text>'+t+'</text>').join('')+
+ '<text data-em-role="provenance">https://example.org/source</text></svg>'
+ assert.throws(()=>assertMobileOpeningHookSvg(xml),/TEXT_BLOCKS_EXCEED_4/)
+})
