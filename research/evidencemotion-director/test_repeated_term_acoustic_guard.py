@@ -1465,6 +1465,58 @@ class RevisedAacPacketTimelineResearchTests(unittest.TestCase):
         self.assertEqual(r["packetTimelineDifferences"][0]["packetIndex"], 425)
         self.assertFalse(r["mayPublish"])
 
+    def test_real_ffprobe_priming_side_data_does_not_change_metadata_result(self):
+        sha = original_guard.REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA
+        a, b = self.packets(16), self.packets(8)
+        priming = {"side_data_type": "Skip Samples", "skip_samples": 1024,
+                   "discard_padding": 0, "skip_reason": 0,
+                   "discard_reason": 0}
+        a[0]["side_data_list"] = [dict(priming)]
+        b[0]["side_data_list"] = [dict(priming)]
+        result = original_guard.compare_revised_aac_packet_timeline(
+            a, b, sha, sha)
+        self.assertEqual(result["status"],
+                         "RESEARCH_REVISED_AAC_METADATA_MISMATCH_HOLD")
+        self.assertEqual(result["timelineMetadataDisagreementCount"], 1)
+        self.assertEqual(result["packetTimelineDifferences"][0]["packetIndex"], 806)
+        self.assertTrue(result["bitExactAacPayloadPreserved"])
+
+    def test_priming_or_discard_side_data_changes_must_be_reported(self):
+        sha = original_guard.REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA
+        a, b = self.packets(), self.packets()
+        side = {"side_data_type": "Skip Samples", "skip_samples": 1024,
+                "discard_padding": 0, "skip_reason": 0,
+                "discard_reason": 0}
+        a[0]["side_data_list"] = [dict(side)]
+        b[0]["side_data_list"] = [dict(side)]
+        b[0]["side_data_list"][0]["skip_samples"] = 512
+        r = original_guard.compare_revised_aac_packet_timeline(
+            a, b, sha, sha)
+        self.assertEqual(r["timelineMetadataDisagreementCount"], 1)
+        self.assertFalse(r["packetTimelineMetadataEqual"])
+        self.assertEqual(r["packetTimelineDifferences"][0]["packetIndex"], 0)
+        self.assertFalse(r["mayPublish"])
+
+    def test_untrusted_or_missing_aac_skip_samples_never_falsely_approves(self):
+        sha = original_guard.REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA
+        for bad in (
+            [{"side_data_type": "Skip Samples", "skip_samples": -1,
+              "discard_padding": 0, "skip_reason": 0, "discard_reason": 0}],
+            [{"side_data_type": "Other" ,"skip_samples": 1024,
+              "discard_padding": 0, "skip_reason": 0, "discard_reason": 0}],
+            [{"side_data_type": "Skip Samples", "skip_samples": True,
+              "discard_padding": 0, "skip_reason": 0, "discard_reason": 0}],
+            [{}],
+        ):
+            with self.subTest(side=bad):
+                b = self.packets()
+                b[0]["side_data_list"] = bad
+                r = original_guard.compare_revised_aac_packet_timeline(
+                    self.packets(), b, sha, sha)
+                self.assertEqual(r["status"], "HOLD")
+                self.assertIn("REVISED_AUDIO_PACKET_TIMESTAMP_OR_SCHEMA_INVALID",
+                              r["errors"])
+
     def test_revised_aac_cli_requires_both_exclusive_films(self):
         script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
         choices = (
