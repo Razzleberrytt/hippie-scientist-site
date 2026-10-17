@@ -89,6 +89,50 @@ existing bytes or symlinked destinations. Inspect
 and status `SINGLE_THREAD_ORIGINAL_SOURCE_H264_BITWISE_REPLAY_RESEARCH_HOLD`.
 A fully successful research receipt is **not** a publication receipt.
 
+### Offline alternative when original GitHub Actions artifacts expire
+
+A separately preserved portable bundle from **the second** pinned full-native A/B
+research experiment (workflow `38973005573`, *not* a new creative film and
+*not* the later `38975231562` head) was independently unpacked, SHA-rehashed
+and passed its bounded bundled `verify.py` on Oct 16. Its exact independently
+recorded outer identity is:
+
+- ZIP: `EvidenceMotion_Lane5_Repeatable_Original_Replay_Research_20261016.zip`
+- ZIP SHA-256: `5200a297f0b7262c1cfb0b0b68c20088be553307358743e0f7858cabd7c6045d`
+- Physical A/B MP4 SHA-256: `c100779c2c6c15005fdef9c5166da957c8dd6f51226d45f7c2264f0a89206322`
+- Includes A/ and B/ original encoded movies, their encoder logs, full
+  source-to-stdin receipts, both environment JSONs, the physical prior pair
+  research HOLD receipt, a file-SHA manifest, README and `verify.py`.
+- **Not included:** original lossless WAV bytes, archived source renderer
+  module tree, externally authenticated executor attestation or release review.
+
+If the *physical* portable ZIP has been securely retained, verify its outer
+SHA **before** executing the contained verifier:
+
+```bash
+set -euo pipefail
+saved="/path/to/EvidenceMotion_Lane5_Repeatable_Original_Replay_Research_20261016.zip"
+printf '%s  %s\n' \
+  '5200a297f0b7262c1cfb0b0b68c20088be553307358743e0f7858cabd7c6045d' \
+  "$saved" | sha256sum -c -
+mkdir -p /tmp/em-lane5-saved-replay
+unzip -q "$saved" -d /tmp/em-lane5-saved-replay
+(cd /tmp/em-lane5-saved-replay && python verify.py)
+```
+
+The portable `verify.py` covers member-file SHA pins and A/B
+research-receipt/source-frame consistency, **not** a fresh full video/audio
+decode or source re-render. To apply the newer receiver (from the pinned PR
+code checkout above), run `python research/evidencemotion-director/original_native_stdin_replay.py compare`
+with `--first /tmp/em-lane5-saved-replay/A`,
+`--second /tmp/em-lane5-saved-replay/B` and a **fresh** `--out` path.
+This invokes the real physical video+AAC decode and log gate rather than
+merely reading `verify.py` output. It still only returns a research HOLD.
+The outer digest, not the bundled manifest alone, establishes that this is
+the *previously observed* ZIP. When no physical copy or trusted outer digest
+exists, this is **unrecoverable as an accepted original artifact**; the
+written hash cannot regenerate missing source/audio/movie bytes.
+
 **Retention/escrow limit:** These native artifacts were uploaded with a
 **7-day** GitHub retention period on Oct 16, not a permanent archive; their
 availability ends around Oct 23, subject to GitHub retention and deletion.
