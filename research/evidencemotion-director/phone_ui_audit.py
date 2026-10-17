@@ -871,9 +871,9 @@ def verify_complete_media_decode(movie):
 
 
 
-def screen_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indices, roi,
-                                          pixel_mode="bright_neutral_caption"):
-    """Fail closed on visible bright ink in a prequalified critical caption ROI.
+def measure_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indices, roi,
+                                           pixel_mode="bright_neutral_caption"):
+    """Produce a nonpublishing full-window physical-pixel research receipt.
 
     This is a narrow, manually targeted encoded-pixel negative screen for
     cases like the actual revised Shot5 NOT SHOWN UI-zone overflow. Supply
@@ -972,15 +972,22 @@ def screen_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indi
         observations.append(row)
     violations = [row for row in observations
                   if row["targetPixelsInRightExclusion"]]
-    if violations:
-        first = violations[0]
-        code = ("TARGETED_CRITICAL_INK_RIGHT_UI_EXCLUSION"
-                if pixel_mode == "bright_neutral_caption" else
-                "TARGETED_CRITICAL_ART_RIGHT_UI_EXCLUSION")
-        hold(code + ":" + str(first["decodedFrameIndex"]) + ":"
-             + str(first["targetPixelsInRightExclusion"]))
+    code = ("TARGETED_CRITICAL_INK_RIGHT_UI_EXCLUSION"
+            if pixel_mode == "bright_neutral_caption" else
+            "TARGETED_CRITICAL_ART_RIGHT_UI_EXCLUSION")
+    first = violations[0] if violations else None
     return {
-        "status": "NO_TARGETED_RIGHT_UI_HIGHLIGHTS_DETECTED_REVIEW_REQUIRED",
+        "status": (code + "_HOLD" if violations else
+                   "NO_TARGETED_RIGHT_UI_HIGHLIGHTS_DETECTED_REVIEW_REQUIRED"),
+        "publicationVerdict": "HOLD",
+        "violationCode": (code + ":" + str(first["decodedFrameIndex"]) + ":" +
+                          str(first["targetPixelsInRightExclusion"])) if first else None,
+        "violatingFrameCount": len(violations),
+        "firstViolatingFrameIndex": first["decodedFrameIndex"] if first else None,
+        "lastViolatingFrameIndex": (violations[-1]["decodedFrameIndex"]
+                                   if violations else None),
+        "maxViolatingPixelCount": max(
+            (v["targetPixelsInRightExclusion"] for v in violations), default=0),
         "pixelMode": pixel_mode,
         "filmSha256": expected_film_sha,
         "targetedRoiPx": roi,
@@ -995,6 +1002,21 @@ def screen_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indi
         "viewerReadabilityVerified": False,
         "mayPublish": False,
     }
+
+
+def screen_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indices, roi,
+                                          pixel_mode="bright_neutral_caption"):
+    """Strict default: reject ANY violating encoded pixel, never return green.
+
+    Diagnostics may report every detected frame, but cannot silently convert
+    a failed negative-screen review into an acceptable film verdict.
+    """
+    receipt = measure_targeted_encoded_right_ui_ink(
+        movie, expected_film_sha=expected_film_sha,
+        frame_indices=frame_indices, roi=roi, pixel_mode=pixel_mode)
+    if receipt["violationCode"] is not None:
+        hold(receipt["violationCode"])
+    return receipt
 
 
 def choose_decoded_sample(stamps, shot, requested_sec):
@@ -1332,6 +1354,8 @@ if __name__ == "__main__":
                         help="Optional exact-film 48-observation OCR receipt, requires ink; no approval")
     parser.add_argument("--targeted-right-ui-screen", action="store_true",
                         help="Read-only exact-film negative screen, no phone plan or publication approval")
+    parser.add_argument("--diagnostic-json", action="store_true",
+                        help="Opt-in full frame-by-frame HOLD JSON; violations still exit nonzero")
     parser.add_argument("--expected-video-sha256", default=None,
                         help="Required immutable lowercase SHA-256 in targeted screen mode")
     parser.add_argument("--start-frame", type=int, default=None,
@@ -1355,13 +1379,15 @@ if __name__ == "__main__":
                     args.end_frame is None or args.roi is None or
                     not 4 <= args.end_frame - args.start_frame + 1 <= 150):
                 hold("TARGETED_UI_SCREEN_COMPLETE_BOUNDED_INPUT_REQUIRED")
-            result = screen_targeted_encoded_right_ui_ink(
+            screen = (measure_targeted_encoded_right_ui_ink if args.diagnostic_json
+                      else screen_targeted_encoded_right_ui_ink)
+            result = screen(
                 args.movie,
                 expected_film_sha=args.expected_video_sha256,
                 frame_indices=list(range(args.start_frame, args.end_frame + 1)),
                 roi=args.roi, pixel_mode=args.pixel_mode)
         else:
-            if (args.manifest is None or args.output is None or
+            if (args.diagnostic_json or args.manifest is None or args.output is None or
                     args.expected_video_sha256 is not None or
                     args.start_frame is not None or args.end_frame is not None or
                     args.roi is not None or args.pixel_mode != "bright_neutral_caption"):
@@ -1370,6 +1396,9 @@ if __name__ == "__main__":
                            ink_receipt=args.ink_receipt,
                            glyph_receipt=args.glyph_receipt)
         print(json.dumps(result, indent=2))
+        if args.targeted_right_ui_screen and args.diagnostic_json and result["violatingFrameCount"]:
+            # JSON on stdout is durable evidence, NOT a successful zero exit.
+            raise SystemExit(2)
     except (ValueError, OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired,
             KeyError, IndexError, TypeError) as error:
         raise SystemExit("PHONE_UI_HOLD:" + str(error)) from error
