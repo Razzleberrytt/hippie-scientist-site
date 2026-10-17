@@ -156,6 +156,53 @@ authorized release and true production rollback remain blocked. Excellent
 first **0/1**, five diverse consecutive excellent first renders **0/5**,
 and posting prohibited.
 
+## First-render attempt history: externally pinned append-only proof
+
+When an **actual new topic is produced**, record *every* first attempt,
+failure, HOLD and rerender in the existing versioned research register.
+`five_render_attempt_guard.py` can verify a candidate against a previous
+register **whose exact whole-file SHA-256 was recorded independently before
+the new attempt**. An updated current file and a freshly recomputed hash
+of a rewritten previous file are NOT independent history. Keep the
+previous register read-only and store that prior SHA in an owner/controller
+record independent of the candidate.
+
+For one new event, use a **fresh** output name (existing receipts cannot
+be overwritten):
+
+```bash
+# Run from the exact Lane 5 code checkout. Obtain the OLD SHA from the
+# previously saved trusted record, not from a newly edited prior file.
+PREVIOUS_SHA="<previously recorded 64-character lowercase SHA256>"
+python research/evidencemotion-director/five_render_attempt_guard.py \
+  --previous-register /path/to/previous-attempts.json \
+  --previous-sha "$PREVIOUS_SHA" \
+  --register /path/to/attempts-after-new-render.json \
+  --out /path/to/new-attempt-continuity-RESEARCH-HOLD.json
+```
+
+The old events must be a **verbatim semantic prefix** of the new list;
+removing, editing or reordering a failed first render or revised attempt
+fails closed. Duplicate run IDs or film SHA values, mismatched subject
+ordinals, missing/unknown keys, duplicate JSON keys, nonfinite numbers,
+a true `mayPublish` flag, and a claimed accepted streak are also refused.
+At least one new event must have been appended. This is a *research-only*
+continuity guard, not proof that the very first snapshot included every
+historical attempt. A positive result explicitly retains
+`allHistoricalAttemptsProvenPresent=false`,
+`independentScienceVoiceCraftHandsetAudienceAndVarietyVerified=false`,
+`firstExcellentMasterAccepted=false`,
+`fiveRenderMilestoneAccepted=false`, and `mayPublish=false`.
+The declared provisional streak is **not** the earned 0/1 or 0/5 count.
+
+Keep the newly verified register and its own independently recorded
+SHA (together with actual movie/source hashes and review receipts) for
+the next event. If prior bytes or trustworthy external digest are missing,
+report `HOLD: UNANCHORED_HISTORY`, do not erase/reseed the ledger just to
+make a streak look cleaner. The on-disk output is a private research
+receipt; this tool does not post, accept quality, promote to production,
+or change the protected 46/1,590 progress ledger.
+
 ## Rehearse it independently, offline
 
 Prerequisites: Python 3.11+ standard library and FFprobe/FFmpeg installed locally. No cloud login needed. From the repository root, run this command with a separately trusted expected hash:
