@@ -1,11 +1,13 @@
 """True H264, 3-width, 2-layout OCR scientific-disclosure research-only tests."""
 import os
+import subprocess
 from pathlib import Path
 import tempfile
 import unittest
 from em00804_encoded_phone_ocr_research import (
     EXPECTED,WIDTHS,TIMES,PSM,EXPECTED_PICTOGRAM_SHA,SCHEMA,
-    run,check_recognition,has_contradictory_plant_assay_claim,norm,ocr_png,width_frame
+    run,check_recognition,has_contradictory_plant_assay_claim,norm,ocr_png,width_frame,
+    scan_all_original_encoded_frames
 )
 from em00805_botanical_video_probes import sha
 
@@ -133,6 +135,49 @@ class ActualEncodedPhoneIndependentOCR(unittest.TestCase):
         image=width_frame(self.path/"clips/legible.mp4",30,375,overlay=True)
         with self.assertRaisesRegex(ValueError,"UNSUPPORTED_OCR_LAYOUT"):
             ocr_png(image,99)
+
+    def test_all_actual_encoded_frames_catch_transient_unsafe_caption(self):
+        scan=self.receipt["temporalFullFrameResearchProbe"]
+        self.assertTrue(scan["researchFixtureOnly"])
+        self.assertTrue(scan["researchFixtureFullScanVerified"])
+        self.assertEqual(scan["originalStaticFilmFramesOCRed"],60)
+        self.assertEqual(scan["transientFilmFramesOCRed"],60)
+        self.assertEqual(scan["injectedAdversarialFrameIndices"],list(range(10,20)))
+        self.assertEqual(scan["verifiedUnsafeFrameIndices"],list(range(10,20)))
+        self.assertEqual(
+            [x["frameIndex"] for x in scan["sparseCheckpointsWronglyAppearSafe"]],
+            list(TIMES))
+        self.assertTrue(all(x["unsafeClaimMissed"]
+                            for x in scan["sparseCheckpointsWronglyAppearSafe"]))
+        good=scan["originalStaticFilmReadings"]
+        bad=scan["transientFilmReadings"]
+        self.assertEqual([x["frameIndex"] for x in good],list(range(60)))
+        self.assertEqual([x["frameIndex"] for x in bad],list(range(60)))
+        self.assertTrue(all(x["twoSafeDisclaimersAndNoVeto"] for x in good))
+        for x in bad:
+            index=x["frameIndex"]
+            if 10<=index<20:
+                self.assertTrue(x["contradictoryAssayRecognized"],x)
+                self.assertFalse(x["twoSafeDisclaimersAndNoVeto"],x)
+                self.assertTrue(all(norm(line) in norm(x["ocrRawOutput"])
+                                    for line in EXPECTED),x)
+            else:
+                self.assertTrue(x["twoSafeDisclaimersAndNoVeto"],x)
+        self.assertFalse(scan["actualHandsetApproved"])
+        self.assertFalse(scan["originalNarratedFilmApproved"])
+        self.assertFalse(scan["mayPublish"])
+
+    def test_all_frame_decoder_refuses_truncated_encoded_movie(self):
+        # A 10-frame H264 cannot pretend to be the full 60-frame fixture.
+        original=self.path/"clips/legible.mp4"
+        cut=self.path/"truncated-temporal-guard.mp4"
+        subprocess.run(["ffmpeg","-hide_banner","-loglevel","error","-y",
+                        "-i",str(original),"-frames:v","10","-an",
+                        "-c:v","libx264","-preset","ultrafast",str(cut)],
+                       check=True,capture_output=True,timeout=60)
+        with self.assertRaisesRegex(ValueError,
+                                    "ENCODED_TEMPORAL_FRAME_MISSING_HOLD"):
+            scan_all_original_encoded_frames(cut)
 
     def test_never_inherits_real_human_handset_scientific_or_release_pass(self):
         for key in (
