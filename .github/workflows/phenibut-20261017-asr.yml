@@ -1,0 +1,36 @@
+name: THS Phenibut Independent ASR Negative Filter
+on:
+  push:
+    branches:
+      - research/phenibut-20261017-video
+    paths:
+      - research/evidencemotion-director/phenibut-20261017/asr_source_speech.py
+      - .github/workflows/phenibut-20261017-asr.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  independent-speech-review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'faster-whisper==1.2.1'
+      - name: Fetch exact pinned original Kokoro audio
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p phenibut-original-voice
+          gh run download 39042114855 -R Razzleberrytt/hippie-scientist-site -n phenibut-original-kokoro-unreviewed-speech -D phenibut-original-voice
+          echo '01717a6642e4f179ba5349252b20ac595f3662c746a01ca9a2f385cc3e012481  phenibut-original-voice/Phenibut_ORIGINAL_KOKORO.wav' | sha256sum -c -
+      - run: python research/evidencemotion-director/phenibut-20261017/asr_source_speech.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phenibut-20261017-asr-independent-report
+          path: phenibut-asr/
+          if-no-files-found: warn
+          retention-days: 7
