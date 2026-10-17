@@ -1608,6 +1608,55 @@ class MutedStoryNegativeScreenTests(unittest.TestCase):
                       result["blockingFindings"])
         self.assertEqual(result["verdict"], "HOLD")
 
+    def test_misplaced_operator_in_one_crop_is_a_muted_story_hold(self):
+        # This standalone guard previously returned a false mechanical
+        # green for an inequality before STRUCTURE or after EXPERIENCE,
+        # even though those tokens and the ≠ glyph were all present.
+        for malformed in ("≠ STRUCTURE HUMAN EXPERIENCE",
+                          "STRUCTURE HUMAN ≠ EXPERIENCE",
+                          "STRUCTURE HUMAN EXPERIENCE ≠"):
+            with self.subTest(malformed=malformed):
+                proof, plan = self.build()
+                target = next(s for s in plan["shots"]
+                              if s["id"] == "sentence_5_part1")
+                target["annotations"].append(
+                    {"role": "science", "text": "STRUCTURE"})
+                for phase in ("early", "middle", "late"):
+                    words = ["structure", "human", "experience"]
+                    proof["observations"].append({
+                        "scene": "sentence_5_part1", "phase": phase,
+                        "recognized": malformed,
+                        "recognizedTokens": words,
+                        "expectedTokens": words,
+                        "expected": "STRUCTURE HUMAN EXPERIENCE",
+                        "wordSequenceRecovered": True,
+                    })
+                screen = mute_story_negative_screen(plan, proof)
+                self.assertTrue(screen["subjectAndObjectOCRWithinSameShotAllThreeTimes"])
+                self.assertFalse(screen["subjectObjectAndOperatorOCRInSameCropAllThreeTimes"])
+                self.assertIn("NO_EXACT_ENCODED_NEGATION_OPERATOR_OCR_PROOF",
+                              screen["blockingFindings"])
+                self.assertEqual(screen["verdict"], "HOLD")
+                self.assertFalse(screen["mayPublish"])
+
+    def test_linewrapped_correctly_ordered_operator_remains_nonpublishing(self):
+        proof, plan = self.build()
+        target = next(s for s in plan["shots"] if s["id"] == "sentence_5_part1")
+        target["annotations"].append({"role": "science", "text": "STRUCTURE"})
+        for phase in ("early", "middle", "late"):
+            proof["observations"].append({
+                "scene": "sentence_5_part1", "phase": phase,
+                "recognized": "STRUCTURE\n≠ HUMAN EXPERIENCE",
+                "recognizedTokens": ["structure", "human", "experience"],
+                "expectedTokens": ["structure", "human", "experience"],
+                "expected": "STRUCTURE HUMAN EXPERIENCE",
+                "wordSequenceRecovered": True,
+            })
+        result = mute_story_negative_screen(plan, proof)
+        self.assertEqual(result["verdict"], "MECHANICAL_WORD_SCREEN_ONLY_REVIEW_REQUIRED")
+        self.assertTrue(result["subjectObjectAndOperatorOCRInSameCropAllThreeTimes"])
+        self.assertFalse(result["mayPublish"])
+
     def test_hypothetical_same_crop_word_proof_remains_nonpublishing(self):
         proof, plan = self.build()
         target = next(s for s in plan["shots"] if s["id"] == "sentence_5_part1")
