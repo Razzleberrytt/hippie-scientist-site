@@ -262,7 +262,12 @@ def audit(film, story_file, *, original_wav=None):
     film = Path(film)
     digest = file_sha256(film)
     source = Path(story_file)
+    # Capture the storyboard identity BEFORE decoding. A late first hash
+    # would accidentally endorse changed bytes read during the audit.
+    story_sha = file_sha256(source)
     story = json.loads(source.read_text())
+    if file_sha256(source) != story_sha:
+        raise CraftHold('STORY_BYTES_CHANGED_DURING_CRAFT_AUDIT')
     frame_count = read_metadata(film)
     shots = validate_story(story, digest=digest, frame_count=frame_count)
     frame_bins = [(round(s['startSec'] * 30), round(s['endSec'] * 30)) for s in shots]
@@ -299,7 +304,7 @@ def audit(film, story_file, *, original_wav=None):
         boundary_risk.append(transition)
     result = {'schema':'ths-lane3-decoded-visual-variety-negative-filter-v2',
             'status':'DECODED_VISUAL_REVIEW_REQUIRED',
-            'filmSha256':digest, 'storySha256':file_sha256(source),
+            'filmSha256':digest, 'storySha256':story_sha,
             'fullDecodedFrames':frame_count, 'scienceArea':list(SCIENCE_BOX),
             'framesIndependentlyDecoded':True,
             'sampling':'three independent early/middle/late actual frames per shot (27 samples total), full linear H264 decode',
