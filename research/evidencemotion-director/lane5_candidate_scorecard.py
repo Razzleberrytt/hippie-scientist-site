@@ -329,11 +329,13 @@ def _phone_plan_claim_hold(story):
 def score_candidate(*, film, wav, story_path, screen_path,
                     expected_film_sha, expected_wav_sha, expected_story_sha,
                     expected_screen_sha, previous_screen_path=None,
-                    expected_previous_screen_sha=None, dimensions=NATIVE,
+                    expected_previous_screen_sha=None, dimensions=None,
                     previous_ink_path=None, current_ink_path=None,
                     expected_previous_ink_sha=None, expected_current_ink_sha=None,
                     previous_ink_film_sha=None):
     """Return an explicitly non-promotable scorecard for one physically decoded film."""
+    if dimensions is None:
+        hold("EXPLICIT_EXPECTED_NATIVE_DIMENSIONS_REQUIRED")
     film_sha = _same_pin(film, expected_film_sha)
     wav_sha = _same_pin(wav, expected_wav_sha)
     story, story_sha = _read_json(story_path, expected_story_sha)
