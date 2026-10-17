@@ -13,8 +13,22 @@ from pathlib import Path
 def prepare_research_output(destination, inputs):
     """Reject aliases/symlinks, then remove stale receipts before validation."""
     target = Path(destination)
-    if target.is_symlink() or any(target.resolve() == Path(p).resolve() for p in inputs):
+    if target.is_symlink():
         raise ValueError("RESEARCH_RECEIPT_HOLD:OUTPUT_SYMLINK_OR_INPUT_ALIAS")
+    # Path.resolve() catches direct and symlinked-parent aliases, but two
+    # hardlinked names resolve to *different paths* despite referencing the
+    # same source inode. Check both before unlinking the stale output name.
+    for input_path in inputs:
+        source = Path(input_path)
+        if target.resolve() == source.resolve():
+            raise ValueError("RESEARCH_RECEIPT_HOLD:OUTPUT_SYMLINK_OR_INPUT_ALIAS")
+        try:
+            same_existing_file = (target.exists() and source.exists()
+                                  and os.path.samefile(target, source))
+        except OSError as exc:
+            raise ValueError("RESEARCH_RECEIPT_HOLD:OUTPUT_INPUT_IDENTITY_UNVERIFIABLE") from exc
+        if same_existing_file:
+            raise ValueError("RESEARCH_RECEIPT_HOLD:OUTPUT_SYMLINK_OR_INPUT_ALIAS")
     if target.exists() and not target.is_file():
         raise ValueError("RESEARCH_RECEIPT_HOLD:OUTPUT_MUST_BE_REGULAR_FILE")
     if target.exists():
