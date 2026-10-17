@@ -1400,8 +1400,10 @@ class RevisedAacPacketTimelineResearchTests(unittest.TestCase):
             "revisedMinusArchivedDurationSamples"], -8)
         self.assertAlmostEqual(result["packetTimelineDifferences"][0][
             "revisedMinusArchivedDurationMs"], -0.333333, delta=.000001)
-        self.assertEqual(result["originalTotalPacketDurationSamples"], 824336)
-        self.assertEqual(result["revisedTotalPacketDurationSamples"], 824328)
+        self.assertEqual(result["originalTotalPacketDurationSamplesIncludingPriming"], 825360)
+        self.assertEqual(result["revisedTotalPacketDurationSamplesIncludingPriming"], 825352)
+        self.assertEqual(result["archivedLastPacketPresentationEndSample"], 824336)
+        self.assertEqual(result["revisedLastPacketPresentationEndSample"], 824328)
         for denied in ("mayPublish", "audioCraftApproved", "wordTimingCalibrated",
                        "pronunciationVerified", "revisedFilmVerifiedForRelease"):
             self.assertFalse(result[denied])
