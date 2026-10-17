@@ -871,6 +871,82 @@ def audit_archived_suffix_cue_hypotheses(
             "qualifiedSpeakerListeningProvided": False,
             "researchEnergyHeuristicOnly": True,
         }
+        # Another model disagreement: 'kind' visible at 31.58s (MFA also
+        # 31.58s), while ASR guesses 31.74s. Search a FIXED 10ms-grid
+        # corridor for a low-energy TWO-window trough followed by TWO
+        # consecutive >=0.012 RMS windows; an isolated spike cannot win.
+        # This can identify a transition in sound, NEVER which phone/word.
+        kind_cue_s = float(cues[2]["startSec"])
+        kind_asr_s = float(heard[63]["start"])
+        kind_search_start_bin, kind_search_end_bin = 3154, 3181
+        kind_rms = []
+        for grid_bin in range(kind_search_start_bin, kind_search_end_bin):
+            a = grid_bin*240
+            slice_10ms = samples[a:a+240]
+            if len(slice_10ms) != 240:
+                return refuse("SUFFIX_CUES_KIND_AUDIO_CONTEXT_TRUNCATED")
+            kind_rms.append(float(np.sqrt(np.mean(slice_10ms**2))))
+        candidate = None
+        for i in range(len(kind_rms)-2):
+            trough_s = (kind_search_start_bin+i)/100
+            if (not kind_cue_s-0.04 <= trough_s <= kind_cue_s+0.07
+                    or not (kind_rms[i] < 0.006
+                            and kind_rms[i+1] < 0.006)):
+                continue
+            for j in range(i+2, min(i+11, len(kind_rms)-1)):
+                rise_s = (kind_search_start_bin+j)/100
+                if (rise_s < kind_asr_s
+                        and kind_rms[j] >= 0.012
+                        and kind_rms[j+1] >= 0.012):
+                    candidate = (i, j, trough_s, rise_s)
+                    break
+            if candidate is not None:
+                break
+        kind_context_lo = kind_search_start_bin*240
+        kind_context_hi = kind_search_end_bin*240
+        kind_check = {
+            "status": "RESEARCH_ENERGY_CORRIDOR_ONLY_HOLD"
+                      if candidate is not None else
+                      "NO_STABLE_TROUGH_THEN_RISE_REVIEW_HOLD",
+            "captionToken": "kind",
+            "originalPcmContextSha256": digest(
+                pcm[kind_context_lo*2:kind_context_hi*2]),
+            "originalPcmContextSamples": [
+                kind_context_lo, kind_context_hi],
+            "gridSeconds": [
+                kind_search_start_bin/100, kind_search_end_bin/100],
+            "gridStepMs": 10,
+            "pairedTroughRmsThresholdExclusive": 0.006,
+            "pairedRiseRmsThresholdInclusive": 0.012,
+            "riseSearchMaxMsAfterTrough": 100,
+            "captionCandidateStartSec": kind_cue_s,
+            "asrCandidateStartSec": kind_asr_s,
+            "observedEnergyTransition": candidate is not None,
+            "originalPcmWordOrPhonemeIdentified": False,
+            "newWordBoundaryCertified": False,
+            "captionTimingApproved": False,
+            "humanAuditionRequired": True,
+        }
+        if candidate is not None:
+            i, j, trough_s, rise_s = candidate
+            asr_bin = round(kind_asr_s*100)
+            kind_check.update({
+                "twoWindowTroughSec": [round(trough_s, 3),
+                                       round(trough_s+0.02, 3)],
+                "troughWindowRms": [
+                    round(kind_rms[i], 7), round(kind_rms[i+1], 7)],
+                "firstTwoWindowEnergyRiseSec": round(rise_s, 3),
+                "riseWindowRms": [
+                    round(kind_rms[j], 7), round(kind_rms[j+1], 7)],
+                "riseMinusCaptionCandidateMs":
+                    round((rise_s-kind_cue_s)*1000, 3),
+                "asrCandidateMinusRiseMs":
+                    round((kind_asr_s-rise_s)*1000, 3),
+                "asrCandidate10msWindowRms":
+                    round(kind_rms[asr_bin-kind_search_start_bin], 7)
+                    if kind_search_start_bin <= asr_bin < kind_search_end_bin
+                    else None,
+            })
         rows = []
         for idx, (cue, m, asr) in enumerate(zip(cues, authored, heard[61:70])):
             start, end = float(cue["startSec"]), float(cue["endSec"])
@@ -932,6 +1008,7 @@ def audit_archived_suffix_cue_hypotheses(
                     r["absoluteModelDifferenceExceeds100ms"] for r in rows),
                 "sourceDigitalZeroSamples": [source_zero_start, source_zero_end],
                 "postSilenceSustainedSignalRise": signal_rise,
+                "kindSourceEnergyCorridor": kind_check,
                 "cueReviewRows": rows,
                 "reviewerDecisionRequired": True,
                 "caution": "Do not infer correct word, phoneme, caption timing "
