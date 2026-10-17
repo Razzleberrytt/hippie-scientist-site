@@ -129,7 +129,7 @@ def compare(left, right):
 
 
 def decode_samples(film, sample_frames, frame_count):
-    command = ['ffmpeg', '-nostdin', '-hide_banner', '-loglevel', 'error',
+    command = ['ffmpeg', '-nostdin', '-hide_banner', '-loglevel', 'error', '-xerror',
                '-i', str(film), '-map', '0:v:0', '-vf',
                f'scale={THUMB_W}:{THUMB_H}:flags=area',
                '-vsync', '0', '-f', 'rawvideo', '-pix_fmt', 'gray', '-']
@@ -190,6 +190,74 @@ def similar(left, right):
             'nearDuplicateReviewCandidate':mae <= MIN_ROI_MAE and iou >= MIN_EDGE_IOU}
 
 
+
+def frame_midpoint_lattice_in_zero_run(start_sample, end_sample, *, fps=30, sample_rate=24000, total_frames=1031):
+    """Physical PCM sample-bin to film frame centers, entirely integral math."""
+    if (type(start_sample) is not int or type(end_sample) is not int or
+            type(fps) is not int or type(sample_rate) is not int or
+            type(total_frames) is not int or
+            fps<=0 or sample_rate<=0 or not 0<=start_sample<end_sample or
+            not 0<total_frames<=5400):
+        raise CraftHold('SOURCE_SILENCE_FRAME_GRID_INVALID')
+    # Evaluate (n+0.5)/fps in [start/sample_rate,end/sample_rate),
+    # without lossy floating-point rounding at the exact 27.65s boundary.
+    selected=[n for n in range(total_frames)
+              if 2*start_sample*fps <= (2*n+1)*sample_rate <
+                 2*end_sample*fps]
+    if len(selected)<2 or len(selected)>5400 or (
+            selected[-1]-selected[0]+1!=len(selected)):
+        raise CraftHold('SOURCE_SILENCE_FRAME_GRID_UNAVAILABLE')
+    return selected
+
+
+def measure_source_hold_motion(film, frame_count, silence_frames):
+    """EVERY visually decoded frame centered in source zero speech samples.
+
+    Heuristic body-ROI grayscale MAE: a scientific source card intentionally
+    remains readable, so pixel similarity is a review cue, never an automatic
+    artistic failure, let alone release permission.
+    """
+    if (type(frame_count) is not int or frame_count<=0 or frame_count>5400 or
+            not isinstance(silence_frames,list) or len(silence_frames)<2 or
+            any(type(v) is not int or not 0<=v<frame_count for v in silence_frames)
+            or silence_frames!=list(range(silence_frames[0],silence_frames[-1]+1))):
+        raise CraftHold('SILENCE_VISUAL_FRAME_INTERVAL_INVALID')
+    decoded=decode_samples(film,silence_frames,frame_count)
+    threshold=.5  # grayscale mean abs/255; diagnostic, NOT a hard publish gate.
+    transitions=[]
+    low_start=None
+    longest=(0,None,None)
+    for previous,current in zip(silence_frames,silence_frames[1:]):
+        left=decoded[previous][0]
+        right=decoded[current][0]
+        if len(left)!=len(right) or not left:
+            raise CraftHold('SOURCE_HOLD_DECODED_ROI_MISSING')
+        diff=sum(abs(a-b) for a,b in zip(left,right))/len(left)
+        transitions.append(diff)
+        if diff<=threshold:
+            if low_start is None:low_start=previous
+            length=current-low_start+1
+            if length>longest[0]:
+                longest=(length,low_start,current+1)
+        else:
+            low_start=None
+    return {
+        'metric':'full-linear-H264-decode-every-silent-frame-center-science-body-gray-MAE',
+        'firstSilentFrame':silence_frames[0],
+        'lastSilentFrameInclusive':silence_frames[-1],
+        'silentFramesCompared':len(silence_frames),
+        'adjacentFrameTransitionsCompared':len(transitions),
+        'lowMotionTransitionThresholdGrayMae255':threshold,
+        'meanAdjacentGrayMae255':round(sum(transitions)/len(transitions),6),
+        'maxAdjacentGrayMae255':round(max(transitions),6),
+        'lowMotionTransitions':sum(1 for v in transitions if v<=threshold),
+        'longestConsecutiveLowMotionFrames':longest[0],
+        'longestLowMotionFrameRangeExclusive':[longest[1],longest[2]] if longest[1] is not None else None,
+        'limits':'Every decoded silence-frame ROI, not captions/title; compression, gentle drift or static educational reading card may be valid; creative reviewer required',
+        'excellentCertified':False,'mayPublish':False
+    }
+
+
 def audit(film, story_file, *, original_wav=None):
     film = Path(film)
     digest = file_sha256(film)
@@ -247,7 +315,12 @@ def audit(film, story_file, *, original_wav=None):
             'phonePlaybackApproved':False, 'excellentCertified':False,
             'mayPublish':False}
     if original_wav is not None:
-        result['originalVoiceSourceHoldPacing'] = audit_source_hold_silence(original_wav, story, result)
+        pacing=audit_source_hold_silence(original_wav, story, result)
+        silence_frames=frame_midpoint_lattice_in_zero_run(*ORIGINAL_SILENCE,
+            total_frames=frame_count)
+        pacing['everySilentFrameMotionReview']=measure_source_hold_motion(
+            film,frame_count,silence_frames)
+        result['originalVoiceSourceHoldPacing']=pacing
     return result
 
 
@@ -334,7 +407,7 @@ def audit_source_hold_silence(original_wav, story, decoded):
         'automaticAudioTrimAllowed':False,
         'automaticCaptionShiftAllowed':False,
         'excellentCertified':False,'mayPublish':False,
-        'limits':'Actual source zero run plus 3 sampled decoded shots; no full temporal video-motion proof, phone review, or human creative approval'
+        'limits':'Original WAV zero run, 3 shot samples and optional full-silence-frame ROI audit; no captions, phone comprehension or human creative approval'
     }
 
 def main():
