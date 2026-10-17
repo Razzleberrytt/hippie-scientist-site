@@ -813,6 +813,20 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
                           for x in plans], [False, True, True])
         self.assertEqual(plans[1]["firstFollowingCaptionProposalStartSec"],
                          round(31.25-67/30, 6))
+        # Source cue 31.25s is 937.5 frames: no integer-frame
+        # voice-preserving cut will snap its caption to 30fps by itself.
+        for plan in plans:
+            self.assertTrue(plan["captionSubframeTransitionsStillRequireFilmQA"])
+            cues = plan["followingNineCaptionsResearchOnly"]
+            self.assertEqual(len(cues), 9)
+            self.assertAlmostEqual(
+                cues[0]["proposedStartNearestFrameErrorMs"], 1000/60,
+                places=5)
+            for cue in cues:
+                self.assertGreaterEqual(cue["proposedStartNearestFrameErrorMs"], 0)
+                self.assertLessEqual(cue["proposedStartNearestFrameErrorMs"], 16.666667)
+                self.assertGreaterEqual(cue["proposedEndNearestFrameErrorMs"], 0)
+                self.assertLessEqual(cue["proposedEndNearestFrameErrorMs"], 16.666667)
         for flag in ("mayPublish", "productionEditApproved",
                      "captionTimingApproved", "wordTimingCalibrated",
                      "voicePronunciationVerified", "creativePauseApproved",
@@ -852,6 +866,36 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
         self.assertIn(
             "FRAME_PLAN_FILM_SOURCE_CARD_OR_FOLLOWING_CUE_CHANGED", r["errors"])
         self.assertFalse(r["mayPublish"])
+
+    def test_frame_native_cues_cannot_overlap_or_disguise_empty_words(self):
+        audio, film, receipt = self.frame_native_plan_fixture()
+        for defect in ("overlap", "blank", "non_string"):
+            with self.subTest(defect=defect):
+                data = json.loads(receipt)
+                cues = data["scenes"][-1]["captionWords"]
+                if defect == "overlap":
+                    # Individually valid absolute timestamps, but a word
+                    # starts before its preceding cue has finished.
+                    cues[2]["startSec"] = cues[1]["startSec"]
+                elif defect == "blank":
+                    cues[2]["text"] = "   "
+                else:
+                    cues[2]["text"] = 123
+                altered = json.dumps(data).encode()
+                with patch.object(original_guard, "SOURCE_WAV_REFERENCE",
+                                  digest(audio)), (
+                        patch.object(original_guard,
+                                     "ARCHIVED_TIMED_NATIVE_VIDEO_SHA",
+                                     digest(film))), (
+                        patch.object(original_guard,
+                                     "ARCHIVED_TIMED_NATIVE_RECEIPT_SHA",
+                                     digest(altered))):
+                    result = original_guard.audit_archived_frame_native_pause_plan(
+                        audio, film, altered)
+                self.assertEqual(result["status"], "HOLD")
+                self.assertIn("FRAME_PLAN_FOLLOWING_CAPTION_CUE_INVALID",
+                              result["errors"])
+                self.assertFalse(result["mayPublish"])
 
     def test_frame_native_plan_missing_inputs_and_implicit_mode_hold(self):
         script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
