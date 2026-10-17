@@ -3,6 +3,9 @@ on:
   pull_request:
     paths:
       - 'research/evidencemotion-director/ATOMIC-PROOF-LEDGER-20261015.json'
+      - 'research/evidencemotion-director/atomic_progress_reconciler.py'
+      - 'research/evidencemotion-director/test_atomic_progress_reconciler.py'
+      - 'research/evidencemotion-director/EM-PROGRESS-OBSERVATIONS-20261017.json'
       - 'research/evidencemotion-director/validate_atomic_proof_ledger.py'
       - 'research/evidencemotion-director/test_validate_atomic_proof_ledger.py'
       - 'research/evidencemotion-director/cpu_required_path_contract.py'
@@ -75,6 +78,10 @@ jobs:
             -p 'test_validate_atomic_proof_ledger.py' -v
           python research/evidencemotion-director/validate_atomic_proof_ledger.py
           python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_atomic_progress_reconciler.py' -v
+          python research/evidencemotion-director/atomic_progress_reconciler.py \
+            --out "$RUNNER_TEMP/evidencemotion-progress-reconciliation.json"
+          python -m unittest discover -s research/evidencemotion-director \
             -p 'test_cpu_required_path_contract.py' -v
           python research/evidencemotion-director/cpu_required_path_contract.py
           python -m unittest discover -s research/evidencemotion-director \
@@ -120,13 +127,32 @@ jobs:
           report=json.loads((Path(os.environ["RUNNER_TEMP"])/"em-atomic-watch/report.json").read_text())
           with open(os.environ["GITHUB_STEP_SUMMARY"],"a") as out:
               out.write("### EvidenceMotion atomic progress fail-safe\n")
-              out.write(f"Current source-validated: **{report['currentCount']}/1590 provisional**\n")
+              out.write(f"Legacy provisional coverage (NOT completed): **{report['currentCount']}/1590**\n")
               out.write(f"State: **{report['status']}**; prior counts: {report['previousCounts']}\n")
               out.write(f"History: {report['historyFetchStatus']}\n")
               if report["requiresRecovery"]:
                   out.write("**Recovery triggered; NO automatic credit/approval.**\n")
                   for x in report["namedBlockedRecoveryTargets"]:
                       out.write(f"- {x['atomicId']} (Lane {x['lane']}): {x['blocker']} — {x['nextAction']}\n")
+          PY
+
+      - name: Explain evidence coverage versus verified GitHub merge throughput
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=Path(os.environ["RUNNER_TEMP"])/"evidencemotion-progress-reconciliation.json"
+          r=json.loads(p.read_text())
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a") as out:
+              out.write("### EvidenceMotion verified throughput vs atomic credit\n")
+              out.write(f"Observation date **{r['sourceObservationDate']}** (frozen snapshot, NOT live)\n\n")
+              out.write(f"Verified merged PRs: **{r['mergedPRs']}**, distinct merge commits: **{r['distinctMergeCommits']}**\n\n")
+              out.write(f"Five lane PRs: **{r['fiveActiveLanesMergedPRs']}**; counts {r['perLaneMergedPRs']}\n\n")
+              out.write(f"Individual machine-only research evidence: **{r['individualMachineVerifiedResearchCards']}/1590**\n\n")
+              out.write(f"Inherited un-audited provisional: **{r['inheritedProvisionalNOTIndividuallyAudited']}**; coverage only: **{r['provisionalCoverageOnly']}/1590**\n\n")
+              out.write(f"Reconciliation: **{r['reconciliationState']}**. New credit requires explicit canonical evidence, not just a merge.\n\n")
+              out.write("Creative/science/phone/release gates: **HOLD**; mayPublish=false.\n")
           PY
       - name: Keep two-readback progress checkpoints without committing run state
         uses: actions/upload-artifact@v4
