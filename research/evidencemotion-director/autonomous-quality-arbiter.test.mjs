@@ -31,6 +31,45 @@ test('actual decoded repetitive visual layout automatically REJECTS without an o
  assert.equal(r.requiredHumanListener,false);
  assert.equal(r.contentMayPublish,false);
 });
+test('decoded centered-hero craft advisory survives handoff and requests more machine craft work',()=>{
+ const decoded={...frame(),decision:'CRAFT_REVIEW_HOLD',
+   reviewCandidates:['CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION'],
+   centerHeroStasisPeripheralMotionWindowsSec:[{startSec:0,endSec:16,repeatedPairCount:8}]};
+ const x=adjudicateFilm({...full(),decodedVisual:decoded});
+ assert.equal(x.decision,'AUTO_RUN_MISSING_REVIEWS');
+ assert.deepEqual(x.blockers,[]);
+ assert.ok(x.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_STATIC_CENTER_HERO'));
+ assert.equal(x.qualityAcceptableForResearch,false);
+ assert.equal(x.contentMayPublish,false);
+ assert.equal(x.requiredOwnerTasteVerdict,false);
+});
+test('unbound or empty craft warnings cannot pose as verified decoded-screen work',()=>{
+ const base={...frame(),decision:'CRAFT_REVIEW_HOLD',
+   reviewCandidates:['CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION'],
+   centerHeroStasisPeripheralMotionWindowsSec:[{startSec:0,endSec:6,repeatedPairCount:3}]};
+ const variants=[
+   {...base,reviewCandidates:[]},
+   {...base,centerHeroStasisPeripheralMotionWindowsSec:[]},
+   {...base,centerHeroStasisPeripheralMotionWindowsSec:[{startSec:0,endSec:2,repeatedPairCount:3}]},
+   {...base,centerHeroStasisPeripheralMotionWindowsSec:[{startSec:0,endSec:NaN,repeatedPairCount:3}]},
+   {...base,actualVideoSha256:V},
+ ];
+ for(const decodedVisual of variants){
+   const x=adjudicateFilm({...full(),decodedVisual});
+   assert.equal(x.decision,'AUTO_HOLD_INVALID_PROOF');
+   assert.equal(x.contentMayPublish,false);
+ }
+});
+test('hard decoded-frame defect overrides advisory and stays AUTO_REVISE',()=>{
+ const decoded={...frame(),decision:'CRAFT_REVIEW_HOLD',
+   issues:['MISSING_RECOGNIZABLE_SUBJECT_OR_NEAR_BLANK_CENTRAL_STAGE'],
+   reviewCandidates:['CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION'],
+   centerHeroStasisPeripheralMotionWindowsSec:[{startSec:0,endSec:6,repeatedPairCount:3}]};
+ const x=adjudicateFilm({...full(),decodedVisual:decoded});
+ assert.equal(x.decision,'AUTO_REVISE');
+ assert.ok(x.fixes.includes('MISSING_RECOGNIZABLE_SUBJECT_OR_NEAR_BLANK_CENTRAL_STAGE'));
+ assert.equal(x.contentMayPublish,false);
+});
 test('missing machine reviewers schedules more evidence, never asks an owner to be the judge',()=>{
  const x=adjudicateFilm({...full(),voice:undefined,critics:[]});
  assert.equal(x.decision,'AUTO_RUN_MISSING_REVIEWS');
