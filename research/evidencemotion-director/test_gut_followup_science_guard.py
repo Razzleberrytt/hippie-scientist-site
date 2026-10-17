@@ -177,4 +177,43 @@ class OwnerArchivesExactFilmTest(unittest.TestCase):
         self.assertFalse(report['mayPublish'])
 
 
+
+class FollowupArchiveResourceCaps(unittest.TestCase):
+    """Small adversaries for archive preflight; no media release claims."""
+
+    def test_physical_zip_with_excessive_entries_rejected_before_extraction(self):
+        from gut_followup_science_guard import _safe_archive, MAX_ARCHIVE_MEMBERS
+        with tempfile.TemporaryDirectory() as folder:
+            target=Path(folder)/'many-members.zip'
+            with zipfile.ZipFile(target, 'w', zipfile.ZIP_STORED) as z:
+                for i in range(MAX_ARCHIVE_MEMBERS + 1):
+                    z.writestr(f'valid_{i:03d}.txt', b'x')
+            with self.assertRaisesRegex(ValueError, 'FOLLOWUP_UNTRUSTED_ZIP_STRUCTURE'):
+                _safe_archive(target, sha256(target.read_bytes()))
+
+    def test_large_total_declared_uncompressed_bytes_rejected_without_inflating(self):
+        from unittest.mock import patch
+        from gut_followup_science_guard import (
+            _safe_archive, MAX_ARCHIVE_MEMBERS, MAX_MEMBER_BYTES,
+            MAX_TOTAL_UNCOMPRESSED_BYTES,
+        )
+        self.assertGreater(MAX_ARCHIVE_MEMBERS, 3)
+        with tempfile.TemporaryDirectory() as folder:
+            target=Path(folder)/'tiny.zip'
+            with zipfile.ZipFile(target, 'w') as z:
+                z.writestr('fixture.txt', b'safe')
+            with patch('gut_followup_science_guard.zipfile.ZipFile') as factory:
+                fake=factory.return_value.__enter__.return_value
+                rows=[zipfile.ZipInfo(f'large_{i}.txt') for i in range(3)]
+                for row in rows:
+                    row.file_size=MAX_MEMBER_BYTES - 1
+                self.assertGreater(sum(row.file_size for row in rows),
+                                   MAX_TOTAL_UNCOMPRESSED_BYTES)
+                fake.infolist.return_value=rows
+                with self.assertRaisesRegex(ValueError,
+                                            'FOLLOWUP_UNTRUSTED_ZIP_STRUCTURE'):
+                    _safe_archive(target, sha256(target.read_bytes()))
+                fake.read.assert_not_called()
+
+
 if __name__ == '__main__': unittest.main()
