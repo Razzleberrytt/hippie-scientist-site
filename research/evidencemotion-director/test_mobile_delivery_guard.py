@@ -56,21 +56,21 @@ class MobileDeliveryGuardTests(unittest.TestCase):
             self.run_pair(visual=False)
 
     def test_exact_presented_pts_happy_path(self):
-        with patch('mobile_delivery_guard.cmd',return_value=b'0.000000\\n0.033333\\n0.066667\\n'):
+        with patch('mobile_delivery_guard.cmd',return_value=b'0.000000\n0.033333\n0.066667\n'):
             self.assertEqual(frame_pts('source.mp4'),[0.0,0.033333,0.066667])
 
     def test_nonfinite_actual_frame_pts_rejected(self):
         for bad in (b'nan',b'NaN',b'inf',b'-inf',b'1e999'):
             with self.subTest(pts=bad):
-                with patch('mobile_delivery_guard.cmd',return_value=b'0.000000\\n'+bad+b'\\n'):
+                with patch('mobile_delivery_guard.cmd',return_value=b'0.000000\n'+bad+b'\n'):
                     with self.assertRaisesRegex(Hold,'INVALID_ACTUAL_FRAME_PTS'):
                         frame_pts('source.mp4')
 
     def test_repeated_reversed_and_negative_actual_pts_rejected(self):
-        for raw in (b'0\\n0',b'0.066667\\n0.033333',
-                    b'-0.033333\\n0',b'0.000000\\n0.0000003'):
+        for raw in (b'0\n0',b'0.066667\n0.033333',
+                    b'-0.033333\n0',b'0.000000\n0.0000003'):
             with self.subTest(stamps=raw):
-                with patch('mobile_delivery_guard.cmd',return_value=raw+b'\\n'):
+                with patch('mobile_delivery_guard.cmd',return_value=raw+b'\n'):
                     with self.assertRaisesRegex(Hold,'INVALID_ACTUAL_FRAME_PTS'):
                         frame_pts('source.mp4')
 
