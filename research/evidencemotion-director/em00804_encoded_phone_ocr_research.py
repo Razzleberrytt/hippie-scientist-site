@@ -26,6 +26,7 @@ FAKE_TERMS=("MEASURED","7OH","PLANT")
 # chemical assay. These strings intentionally err toward HOLD on ambiguity.
 CONTRADICTORY_PLANT_ASSAY_CLAIMS=(
     "MEASURED7OH", "7OHMEASURED", "DETECTED7OH", "7OHDETECTED",
+    "PRESENT7OH", "7OHPRESENT", "IDENTIFIED7OH", "7OHIDENTIFIED",
     "CONTAINS7OH", "THISPLANTHAS7OH", "7OHFOUNDINTHISPLANT",
     "ASSAYCONFIRMS7OH", "LABCONFIRMED7OH", "7OHCONTENTCONFIRMED",
 )
@@ -161,39 +162,46 @@ def run(out):
     # A contradictory, highly legible assay claim can coexist with both safe
     # disclaimer lines. Encode and decode that collision, rather than trusting
     # an authored string or testing only a movie where disclosure was replaced.
-    mixed_still=out/"mixed-disclaimer-and-false-assay.png"
-    with Image.open(root/"legible.png") as source:
-        mixed=source.convert("RGB")
-    artist=ImageDraw.Draw(mixed)
-    artist.rounded_rectangle((90,620,856,862),radius=20,
-                             fill=(9,16,18),outline=(238,241,220),width=4)
-    face=font("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",48)
-    artist.text((108,672),"MEASURED 7-OH",font=face,fill=(248,250,230))
-    artist.text((108,757),"IN THIS PLANT",font=face,fill=(248,250,230))
-    mixed.save(mixed_still)
-    mixed_movie=out/"mixed-disclaimer-and-false-assay.mp4"
-    encode(mixed_still,mixed_movie)
-    mixed_sha=sha(mixed_movie)
-    for layout in PSM:
-        actual=ocr_png(width_frame(mixed_movie,30,375,overlay=True),layout)
-        seen=norm(actual)
-        if not all(norm(line) in seen for line in EXPECTED):
-            raise ValueError("MIXED_ACTUAL_OCR_SAFE_DISCLOSURES_NOT_BOTH_VISIBLE_HOLD")
-        if not has_contradictory_plant_assay_claim(actual):
-            raise ValueError("MIXED_ACTUAL_OCR_FALSE_ASSAY_NOT_VISIBLE_HOLD")
-        if check_recognition(actual):
-            raise ValueError("VISIBLE_SAFE_DISCLOSURE_LAUNDERED_FALSE_ASSAY_HOLD")
-        result["negativeCases"].append({
-            "mode":"disclosed_but_fabricated_plant_measurement",
-            "frame":30,"width":375,"tesseractPSM":layout,
-            "encodedH264Sha256":mixed_sha,
-            "ocrRawOutput":actual.strip(),
-            "ocrOutputSha256":checksum(actual.encode()),
-            "bothExpectedDisclosureLinesRecognized":True,
-            "contradictoryAssayTextRecognized":True,
-            "unsafeApprovalRejected":True
-        })
-    assert len(result["negativeCases"])==10
+    # Two distinct real-H264 semantic collision variants. A visible
+    # disclaimer does not authorize "measured" OR "present" botanical claims.
+    # This is intentionally not a general-purpose science claim classifier.
+    for mode,headline in (
+        ("disclosed_but_fabricated_plant_measurement","MEASURED 7-OH"),
+        ("disclosed_but_fabricated_plant_presence","7-OH PRESENT"),
+    ):
+        mixed_still=out/(mode+".png")
+        with Image.open(root/"legible.png") as source:
+            mixed=source.convert("RGB")
+        artist=ImageDraw.Draw(mixed)
+        artist.rounded_rectangle((90,620,856,862),radius=20,
+                                 fill=(9,16,18),outline=(238,241,220),width=4)
+        face=font("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",48)
+        artist.text((108,672),headline,font=face,fill=(248,250,230))
+        artist.text((108,757),"IN THIS PLANT",font=face,fill=(248,250,230))
+        mixed.save(mixed_still)
+        mixed_movie=out/(mode+".mp4")
+        encode(mixed_still,mixed_movie)
+        mixed_sha=sha(mixed_movie)
+        for layout in PSM:
+            actual=ocr_png(width_frame(mixed_movie,30,375,overlay=True),layout)
+            seen=norm(actual)
+            if not all(norm(line) in seen for line in EXPECTED):
+                raise ValueError("MIXED_ACTUAL_OCR_SAFE_DISCLOSURES_NOT_BOTH_VISIBLE_HOLD")
+            if not has_contradictory_plant_assay_claim(actual):
+                raise ValueError("MIXED_ACTUAL_OCR_FALSE_BOTANICAL_CLAIM_NOT_VISIBLE_HOLD")
+            if check_recognition(actual):
+                raise ValueError("VISIBLE_SAFE_DISCLOSURE_LAUNDERED_FALSE_BOTANICAL_CLAIM_HOLD")
+            result["negativeCases"].append({
+                "mode":mode,
+                "frame":30,"width":375,"tesseractPSM":layout,
+                "encodedH264Sha256":mixed_sha,
+                "ocrRawOutput":actual.strip(),
+                "ocrOutputSha256":checksum(actual.encode()),
+                "bothExpectedDisclosureLinesRecognized":True,
+                "contradictoryAssayTextRecognized":True,
+                "unsafeApprovalRejected":True
+            })
+    assert len(result["negativeCases"])==12
     path=out/"em00804-research-receipt.json"
     path.write_text(json.dumps(result,indent=2)+"\n")
     return result
