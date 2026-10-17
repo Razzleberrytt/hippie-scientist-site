@@ -308,11 +308,15 @@ class MobileDeliveryGuardTests(unittest.TestCase):
         self.assertFalse(receipt['codecTailSpeechIdentityVerified'])
 
     def test_unmeasurably_quiet_master_cannot_fake_local_energy_pass(self):
-        source=array('f',[0.001]*8000)
+        # A fully matching but inaudibly low-energy sine can satisfy global
+        # SNR and correlation while providing zero source-active windows.
+        source=array('f',(0.001*math.sin(2*math.pi*440*(i//2)/48000)
+                          for i in range(8000)))
         target=array('f',source)
         with patch('mobile_delivery_guard.decoded_audio',
                    side_effect=[source,target]):
-            with self.assertRaisesRegex(Hold,'EMPTY_OR_SILENT_AUDIO'):
+            with self.assertRaisesRegex(
+                    Hold,'LOCAL_AUDIO_MATERIAL_SOURCE_ENERGY_NOT_OBSERVED'):
                 audio_compare('source','mobile')
 
 if __name__=='__main__': unittest.main(verbosity=2)
