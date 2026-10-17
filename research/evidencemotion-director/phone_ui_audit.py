@@ -1341,6 +1341,132 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
             hold("COMMITTED_REVIEW_REPORT_HASH_MISMATCH")
     return receipt
 
+
+def measure_decoded_caption_ink_rows(bgr, *, crop_width, crop_height,
+                                     native_video_width, phone_width_px=320,
+                                     expected_lines=2, min_ink_pixels_per_row=8,
+                                     minimum_phone_glyph_px=REVIEW_SMALL_TYPE_PX):
+    """Conservative physical *ink* height negative screen on an owned native crop.
+
+    Caller supplies a prequalified text-only ROI and BGR24 bytes decoded from
+    the exact encoded film, not an authored font size or self-reported text.
+    Anti-aliasing, glyph descenders and line art can confound pixel bands.
+    A small projected ink height triggers review, never publication success.
+    """
+    sizes = (crop_width, crop_height, native_video_width, phone_width_px,
+             expected_lines, min_ink_pixels_per_row)
+    if any(type(v) is not int or v <= 0 for v in sizes):
+        hold("CAPTION_TYPE_SCREEN_POSITIVE_NATIVE_GEOMETRY_REQUIRED")
+    if (crop_width > native_video_width or crop_height > 1920 or
+            expected_lines > 12 or min_ink_pixels_per_row > crop_width or
+            not math.isfinite(minimum_phone_glyph_px) or
+            not 4 <= minimum_phone_glyph_px <= 60):
+        hold("CAPTION_TYPE_SCREEN_BOUNDED_REVIEW_PARAMETERS_REQUIRED")
+    if not isinstance(bgr, (bytes, bytearray, memoryview)) or len(bgr) != crop_width * crop_height * 3:
+        hold("CAPTION_TYPE_SCREEN_COMPLETE_DECODED_BGR_CROP_REQUIRED")
+    view = memoryview(bgr)
+    active = []
+    for y in range(crop_height):
+        offset = y * crop_width * 3
+        bright = 0
+        for x in range(crop_width):
+            i = offset + x * 3
+            if min(view[i], view[i + 1], view[i + 2]) >= 155:
+                bright += 1
+        if bright >= min_ink_pixels_per_row:
+            active.append(y)
+    lines = []
+    for y in active:
+        if lines and y <= lines[-1][1] + 2:  # tolerate one antialiased gap row
+            lines[-1][1] = y
+        else:
+            lines.append([y, y])
+    lines = [pair for pair in lines if pair[1] - pair[0] + 1 >= 5]
+    if len(lines) != expected_lines:
+        hold("CAPTION_TYPE_SCREEN_EXPECTED_PHYSICAL_INK_LINES_NOT_FOUND")
+    detail = []
+    for begin, end in lines:
+        ink_height = end - begin + 1
+        projected = ink_height * phone_width_px / native_video_width
+        detail.append({"nativeGlyphInkY0": begin, "nativeGlyphInkY1": end,
+                       "nativeGlyphInkHeightPx": ink_height,
+                       "projectedPhoneGlyphInkHeightPx": round(projected, 4),
+                       "belowExperimentalReviewThreshold": projected < minimum_phone_glyph_px})
+    return {
+        "status": ("CAPTION_INK_PHONE_SIZE_REVIEW_HOLD"
+                   if any(v["belowExperimentalReviewThreshold"] for v in detail)
+                   else "NO_SMALL_CAPTION_INK_DETECTED_REVIEW_REQUIRED"),
+        "actualDecodedInkLines": detail,
+        "projectedPhoneWidthPx": phone_width_px,
+        "minimumPhoneGlyphInkPx": minimum_phone_glyph_px,
+        "nativeVideoWidthPx": native_video_width,
+        "pixelThresholdLumaProxy": 155,
+        "publicationVerdict": "HOLD",
+        "semanticOCRVerified": False,
+        "realPhoneReadingVerified": False,
+        "mayPublish": False,
+    }
+
+
+def measure_targeted_encoded_caption_type(movie, *, expected_film_sha, frame_indices,
+                                          roi, phone_width_px=320, expected_lines=2):
+    """Native FFmpeg H264 actual-frame caption type probe; bounded read-only.
+
+    Requires every frame in a 4..150 frame contiguous review window, exact
+    current film SHA and a manually prequalified text-only crop rectangle.
+    Repeated calls cover longer films. Returns HOLD-shaped evidence on green.
+    """
+    movie = Path(movie)
+    if not is_hash(expected_film_sha) or sha256_file(movie) != expected_film_sha:
+        hold("CAPTION_TYPE_SCREEN_FILM_SHA_MISMATCH")
+    width, height, _, frame_count = probe_movie(movie)
+    if (not isinstance(frame_indices, list) or not 4 <= len(frame_indices) <= 150 or
+            any(type(i) is not int or i < 0 or i >= frame_count for i in frame_indices) or
+            frame_indices != list(range(frame_indices[0], frame_indices[-1] + 1))):
+        hold("CAPTION_TYPE_SCREEN_COMPLETE_CONTIGUOUS_WINDOW_REQUIRED")
+    if (not isinstance(roi, (list, tuple)) or len(roi) != 4 or
+            any(type(v) is not int for v in roi)):
+        hold("CAPTION_TYPE_SCREEN_NATIVE_ROI_REQUIRED")
+    x0, y0, x1, y1 = roi
+    if (not 0 <= x0 < x1 <= width or not 0 <= y0 < y1 <= height or
+            (x1 - x0) * (y1 - y0) > 100000):
+        hold("CAPTION_TYPE_SCREEN_BOUNDED_NATIVE_ROI_REQUIRED")
+    cw, ch = x1 - x0, y1 - y0
+    vf = (f"select=between(n\\,{frame_indices[0]}\\,{frame_indices[-1]}),"
+          f"crop={cw}:{ch}:{x0}:{y0}:exact=1,format=bgr24")
+    cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-xerror",
+           "-err_detect", "explode", "-i", str(movie), "-an", "-vf", vf,
+           "-fps_mode", "vfr", "-frames:v", str(len(frame_indices)),
+           "-f", "rawvideo", "-pix_fmt", "bgr24", "pipe:1"]
+    try:
+        output = subprocess.run(cmd, capture_output=True, timeout=90, check=True).stdout
+    except (OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
+        hold("CAPTION_TYPE_SCREEN_DECODE_FAILED")
+    size = cw * ch * 3
+    if len(output) != size * len(frame_indices):
+        hold("CAPTION_TYPE_SCREEN_INCOMPLETE_SELECTED_FRAMES")
+    if sha256_file(movie) != expected_film_sha:
+        hold("CAPTION_TYPE_SCREEN_FILM_CHANGED_DURING_DECODE")
+    rows = []
+    for j, idx in enumerate(frame_indices):
+        evidence = measure_decoded_caption_ink_rows(
+            memoryview(output)[j * size:(j + 1) * size],
+            crop_width=cw, crop_height=ch, native_video_width=width,
+            phone_width_px=phone_width_px, expected_lines=expected_lines)
+        rows.append({"actualDecodedFrameIndex": idx,
+                     "inkLines": evidence["actualDecodedInkLines"]})
+    flagged = [entry for entry in rows if any(
+        line["belowExperimentalReviewThreshold"] for line in entry["inkLines"])]
+    return {"status": ("CAPTION_INK_PHONE_SIZE_REVIEW_HOLD" if flagged else
+                       "NO_SMALL_CAPTION_INK_DETECTED_REVIEW_REQUIRED"),
+            "filmSha256": expected_film_sha, "nativeCropRoi": list(roi),
+            "phoneWidthPx": phone_width_px, "decodedFramesExamined": len(rows),
+            "smallTypeFrameCount": len(flagged), "actualDecodedFrameRows": rows,
+            "everyFrameInRequestedWindowChecked": True,
+            "experimentalNotWCAGOrHandsetPass": True,
+            "semanticOCRVerified": False, "physicalPhoneReviewed": False,
+            "publicationVerdict": "HOLD", "mayPublish": False}
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--movie", required=True)
