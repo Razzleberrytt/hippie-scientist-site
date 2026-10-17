@@ -24,6 +24,7 @@ FDA_GUIDANCE = ('https://www.fda.gov/files/drugs/published/'
                 'Dissolution-Testing-and-Acceptance-Criteria-for-Immediate-Release-'
                 'Solid-Oral-Dosage-Form-Drug-Products-Containing-High-Solubility-'
                 'Drug-Substances-Guidance-for-Industry.pdf')
+USP_SUPPLEMENT_CHAPTER = 'https://doi.usp.org/USPNF/USPNF_M99970_04_01.html'
 ORIGINAL_NARRATION = 'A capsule can open in your gut, but release is not absorption.'
 
 # Archive ingestion is untrusted even with a matching pinned SHA.
@@ -167,13 +168,24 @@ def review_release_scene(scenes, voice, science_text):
         flags.append('UNQUALIFIED_FIRST_DISSOLVE_HEADLINE')
     if title not in ('RELEASE IS NOT ABSORPTION', 'SOME CAPSULES RELEASE IN THE GUT'):
         flags.append('RELEASE_VS_ABSORPTION_HEADLINE_NEEDS_EDITORIAL_APPROVAL')
-    if 'FDA' not in source.upper():
+    if 'USP' in source.upper():
+        # Chapter <2040> describes supplement laboratory tests only *where
+        # specified by an individual monograph*. Not direct human uptake proof.
+        if USP_SUPPLEMENT_CHAPTER not in science_text:
+            flags.append('USP_SUPPLEMENT_DISINTEGRATION_CHAPTER_NOT_CITED')
+        if ('where individual monographs specify' not in science_text.lower() or
+            'not in-vivo absorption' not in science_text.lower()):
+            flags.append('USP_LAB_TEST_NOT_DISTINGUISHED_FROM_HUMAN_ABSORPTION')
+    elif 'FDA' in source.upper():
+        # FDA drug-dissolution guidance is only a bounded contrast; never
+        # substitute it for human studies of a given supplement formulation.
+        if FDA_GUIDANCE not in science_text:
+            flags.append('FDA_DOSAGE_FORM_GUIDANCE_NOT_CITED')
+        if ('immediate-release drug' not in science_text.lower() or
+            'not universal' not in science_text.lower()):
+            flags.append('DRUG_GUIDANCE_SCOPE_NOT_EXPLICITLY_LIMITED')
+    else:
         flags.append('NIDDK_DIGESTION_SOURCE_INSUFFICIENT_FOR_DOSAGE_FORM_CLAIM')
-    if FDA_GUIDANCE not in science_text:
-        flags.append('FDA_DOSAGE_FORM_GUIDANCE_NOT_CITED')
-    if ('immediate-release drug' not in science_text.lower() or
-        'not universal' not in science_text.lower()):
-        flags.append('DRUG_GUIDANCE_SCOPE_NOT_EXPLICITLY_LIMITED')
     return title, source, flags
 
 
