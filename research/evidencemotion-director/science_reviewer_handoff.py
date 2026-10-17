@@ -408,7 +408,7 @@ def screen_original_no_reaction_temporal(movie, gate, packet):
         for i,frame_index in enumerate(indexes):
             image=folder/f"intro-{i:02d}.png"
             raw=image.read_bytes()
-            if (len(raw)<100 or raw[:8]!=b"\\x89PNG\\r\\n\\x1a\\n"
+            if (len(raw)<100 or raw[:8]!=b"\x89PNG\r\n\x1a\n"
                 or raw[12:16]!=b"IHDR"
                 or int.from_bytes(raw[16:20],"big")!=540
                 or int.from_bytes(raw[20:24],"big")!=960):
@@ -429,7 +429,7 @@ def screen_original_no_reaction_temporal(movie, gate, packet):
                          type(error).__name__)
                 ocr=result.stdout
                 visible=" ".join(ocr.casefold().split())
-                if (re.search(r"(?<![a-z])no\\s+reaction(?![a-z])",visible)
+                if (re.search(r"(?<![a-z])no\s+reaction(?![a-z])",visible)
                     is None or want.casefold() not in visible):
                     hold("NO_REACTION_TIMELINE_VISIBLE_TEXT_NOT_RECOVERED:"
                          +str(frame_index)+":"+str(mode))
