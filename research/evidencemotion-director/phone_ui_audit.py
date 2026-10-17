@@ -871,7 +871,8 @@ def verify_complete_media_decode(movie):
 
 
 
-def screen_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indices, roi):
+def screen_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indices, roi,
+                                          pixel_mode="bright_neutral_caption"):
     """Fail closed on visible bright ink in a prequalified critical caption ROI.
 
     This is a narrow, manually targeted encoded-pixel negative screen for
@@ -880,11 +881,16 @@ def screen_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indi
     for complete bounded-window coverage; no sparse result can prove that
     intervening frames are clear. It uses FFmpeg's true decoded display-order
     frames, NOT storyboard declarations or earlier movies' ink/word receipts.
-    The ROI must be prequalified as
-    containing critical light text; bright science art can otherwise trigger
-    a false alert. The absence of these pixels does NOT prove text position,
-    dark text visibility, OCR, phone legibility, science or release fitness.
+    By default the ROI must be prequalified as critical light text. An
+    explicitly requested "scientific_visual_highlights" mode screens
+    strongly visible saturated or bright science-art details instead; its ROI
+    must be independently identified as important scientific illustration.
+    Decorative graphics can trigger false alarms. Neither mode recognizes
+    words, dark artwork or meaning. Zero detections do NOT prove text position,
+    phone legibility, complete scientific visuals or release fitness.
     """
+    if pixel_mode not in ("bright_neutral_caption", "scientific_visual_highlights"):
+        hold("TARGETED_UI_PROBE_EXPLICIT_SUPPORTED_PIXEL_MODE_REQUIRED")
     movie = Path(movie)
     if not is_hash(expected_film_sha) or sha256_file(movie) != expected_film_sha:
         hold("TARGETED_UI_PROBE_EXACT_FILM_SHA_MISMATCH")
@@ -944,25 +950,38 @@ def screen_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indi
             for x in range(right_start - x0, crop_width):
                 at = (y * crop_width + x) * 3
                 blue, green, red = crop[at:at + 3]
-                # Conservative targeted white/light-neutral caption detector.
-                # Encoded YUV420P reconstitution is read at actual BGR pixels.
-                if min(blue, green, red) >= 160 and red - blue < 70:
+                low, high = min(blue, green, red), max(blue, green, red)
+                if pixel_mode == "bright_neutral_caption":
+                    detected = low >= 160 and red - blue < 70
+                else:
+                    # Conservative science-art visibility proxy, not a
+                    # molecule/atom segmentation model. Supports distinct
+                    # colored atoms and light bonds on a prequalified dark
+                    # panel. Purely dark content can still be missed.
+                    detected = high >= 100 and (high - low >= 20 or low >= 75)
+                if detected:
                     observed += 1
                     xmax = x0 + x
-        observations.append({
+        row = {
             "decodedFrameIndex": index,
-            "brightNeutralPixelsInRightExclusion": observed,
+            "targetPixelsInRightExclusion": observed,
             "rightmostDetectedX": xmax,
-        })
+        }
+        if pixel_mode == "bright_neutral_caption":
+            row["brightNeutralPixelsInRightExclusion"] = observed
+        observations.append(row)
     violations = [row for row in observations
-                  if row["brightNeutralPixelsInRightExclusion"]]
+                  if row["targetPixelsInRightExclusion"]]
     if violations:
         first = violations[0]
-        hold("TARGETED_CRITICAL_INK_RIGHT_UI_EXCLUSION:"
-             + str(first["decodedFrameIndex"]) + ":"
-             + str(first["brightNeutralPixelsInRightExclusion"]))
+        code = ("TARGETED_CRITICAL_INK_RIGHT_UI_EXCLUSION"
+                if pixel_mode == "bright_neutral_caption" else
+                "TARGETED_CRITICAL_ART_RIGHT_UI_EXCLUSION")
+        hold(code + ":" + str(first["decodedFrameIndex"]) + ":"
+             + str(first["targetPixelsInRightExclusion"]))
     return {
-        "status": "NO_TARGETED_BRIGHT_RIGHT_UI_INK_DETECTED_REVIEW_REQUIRED",
+        "status": "NO_TARGETED_RIGHT_UI_HIGHLIGHTS_DETECTED_REVIEW_REQUIRED",
+        "pixelMode": pixel_mode,
         "filmSha256": expected_film_sha,
         "targetedRoiPx": roi,
         "rightUiExclusionBeginsNativeX": right_start,
@@ -971,6 +990,7 @@ def screen_targeted_encoded_right_ui_ink(movie, *, expected_film_sha, frame_indi
         "everyFrameInRequestedWindowChecked": full_window,
         "targetTextSemanticsVerified": False,
         "darkOrColoredInkExcluded": False,
+        "scientificVisualContentIndependentlyIdentified": False,
         "actualPhoneLayoutVerified": False,
         "viewerReadabilityVerified": False,
         "mayPublish": False,
