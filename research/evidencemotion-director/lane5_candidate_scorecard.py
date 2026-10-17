@@ -131,6 +131,8 @@ def _decoded_audio_coverage(movie, sample_rate, expected_frames):
         hold("MISSING_OR_UNBOUNDED_DECODED_AUDIO")
     total_samples = 0
     initial = previous_end = None
+    discontinuities = []
+    cumulative_discontinuity = Decimal(0)
     for index, frame in enumerate(observations):
         if (not isinstance(frame, dict)
                 or type(frame.get("nb_samples")) is not int
@@ -146,8 +148,19 @@ def _decoded_audio_coverage(movie, sample_rate, expected_frames):
         end = start + Decimal(frame["nb_samples"]) / Decimal(sample_rate)
         if previous_end is None:
             initial = start
-        elif abs(start - previous_end) > Decimal("0.012"):
-            hold("DECODED_AUDIO_TIMELINE_GAP_OR_OVERLAP")
+        else:
+            drift = start - previous_end
+            if abs(drift) > Decimal("0.050"):
+                hold("DECODED_AUDIO_TIMELINE_GAP_OR_OVERLAP")
+            if abs(drift) > Decimal("0.012"):
+                cumulative_discontinuity += abs(drift)
+                if cumulative_discontinuity > Decimal("0.080"):
+                    hold("EXCESS_CUMULATIVE_DECODED_AUDIO_PTS_DRIFT")
+                discontinuities.append({
+                    "audioFrameIndex": index,
+                    "startSeconds": round(float(start), 6),
+                    "signedGapMs": round(float(drift * 1000), 3),
+                })
         previous_end = end
         total_samples += frame["nb_samples"]
     movie_end = Decimal(expected_frames) / Decimal(FPS)
@@ -164,6 +177,9 @@ def _decoded_audio_coverage(movie, sample_rate, expected_frames):
         "audioDecodedEndSeconds": round(float(previous_end), 6),
         "videoEndSeconds": round(float(movie_end), 6),
         "audioCoverageTechnicallyComplete": True,
+        "audioPtsAnomalyCount": len(discontinuities),
+        "audioPtsAnomaliesNeedSourceReview": bool(discontinuities),
+        "audioPtsAnomalies": discontinuities,
     }
 
 
@@ -471,6 +487,8 @@ def score_candidate(*, film, wav, story_path, screen_path,
             previous_film_sha=previous_ink_film_sha,
             current_film_sha=film_sha)
     blockers = []
+    if av.get("audioPtsAnomaliesNeedSourceReview"):
+        blockers.append("AUDIO_PTS_ANOMALY_REQUIRES_ORIGINAL_PCM_COMPARISON")
     if source_card_gain is not None and source_card_gain["noMeasuredTypeSizeGain"]:
         blockers.append("SOURCE_CARD_DECORATIVE_ITERATION_STOP_NO_TYPE_GAIN")
     if bright:
