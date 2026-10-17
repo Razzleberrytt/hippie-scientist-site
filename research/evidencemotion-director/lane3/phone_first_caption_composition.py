@@ -51,8 +51,9 @@ def _wrap(text, font, max_width, max_lines):
     rows.append(current)
     return rows if len(rows) <= max_lines else None
 
-def plan_caption(text, font_path, *, canvas=(1080,1920), area=(100,1080,844,1376),
-                 source_top=1420, max_lines=3, threshold_px=RESEARCH_MIN_INK_PX):
+def plan_caption(text, font_path, *, canvas=(1080,1920), area=(100,1285,844,1495),
+                 source_top=1519, protected_art_bottom=1150, max_lines=3,
+                 threshold_px=RESEARCH_MIN_INK_PX):
     words=source_words(text)
     if Image is None:
         raise CraftHold('PILLOW_REQUIRED_FOR_RASTER_INK_PLAN')
@@ -61,7 +62,12 @@ def plan_caption(text, font_path, *, canvas=(1080,1920), area=(100,1080,844,1376
     if not isinstance(area,tuple) or len(area)!=4 or not all(type(x) is int for x in area):
         raise CraftHold('CAPTION_AREA_INVALID')
     x0,y0,x1,y1=area
-    if not (0<=x0<x1<=864 and 0<=y0<y1<source_top<1500):
+    # Gut-preview anchors: artwork is present through y1128 and source-credit
+    # ink begins y1519 in the exact source-bound Lane4 frame. Defaults add
+    # provisional margins; other scenes MUST supply their own prequalified
+    # art/source bounds rather than reusing the gut viewport blindly.
+    if (type(source_top) is not int or type(protected_art_bottom) is not int or
+            not (0<=x0<x1<=864 and 0<=protected_art_bottom+24<y0<y1+24<=source_top<1600)):
         raise CraftHold('SOURCE_OR_PHONE_SAFE_ZONE_CONFLICT')
     if type(max_lines) is not int or not 1<=max_lines<=3:
         raise CraftHold('CAPTION_LINES_INVALID')
@@ -87,12 +93,18 @@ def plan_caption(text, font_path, *, canvas=(1080,1920), area=(100,1080,844,1376
         positions=[(x0+12,y0+10+i*pitch) for i in range(len(rows))]
         if source_words(' '.join(rows)) != words:
             raise CraftHold('CAPTION_REWRITTEN')
+        # Verify the full raster ink extent, not the nominal text box, is
+        # inside the declared source/artwork-free caption viewport.
+        if positions[0][1]<protected_art_bottom+24 or positions[-1][1]+metrics[-1][1]>y1:
+            raise CraftHold('CAPTION_RASTER_OUTSIDE_ART_FREE_VIEWPORT')
         return {'status':'RESEARCH_LAYOUT_CANDIDATE','captionSource':text,
                 'rows':rows,'positions':positions,'nativeFontPx':font_size,
                 'minNativeGlyphInkPx':min(height for width,height in metrics),
                 'minProjectedInkPx320':round(min(height for width,height in metrics)*320/1080,2),
                 'fontSha256':font_sha,'fontPathName':font_path.name,
                 'captionArea':list(area),'sourceCreditStartsAtNativeY':source_top,
+                'protectedSceneArtBottomNativeY':protected_art_bottom,
+                'sceneBoundsExternallyCalibrated':False,
                 'claimedNativeCanvas':[1080,1920],'mayPublish':False,
                 'sourceClaimReviewed':False,'actualMovieDecoded':False,
                 'realPhoneApproved':False,'externalCraftApproved':False,
