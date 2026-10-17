@@ -905,7 +905,7 @@ jobs:
           from em00708_original_archive_hold_replay import replay as real_replay
           from science_gate_process_attestation import strict_json,canonical,attest
           from claim_strength_source_limits import evaluate
-          from science_reviewer_handoff import reviewer_packet,verify_packet,SCHEMA,original_review_stills,verify_original_review_stills,screen_original_no_reaction_caption,NO_REACTION_STILL_SHA
+          from science_reviewer_handoff import reviewer_packet,verify_packet,SCHEMA,original_review_stills,verify_original_review_stills,screen_original_no_reaction_caption,screen_original_no_reaction_temporal,NO_REACTION_STILL_SHA
           root=Path(os.environ['THS_EM00705_ARCHIVE_ROOT'])
           raw={name:(root/name).read_bytes() for name in EXPECTED}
           confirmed=real_replay(raw)
@@ -961,10 +961,30 @@ jobs:
           assert flagged['mayPublish'] is False and flagged['approvalToMerge'] is False
           flag_path=Path(os.environ['RUNNER_TEMP'])/'em00707-no-reaction-original-film-OCR-review-HOLD.json'
           flag_path.write_text(json.dumps(flagged,indent=2,sort_keys=True)+'\n')
+          temporal=screen_original_no_reaction_temporal(film,process,packet)
+          assert temporal['sampleCount']==8
+          assert temporal['physicallyRecoveredNoReactionSamples']==8
+          assert temporal['pairedMitragynineSamples']==4
+          assert temporal['paired7OHSamples']==4
+          assert len(temporal['actualNativeH264Frames'])==8
+          assert temporal['sceneSemanticsApproved'] is False
+          assert temporal['realHumanUnderstandingMeasured'] is False
+          assert temporal['requiresQualifiedEditorialScientificInterpretation'] is True
+          assert temporal['mayPublish'] is False and temporal['approvalToMerge'] is False
+          temporal_path=Path(os.environ['RUNNER_TEMP'])/'em00707-original-intro-temporal-risk-HOLD.json'
+          temporal_path.write_text(json.dumps(temporal,indent=2,sort_keys=True)+'\n')
+          print('PASS_8_REAL_ORIGINAL_H264_FRAMES_NO_REACTION_VISIBLE_ACROSS_BOTH_COMPOUNDS_EDITORIAL_HOLD')
           print('PASS_ACTUAL_ORIGINAL_NO_REACTION_CAPTION_OCR_WITH_SCIENCE_REVIEW_HOLD')
           print('PASS_REAL_ARCHIVED_H264_EIGHT_CLAIM_FRAMES_REVIEW_REQUEST_HOLD')
           print('PASS_EXACT_ORIGINAL_FILM_EIGHT_WAV_TIMECODED_REVIEW_REQUEST_ONLY_HUMAN_REVIEW_HOLD')
           PY
+      - name: Preserve actual original-film opening eight-frame semantic-risk audit (not approval)
+        uses: actions/upload-artifact@v4
+        with:
+          name: em00707-original-intro-eight-temporal-ocr-HOLD
+          path: ${{ runner.temp }}/em00707-original-intro-temporal-risk-HOLD.json
+          retention-days: 14
+          if-no-files-found: error
       - name: Preserve actual source-image No reaction semantic-review HOLD only
         uses: actions/upload-artifact@v4
         with:
