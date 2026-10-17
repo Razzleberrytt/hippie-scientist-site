@@ -26,10 +26,18 @@ class AtomicProgressReconcilerTests(unittest.TestCase):
         self.assertEqual(r["provisionalCoverageOnly"],875)
         self.assertEqual(r["notEvenProvisionallyMapped"],715)
         self.assertEqual(r["reconciliationState"],"NEEDS_CARD_RECONCILIATION")
+        self.assertIn(r["freshness"], ("DATED_CURRENT_OBSERVATION","HISTORICAL_SNAPSHOT_NOT_LIVE"))
         self.assertEqual(r["acceptedResearchFoundations"],26)
         self.assertEqual(r["excellentFirstRender"]["accepted"],0)
         self.assertEqual(r["variedExcellentFirstRenderStreak"]["accepted"],0)
         self.assertFalse(r["mayPublish"])
+
+    def test_snapshot_timestamp_cannot_launder_future_or_missing_date(self):
+        for observed in (None, "2026-10-18T10:00:00Z", "not-an-instant"):
+            bad=copy.deepcopy(self.snapshot)
+            bad["observedAtUtc"]=observed
+            with self.assertRaisesRegex(ValueError,"OBSERVATION_TIMESTAMP_NOT_SOURCE_BOUND"):
+                reconcile(self.ledger,LEDGER.parent,bad)
 
     def test_same_merge_sha_is_not_counted_three_times(self):
         s=copy.deepcopy(self.snapshot)
