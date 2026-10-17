@@ -52,14 +52,28 @@ def validate_row_stats(name,heights,frame_mae,rightmost_native_x,count):
   raise ReviewHold('TEXT_OUTSIDE_EDITED_SAFE_CARD:'+name)
  return True
 
+def nonoverlapping_text_windows(lines=LINES):
+ # Bound each real authored row by the NEXT row's start to avoid borrowing
+ # its bright ink, even if the authored padding extends beyond that start.
+ windows=[]
+ for i,(name,y,size) in enumerate(lines):
+  if not isinstance(name,str) or not name or type(y) is not int or type(size) is not int or size<=0:
+   raise ReviewHold('FACTUAL_ROW_GEOMETRY_INVALID')
+  following=lines[i+1][1] if i+1<len(lines) else Y0+H
+  end=min(y+size+4,following,Y0+H)
+  if not (Y0<=y<end and following>y):
+   raise ReviewHold('FACTUAL_ROW_GEOMETRY_INVALID')
+  windows.append((name,y,end))
+ return windows
+
 def temporal_report(frames):
  if np is None:raise ReviewHold('NUMPY_REQUIRED_FOR_NATIVE_FILM_ANALYSIS')
  if frames.shape!=(END-START+1,H,W) or frames.dtype!=np.uint8:raise ReviewHold('SCENE_FRAME_GRID_INVALID')
  result=[]
- for name,y,size in LINES:
-  # Native only, crop away marker/panel decoration before assessing line ink.
-  # Corresponds to original source code anchored top of ink at y.
-  crop=frames[:,y-Y0:y-Y0+size+4,126-X0:820-X0]
+ for name,y,end_y in nonoverlapping_text_windows():
+  # Half-open vertical isolation: never lend next row's pixels to this row.
+  # This corrects the original 7-OH 80px report that borrowed next CID ink.
+  crop=frames[:,y-Y0:end_y-Y0,126-X0:820-X0]
   mask=crop>110
   heights=[]; ink=[]; xx=[]
   for f in mask:
@@ -70,7 +84,7 @@ def temporal_report(frames):
    xx.append(int(xs.max()))
   # Silent card ought to keep all written facts in all frames even as marker moves.
   stability=np.mean(np.abs(crop.astype('int16')-crop[59:60].astype('int16')),axis=(1,2))
-  report={'text':name,'minNativeInkRows':min(heights),'maxNativeInkRows':max(heights),
+  report={'text':name,'nativeYWindowHalfOpen':[y,end_y],'minNativeInkRows':min(heights),'maxNativeInkRows':max(heights),
        'minProjectedInkPxAt320':round(min(heights)*320/1080,2),
        'framesVerified':len(heights),'minAboveThreshold14pxAt320':min(heights)*320/1080>=14,
        'medianDecodedInkPixelCount':int(np.median(ink)),
