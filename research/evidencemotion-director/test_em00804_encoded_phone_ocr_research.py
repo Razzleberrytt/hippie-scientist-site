@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from em00804_encoded_phone_ocr_research import (
     EXPECTED,WIDTHS,TIMES,PSM,EXPECTED_PICTOGRAM_SHA,SCHEMA,
-    run,check_recognition,norm,ocr_png,width_frame
+    run,check_recognition,has_contradictory_plant_assay_claim,norm,ocr_png,width_frame
 )
 from em00805_botanical_video_probes import sha
 
@@ -64,6 +64,36 @@ class ActualEncodedPhoneIndependentOCR(unittest.TestCase):
             self.assertTrue(x["unsafeMeasuredAssayRecognized"])
             self.assertTrue(x["unsafeApprovalRejected"])
             self.assertFalse(check_recognition(x["ocrRawOutput"]))
+
+    def test_actual_encoded_both_disclaimers_plus_fake_measurement_holds(self):
+        bad=[x for x in self.receipt["negativeCases"]
+             if x["mode"]=="disclosed_but_fabricated_plant_measurement"]
+        self.assertEqual(len(bad),2)
+        self.assertEqual({x["tesseractPSM"] for x in bad},set(PSM))
+        self.assertEqual(len({x["encodedH264Sha256"] for x in bad}),1)
+        for case in bad:
+            text=case["ocrRawOutput"]
+            seen=norm(text)
+            self.assertTrue(all(norm(line) in seen for line in EXPECTED),text)
+            self.assertTrue(has_contradictory_plant_assay_claim(text),text)
+            self.assertFalse(check_recognition(text),text)
+            self.assertTrue(case["unsafeApprovalRejected"])
+            self.assertTrue(case["bothExpectedDisclosureLinesRecognized"])
+            self.assertTrue(case["contradictoryAssayTextRecognized"])
+
+    def test_semantic_veto_even_if_both_required_lines_are_present(self):
+        safe="AI-ILLUSTRATED BOTANICAL\nNOT A 7-OH PLANT ASSAY"
+        self.assertTrue(check_recognition(safe))
+        for claim in ("MEASURED 7-OH IN THIS PLANT",
+                      "7-OH DETECTED IN LEAVES",
+                      "THIS PLANT HAS 7-OH",
+                      "LAB CONFIRMED 7-OH CONTENT",
+                      "ASSAY CONFIRMS 7-OH"):
+            with self.subTest(claim=claim):
+                self.assertTrue(has_contradictory_plant_assay_claim(safe+"\n"+claim))
+                self.assertFalse(check_recognition(safe+"\n"+claim))
+        self.assertFalse(has_contradictory_plant_assay_claim(
+            "AI-ILLUSTRATED BOTANICAL NOT A 7-OH PLANT ASSAY"))
 
     def test_normalization_accepts_hyphen_breaks_not_deleted_semantics(self):
         self.assertTrue(check_recognition(
