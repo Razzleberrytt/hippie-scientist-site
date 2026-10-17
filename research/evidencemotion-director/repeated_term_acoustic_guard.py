@@ -827,6 +827,50 @@ def audit_archived_suffix_cue_hypotheses(
                 or pcm[663600*2:746160*2] != bytes((746160-663600)*2)):
             return refuse("SUFFIX_CUES_VERIFIED_ZERO_SPAN_MISSING")
         source_zero_start, source_zero_end = 663600, 746160
+        # The original WAV has nonzero *low-level* material immediately
+        # after 31.09s. Do NOT mistake the first nonzero sample for speech
+        # onset, or mistake this fixed-level envelope screen for a phoneme.
+        # Record a repeatable diagnostic only: two successive nonoverlapping
+        # 10ms windows whose PCM16 normalized RMS is >=0.005.
+        samples = np.frombuffer(pcm, dtype="<i2").astype(np.float64)/32768
+        window_samples = 240
+        search_end = min(len(samples), round(31.60*24000))
+        rms_windows = []
+        for lo in range(source_zero_end,
+                        search_end-window_samples+1, window_samples):
+            window = samples[lo:lo+window_samples]
+            rms_windows.append((lo, float(np.sqrt(np.mean(window*window)))))
+        first_rise = next((
+            rms_windows[i][0]
+            for i in range(len(rms_windows)-1)
+            if rms_windows[i][1] >= 0.005 and rms_windows[i+1][1] >= 0.005
+        ), None)
+        if first_rise is None:
+            return refuse("SUFFIX_CUES_POST_ZERO_SUSTAINED_SIGNAL_NOT_FOUND")
+        rise_s = first_rise/24000
+        first_cue_s = float(cues[0]["startSec"])
+        first_frame_s = int(np.ceil(first_cue_s*30-1e-8))/30
+        first_asr_s = float(heard[61]["start"])
+        signal_rise = {
+            "method": "FIRST_TWO_CONSECUTIVE_10MS_RMS_WINDOWS_ABOVE_0_005",
+            "sourcePcmSha256": SOURCE_WAV_REFERENCE,
+            "postZeroSearchStartSample": source_zero_end,
+            "searchEndSec": round(search_end/24000, 6),
+            "windowDurationMs": 10,
+            "minimumConsecutiveWindows": 2,
+            "normalizedPcm16RmsThreshold": 0.005,
+            "firstQualifyingWindowSample": first_rise,
+            "firstQualifyingWindowSec": round(rise_s, 6),
+            "firstCaptionCueMinusSignalRiseMs":
+                round((first_cue_s-rise_s)*1000, 3),
+            "firstEligibleVideoFrameMinusSignalRiseMs":
+                round((first_frame_s-rise_s)*1000, 3),
+            "signalRiseMinusFirstAsrHypothesisMs":
+                round((rise_s-first_asr_s)*1000, 3),
+            "phonemeOrWordOnsetIdentified": False,
+            "qualifiedSpeakerListeningProvided": False,
+            "researchEnergyHeuristicOnly": True,
+        }
         rows = []
         for idx, (cue, m, asr) in enumerate(zip(cues, authored, heard[61:70])):
             start, end = float(cue["startSec"]), float(cue["endSec"])
@@ -887,6 +931,7 @@ def audit_archived_suffix_cue_hypotheses(
                 "modelDifferenceOver100MsCount": sum(
                     r["absoluteModelDifferenceExceeds100ms"] for r in rows),
                 "sourceDigitalZeroSamples": [source_zero_start, source_zero_end],
+                "postSilenceSustainedSignalRise": signal_rise,
                 "cueReviewRows": rows,
                 "reviewerDecisionRequired": True,
                 "caution": "Do not infer correct word, phoneme, caption timing "
