@@ -1216,6 +1216,15 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
                          "RESEARCH_ARCHIVED_ENCODED_AUDIO_SYNC_HOLD", report)
         self.assertEqual(report["testedRealSignalWindows"], 6)
         self.assertEqual(report["decodedAacSampleCount"], 825344)
+        gain = report["gainAndHeadroomResearch"]
+        self.assertTrue(gain["encodedSamplePeakBelowFullScale"])
+        self.assertFalse(gain["ebuR128TruePeakMeasuredByThisAudit"])
+        self.assertFalse(gain["ebuR128IntegratedLoudnessMeasuredByThisAudit"])
+        self.assertFalse(gain["gainIntentIndependentlyApproved"])
+        self.assertFalse(gain["creativeLoudnessOrNaturalnessApproved"])
+        self.assertAlmostEqual(gain["encodedVsSourceRmsGainDb"], -0.724,
+                               delta=0.003)
+        self.assertGreater(gain["sourceSamplePeakDbFS"], -22)
         self.assertGreaterEqual(report["rollingSignalScreen"]["speechActiveWindowCount"], 100)
         self.assertGreaterEqual(report["rollingSignalScreen"]["exactDigitalSilenceWindowCount"], 6)
         self.assertEqual(report["rollingSignalScreen"]["belowThresholdWindows"], [])
@@ -1234,6 +1243,32 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
                      "captionTimingApproved", "audioCraftApproved",
                      "actualRevisedFilmReviewed", "decoderRunBoundToNativeFilm"):
             self.assertFalse(report[gate], gate)
+
+    def test_full_scale_aac_peak_cannot_hide_inside_perfect_sync(self):
+        source, film, receipt, decoded = self.encoded_aac_screen_fixture()
+        for val in (1.0, -1.0, 1.002, -1.002):
+            with self.subTest(peak=val):
+                altered = decoded.copy()
+                # This is a SINGLE-sample full-scale event. Every 500ms
+                # speech window can remain >0.95 correlated despite it.
+                altered[round(20.85*24000)] = val
+                report = self.check_synthetic_encoded(
+                    source, film, receipt, altered)
+                self.assertEqual(report["status"], "HOLD")
+                self.assertIn("ENCODED_AUDIO_FULL_SCALE_PCM_PEAK_HOLD",
+                              report["errors"])
+                self.assertFalse(report["mayPublish"])
+
+    def test_nearly_full_scale_sample_requires_review_not_false_clipping(self):
+        source, film, receipt, decoded = self.encoded_aac_screen_fixture()
+        almost = decoded.copy()
+        almost[round(20.85*24000)] = .995
+        report = self.check_synthetic_encoded(source, film, receipt, almost)
+        # This level still needs a real True-Peak measurement, but a
+        # SAMPLE-peak hard stop must not mislabel .995 as >=full-scale.
+        self.assertNotIn("ENCODED_AUDIO_FULL_SCALE_PCM_PEAK_HOLD",
+                         report.get("errors", []))
+        self.assertFalse(report["mayPublish"])
 
     def test_encoded_audio_shifted_and_corrupted_pcm_fail_closed(self):
         source, film, receipt, decoded = self.encoded_aac_screen_fixture()
