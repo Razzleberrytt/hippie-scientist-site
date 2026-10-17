@@ -481,7 +481,9 @@ def validate_original_job_v1(job):
 def read_original_pair_dir(directory):
     """Read physical producer bytes with strict JSON, no links or self-approval."""
     path = Path(directory)
-    if not path.is_dir() or path.is_symlink():
+    if (not path.is_dir() or path.is_symlink()
+            or _original_receipt_has_symlinked_ancestor(
+                path / "full-original-replay.json")):
         raise ValueError("NATIVE_ORIGINAL_HOLD:PAIR_ARTIFACT_DIRECTORY_UNSAFE")
     records = []
     for name in ("full-original-replay.json", "environment.json"):
@@ -558,7 +560,8 @@ def validate_disabled_x264_cpu_asm(encoder_log):
     an x264-params setting. This proof is a *machine encoder check only*.
     """
     p = Path(encoder_log)
-    if not p.is_file() or p.is_symlink() or p.stat().st_size == 0:
+    if (not p.is_file() or p.is_symlink() or p.stat().st_size == 0
+            or _original_receipt_has_symlinked_ancestor(p)):
         raise ValueError("NATIVE_ORIGINAL_HOLD:X264_CPU_ASM_PROOF_LOG_MISSING")
     log = p.read_bytes()
     if (b"using cpu capabilities: none!" not in log
@@ -570,7 +573,8 @@ def validate_disabled_x264_cpu_asm(encoder_log):
 def verify_uploaded_movie(artifact_dir, report):
     """Hash downloaded physical film bytes instead of trusting report metadata."""
     movie = Path(artifact_dir) / ORIGINAL_NAME
-    if not movie.is_file() or movie.is_symlink() or movie.stat().st_size == 0:
+    if (not movie.is_file() or movie.is_symlink() or movie.stat().st_size == 0
+            or _original_receipt_has_symlinked_ancestor(movie)):
         raise ValueError("NATIVE_ORIGINAL_HOLD:UPLOADED_MOVIE_MISSING_EMPTY_OR_SYMLINK")
     receipt = report.get("sourceToEncoderStdinReceipt")
     if not isinstance(receipt, dict):
@@ -600,7 +604,8 @@ def audit_downloaded_original_movie(artifact_dir, *, expected_geometry=NATIVE,
     width, height, frames = expected_geometry
     base = Path(artifact_dir)
     movie = base / ORIGINAL_NAME
-    if not movie.is_file() or movie.is_symlink():
+    if (not movie.is_file() or movie.is_symlink()
+            or _original_receipt_has_symlinked_ancestor(movie)):
         raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_FILM_UNAVAILABLE")
     if expected_film_sha256 is not None and (
             not isinstance(expected_film_sha256, str)
@@ -673,7 +678,9 @@ def audit_downloaded_original_movie(artifact_dir, *, expected_geometry=NATIVE,
     # Metadata/probe/decode verdicts only apply to the exact bytes we saw
     # before starting. No successful receipt for a replaced movie/log.
     if (not movie.is_file() or movie.is_symlink()
+            or _original_receipt_has_symlinked_ancestor(movie)
             or not encoder_log.is_file() or encoder_log.is_symlink()
+            or _original_receipt_has_symlinked_ancestor(encoder_log)
             or sha_file(movie) != movie_sha_before
             or sha_file(encoder_log) != encoder_log_sha_before):
         raise ValueError("NATIVE_ORIGINAL_HOLD:DOWNLOADED_MEDIA_BYTES_CHANGED_DURING_AUDIT")

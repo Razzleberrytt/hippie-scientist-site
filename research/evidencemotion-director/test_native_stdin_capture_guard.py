@@ -691,6 +691,44 @@ class Tests(unittest.TestCase):
             self.assertFalse(report["humanCraftOrPhoneApproved"])
             self.assertFalse(report["mayPublish"])
 
+    def test_original_receiver_rejects_nested_directory_symlink_in_all_intake_paths(self):
+        """Alias to valid physical bytes is not a trusted input directory."""
+        from original_native_stdin_replay import (
+            ORIGINAL_NAME, audit_downloaded_original_movie,
+            read_original_pair_dir, verify_uploaded_movie,
+            validate_disabled_x264_cpu_asm
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            physical = root / "physical" / "payload"
+            physical.mkdir(parents=True)
+            job, _ = self._write_pair_fixture(physical)
+            alias = root / "alias"
+            try:
+                alias.symlink_to(root / "physical", target_is_directory=True)
+            except (OSError, NotImplementedError) as exc:
+                self.skipTest(f"symlink permissions unavailable: {exc}")
+            # The last directory and film are not themselves symlinks, yet
+            # traversing the lexical ancestor redirects the trust boundary.
+            redirected = alias / "payload"
+            self.assertFalse(redirected.is_symlink())
+            self.assertFalse((redirected / ORIGINAL_NAME).is_symlink())
+            with self.assertRaisesRegex(ValueError, "PAIR_ARTIFACT_DIRECTORY_UNSAFE"):
+                read_original_pair_dir(redirected)
+            with self.assertRaisesRegex(ValueError, "MISSING_EMPTY_OR_SYMLINK"):
+                verify_uploaded_movie(redirected, job)
+            # A real small encoded movie with a valid encoder log proves
+            # the receiver rejects the alias before treating codec success
+            # as trusted intake. No native original film is approved.
+            self._small_h264_aac_original_codec_fixture(physical)
+            with self.assertRaisesRegex(ValueError, "DOWNLOADED_FILM_UNAVAILABLE"):
+                audit_downloaded_original_movie(
+                    redirected, expected_geometry=(64, 64, 12))
+            with self.assertRaisesRegex(ValueError, "PROOF_LOG_MISSING"):
+                validate_disabled_x264_cpu_asm(redirected / "encoder.log")
+            # Read-only physical source package remains intact.
+            self.assertTrue((physical / ORIGINAL_NAME).is_file())
+
     def test_original_receiver_requires_physically_pinned_film_on_cli_path(self):
         from original_native_stdin_replay import audit_downloaded_original_movie
         with tempfile.TemporaryDirectory() as directory:
