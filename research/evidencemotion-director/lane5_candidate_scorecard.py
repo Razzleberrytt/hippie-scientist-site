@@ -152,7 +152,11 @@ def _decoded_audio_coverage(movie, sample_rate, expected_frames):
             drift = start - previous_end
             if abs(drift) > Decimal("0.050"):
                 hold("DECODED_AUDIO_TIMELINE_GAP_OR_OVERLAP")
-            if abs(drift) > Decimal("0.012"):
+            # Timestamp rounding at ffprobe's six-decimal precision can
+            # introduce <1 microsecond noise. Larger systematic <12ms drifts
+            # still deserve source review: repetition can be much worse than
+            # one visibly large gap, even if the film's end-time looks right.
+            if abs(drift) > Decimal("0.001"):
                 cumulative_discontinuity += abs(drift)
                 if cumulative_discontinuity > Decimal("0.080"):
                     hold("EXCESS_CUMULATIVE_DECODED_AUDIO_PTS_DRIFT")
