@@ -722,16 +722,6 @@ def probe_movie(movie):
     track = videos[0]
     if track.get("codec_name") != "h264":
         hold("EXPECTED_H264_VIDEO_CODEC")
-    # H.264 alone does not establish a portable mobile decoder target.
-    # Reject advanced profiles and SPS levels above 4.2; at 1080x1920/30fps
-    # the accepted ceiling has adequate macroblock capacity, while Level
-    # 5.x/6.x may demand capabilities absent on older phone decoders.
-    # Read the encoded stream profile/level, not the FFmpeg preset or extension.
-    if track.get("profile") not in ("Constrained Baseline", "Baseline", "Main", "High"):
-        hold("UNSUPPORTED_PHONE_H264_PROFILE")
-    level = track.get("level")
-    if type(level) is not int or not 9 <= level <= 42:
-        hold("UNSUPPORTED_PHONE_H264_LEVEL")
     if audios and audios[0].get("codec_name") != "aac":
         hold("EXPECTED_AAC_AUDIO_CODEC")
     # ffprobe stream codecs and a .mp4 filename are not a delivery-container
@@ -839,6 +829,20 @@ def probe_movie(movie):
         if isinstance(exc, ValueError) and str(exc).startswith("PHONE_UI_HOLD:"):
             raise
         hold("FRAME_TIMESTAMP_EXTRACTION_FAILED")
+    # Keep earlier concrete semantic failures (4:4:4, wrong PTS cadence,
+    # altered display geometry) visible instead of masking them with broad
+    # codec compatibility. The profile/level screen is still mandatory
+    # before returning an accepted movie inventory to the caller.
+    # H.264 alone does not establish a portable mobile decoder target.
+    # Reject advanced profiles and SPS levels above 4.2; at 1080x1920/30fps
+    # the accepted ceiling has adequate macroblock capacity, while Level
+    # 5.x/6.x may demand capabilities absent on older phone decoders.
+    # Read the encoded stream profile/level, not the FFmpeg preset or extension.
+    if track.get("profile") not in ("Constrained Baseline", "Baseline", "Main", "High"):
+        hold("UNSUPPORTED_PHONE_H264_PROFILE")
+    level = track.get("level")
+    if type(level) is not int or not 9 <= level <= 42:
+        hold("UNSUPPORTED_PHONE_H264_LEVEL")
     return int(track["width"]), int(track["height"]), duration, len(stamps)
 
 def verify_complete_media_decode(movie):
