@@ -15,6 +15,8 @@ on:
       - 'research/evidencemotion-director/original_frame_replay_probe.py'
       - 'research/evidencemotion-director/original_native_stdin_replay.py'
       - 'research/evidencemotion-director/test_native_stdin_capture_guard.py'
+      - 'research/evidencemotion-director/lane5_candidate_scorecard.py'
+      - 'research/evidencemotion-director/test_lane5_candidate_scorecard.py'
       - 'research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md'
       - '.github/workflows/evidencemotion-operator-rehearsal.yml'
 concurrency:
@@ -78,6 +80,11 @@ jobs:
           python3 -m py_compile research/evidencemotion-director/original_replay_admission.py
           python3 -m py_compile research/evidencemotion-director/original_replay_source_restore.py
           python3 -m unittest discover -s research/evidencemotion-director -p 'test_native_stdin_capture_guard.py' -v
+      - name: Fail-closed machine candidate acceptance scorecard (research only)
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/lane5_candidate_scorecard.py
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_lane5_candidate_scorecard.py' -v
       - name: Ensure no production publishing privileges are implied
         run: |
           set -euo pipefail
