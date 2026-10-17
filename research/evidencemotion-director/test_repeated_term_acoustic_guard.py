@@ -505,6 +505,87 @@ class SpectralNegativeTests(unittest.TestCase):
             self.assertIn("CAPTION_SOURCE_SHA_MISMATCH", r["errors"][0])
             self.assertFalse(r["mayPublish"])
 
+
+    @staticmethod
+    def gut_pause_fixture():
+        # 19 sequential caption cues in six groups, with EXACTLY five
+        # >350ms source-declared silent intervals, like real owner SRT.
+        cues = []
+        current = .2
+        for group_id, group_size in enumerate((3, 3, 3, 3, 4, 3)):
+            for _ in range(group_size):
+                begin = round(current, 4)
+                current = begin+.65
+                cues.append((len(cues)+1, begin, round(current, 4),
+                             "Synthetic sound-only caption"))
+            if group_id < 5:
+                current += .7
+        audio = np.zeros((int((current+1)*48000),2),dtype=np.float32)
+        for _, begin, end, _ in cues:
+            lo, hi = round(begin*48000), round(end*48000)
+            ts=np.arange(hi-lo)/48000
+            voice=.07*np.sin(2*np.pi*310*ts)
+            audio[lo:hi,:] = voice[:,None]
+        return audio, cues
+
+    def test_gut_long_pause_five_edge_research_hold(self):
+        pcm,cues=self.gut_pause_fixture()
+        result=gut_voice_gate.audit_pcm_long_pause_boundaries(pcm,cues)
+        self.assertEqual(result["status"],"RESEARCH_LONG_PAUSE_EDGES_HOLD",
+                         result)
+        self.assertEqual(result["pauseGroupsChecked"],5)
+        self.assertFalse(result["mayPublish"])
+        self.assertFalse(result["spokenWordsConfirmedAgainstCaptions"])
+        self.assertFalse(result["wordTimingCalibrated"])
+
+    def test_gut_long_pause_rejects_200ms_shifted_narration(self):
+        pcm,cues=self.gut_pause_fixture()
+        shifted=np.zeros_like(pcm)
+        shifted[9600:]=pcm[:-9600]
+        result=gut_voice_gate.audit_pcm_long_pause_boundaries(shifted,cues)
+        self.assertEqual(result["status"],"HOLD")
+        self.assertIn("GUT_PAUSE_EDGE_OR_LEAK",result["errors"])
+
+    def test_gut_long_pause_rejects_forged_gap_speech(self):
+        pcm,cues=self.gut_pause_fixture()
+        start=int(round((cues[2][2]+.20)*48000))
+        duration=round(.2*48000)
+        t=np.arange(duration)/48000
+        pcm[start:start+duration,:]=(.09*np.sin(2*np.pi*400*t))[:,None]
+        result=gut_voice_gate.audit_pcm_long_pause_boundaries(pcm,cues)
+        self.assertEqual(result["status"],"HOLD")
+        self.assertGreater(len(result["failingPauseGroups"]),0)
+
+    def test_gut_long_pause_rejects_missing_beginning_of_phrase(self):
+        pcm,cues=self.gut_pause_fixture()
+        start=int(round(cues[3][1]*48000))
+        pcm[start:start+round(.25*48000),:]=0
+        result=gut_voice_gate.audit_pcm_long_pause_boundaries(pcm,cues)
+        self.assertEqual(result["status"],"HOLD")
+
+    def test_gut_long_pause_checks_both_stereo_channels(self):
+        pcm,cues=self.gut_pause_fixture()
+        start=int(round((cues[2][2]+.20)*48000))
+        duration=round(.2*48000)
+        t=np.arange(duration)/48000
+        anti=.09*np.sin(2*np.pi*400*t)
+        pcm[start:start+duration,0]=anti
+        pcm[start:start+duration,1]=-anti
+        result=gut_voice_gate.audit_pcm_long_pause_boundaries(pcm,cues)
+        self.assertEqual(result["status"],"HOLD")
+        self.assertGreater(len(result["failingPauseGroups"]),0)
+
+    def test_gut_long_pause_rejects_malformed_or_missing_inventory(self):
+        pcm,cues=self.gut_pause_fixture()
+        for altered in (cues[:-1], [(*cues[0][:3],""),
+                                       *cues[1:]],
+                        [cues[0],cues[0],*cues[2:]]):
+            result=gut_voice_gate.audit_pcm_long_pause_boundaries(pcm,altered)
+            self.assertEqual(result["status"],"HOLD")
+        result=gut_voice_gate.audit_pcm_long_pause_boundaries(
+            np.full_like(pcm,float("nan")),cues)
+        self.assertEqual(result["status"],"HOLD")
+
     def test_gain_independent_positive_is_not_phonetic_proof(self):
         a=tone(240)
         report=compare(a,a*.6,[tone(470),tone(860)])
