@@ -139,7 +139,7 @@ class MobileDeliveryGuardTests(unittest.TestCase):
            '-pix_fmt','yuv420p','-crf','16',
            '-c:a','aac','-b:a','160k','-ar','48000','-ac','2',
            '-movflags','+faststart',phone)
-        with self.assertRaisesRegex(Hold,'NON_SQUARE_SAMPLE_ASPECT_RATIO'):
+        with self.assertRaisesRegex(Hold,'NON_SQUARE_PIXEL_PORTRAIT'):
             self.run_pair(phone=phone,visual=False)
 
     def test_source_hash_tamper_rejected(self):

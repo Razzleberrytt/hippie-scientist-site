@@ -30,3 +30,25 @@ voice, craft, physical handset and publication review boundaries. No acceptance
 score increases and no changes to previously delivered immutable artifacts.
 
 Linux phone-audit suite: 186/186 PASS, no skips, exit0 (24.787s).
+
+
+## Later merge-review verification: real caption PTS and Windows PSNR
+
+Current owner branch 671cfc181 already binds caption ownership to real decoded
+zero-origin CFR30 timestamps and represents ink-free cues with nullable envelopes
+and an explicit cuesWithoutDetectedInk list. Existing portrait guard already
+requires square SAR and expected display geometry before PSNR. Reused those
+repairs rather than adding another audit path.
+
+Windows validation exposed PSNR stats_file parsing of an unescaped absolute
+C:/... filter value: 3 errors and one false-negative assertion, plus the new SAR
+negative test expected an obsolete error code. Existing physical tests reproduce
+both issues. Run PSNR with absolute input files and a relative psnr.log in its
+private temporary working directory; align the negative test to the established
+NON_SQUARE_PIXEL_PORTRAIT refusal. No gate thresholds or source media change.
+
+Fresh mobile suite: Windows 29 PASS, one symlink privilege SKIP, exit0; Linux
+30/30 PASS, no skips, exit0. Caption suite: 13/13 PASS on Windows and Linux,
+no skips, exits0. Existing regression tests exercise real non-square SAR, actual
+PTS corruption, missing caption ink, source re-encode and unauthorized visual
+changes. Hosted exact-head full CI/build and controller merge remain required.

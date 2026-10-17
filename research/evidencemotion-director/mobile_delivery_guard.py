@@ -25,8 +25,8 @@ def sha_file(path):
             h.update(x)
     return h.hexdigest()
 
-def cmd(args):
-    q=subprocess.run(args,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+def cmd(args, *, cwd=None):
+    q=subprocess.run(args,stdout=subprocess.PIPE,stderr=subprocess.PIPE,cwd=cwd)
     if q.returncode: raise Hold('FFMPEG_OR_FFPROBE_FAILURE:'+q.stderr.decode('utf8','replace')[-200:])
     return q.stdout
 
@@ -131,10 +131,10 @@ def video_psnr(before,after,expected_frames):
     from tempfile import TemporaryDirectory
     with TemporaryDirectory() as tmp:
         stats=Path(tmp)/'psnr.log'
-        args=['ffmpeg','-nostdin','-v','error','-xerror','-i',str(before),'-i',str(after),
-              '-filter_complex',f'[0:v]scale=320:568:flags=bicubic,format=yuv420p[ref];[1:v]scale=320:568:flags=bicubic,format=yuv420p[phone];[ref][phone]psnr=stats_file={stats}',
+        args=['ffmpeg','-nostdin','-v','error','-xerror','-i',str(Path(before).resolve()),'-i',str(Path(after).resolve()),
+              '-filter_complex',f'[0:v]scale=320:568:flags=bicubic,format=yuv420p[ref];[1:v]scale=320:568:flags=bicubic,format=yuv420p[phone];[ref][phone]psnr=stats_file=psnr.log',
               '-an','-f','null','-']
-        cmd(args)
+        cmd(args,cwd=tmp)
         rows=stats.read_text().splitlines()
     vals=[]
     for i,row in enumerate(rows):
