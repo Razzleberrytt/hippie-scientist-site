@@ -36,7 +36,7 @@ def run(args,**kw):
     if r.returncode:raise ResearchHold('ENCODE_OR_PROBE_FAILURE '+r.stderr[-800:].decode(errors='replace'))
     return r.stdout
 
-def make_overlay(crop:Image.Image,frame_index:int,font:Path)->Image.Image:
+def make_overlay(crop:Image.Image,frame_index:int,font:Path, camera_study:bool=False)->Image.Image:
     if crop.size!=(1080,450) or not FIRST<=frame_index<=LAST:
         raise ResearchHold('BAD_REAL_FRAME_INPUT')
     work=Image.new('RGBA',(1080,450),(0,0,0,0))
@@ -56,9 +56,22 @@ def make_overlay(crop:Image.Image,frame_index:int,font:Path)->Image.Image:
     bb=ART_3D if stage_3d else ART_2D
     source_crop=crop.crop((bb[0],bb[1]-ROI_TOP,bb[2],bb[3]-ROI_TOP)).convert('RGBA')
     target=(600,268) if stage_3d else (480,268)
+    if camera_study and stage_3d:
+        # Deliberate slow flat camera push, NOT new or altered molecular coordinates.
+        # Smoothstep eases zero velocity at the first and last original cue frames.
+        t=(frame_index-THREED_START)/(LAST-THREED_START)
+        eased=t*t*(3-2*t)
+        width=600+round(40*eased)
+        target=(width,round(width*268/600))
+        x=137+round(26*eased)
+        y=106-round((target[1]-268)/2)
+        # Source art remains entirely inside science card x65..835 and below header.
+        if x<105 or x+target[0]>835 or y<96 or y+target[1]>388:
+            raise ResearchHold('CAMERA_ART_EXITS_SAFE_SCIENCE_CARD')
+    else:
+        x=(65+835-target[0])//2
+        y=106
     source_crop=source_crop.resize(target,Image.Resampling.LANCZOS)
-    x=(65+835-target[0])//2
-    y=106
     work.alpha_composite(source_crop,(x,y))
     out=ImageDraw.Draw(work)
     if stage_3d:
@@ -79,7 +92,7 @@ def probe_count(movie):
     if (s['width'],s['height'],s['r_frame_rate'],int(s['nb_read_frames']))!=(1080,1920,'30/1',1031):
         raise ResearchHold('WRONG_SOURCE_H264_GRID')
 
-def prepare(source,font,output_directory):
+def prepare(source,font,output_directory,camera_study:bool=False):
     source,font,output_directory=Path(source),Path(font),Path(output_directory)
     if output_directory.resolve()==source.resolve() or output_directory.is_symlink():raise ResearchHold('OUTPUT_ALIASES_SOURCE')
     if output_directory.exists(): raise ResearchHold('FRESH_OUTPUT_DIRECTORY_REQUIRED')
@@ -96,7 +109,7 @@ def prepare(source,font,output_directory):
             b=proc.stdout.read(FRAME_BYTES)
             if len(b)!=FRAME_BYTES:raise ResearchHold('TRUNCATED_SOURCE_FRAME_'+str(idx))
             roi=Image.frombytes('RGB',(1080,450),b)
-            overlay=make_overlay(roi,idx,font)
+            overlay=make_overlay(roi,idx,font,camera_study=camera_study)
             overlay.save(overlays/f'frame_{idx:04d}.png',compress_level=1)
         if proc.stdout.read(1):raise ResearchHold('EXTRA_SOURCE_FRAMES')
         if proc.wait()!=0:raise ResearchHold('SOURCE_FFMPEG_READ_FAILURE '+proc.stderr.read().decode(errors='replace')[-600:])
@@ -116,16 +129,16 @@ def encode(source,overlays,output):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--source',required=True);p.add_argument('--font',required=True)
-    p.add_argument('--workdir',required=True);p.add_argument('--output',required=True);p.add_argument('--preview-only',action='store_true');a=p.parse_args()
+    p.add_argument('--workdir',required=True);p.add_argument('--output',required=True);p.add_argument('--preview-only',action='store_true');p.add_argument('--camera-study',action='store_true');a=p.parse_args()
     source=Path(a.source);font=Path(a.font);workdir=Path(a.workdir);output=Path(a.output)
     if output.resolve() in (source.resolve(),font.resolve()) or output.exists():raise ResearchHold('OUTPUT_NOT_FRESH')
-    overlays=prepare(source,font,workdir)
+    overlays=prepare(source,font,workdir,camera_study=a.camera_study)
     if not a.preview_only:encode(source,overlays,output)
     if digest(source)!=SOURCE_SHA:raise ResearchHold('SOURCE_CHANGED_DURING_REPLAY')
     result={'schema':'ths-em-lane3-scene4-sequential-source-pinned-research-v1','originalFilmSha256':SOURCE_SHA,
        'candidateFilmSha256':None if a.preview_only else digest(output),
        'originalScene4FirstFrame':FIRST,'last':LAST,'stage3DStart':THREED_START,'rightCaveatStart':CAVEAT_START,
-       'rightSafeZoneStart':SAFE_LIMIT,'preservedSourceMoving3D':True,'originalAACNeedsIndependentPacketProof':True,
+       'rightSafeZoneStart':SAFE_LIMIT,'preservedSourceMoving3D':True,'cameraStudy':a.camera_study,'originalAACNeedsIndependentPacketProof':True,
        **NO_RELEASE}
     print(json.dumps(result,indent=2))
 if __name__=='__main__':main()
