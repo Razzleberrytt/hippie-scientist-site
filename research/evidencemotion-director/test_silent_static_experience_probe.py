@@ -1,5 +1,6 @@
 """Physical FFmpeg positive/negative tests for research-only concurrent quiet/static detection."""
 import hashlib
+import json
 import subprocess
 import tempfile
 import unittest
@@ -76,6 +77,68 @@ class ExperienceProbeTests(unittest.TestCase):
         report = self.analyze(self.scene_cut)
         self.assertFalse(report["needsExperienceReview"])
         self.assertEqual(report["silentAndNearStaticSpans"], [])
+
+    def make_pinned_story(self, tmp, film, *, correct=True, declared=True):
+        story = {"schema": "ths-lane3-research-visual-treatment-story-v1",
+                 "encodedH264Sha256": file_sha(film) if correct else file_sha(self.moving_quiet),
+                 "mayPublish": False, "scienceApproved": False,
+                 "realPhonePlaybackVerified": False,
+                 "independentCraftCalibrationPassed": False,
+                 "shots": [{"shot": "source_hold", "startSec": 0, "endSec": 3.6,
+                            "directedComposition": "silent full-resolution source card" if declared else "animated explanation",
+                            "spokenOriginalLine": "", "onscreenAnnotationRoles": ["source"]}]}
+        f = Path(tmp) / "story.json"
+        f.write_text(json.dumps(story, sort_keys=True))
+        return f, story
+
+    def test_actual_static_source_shot_intent_is_documented_but_not_approved(self):
+        with tempfile.TemporaryDirectory() as td:
+            f,_ = self.make_pinned_story(td, self.static_quiet)
+            receipt = inspect(movie=self.static_quiet, movie_sha=file_sha(self.static_quiet),
+                              story_path=f, story_sha=file_sha(f))
+            gap = receipt["silentAndNearStaticSpans"][0]
+            self.assertEqual(gap["storyIntent"], "DECLARED_SILENT_SOURCE_READING_HOLD")
+            self.assertEqual(gap["declaredShot"], "source_hold")
+            self.assertFalse(receipt["sourceCardReadTimeAndComprehensionIndependentlyValidated"])
+            self.assertFalse(receipt["mayPublish"])
+
+    def test_voicefree_scene_not_assumed_source_reading_without_authored_intent(self):
+        with tempfile.TemporaryDirectory() as td:
+            f,_ = self.make_pinned_story(td, self.static_quiet, declared=False)
+            receipt = inspect(movie=self.static_quiet, movie_sha=file_sha(self.static_quiet),
+                              story_path=f, story_sha=file_sha(f))
+            self.assertEqual(receipt["silentAndNearStaticSpans"][0]["storyIntent"],
+                             "SHOT_DOES_NOT_DECLARE_SILENT_SOURCE_READING")
+
+    def test_cross_film_and_rewritten_story_are_refused(self):
+        with tempfile.TemporaryDirectory() as td:
+            f,original = self.make_pinned_story(td, self.static_quiet, correct=False)
+            with self.assertRaisesRegex(ValueError,"STORY_WRONG_FILM_OR_APPROVAL_SCOPE"):
+                inspect(movie=self.static_quiet, movie_sha=file_sha(self.static_quiet),
+                        story_path=f, story_sha=file_sha(f))
+            f.write_text(json.dumps({**original,"encodedH264Sha256":file_sha(self.static_quiet),
+                                      "mayPublish":True}))
+            with self.assertRaisesRegex(ValueError,"STORY_WRONG_FILM_OR_APPROVAL_SCOPE"):
+                inspect(movie=self.static_quiet, movie_sha=file_sha(self.static_quiet),
+                        story_path=f, story_sha=file_sha(f))
+            f.write_text(json.dumps({**original,"encodedH264Sha256":file_sha(self.static_quiet),
+                                      "shots": [{**original["shots"][0],"endSec":3.2}]}))
+            with self.assertRaisesRegex(ValueError,"STORY_DOES_NOT_COVER_COMPLETE_FILM"):
+                inspect(movie=self.static_quiet, movie_sha=file_sha(self.static_quiet),
+                        story_path=f, story_sha=file_sha(f))
+
+    def test_externally_pinned_story_cannot_be_mutated_or_omitted(self):
+        with tempfile.TemporaryDirectory() as td:
+            f,_ = self.make_pinned_story(td, self.static_quiet)
+            with self.assertRaisesRegex(ValueError,"EXTERNAL_STORY_SHA_MISMATCH"):
+                inspect(movie=self.static_quiet, movie_sha=file_sha(self.static_quiet),
+                        story_path=f, story_sha=hashlib.sha256(b"foreign").hexdigest())
+            with self.assertRaisesRegex(ValueError,"STORY_AND_EXTERNAL_SHA_REQUIRED_TOGETHER"):
+                inspect(movie=self.static_quiet, movie_sha=file_sha(self.static_quiet),story_path=f)
+            f.write_text('{"schema":"a","schema":"b"}')
+            with self.assertRaisesRegex(ValueError,"DUPLICATE_STORY_JSON_KEY"):
+                inspect(movie=self.static_quiet, movie_sha=file_sha(self.static_quiet),
+                        story_path=f,story_sha=file_sha(f))
 
     def test_requires_external_hash_of_real_movie(self):
         with self.assertRaisesRegex(ValueError, "EXTERNAL_MOVIE_SHA_MISMATCH"):
