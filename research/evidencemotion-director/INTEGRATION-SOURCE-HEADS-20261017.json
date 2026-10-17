@@ -8,7 +8,7 @@
     },
     {
       "pr": 6840,
-      "head": "be2d4be798c2c66fed5096a725bc20e37831fad3"
+      "head": "d944ae1e88839c14e038faec6e927d4a4817c5cd"
     },
     {
       "pr": 6831,
@@ -106,6 +106,14 @@
       "exitCode": 0
     },
     "sourceChanges": "Only phone audit, science package guard and scorecard source/tests beyond prior snapshot"
+  },
+  "lane1ProvenanceFollowup": {
+    "head": "d944ae1e88839c14e038faec6e927d4a4817c5cd",
+    "scope": "Completed successful GitHub workflow provenance and distinct-source-head stall history",
+    "windowsTests": 15,
+    "failures": 0,
+    "skips": 0,
+    "exitCode": 0
   },
   "previousBaseMain": "7882858ebcdd948d37ac00a1b0594c75d7920fe0",
   "mainMovementFollowup": {

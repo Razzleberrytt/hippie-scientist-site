@@ -119,3 +119,12 @@ PCM dropout negative screen and honest codec-tail scope, not phonetic acceptance
 Fresh mobile suite Windows33 PASS/one symlink privilege SKIP, Linux34/34 PASS,
 exits0. The earlier full CI/native success remains proof of that earlier head,
 not final readiness. Current exact-head checks/controller/deployment still needed.
+
+## Lane1 provenance followup
+
+Included source d944ae1e88839c14e038faec6e927d4a4817c5cd after inspection:
+only atomic_progress_stall_watch.py and its test changed. Historical artifacts
+must match a completed successful GitHub proof workflow and source revision;
+reruns of one revision cannot impersonate independent progress checkpoints.
+Fresh Windows focused suite: 15/15 PASS, no skips, exit0. Hosted exact-head
+CI/build/native checks still required. Research HOLD and mayPublish=false remain.
