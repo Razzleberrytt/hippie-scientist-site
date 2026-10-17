@@ -413,6 +413,17 @@ class ExactFrameScopeAndPhonePlanClaimTests(unittest.TestCase):
                                             "INVALID_UNVERIFIED_PHONE_PLAN_DIGEST"):
                     _phone_plan_claim_hold({"phonePlanSha256": bad})
 
+    def test_direct_call_must_not_inherit_the_historical_1031_frame_default(self):
+        from lane5_candidate_scorecard import score_candidate
+        with self.assertRaisesRegex(ValueError,
+                                    "EXPLICIT_EXPECTED_NATIVE_DIMENSIONS_REQUIRED"):
+            score_candidate(film="not-read.mp4", wav="not-read.wav",
+                            story_path="not-read.json", screen_path="not-read.json",
+                            expected_film_sha=h(b"film"),
+                            expected_wav_sha=h(b"wav"),
+                            expected_story_sha=h(b"story"),
+                            expected_screen_sha=h(b"screen"))
+
     def test_cli_externally_scopes_all_current_native_film_lengths(self):
         import lane5_candidate_scorecard as unit
         from unittest.mock import patch
