@@ -82,6 +82,17 @@ class NativePhoneWidthPixelResearch(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'INVALID_VARIANT'):
             audit(self.out/'legible.mp4',sha(self.out/'legible.mp4'),'approved')
 
+    def test_external_art_cannot_inherit_disclosure_proof_without_sha_pin(self):
+        with self.assertRaisesRegex(ValueError,'UNPINNED_EXTERNAL_BOTANICAL_ART_HOLD'):
+            execute(self.out/'unauthenticated-art',self.out/'authored-leaf-fixture.png')
+        with self.assertRaisesRegex(ValueError,'BINARY_SOURCE_ART_SHA_MISMATCH_HOLD'):
+            execute(self.out/'source-swap',self.out/'authored-leaf-fixture.png',
+                    expected_source_sha='0'*64)
+
+    def test_source_hash_without_supplied_source_cannot_pretend_to_validate_art(self):
+        with self.assertRaisesRegex(ValueError,'SOURCE_HASH_PROVIDED_WITHOUT_EXTERNAL_SOURCE_HOLD'):
+            execute(self.out/'no-external',expected_source_sha='0'*64)
+
     def test_font_is_inside_short_safe_area_at_375(self):
         self.assertTrue(BOX[0]>=0 and BOX[2]<864 and BOX[3]<1574)
         self.assertEqual(len(LINES),2)
