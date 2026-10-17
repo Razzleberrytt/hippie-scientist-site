@@ -428,3 +428,89 @@ jobs:
         run: |
           echo 'Native Windows checks only test recovery staging and exact JSON bytes; Linux-pinned FFmpeg and independent science/voice/craft/device approvals still HOLD.' >> "$GITHUB_STEP_SUMMARY"
           echo 'No production promotion, source film rewrite, premium first render, five-film streak, or posting implied.' >> "$GITHUB_STEP_SUMMARY"
+  recovery-bundle-original-inputs-and-encoded-film:
+    # Deliberate one-time source recovery, NOT source re-render, publishing,
+    # original archived FFmpeg equivalence or approval of a creative film.
+    if: github.event.pull_request.number == 6846 && github.event.action == 'labeled' && github.event.label.name == 'em-lane5-source-recovery-admitted'
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Recover 11 exactly pinned original renderer scripts
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin ecc249f5f460ca38be8850375b8b4f4a4d98b448
+          git fetch --no-tags --depth=1 origin 5fde6994c09e8464606074e5a1f21b06385b95e5
+          mkdir -p "$RUNNER_TEMP/em-source-recovery"
+          python research/evidencemotion-director/original_replay_source_restore.py \
+            --repo "$PWD" --out "$RUNNER_TEMP/em-source-recovery/original-renderer"
+          test "$(find "$RUNNER_TEMP/em-source-recovery/original-renderer" -maxdepth 1 -type f | wc -l)" -eq 11
+      - name: Download immutable first-party original source + WAV + encoded A/B inputs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP/em-source-recovery"
+          mkdir -p original-inputs film-a film-b
+          gh run download 38975231562 --repo "$GITHUB_REPOSITORY" \
+            --name em-lane5-stage-pinned-original-inputs --dir original-inputs
+          gh run download 38975231562 --repo "$GITHUB_REPOSITORY" \
+            --name em-lane5-native-full-a --dir film-a
+          gh run download 38975231562 --repo "$GITHUB_REPOSITORY" \
+            --name em-lane5-native-full-b --dir film-b
+          (cd original-inputs && sha256sum --check PINNED-FILE-SHA256SUMS)
+          printf '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435  %s\n' \
+            original-inputs/voice/narration.wav | sha256sum --check -
+          for tag in film-a film-b; do
+            test "$(find "$tag" -maxdepth 1 -type f | wc -l)" -eq 4
+            printf 'c100779c2c6c15005fdef9c5166da957c8dd6f51226d45f7c2264f0a89206322  %s\n' \
+              "$tag/specimen_NEW_RESEARCH_CANDIDATE.mp4" | sha256sum --check -
+            printf '401c5c7eec184d77aeaf16bd55c430e4515106b130d4cdcd0ce39d052cbc7a88  %s\n' \
+              "$tag/environment.json" | sha256sum --check -
+          done
+      - name: Write honest research-only portable source/input evidence manifest
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP/em-source-recovery"
+          cat > RECOVERY-NOT-RELEASE.txt <<'EOF'
+          EvidenceMotion ORIGINAL SOURCE RECOVERY (archival research ONLY)
+          Inputs: 11 SHA-pinned original historical renderer scripts, original
+          first-party 24000Hz mono narrator WAV, original source/alignment receipt
+          and eight PNG pixel reference frames, plus two historically controlled
+          A/B MP4 H264/AAC encodes and full original stream/environment receipts.
+          Origin: Git refs ecc249f5... and 5fde6994..., GH workflow 38975231562.
+          Code stage was SHA-checked; source WAV, staged input SHA manifest,
+          both encoded MP4 and both environment.json hashes checked on recovery.
+          Open-source DejaVu font bytes, environment-specific installed libraries,
+          original historical FFmpeg/x264 binaries, and independent external
+          runner attestation are NOT included or authenticated in this bundle.
+          This is NOT a fresh render, production deploy, science review, verified
+          audience understanding, real handset check or premium craft approval.
+          Revised Lane 3 finished film and sidecars are NOT included.
+          mayPublish=false
+          firstExcellentMasterAccepted=false
+          fiveRenderStreakAccepted=false
+          Original excellent-first 0/1. Diverse 5-render streak 0/5.
+          EOF
+          find original-renderer original-inputs film-a film-b -type f -print0 \
+            | LC_ALL=C sort -z | xargs -0 sha256sum > RECOVERED-FILES-SHA256SUMS
+          test "$(find original-renderer original-inputs film-a film-b -type f | wc -l)" -eq 32
+          sha256sum --check RECOVERED-FILES-SHA256SUMS
+          zip -q -r "$RUNNER_TEMP/EvidenceMotion_Original_Source_WAV_Film_Research_HOLD.zip" \
+            original-renderer original-inputs film-a film-b \
+            RECOVERED-FILES-SHA256SUMS RECOVERY-NOT-RELEASE.txt
+          unzip -tqq "$RUNNER_TEMP/EvidenceMotion_Original_Source_WAV_Film_Research_HOLD.zip"
+          echo 'Full portable archive (research only):' >> "$GITHUB_STEP_SUMMARY"
+          sha256sum "$RUNNER_TEMP/EvidenceMotion_Original_Source_WAV_Film_Research_HOLD.zip" \
+            | tee -a "$GITHUB_STEP_SUMMARY"
+          du -h "$RUNNER_TEMP/EvidenceMotion_Original_Source_WAV_Film_Research_HOLD.zip"
+      - name: Preserve research-only source and film archive for independent private download
+        uses: actions/upload-artifact@v4
+        with:
+          name: em-lane5-original-source-wav-film-recovery-hold
+          path: ${{ runner.temp }}/EvidenceMotion_Original_Source_WAV_Film_Research_HOLD.zip
+          if-no-files-found: error
+          retention-days: 7
