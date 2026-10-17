@@ -1289,6 +1289,66 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
                 self.assertEqual(self.check_synthetic_encoded(
                     source, film, receipt, bad)["status"], "HOLD")
 
+    def test_quiet_real_speech_window_cannot_be_dropped_between_loud_anchors(self):
+        source, film, receipt, _ = self.encoded_aac_screen_fixture()
+        with wave.open(io.BytesIO(source), "rb") as w:
+            pcm = np.frombuffer(w.readframes(w.getnframes()), "<i2").copy()
+        lo, hi = round(3.2*24000), round(3.8*24000)
+        # Quiet physically nonzero speech, between all six louder anchor spans.
+        pcm[lo:hi] = np.rint(pcm[lo:hi].astype(float)*.001).astype("<i2")
+        with io.BytesIO() as sink:
+            with wave.open(sink, "wb") as w:
+                w.setparams((1,2,24000,0,"NONE","not compressed"))
+                w.writeframes(pcm.tobytes())
+            quiet_source = sink.getvalue()
+        metadata = json.loads(receipt)
+        metadata["sourceWavSha256"] = digest(quiet_source)
+        quiet_receipt = json.dumps(metadata).encode()
+        decoded = np.concatenate((
+            pcm.astype("<f4")/32768*.92, np.zeros(1008,dtype="<f4")))
+        intact = self.check_synthetic_encoded(
+            quiet_source, film, quiet_receipt, decoded)
+        self.assertEqual(intact["status"],
+                         "RESEARCH_ARCHIVED_ENCODED_AUDIO_SYNC_HOLD", intact)
+        self.assertGreaterEqual(
+            intact["rollingSignalScreen"]["quietNonzeroSourceWindowCount"], 1)
+        dropped = decoded.copy()
+        dropped[lo:hi] = 0
+        result = self.check_synthetic_encoded(
+            quiet_source, film, quiet_receipt, dropped)
+        self.assertEqual(result["status"], "HOLD", result)
+        self.assertIn("ENCODED_AUDIO_LOCALIZED_SIGNAL_OR_SILENCE_HOLD",
+                      result["errors"])
+        losses = result["rollingSignalScreen"]["quietWindowFailures"]
+        self.assertTrue(any(row["startSeconds"] == 3.25 for row in losses), losses)
+        self.assertFalse(result["mayPublish"])
+
+    def test_uncalibrated_ultrafaint_word_region_is_not_silent_pass(self):
+        source, film, receipt, _ = self.encoded_aac_screen_fixture()
+        with wave.open(io.BytesIO(source), "rb") as w:
+            pcm = np.frombuffer(w.readframes(w.getnframes()), "<i2").copy()
+        lo, hi = round(3.2*24000), round(3.8*24000)
+        pcm[lo:hi] = np.rint(pcm[lo:hi].astype(float)*.0001).astype("<i2")
+        self.assertTrue(np.any(pcm[lo:hi]))
+        sink = io.BytesIO()
+        with wave.open(sink, "wb") as w:
+            w.setparams((1,2,24000,0,"NONE","not compressed"))
+            w.writeframes(pcm.tobytes())
+        faint_source = sink.getvalue()
+        metadata = json.loads(receipt)
+        metadata["sourceWavSha256"] = digest(faint_source)
+        faint_receipt = json.dumps(metadata).encode()
+        decoded = np.concatenate((
+            pcm.astype("<f4")/32768*.92, np.zeros(1008,dtype="<f4")))
+        result = self.check_synthetic_encoded(
+            faint_source, film, faint_receipt, decoded)
+        self.assertEqual(result["status"], "HOLD", result)
+        self.assertIn("ENCODED_AUDIO_LOCALIZED_SIGNAL_OR_SILENCE_HOLD",
+                      result["errors"])
+        self.assertTrue(result["rollingSignalScreen"][
+            "unresolvedUltraFaintSourceWindows"])
+        self.assertFalse(result["mayPublish"])
+
     def test_rolling_screen_detects_unchecked_gap_audio_substitution(self):
         source, film, receipt, decoded = self.encoded_aac_screen_fixture()
         # Original six anchor windows do not cover this 4.1..4.4 sec gap.

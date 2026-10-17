@@ -1463,8 +1463,10 @@ def audit_archived_encoded_audio_sync(source_raw, video_raw, receipt_raw, decode
         # speech proof, and exact source zero must not acquire fake AAC audio.
         frame_len, hop = 12000, 6000
         rolling_total = rolling_active = rolling_silent = 0
+        rolling_quiet = 0
         rolling_worst = (1.0, None)
         rolling_failures, silence_leaks = [], []
+        quiet_failures, unresolved_faint = [], []
         for lo in range(0, len(original)-frame_len+1, hop):
             hi = lo+frame_len
             a, b = original[lo:hi], decoded[lo:hi]
@@ -1488,6 +1490,31 @@ def audit_archived_encoded_audio_sync(source_raw, video_raw, receipt_raw, decode
                     silence_leaks.append({
                         "startSeconds": round(lo/24000, 3),
                         "decodedRms": round(decoded_rms, 6)})
+            else:
+                # Actual AAC has ten non-silent source windows beneath the
+                # old speech threshold. A dropped quiet consonant/word ending
+                # could previously pass the six loud anchors and rolling scan.
+                # Inaudibly faint/undercalibrated comparisons must HOLD, not
+                # turn into synthetic proof of a word or clean narration.
+                rolling_quiet += 1
+                entry = {"startSeconds": round(lo/24000, 3),
+                         "sourceRms": round(source_rms, 8),
+                         "decodedRms": round(decoded_rms, 8)}
+                if source_rms < 0.00005:
+                    unresolved_faint.append({
+                        **entry, "reason": "SOURCE_TOO_FAINT_TO_CALIBRATE"})
+                elif np.std(b) < 1e-8:
+                    quiet_failures.append({
+                        **entry, "reason": "QUIET_SOURCE_AUDIO_DROPPED"})
+                else:
+                    corr = float(np.corrcoef(a, b)[0, 1])
+                    if not np.isfinite(corr) or corr < 0.95:
+                        quiet_failures.append({
+                            **entry, "reason": "QUIET_SOURCE_PCM_MISMATCH",
+                            "zeroLagCorrelation": (
+                                round(corr, 6) if np.isfinite(corr) else None)})
+                    elif corr < rolling_worst[0]:
+                        rolling_worst = (corr, lo/24000)
         # A hop grid does not necessarily divide the WAV's final sample
         # exactly. Explicitly check the otherwise unmeasured trailing samples;
         # never let an added tail burst hide behind AAC encoder padding.
@@ -1528,6 +1555,13 @@ def audit_archived_encoded_audio_sync(source_raw, video_raw, receipt_raw, decode
             "minimumActiveSignalCorrelation": 0.95,
             "screenedWindowCount": rolling_total,
             "speechActiveWindowCount": rolling_active,
+            "quietNonzeroSourceWindowCount": rolling_quiet,
+            "quietNonzeroScreenThresholdRms": 0.00005,
+            "quietWindowCorrelationThreshold": 0.95,
+            "quietWindowFailures": quiet_failures,
+            "unresolvedUltraFaintSourceWindows": unresolved_faint,
+            "totalWindowsAccountedFor": (rolling_active+rolling_quiet+
+                                         rolling_silent),
             "exactDigitalSilenceWindowCount": rolling_silent,
             "lowestActiveZeroLagPcmCorrelation":
                 round(rolling_worst[0], 6),
@@ -1540,7 +1574,7 @@ def audit_archived_encoded_audio_sync(source_raw, video_raw, receipt_raw, decode
             return {**base, "status": "HOLD",
                     "errors": ["ENCODED_AUDIO_ROLLING_SOURCE_COVERAGE_INSUFFICIENT"],
                     "rollingSignalScreen": scan}
-        if rolling_failures or silence_leaks or not tail_pass:
+        if rolling_failures or silence_leaks or quiet_failures or unresolved_faint or not tail_pass:
             return {**base, "status": "HOLD",
                     "errors": ["ENCODED_AUDIO_LOCALIZED_SIGNAL_OR_SILENCE_HOLD"],
                     "sourceWavSha256": SOURCE_WAV_REFERENCE,
