@@ -1596,6 +1596,51 @@ class ActualMediaStreamIdentityTests(unittest.TestCase):
             self.assertEqual((w, h, frames), (160, 288, 30))
             self.assertAlmostEqual(duration, 1.0)
 
+    def test_real_h264_level_4_0_is_accepted_for_portable_mobile_research(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = root / "level40.mp4"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+                "-f", "lavfi", "-i", "color=c=blue:s=160x288:r=30:d=1",
+                "-c:v", "libx264", "-preset", "ultrafast", "-pix_fmt", "yuv420p",
+                "-x264-params", "level=4.0", "-an", str(movie)
+            ], capture_output=True, timeout=50, check=True)
+            stream = json.loads(subprocess.run([
+                "ffprobe", "-v", "error", "-select_streams", "v:0",
+                "-show_entries", "stream=codec_name,profile,level,pix_fmt",
+                "-of", "json", str(movie)
+            ], capture_output=True, text=True, timeout=20, check=True).stdout)["streams"][0]
+            self.assertEqual(stream["codec_name"], "h264")
+            self.assertEqual(stream["profile"], "Constrained Baseline")
+            self.assertEqual(stream["level"], 40)
+            self.assertEqual(probe_movie(movie)[3], 30)
+
+    def test_real_h264_level_5_2_is_rejected_for_phone_decoder_portability(self):
+        # Same physical yuv420p/30fps H264 video as the compatible control,
+        # but its encoded SPS declares a decoder level too high for our
+        # conservative mobile playback research contract.
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            movie = root / "level52.mp4"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+                "-f", "lavfi", "-i", "color=c=blue:s=160x288:r=30:d=1",
+                "-c:v", "libx264", "-preset", "ultrafast", "-pix_fmt", "yuv420p",
+                "-x264-params", "level=5.2", "-an", str(movie)
+            ], capture_output=True, timeout=50, check=True)
+            stream = json.loads(subprocess.run([
+                "ffprobe", "-v", "error", "-select_streams", "v:0",
+                "-show_entries", "stream=codec_name,profile,level,pix_fmt",
+                "-of", "json", str(movie)
+            ], capture_output=True, text=True, timeout=20, check=True).stdout)["streams"][0]
+            self.assertEqual(stream["codec_name"], "h264")
+            self.assertEqual(stream["profile"], "Constrained Baseline")
+            self.assertEqual(stream["pix_fmt"], "yuv420p")
+            self.assertEqual(stream["level"], 52)
+            with self.assertRaisesRegex(ValueError, "UNSUPPORTED_PHONE_H264_LEVEL"):
+                probe_movie(movie)
+
     def encoded_color_signaled_h264(self, root, name, parameters):
         # The actual x264 elementary bitstream carries these VUI flags.
         # Re-probe each emitted MP4: a command-line argument alone is NOT
