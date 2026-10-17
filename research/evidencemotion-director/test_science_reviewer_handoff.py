@@ -37,6 +37,120 @@ class IndependentScienceIntakeTests(unittest.TestCase):
             uncertainty_sha=fixture.uncertainty_sha)
         self.gate = fixture.inspect()
 
+
+    def current_candidate_fixture(self, root):
+        """A byte-real OTHER candidate, but no claim of real H264 pixel proof."""
+        import hashlib
+        from science_gate_process_attestation import attest
+        from claim_source_context_join import join
+        from scientific_uncertainty_ledger import classify
+        from claim_strength_source_limits import evaluate
+        from test_claim_source_context_join import LEDGER,visual_fixture
+        film=Path(root)/"synthetic-candidate.mp4"
+        film.write_bytes(b"ALTERNATE CURRENT FILM — fixture only")
+        sha=hashlib.sha256(film.read_bytes()).hexdigest()
+        visual=visual_fixture()
+        visual["filmSha256"]=sha
+        source=join(json.loads(LEDGER.read_text()),visual,
+                    spoken_sha=hashlib.sha256(LEDGER.read_bytes()).hexdigest(),
+                    visual_sha="d"*64)
+        source_sha="a"*64
+        uncertainty=classify(source,source_sha=source_sha)
+        uncertainty_sha="b"*64
+        strength=evaluate(source,uncertainty,source_join_sha=source_sha,
+                          uncertainty_sha=uncertainty_sha)
+        gate=attest({"source":source,"uncertainty":uncertainty,"strength":strength},
+                    {"source":source_sha,"uncertainty":uncertainty_sha,
+                     "strength":"c"*64})
+        return film,gate
+
+    def test_current_render_packet_binds_real_other_h264_identity_and_holds(self):
+        from science_reviewer_handoff import (
+            FILM_SHA,CURRENT_SCHEMA,current_candidate_reviewer_packet,
+            verify_current_candidate_reviewer_packet)
+        import hashlib
+        with tempfile.TemporaryDirectory() as temp:
+            movie,gate=self.current_candidate_fixture(temp)
+            packet=current_candidate_reviewer_packet(gate,movie)
+            self.assertTrue(verify_current_candidate_reviewer_packet(packet,gate,movie))
+            self.assertEqual(packet["schema"],CURRENT_SCHEMA)
+            self.assertEqual(packet["exactCurrentEncodedH264Sha256"],
+                             hashlib.sha256(movie.read_bytes()).hexdigest())
+            self.assertNotEqual(packet["exactCurrentEncodedH264Sha256"],FILM_SHA)
+            self.assertEqual(len(packet["eightClaimsToReview"]),8)
+            self.assertEqual(sum(x["material"] for x in packet["eightClaimsToReview"]),6)
+            self.assertTrue(packet["sourceOnlyTimecodesNotCurrentFilmVerified"])
+            self.assertTrue(packet["pastArchivedPixelAndOcrPassNotInherited"])
+            self.assertFalse(packet["independentQualifiedReviewReceived"])
+            self.assertFalse(packet["currentFilmPixelReviewCompleted"])
+            self.assertFalse(packet["currentFilmHumanReviewCompleted"])
+            self.assertFalse(packet["mayPublish"])
+            self.assertFalse(packet["approvalToMerge"])
+            self.assertEqual(packet["eightClaimsToReview"][0]["originalWavAlignedStartMs"],160)
+            self.assertEqual(packet["eightClaimsToReview"][0]["originalWavAlignedEndMs"],2920)
+            self.assertTrue(all(row["currentH264FrameContentInspectedForThisClaim"] is False
+                                for row in packet["eightClaimsToReview"]))
+
+    def test_current_render_intake_refuses_changed_actual_film_bytes(self):
+        from science_reviewer_handoff import current_candidate_reviewer_packet
+        with tempfile.TemporaryDirectory() as tmp:
+            movie,gate=self.current_candidate_fixture(tmp)
+            movie.write_bytes(movie.read_bytes()+b"foreign")
+            with self.assertRaisesRegex(ValueError,
+                    "CURRENT_RENDER_NOT_BOUND_TO_ITS_EXACT_SCIENCE_GATE"):
+                current_candidate_reviewer_packet(gate,movie)
+
+    def test_current_render_intake_rejects_rehashed_claim_review_approval(self):
+        from science_reviewer_handoff import (
+            current_candidate_reviewer_packet,
+            verify_current_candidate_reviewer_packet,CURRENT_DOMAIN)
+        from science_gate_process_attestation import canonical
+        import hashlib
+        with tempfile.TemporaryDirectory() as tmp:
+            movie,gate=self.current_candidate_fixture(tmp)
+            for mutation in (
+                lambda packet: packet.update({"mayPublish":True}),
+                lambda packet: packet.update({"currentFilmPixelReviewCompleted":True}),
+                lambda packet: packet["eightClaimsToReview"][0].update(
+                    {"scientificApproval":True}),
+                lambda packet: packet["eightClaimsToReview"][0].update(
+                    {"sourceScope":"HUMAN_TRIAL_VERIFIED"}),
+                lambda packet: packet["eightClaimsToReview"][0].update(
+                    {"originalWavAlignedEndMs":9999}),
+                lambda packet: packet.update(
+                    {"pastArchivedPixelAndOcrPassNotInherited":False}),
+            ):
+                packet=current_candidate_reviewer_packet(gate,movie)
+                mutation(packet)
+                material={k:v for k,v in packet.items()
+                          if k!="currentFilmReviewRequestDigest"}
+                packet["currentFilmReviewRequestDigest"]=hashlib.sha256(
+                    CURRENT_DOMAIN+canonical(material)).hexdigest()
+                with self.subTest(mutation=mutation.__code__.co_firstlineno):
+                    with self.assertRaisesRegex(ValueError,"CURRENT_FILM_REVIEW_REQUEST_MUTATED"):
+                        verify_current_candidate_reviewer_packet(packet,gate,movie)
+
+    def test_cli_current_film_emits_provisional_unapproved_distinct_intake(self):
+        from science_reviewer_handoff import main,current_candidate_reviewer_packet
+        with tempfile.TemporaryDirectory() as tmp:
+            movie,gate=self.current_candidate_fixture(tmp)
+            gate_path=Path(tmp)/"exact-current-gate.json"
+            gate_path.write_text(json.dumps(gate)+"\n")
+            out=Path(tmp)/"current-qualified-review-INTAKE-ONLY.json"
+            argv=["science_reviewer_handoff.py","--gate",str(gate_path),
+                  "--candidate-movie",str(movie),"--out",str(out)]
+            with patch("sys.argv",argv):
+                main()
+            packet=json.loads(out.read_text())
+            self.assertEqual(packet,current_candidate_reviewer_packet(gate,movie))
+            self.assertTrue(packet["pastArchivedPixelAndOcrPassNotInherited"])
+            self.assertFalse(packet["mayPublish"])
+            movie.write_bytes(b"different filmed content")
+            with patch("sys.argv",argv),self.assertRaisesRegex(
+                ValueError,"CURRENT_RENDER_NOT_BOUND_TO_ITS_EXACT_SCIENCE_GATE"):
+                main()
+            self.assertFalse(out.exists())
+
     def test_handoff_is_exactly_eight_claims_with_no_fake_review(self):
         packet = reviewer_packet(self.gate)
         self.assertTrue(verify_packet(packet, self.gate))
