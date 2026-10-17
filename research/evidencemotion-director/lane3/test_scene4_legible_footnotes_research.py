@@ -20,7 +20,7 @@ class PhoneFootnoteResearchTests(unittest.TestCase):
   g=M.graph('pin.ttf')
   # FFmpeg enable expressions contain commas: do not split them as
   # filter separators and accidentally weaken temporal gating checks.
-  self.assertIn("drawbox=x=505:y=944:w=474:h=40:color=0x0c2230:t=fill:enable='between(n,595,701)'",g)
+  self.assertIn("drawbox=x=505:y=944:w=474:h=44:color=0x0c2230:t=fill:enable='between(n,595,701)'",g)
   self.assertIn("text='Not a receptor recording':fontsize=34:fontcolor=0xc2d9de:x=505:y=940:enable='between(n,595,701)'",g)
  def test_right_legacy_label_tail_erased_without_covering_panel_border(self):
   graph=M.graph('pin.ttf')
