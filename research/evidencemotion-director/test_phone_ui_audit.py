@@ -1844,14 +1844,16 @@ class TargetedEncodedRightUiInkTests(unittest.TestCase):
 
     @staticmethod
     def physical_exact_edge_marker(root, x):
-        # Lossless native YUV420P H264, single-pixel bright text-like edge;
-        # this distinguishes x=863 (safe) from x=864 (unsafe) physically.
+        # High-fidelity mobile-supported native YUV420P H264 at QP 1:
+        # QP 0 would switch x264 into High 4:4:4 Predictive profile even
+        # with yuv420p and correctly fail our mobile profile preflight.
+        # Single-pixel edge distinguishes safe x=863 from unsafe x=864.
         movie = root / f"single_native_column_{x}.mp4"
         subprocess.run([
             "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
             "-f", "lavfi", "-i", "color=c=black:s=1080x1920:r=30:d=0.2",
             "-vf", f"drawbox=x={x}:y=840:w=1:h=35:color=white:t=fill",
-            "-c:v", "libx264", "-preset", "ultrafast", "-qp", "0",
+            "-c:v", "libx264", "-preset", "ultrafast", "-qp", "1",
             "-pix_fmt", "yuv420p", "-an", str(movie),
         ], capture_output=True, timeout=50, check=True)
         return movie
