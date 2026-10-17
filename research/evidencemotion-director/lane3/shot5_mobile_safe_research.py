@@ -8,7 +8,6 @@ from __future__ import annotations
 import argparse,hashlib,json,subprocess
 from io import BytesIO
 from pathlib import Path
-import numpy as np
 from PIL import Image,ImageDraw,ImageFont
 
 SOURCE_SHA='53cbd9c4d35df96602280d713f6d2f2a1e2ba1bb57a3ec6af593c09d3e83f496'
@@ -40,14 +39,17 @@ def source_frame(source):
 
 def draw_overlay(im,font):
     if im.size!=SIZE:raise Shot5Hold('NON_NATIVE_FRAME')
-    pixels=np.asarray(im).copy()
+    art=im.copy()
+    image_pixels=art.load();source_pixels=im.load()
     x0,y0,x1,y1=PATCH
-    # Smooth source background, derived from preserved original film margins.
-    left=pixels[y0:y1,20:35,:].mean(axis=1)
-    right=pixels[y0:y1,1042:1059,:].mean(axis=1)
-    fraction=np.linspace(0,1,x1-x0)[None,:,None]
-    pixels[y0:y1,x0:x1,:]=(left[:,None,:]*(1-fraction)+right[:,None,:]*fraction).astype('uint8')
-    art=Image.fromarray(pixels,'RGB')
+    # Pillow-only reconstructed source gradient. No dependency on NumPy.
+    # Do not touch the original 2D molecular-art crop.
+    for y in range(y0,y1):
+        left=[sum(source_pixels[x,y][channel] for x in range(20,35))/15.0 for channel in range(3)]
+        right=[sum(source_pixels[x,y][channel] for x in range(1042,1059))/17.0 for channel in range(3)]
+        for x in range(x0,x1):
+            t=(x-x0)/(x1-x0-1)
+            image_pixels[x,y]=tuple(int(left[c]*(1-t)+right[c]*t) for c in range(3))
     pen=ImageDraw.Draw(art)
     pen.rounded_rectangle(CARD,radius=22,fill=(9,33,47),outline=(55,142,151),width=4)
     pen.rectangle((74,463,837,469),fill=(87,220,197))
