@@ -15,6 +15,13 @@ class ExactMasterGateTests(unittest.TestCase):
         self.assertAlmostEqual(cues[-1]['end'],2.1)
     def test_srt_rejects_corrupt_timing(self):
         with self.assertRaises(ValueError):gate.parse_srt('1\nBAD --> 00:00:01,000\nwrong')
+    def test_reject_missing_untimed_and_blank_srt(self):
+        for content in ('', 'nonsense',
+                        '1\\n00:00:00,020 --> 00:00:01,040\\nlegitimate\\n\\n2\\nThis cue is missing timestamps',
+                        '1\\n00:00:00,020 --> 00:00:01,040\\n'):
+            with self.subTest(content=content):
+                with self.assertRaises(ValueError): gate.parse_srt(content)
+
     def test_loudness_parser(self):
         block='Summary:\nIntegrated loudness:\n    I: -7.1 LUFS\nLoudness range:\n    LRA: 1.7 LU\nTrue peak:\n    Peak: -0.5 dBFS'
         self.assertEqual(gate.extract_ebur128(block),{'integrated_lufs':-7.1,'loudness_range_lu':1.7,'true_peak_dbtp':-.5})
