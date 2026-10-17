@@ -1055,6 +1055,38 @@ def audit_archived_encoded_audio_sync(source_raw, video_raw, receipt_raw, decode
             return refuse("ENCODED_AUDIO_NONFINITE_OR_UNSAFE_PCM")
         if np.std(decoded[:824336]) < 0.005:
             return refuse("ENCODED_AUDIO_ACTIVE_SIGNAL_MISSING")
+        # A waveform can have excellent zero-lag correlation and still be
+        # dangerously hard-clipped after encoder gain staging. AAC float32
+        # samples at/above full-scale are physically unsafe even if unchanged
+        # word timing is demonstrated. True/inter-sample peaks need separate
+        # ITU/EBU loudness tooling; these figures are SAMPLE peaks only.
+        decoded_peak = float(np.max(np.abs(decoded)))
+        original_peak = float(np.max(np.abs(original)))
+        if decoded_peak >= 1.0:
+            return refuse("ENCODED_AUDIO_FULL_SCALE_PCM_PEAK_HOLD")
+        original_rms = float(np.sqrt(np.mean(original*original)))
+        decoded_rms = float(np.sqrt(np.mean(decoded[:len(original)]**2)))
+        if not (np.isfinite(original_rms) and original_rms > 0
+                and np.isfinite(decoded_rms) and decoded_rms > 0):
+            return refuse("ENCODED_AUDIO_GLOBAL_RMS_INVALID")
+        gain_db = float(20*np.log10(decoded_rms/original_rms))
+        gain_diagnostics = {
+            "method": "SOURCE_PCM16_VS_DECODED_AAC_F32LE_SAMPLE_PEAK_AND_GLOBAL_RMS",
+            "sampleRateHz": 24000,
+            "comparedSourceSamples": len(original),
+            "sourceSamplePeakDbFS": round(
+                20*np.log10(max(original_peak, 1e-15)), 3),
+            "encodedDecodedSamplePeakDbFS": round(
+                20*np.log10(max(decoded_peak, 1e-15)), 3),
+            "sourceGlobalRms": round(original_rms, 7),
+            "decodedGlobalRms": round(decoded_rms, 7),
+            "encodedVsSourceRmsGainDb": round(gain_db, 3),
+            "encodedSamplePeakBelowFullScale": True,
+            "ebuR128TruePeakMeasuredByThisAudit": False,
+            "ebuR128IntegratedLoudnessMeasuredByThisAudit": False,
+            "gainIntentIndependentlyApproved": False,
+            "creativeLoudnessOrNaturalnessApproved": False,
+        }
         # Distinct source-active windows spanning the whole original take,
         # avoiding the documented 3.44s all-digital-zero source-card hold.
         # A high PCM correlation checks signal/time identity; it cannot
@@ -1203,6 +1235,7 @@ def audit_archived_encoded_audio_sync(source_raw, video_raw, receipt_raw, decode
                 "sourceSampleCount": 824336,
                 "decodedAacSampleCount": len(decoded),
                 "sampleRateHz": 24000,
+                "gainAndHeadroomResearch": gain_diagnostics,
                 "testedRealSignalWindows": len(records),
                 "diagnosticWindows": records,
                 "rollingSignalScreen": scan,
