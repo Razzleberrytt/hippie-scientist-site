@@ -1683,8 +1683,11 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
                          (28,"chemical")):
             mfa["wordAlignment"][idx]["word"]=word
         row=mfa["wordAlignment"][17]
-        row["phones"]=[{"phone":"M","startMs":row["startMs"]+40,
-                        "endMs":row["startMs"]+60}]
+        # The original synthetic MFA ledger's 200ms word is too short
+        # for ±120ms onset probes; extend only this test fixture.
+        row["endMs"]=row["startMs"]+700
+        row["phones"]=[{"phone":"M","startMs":row["startMs"]+180,
+                        "endMs":row["startMs"]+200}]
         for idx,word in ((5," Mitrogenine?"),(15," hydroxometrogenine"),
                          (17," Mitrogenine.")):
             asr["recognizedWords"][idx]["word"]=word
@@ -1733,7 +1736,11 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
                          (28,"chemical")):
             mfa["wordAlignment"][idx]["word"]=word
         record=mfa["wordAlignment"][17]
-        record["phones"]=[{"phone":"M","startMs":record["startMs"]+120}]
+        # Deliberately construct a >240ms context on each side of the
+        # forced M label; the stock 200ms synthetic word has no room for
+        # a seven-boundary sweep. Keep source spans and exact SHA binding.
+        record["endMs"]=record["startMs"]+700
+        record["phones"]=[{"phone":"M","startMs":record["startMs"]+180}]
         for idx,word in ((5,"Mitrogenine"),(15,"hydroxometrogenine"),
                          (17,"Mitrogenine")):
             asr["recognizedWords"][idx]["word"]=word
