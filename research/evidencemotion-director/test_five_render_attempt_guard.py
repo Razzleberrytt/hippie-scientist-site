@@ -291,6 +291,15 @@ class FirstRenderIntegrityTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "REPORT_PATH_ALREADY_EXISTS_OR_UNSAFE"):
                 write_report_no_clobber(redirected_output, verify(register([attempt(1)])))
             self.assertFalse((real / "new-report.json").exists())
+            # A lexical ".." must not normalize away a symlink the OS
+            # traverses before reaching the final (otherwise safe) folder.
+            other = root / "nested"
+            other.mkdir()
+            dotdot_output = alias / ".." / "nested" / "dotdot.json"
+            self.assertTrue(dotdot_output.parent.is_dir())
+            with self.assertRaisesRegex(ValueError, "REPORT_PATH_ALREADY_EXISTS_OR_UNSAFE"):
+                write_report_no_clobber(dotdot_output, verify(register([attempt(2)])))
+            self.assertFalse((other / "dotdot.json").exists())
             self.assertEqual(json.loads(previous.read_text())["schema"], SCHEMA)
 
     def test_append_cli_requires_prior_sha_and_never_says_approved(self):
