@@ -102,6 +102,48 @@ export function auditShotRepetition(shots){
     }
     runStart=i;
   }
+  // Mechanical teaching-progression negative screen. A new visual grammar,
+  // camera, palette or transition does not by itself supply a new learning
+  // payoff. This compares declared outcomes and the pinned evidence/asset IDs,
+  // not audience comprehension, paraphrase meaning or actual film pixels.
+  // All source-derived findings require independent artistic review.
+  const payoffKeys=shots.map(shot=>{
+    const outcome=clean(shot.viewerLearns).normalize('NFKC').toLowerCase()
+      .replace(/[^\\p{L}\\p{N}]+/gu,' ').trim();
+    if(!outcome)return null; // missing authoring proof never implies progress
+    const evidence=Array.isArray(shot.sourceClaimIds)
+      ? [...shot.sourceClaimIds].sort() : [];
+    return JSON.stringify([outcome,[...shot.scientificAssetIds].sort(),evidence]);
+  });
+  // Three or more consecutive shots promising the identical learning with
+  // identical evidence but cosmetically different grammars need redirection.
+  // Do not double-report an existing identical-grammar/source plateau.
+  for(let start=0;start<shots.length;){
+    let end=start+1;
+    if(payoffKeys[start]!==null)
+      while(end<shots.length&&payoffKeys[end]===payoffKeys[start])end++;
+    if(payoffKeys[start]!==null&&end-start>=3&&
+       !keys.slice(start,end).every(key=>key===keys[start]))
+      findings.push({reason:'THREE_PLUS_IDENTICAL_TEACHING_PAYOFFS_DESPITE_VISUAL_CHURN',
+        firstBeatId:shots[start].beatId,lastBeatId:shots[end-1].beatId,
+        consecutiveCount:end-start});
+    start=end;
+  }
+  // An A/B/A/B/A/B teaching-outcome loop otherwise evades the adjacent rule.
+  // Intentional didactic comparisons may be valid; this is a research HOLD,
+  // never an automatic artistic or scientific verdict.
+  for(let start=0;start+5<shots.length;){
+    const a=payoffKeys[start],b=payoffKeys[start+1];
+    if(a===null||b===null||a===b){start++;continue;}
+    let end=start+2;
+    while(end<shots.length&&payoffKeys[end]===(end-start)%2===0?a:b)end++;
+    if(end-start>=6){
+      findings.push({reason:'REPEATED_TWO_PAYOFF_TEACHING_CYCLE_REQUIRES_REVIEW',
+        firstBeatId:shots[start].beatId,lastBeatId:shots[end-1].beatId,
+        consecutiveCount:end-start,alternatingPayoffCount:2});
+      start=end;
+    }else start++;
+  }
   return {status:findings.length?'CRAFT_REDIRECTION_REQUIRED':'SEQUENCE_REVIEW_REQUIRED',
     errors:[],findings,craftRemediationRequired:findings.length>0,
     excellentCertified:false,mayPublish:false,
