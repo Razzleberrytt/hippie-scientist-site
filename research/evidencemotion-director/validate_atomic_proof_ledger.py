@@ -75,10 +75,10 @@ def validate(data,source_directory):
         else:
             # Expansion requires a canonical task, a unique named evidence
             # file, exact-byte SHA and observed first-party run/merge identity.
-            if not re.fullmatch(r"EM-\\d{3}\\.\\d{2}",group):
+            if not re.fullmatch(r"EM-\d{3}\.\d{2}",group):
                 hold("UNKNOWN_DUPLICATE_OR_MISBOUND_EVIDENCE_GROUP")
             key=group.replace("-","").replace(".","")
-            if (not re.fullmatch(r"EM\\d{5}-[A-Z0-9-]+-20\\d{6}\\.md",src)
+            if (not re.fullmatch(r"EM\d{5}-[A-Z0-9-]+-20\d{6}\.md",src)
                 or not src.startswith(key+"-")):
                 hold("UNPINNED_NEW_EVIDENCE_SOURCE")
         group_keys.add(group)
