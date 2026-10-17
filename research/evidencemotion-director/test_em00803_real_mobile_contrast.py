@@ -7,9 +7,9 @@ import tempfile
 import unittest
 from PIL import Image
 from em00803_real_mobile_contrast import (
-    execute,audit,measure,render,contrast,BOX,LINES,THRESHOLD,VARIANTS
+    execute,audit,measure,render,contrast,BOX,LINES,THRESHOLD,VARIANTS,FONT
 )
-from em00805_botanical_video_probes import sha,fixture_art,decode_frame
+from em00805_botanical_video_probes import sha,fixture_art,decode_frame,font
 
 class NativePhoneWidthPixelResearch(unittest.TestCase):
     @classmethod
@@ -97,6 +97,8 @@ class NativePhoneWidthPixelResearch(unittest.TestCase):
         self.assertTrue(BOX[0]>=0 and BOX[2]<864 and BOX[3]<1574)
         self.assertEqual(len(LINES),2)
         self.assertTrue(all(size*375/1080>=16 for _,size,_,_ in LINES))
+        self.assertTrue(all(x+font(FONT,size).getlength(line)<=BOX[2]-8
+                            for line,size,x,y in LINES))
 
     def test_wcag_linear_luminance_ratio_not_linear_255_simple_math(self):
         self.assertAlmostEqual(contrast((255,255,255),(0,0,0)),21.0)
