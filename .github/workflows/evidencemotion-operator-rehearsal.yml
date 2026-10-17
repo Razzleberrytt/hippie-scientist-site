@@ -17,6 +17,8 @@ on:
       - 'research/evidencemotion-director/test_native_stdin_capture_guard.py'
       - 'research/evidencemotion-director/lane5_candidate_scorecard.py'
       - 'research/evidencemotion-director/test_lane5_candidate_scorecard.py'
+      - 'research/evidencemotion-director/audio_only_remaster_guard.py'
+      - 'research/evidencemotion-director/test_audio_only_remaster_guard.py'
       - 'research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md'
       - '.github/workflows/evidencemotion-operator-rehearsal.yml'
 concurrency:
@@ -85,6 +87,11 @@ jobs:
           set -euo pipefail
           python3 -m py_compile research/evidencemotion-director/lane5_candidate_scorecard.py
           python3 -m unittest discover -s research/evidencemotion-director -p 'test_lane5_candidate_scorecard.py' -v
+      - name: Physically test immutable audio-only hotfix provenance (release still HOLD)
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/audio_only_remaster_guard.py
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_audio_only_remaster_guard.py' -v
       - name: Ensure no production publishing privileges are implied
         run: |
           set -euo pipefail
