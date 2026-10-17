@@ -1369,6 +1369,126 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
 
 
 
+
+class RevisedAacPacketTimelineResearchTests(unittest.TestCase):
+    """Packet metadata is independent from bit-exact source AAC payload."""
+
+    @staticmethod
+    def packets(last_duration=16):
+        result = []
+        for i in range(807):
+            result.append({"pts": -1024+i*1024,
+                           "dts": -1024+i*1024,
+                           "duration": last_duration if i == 806 else 1024,
+                           "size": "4" if i >= 805 else "400"})
+        return result
+
+    def test_real_807_packet_shape_flags_final_eight_sample_difference(self):
+        sha = original_guard.REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA
+        result = original_guard.compare_revised_aac_packet_timeline(
+            self.packets(16), self.packets(8), sha, sha)
+        self.assertEqual(result["status"],
+                         "RESEARCH_REVISED_AAC_METADATA_MISMATCH_HOLD")
+        self.assertEqual(result["audioPacketCount"], 807)
+        self.assertTrue(result["bitExactAacPayloadPreserved"])
+        self.assertFalse(result["packetTimelineMetadataEqual"])
+        self.assertEqual(result["timelineMetadataDisagreementCount"], 1)
+        self.assertEqual(result["packetTimelineDifferences"][0]["packetIndex"], 806)
+        self.assertEqual(result["packetTimelineDifferences"][0]["archived"]["duration"], 16)
+        self.assertEqual(result["packetTimelineDifferences"][0]["revised"]["duration"], 8)
+        self.assertEqual(result["packetTimelineDifferences"][0][
+            "revisedMinusArchivedDurationSamples"], -8)
+        self.assertAlmostEqual(result["packetTimelineDifferences"][0][
+            "revisedMinusArchivedDurationMs"], -0.333333, delta=.000001)
+        self.assertEqual(result["originalTotalPacketDurationSamples"], 824336)
+        self.assertEqual(result["revisedTotalPacketDurationSamples"], 824328)
+        for denied in ("mayPublish", "audioCraftApproved", "wordTimingCalibrated",
+                       "pronunciationVerified", "revisedFilmVerifiedForRelease"):
+            self.assertFalse(result[denied])
+
+    def test_exact_metadata_copy_still_cannot_be_promoted(self):
+        sha = original_guard.REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA
+        r = original_guard.compare_revised_aac_packet_timeline(
+            self.packets(), self.packets(), sha, sha)
+        self.assertEqual(r["status"],
+                         "RESEARCH_REVISED_AAC_BITSTREAM_TIMELINE_MATCH_HOLD")
+        self.assertTrue(r["packetTimelineMetadataEqual"])
+        self.assertEqual(r["packetTimelineDisagreementCount"]
+                         if "packetTimelineDisagreementCount" in r
+                         else r["timelineMetadataDisagreementCount"], 0)
+        self.assertFalse(r["mayPublish"])
+        self.assertTrue(r["qualifiedListeningStillRequired"])
+
+    def test_changed_aac_bytes_rejected_even_with_equal_metadata(self):
+        sha = original_guard.REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA
+        r = original_guard.compare_revised_aac_packet_timeline(
+            self.packets(), self.packets(), sha, "0"*64)
+        self.assertEqual(r["status"], "HOLD")
+        self.assertIn("REVISED_AUDIO_ADTS_PAYLOAD_NOT_PINNED_OR_IDENTICAL",
+                      r["errors"])
+        self.assertFalse(r["mayPublish"])
+
+    def test_invalid_duplicate_packet_timestamp_and_schema_rejected(self):
+        sha = original_guard.REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA
+        bads = []
+        reordered = self.packets()
+        reordered[470], reordered[471] = reordered[471], reordered[470]
+        bads.append(reordered)
+        impossible = self.packets()
+        impossible[806]["duration"] = False
+        bads.append(impossible)
+        extra = self.packets()
+        extra[0]["unsourcedApproval"] = True
+        bads.append(extra)
+        negative = self.packets()
+        negative[500]["duration"] = -1
+        bads.append(negative)
+        tampered = self.packets()
+        tampered[0]["pts"] = "nan"
+        bads.append(tampered)
+        for idx, bad in enumerate(bads):
+            with self.subTest(case=idx):
+                r = original_guard.compare_revised_aac_packet_timeline(
+                    self.packets(), bad, sha, sha)
+                self.assertEqual(r["status"], "HOLD")
+                self.assertFalse(r["mayPublish"])
+
+    def test_altered_payload_packet_size_is_metadata_discrepancy_not_match(self):
+        sha = original_guard.REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA
+        b = self.packets()
+        b[425]["size"] = "401"
+        r = original_guard.compare_revised_aac_packet_timeline(
+            self.packets(), b, sha, sha)
+        self.assertFalse(r["packetTimelineMetadataEqual"])
+        self.assertEqual(r["packetTimelineDifferences"][0]["packetIndex"], 425)
+        self.assertFalse(r["mayPublish"])
+
+    def test_revised_aac_cli_requires_both_exclusive_films(self):
+        script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
+        choices = (
+            (["--revised-aac-packet-timeline"],
+             "REVISED_AAC_TIMELINE_REQUIRES_EXCLUSIVE_TWO_FILMS"),
+            (["--revised-aac-packet-timeline",
+              "--native-research-film", "/not-there/source.mp4",
+              "--revised-research-film", "/not-there/revised.mp4"],
+             "REVISED_AUDIO_PINNED_FILMS_NOT_PRESENT"),
+            (["--revised-research-film", "/not-there/revised.mp4"],
+             "REVISED_AAC_FILM_REQUIRES_EXPLICIT_RESEARCH_MODE"),
+            (["--revised-aac-packet-timeline",
+              "--native-research-film", "source.mp4",
+              "--revised-research-film", "new.mp4",
+              "--archived-aac-sync-review"],
+             "REVISED_AAC_TIMELINE_REQUIRES_EXCLUSIVE_TWO_FILMS"),
+        )
+        for args, reason in choices:
+            with self.subTest(reason=reason):
+                c = subprocess.run([sys.executable, script, *args],
+                                   capture_output=True, text=True, timeout=20)
+                self.assertEqual(c.returncode, 2)
+                self.assertIn(reason, c.stdout)
+                self.assertIn('"mayPublish": false', c.stdout)
+
+
 class SyntheticMasterLinkTests(unittest.TestCase):
     """Synthetic controls only; original 34.35s master is NOT in hosted checkout."""
 
