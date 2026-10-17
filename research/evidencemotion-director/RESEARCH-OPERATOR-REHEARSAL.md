@@ -156,6 +156,77 @@ authorized release and true production rollback remain blocked. Excellent
 first **0/1**, five diverse consecutive excellent first renders **0/5**,
 and posting prohibited.
 
+## Original renderer + narration WAV + film private recovery archive
+
+An explicitly owner-labelled, one-time CI action [source recovery
+#38991294207](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/38991294207)
+assembled an independently downloaded **more complete** source/input archive,
+not a new encoded render. It was independently inspected outside GitHub Actions
+using a fresh temporary directory and the actual FFprobe/FFmpeg decoders.
+Unlike the older *film-only* A/B ZIP above, this archive also contains the
+original pinned narrator WAV bytes, 11 historical exact renderer source files,
+eight archived native PNG pixel references, original alignment JSON and
+source-render receipt, and the two exact original source-to-stdin/encoder
+research receipts.
+
+**Physical portable ZIP (file itself, NOT GitHub's outer artifact wrapper):**
+`EvidenceMotion_Original_Source_WAV_Film_Research_HOLD_20261016.zip`,
+SHA-256
+`dfce925fb2474c46da975ce94b46437e371a8fcac4758326515363cf21146c8d`,
+7,093,290 bytes. Its parent GitHub Actions artifact ID **12084799185**
+only offers temporary 7-day retrieval, but a separately retained physical
+copy can be restored without paying a media generation service. Only trust
+this recorded ZIP hash after checking the physical bytes independently; a
+self-contained SHA manifest by itself cannot establish provenance.
+
+```bash
+set -euo pipefail
+bundle=/path/to/EvidenceMotion_Original_Source_WAV_Film_Research_HOLD_20261016.zip
+printf '%s  %s\n' \
+  'dfce925fb2474c46da975ce94b46437e371a8fcac4758326515363cf21146c8d' \
+  "$bundle" | sha256sum -c -
+unzip -tq "$bundle"
+mkdir -p /tmp/em-original-complete-recovery
+unzip -q "$bundle" -d /tmp/em-original-complete-recovery
+cd /tmp/em-original-complete-recovery
+sha256sum -c RECOVERED-FILES-SHA256SUMS
+printf '%s  %s\n' \
+  '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435' \
+  original-inputs/voice/narration.wav | sha256sum -c -
+for label in a b; do
+  film="film-$label/specimen_NEW_RESEARCH_CANDIDATE.mp4"
+  printf '%s  %s\n' \
+    'c100779c2c6c15005fdef9c5166da957c8dd6f51226d45f7c2264f0a89206322' \
+    "$film" | sha256sum -c -
+  ffmpeg -nostdin -v error -xerror -i "$film" \
+    -map 0:v:0 -map 0:a:0 -f null -
+done
+```
+
+**Independent inspection, Oct 16/17:** all 31 manifest entries matched,
+all 11 source script pins matched the recorded historical commits, WAV
+format was 24,000 Hz mono PCM16 (824,336 samples), both
+1,031-frame 1080×1920/30 fps H264/AAC movies decoded fully and were
+byte-identical. Each physical encoded film SHA is
+`c100779c2c6c15005fdef9c5166da957c8dd6f51226d45f7c2264f0a89206322`;
+`environment.json` A/B SHA
+`401c5c7eec184d77aeaf16bd55c430e4515106b130d4cdcd0ce39d052cbc7a88`.
+The accompanying externally computed research receipt is
+`EvidenceMotion_Lane5_Complete_Source_Recovery_Research_Receipt_20261016.json`,
+SHA-256
+`ca5a7a6eeff6a034dea97bcfbdab5f137b2f68e45c6089d410a70242cb68b753`.
+
+**Important omissions:** This research archive does **not** redistribute
+font files (their external installed DejaVu SHA identities remain pinned),
+Python/RDKit/Pillow wheel/build provenance, a copy of the historical original
+FFmpeg/libx264 binary, executor trust attestation, independent science/voice/
+on-device/craft approvals, or the *revised* Lane 3 combined film and sidecars.
+The fixed control-plane code is a research draft and cannot grant production
+authorization. Archive recovery is **source/input escrow progress**, not
+complete deployable/release escrow or excellent-first/master acceptance.
+`mayPublish=false`, first excellent 0/1, five varied first renders 0/5,
+and EM-046 remains OPEN until its remaining criteria are independently met.
+
 ## First-render attempt history: externally pinned append-only proof
 
 When an **actual new topic is produced**, record *every* first attempt,
