@@ -5,10 +5,12 @@ import io
 import json
 import os
 import re
+import stat
 import tempfile
 import unittest
 import zipfile
 from pathlib import Path
+from unittest.mock import patch
 
 from gut_release_science_guard import (
     FDA_GUIDANCE, ORIGINAL_NARRATION, inspect, read_pinned_package,
@@ -115,6 +117,75 @@ class GutReleaseScienceTests(unittest.TestCase):
         files['DELIVERY_SHA_MANIFEST.json']=json.dumps(manifest).encode()
         with self.assertRaisesRegex(ValueError,'SOURCE_MANIFEST_SCOPE_OR_RELEASE_DRIFT'):
             self.run_zip(_repack(files))
+
+    def test_exact_sha_does_not_override_package_size_limit(self):
+        raw = archive()
+        with patch('gut_release_science_guard.MAX_PACKAGE_BYTES',len(raw)-1):
+            with self.assertRaisesRegex(ValueError,'ARCHIVE_IDENTITY_OR_SIZE_INVALID'):
+                self.run_zip(raw)
+
+    def test_member_count_and_inflation_budget_fail_before_decompression(self):
+        raw = archive()
+        with patch('gut_release_science_guard.MAX_ARCHIVE_MEMBERS',len(NAMES)):
+            with self.assertRaisesRegex(ValueError,'UNTRUSTED_ARCHIVE_STRUCTURE'):
+                self.run_zip(raw)
+        with zipfile.ZipFile(io.BytesIO(raw)) as z:
+            advertised = sum(info.file_size for info in z.infolist())
+        with patch('gut_release_science_guard.MAX_TOTAL_UNCOMPRESSED_BYTES',advertised-1):
+            with self.assertRaisesRegex(ValueError,'ARCHIVE_RESOURCE_LIMIT_OR_ENCRYPTION'):
+                self.run_zip(raw)
+
+    def test_compressed_oversize_member_refused_despite_matching_repacked_sha(self):
+        raw = archive(extra={'COMPRESSED_BOMB.bin':b'A'*10000})
+        with zipfile.ZipFile(io.BytesIO(raw)) as original:
+            entries = [(info.filename,original.read(info.filename)) for info in original.infolist()]
+        buf=io.BytesIO()
+        with zipfile.ZipFile(buf,'w',compression=zipfile.ZIP_DEFLATED) as z:
+            for name,data in entries:z.writestr(name,data)
+        with patch('gut_release_science_guard.MAX_MEMBER_BYTES',9999):
+            with self.assertRaisesRegex(ValueError,'ARCHIVE_RESOURCE_LIMIT_OR_ENCRYPTION'):
+                self.run_zip(buf.getvalue())
+
+    def test_manifest_cap_and_manifest_type_fail_closed(self):
+        raw=archive()
+        with patch('gut_release_science_guard.MAX_MANIFEST_BYTES',5):
+            with self.assertRaisesRegex(ValueError,'MANIFEST_RESOURCE_LIMIT'):
+                self.run_zip(raw)
+        with zipfile.ZipFile(io.BytesIO(raw)) as z:
+            entries={name:z.read(name) for name in z.namelist()}
+        entries['DELIVERY_SHA_MANIFEST.json']=b'[]'
+        with self.assertRaisesRegex(ValueError,'MANIFEST_NOT_OBJECT'):
+            self.run_zip(_repack(entries))
+
+    def test_zipped_symlink_is_not_trusted_as_source(self):
+        raw=archive()
+        with zipfile.ZipFile(io.BytesIO(raw)) as z:
+            entries={name:z.read(name) for name in z.namelist()}
+        buf=io.BytesIO()
+        with zipfile.ZipFile(buf,'w') as z:
+            for name,data in entries.items():
+                info=zipfile.ZipInfo(name)
+                info.create_system=3
+                if name=='REPRODUCE_SOURCE_RENDERER.py':
+                    info.external_attr=(stat.S_IFLNK|0o777)<<16
+                z.writestr(info,data)
+        with self.assertRaisesRegex(ValueError,'UNTRUSTED_ARCHIVE_STRUCTURE'):
+            self.run_zip(buf.getvalue())
+
+    def test_malformed_member_sha_and_false_claimed_size_are_rejected(self):
+        raw=archive()
+        with zipfile.ZipFile(io.BytesIO(raw)) as z:
+            entries={name:z.read(name) for name in z.namelist()}
+        manifest=json.loads(entries['DELIVERY_SHA_MANIFEST.json'])
+        manifest['files']['REPRODUCE_SOURCE_RENDERER.py']['sha256']=2026
+        entries['DELIVERY_SHA_MANIFEST.json']=json.dumps(manifest).encode()
+        with self.assertRaisesRegex(ValueError,'MALFORMED_FILE_IDENTITY'):
+            self.run_zip(_repack(entries))
+        manifest['files']['REPRODUCE_SOURCE_RENDERER.py']['sha256']=sha256(entries['REPRODUCE_SOURCE_RENDERER.py'])
+        manifest['files']['REPRODUCE_SOURCE_RENDERER.py']['bytes']+=1
+        entries['DELIVERY_SHA_MANIFEST.json']=json.dumps(manifest).encode()
+        with self.assertRaisesRegex(ValueError,'MALFORMED_FILE_IDENTITY'):
+            self.run_zip(_repack(entries))
 
     @unittest.skipUnless(os.environ.get('THS_GUT_ORIGINAL_V8_ARCHIVE'),'Owner original archive not mounted on hosted CI')
     def test_real_owner_v8_archive_is_physically_read_and_known_defect_detected(self):
