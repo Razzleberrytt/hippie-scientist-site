@@ -779,6 +779,124 @@ def audit_archived_frame_native_pause_files(wav_path, video_path, receipt_path):
         return hold("FRAME_PLAN_ARCHIVED_FILES_UNREADABLE")
 
 
+def audit_archived_suffix_cue_hypotheses(
+        source_raw, alignment_raw, asr_raw, video_raw, receipt_raw):
+    """Screen nine archived caption cues against source-pinned *hypotheses*.
+
+    This does not read decoded frames. Caption starts are frozen render-receipt
+    coordinates, not observed glyph transitions; ASR/MFA may both be wrong.
+    Only a word onset wholly inside source digital zero is mechanically vetoed.
+    """
+    base = {"schema": SCHEMA, "mayPublish": False,
+            "pronunciationVerified": False, "phonemeIdentityVerified": False,
+            "wordTimingCalibrated": False, "captionTimingApproved": False,
+            "independentHumanListeningVerified": False,
+            "decodedCaptionPixelsVerifiedByThisAudit": False,
+            "sourceVoiceModified": False, "nativeFilmModified": False}
+    def refuse(reason):
+        return {**base, "status": "HOLD", "errors": [reason]}
+    cross = audit_original_cross_model_word_timing(
+        source_raw, alignment_raw, asr_raw)
+    plan = audit_archived_frame_native_pause_plan(
+        source_raw, video_raw, receipt_raw)
+    if (cross["status"] != "RESEARCH_ORIGINAL_WORD_REVIEW_QUEUE_HOLD"
+            or plan["status"] != "RESEARCH_FRAME_NATIVE_PAUSE_PLAN_HOLD"):
+        return refuse("SUFFIX_CUES_REQUIRE_PINNED_ORIGINAL_FIVE_SOURCES")
+    try:
+        words = json.loads(alignment_raw)["wordAlignment"]
+        heard = json.loads(asr_raw)["recognizedWords"]
+        receipt = json.loads(receipt_raw)
+        cues = receipt["scenes"][-1]["captionWords"]
+        expected = ("thats", "the", "kind", "of", "detail",
+                    "worth", "looking", "closer", "at")
+        norm = lambda text: re.sub(r"[^a-z0-9]", "", text.casefold())
+        authored = [(words[63]["startMs"], words[64]["endMs"],
+                     words[63]["word"] + words[64]["word"])]
+        authored += [(word["startMs"], word["endMs"], word["word"])
+                     for word in words[65:73]]
+        if (len(authored) != 9 or len(cues) != 9 or len(heard) != 70
+                or tuple(norm(x["text"]) for x in cues) != expected
+                or tuple(norm(x[2]) for x in authored) != expected
+                or tuple(norm(x["word"]) for x in heard[61:70]) != expected):
+            return refuse("SUFFIX_CUES_SOURCE_LEXICAL_LAYOUT_CHANGED")
+        with wave.open(io.BytesIO(source_raw), "rb") as w:
+            pcm = w.readframes(w.getnframes())
+        if (len(pcm) != 824336*2
+                or any(pcm[i*2:i*2+2] != b"\\x00\\x00"
+                       for i in (663600, 700000, 746159))
+                or pcm[663600*2:746160*2] != bytes((746160-663600)*2)):
+            return refuse("SUFFIX_CUES_VERIFIED_ZERO_SPAN_MISSING")
+        source_zero_start, source_zero_end = 663600, 746160
+        rows = []
+        for idx, (cue, m, asr) in enumerate(zip(cues, authored, heard[61:70])):
+            start, end = float(cue["startSec"]), float(cue["endSec"])
+            # Source receipt is timing hypothesis. First visible 30fps frame
+            # is a mathematical eligibility index, not a decoded pixel check.
+            first_frame = int(np.ceil(start*30-1e-8))
+            first_eligible = first_frame/30
+            if (idx and start < cues[idx-1]["endSec"]-1e-6):
+                return refuse("SUFFIX_CUES_OVERLAPPING_OR_INVALID")
+            mfa_start, mfa_end = m[:2]
+            if not 0 <= mfa_start < mfa_end <= 824336/24:
+                return refuse("SUFFIX_CUES_MFA_WINDOW_INVALID")
+            asr_start, asr_end = float(asr["start"]), float(asr["end"])
+            # A recognizer onset cannot be audible inside EXACT digital zero
+            # unless it extends past its proposed start. That start is wrong,
+            # but neither alternative is thereby independently verified.
+            claimed_sample = round(asr_start*24000)
+            impossible_asr_onset = (
+                source_zero_start <= claimed_sample < source_zero_end)
+            start_ms = max(0, min(mfa_start, asr_start*1000)-200)
+            end_ms = min(824336/24,
+                         max(mfa_end, asr_end*1000)+200)
+            lo, hi = round(start_ms*24), round(end_ms*24)
+            if not 0 <= lo < hi <= 824336:
+                return refuse("SUFFIX_CUES_CONTEXT_RANGE_INVALID")
+            delta_ms = round((first_eligible-asr_start)*1000, 3)
+            rows.append({
+                "cueIndex": idx, "captionWord": cue["text"],
+                "renderReceiptStartSec": start,
+                "firstMathematicallyEligibleVideoFrame": first_frame,
+                "firstFrameTimeSec": round(first_eligible, 6),
+                "frameQuantizationDelayMs":
+                    round((first_eligible-start)*1000, 3),
+                "authoredMfaCandidateWindowMs": [
+                    round(mfa_start, 3), round(mfa_end, 3)],
+                "asrCandidateWindowSec": [asr_start, asr_end],
+                "frameStartMinusAsrStartMs": delta_ms,
+                "asrClaimedOnsetDuringVerifiedPcmZero":
+                    impossible_asr_onset,
+                "absoluteModelDifferenceExceeds100ms":
+                    abs(delta_ms)>100,
+                "sourceReviewPcmRange": [lo, hi],
+                "sourceReviewPcmSha256": digest(pcm[lo*2:hi*2]),
+                "decision": (
+                    "PHYSICALLY_IMPOSSIBLE_ASR_ONSET_REVIEW_HOLD"
+                    if impossible_asr_onset else
+                    "MODEL_BOUNDARY_DIFFERENCE_REVIEW_HOLD"),
+            })
+        return {**base, "status": "RESEARCH_ARCHIVED_SUFFIX_WORD_REVIEW_HOLD",
+                "sourceWavSha256": SOURCE_WAV_REFERENCE,
+                "mfaAlignmentSha256": MFA_SOURCE_ALIGNMENT_SHA,
+                "asrReceiptSha256": POSE_ASR_RECEIPT_SHA,
+                "archivedFilmSha256": ARCHIVED_TIMED_NATIVE_VIDEO_SHA,
+                "renderReceiptSha256": ARCHIVED_TIMED_NATIVE_RECEIPT_SHA,
+                "cueCount": len(rows),
+                "impossibleAsrOnsetCount": sum(
+                    r["asrClaimedOnsetDuringVerifiedPcmZero"] for r in rows),
+                "modelDifferenceOver100MsCount": sum(
+                    r["absoluteModelDifferenceExceeds100ms"] for r in rows),
+                "sourceDigitalZeroSamples": [source_zero_start, source_zero_end],
+                "cueReviewRows": rows,
+                "reviewerDecisionRequired": True,
+                "caution": "Do not infer correct word, phoneme, caption timing "
+                           "or rendering from ASR/MFA agreement or frame "
+                           "eligibility math. This is the historical film ONLY."}
+    except (ValueError, TypeError, KeyError, IndexError, OSError, EOFError,
+            wave.Error, UnicodeError):
+        return refuse("SUFFIX_CUES_SOURCE_REPORT_PARSE_FAILED")
+
+
 def audit_archived_encoded_audio_sync(source_raw, video_raw, receipt_raw, decoded_pcm_f32le):
     """Screen *original* WAV versus lossy encoded AAC signal, never phonemes.
 
