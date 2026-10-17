@@ -145,3 +145,42 @@ test('unsigned or mismatched video identities reject before any purported film r
  const x=adjudicateFilm(p);
  assert.equal(x.decision,'AUTO_HOLD_INVALID_PROOF');
 });
+
+test('two-state layout loops request autonomous source-bound craft review',()=>{
+ const decoded={...frame(),decision:'CRAFT_REVIEW_HOLD',
+  reviewCandidates:['TWO_STATE_LAYOUT_OSCILLATION_WITHOUT_VISUAL_PROGRESSION'],
+  twoStateAlternationWindowsSec:[{startSec:0,endSec:16,lagTwoMatchedPairs:7}]};
+ const x=adjudicateFilm({...full(),decodedVisual:decoded});
+ assert.equal(x.decision,'AUTO_RUN_MISSING_REVIEWS');
+ assert.deepEqual(x.blockers,[]);
+ assert.ok(x.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_TWO_STATE_LAYOUT_LOOP'));
+ assert.equal(x.contentMayPublish,false);
+});
+test('invalid and forged two-state receipts remain a hard HOLD',()=>{
+ const valid={...frame(),decision:'CRAFT_REVIEW_HOLD',
+  reviewCandidates:['TWO_STATE_LAYOUT_OSCILLATION_WITHOUT_VISUAL_PROGRESSION'],
+  twoStateAlternationWindowsSec:[{startSec:0,endSec:16,lagTwoMatchedPairs:7}]};
+ for(const decodedVisual of [
+  {...valid,reviewCandidates:[]},
+  {...valid,reviewCandidates:[...valid.reviewCandidates,'INVENTED_PASS']},
+  {...valid,twoStateAlternationWindowsSec:[]},
+  {...valid,twoStateAlternationWindowsSec:[{startSec:0,endSec:6,lagTwoMatchedPairs:7}]},
+  {...valid,twoStateAlternationWindowsSec:[{startSec:0,endSec:16,lagTwoMatchedPairs:NaN}]},
+  {...valid,actualVideoSha256:V}
+ ]){
+  const x=adjudicateFilm({...full(),decodedVisual});
+  assert.equal(x.decision,'AUTO_HOLD_INVALID_PROOF');
+  assert.equal(x.contentMayPublish,false);
+ }
+});
+test('multiple craft issues remain separately visible without premium credit',()=>{
+ const decoded={...frame(),decision:'CRAFT_REVIEW_HOLD',
+  reviewCandidates:['TWO_STATE_LAYOUT_OSCILLATION_WITHOUT_VISUAL_PROGRESSION',
+    'CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION'],
+  twoStateAlternationWindowsSec:[{startSec:0,endSec:16,lagTwoMatchedPairs:7}],
+  centerHeroStasisPeripheralMotionWindowsSec:[{startSec:0,endSec:16,repeatedPairCount:8}]};
+ const x=adjudicateFilm({...full(),decodedVisual:decoded});
+ assert.ok(x.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_TWO_STATE_LAYOUT_LOOP'));
+ assert.ok(x.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_STATIC_CENTER_HERO'));
+ assert.equal(x.contentMayPublish,false);
+});
