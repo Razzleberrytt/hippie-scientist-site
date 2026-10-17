@@ -44,6 +44,29 @@ def sha256_file(path):
 def hold(code):
     raise ValueError("PHONE_UI_HOLD:" + code)
 
+def strict_json_bytes(raw):
+    """Reject ambiguous/non-standard claim-bearing research JSON at intake.
+
+    The default json.loads silently keeps the LAST duplicate key and accepts
+    NaN/Infinity as Python floats. Neither behavior may authorize source,
+    OCR, publication or prior-image cleanup receipts. This checks nested
+    objects too, before any decoded-media preflight or output promotion.
+    """
+    def unique_pairs(pairs):
+        seen = {}
+        for key, value in pairs:
+            if key in seen:
+                hold("DUPLICATE_EVIDENCE_JSON_KEY:" + key)
+            seen[key] = value
+        return seen
+
+    def invalid_constant(value):
+        hold("NONFINITE_EVIDENCE_JSON_VALUE:" + value)
+
+    return json.loads(raw.decode("utf-8"), object_pairs_hook=unique_pairs,
+                      parse_constant=invalid_constant)
+
+
 def is_hash(value):
     return isinstance(value, str) and re.fullmatch(r"[0-9a-f]{64}", value) is not None
 
@@ -860,7 +883,7 @@ def verified_prior_review_images(output, previous_report_bytes):
     if previous_report_bytes is None:
         return {}
     try:
-        report = json.loads(previous_report_bytes.decode("utf-8"))
+        report = strict_json_bytes(previous_report_bytes)
     except (ValueError, UnicodeError):
         return {}
     if (not isinstance(report, dict) or report.get("mayPublish") is not False or
@@ -970,7 +993,7 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
     # Recheck them after FFmpeg completes so mid-audit edits cannot yield a
     # successful receipt for media or annotations that were never reviewed.
     manifest_bytes = manifest.read_bytes()
-    plan = json.loads(manifest_bytes.decode("utf-8"))
+    plan = strict_json_bytes(manifest_bytes)
     manifest_hash = hashlib.sha256(manifest_bytes).hexdigest()
     movie_hash = sha256_file(movie)
     linked_ink = None
@@ -982,13 +1005,13 @@ def audit(movie, manifest, output, ink_receipt=None, glyph_receipt=None):
     if ink_receipt is not None:
         ink_bytes = ink_receipt.read_bytes()
         ink_hash = hashlib.sha256(ink_bytes).hexdigest()
-        ink_data = json.loads(ink_bytes.decode("utf-8"))
+        ink_data = strict_json_bytes(ink_bytes)
         linked_ink = validate_critical_ink_receipt_join(
             ink_data, film_sha=movie_hash, plan_sha=manifest_hash)
     if glyph_receipt is not None:
         glyph_bytes = glyph_receipt.read_bytes()
         glyph_hash = hashlib.sha256(glyph_bytes).hexdigest()
-        glyph_data = json.loads(glyph_bytes.decode("utf-8"))
+        glyph_data = strict_json_bytes(glyph_bytes)
         linked_glyph = validate_exact_film_ocr_join(
             glyph_data, ink_data, plan,
             film_sha=movie_hash, plan_sha=manifest_hash)
