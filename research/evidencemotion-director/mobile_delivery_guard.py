@@ -104,6 +104,11 @@ def audio_compare(before,after):
     delta=abs(len(a)-len(b))
     if min(len(a),len(b))<4000 or len(a)%2 or len(b)%2 or delta>2*round(0.006*48000):
         raise Hold('DECODED_AUDIO_SAMPLE_COUNT_DIFFERENT')
+    # Correlation/SNR comparisons against NaN are always False; a non-finite
+    # decoded PCM float could otherwise produce a misleading positive receipt.
+    # Check BOTH complete tracks, including the optional AAC tail.
+    if any(not math.isfinite(value) for value in a) or any(not math.isfinite(value) for value in b):
+        raise Hold('NONFINITE_DECODED_AUDIO_SAMPLES')
     if delta:
         longer=a if len(a)>len(b) else b
         shorter=b if len(a)>len(b) else a
