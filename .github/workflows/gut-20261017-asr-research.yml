@@ -1,0 +1,39 @@
+name: Gut absorption independent speech ASR research
+on:
+  push:
+    branches:
+      - research/gut-absorption-20261017-original-voice
+    paths:
+      - research/evidencemotion-director/gut-20261017/original_asr_research.py
+      - .github/workflows/gut-20261017-asr-research.yml
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  source-asr-negative-filter:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'faster-whisper==1.2.1'
+      - name: Fetch exact pinned original voice for independent screening
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p gut-narration
+          gh run download 39036424976 -R Razzleberrytt/hippie-scientist-site -n ths-gut-absorption-20261017-original-voice-review-only -D gut-narration
+          echo 'e19bf6f01168e1df461de3d67f822c2ba4f74c26421db2763dff0fe2ad161477  gut-narration/Gut_Absorption_ORIGINAL_KOKORO_UNREVIEWED.wav' | sha256sum -c -
+      - name: Independent ASR negative filter without voice substitution
+        run: python research/evidencemotion-director/gut-20261017/original_asr_research.py
+      - name: Preserve research ASR evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gut-original-kokoro-independent-speech-asr-review-only
+          path: gut-asr-audit/
+          if-no-files-found: warn
+          retention-days: 7
