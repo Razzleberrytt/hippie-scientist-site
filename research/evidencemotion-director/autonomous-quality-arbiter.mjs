@@ -84,8 +84,9 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
  // and multimodal models and verifies their actual inputs/results, caller-
  // supplied JSON can never serve as affirmative proof. This research stage
  // intentionally allows automatic REVISE but not fabricated AUTO_PASS.
- if(!blockers.length&&!fixes.length&&!needs.length)
-   needs.push('TRUSTED_MULTIMODAL_AND_SOURCE_RUN_ATTESTATION_NOT_IMPLEMENTED');
+ // Trusted invocation provenance is missing in ALL current paths, not only
+ // when every other evidence item passes. Do not hide this behind a new hold.
+ needs.push('TRUSTED_MULTIMODAL_AND_SOURCE_RUN_ATTESTATION_NOT_IMPLEMENTED');
  const uniq=arr=>[...new Set(arr)];
  const decision=blockers.length?'AUTO_HOLD_INVALID_PROOF':fixes.length?'AUTO_REVISE':
    'AUTO_RUN_MISSING_REVIEWS';
