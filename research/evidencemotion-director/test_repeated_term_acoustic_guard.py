@@ -1255,9 +1255,12 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
             pcm = np.frombuffer(w.readframes(w.getnframes()),
                                 dtype="<i2").copy()
         # Synthetic encoded-only DC injection alters no original media.
-        # Preserve authentic source-zero intervals and original AAC length.
+        # Inject only through sustained voiced source 2..24s: deliberately
+        # avoid the 27.65..31.09s SOURCE-HOLD boundary, whose modulation
+        # the preexisting 500ms correlation screen correctly rejects.
+        # This isolates the actual previously-blind additive-DC failure mode.
         biased = decoded.copy()
-        biased[:len(pcm)][pcm != 0] += np.float32(.05)
+        biased[2*24000:24*24000] += np.float32(.04)
         out = self.check_synthetic_encoded(source, film, receipt, biased)
         self.assertEqual(out["status"],
                          "RESEARCH_ARCHIVED_ENCODED_AUDIO_SYNC_HOLD", out)
