@@ -29,7 +29,7 @@ jobs:
           python -m pip install 'Pillow==12.0.0'
           ffmpeg -version | head -n 1
           tesseract --version 2>&1 | head -n 1
-      - name: Independently read two lines at three widths and 3 actual encoded frame times
+      - name: Independently OCR sparse checkpoints and every H264 frame of transient-claim adversary
         env:
           THS_EM00804_RECEIPT: ${{ runner.temp }}/em00804/real-encoded-ocr-research-receipt.json
         run: |
@@ -57,6 +57,24 @@ jobs:
                       for x in data['positiveReadings']})==18
           assert all(x['bothExpectedLinesRecovered'] for x in data['positiveReadings'])
           assert all(x['unsafeApprovalRejected'] for x in data['negativeCases'])
+          temporal=data['temporalFullFrameResearchProbe']
+          assert temporal['researchFixtureOnly'] is True
+          assert temporal['researchFixtureFullScanVerified'] is True
+          assert temporal['originalStaticFilmFramesOCRed']==60
+          assert temporal['transientFilmFramesOCRed']==60
+          assert temporal['injectedAdversarialFrameIndices']==list(range(10,20))
+          assert temporal['verifiedUnsafeFrameIndices']==list(range(10,20))
+          assert [x['frameIndex'] for x in temporal['originalStaticFilmReadings']]==list(range(60))
+          assert [x['frameIndex'] for x in temporal['transientFilmReadings']]==list(range(60))
+          assert all(x['unsafeClaimMissed']
+                     for x in temporal['sparseCheckpointsWronglyAppearSafe'])
+          assert all(x['twoSafeDisclaimersAndNoVeto']
+                     for x in temporal['originalStaticFilmReadings'])
+          assert all(not x['twoSafeDisclaimersAndNoVeto']
+                     for x in temporal['transientFilmReadings']
+                     if x['frameIndex'] in range(10,20))
+          assert temporal['originalNarratedFilmApproved'] is False
+          assert temporal['mayPublish'] is False
           assert data['actualHandsetReadabilityVerified'] is False
           assert data['validatedAsHumanReadabilityPredictor'] is False
           assert data['allVideoFramesReadByIndependentOCR'] is False
@@ -75,5 +93,6 @@ jobs:
         if: always()
         run: |
           echo 'Actual decoded H264; simulated viewport occlusion; second independently run OCR instrument. NOT a validated human readability method.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Also scanned ALL 60 encoded H264 frames of a synthetic safe fixture and 60 of a transient false-caption fixture, not a production narrated film.' >> "$GITHUB_STEP_SUMMARY"
           echo 'No real iPhone device, original botanical image, species/plant 7OH assay, source signoff, full narration or platform UI approval.' >> "$GITHUB_STEP_SUMMARY"
           echo 'Only nonfactual generated botanical fixture, no unsafe video artifacts, no publication authority.' >> "$GITHUB_STEP_SUMMARY"
