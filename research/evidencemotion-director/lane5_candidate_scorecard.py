@@ -330,7 +330,7 @@ def score_candidate(*, film, wav, story_path, screen_path,
                     expected_film_sha, expected_wav_sha, expected_story_sha,
                     expected_screen_sha, previous_screen_path=None,
                     expected_previous_screen_sha=None, dimensions=None,
-                    previous_ink_path=None, current_ink_path=None,
+                    expected_shot_count=9, previous_ink_path=None, current_ink_path=None,
                     expected_previous_ink_sha=None, expected_current_ink_sha=None,
                     previous_ink_film_sha=None):
     """Return an explicitly non-promotable scorecard for one physically decoded film."""
@@ -340,9 +340,13 @@ def score_candidate(*, film, wav, story_path, screen_path,
     wav_sha = _same_pin(wav, expected_wav_sha)
     story, story_sha = _read_json(story_path, expected_story_sha)
     screen, screen_sha = _read_json(screen_path, expected_screen_sha)
+    if type(expected_shot_count) is not int or not 1 <= expected_shot_count <= 30:
+        hold("INVALID_EXPECTED_SHOT_COUNT")
+    shots = story.get("shots")
+    if not isinstance(shots, list) or len(shots) != expected_shot_count:
+        hold("STORY_SHOT_INVENTORY_DRIFT")
     if (story.get("schema") != "ths-lane3-research-visual-treatment-story-v1"
             or story.get("encodedH264Sha256") != film_sha
-            or len(story.get("shots", [])) != 9
             or story.get("mayPublish") is not False
             or story.get("realPhonePlaybackVerified") is not False
             or story.get("independentCraftCalibrationPassed") is not False):
@@ -415,6 +419,8 @@ def score_candidate(*, film, wav, story_path, screen_path,
         "filmSha256": film_sha, "originalWavSha256": wav_sha,
         "storySha256": story_sha, "mobileScreenSha256": screen_sha,
         "originalWavSamplesAt24000Hz": wav_samples,
+        "declaredStoryShotCount": expected_shot_count,
+        "observedStoryShotCount": len(shots),
         "observedTechnicalMedia": av,
         "machineReviewed": True, "externalIndependentReviewed": False,
         "physicalPhoneReviewed": False, "firstFinalRenderProven": False,
@@ -504,6 +510,8 @@ def main():
     # Preserve an external exact-frame expectation; never silently use the
     # historical 1031-frame example for another candidate's full-film QA.
     p.add_argument("--expected-frames", type=int, required=True)
+    p.add_argument("--expected-shots", type=int, default=9,
+                   help="Externally declared authored shot count (9 for archival original)")
     a = p.parse_args()
     if not 1 <= a.expected_frames <= 5400:
         hold("EXPECTED_FRAMES_OUT_OF_RANGE")
@@ -517,7 +525,8 @@ def main():
             "expected_previous_ink_sha", "expected_current_ink_sha",
             "previous_ink_film_sha"
         )
-    }, dimensions=(1080, 1920, a.expected_frames))
+    }, dimensions=(1080, 1920, a.expected_frames),
+       expected_shot_count=a.expected_shots)
     write_once(a.out, result)
     print(result["status"], result["filmSha256"])
 
