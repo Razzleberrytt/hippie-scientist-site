@@ -417,6 +417,35 @@ def _phone_plan_claim_hold(story):
     return "PHONE_PLAN_DIGEST_CLAIM_WITHOUT_INDEPENDENT_PLAN_BYTES"
 
 
+def _verified_original_pcm_samples(path, expected_sha):
+    """Read *all* declared source PCM, not just the potentially forged WAV header.
+
+    A truncated RIFF data payload can still report its original frame count via
+    wave.getnframes(). This bounded-memory physical read rejects that case and
+    checks the input SHA again after reading. Duration alone is not phonetic or
+    source-to-encoded-AAC equivalence evidence.
+    """
+    try:
+        with wave.open(str(path), "rb") as original:
+            if (original.getnchannels(), original.getsampwidth(),
+                    original.getframerate(), original.getcomptype()) != (1, 2, 24000, "NONE"):
+                hold("ORIGINAL_WAV_FORMAT_DRIFT")
+            samples = original.getnframes()
+            if type(samples) is not int or samples <= 0:
+                hold("EMPTY_ORIGINAL_WAV_PCM")
+            remaining = samples
+            while remaining:
+                requested = min(remaining, 16384)
+                if len(original.readframes(requested)) != requested * 2:
+                    hold("ORIGINAL_WAV_PCM_TRUNCATED")
+                remaining -= requested
+    except (OSError, EOFError, wave.Error):
+        hold("ORIGINAL_WAV_PCM_UNREADABLE")
+    if _physical_sha(path) != expected_sha:
+        hold("ORIGINAL_WAV_CHANGED_DURING_PCM_READ")
+    return samples
+
+
 def score_candidate(*, film, wav, story_path, screen_path,
                     expected_film_sha, expected_wav_sha, expected_story_sha,
                     expected_screen_sha, previous_screen_path=None,
@@ -442,10 +471,7 @@ def score_candidate(*, film, wav, story_path, screen_path,
             or story.get("realPhonePlaybackVerified") is not False
             or story.get("independentCraftCalibrationPassed") is not False):
         hold("UNTRUSTED_OR_CROSS_FILM_STORY")
-    with wave.open(str(wav), "rb") as w:
-        if (w.getnchannels(), w.getsampwidth(), w.getframerate()) != (1, 2, 24000):
-            hold("ORIGINAL_WAV_FORMAT_DRIFT")
-        wav_samples = w.getnframes()
+    wav_samples = _verified_original_pcm_samples(wav, wav_sha)
     av = _physical_av(film, dimensions)
     bright, colors = _screen_stats(screen, film_sha, story_sha, dimensions[2])
     previous = None
