@@ -200,6 +200,76 @@ def _hash_file(path):
     return h.hexdigest()
 
 
+def verify_original_review_stills(folder, gate, packet):
+    """Independently rehash exported PNGs against the exact science HOLD packet.
+
+    This is file/package integrity, NOT review of image semantics or a
+    scientific/publishing attestation. Rejects added files and forged flags.
+    """
+    verify_packet(packet,gate)
+    folder=Path(folder)
+    expected_names=["REVIEW-SAMPLES-RESEARCH-ONLY.json"]+[
+        f"original-claim-{i:02d}.png" for i in range(8)]
+    if (not folder.is_dir() or folder.is_symlink()
+        or sorted(p.name for p in folder.iterdir())!=sorted(expected_names)):
+        hold("REVIEW_STILL_ARCHIVE_MISSING_EXTRA_OR_SYMLINK")
+    for name in expected_names:
+        item=folder/name
+        if not item.is_file() or item.is_symlink():
+            hold("REVIEW_STILL_ARCHIVE_CONTAINS_NONFILE_OR_SYMLINK")
+    manifest=strict_json((folder/expected_names[0]).read_bytes())
+    keys={"schema","task","exactOriginalFilmSha256",
+          "sourceReviewPacketDigest","originalWavSha256",
+          "originalClaimFrameStills","imagesAreOnlyEightMomentarySamples",
+          "allFilmFramesReviewedByHuman",
+          "qualifiedIndependentScienceReviewCompleted",
+          "mayPublish","approvalToMerge"}
+    if (not isinstance(manifest,dict) or set(manifest)!=keys
+        or manifest.get("schema")!="ths-em00707-original-film-review-thumbnails-v1"
+        or manifest.get("task")!="EM-007.07"
+        or manifest.get("exactOriginalFilmSha256")!=FILM_SHA
+        or manifest.get("originalWavSha256")!=SOURCE_WAV_SHA
+        or manifest.get("sourceReviewPacketDigest")!=packet["processPacketDigest"]
+        or manifest.get("imagesAreOnlyEightMomentarySamples") is not True
+        or any(manifest.get(field) is not False for field in (
+            "allFilmFramesReviewedByHuman","qualifiedIndependentScienceReviewCompleted",
+            "mayPublish","approvalToMerge"))):
+        hold("REVIEW_STILL_ARCHIVE_MANIFEST_IDENTITY_OR_APPROVAL_DRIFT")
+    frames=manifest["originalClaimFrameStills"]
+    if not isinstance(frames,list) or len(frames)!=8:
+        hold("REVIEW_STILL_ARCHIVE_EIGHT_IMAGES_REQUIRED")
+    row_keys={"claimId","originalH264FrameIndex","originalH264TimeSec",
+              "fileName","pngSha256","sourceFilmSha256","displayWidth",
+              "displayHeight","frameSource",
+              "qualifiedVisualOrScientificReviewCompleted","mayPublish"}
+    for i,(row,claim) in enumerate(zip(frames,packet["eightClaimsToReview"])):
+        span=claim["originalWavAlignedReviewWindow"]
+        index=(span["firstPotentiallyOverlappingFrame"]+
+               span["lastPotentiallyOverlappingFrame"])//2
+        name=f"original-claim-{i:02d}.png"
+        if (not isinstance(row,dict) or set(row)!=row_keys
+            or row["claimId"]!=claim["claimId"]
+            or row["originalH264FrameIndex"]!=index
+            or row["originalH264TimeSec"]!=round(index/FILM_FPS,6)
+            or row["fileName"]!=name
+            or row["sourceFilmSha256"]!=FILM_SHA
+            or row["displayWidth"]!=540 or row["displayHeight"]!=960
+            or row["frameSource"]!="AUTHENTIC_ARCHIVED_H264_RESEARCH_SAMPLE"
+            or row["qualifiedVisualOrScientificReviewCompleted"] is not False
+            or row["mayPublish"] is not False):
+            hold("REVIEW_STILL_ARCHIVE_CLAIM_OR_FRAME_DRIFT")
+        raw=(folder/name).read_bytes()
+        # Require a correctly dimensioned PNG IHDR as well as original
+        # individual exported PNG byte SHA; a filename alone isn't evidence.
+        if (len(raw)<100 or raw[:8]!=b"\\x89PNG\\r\\n\\x1a\\n"
+            or raw[12:16]!=b"IHDR"
+            or int.from_bytes(raw[16:20],"big")!=540
+            or int.from_bytes(raw[20:24],"big")!=960
+            or hashlib.sha256(raw).hexdigest()!=row["pngSha256"]):
+            hold("REVIEW_STILL_ARCHIVE_PNG_PIXELS_OR_DIMENSIONS_CHANGED")
+    return True
+
+
 def original_review_stills(movie, gate, packet, output_dir):
     """Eight actual encoded original-frame PNGs for a *human* science handoff.
 
@@ -287,6 +357,7 @@ def original_review_stills(movie, gate, packet, output_dir):
         }
         (temporary/"REVIEW-SAMPLES-RESEARCH-ONLY.json").write_text(
             json.dumps(result,indent=2,sort_keys=True)+"\n",encoding="utf8")
+        verify_original_review_stills(temporary,gate,packet)
         os.rename(temporary,target)
     return result
 
