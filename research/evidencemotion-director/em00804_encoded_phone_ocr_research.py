@@ -12,26 +12,41 @@ import re
 import subprocess
 import unicodedata
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageDraw
 from em00803_real_mobile_contrast import execute as create_fixture_movies
-from em00805_botanical_video_probes import decode_frame, sha
+from em00805_botanical_video_probes import decode_frame, sha, encode, font
 
 EXPECTED=("AI-ILLUSTRATED BOTANICAL","NOT A 7-OH PLANT ASSAY")
 PSM=(6,11)
 WIDTHS=(320,375,430)
 TIMES=(0,30,59)
 FAKE_TERMS=("MEASURED","7OH","PLANT")
+# Conservative semantic veto. Seeing the two required disclosure lines is NOT
+# sufficient when a different, equally legible banner asserts an invented
+# chemical assay. These strings intentionally err toward HOLD on ambiguity.
+CONTRADICTORY_PLANT_ASSAY_CLAIMS=(
+    "MEASURED7OH", "7OHMEASURED", "DETECTED7OH", "7OHDETECTED",
+    "CONTAINS7OH", "THISPLANTHAS7OH", "7OHFOUNDINTHISPLANT",
+    "ASSAYCONFIRMS7OH", "LABCONFIRMED7OH", "7OHCONTENTCONFIRMED",
+)
 SCHEMA="ths-em00804-true-encoded-phone-width-ocr-research-v1"
 EXPECTED_PICTOGRAM_SHA="4c1573cc3d3ea32fd6170323941b5d00296c7d44dd990cd4f11eda8fa111df7d"
 
 def norm(s):
     return re.sub(r"[^A-Z0-9]","",unicodedata.normalize("NFKC",s).upper())
 
+def has_contradictory_plant_assay_claim(raw):
+    if not isinstance(raw,str):
+        return False
+    seen=norm(raw)
+    return any(phrase in seen for phrase in CONTRADICTORY_PLANT_ASSAY_CLAIMS)
+
 def check_recognition(raw, required=EXPECTED):
     if not isinstance(raw,str) or not raw.strip():
         return False
     seen=norm(raw)
-    return all(norm(line) in seen for line in required)
+    return (all(norm(line) in seen for line in required)
+            and not has_contradictory_plant_assay_claim(raw))
 
 def checksum(data):
     return hashlib.sha256(data).hexdigest()
@@ -143,7 +158,42 @@ def run(out):
             "tesseractPSM":layout,"encodedH264Sha256":sha(wrong),
             "ocrRawOutput":txt.strip(),"ocrOutputSha256":checksum(txt.encode()),
             "unsafeApprovalRejected":True,"unsafeMeasuredAssayRecognized":True})
-    assert len(result["negativeCases"])==8
+    # A contradictory, highly legible assay claim can coexist with both safe
+    # disclaimer lines. Encode and decode that collision, rather than trusting
+    # an authored string or testing only a movie where disclosure was replaced.
+    mixed_still=out/"mixed-disclaimer-and-false-assay.png"
+    with Image.open(root/"legible.png") as source:
+        mixed=source.convert("RGB")
+    artist=ImageDraw.Draw(mixed)
+    artist.rounded_rectangle((90,620,856,862),radius=20,
+                             fill=(9,16,18),outline=(238,241,220),width=4)
+    face=font("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",48)
+    artist.text((108,672),"MEASURED 7-OH",font=face,fill=(248,250,230))
+    artist.text((108,757),"IN THIS PLANT",font=face,fill=(248,250,230))
+    mixed.save(mixed_still)
+    mixed_movie=out/"mixed-disclaimer-and-false-assay.mp4"
+    encode(mixed_still,mixed_movie)
+    mixed_sha=sha(mixed_movie)
+    for layout in PSM:
+        actual=ocr_png(width_frame(mixed_movie,30,375,overlay=True),layout)
+        seen=norm(actual)
+        if not all(norm(line) in seen for line in EXPECTED):
+            raise ValueError("MIXED_ACTUAL_OCR_SAFE_DISCLOSURES_NOT_BOTH_VISIBLE_HOLD")
+        if not has_contradictory_plant_assay_claim(actual):
+            raise ValueError("MIXED_ACTUAL_OCR_FALSE_ASSAY_NOT_VISIBLE_HOLD")
+        if check_recognition(actual):
+            raise ValueError("VISIBLE_SAFE_DISCLOSURE_LAUNDERED_FALSE_ASSAY_HOLD")
+        result["negativeCases"].append({
+            "mode":"disclosed_but_fabricated_plant_measurement",
+            "frame":30,"width":375,"tesseractPSM":layout,
+            "encodedH264Sha256":mixed_sha,
+            "ocrRawOutput":actual.strip(),
+            "ocrOutputSha256":checksum(actual.encode()),
+            "bothExpectedDisclosureLinesRecognized":True,
+            "contradictoryAssayTextRecognized":True,
+            "unsafeApprovalRejected":True
+        })
+    assert len(result["negativeCases"])==10
     path=out/"em00804-research-receipt.json"
     path.write_text(json.dumps(result,indent=2)+"\n")
     return result
