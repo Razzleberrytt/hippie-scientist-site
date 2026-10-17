@@ -47,7 +47,7 @@ class IndependentScienceIntakeTests(unittest.TestCase):
         from claim_strength_source_limits import evaluate
         from test_claim_source_context_join import LEDGER,visual_fixture
         film=Path(root)/"synthetic-candidate.mp4"
-        film.write_bytes(b"ALTERNATE CURRENT FILM — fixture only")
+        film.write_bytes(b"ALTERNATE CURRENT FILM - fixture only")
         sha=hashlib.sha256(film.read_bytes()).hexdigest()
         visual=visual_fixture()
         visual["filmSha256"]=sha
