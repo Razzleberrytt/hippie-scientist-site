@@ -29,6 +29,11 @@ class AudioOnlyRemasterTests(unittest.TestCase):
                         "-map", "0:v:0", "-map", "1:a:0", "-c:v", "libx264",
                         "-c:a", "aac", "-y", str(cls.wrong)], check=True)
 
+        cls.resampled = cls.root / "resampled-audio.mp4"
+        subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", str(cls.orig),
+                        "-map", "0:v:0", "-map", "0:a:0", "-c:v", "copy", "-af", "volume=1.5",
+                        "-ar", "48000", "-ac", "1", "-c:a", "aac", "-y", str(cls.resampled)], check=True)
+
     @classmethod
     def tearDownClass(cls):
         cls.temp.cleanup()
@@ -41,6 +46,32 @@ class AudioOnlyRemasterTests(unittest.TestCase):
         self.assertFalse(result["mayPublish"])
         self.assertFalse(result["firstExcellentMasterAccepted"])
         self.assertEqual(result["atomicCardsNewlyAccepted"], 0)
+
+    def test_declared_48000_hz_resample_keeps_video_identity_and_hold(self):
+        result = inspect(source=self.orig, remaster=self.resampled,
+                         source_sha=sha(self.orig), remaster_sha=sha(self.resampled),
+                         expected_remaster_sample_rate=48000)
+        self.assertEqual((result["sourceAudioSampleRateHz"], result["remasterAudioSampleRateHz"]),
+                         (44100, 48000))
+        self.assertTrue(result["audioResamplingExplicitlyPinned"])
+        self.assertTrue(result["videoPacketsAndTimestampsIdentical"])
+        self.assertFalse(result["mayPublish"])
+        self.assertFalse(result["firstExcellentMasterAccepted"])
+        self.assertFalse(result["fiveRenderStreakAccepted"])
+
+    def test_resample_without_correct_external_pin_fails_closed(self):
+        for pin in (None, 44100, 96000, True):
+            with self.subTest(expected_sample_rate=pin):
+                with self.assertRaisesRegex(ValueError, "UNDECLARED_AUDIO_SAMPLE_RATE_CHANGE"):
+                    inspect(source=self.orig, remaster=self.resampled,
+                            source_sha=sha(self.orig), remaster_sha=sha(self.resampled),
+                            expected_remaster_sample_rate=pin)
+
+    def test_declared_wrong_rate_cannot_disguise_unchanged_audio_format(self):
+        with self.assertRaisesRegex(ValueError, "EXPECTED_AUDIO_SAMPLE_RATE_MISMATCH"):
+            inspect(source=self.orig, remaster=self.loud,
+                    source_sha=sha(self.orig), remaster_sha=sha(self.loud),
+                    expected_remaster_sample_rate=48000)
 
     def test_tampered_source_external_hash_refused(self):
         with self.assertRaisesRegex(ValueError, "MEDIA_PIN_MISMATCH"):
