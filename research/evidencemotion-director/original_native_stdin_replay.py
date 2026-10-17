@@ -179,6 +179,37 @@ def assert_original_renderer_module_import_safe(source_dir, *, loaded=None):
     return True
 
 
+def release_owned_original_renderer_modules(source_dir):
+    """Uncache only the archival Python modules loaded by this replay.
+
+    A provenance guard that rejects any preloaded renderer would otherwise
+    reject a legitimate second replay inside the same Python process. The
+    pre-import check establishes that these names were initially absent.
+    Do NOT evict foreign-origin modules: that could erase another owner's
+    cached code after an unexpected import-path collision.
+    """
+    from original_replay_source_restore import PINNED
+
+    owned = []
+    for name in PINNED:
+        module_name = name[:-3]
+        loaded = sys.modules.get(module_name)
+        if loaded is None:
+            continue
+        expected = (Path(source_dir) / name).resolve()
+        location = getattr(loaded, "__file__", None)
+        origin = getattr(getattr(loaded, "__spec__", None), "origin", None)
+        if (not isinstance(location, str) or not isinstance(origin, str)
+                or Path(location).resolve() != expected
+                or Path(origin).resolve() != expected):
+            raise ValueError(
+                "NATIVE_ORIGINAL_HOLD:ARCHIVED_RENDERER_CACHE_ORIGIN_DRIFT:" + module_name)
+        owned.append(module_name)
+    for module_name in owned:
+        del sys.modules[module_name]
+    return tuple(owned)
+
+
 def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
     import PIL
     from PIL import Image
@@ -326,7 +357,12 @@ def replay(*, source_dir, font_dir, wav_path, archive_dir, out_dir, run_id):
             process.wait()
         raise
     finally:
-        sys.path.pop(0)
+        try:
+            release_owned_original_renderer_modules(source_dir)
+        finally:
+            if not sys.path or sys.path[0] != str(source_dir):
+                raise ValueError("NATIVE_ORIGINAL_HOLD:ARCHIVED_RENDERER_IMPORT_PATH_DRIFT")
+            sys.path.pop(0)
 
 
 
