@@ -11,6 +11,7 @@ import unittest
 from unittest.mock import patch
 import wave
 import repeated_term_acoustic_guard as original_guard
+import gut_caption_audio_gate as gut_voice_gate
 
 import numpy as np
 
@@ -421,6 +422,88 @@ class SpectralNegativeTests(unittest.TestCase):
                 digest(aac.read_bytes()),digest(altered.read_bytes()))
         self.assertIn("NATIVE_MUX_VIDEO_PACKET_OR_TIMELINE_CHANGED",
                       r["errors"])
+
+
+    @staticmethod
+    def gut_synthetic_cues():
+        return [(i+1, round(i*1.2, 2), round(i*1.2+.70, 2),
+                 "Synthetic placeholder cue") for i in range(19)]
+
+    @staticmethod
+    def gut_synthetic_pcm(cues):
+        signal = np.zeros((24*48000, 2), dtype=np.float32)
+        for _, start, end, _ in cues:
+            lo, hi = round(start*48000), round(end*48000)
+            t = np.arange(hi-lo, dtype=float)/48000
+            voice = .07*np.sin(2*np.pi*330*t)
+            signal[lo:hi, 0] = voice
+            signal[lo:hi, 1] = voice
+        return signal
+
+    def test_gut_19_cue_srt_must_not_overlap(self):
+        def stamp(ms):
+            hours = ms//3600000
+            minutes = (ms//60000)%60
+            seconds = (ms//1000)%60
+            return f"{hours:02}:{minutes:02}:{seconds:02},{ms%1000:03}"
+        blocks = []
+        for i, (_, start, end, phrase) in enumerate(
+                self.gut_synthetic_cues(), 1):
+            blocks.append(f"{i}\n{stamp(int(start*1000))} --> "
+                          f"{stamp(int(end*1000))}\n{phrase}")
+        raw = ("\n\n".join(blocks) + "\n").encode()
+        self.assertEqual(len(gut_voice_gate.parse_srt(raw)), 19)
+        with self.assertRaisesRegex(ValueError, "EXACT_19"):
+            gut_voice_gate.parse_srt(("\n\n".join(blocks[:-1])).encode())
+        with self.assertRaisesRegex(ValueError, "INDEX"):
+            gut_voice_gate.parse_srt(raw.replace(b"19\n", b"99\n", 1))
+        with self.assertRaisesRegex(ValueError, "OVERLAP"):
+            gut_voice_gate.parse_srt(raw.replace(
+                b"00:00:01,200", b"00:00:00,500", 1))
+
+    def test_gut_pcm_activity_research_hold_never_verifies_phonemes(self):
+        cues = self.gut_synthetic_cues()
+        pcm = self.gut_synthetic_pcm(cues)
+        r = gut_voice_gate.audit_pcm_cues(pcm, cues)
+        self.assertEqual(r["status"], "RESEARCH_GUT_AUDIO_SRT_COVERAGE_HOLD",r)
+        self.assertEqual(r["matchedSrtCueCount"], 19)
+        for key in ("mayPublish", "wordTimingCalibrated", "scienceApproved",
+                    "spokenWordsConfirmedAgainstCaptions"):
+            self.assertFalse(r[key])
+
+    def test_gut_muted_caption_audio_is_automatically_flagged(self):
+        cues = self.gut_synthetic_cues()
+        pcm = self.gut_synthetic_pcm(cues)
+        start = int(round(cues[4][1]*48000))
+        pcm[start:start+int(.6*48000)] = 0
+        r = gut_voice_gate.audit_pcm_cues(pcm, cues)
+        self.assertEqual(r["status"], "HOLD")
+        self.assertIn(5, r["lowActivityCueIds"])
+
+    def test_gut_unsubtitled_spoken_gap_is_automatically_flagged(self):
+        cues = self.gut_synthetic_cues()
+        pcm = self.gut_synthetic_pcm(cues)
+        start = int(round((cues[0][2]+.06)*48000))
+        t = np.arange(int(.4*48000))/48000
+        pcm[start:start+len(t), :] = (
+            .07*np.sin(2*np.pi*300*t))[:,None]
+        r = gut_voice_gate.audit_pcm_cues(pcm, cues)
+        self.assertEqual(r["status"], "HOLD")
+        self.assertGreater(len(r["highActivityDeclaredGapIntervals"]), 0)
+
+    def test_gut_codec_and_wrong_source_hashes_never_promote(self):
+        with tempfile.TemporaryDirectory() as td:
+            fakefilm = Path(td)/"latest.mp4"
+            fakesrt = Path(td)/"captions.srt"
+            fakefilm.write_bytes(b"this is not a real Gut MP4")
+            fakesrt.write_bytes(b"fabricated")
+            r = gut_voice_gate.audit_pinned_film_srt(fakefilm, fakesrt)
+            self.assertIn("FILM_SHA_MISMATCH", r["errors"][0])
+            with patch.object(gut_voice_gate, "GUT_FILM_SHA",
+                              gut_voice_gate.digest(fakefilm.read_bytes())):
+                r = gut_voice_gate.audit_pinned_film_srt(fakefilm, fakesrt)
+            self.assertIn("CAPTION_SOURCE_SHA_MISMATCH", r["errors"][0])
+            self.assertFalse(r["mayPublish"])
 
     def test_gain_independent_positive_is_not_phonetic_proof(self):
         a=tone(240)
