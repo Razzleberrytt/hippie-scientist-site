@@ -81,6 +81,21 @@ class ActualEncodedPhoneIndependentOCR(unittest.TestCase):
             self.assertTrue(case["bothExpectedDisclosureLinesRecognized"])
             self.assertTrue(case["contradictoryAssayTextRecognized"])
 
+    def test_actual_encoded_safe_disclosure_plus_present_7oh_holds(self):
+        bad=[x for x in self.receipt["negativeCases"]
+             if x["mode"]=="disclosed_but_fabricated_plant_presence"]
+        self.assertEqual(len(bad),2)
+        self.assertEqual({x["tesseractPSM"] for x in bad},set(PSM))
+        self.assertEqual(len({x["encodedH264Sha256"] for x in bad}),1)
+        for case in bad:
+            raw=case["ocrRawOutput"]
+            self.assertTrue(all(norm(line) in norm(raw) for line in EXPECTED),raw)
+            self.assertTrue("7OHPRESENT" in norm(raw),raw)
+            self.assertTrue(has_contradictory_plant_assay_claim(raw),raw)
+            self.assertFalse(check_recognition(raw),raw)
+            self.assertTrue(case["unsafeApprovalRejected"])
+            self.assertTrue(case["bothExpectedDisclosureLinesRecognized"])
+
     def test_semantic_veto_even_if_both_required_lines_are_present(self):
         safe="AI-ILLUSTRATED BOTANICAL\nNOT A 7-OH PLANT ASSAY"
         self.assertTrue(check_recognition(safe))
@@ -88,7 +103,9 @@ class ActualEncodedPhoneIndependentOCR(unittest.TestCase):
                       "7-OH DETECTED IN LEAVES",
                       "THIS PLANT HAS 7-OH",
                       "LAB CONFIRMED 7-OH CONTENT",
-                      "ASSAY CONFIRMS 7-OH"):
+                      "ASSAY CONFIRMS 7-OH",
+                      "7-OH PRESENT IN THIS PLANT",
+                      "IDENTIFIED 7-OH IN THE LEAF"):
             with self.subTest(claim=claim):
                 self.assertTrue(has_contradictory_plant_assay_claim(safe+"\n"+claim))
                 self.assertFalse(check_recognition(safe+"\n"+claim))
