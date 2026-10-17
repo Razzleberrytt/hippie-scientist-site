@@ -23,6 +23,95 @@ Current independently replayed research example (not a GitHub repository binary 
 
 The current example was freshly assembled from the 12 required hosted payloads and replayed offline with the unmocked FFprobe/FFmpeg probe. Both real videos decoded as 1,031 native frames, the original had one AAC stream and the muted copy had none, and the extracted AAC hash matched the table. The result was `PASS_RESEARCH_ONLY_RELEASE_HELD`. This demonstrates this particular research handoff, not a cold render, audience comprehension, permanent escrow or production rollback. Different ZIP packaging may change its outer hash; use a separately recorded trusted hash for those exact new archive bytes, never infer it from this table.
 
+## Lane 5: exact original-native physical receiver handoff (research-only, Oct 16)
+
+This is a **different** film/protocol from the CID-bound 99%-pixel operator
+example above. Never mix that bundle's manifest, movie hash, or 12 reports
+with original-native A/B archives. The original-native receiver's evidence
+is a **reproducibility and media-integrity check**, not an excellent first
+render or a revision of the 99% film.
+
+**Observed successes (source-controlled):** [first two archived A/B repeats
+and physical receipts](EM04201-TWO-ORIGINAL-NATIVE-RENDERS-PHYSICAL-RECEIPT-20261016.md),
+then [current-code successful hosted receiver #38987744520](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/38987744520).
+Its [small receiver-only HOLD artifact](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/38987744520/artifacts/12083637497)
+records both downloaded 1031-frame H.264/AAC movies fully decoded, both
+real x264 logs inspected, two physical source/movie SHA comparisons agreeing,
+and `mayPublish=false`. The underlying historical full-video source comes
+from [first-party workflow #38975231562](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/38975231562),
+artifacts named `em-lane5-native-full-a` and `em-lane5-native-full-b`.
+Their source-workflow SHA must not be relabeled as a new/current render.
+
+### Recovery commands, without rendering or a paid media service
+
+Use an isolated clone of the **specific research PR source commit** from
+[PR #6846](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6846),
+not `main` while that PR is draft. Commit `116b6792722013d9e4213bb429705f4b417bb8ee`
+has the fully tested fail-closed no-clobber reader; a later commit needs its
+**own** validation evidence. Requires Python 3.11+, GitHub CLI with permission
+to read first-party Actions artifacts, and Ubuntu-style
+`/usr/bin/ffmpeg` + `/usr/bin/ffprobe`. From the checkout root:
+
+```bash
+set -euo pipefail
+git fetch origin research/em-lane5-native-stdin-receipt-ci-20261016
+git switch --detach 116b6792722013d9e4213bb429705f4b417bb8ee
+mkdir -p /tmp/em-lane5-receiver/a /tmp/em-lane5-receiver/b
+gh run download 38975231562 --repo Razzleberrytt/hippie-scientist-site \
+  --name em-lane5-native-full-a --dir /tmp/em-lane5-receiver/a
+gh run download 38975231562 --repo Razzleberrytt/hippie-scientist-site \
+  --name em-lane5-native-full-b --dir /tmp/em-lane5-receiver/b
+
+for label in a b; do
+  root="/tmp/em-lane5-receiver/$label"
+  test "$(find "$root" -maxdepth 1 -type f | wc -l)" -eq 4
+  printf '%s  %s\n' \
+    'c100779c2c6c15005fdef9c5166da957c8dd6f51226d45f7c2264f0a89206322' \
+    "$root/specimen_NEW_RESEARCH_CANDIDATE.mp4" | sha256sum -c -
+  printf '%s  %s\n' \
+    '401c5c7eec184d77aeaf16bd55c430e4515106b130d4cdcd0ce39d052cbc7a88' \
+    "$root/environment.json" | sha256sum -c -
+done
+python research/evidencemotion-director/original_native_stdin_replay.py compare \
+  --first /tmp/em-lane5-receiver/a \
+  --second /tmp/em-lane5-receiver/b \
+  --out /tmp/em-lane5-receiver/NEW-PAIR-RESEARCH-HOLD.json
+```
+
+The `--out` name **must not already exist**: the source refuses to overwrite
+existing bytes or symlinked destinations. Inspect
+`NEW-PAIR-RESEARCH-HOLD.json` before interpreting anything. Expect:
+`twoDownloadedNativeMoviesIndependentlyFullyDecoded=true`,
+`twoPhysicalX264DisabledCpuAsmLogsIndependentlyValidated=true`,
+`twoResearchSingleThreadEncodedMoviesBitwiseIdentical=true`,
+`twoActualIndependentJobExecutionsAuthenticated=false`,
+`nativeFullMediaDecodeAndCraftApproved=false`, `mayPublish=false`,
+and status `SINGLE_THREAD_ORIGINAL_SOURCE_H264_BITWISE_REPLAY_RESEARCH_HOLD`.
+A fully successful research receipt is **not** a publication receipt.
+
+**Retention/escrow limit:** These native artifacts were uploaded with a
+**7-day** GitHub retention period on Oct 16, not a permanent archive; their
+availability ends around Oct 23, subject to GitHub retention and deletion.
+If `gh run download` cannot retrieve one, return
+`HOLD: SOURCE ARTIFACT EXPIRED OR UNAVAILABLE`. Do not silently substitute
+Lane 1's other archived movie, a modified scene, the older CID-bound film, or
+an entirely new expensive render. If a prior separately retained physical
+copy exists, independently check both entire archive hashes, member paths,
+MP4/environment SHA pins and receiver validation; never rely on a filename.
+Do not upload third-party protected reference clips or credentials to the
+repository. This guide and the SHA ledger preserve traceability **but not
+the inaccessible WAV, raw source or physical video bytes**.
+
+**What the operator actually does next:** When Lane 3 delivers its *revised
+complete film plus sidecars*, route it through the distinct Lane 6 intake
+and Lane 4 exact-film phone checks. That changed movie cannot inherit this
+older original's decoded-media receipt or academic/source/art verdicts.
+Qualified source/voice/phonetic reviews, actual iPhone playback, calibrated
+human comprehension and craft, creative first-final attempt identity,
+authorized release and true production rollback remain blocked. Excellent
+first **0/1**, five diverse consecutive excellent first renders **0/5**,
+and posting prohibited.
+
 ## Rehearse it independently, offline
 
 Prerequisites: Python 3.11+ standard library and FFprobe/FFmpeg installed locally. No cloud login needed. From the repository root, run this command with a separately trusted expected hash:
@@ -41,11 +130,11 @@ Expected stdout/receipt: **PASS_RESEARCH_ONLY_RELEASE_HELD**. This checks actual
 
 1. **Quarantine before acceptance:** place the original research ZIP in an immutable, hash-addressed candidate location; keep previous verified candidate active and never post to TikTok/YouTube/Meta or change production website integrations.
 2. **Verify:** run the command above. On any RESEARCH_HANDOFF_HOLD, do not overwrite the last good ZIP or tweak an expected hash to bless corrupted content. Save the failure reason and source SHA inventory.
-3. **Negative tests:** from repository root run: python -m unittest discover -s research/evidencemotion-director -p test_operator_evidence_rehearsal.py -v. Twenty-three hermetic tests cover altered video/phone hashes, fake approval or human reviewers, missing receipts, altered negative controls, extra unsafe ZIP files, duplicate names, symlinks and path traversal. They also reject a substituted movie despite internally refreshed hashes, wrong source WAV, missing full-decode proof and an extracted AAC stream that differs from the technical receipt. Synthetic probes test contracts only; the unmocked actual-media example above is separate evidence.
+3. **Negative tests:** from repository root run: python -m unittest discover -s research/evidencemotion-director -p test_operator_evidence_rehearsal.py -v. Twenty-five hermetic tests cover altered video/phone hashes, fake approval or human reviewers, missing receipts, altered negative controls, extra unsafe ZIP files, duplicate names, symlinks and path traversal. They also reject a substituted movie despite internally refreshed hashes, wrong source WAV, missing full-decode proof and an extracted AAC stream that differs from the technical receipt. Synthetic probes test contracts only; the unmocked actual-media example above is separate evidence.
 4. **Research-only rollback:** the rehearsal simulates a corrupt new research candidate while retaining the known-good research hash. It does not contact production, write deployment state or claim a real-world rollback. Video decode failure requires further actual-player testing; voice failure requires the exact WAV and qualified ear/acoustic ground truth; science mismatch requires new primary-source review; weak craft requires re-edit and independent reference comparison.
-5. **Durable escrow:** outside any ephemeral runner retain the original ZIP and source WAV bytes, full renderer/chemical source/lexicon, exact final MP4, all QA/report/reviewer/device data, signed or recorded identities, review/rollback decision and old approved manifests. Re-check SHA on restore. ChatGPT sandbox and 14-day GitHub Actions artifacts are not permanent storage by themselves.
+5. **Durable escrow:** outside any ephemeral runner retain the original ZIP and source WAV bytes, full renderer/chemical source/lexicon, exact final MP4, all QA/report/reviewer/device data, signed or recorded identities, review/rollback decision and old approved manifests. Re-check SHA on restore. ChatGPT sandbox and GitHub Actions artifacts (7 days for the Lane 5 original receiver) are not permanent storage by themselves.
 6. **Actual production promotion and rollback (future):** only after explicit owner authority, real device playback, separate science and craft review, and any established quality streak. Record flag state, old/new asset hashes, operator, timestamp and deployment receipt. If a release fails, revert the approved feature flag in the real authorized controller and verify the old live content; **never** pass a simulated rehearsal as the production rollback.
 
 ## Canonical progress accounting
 
-This guide, the standalone byte-level verifier, actual research-bundle rehearsal, and twenty-three safety and rejection tests reduce dependency on this conversation. **Do not mark EvidenceMotion checklist #46 complete** until an authorized canonical release/rollback and durable complete WAV/source escrow are also independently demonstrated. 26/46 is the canonical current completed count; 99% is a research-only metric for a different requirement, not an audience success rate.
+This guide, the standalone byte-level verifier, actual research-bundle rehearsal, and twenty-five safety and rejection tests reduce dependency on this conversation. **Do not mark EvidenceMotion checklist #46 complete** until an authorized canonical release/rollback and durable complete WAV/source escrow are also independently demonstrated. 26/46 is the canonical current completed count; 99% is a research-only metric for a different requirement, not an audience success rate.
