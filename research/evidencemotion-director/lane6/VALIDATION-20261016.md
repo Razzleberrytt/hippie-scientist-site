@@ -708,3 +708,33 @@ receipt newline failure remains owner-unapplied. Source heads remain the pinned
 snapshot, not a rolling latest-head claim. Only Lane6 docs/receipt change; build
 not rerun for this access-only verification. No merge, deployment, scientific,
 voice, craft, handset or publication acceptance; mayPublish=false, atomic credit 0.
+
+
+## October 17 complete replay/attempt-guard integration suites
+
+Lane5 advanced to selected head `3489cbdfd1c8c069c6fd5f26e6c46ce2decdcf6c`.
+Fetched that exact object, combined it with the prior pinned six-lane snapshot
+using unreferenced git objects only: merge-tree exit 0, resulting source tree
+`d2a9b70e81241fd8e876ad5fbafbed6e9b8cac2a`. No lane branch/ref, owner source, workflow or production
+behavior changed. Other lanes remain pinned to the previous receipt; this is not
+an all-latest-head claim. Archived source copied only into new private staging.
+
+Fresh Ubuntu Python3.12.3 using installed real `/usr/bin` FFmpeg/FFprobe:
+- `python3 -B -m unittest -v test_native_stdin_capture_guard`: **94/94 PASS**,
+  no errors/failures/skips, **exit0**, 2.804s.
+- Separate process `python3 -B -m unittest -v test_five_render_attempt_guard`:
+  **35/35 PASS**, no errors/failures/skips, **exit0**, 0.392s.
+
+**129/129** across the complete selected suites, not a re-run of all 543 previous
+combined tests. Separate-process execution preserves the archived renderer import
+admission contract; no module-cache guard disabled. This extends the eight-media
+follow-up to current selected Lane5 source and companion attempt-history guards.
+After execution all **171 archived Python files** remain byte-identical to
+pinned Git-tree contents, exit0. Exact pins, commands, full logs/hashes and results:
+`receipts/linux-complete-replay-guards-20261017.json`.
+
+Only Lane6 docs/receipt changed; access-only production-build exception applies.
+No original/full latest film, ear/phoneme, science, craft, handset, deployment or
+publication approval. Previous Windows aggregate stays exit1; known Lane3 Windows
+canonical receipt error remains open; no all-project green claim. mayPublish=false,
+newAtomicCards=0, no merge or normal implementation WIP added.
