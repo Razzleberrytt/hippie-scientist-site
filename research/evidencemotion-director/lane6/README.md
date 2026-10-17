@@ -21,24 +21,28 @@ independently obtained pin SHA. No network or paid service is used.
 
 **Actual revised bytes received; complete intake HOLD.** The sole received-candidate
 and blocker registry is [`CURRENT-HANDOFF.json`](CURRENT-HANDOFF.json), backed by
-[`receipts/revised-shot5-physical-receiver-20261017.json`](receipts/revised-shot5-physical-receiver-20261017.json).
-Lane6 independently downloaded the exact owner Library archive
-`EvidenceMotion_Lane3_Shot5_Mobile_Safe_Research_20261017.zip`, outer SHA
-`404df9ba41ffa3dde87d638d5500d5e7318c50b50681ce2c766ba7830adda196`.
-Revised movie SHA `fdece1d9bbd021d514c2510c5bf1e787a2555712f0fd48af8807994ed1816725`:
-ZIP CRC and 12/12 member hashes verified; both before/revised movies fully A/V
-decoded, 1031 native H264 frames each; AAC SHA and all 807 packet timing triples
-match. Original WAV and authored nine-shot story are physically received.
+[`receipts/sequential-scene4-physical-receiver-20261017.json`](receipts/sequential-scene4-physical-receiver-20261017.json).
+Lane6 independently downloaded exact owner Library archive
+`EvidenceMotion_Lane3_Scene4_Sequential_Safe_Research_20261017.zip`, outer SHA
+`81ac8b662e5f270e0c78370b1992b6e620f12cbc14ad98347459fb64a2bed381`.
+Revised movie SHA `45f86dad98f82dbe0e7e21f831529a8bc4256a8a053bd74a94c5666d03a5e122`:
+ZIP CRC and 14/14 member hashes verified; prior/current movies fully A/V decoded,
+1031 native H264 frames each; AAC SHA and all 807 timing/size packet records match.
+Original WAV and authored nine-shot story are physically received. Prior `fdece1d9...`
+receipt remains historical and is retained in the registry; do not call it current.
 
-Story binds this revised film/WAV but `phonePlanSha256` is null. No complete
-seven-role intake/claim/asset/caption/review package is present. Local shared
-attachment path and automatic Library retrieval route are recorded in the registry;
-other lanes must verify their access and exact bytes. This is candidate identity,
-not science/voice/craft/mobile/publication acceptance. `mayPublish=false`.
+Story binds this current film/WAV but `phonePlanSha256` remains null. Its
+`renderReceiptSha256` resolves to the prior Shot5 receipt (not included in current
+archive), rather than current included physical audit SHA. This needs an authored
+current-vs-historical proof distinction or corrected binding. No complete seven-role
+caption/claim/asset/lineage/review intake is present. Registry also preserves exact
+Lane1 opening-label and Lane4 footer-padding redlines as owner-reported, not Lane6
+retests. Current source hash/proof is required after their repair.
 
-The older `e79e4474...` candidate was never received here; its
-`shot5-reported-expectation.json` is a historical INCOMPLETE expectation, not a
-current candidate or verified fallback. Do not promote it or an archive to latest.
+Local shared attachment path and automatic Library retrieval route are in the
+registry; other lanes must verify access/bytes. No science/voice/craft/mobile or
+publication acceptance; `mayPublish=false`. The older `e79e4474...` expectation
+remains historical, INCOMPLETE and unreceived, never a verified fallback.
 
 ## Deliver, pin, check, transfer
 
@@ -128,7 +132,7 @@ current candidate or verified fallback. Do not promote it or an archive to lates
    `--handoff`. Its `files` map must match the sender's receipt exactly. Lane 4
    then runs its own current exact-film OCR/pixel and muted-comprehension audits
    against the role paths. That includes early/middle/late same-crop ordered
-   `STRUCTURE â‰  HUMAN EXPERIENCE`, CIDs, computed/not-filmed caveats and mobile
+   `STRUCTURE Ã¢â€°Â  HUMAN EXPERIENCE`, CIDs, computed/not-filmed caveats and mobile
    reading. The bridge does not invoke or award those independent reviews.
 
 Exit codes: `0 = PASS` for intake only, `1 = FAIL` for malformed/mismatched or

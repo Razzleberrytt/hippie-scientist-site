@@ -1,26 +1,26 @@
 {
   "schema": "em-lane6-current-handoff-1",
   "scope": "one-exact-received-research-candidate-not-release",
-  "candidateVideoSha256": "fdece1d9bbd021d514c2510c5bf1e787a2555712f0fd48af8807994ed1816725",
-  "candidatePath": "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-fdece1d9/film/shot5_mobile_safe_research.mp4",
+  "candidateVideoSha256": "45f86dad98f82dbe0e7e21f831529a8bc4256a8a053bd74a94c5666d03a5e122",
+  "candidatePath": "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-45f86dad/films/new_Sequential2D_3D_Shot5_safe_research.mp4",
   "archive": {
-    "name": "EvidenceMotion_Lane3_Shot5_Mobile_Safe_Research_20261017.zip",
-    "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-fdece1d9\\EvidenceMotion_Lane3_Shot5_Mobile_Safe_Research_20261017.zip",
-    "bytes": 5239915,
-    "sha256": "404df9ba41ffa3dde87d638d5500d5e7318c50b50681ce2c766ba7830adda196",
+    "name": "EvidenceMotion_Lane3_Scene4_Sequential_Safe_Research_20261017.zip",
+    "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-45f86dad\\EvidenceMotion_Lane3_Scene4_Sequential_Safe_Research_20261017.zip",
+    "bytes": 5220499,
+    "sha256": "81ac8b662e5f270e0c78370b1992b6e620f12cbc14ad98347459fb64a2bed381",
     "zipCrc": "PASS",
-    "manifestMembersVerified": 12
+    "manifestMembersVerified": 14
   },
   "originalWavSha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
-  "storySha256": "3c48c814244d9b3bb6ac1fdbb28e98a68c7cada48031eb0a410801c9ee978ffa",
+  "storySha256": "e2fff8be001a692749c47617498f6c9654ef8a50666f223a54c49786d5ad44fb",
   "phonePlanSha256": null,
-  "receipt": "receipts/revised-shot5-physical-receiver-20261017.json",
-  "status": "HOLD_INCOMPLETE_SIDECARS",
+  "receipt": "receipts/sequential-scene4-physical-receiver-20261017.json",
+  "status": "HOLD_INCOMPLETE_SIDECARS_AND_REPORTED_REDLINES",
   "blockers": [
     {
       "id": "L6-REVISED-BYTES",
       "status": "RESOLVED_THIS_CONTEXT",
-      "evidence": "SHA/CRC/12 member hashes; two full A/V decode exit0; 1031 native H264 frames each; AAC SHA and 807 timestamp triples identical"
+      "evidence": "SHA/CRC/14 member hashes; prior/current full A/V decode exit0;1031 native H264 frames each;AAC SHA and807 timestamp/duration/size packet records identical"
     },
     {
       "id": "L6-PHONE-PLAN",
@@ -33,11 +33,6 @@
       "status": "OPEN",
       "owner": "Lane3 source handoff with source-review owners",
       "evidence": "Archive does not provide a complete independently pinned seven-role package, separate exact timed caption and claim/asset manifests, matching lineage and current review sidecars; do not synthesize authority from received manifest"
-    },
-    {
-      "id": "L6-CANDIDATE-QUALITY",
-      "status": "HOLD_NOT_REVIEWED_BY_LANE6",
-      "evidence": "Sender reports Scene4 mobile issue persists; prior-candidate reviews do not establish current SHA acceptance. This batch verifies bytes/decode only"
     },
     {
       "id": "L6-CROSS-CONTEXT-ACCESS",
@@ -53,13 +48,61 @@
       "id": "L6-LINUX-MEDIA-RUNTIME",
       "status": "RESOLVED_TEST_ENVIRONMENT",
       "evidence": "linux-media-eight-test-followup-20261017.json and linux-complete-replay-guards-20261017.json; not full original-film reproduction"
+    },
+    {
+      "id": "L6-CURRENT-RENDER-RECEIPT",
+      "status": "OPEN_PHYSICALLY_VERIFIED_REFERENCE_MISMATCH",
+      "owner": "Lane3 source-story handoff",
+      "evidence": {
+        "sha256": "e2fff8be001a692749c47617498f6c9654ef8a50666f223a54c49786d5ad44fb",
+        "candidateAndWavHashesMatchReceivedBytes": true,
+        "shots": 9,
+        "phonePlanSha256": null,
+        "renderReceiptSha256": "fec3d175760c8d870aae2b4519a2e312bb423a2082f6126fd12d2d85a71c856e",
+        "renderReceiptPresentInCurrentArchive": false,
+        "actualCurrentPhysicalReceiptSha256": "1d2a065c97e3cc81f1796dce84b213b39b267236e0c46639f51af9fcf64295cc",
+        "referencedPriorReceiptCandidateSha256": "fdece1d9bbd021d514c2510c5bf1e787a2555712f0fd48af8807994ed1816725"
+      },
+      "requiredDisposition": "Bind current renderReceiptSha256 to the included current-candidate proof, or explicitly distinguish historical lineage from current proof in authored schema; include all referenced proof bytes"
+    },
+    {
+      "id": "L6-SCIENCE-OPENING-LABEL",
+      "status": "OWNER_REPORTED_CURRENT_SHA_HOLD_NOT_RERUN_BY_LANE6",
+      "owner": "Lane3 repair; Lane1 source review",
+      "source": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6831#issuecomment-6233836204",
+      "evidence": "Lane1 reports No reaction on both opening identity shots frames0-104 could imply no biological reaction; requires unambiguous graphic-only wording/removal without original audio/structure changes"
+    },
+    {
+      "id": "L6-MOBILE-FOOTER-SPACING",
+      "status": "OWNER_REPORTED_CURRENT_SHA_HOLD_NOT_RERUN_BY_LANE6",
+      "owner": "Lane3 repair; Lane4 physical review",
+      "source": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6831#issuecomment-6233806151",
+      "evidence": "Lane4 reports right-strip repair but only 1 native pixel between glyph bottom977 and cyan border978 in107frames; >=12px requested research padding criterion, not WCAG or handset proof"
     }
   ],
-  "nextSingleDependency": "Receive an authored non-null phone-safe plan and remaining exact-candidate caption/claim/asset/lineage/review sidecars; original revised bytes no longer require manual user shuttling in this context",
+  "nextSingleDependency": "One corrected Lane3 full-film bundle addressing existing owner redlines with non-null authored phone plan, complete caption/claim/asset/lineage/review sidecars and explicit current render-proof binding; independent Lane1/4 recheck required",
   "retrievalRoute": "Authenticated Chrome -> ChatGPT Library -> exact archive filename -> Download -> verify independently against archive SHA and member pins; do not use historical media as fallback",
   "mayPublish": false,
   "machineReviewed": "SHA/CRC/A-V decode and packet identities only",
   "externalIndependentReviewed": false,
   "physicalPhoneReviewed": false,
-  "newAtomicCards": 0
+  "newAtomicCards": 0,
+  "previousReceivedCandidates": [
+    {
+      "candidateVideoSha256": "fdece1d9bbd021d514c2510c5bf1e787a2555712f0fd48af8807994ed1816725",
+      "archive": {
+        "name": "EvidenceMotion_Lane3_Shot5_Mobile_Safe_Research_20261017.zip",
+        "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-fdece1d9\\EvidenceMotion_Lane3_Shot5_Mobile_Safe_Research_20261017.zip",
+        "bytes": 5239915,
+        "sha256": "404df9ba41ffa3dde87d638d5500d5e7318c50b50681ce2c766ba7830adda196",
+        "zipCrc": "PASS",
+        "manifestMembersVerified": 12
+      },
+      "originalWavSha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+      "storySha256": "3c48c814244d9b3bb6ac1fdbb28e98a68c7cada48031eb0a410801c9ee978ffa",
+      "receipt": "receipts/revised-shot5-physical-receiver-20261017.json",
+      "status": "PREVIOUS_RECEIVED_CANDIDATE_NOT_CURRENT"
+    }
+  ],
+  "headFreshnessBoundary": "Current means latest independently received candidate at this recorded handoff, not a rolling latest renderer or approval claim."
 }

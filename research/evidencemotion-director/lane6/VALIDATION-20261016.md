@@ -771,3 +771,35 @@ closed THIS context only; complete seven-role intake HOLD, mayPublish=false,
 newAtomicCards=0. No other lane source or runtime behavior change. Access-only
 receipt/docs batch; no production build rerun. Existing media quality findings
 remain reported/pending current-SHA owner review, not duplicated here.
+
+
+## October 17 sequential Scene4 receiver + current-proof reference finding
+
+Changed input justifies new physical receiver check: exact owner Library archive
+`EvidenceMotion_Lane3_Scene4_Sequential_Safe_Research_20261017.zip`, 5,220,499bytes,
+SHA81ac8b662e5f270e0c78370b1992b6e620f12cbc14ad98347459fb64a2bed381.
+Authenticated browser download; unchanged ZIP copied to shared local attachment
+root `C:/Users/Will/.codex/attachments/lane6-revised-receiver-45f86dad`.
+CRC PASS, exact inventory14manifest-pinned payloads + SHA256SUMS;14/14 physical
+hashes PASS. Prior fdece1d9 and current45f86dad each full FFmpeg -xerror A/V decode
+exit0; independent ffprobe1031H264 native1080x1920/30fps each. AAC SHAf0057c19...
+identical and807 integer PTS/DTS/duration/size records equal. Original WAV9dca049e...
+verified; nine-shot storye2fff8be... binds actual candidate and WAV; phone plan null.
+
+New physically proven lineage gap: story renderReceiptSha256=fec3d175... matches
+previously received Shot5 receipt whose candidateSha256=fdece1d9..., not the
+current45f86dad. Referenced receipt absent from current archive; included new
+physical_film_audit.json SHA1d2a065c... identifies45f86dad. Do not silently alter
+owner story; require explicit historical-vs-current proof semantics or corrected
+current binding and inclusion of all referenced proof bytes. Receipt preserves
+both hashes and referenced prior film identity. This is artifact lineage, not a
+claim about molecular truth or creative quality.
+
+CURRENT-HANDOFF supersedes only previous current pointer while preserving its
+receipt/history. Current source-linked Lane1 No-reaction opening semantic redline
+and Lane4 one-pixel footer-padding redline retained as OWNER-REPORTED, not new
+Lane6 measurements. No duplicate visual audits. Next single dependency: corrected
+complete authored bundle addressing those owner findings plus matched phone plan,
+sidecars and current proof. Complete intake HOLD/mayPublish=false/newAtomicCards0.
+Only Lane6 registry/README/validation/receiver receipt change; no renderer/source,
+workflow or runtime behavior changed; access-only build exception applies.
