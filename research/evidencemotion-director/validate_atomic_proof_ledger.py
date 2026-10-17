@@ -80,7 +80,10 @@ def validate(data,source_directory):
                     if line.startswith("- [x] ") or line.startswith("- [ ] ")]
             if len(states)!=46:
                 hold("CANONICAL_46_PARENT_CHECKLIST_INCONSISTENT")
-            parent=int(group[3:6]) if re.fullmatch(r"EM-\d{3}\.\d{2}",group) else 0
+            try:
+                parent=int(group.split(".",1)[0].split("-",1)[1])
+            except (ValueError,IndexError):
+                hold("UNKNOWN_CANONICAL_PARENT")
             if parent<1 or parent>46:
                 hold("UNKNOWN_CANONICAL_PARENT")
             if states[parent-1]=="- [x]":
