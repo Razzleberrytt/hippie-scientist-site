@@ -40,8 +40,17 @@ def probe(path):
 def frame_pts(path):
     b=cmd(['ffprobe','-v','error','-select_streams','v:0','-show_entries','frame=best_effort_timestamp_time','-of','csv=p=0',str(path)])
     lines=[x.strip().rstrip(',') for x in b.decode().splitlines() if x.strip()]
-    try: return [round(float(x),6) for x in lines]
-    except ValueError:raise Hold('INVALID_ACTUAL_FRAME_PTS')
+    try:
+        stamps=[round(float(value),6) for value in lines]
+    except (ValueError, UnicodeDecodeError, OverflowError):
+        raise Hold('INVALID_ACTUAL_FRAME_PTS')
+    # float() accepts NaN and Infinity; an ordinary abs(a-b)>tolerance check
+    # silently accepts NaN. Reject these and duplicated/reversed timestamps
+    # BEFORE any positive compatibility report can be issued.
+    if (not stamps or any(not math.isfinite(t) or t<0 for t in stamps)
+            or any(current<=previous for previous,current in zip(stamps,stamps[1:]))):
+        raise Hold('INVALID_ACTUAL_FRAME_PTS')
+    return stamps
 
 def faststart(path):
     boxes=[];total=Path(path).stat().st_size;at=0
@@ -141,7 +150,11 @@ def audit(before,after,sha_before,sha_after,*,source_size=(1080,1920),mobile_siz
         raise Hold('PHYSICAL_PRESENTATION_TIMESTAMPS_CHANGED')
     if not faststart(after):raise Hold('MOBILE_MP4_NOT_PROGRESSIVE_FASTSTART')
     sound=audio_compare(before,after)
-    img=video_psnr(before,after,n0) if do_visual else {'decodedPairFrames':None,'visualReplayPerformed':False}
+    # This API's do_visual=False mode is useful for targeted negative tests,
+    # but it must NEVER return a compatibility-positive research receipt.
+    if not do_visual:
+        raise Hold('FULL_VIDEO_COMPARISON_REQUIRED_FOR_POSITIVE_RECEIPT')
+    img=video_psnr(before,after,n0)
     return {'schema':'ths-lane4-mobile-delivery-reencode-research-v1', 'sourceSha256':sha_before,'mobileSha256':sha_after,'framesChecked':n0,'fps':30,'sourceSize':list(source_size),'mobileSize':list(mobile_size),'h264TargetProfile':v1.get('profile'),'mobileAACSampleRateHz':int(a1['sample_rate']),'declaredCompatibilityScope':'H264_MAIN_OR_BASELINE_L31_YUV420P_AAC_LC_44K1_OR_48K_RESEARCH','mobileMoovBeforeMdat':True,'presentationTimestampsMatch':True,'decodedAudioComparison':sound,'decodedVisualComparison':img,'status':'REENCODE_COMPATIBILITY_RESEARCH_SCREEN_PASS','realIPhonePlaybackVerified':False,'captionOCRVerified':False,'scienceOrSourceReviewApproved':False,'fontReadabilityApproved':False,'independentPerceptualApproved':False,'mayPublish':False}
 
 if __name__=='__main__':
