@@ -159,6 +159,45 @@ def review_decoded_samples(samples):
     }
 
 
+def interleaved_blank_phase_windows(one_hz_frames):
+    """Provisional negative craft screen for phase-aliased blank interruptions.
+
+    A 2-second sample may miss every odd-second interruption. Detect only
+    >=4 contiguous pairs with an almost featureless 1-second phase while
+    its opposite phase contains conspicuous art. Intentional dark beats can
+    be valid: these are review advisories, never artistic/release vetoes.
+    """
+    frames = np.asarray(one_hz_frames, dtype=np.uint8)
+    if frames.ndim != 3 or frames.shape[1:] != (FRAME_H, FRAME_W) or len(frames) < 12:
+        return []
+    stds = [float(frame[33:226, 6:174].std()) for frame in frames]
+    findings = []
+    for phase in (0, 1):
+        consecutive = []
+        for i in range(len(stds) // 2):
+            blank = stds[2 * i + phase] < MIN_VISIBLE_SUBJECT_STD
+            other = stds[2 * i + 1 - phase] >= 2 * MIN_VISIBLE_SUBJECT_STD
+            if blank and other:
+                consecutive.append(i)
+            else:
+                if len(consecutive) >= 4:
+                    findings.append({
+                        "startSec": 2 * consecutive[0] + phase,
+                        "endSec": 2 * consecutive[-1] + phase + 1,
+                        "blankSamples": len(consecutive),
+                        "blankPhase": phase
+                    })
+                consecutive = []
+        if len(consecutive) >= 4:
+            findings.append({
+                "startSec": 2 * consecutive[0] + phase,
+                "endSec": 2 * consecutive[-1] + phase + 1,
+                "blankSamples": len(consecutive),
+                "blankPhase": phase
+            })
+    return findings
+
+
 def analyze_video(path, expected_sha=None):
     """Measure actual MP4; abort on decoder errors or a wrong pinned file."""
     path = Path(path)
@@ -188,13 +227,18 @@ def analyze_video(path, expected_sha=None):
     raw = subprocess.check_output([
         "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
         "-xerror", "-i", str(path), "-vf",
-        f"fps=1/{SAMPLE_STEP_SECONDS},scale={FRAME_W}:{FRAME_H},format=gray",
+        f"fps=1,scale={FRAME_W}:{FRAME_H},format=gray",
         "-f", "rawvideo", "-pix_fmt", "gray", "pipe:1"], timeout=90)
     size = FRAME_W * FRAME_H
     if not raw or len(raw) % size:
         raise ValueError("INCOMPLETE_DECODED_SAMPLE_GRID")
     frames = np.frombuffer(raw, dtype=np.uint8).reshape(-1, FRAME_H, FRAME_W)
-    result = review_decoded_samples(frames)
+    result = review_decoded_samples(frames[::SAMPLE_STEP_SECONDS])
+    phase_windows = interleaved_blank_phase_windows(frames)
+    result["interleavedBlankPhaseWindowsSec"] = phase_windows
+    result["oneHzOpticalScreenSamples"] = len(frames)
+    if phase_windows:
+        result["reviewCandidates"].append("INTERLEAVED_NEAR_BLANK_VISUAL_PHASE")
     result.update({
         "schemaVersion": "ths-autonomous-film-critic-research-v1",
         "actualVideoSha256": source_sha,
