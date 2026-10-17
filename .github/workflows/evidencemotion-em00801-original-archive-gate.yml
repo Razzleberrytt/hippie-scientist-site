@@ -1,4 +1,4 @@
-name: EvidenceMotion EM-008.01 original archive botanical research gate
+name: EvidenceMotion EM-008.01 original archive botanical full timeline research gate
 on:
   pull_request:
     paths:
@@ -12,9 +12,9 @@ permissions:
   contents: read
   actions: read
 jobs:
-  original-nine-frame-botanical-source-replay:
+  original-full-framehash-botanical-source-replay:
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -44,7 +44,7 @@ jobs:
           fi
           ffmpeg -version | head -n 1
           ffprobe -version | head -n 1
-      - name: Execute strict negative tests and physically decode nine exact source frames
+      - name: Strict negative tests then decode all 1031 pinned native frames and nine cross-checks
         run: |
           set -euo pipefail
           python -m unittest discover -s research/evidencemotion-director \
@@ -60,20 +60,34 @@ jobs:
           from pathlib import Path
           p=Path(os.environ['RUNNER_TEMP'])/'em00801-actual-archived-nine-frames.json'
           r=json.loads(p.read_text())
-          assert r['status']=='ACTUAL_NINE_SHOT_SAMPLES_VERIFIED_BOTANICAL_CONTENT_HOLD'
+          assert r['status']=='ACTUAL_ALL_1031_FRAMEHASHES_VERIFIED_BOTANICAL_CONTENT_HOLD'
           assert r['actualDecodedShotsSampled']==9 and len(r['sampledDecodedPixelHashes'])==9
+          full=r['fullEncodedTimeline']
+          rows=full['allActualDecodedFrameHashes']
+          assert full['actualDecodedFrameCount']==1031 and len(rows)==1031
+          assert [row['frameIndex'] for row in rows]==list(range(1031))
+          assert all(len(row['decodedRgb24Sha256'])==64 for row in rows)
+          assert set(full['authorDeclaredShotFrameCounts'])=={
+              'sentence_1_part0','sentence_1_part1','sentence_2',
+              'sentence_3','sentence_4','sentence_5_part0',
+              'sentence_5_part1','source_hold','sentence_6'}
+          assert sum(full['authorDeclaredShotFrameCounts'].values())==1031
+          assert len(full['decodedFrameHashSequenceSha256'])==64
+          assert full['allFramesBotanicallyClassified'] is False
+          assert full['allFramesIndependentlyScientificallyReviewed'] is False
+          assert full['mayPublish'] is False
           assert r['declaredBotanicalArtShots']==0 and r['declaredDeterministicScienceShots']==9
           assert r['actualBotanicalAbsenceFromAllFramesEstablished'] is False
           assert r['actualFullFrameContentBotanicallyClassified'] is False
           assert r['sourceArtPixelProvenanceIndependentlyEstablished'] is False
           assert r['qualifiedScienceApproved'] is False
           assert r['mayPublish'] is False and r['publicationApproved'] is False
-          print('PASS_ORIGINAL_ARCHIVE_FRAMEHASH_ONLY; full botanical scene review remains HOLD')
+          print('PASS_ORIGINAL_ARCHIVE_ALL_1031_RGB_FRAMEHASHES; botanical science and pixels classification HOLD')
           PY
       - name: Preserve no-video, no-WAV machine-only source receipt
         uses: actions/upload-artifact@v4
         with:
-          name: em00801-original-h264-nine-shot-hashes-research-only
+          name: em00801-original-h264-all-1031-frame-hashes-research-only
           path: ${{ runner.temp }}/em00801-actual-archived-nine-frames.json
           retention-days: 14
           if-no-files-found: error
@@ -81,5 +95,5 @@ jobs:
         if: always()
         run: |
           echo 'EM-008.01 uses exact prior archived H264, not current generator film.' >> "$GITHUB_STEP_SUMMARY"
-          echo 'Nine real frame SHA-256 samples are NOT all-frame botanical absence or visual approval.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'All 1031 decoded RGB24 frame hashes cross-match nine original midpoints; this is NOT botanical pixel classification or visual approval.' >> "$GITHUB_STEP_SUMMARY"
           echo 'No qualified science, species identity, plant analyte measurement, real phone or publication authority; mayPublish=false.' >> "$GITHUB_STEP_SUMMARY"
