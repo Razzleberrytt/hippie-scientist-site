@@ -1669,6 +1669,87 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
             return original_guard.audit_revised_caption_voice_gaps(
                 audio,counts,film_sha,adts_sha)
 
+    def test_current_film_full_aac_and_packet_guards_fail_closed_with_mock_decoder(self):
+        # Hosted physical-shaped synthetic fixture; patched pins are NOT
+        # evidence that the first-party movie was included in hosted CI.
+        original, _ = self.revised_caption_blank_source_fixture()
+        film = b"synthetic-non-film-bytes" * 200
+        adts = b"synthetic-encoded-aac-stream"
+        fake_pcm = np.zeros(825344, dtype="<f4").tobytes()
+        packets = []
+        for i in range(807):
+            pts = -1024 + 1024*i
+            packets.append({"pts": pts, "dts": pts,
+                            "duration": 8 if i == 806 else 1024,
+                            "size": 4 if i == 806 else 400})
+        def packet_json(rows):
+            return json.dumps({"packets": rows},sort_keys=True).encode()
+        signature = digest(json.dumps([
+            [int(row[k]) for k in ("pts","dts","duration","size")]
+            for row in packets],separators=(",",":")).encode())
+        # Every last-frame glyph is present in this synthetic ROI. Physical
+        # media/caption decoding stays an independent real-world requirement.
+        synthetic_roi = bytes([255]) * (94 * 790 * 100)
+        variant = {"decoded": fake_pcm, "packetJson": packet_json(packets)}
+        def fake_process(command, **kwargs):
+            if command[0] == "ffprobe":
+                body = variant["packetJson"]
+            elif "f32le" in command:
+                body = variant["decoded"]
+            elif "adts" in command:
+                body = adts
+            elif "rawvideo" in command:
+                body = synthetic_roi
+            else:
+                raise AssertionError("unexpected synthetic decoder command")
+            return subprocess.CompletedProcess(command, 0, stdout=body, stderr=b"")
+        with tempfile.TemporaryDirectory() as td:
+            source_path = Path(td) / "source.wav"
+            film_path = Path(td) / "frozen-standin.mp4"
+            source_path.write_bytes(original)
+            film_path.write_bytes(film)
+            with (patch.object(original_guard,"SOURCE_WAV_REFERENCE",
+                               digest(original)),
+                  patch.object(original_guard,"REVISED_SCENE4_LEGIBLE_FILM_SHA",
+                               digest(film)),
+                  patch.object(original_guard,
+                               "REVISED_AND_ARCHIVED_AUDIO_ADTS_SHA",
+                               digest(adts)),
+                  patch.object(original_guard,
+                               "REVISED_FULL_DECODED_AAC_PCM_SHA",
+                               digest(fake_pcm)),
+                  patch.object(original_guard,
+                               "REVISED_AAC_PACKET_TUPLE_SHA",signature),
+                  patch("subprocess.run",side_effect=fake_process)):
+                good = original_guard.audit_revised_caption_voice_gaps_files(
+                    source_path,film_path)
+                self.assertEqual(good["status"],
+                    "RESEARCH_REVISED_CAPTION_VOICE_GAP_SCREEN_HOLD",good)
+                self.assertTrue(good["fullNativeAacBytesAndPacketTimelineVerified"])
+                self.assertFalse(good["mayPublish"])
+                variant["decoded"] = fake_pcm[:-4] + b"FAIL"
+                bad_audio = original_guard.audit_revised_caption_voice_gaps_files(
+                    source_path,film_path)
+                self.assertIn("CAPTION_GAP_FULL_NATIVE_AAC_DECODE_CHANGED",
+                              bad_audio["errors"])
+                variant["decoded"] = fake_pcm
+                moved = [dict(row) for row in packets]
+                moved[700]["pts"] += 3
+                variant["packetJson"] = packet_json(moved)
+                bad_timestamps = original_guard.audit_revised_caption_voice_gaps_files(
+                    source_path,film_path)
+                self.assertIn("CAPTION_GAP_FULL_NATIVE_AAC_PACKET_TIMELINE_CHANGED",
+                              bad_timestamps["errors"])
+                variant["packetJson"] = packet_json(packets)
+                film_path.write_bytes(film + b"changed")
+                changed_film = original_guard.audit_revised_caption_voice_gaps_files(
+                    source_path,film_path)
+                self.assertIn("CAPTION_GAP_PINNED_SOURCES_CHANGED",
+                              changed_film["errors"])
+                self.assertTrue(all(not x["mayPublish"] for x in
+                    (bad_audio,bad_timestamps,changed_film)))
+
+
     def test_new_seq_film_pins_do_not_accept_mutated_or_unreviewed_film(self):
         source, counts = self.revised_caption_blank_source_fixture()
         for film_sha in (original_guard.REVISED_SCENE4_SEQUENTIAL_FILM_SHA,
