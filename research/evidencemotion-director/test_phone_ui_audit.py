@@ -588,6 +588,67 @@ class ReportOutputAliasSafety(unittest.TestCase):
 
 
 class ReviewImageOwnershipSafety(unittest.TestCase):
+    @staticmethod
+    def sample_native_prior_receipt(rows):
+        # Synthetic structural test data, not an actual encoded film verdict.
+        return {
+            "status": "OVERLAY_PREFLIGHT_PASS_REVIEW_REQUIRED",
+            "mayPublish": False, "publicationVerdict": "HOLD",
+            "videoSha256": H, "manifestSha256": H,
+            "videoResolution": [1080, 1920], "decodedFrameCount": 90,
+            "exact30FpsTimestampGridVerified": True,
+            "frameToShotCoverage": {
+                "actualPresentedFramesChecked": 90,
+                "framesAssignedExactlyOnce": 90, "mayPublish": False,
+            },
+            "completeEncodedMediaDecode": {
+                "allMappedStreamsDecodedWithoutFatalErrors": True,
+                "mayPublish": False,
+            },
+            "decodedOverlayFrames": rows,
+        }
+
+    def test_hold_shaped_foreign_report_cannot_claim_image_ownership(self):
+        from phone_ui_audit import verified_prior_review_images
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            output = root / "review"
+            output.mkdir()
+            saved_photo = output / "00-opening.png"
+            original = b"unrelated file whose name resembles a screenshot"
+            saved_photo.write_bytes(original)
+            foreign = {
+                "mayPublish": False, "publicationVerdict": "HOLD",
+                "decodedOverlayFrames": [{"file": "00-opening.png",
+                    "frameSha256": hashlib.sha256(original).hexdigest()}],
+            }
+            report = output / "research-report.json"
+            report.write_text(json.dumps(foreign))
+            self.assertEqual(verified_prior_review_images(
+                output, report.read_bytes()), {})
+            film = root / "film.mp4"
+            film.write_bytes(b"unchanged film")
+            manifest = root / "manifest.json"
+            manifest.write_bytes(b"{}")
+            with self.assertRaisesRegex(ValueError, "UNOWNED_PREVIOUS_REVIEW_REPORT"):
+                audit(film, manifest, output)
+            self.assertEqual(report.read_text(), json.dumps(foreign))
+            self.assertEqual(saved_photo.read_bytes(), original)
+
+    def test_hold_shaped_prior_report_without_decode_proof_is_not_owned(self):
+        from phone_ui_audit import verified_prior_review_images
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory)
+            old = b"foreign image"
+            (output / "00-opening.png").write_bytes(old)
+            previous = self.sample_native_prior_receipt([{
+                "file": "00-opening.png",
+                "frameSha256": hashlib.sha256(old).hexdigest()}])
+            previous["completeEncodedMediaDecode"]["allMappedStreamsDecodedWithoutFatalErrors"] = False
+            self.assertEqual(verified_prior_review_images(
+                output, json.dumps(previous).encode("utf-8")), {})
+            self.assertEqual((output / "00-opening.png").read_bytes(), old)
+
     def test_foreign_prior_report_is_preserved_before_any_media_operation(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -669,12 +730,9 @@ class ReviewImageOwnershipSafety(unittest.TestCase):
             old = b"old approved-for-cleanup image"
             (output / "00-opening.png").write_bytes(old)
             (output / "03-private-photo.png").write_bytes(b"third party")
-            previous = {
-                "mayPublish": False, "publicationVerdict": "HOLD",
-                "decodedOverlayFrames": [{
-                    "file": "00-opening.png",
-                    "frameSha256": hashlib.sha256(old).hexdigest()}],
-            }
+            previous = self.sample_native_prior_receipt([{
+                "file": "00-opening.png",
+                "frameSha256": hashlib.sha256(old).hexdigest()}])
             owned = verified_prior_review_images(
                 output, json.dumps(previous).encode("utf-8"))
             self.assertEqual(set(owned), {"00-opening.png"})
@@ -699,12 +757,9 @@ class ReviewImageOwnershipSafety(unittest.TestCase):
             old = b"older generated image"
             path = output / "00-opening.png"
             path.write_bytes(old)
-            previous = {
-                "mayPublish": False, "publicationVerdict": "HOLD",
-                "decodedOverlayFrames": [{
-                    "file": "00-opening.png",
-                    "frameSha256": hashlib.sha256(old).hexdigest()}],
-            }
+            previous = self.sample_native_prior_receipt([{
+                "file": "00-opening.png",
+                "frameSha256": hashlib.sha256(old).hexdigest()}])
             owned = verified_prior_review_images(
                 output, json.dumps(previous).encode("utf-8"))
             path.write_bytes(b"externally modified after inventory")
