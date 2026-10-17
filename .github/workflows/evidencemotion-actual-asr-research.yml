@@ -921,6 +921,7 @@ jobs:
           assert len(packet['eightClaimsToReview'])==8
           assert sum(item['material'] for item in packet['eightClaimsToReview'])==6
           assert len(packet['frozenAlignedWordLedgerSha256'])==64
+          assert packet['frozenAlignedWordLedgerSha256']==source['spokenLedgerSha256']
           assert all(item['originalWavAlignedReviewWindow'][
                     'independentQualifiedReviewerApproved'] is False
                     for item in packet['eightClaimsToReview'])
