@@ -30,7 +30,7 @@ def graph(font):
  # The lower panel border starts at y~=988 and must never be painted over.
  parts=[
   "drawbox=x=65:y=944:w=392:h=40:color=0x0b212f:t=fill:enable='between(n,498,701)'",
-  "drawbox=x=505:y=944:w=474:h=40:color=0x0c2230:t=fill:enable='between(n,595,701)'",
+  "drawbox=x=505:y=944:w=474:h=44:color=0x0c2230:t=fill:enable='between(n,595,701)'",
   f"drawtext=fontfile='{f}':text='RDKit / source-linked':fontsize=34:fontcolor=0xc2d9de:x=77:y=940:enable='between(n,498,701)'",
   f"drawtext=fontfile='{f}':text='Not a receptor recording':fontsize=34:fontcolor=0xc2d9de:x=505:y=940:enable='between(n,595,701)'",
  ]
