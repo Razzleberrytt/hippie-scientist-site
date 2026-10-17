@@ -5,6 +5,7 @@ import shutil
 import subprocess
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 from decoded_reading_load_probe import SCHEMA, digest, inspect
 
@@ -104,6 +105,43 @@ class DecodedReadingLoadTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"REQUIRED_WORD_NOT_IN_SAME_DECODED_CROP"):
             self.run_guard(data,output=path)
         self.assertFalse(path.exists())
+
+    def test_unrelated_existing_output_is_preserved_not_deleted(self):
+        output=self.root/"unrelated-report.json"
+        output.write_text('{"unrelated":"critical data"}')
+        before=output.read_bytes()
+        with self.assertRaisesRegex(ValueError,"EXISTING_OUTPUT_NOT_OWNED_RECEIPT"):
+            self.run_guard(output=output)
+        self.assertEqual(output.read_bytes(),before)
+
+    def test_manually_forged_prior_receipt_not_deleted(self):
+        output=self.root/"fake-approved.json"
+        output.write_text(json.dumps({"schema":SCHEMA,
+            "status":"SAMPLED_NEGATIVE_SCREEN_NO_HOLD_REVIEW_REQUIRED",
+            "mayPublish":True,"filmSha256":"0"*64,"manifestSha256":"0"*64}))
+        before=output.read_bytes()
+        with self.assertRaisesRegex(ValueError,"EXISTING_OUTPUT_NOT_OWNED_RECEIPT"):
+            self.run_guard(output=output)
+        self.assertEqual(output.read_bytes(),before)
+
+    def test_manifest_root_array_holds_not_python_attribute_error(self):
+        with self.assertRaisesRegex(ValueError,"INVALID_OR_CHANGED_RESEARCH_MANIFEST"):
+            self.run_guard(data=["invalid"])
+
+    def test_movie_modification_detected_between_hash_and_last_frame(self):
+        from decoded_reading_load_probe import digest as actual_digest
+        count={"film":0}
+        def moving_source(path):
+            value=actual_digest(path)
+            if Path(path)==self.film:
+                count["film"]+=1
+                if count["film"]>1:
+                    return "f"*64
+            return value
+        with patch("decoded_reading_load_probe.digest",side_effect=moving_source):
+            with self.assertRaisesRegex(ValueError,"ENCODED_INPUT_CHANGED_DURING_AUDIT"):
+                self.run_guard(output=self.root/"input-drift-report.json")
+        self.assertFalse((self.root/"input-drift-report.json").exists())
 
     def test_output_symlink_to_source_rejected(self):
         path=self.root/"alias.json"
