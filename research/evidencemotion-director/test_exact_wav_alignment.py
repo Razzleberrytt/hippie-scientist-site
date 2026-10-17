@@ -212,6 +212,7 @@ from test_voice_revision_invalidation import RevisionInvalidationTests  # noqa: 
 # This triages word disagreements but never gives pronunciation or release approval.
 from test_asr_mfa_disagreement_gate import CrossModelResearchTests  # noqa: F401
 from test_caption_word_cue_integrity import CaptionWordCueTests  # noqa: F401
+from test_narration_caption_authoring_gate import NarrationCaptionAuthoringTests  # noqa: F401
 from test_encoded_caption_transition_gate import EncodedCaptionBandTests  # noqa: F401
 # Lane 2 source-specific repeated-terminology acoustic research controls.
 # Hosted synthetic negatives run; source clips are SKIPPED unless SHA-pinned and supplied.
@@ -264,6 +265,8 @@ class Lane2AudioWorkflowTriggerTests(unittest.TestCase):
             "repeated_term_acoustic_guard.py",
             "test_repeated_term_acoustic_guard.py",
             "gut_caption_audio_gate.py",
+            "narration_caption_authoring_gate.py",
+            "test_narration_caption_authoring_gate.py",
         ):
             with self.subTest(file=file_name):
                 self.assertIn(
