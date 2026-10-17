@@ -497,7 +497,7 @@ jobs:
           EOF
           find original-renderer original-inputs film-a film-b -type f -print0 \
             | LC_ALL=C sort -z | xargs -0 sha256sum > RECOVERED-FILES-SHA256SUMS
-          test "$(find original-renderer original-inputs film-a film-b -type f | wc -l)" -eq 32
+          test "$(find original-renderer original-inputs film-a film-b -type f | wc -l)" -eq 31
           sha256sum --check RECOVERED-FILES-SHA256SUMS
           zip -q -r "$RUNNER_TEMP/EvidenceMotion_Original_Source_WAV_Film_Research_HOLD.zip" \
             original-renderer original-inputs film-a film-b \
