@@ -27,6 +27,8 @@ on:
       - 'research/evidencemotion-director/test_science_gate_process_attestation.py'
       - 'research/evidencemotion-director/science_reviewer_handoff.py'
       - 'research/evidencemotion-director/test_science_reviewer_handoff.py'
+      - 'research/evidencemotion-director/em00707_current_intro_semantic_guard.py'
+      - 'research/evidencemotion-director/test_em00707_current_intro_semantic_guard.py'
       - 'research/evidencemotion-director/em00708_original_archive_hold_replay.py'
       - 'research/evidencemotion-director/test_em00708_original_archive_hold_replay.py'
       - 'research/evidencemotion-director/test_research_cli_continuations.py'
@@ -850,6 +852,7 @@ jobs:
         run: |
           set -euo pipefail
           python -m unittest discover -s research/evidencemotion-director -p test_research_cli_continuations.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_em00707_current_intro_semantic_guard.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_science_redteam_controls.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_claim_source_context_join.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_scientific_uncertainty_ledger.py -v
