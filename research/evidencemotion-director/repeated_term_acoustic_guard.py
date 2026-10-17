@@ -431,6 +431,159 @@ def audit_research_quiet_speech_preservation(source_pcm, preencode_pcm):
             "errors": [], **measurements}
 
 
+
+def audit_research_pcm_aac_delivery(preencode_pcm, decoded_aac_pcm):
+    """Screen PCM->AAC signal/timing across 250ms source-clock windows.
+
+    Preencode source lineage and actual FFmpeg decode are independently
+    checked by the file-based wrapper. This is NEVER phoneme or listening
+    proof, a genuine phone check, word-boundary calibration or release.
+    """
+    base = {"schema": SCHEMA, "mayPublish": False,
+            "wordTimingCalibrated": False, "pronunciationVerified": False,
+            "finishedFilmVerified": False,
+            "decodedAACProvenanceVerifiedBySignalFunction": False}
+    def refuse(reason, **extras):
+        return {**base, "status": "HOLD", "errors": [reason], **extras}
+    try:
+        a = np.asarray(preencode_pcm, dtype=np.float64)
+        b = np.asarray(decoded_aac_pcm, dtype=np.float64)
+    except (ValueError, TypeError, OverflowError):
+        return refuse("PCM_AAC_AUDIO_INVALID")
+    if (a.ndim != 1 or b.ndim != 1
+            or not 12000 <= len(a) <= 24000*600
+            or not 0 <= len(b)-len(a) <= 1024
+            or not np.isfinite(a).all() or not np.isfinite(b).all()
+            or np.max(np.abs(a)) > 1 or np.max(np.abs(b)) > 1.5
+            or np.max(np.abs(a)) < .01):
+        return refuse("PCM_AAC_AUDIO_INVALID")
+    pad = b[len(a):]
+    if len(pad) and np.max(np.abs(pad)) > .001:
+        return refuse("AAC_TRAILING_PADDING_CONTAINS_AUDIO",
+                      paddingSamples=len(pad))
+    def corr(x, y):
+        x = x-x.mean()
+        y = y-y.mean()
+        denom = np.linalg.norm(x)*np.linalg.norm(y)
+        return float(np.dot(x, y)/denom) if denom > 1e-12 else None
+    count = active = exact_zero = low_level = 0
+    worst = (1.0, None)
+    failures, silence_leaks, lag_warnings = [], [], []
+    for lo in range(0, len(a), 6000):
+        hi = min(lo+6000, len(a))
+        src, enc = a[lo:hi], b[lo:hi]
+        if len(src) < 1200:
+            if not np.any(src):
+                if np.max(np.abs(enc)) > .001:
+                    silence_leaks.append(round(lo/24000, 6))
+            else:
+                return refuse("AAC_SOURCE_TAIL_TOO_SHORT_TO_CALIBRATE",
+                              startSecond=round(lo/24000, 6))
+            continue
+        count += 1
+        rms = float(np.sqrt(np.mean(src*src)))
+        if rms == 0:
+            exact_zero += 1
+            if float(np.sqrt(np.mean(enc*enc))) > .0005:
+                silence_leaks.append(round(lo/24000, 6))
+            continue
+        if rms < .001:
+            low_level += 1
+            if np.sqrt(np.mean(enc*enc)) < rms*.4:
+                failures.append((round(lo/24000, 6),
+                                 "AAC_FAINT_AUDIO_DROPPED"))
+            continue
+        active += 1
+        same = corr(src, enc)
+        if same is None:
+            failures.append((round(lo/24000, 6),
+                             "AAC_SPEECH_VARIANCE_MISSING"))
+            continue
+        if same < worst[0]:
+            worst = (same, round(lo/24000, 6))
+        if same < .98:
+            failures.append((round(lo/24000, 6), round(same, 5)))
+            continue
+        for delta in (-240, -120, -48, -24, 24, 48, 120, 240):
+            shifted = (corr(src[:-delta], enc[delta:]) if delta > 0
+                       else corr(src[-delta:], enc[:delta]))
+            if shifted is not None and shifted > same+.005:
+                lag_warnings.append((round(lo/24000, 6), delta,
+                                     round(shifted-same, 6)))
+                break
+    result = {
+        "preencodeSamples": len(a),
+        "decodedAACSamples": len(b),
+        "trailingCodecPaddingSamples": len(pad),
+        "screened250msWindows": count,
+        "activeSpeechWindows": active,
+        "exactZeroWindows": exact_zero,
+        "faintUncalibratedWindows": low_level,
+        "lowestMeasuredSourceAACCorrelation": round(worst[0], 6),
+        "lowestCorrelationWindowSecond": worst[1],
+        "signalFailures": failures[:16],
+        "sourceSilenceLeaks": silence_leaks[:16],
+        "possibleTimingShifts": lag_warnings[:16],
+        "sourceClockAlignedSignalOnlyNotPhonemes": True,
+        "platformAACPrimingOrFilmMuxVerified": False,
+    }
+    if active < 4:
+        return refuse("AAC_ACTIVE_SIGNAL_COVERAGE_INSUFFICIENT", **result)
+    if failures or silence_leaks or lag_warnings:
+        return refuse("AAC_SIGNAL_OR_TIMING_DISCREPANCY", **result)
+    return {**base, "status": "RESEARCH_AAC_SOURCE_CLOCK_HOLD",
+            "errors": [], **result}
+
+
+def audit_research_pinned_aac_files(preencode_wav_path, encoded_aac_path,
+                                    expected_wav_sha, expected_aac_sha):
+    """Physically decode SHA-pinned standalone AAC; not an H264/AAC film."""
+    import subprocess
+    base = {"schema": SCHEMA, "mayPublish": False,
+            "wordTimingCalibrated": False, "finishedFilmVerified": False,
+            "phonemeIdentityVerified": False}
+    def refuse(reason):
+        return {**base, "status": "HOLD", "errors": [reason]}
+    try:
+        wav = Path(preencode_wav_path).read_bytes()
+        aac = Path(encoded_aac_path).read_bytes()
+        if digest(wav) != expected_wav_sha:
+            return refuse("PREENCODE_WAV_SHA_MISMATCH")
+        if digest(aac) != expected_aac_sha:
+            return refuse("ENCODED_AAC_SHA_MISMATCH")
+        with wave.open(io.BytesIO(wav), "rb") as source:
+            if (source.getnchannels(), source.getsampwidth(),
+                    source.getframerate(), source.getcomptype()) != (
+                    1, 2, 24000, "NONE"):
+                return refuse("PREENCODE_WAV_FORMAT_INVALID")
+            pcm = np.frombuffer(source.readframes(source.getnframes()),
+                                dtype="<i2").astype(np.float64)/32768
+        probe = subprocess.run(
+            ["ffprobe", "-v", "error", "-show_entries",
+             "stream=codec_name,sample_rate,channels", "-of", "csv=p=0",
+             str(encoded_aac_path)],
+            capture_output=True, text=True, check=True, timeout=15)
+        if probe.stdout.strip().split(",") != ["aac", "24000", "1"]:
+            return refuse("ENCODED_AAC_FORMAT_INVALID")
+        decoded = subprocess.run(
+            ["ffmpeg", "-nostdin", "-v", "error", "-xerror", "-i",
+             str(encoded_aac_path), "-ar", "24000", "-ac", "1", "-f",
+             "f32le", "pipe:1"],
+            capture_output=True, check=True, timeout=30).stdout
+        if len(decoded) % 4:
+            return refuse("AAC_DECODE_LENGTH_INVALID")
+        signal = np.frombuffer(decoded, dtype="<f4").astype(np.float64)
+        result = audit_research_pcm_aac_delivery(pcm, signal)
+        return {**result, "preencodeWavSha256": expected_wav_sha,
+                "standaloneAacSha256": expected_aac_sha,
+                "decodedF32leSha256": digest(decoded),
+                "standaloneAACBytesPhysicallyDecoded": True,
+                "exactFinishedFilmVerified": False}
+    except (OSError, ValueError, TypeError, EOFError,
+            wave.Error, subprocess.SubprocessError):
+        return refuse("PINNED_AAC_PHYSICAL_DECODE_UNAVAILABLE")
+
+
 def audit_original_asr_digital_zero_onsets(source_raw, asr_raw):
     """Negative-only source-WAV proof: ASR cannot start speech in 150ms of zeros.
 
