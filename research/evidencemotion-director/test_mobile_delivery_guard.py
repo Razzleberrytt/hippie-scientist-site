@@ -8,7 +8,7 @@ import json
 from unittest.mock import patch
 from array import array
 from pathlib import Path
-from mobile_delivery_guard import audit,Hold,sha_file,audio_compare,frame_pts
+from mobile_delivery_guard import audit,Hold,sha_file,audio_compare,frame_pts,validate_report_target
 
 
 def ff(*a):
@@ -78,6 +78,42 @@ class MobileDeliveryGuardTests(unittest.TestCase):
         with patch('mobile_delivery_guard.cmd',return_value=b''):
             with self.assertRaisesRegex(Hold,'INVALID_ACTUAL_FRAME_PTS'):
                 frame_pts('source.mp4')
+
+    def test_report_never_aliases_original_or_mobile(self):
+        before=(sha_file(self.source),sha_file(self.mobile))
+        for source in (self.source,self.mobile):
+            with self.subTest(path=source):
+                with self.assertRaisesRegex(Hold,'REPORT_OUTPUT_ALIASES_SOURCE_MEDIA'):
+                    validate_report_target(source,self.source,self.mobile)
+        self.assertEqual(before,(sha_file(self.source),sha_file(self.mobile)))
+
+    def test_report_symlink_to_mobile_is_rejected(self):
+        link=self.root/'alias_mobile_output.json'
+        try:
+            link.symlink_to(self.mobile)
+        except (OSError,NotImplementedError):
+            self.skipTest('host does not allow symlinks')
+        h=sha_file(self.mobile)
+        with self.assertRaisesRegex(Hold,'REPORT_OUTPUT_ALIASES_SOURCE_MEDIA'):
+            validate_report_target(link,self.source,self.mobile)
+        self.assertEqual(sha_file(self.mobile),h)
+
+    def test_report_hardlink_to_original_is_rejected(self):
+        link=self.root/'alias_original_output.json'
+        try:
+            link.hardlink_to(self.source)
+        except (OSError,NotImplementedError):
+            self.skipTest('host does not allow hard links')
+        h=sha_file(self.source)
+        with self.assertRaisesRegex(Hold,'REPORT_OUTPUT_ALIASES_SOURCE_MEDIA'):
+            validate_report_target(link,self.source,self.mobile)
+        self.assertEqual(sha_file(self.source),h)
+
+    def test_unrelated_fresh_report_target_is_allowed(self):
+        out=self.root/'new_mobile_research_output.json'
+        self.assertFalse(out.exists())
+        validate_report_target(out,self.source,self.mobile)
+        self.assertFalse(out.exists())  # preflight never creates the report
 
     def test_source_hash_tamper_rejected(self):
         with self.assertRaisesRegex(Hold,'FILM_SHA256_DOES_NOT_MATCH_PIN'):
