@@ -1,0 +1,49 @@
+name: Gut absorption offline MFA research only
+on:
+  push:
+    branches:
+      - research/gut-absorption-20261017-original-voice
+    paths:
+      - research/evidencemotion-director/gut-20261017/mfa_original_wav_research.py
+      - .github/workflows/gut-20261017-mfa-research.yml
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  align-original-speech:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-name: mfa-env
+          create-args: >-
+            -c conda-forge
+            python=3.11
+            montreal-forced-aligner
+          cache-environment: true
+      - name: Retrieve SHA-pinned original Kokoro audio
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p gut-narration
+          gh run download 39036424976 -R Razzleberrytt/hippie-scientist-site -n ths-gut-absorption-20261017-original-voice-review-only -D gut-narration
+          echo 'e19bf6f01168e1df461de3d67f822c2ba4f74c26421db2763dff0fe2ad161477  gut-narration/Gut_Absorption_ORIGINAL_KOKORO_UNREVIEWED.wav' | sha256sum -c -
+      - name: Fetch free offline English acoustic model and dictionary
+        shell: bash -el {0}
+        run: |
+          micromamba run -n mfa-env mfa model download acoustic english_us_arpa
+          micromamba run -n mfa-env mfa model download dictionary english_us_arpa
+      - name: Align actual original WAV and verify every word
+        shell: bash -el {0}
+        run: |
+          micromamba run -n mfa-env python research/evidencemotion-director/gut-20261017/mfa_original_wav_research.py
+      - name: Preserve research draft with no release authority
+        uses: actions/upload-artifact@v4
+        with:
+          name: ths-gut-20261017-original-mfa-word-alignment-research
+          path: gut-alignment/
+          if-no-files-found: error
+          retention-days: 7
