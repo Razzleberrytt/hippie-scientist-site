@@ -22,6 +22,7 @@ WIDTHS=(320,375,430)
 TIMES=(0,30,59)
 FAKE_TERMS=("MEASURED","7OH","PLANT")
 SCHEMA="ths-em00804-true-encoded-phone-width-ocr-research-v1"
+EXPECTED_PICTOGRAM_SHA="4c1573cc3d3ea32fd6170323941b5d00296c7d44dd990cd4f11eda8fa111df7d"
 
 def norm(s):
     return re.sub(r"[^A-Z0-9]","",unicodedata.normalize("NFKC",s).upper())
@@ -69,16 +70,15 @@ def run(out):
     out=Path(out)
     out.mkdir(parents=True,exist_ok=True)
     fixture=create_fixture_movies(out/"clips")
+    if fixture["sourceSha256"]!=EXPECTED_PICTOGRAM_SHA:
+        raise ValueError("ORIGINAL_ART_BINARY_CHANGED_HOLD")
     root=out/"clips"
     result={
         "schema":SCHEMA,
         "filmSource":"SELF_AUTHORED_NONFACTUAL_BOTANICAL_FIXTURE",
         "sourceArtSha256":fixture["sourceSha256"],
         "expectedText":list(EXPECTED),
-        "tesseractVersion":subprocess.run(
-            ["tesseract","--version"],capture_output=True,text=True,
-            timeout=10,check=True).stdout.strip().splitlines()[0]
-            if False else "",
+        "tesseractVersion":"",
         "positiveReadings":[],
         "negativeCases":[],
         "allPhysicalPhoneAndScienceGatesPassed":False,
