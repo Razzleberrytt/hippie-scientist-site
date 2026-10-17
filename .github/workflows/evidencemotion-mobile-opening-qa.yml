@@ -1,0 +1,28 @@
+name: EvidenceMotion Mobile Opening Regression
+on:
+  push:
+    branches:
+      - fix/evidencemotion-mobile-hook-regression-20261017
+    paths:
+      - scripts/distribution/mobile-hook-clarity-gate.mjs
+      - scripts/distribution/__tests__/mobile-hook-clarity-gate.test.mjs
+      - scripts/distribution/render-vertical-video-mp4.mjs
+      - .github/workflows/evidencemotion-mobile-opening-qa.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  negative-filter:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check production renderer and tests syntax
+        run: |
+          node --check scripts/distribution/render-vertical-video-mp4.mjs
+          node --check scripts/distribution/mobile-hook-clarity-gate.mjs
+      - name: Run real clutter and approved capsule regression tests
+        run: node --test scripts/distribution/__tests__/mobile-hook-clarity-gate.test.mjs
