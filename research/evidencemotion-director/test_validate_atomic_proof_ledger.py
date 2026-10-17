@@ -17,6 +17,7 @@ class AtomicProofLedgerTests(unittest.TestCase):
             for group in self.good["proofGroups"]:
                 shutil.copyfile(LEDGER.parent/group["source"],
                                 directory/group["source"])
+            shutil.copyfile(LEDGER.parent/"COMPLETION-CHECKLIST.md",directory/"COMPLETION-CHECKLIST.md")
             (directory/"atomic").mkdir()
             for planning_file in sorted((LEDGER.parent/"atomic").glob("0[1-5]-*.md")):
                 shutil.copyfile(planning_file,directory/"atomic"/planning_file.name)
@@ -46,6 +47,10 @@ class AtomicProofLedgerTests(unittest.TestCase):
             self.assertEqual(result["individuallyAuditedMachineResearchOnly"],170)
             self.assertEqual(result["provisionalCoverage"],877)
             self.assertFalse(result["mayPublish"])
+            same_accepted=copy.deepcopy(candidate)
+            same_accepted["proofGroups"][-1]["group"]="EM-001.05"
+            with self.assertRaisesRegex(ValueError,"ACCEPTED_PARENT_REQUIRES_INHERITED_RECLASSIFICATION"):
+                validate(same_accepted,directory)
             for corrupt,why in (
                 ({"sourceSha256":"0"*64},"NEW_EVIDENCE_SOURCE_SHA_UNVERIFIED"),
                 ({"workflowRunId":None},"NEW_EVIDENCE_MERGE_RUN_OR_HOLD"),
