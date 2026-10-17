@@ -156,21 +156,32 @@ class MobileDeliveryGuardTests(unittest.TestCase):
 
     def test_rotated_display_matrix_and_nan_angle_rejected(self):
         base={'sample_aspect_ratio':'1:1','display_aspect_ratio':'9:16'}
-        require_undistorted_portrait(base)
+        require_undistorted_portrait(base,(1080,1920))
         for angle in ('90','-90','nan','inf','invalid'):
             with self.subTest(angle=angle):
                 probe=dict(base,side_data_list=[{'rotation':angle}])
                 with self.assertRaisesRegex(Hold,
                         'ROTATED_DISPLAY_METADATA_NOT_ALLOWED|INVALID_DISPLAY_ROTATION_METADATA'):
-                    require_undistorted_portrait(probe)
+                    require_undistorted_portrait(probe,(1080,1920))
         with self.assertRaisesRegex(Hold,'ROTATED_DISPLAY_METADATA_NOT_ALLOWED'):
-            require_undistorted_portrait(dict(base,tags={'rotate':'180'}))
+            require_undistorted_portrait(dict(base,tags={'rotate':'180'}),(1080,1920))
+
+    def test_reduced_resolution_fixture_preserves_true_ratio(self):
+        # 160x284 is 40:71, not exactly 9:16; its sample pixels are
+        # square and its declared ratio must match real dimensions.
+        require_undistorted_portrait(
+            {'sample_aspect_ratio':'1:1','display_aspect_ratio':'40:71'},
+            (160,284))
+        with self.assertRaisesRegex(Hold,'NON_SQUARE_PIXEL_PORTRAIT'):
+            require_undistorted_portrait(
+                {'sample_aspect_ratio':'1:1','display_aspect_ratio':'9:16'},
+                (160,284))
 
     def test_missing_pixel_shape_metadata_fails_closed(self):
         with self.assertRaisesRegex(Hold,'NON_SQUARE_PIXEL_PORTRAIT'):
-            require_undistorted_portrait({'sample_aspect_ratio':'1:1'})
+            require_undistorted_portrait({'sample_aspect_ratio':'1:1'},(1080,1920))
         with self.assertRaisesRegex(Hold,'NON_SQUARE_PIXEL_PORTRAIT'):
-            require_undistorted_portrait({'display_aspect_ratio':'9:16'})
+            require_undistorted_portrait({'display_aspect_ratio':'9:16'},(1080,1920))
 
     def test_original_high_profile_is_not_forged_phone_compatible(self):
         with self.assertRaisesRegex(Hold,'WRONG_SOURCE_OR_MOBILE_GEOMETRY'):
