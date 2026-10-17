@@ -1,0 +1,41 @@
+name: Gut absorption original-voice research render
+on:
+  push:
+    branches:
+      - research/gut-absorption-20261017-original-voice
+    paths:
+      - research/evidencemotion-director/gut-20261017/**
+      - .github/workflows/gut-20261017-original-voice.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-kokoro-research:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original Kokoro 0.6.1 dependencies
+        run: |
+          python -m pip install 'kokoro-onnx==0.6.1' 'soundfile==0.13.1' 'numpy<3'
+      - name: Fetch original pinned voice assets from first-party repo release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p voice-assets
+          gh release download ths-kokoro-onnx-am-michael-int8-v1 --repo Razzleberrytt/hippie-scientist-site --dir voice-assets -p 'kokoro-v1.0.int8.onnx' -p 'voices-v1.0.bin'
+          echo 'ae315a79b623f244700e4afb9246c46a26066782e049ba174bf3ba433970ee9c  voice-assets/kokoro-v1.0.int8.onnx' | sha256sum -c -
+          echo 'bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d  voice-assets/voices-v1.0.bin' | sha256sum -c -
+      - name: Render narration first, fail closed
+        run: |
+          python research/evidencemotion-director/gut-20261017/render_original_voice.py
+      - name: Upload source speech and receipt, never publish
+        uses: actions/upload-artifact@v4
+        with:
+          name: ths-gut-absorption-20261017-original-voice-review-only
+          path: gut-narration/
+          if-no-files-found: error
+          retention-days: 7
