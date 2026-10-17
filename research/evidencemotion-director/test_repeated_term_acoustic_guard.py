@@ -310,6 +310,127 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
         self.assertIn('"status": "HOLD"', cmd.stdout)
 
 
+    @staticmethod
+    def cross_model_fixture():
+        """73 synthetic authored, 70 synthetic guessed; 6 lexical + 30 timing.
+
+        Invented word labels, not actual original transcript or phonetic gold.
+        """
+        pcm = np.full(824336, 930, dtype="<i2")
+        out = io.BytesIO()
+        with wave.open(out, "wb") as wav:
+            wav.setparams((1, 2, 24000, 0, "NONE", "not compressed"))
+            wav.writeframes(pcm.tobytes())
+        original = out.getvalue()
+        authored = [{"word": f"w{i:02}", "startMs": 100 + i*440,
+                     "endMs": 270 + i*440} for i in range(73)]
+        alignment = json.dumps({
+            "inputSha256": {"wav": digest(original)},
+            "sampleRate": 24000, "sampleCount": 824336,
+            "mayPublish": False, "pronunciationVerified": False,
+            "timingAccuracyCalibrated": False,
+            "wordAlignment": authored,
+        }).encode()
+        replacements = {2: (3, "sevenoh"), 7: (1, "mitrogenine"),
+                        16: (2, "hydroxyl"), 19: (1, "mitrogenine"),
+                        37: (1, "poles"), 63: (2, "thats")}
+        matched = [i for i in range(73)
+                   if not any(start <= i < start+count
+                              for start, (count, _) in replacements.items())]
+        onset_flagged = set(matched[:15])
+        offset_flagged = set(matched[14:30])
+        guessed = []
+        i = 0
+        while i < 73:
+            if i in replacements:
+                consumed, word = replacements[i]
+                guessed.append({"word": word,
+                                "start": authored[i]["startMs"]/1000,
+                                "end": authored[i+consumed-1]["endMs"]/1000})
+                i += consumed
+                continue
+            m = authored[i]
+            guessed.append({"word": m["word"],
+                            "start": (m["startMs"] + (215 if i in onset_flagged else 0))/1000,
+                            "end": (m["endMs"] + (210 if i in offset_flagged else 0))/1000})
+            i += 1
+        assert len(guessed) == 70
+        asr = json.dumps({
+            "sourceWavSha256": digest(original), "mayPublish": False,
+            "recognizedWords": guessed,
+        }).encode()
+        return original, alignment, asr
+
+    def test_original_cross_model_queue_six_lexical_thirty_distinct_timing(self):
+        audio, mfa, asr = self.cross_model_fixture()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(audio)), (
+                patch.object(original_guard, "MFA_SOURCE_ALIGNMENT_SHA", digest(mfa))), (
+                patch.object(original_guard, "POSE_ASR_RECEIPT_SHA", digest(asr))):
+            result = original_guard.audit_original_cross_model_word_timing(
+                audio, mfa, asr)
+        self.assertEqual(result["status"], "RESEARCH_ORIGINAL_WORD_REVIEW_QUEUE_HOLD", result)
+        self.assertEqual(result["matchedWordPairCount"], 63)
+        self.assertEqual(result["lexicalDisagreementBlockCount"], 6)
+        self.assertEqual(result["onsetDisagreementOverThresholdCount"], 15)
+        self.assertEqual(result["offsetDisagreementOverThresholdCount"], 16)
+        self.assertEqual(result["distinctMatchedWordTimingReviewCount"], 30)
+        self.assertEqual(result["reviewQueueCaseCount"], 36)
+        self.assertEqual(len(result["lexicalDisagreements"]), 6)
+        self.assertEqual(len(result["timingReviews"]), 30)
+        for case in [*result["lexicalDisagreements"], *result["timingReviews"]]:
+            lo, hi = case["sourceStartSample"], case["sourceEndSample"]
+            with wave.open(io.BytesIO(audio), "rb") as w:
+                pcm = w.readframes(w.getnframes())
+            self.assertEqual(digest(pcm[lo*2:hi*2]), case["sourcePcmSha256"])
+        for key in ("mayPublish", "pronunciationVerified",
+                    "phonemeIdentityVerified", "wordTimingCalibrated",
+                    "captionTimingApproved", "independentHumanAnnotationPresent"):
+            self.assertFalse(result[key])
+        self.assertIsNone(result["lexicalWinner"])
+
+    def test_cross_model_mismatched_sha_and_malformed_bounds_fail_closed(self):
+        audio, mfa, asr = self.cross_model_fixture()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(audio)), (
+                patch.object(original_guard, "MFA_SOURCE_ALIGNMENT_SHA", digest(mfa))), (
+                patch.object(original_guard, "POSE_ASR_RECEIPT_SHA", digest(asr))):
+            r = original_guard.audit_original_cross_model_word_timing(
+                audio[:-2]+b"00", mfa, asr)
+            self.assertEqual(r["status"], "HOLD")
+            self.assertIn("CROSS_MODEL_WAV_SHA_MISMATCH", r["errors"])
+        data = json.loads(asr)
+        data["recognizedWords"][1]["start"] = True
+        altered = json.dumps(data).encode()
+        with patch.object(original_guard, "SOURCE_WAV_REFERENCE", digest(audio)), (
+                patch.object(original_guard, "MFA_SOURCE_ALIGNMENT_SHA", digest(mfa))), (
+                patch.object(original_guard, "POSE_ASR_RECEIPT_SHA", digest(altered))):
+            r = original_guard.audit_original_cross_model_word_timing(
+                audio, mfa, altered)
+            self.assertEqual(r["status"], "HOLD")
+            self.assertIn("CROSS_MODEL_WORD_TIMES_OR_TEXT_INVALID", r["errors"])
+            self.assertFalse(r["mayPublish"])
+
+    def test_cross_model_cli_requires_exclusive_three_sha_pinned_sources(self):
+        script = str(Path(__file__).with_name("repeated_term_acoustic_guard.py"))
+        cmd = subprocess.run([sys.executable, script,
+            "--cross-model-timing-review", "--original-wav", "/nonexistent.wav",
+            "--mfa-alignment", "/nonexistent.json",
+            "--pose-asr-receipt", "/nonexistent-asr.json"],
+            capture_output=True, text=True, timeout=20)
+        self.assertEqual(cmd.returncode, 2, cmd.stderr)
+        self.assertIn('"mayPublish": false', cmd.stdout)
+        self.assertIn('"status": "HOLD"', cmd.stdout)
+        mixed = subprocess.run([sys.executable, script,
+            "--cross-model-timing-review", "--original-wav", "/nonexistent.wav",
+            "--mfa-alignment", "/nonexistent.json",
+            "--pose-asr-receipt", "/nonexistent-asr.json",
+            "--asr-zero-onset-audit"],
+            capture_output=True, text=True, timeout=20)
+        self.assertEqual(mixed.returncode, 2, mixed.stderr)
+        self.assertIn("CROSS_MODEL_REVIEW_REQUIRES_EXACT_THREE_SOURCE_INPUTS",
+                      mixed.stdout)
+
+
+
 class SyntheticMasterLinkTests(unittest.TestCase):
     """Synthetic controls only; original 34.35s master is NOT in hosted checkout."""
 
