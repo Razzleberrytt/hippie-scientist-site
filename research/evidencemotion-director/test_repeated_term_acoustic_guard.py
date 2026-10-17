@@ -33,6 +33,64 @@ def tone(hz, duration=.45):
 
 
 class SpectralNegativeTests(unittest.TestCase):
+
+    def test_gain_headroom_safe_never_grants_release_or_true_peak(self):
+        source=np.zeros(24000); source[:4000]=.4
+        result=original_guard.audit_research_gain_only_envelope(
+            source, source.copy(), 1.5, ((4000,12000),))
+        self.assertEqual(result["status"],"RESEARCH_SAMPLE_HEADROOM_ONLY_HOLD")
+        self.assertFalse(result["mayPublish"])
+        self.assertFalse(result["ebuTruePeakMeasured"])
+        self.assertFalse(result["integratedLoudnessMeasured"])
+
+    def test_gain_headroom_blocks_near_full_scale_even_without_clipped_samples(self):
+        source=np.zeros(24000); source[:4000]=.4
+        result=original_guard.audit_research_gain_only_envelope(
+            source,source,2.0,((4000,12000),))
+        self.assertEqual(result["status"],"HOLD")
+        self.assertFalse(result["sampleOnlyHeadroomScreenPass"])
+        self.assertEqual(result["projectedPreEncodeSamplesAtOrAboveFullScale"],0)
+
+    def test_gain_headroom_blocks_actual_preencode_overload(self):
+        source=np.zeros(24000); source[:4000]=.4
+        result=original_guard.audit_research_gain_only_envelope(
+            source,source,3.04,((4000,12000),))
+        self.assertEqual(result["status"],"HOLD")
+        self.assertGreater(result["projectedPreEncodeSamplesAtOrAboveFullScale"],0)
+
+    def test_gain_headroom_detects_changed_exact_silent_source_hold(self):
+        source=np.zeros(24000); source[:4000]=.4
+        altered=source.copy();altered[6000]=.1
+        result=original_guard.audit_research_gain_only_envelope(
+            source,altered,1.1,((4000,12000),))
+        self.assertIn("SOURCE_SILENCE_CHANGED",result["errors"][0])
+
+    def test_gain_headroom_rejects_invalid_source_shapes_and_numbers(self):
+        source=np.zeros(24000); source[:4000]=.4
+        for invalid in (source[:-1],np.full(24000,np.nan),np.zeros(24000)):
+            result=original_guard.audit_research_gain_only_envelope(
+                source,invalid,1.1,((4000,12000),))
+            self.assertEqual(result["status"],"HOLD")
+
+    def test_gain_headroom_rejects_invalid_gain_or_silence_window(self):
+        source=np.zeros(24000); source[:4000]=.4
+        for invalid in (None,"foo",float("nan"),float("inf"),0,20):
+            result=original_guard.audit_research_gain_only_envelope(
+                source,source,invalid,((4000,12000),))
+            self.assertEqual(result["status"],"HOLD")
+        for invalid in (((-1,12),),((4000,24001),),((4000,4000),),((True,50),)):
+            result=original_guard.audit_research_gain_only_envelope(
+                source,source,1.1,invalid)
+            self.assertEqual(result["status"],"HOLD")
+
+    def test_gain_headroom_does_not_fake_pcm_source_provenance(self):
+        source=np.zeros(24000); source[:4000]=.4
+        result=original_guard.audit_research_gain_only_envelope(
+            source,source,1.1,((4000,12000),))
+        self.assertFalse(result["sourceHashesVerifiedByThisHelper"])
+        self.assertFalse(result["filmEncodedAndDecoded"])
+        self.assertFalse(result["productionAudioApproved"])
+
     def test_gain_independent_positive_is_not_phonetic_proof(self):
         a=tone(240)
         report=compare(a,a*.6,[tone(470),tone(860)])
