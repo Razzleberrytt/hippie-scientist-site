@@ -49,4 +49,28 @@ class SafeSequenceTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)/'bytes';p.write_bytes(b'hello')
             self.assertEqual(s.digest(p),'2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824')
+    def test_optin_padding_keeps_existing_default_unchanged(self):
+        old=s.make_overlay(self.source,630,FONT)
+        explicit_default=s.make_overlay(self.source,630,FONT,padding_study=False)
+        self.assertEqual(old.tobytes(),explicit_default.tobytes())
+        raised=s.make_overlay(self.source,630,FONT,padding_study=True)
+        self.assertNotEqual(old.tobytes(),raised.tobytes())
+        self.assertEqual(raised.getpixel((450,440))[:3],(64,150,158))
+    def test_optin_padding_preserves_actual_science_stage_pixels(self):
+        prior=s.make_overlay(self.source,630,FONT)
+        repaired=s.make_overlay(self.source,630,FONT,padding_study=True)
+        for x,y in ((350,180),(450,240),(550,310)):
+            self.assertEqual(prior.getpixel((x,y)),repaired.getpixel((x,y)))
+    def test_optin_padding_still_reveals_disclosure_only_at_cue(self):
+        a=s.make_overlay(self.source,594,FONT,padding_study=True)
+        b=s.make_overlay(self.source,595,FONT,padding_study=True)
+        self.assertNotEqual(a.crop((100,350,835,440)).tobytes(),
+                            b.crop((100,350,835,440)).tobytes())
+    def test_optin_padding_never_draws_in_right_exclusion(self):
+        for idx in (498,554,555,594,595,630,701):
+            r=s.make_overlay(self.source,idx,FONT,padding_study=True)
+            for x in (864,975,1079):
+                for y in (100,350,441):
+                    self.assertEqual(r.getpixel((x,y))[:3],(5,24,37))
+
 if __name__=='__main__':unittest.main()
