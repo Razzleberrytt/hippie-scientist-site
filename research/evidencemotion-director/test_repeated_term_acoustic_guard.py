@@ -1669,6 +1669,48 @@ class OriginalDigitalZeroNegativeTests(unittest.TestCase):
             return original_guard.audit_revised_caption_voice_gaps(
                 audio,counts,film_sha,adts_sha)
 
+    def test_kind_broadband_two_window_event_is_not_phonetic_truth(self):
+        source, _, _ = self.frame_native_plan_fixture()
+        with wave.open(io.BytesIO(source),"rb") as w:
+            signal=np.frombuffer(w.readframes(w.getnframes()),"<i2").copy()
+        # Contrived 2x broadband 10ms windows after two quiet windows and
+        # independent voiced 2x energy continuation. Never actual narrator.
+        sr=24000
+        signal[3159*240:3161*240]=0
+        rng=np.random.default_rng(20261017)
+        burst=rng.integers(-2200,2200,size=480,dtype=np.int16)
+        signal[3161*240:3163*240]=burst
+        t=np.arange(480)/sr
+        signal[3165*240:3167*240]=np.rint(6500*np.sin(2*np.pi*210*t)).astype("<i2")
+        def wrapped(pcm):
+            sink=io.BytesIO()
+            with wave.open(sink,"wb") as w:
+                w.setparams((1,2,24000,0,"NONE","not compressed"))
+                w.writeframes(pcm.tobytes())
+            return sink.getvalue()
+        corrected=wrapped(signal)
+        with patch.object(original_guard,"SOURCE_WAV_REFERENCE",digest(corrected)):
+            report=original_guard.audit_kind_spectral_transition_research(corrected)
+            self.assertEqual(report["status"],
+                 "RESEARCH_BROADBAND_TRANSITION_CANDIDATE_HOLD",report)
+            self.assertTrue(report["highFrequencyTransitionDetected"])
+            self.assertEqual(report["candidate"]["firstBroadbandWindowSec"],31.61)
+            self.assertFalse(report["actualWordOrPhonemeVerified"])
+            self.assertFalse(report["mayPublish"])
+            # One broadband transient is not a two-window phone-like event.
+            single=signal.copy()
+            single[3162*240:3163*240]=0
+            one_off=wrapped(single)
+            with patch.object(original_guard,"SOURCE_WAV_REFERENCE",digest(one_off)):
+                rejected=original_guard.audit_kind_spectral_transition_research(one_off)
+                self.assertEqual(rejected["status"],
+                    "RESEARCH_NO_CALIBRATED_BROADBAND_TRANSITION_HOLD")
+                self.assertFalse(rejected["highFrequencyTransitionDetected"])
+            # Even a known pattern cannot be reused against changed source.
+            changed=corrected[:-2]+bytes((corrected[-2]^1,corrected[-1]))
+            bad=original_guard.audit_kind_spectral_transition_research(changed)
+            self.assertIn("KIND_BURST_ORIGINAL_WAV_SHA_CHANGED",bad["errors"])
+
     def test_current_film_full_aac_and_packet_guards_fail_closed_with_mock_decoder(self):
         # Hosted physical-shaped synthetic fixture; patched pins are NOT
         # evidence that the first-party movie was included in hosted CI.

@@ -1213,6 +1213,101 @@ def audit_revised_aac_packet_timeline_files(archived_path, revised_path):
 REVISED_SCENE4_PHONE_FOOTNOTES_FILM_SHA = "7a3440aab731082233cb5f700fd40b030c1de0d4ee3d6b011b38e348a98f47c9"
 
 
+def audit_kind_spectral_transition_research(source_raw):
+    """Source-locked consonant-like broadband event; NOT a phone or word.
+
+    The source at 31.59-31.60s falls into a short RMS trough. This distinct
+    feature test measures two subsequent 10ms high-band FFT windows, then
+    separately requires sustained voiced-amplitude continuation. It cannot
+    determine whether the transient is /k/, another consonant, or an artifact.
+    The first-party ASR's 'kind' 31.74s hypothesis is only a comparison.
+    All possible outcomes remain research-only and publishing HOLD.
+    """
+    base = {"schema": SCHEMA, "mayPublish": False,
+            "pronunciationVerified": False, "phonemeIdentityVerified": False,
+            "wordTimingCalibrated": False, "captionTimingApproved": False,
+            "independentListeningVerified": False,
+            "originalAudioModified": False, "researchOnly": True}
+    def refuse(why):
+        return {**base, "status": "HOLD", "errors": [why]}
+    if not isinstance(source_raw, bytes) or digest(source_raw) != SOURCE_WAV_REFERENCE:
+        return refuse("KIND_BURST_ORIGINAL_WAV_SHA_CHANGED")
+    try:
+        with wave.open(io.BytesIO(source_raw), "rb") as audio:
+            if (audio.getnchannels(), audio.getsampwidth(),
+                    audio.getframerate(), audio.getnframes(),
+                    audio.getcomptype()) != (1, 2, 24000, 824336, "NONE"):
+                return refuse("KIND_BURST_ORIGINAL_WAV_FORMAT_INVALID")
+            pcm = audio.readframes(audio.getnframes())
+        if len(pcm) != 824336*2:
+            return refuse("KIND_BURST_TRUNCATED_ORIGINAL_PCM")
+        source = np.frombuffer(pcm, "<i2").astype(np.float64)/32768
+        # Search is intentionally narrow and frozen to one source utterance,
+        # not a generic learned phoneme detector or arbitrary speaker.
+        bins = {}
+        hann = np.hanning(240)
+        fft_freq = np.fft.rfftfreq(240, d=1/24000)
+        high_band = (fft_freq >= 1400) & (fft_freq <= 8000)
+        for number in range(3154, 3181):
+            chunk = source[number*240:(number+1)*240]
+            if len(chunk) != 240:
+                return refuse("KIND_BURST_CONTEXT_TRUNCATED")
+            rms = float(np.sqrt(np.mean(chunk*chunk)))
+            centered = chunk-np.mean(chunk)
+            spectrum = np.abs(np.fft.rfft(centered*hann))**2
+            denom = float(np.sum(spectrum))
+            fraction = float(np.sum(spectrum[high_band])/denom) if denom>1e-18 else 0.0
+            bins[number] = {"rms": rms, "highBandPowerFraction": fraction}
+        event = None
+        for j in range(3159, 3170):
+            # Paired trough -> two broadband nonzero frames -> separate
+            # sustained energy rise. A single injected spike cannot pass.
+            trough = all(bins[k]["rms"] < 0.006 for k in (j-2,j-1))
+            burst = all(bins[k]["rms"] >= 0.012 and
+                        bins[k]["highBandPowerFraction"] >= 0.12
+                        for k in (j,j+1))
+            post = next((k for k in range(j+2,min(j+10,3180))
+                         if bins[k]["rms"]>=0.06 and bins[k+1]["rms"]>=0.06),
+                        None)
+            if trough and burst and post is not None and j/100 < 31.67:
+                event=(j,post)
+                break
+        selection = None if event is None else {
+            "firstBroadbandWindowSec": event[0]/100,
+            "sustainedEnergyContinuationSec": event[1]/100,
+            "precedingTwoRms": [round(bins[x]["rms"],7)
+                                for x in (event[0]-2,event[0]-1)],
+            "twoBroadbandRms": [round(bins[x]["rms"],7)
+                                for x in (event[0],event[0]+1)],
+            "twoHighBandFractions": [round(bins[x]["highBandPowerFraction"],5)
+                                     for x in (event[0],event[0]+1)],
+            "asrHypothesisMinusEventMs": round((31.74-event[0]/100)*1000,3),
+            "eligible30FpsFrameAfterEvent": int(np.ceil(event[0]*.3-1e-8)),
+        }
+        return {**base,
+                "status": ("RESEARCH_BROADBAND_TRANSITION_CANDIDATE_HOLD"
+                           if event is not None else
+                           "RESEARCH_NO_CALIBRATED_BROADBAND_TRANSITION_HOLD"),
+                "sourceWavSha256": SOURCE_WAV_REFERENCE,
+                "windowSizeMs": 10, "bandHz": [1400,8000],
+                "spectralPowerFractionThreshold": 0.12,
+                "twoWindowRmsThreshold": 0.012,
+                "pairedPrecedingTroughRmsMaxExclusive": 0.006,
+                "twoWindowPostRmsThreshold": 0.06,
+                "firstPartyAsrKindHypothesisSec": 31.74,
+                "firstPartyMfaKindHypothesisSec": 31.58,
+                "actualWordOrPhonemeVerified": False,
+                "highFrequencyTransitionDetected": event is not None,
+                "sourceContextPcmSha256": digest(pcm[3154*480:3181*480]),
+                "sourceContextSec": [31.54,31.81],
+                "candidate": selection,
+                "caution": "A correlated broadband transient is not "
+                           "proof of /k/, correct text, phonetic start or "
+                           "the right caption cut; ASR/MFA remain hypotheses."}
+    except (OSError, ValueError, TypeError, wave.Error, FloatingPointError):
+        return refuse("KIND_BURST_ORIGINAL_AUDIO_PARSE_FAILED")
+
+
 def audit_revised_caption_voice_gaps(source_raw, frame_ink_counts,
                                       revised_film_sha, adts_sha):
     """Screen actual frame caption presence against source voice energy.
@@ -1379,6 +1474,7 @@ def audit_revised_caption_voice_gaps_files(wav_path, film_path):
             return reject("CAPTION_GAP_MEDIA_CHANGED_DURING_DECODE")
         result=audit_revised_caption_voice_gaps(
             wav_raw, ink, film_sha, digest(audio.stdout))
+        result["kindSourceBroadbandResearch"] = audit_kind_spectral_transition_research(wav_raw)
         result["nativeCompleteAacDecodedSha256"]=digest(decoded.stdout)
         result["nativeAacPacketTimelineSha256"]=packet_sha
         result["nativeFullAudioSampleCount"]=825344
