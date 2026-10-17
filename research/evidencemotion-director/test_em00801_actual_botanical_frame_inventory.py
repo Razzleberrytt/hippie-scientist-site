@@ -1,8 +1,11 @@
 """EM-008.01 exact-film metadata negative controls; no fictional media fixture PASS."""
 import copy
 import unittest
+from types import SimpleNamespace
+from unittest.mock import patch
 from em00801_actual_botanical_frame_inventory import (
-    FILM_SHA,WAV_SHA,SHOT_IDS,FRAME_COUNT,FPS,SourceHold,contract,parse_framehash
+    FILM_SHA,WAV_SHA,SHOT_IDS,FRAME_COUNT,FPS,SourceHold,contract,parse_framehash,
+    all_native_framehashes
 )
 
 ENDS=[1.61,3.47,10.85,16.58,23.379999,25.709999,27.35,31.25,FRAME_COUNT/FPS]
@@ -119,6 +122,75 @@ class RealRgbFramehashProtocolTests(unittest.TestCase):
     def test_invalid_digest_is_rejected(self):
         with self.assertRaisesRegex(SourceHold,"SWAPPED_TRUNCATED"):
             parse_framehash(self.HEADER+self.frame(hash_value="z"*64),[24])
+
+
+class CompleteOriginalH264FramehashContractTests(unittest.TestCase):
+    """Mock parser negatives; real original 1031-frame decoding runs in hosted CI."""
+
+    HEADER=("\\n".join(("#format: frame checksums","#version: 2",
+        "#hash: SHA256","#tb 0: 1/30","#media_type 0: video",
+        "#codec_id 0: rawvideo","#dimensions 0: 1080x1920",
+        "#stream#, dts, pts, duration, size, hash"))+"\\n")
+
+    def corpus(self, missing=None, duplicate=None, swapped=None):
+        hashes=["a"*64 for _ in range(FRAME_COUNT)]
+        if swapped is not None:
+            hashes[swapped]="b"*64
+        rows=[]
+        for i,code in enumerate(hashes):
+            if i==missing:
+                continue
+            rows.append(f"0, {i}, {i}, 1, 6220800, {code}\\n")
+            if i==duplicate:
+                rows.append(f"0, {i}, {i}, 1, 6220800, {code}\\n")
+        return self.HEADER+"".join(rows)
+
+    def invoke(self, text):
+        p,_,_=fixture()
+        idx=contract(*fixture(),FILM_SHA)
+        samples=[{"frameIndex":i,"decodedRgb24Sha256":"a"*64} for i in idx]
+        with patch("em00801_actual_botanical_frame_inventory.subprocess.run",
+                   return_value=SimpleNamespace(stdout=text,returncode=0)) as run:
+            actual=all_native_framehashes("pin.mp4",p["shots"],samples)
+        self.assertEqual(run.call_count,1)
+        command=run.call_args.args[0]
+        self.assertIn("framehash",command)
+        self.assertIn("rgb24",command)
+        self.assertIn("sha256",command)
+        return actual
+
+    def test_every_frame_decoded_and_declared_shot_coverage_without_science_promotion(self):
+        data=self.invoke(self.corpus())
+        self.assertEqual(data["actualDecodedFrameCount"],1031)
+        self.assertEqual(len(data["allActualDecodedFrameHashes"]),1031)
+        self.assertEqual([v["frameIndex"] for v in data["allActualDecodedFrameHashes"]],
+                         list(range(1031)))
+        self.assertEqual(sum(data["authorDeclaredShotFrameCounts"].values()),1031)
+        self.assertEqual(set(data["authorDeclaredShotFrameCounts"]),set(SHOT_IDS))
+        self.assertEqual(len(data["decodedFrameHashSequenceSha256"]),64)
+        self.assertFalse(data["allFramesBotanicallyClassified"])
+        self.assertFalse(data["allFramesIndependentlyScientificallyReviewed"])
+        self.assertFalse(data["mayPublish"])
+
+    def test_missing_mid_movie_frame_rejected_not_deemed_complete(self):
+        with self.assertRaisesRegex(SourceHold,"MISSING_OR_EXTRA"):
+            self.invoke(self.corpus(missing=500))
+
+    def test_duplicate_mid_movie_frame_rejected_not_deemed_complete(self):
+        with self.assertRaisesRegex(SourceHold,"MISSING_OR_EXTRA"):
+            self.invoke(self.corpus(duplicate=500))
+
+    def test_full_frame_scan_must_cross_match_nine_prior_real_midpoints(self):
+        mid=contract(*fixture(),FILM_SHA)[3]
+        with self.assertRaisesRegex(SourceHold,"MIDPOINTS_DISAGREE"):
+            self.invoke(self.corpus(swapped=mid))
+
+    def test_shifted_frame_index_rejected_even_if_total_count_matches(self):
+        rows=self.corpus().splitlines(keepends=True)
+        target=next(i for i,r in enumerate(rows) if r.startswith("0, 500,"))
+        rows[target]=rows[target].replace("0, 500, 500,","0, 501, 501,")
+        with self.assertRaisesRegex(SourceHold,"SWAPPED_TRUNCATED"):
+            self.invoke("".join(rows))
 
 if __name__=="__main__":
     unittest.main()
