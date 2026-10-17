@@ -466,7 +466,7 @@ class Tests(unittest.TestCase):
                 read_original_pair_dir(root)
 
     @staticmethod
-    def _small_h264_aac_original_codec_fixture(directory):
+    def _small_h264_aac_original_codec_fixture(directory, *, audio_duration=0.4):
         """Real 12-frame 64x64 test media, NOT the pinned original video."""
         from original_native_stdin_replay import ORIGINAL_NAME, original_media_executable
         base = Path(directory)
@@ -475,7 +475,8 @@ class Tests(unittest.TestCase):
             original_media_executable("ffmpeg"), "-hide_banner", "-v", "info",
             "-cpuflags", "0", "-nostdin",
             "-f", "lavfi", "-i", "testsrc2=size=64x64:rate=30:duration=0.4",
-            "-f", "lavfi", "-i", "sine=frequency=500:sample_rate=24000:duration=0.4",
+            "-f", "lavfi", "-i",
+            f"sine=frequency=500:sample_rate=24000:duration={audio_duration}",
             "-map", "0:v:0", "-map", "1:a:0",
             "-c:v", "libx264", "-threads:v", "1",
             "-x264-params", "asm=0:sync-lookahead=0", "-pix_fmt", "yuv420p",
@@ -566,6 +567,33 @@ class Tests(unittest.TestCase):
             self.assertEqual(observed, ["real-full-decode"])
             self.assertNotEqual(digest(log.read_bytes()), before)
             self.assertEqual(digest(movie.read_bytes()), film_sha)
+
+    def test_downloaded_media_rejects_real_short_aac_attached_to_full_video(self):
+        from original_native_stdin_replay import (
+            audit_downloaded_original_movie, original_media_executable)
+        with tempfile.TemporaryDirectory() as directory:
+            movie = self._small_h264_aac_original_codec_fixture(
+                directory, audio_duration=0.05)
+            # This is genuine playable H264+AAC, not a missing-track fixture:
+            # the video still has 12 full frames while AAC has only 2.
+            probe = subprocess.run([
+                original_media_executable("ffprobe"), "-v", "error",
+                "-count_frames", "-show_entries",
+                "stream=codec_type,nb_read_frames",
+                "-of", "json", str(movie),
+            ], capture_output=True, text=True, check=True, timeout=15)
+            streams = json.loads(probe.stdout)["streams"]
+            self.assertEqual(
+                next(int(s["nb_read_frames"]) for s in streams
+                     if s["codec_type"] == "video"), 12)
+            self.assertLess(
+                next(int(s["nb_read_frames"]) for s in streams
+                     if s["codec_type"] == "audio"), 8)
+            with self.assertRaisesRegex(ValueError,
+                                        "DOWNLOADED_AAC_TOO_SHORT_FOR_FILM"):
+                audit_downloaded_original_movie(
+                    directory, expected_geometry=(64, 64, 12),
+                    expected_film_sha256=digest(movie.read_bytes()))
 
     def test_downloaded_native_media_rejects_removed_or_faked_encoder_control(self):
         from original_native_stdin_replay import audit_downloaded_original_movie
