@@ -2,12 +2,16 @@
 import io
 import hashlib
 import json
+import os
+import shutil
+import stat
 import subprocess
 import sys
 import tempfile
 import unittest
 import wave
 from pathlib import Path
+from unittest.mock import patch
 
 from original_replay_admission import inspect_replay_inputs, EXPECTED_RENDERER_FILES, EXPECTED_FONTS
 from original_replay_source_restore import restore_pinned_sources
@@ -290,9 +294,35 @@ class Tests(unittest.TestCase):
         job, env, movie = cls._job_v1_fixture()
         root = Path(path)
         (root / ORIGINAL_NAME).write_bytes(movie)
-        (root / "environment.json").write_text(json.dumps(env, indent=2) + "\n")
-        (root / "full-original-replay.json").write_text(json.dumps(job, indent=2) + "\n")
+        # The producer's sha256EnvironmentJson pins canonical LF *bytes*.
+        # Path.write_text translates to CRLF on Windows and would forge an
+        # invalid "valid" fixture. Do not weaken the physical SHA receiver.
+        (root / "environment.json").write_bytes(
+            (json.dumps(env, indent=2) + "\n").encode("utf-8"))
+        (root / "full-original-replay.json").write_bytes(
+            (json.dumps(job, indent=2) + "\n").encode("utf-8"))
         return job, env
+
+    def test_pair_fixture_is_actual_canonical_lf_bytes_not_windows_text_mode(self):
+        from original_native_stdin_replay import ORIGINAL_NAME
+        with tempfile.TemporaryDirectory() as d:
+            job, env = self._write_pair_fixture(d)
+            root = Path(d)
+            raw = (root / "environment.json").read_bytes()
+            self.assertEqual(raw, (json.dumps(env, indent=2) + "\n").encode("utf-8"))
+            self.assertNotIn(b"\r\n", raw)
+            self.assertEqual(digest(raw), job["sha256EnvironmentJson"])
+            self.assertEqual(digest((root / ORIGINAL_NAME).read_bytes()),
+                             job["sourceToEncoderStdinReceipt"]["filmSha256"])
+
+    def test_pair_fixture_physical_environment_crlf_mutation_still_hold(self):
+        from original_native_stdin_replay import read_original_pair_dir
+        with tempfile.TemporaryDirectory() as d:
+            self._write_pair_fixture(d)
+            path = Path(d) / "environment.json"
+            path.write_bytes(path.read_bytes().replace(b"\n", b"\r\n"))
+            with self.assertRaisesRegex(ValueError, "PHYSICAL_ENV_FILE_SHA_MISMATCH"):
+                read_original_pair_dir(d)
 
     def test_physical_pair_json_valid_synthetic_fixture_still_research_only(self):
         from original_native_stdin_replay import read_original_pair_dir
@@ -594,6 +624,54 @@ class Tests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,"FRESH_OUTPUT_PARENT_REQUIRED"):
                 restore_pinned_sources(repo,dest,pins=pins,refs=refs)
             self.assertEqual((dest/"user.txt").read_text(),"preserve")
+
+    def test_win_readonly_staging_cleanup_preserves_git_hold(self):
+        """Simulate Windows WinError5 on staged 0444 file on hosted Linux."""
+        with tempfile.TemporaryDirectory() as d:
+            repo,pins,refs=synthetic_git_history_fixture(d)
+            refs["beta.py"]="f"*40
+            dest=Path(d)/"blocked-sources"
+            real_rmtree=shutil.rmtree
+            triggered=[]
+            def simulate_windows_permission(stage, *, onerror):
+                first=Path(stage)/"alpha.py"
+                self.assertTrue(first.is_file())
+                self.assertEqual(first.stat().st_mode & stat.S_IWUSR, 0)
+                e=PermissionError(13, "simulated Windows read-only WinError5")
+                onerror(os.unlink, str(first), (PermissionError, e, None))
+                triggered.append(not first.exists())
+                real_rmtree(stage)
+            with patch("original_replay_source_restore.shutil.rmtree",
+                       side_effect=simulate_windows_permission):
+                with self.assertRaisesRegex(ValueError, "GIT_REVISION_UNAVAILABLE:beta.py"):
+                    restore_pinned_sources(repo,dest,pins=pins,refs=refs)
+            self.assertEqual(triggered,[True])
+            self.assertFalse(dest.exists())
+            self.assertFalse(any(Path(d).glob(".em-original-sources-*")))
+
+    def test_readonly_stage_cleanup_rejects_foreign_file_repair(self):
+        from original_replay_source_restore import _cleanup_owned_readonly_stage
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            stage=root/"owned";stage.mkdir()
+            owner=root/"do-not-change.py"
+            owner.write_bytes(b"foreign owner bytes")
+            owner.chmod(0o444)
+            original_mode=owner.stat().st_mode
+            real_rmtree=shutil.rmtree
+            def trigger_foreign_path(stage_path, *, onerror):
+                e=PermissionError(13, "simulated outside-stage cleanup")
+                onerror(os.unlink, str(owner), (PermissionError, e, None))
+            try:
+                with patch("original_replay_source_restore.shutil.rmtree",
+                           side_effect=trigger_foreign_path):
+                    with self.assertRaises(PermissionError):
+                        _cleanup_owned_readonly_stage(stage)
+                self.assertEqual(owner.read_bytes(), b"foreign owner bytes")
+                self.assertEqual(owner.stat().st_mode, original_mode)
+            finally:
+                owner.chmod(0o600)
+                real_rmtree(stage)
 
     def test_original_source_restore_unavailable_git_commit_fails_atomically(self):
         with tempfile.TemporaryDirectory() as d:
