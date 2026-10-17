@@ -1108,8 +1108,14 @@ def compare_revised_aac_packet_timeline(archived_packets, revised_packets,
         "timelineMetadataDisagreementCount": len(differences),
         "packetTimelineDifferences": differences[:32],
         "nominalAudioSampleRateHz": 24000,
-        "originalTotalPacketDurationSamples": sum(x["duration"] for x in a),
-        "revisedTotalPacketDurationSamples": sum(x["duration"] for x in b),
+        "originalTotalPacketDurationSamplesIncludingPriming":
+            sum(x["duration"] for x in a),
+        "revisedTotalPacketDurationSamplesIncludingPriming":
+            sum(x["duration"] for x in b),
+        "archivedLastPacketPresentationEndSample":
+            a[-1]["pts"] + a[-1]["duration"],
+        "revisedLastPacketPresentationEndSample":
+            b[-1]["pts"] + b[-1]["duration"],
         "decodedPcmSamplesNotInferredFromPacketDuration": True,
         "qualifiedListeningStillRequired": True,
         "caution": "Byte-identical AAC alone does not prove MP4 packet duration "
