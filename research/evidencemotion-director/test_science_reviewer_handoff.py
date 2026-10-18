@@ -2,6 +2,8 @@
 import copy
 import json
 import tempfile
+import hashlib
+from contextlib import nullcontext
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -90,6 +92,53 @@ class IndependentScienceIntakeTests(unittest.TestCase):
             self.assertEqual(packet["eightClaimsToReview"][0]["originalWavAlignedEndMs"],2920)
             self.assertTrue(all(row["currentH264FrameContentInspectedForThisClaim"] is False
                                 for row in packet["eightClaimsToReview"]))
+
+    def test_frozen_original_movie_isolated_and_swap_fails_closed(self):
+        import science_reviewer_handoff as handoff
+        with tempfile.TemporaryDirectory() as folder:
+            movie=Path(folder)/"mutable.mp4"
+            movie.write_bytes(b"A"*256)
+            pin=hashlib.sha256(movie.read_bytes()).hexdigest()
+            with self.assertRaisesRegex(
+                ValueError,"SCIENCE_REVIEW_ORIGINAL_CHANGED_DURING_DECODE"
+            ):
+                with handoff._pinned_review_movie(movie,pin) as frozen:
+                    self.assertNotEqual(movie.resolve(),frozen.resolve())
+                    self.assertEqual(frozen.read_bytes(),b"A"*256)
+                    movie.write_bytes(b"B"*256)
+                    self.assertEqual(frozen.read_bytes(),b"A"*256)
+            self.assertFalse(frozen.exists())
+            with self.assertRaisesRegex(
+                ValueError,"ENCODED_SOURCE_CHANGED_DURING_SNAPSHOT"
+            ):
+                with handoff._pinned_review_movie(movie,pin):
+                    self.fail("cannot enter after source changed")
+
+    def test_frozen_copy_mutation_during_decode_fails_closed(self):
+        import science_reviewer_handoff as handoff
+        with tempfile.TemporaryDirectory() as folder:
+            movie=Path(folder)/"immutable-original.mp4"
+            original=b"A"*256
+            movie.write_bytes(original)
+            pin=hashlib.sha256(original).hexdigest()
+            with self.assertRaisesRegex(
+                ValueError,"SCIENCE_REVIEW_FROZEN_CHANGED_DURING_DECODE"
+            ):
+                with handoff._pinned_review_movie(movie,pin) as frozen:
+                    self.assertEqual(frozen.read_bytes(),original)
+                    frozen.write_bytes(b"B"*256)
+                    self.assertEqual(movie.read_bytes(),original)
+            self.assertFalse(frozen.exists())
+            self.assertEqual(movie.read_bytes(),original)
+            # Unchanged originals still pass the post-decode integrity check.
+            with handoff._pinned_review_movie(movie,pin) as frozen:
+                self.assertEqual(frozen.read_bytes(),original)
+            # Deleted snapshots are never implicitly accepted as proof.
+            with self.assertRaisesRegex(
+                ValueError,"SCIENCE_REVIEW_FROZEN_CHANGED_DURING_DECODE"
+            ):
+                with handoff._pinned_review_movie(movie,pin) as frozen:
+                    frozen.unlink()
 
     def test_science_review_rehash_stops_after_limit_plus_one_byte(self):
         import hashlib
@@ -294,7 +343,8 @@ class IndependentScienceIntakeTests(unittest.TestCase):
                 folder=Path(command[-1]).parent
                 for i in range(7):
                     (folder/f"intro-{i:02d}.png").write_bytes(b"a"*200)
-            with patch.object(handoff,"_hash_file",return_value=handoff.FILM_SHA):
+            with patch.object(handoff,"_hash_file",return_value=handoff.FILM_SHA), \
+                 patch.object(handoff,"_pinned_review_movie",return_value=nullcontext(source)):
                 with patch.object(handoff.subprocess,"run",side_effect=missing_one):
                     with self.assertRaisesRegex(ValueError,
                          "NO_REACTION_TIMELINE_EIGHT_REAL_FRAMES_REQUIRED"):
@@ -318,7 +368,8 @@ class IndependentScienceIntakeTests(unittest.TestCase):
                     return None
                 calls.append(command)
                 return type("R",(),{"stdout":"MITRAGYNINE; no biochemical study"})()
-            with patch.object(handoff,"_hash_file",return_value=handoff.FILM_SHA):
+            with patch.object(handoff,"_hash_file",return_value=handoff.FILM_SHA), \
+                 patch.object(handoff,"_pinned_review_movie",return_value=nullcontext(source)):
                 with patch.object(handoff.subprocess,"run",side_effect=mock_steps):
                     with self.assertRaisesRegex(ValueError,
                         "NO_REACTION_TIMELINE_VISIBLE_TEXT_NOT_RECOVERED"):
@@ -428,14 +479,19 @@ class IndependentScienceIntakeTests(unittest.TestCase):
             root=Path(directory)
             film=root/"mock.mp4"
             film.write_bytes(b"mock-bytes-not-actual-media")
+            pinned_fixture=root/"explicit-pinned-input.mp4"
+            pinned_fixture.write_bytes(b"not-original-PNG-mock")
+
             def mock_ffmpeg(command,**kwargs):
+                self.assertEqual(command[command.index("-i")+1],str(pinned_fixture))
                 self.assertIn("select=",next(x for x in command if
                                             isinstance(x,str) and x.startswith("select=")))
                 for n in range(8):
                     (Path(command[-1]).parent/f"original-claim-{n:02d}.png").write_bytes(
                         (b"\x89PNG\r\n\x1a\n"+(13).to_bytes(4,"big")+b"IHDR"+(540).to_bytes(4,"big")+(960).to_bytes(4,"big")+b"a"*130))
                 return None
-            with patch.object(handoff,"_hash_file",return_value=FILM_SHA):
+            with patch.object(handoff,"_hash_file",return_value=FILM_SHA), \
+                 patch.object(handoff,"_pinned_review_movie",return_value=nullcontext(pinned_fixture)):
                 with patch.object(handoff.subprocess,"run",side_effect=mock_ffmpeg) as subprocess_run:
                     result=original_review_stills(film,self.gate,packet,root/"out")
                 self.assertEqual(subprocess_run.call_count,1)
@@ -487,7 +543,8 @@ class IndependentScienceIntakeTests(unittest.TestCase):
             def incomplete(command,**kwargs):
                 (Path(command[-1]).parent/"original-claim-00.png").write_bytes(
                     (b"\x89PNG\r\n\x1a\n"+(13).to_bytes(4,"big")+b"IHDR"+(540).to_bytes(4,"big")+(960).to_bytes(4,"big")+b"a"*130))
-            with patch.object(handoff,"_hash_file",return_value=FILM_SHA):
+            with patch.object(handoff,"_hash_file",return_value=FILM_SHA), \
+                 patch.object(handoff,"_pinned_review_movie",return_value=nullcontext(film)):
                 with patch.object(handoff.subprocess,"run",side_effect=incomplete):
                     with self.assertRaisesRegex(ValueError,"ORIGINAL_REVIEW_STILL_COUNT_OR_SEQUENCE"):
                         original_review_stills(film,self.gate,packet,root/"out")
