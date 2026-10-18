@@ -4,7 +4,9 @@ import {adjudicateFilm} from './autonomous-quality-arbiter.mjs';
 
 const H='a'.repeat(64), V='b'.repeat(64), R='c'.repeat(64), T='d'.repeat(64);
 const frame=()=>({actualVideoSha256:H,schemaVersion:'ths-autonomous-film-critic-research-v1',critiqueScope:'AUTONOMOUS_ACTUAL_PIXELS_NEGATIVE_SCREENING_NOT_HUMAN_QUALITY',
-  samples:17,decision:'AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE',issues:[]});
+  samples:17,decision:'AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE',issues:[],
+  reviewCandidates:[],centerHeroStasisPeripheralMotionWindowsSec:[],
+  twoStateAlternationWindowsSec:[],interleavedBlankPhaseWindowsSec:[]});
 const science=()=>({filmSha256:H,origin:'INDEPENDENT_SOURCE_GRAPH_AUDIT',
  underlyingSourcesVerified:true,claimChecks:[{claimTextSha256:T,exactSourceIds:['PUBCHEM:44301524'],
  supportStatus:'SUPPORTED',humanEvidenceDirectness:'NOT_A_HUMAN_EFFECT_CLAIM',humanEffectAsserted:false}]});
@@ -78,6 +80,10 @@ test('pending visual decision cannot silently erase actual decoded craft warning
    {interleavedBlankPhaseWindowsSec:[{startSec:1,endSec:8,blankSamples:4,blankPhase:1}]},
    {reviewCandidates:'MALFORMED'},
    {reviewCandidates:null},
+   {reviewCandidates:undefined},
+   {centerHeroStasisPeripheralMotionWindowsSec:undefined},
+   {twoStateAlternationWindowsSec:undefined},
+   {interleavedBlankPhaseWindowsSec:undefined},
  ];
  for(const fields of warnings){
    const x=adjudicateFilm({...full(),decodedVisual:{...frame(),...fields}});
