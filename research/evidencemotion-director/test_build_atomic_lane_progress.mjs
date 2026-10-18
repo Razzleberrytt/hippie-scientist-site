@@ -104,14 +104,14 @@ test("accounting step uses the same real discrepancy rule for HOLD and resolved 
     ?.split("      - name: Read GitHub merged PRs into a fresh, time-stamped receipt")[0]||"";
   const block=step.split("          python - <<'PY'\n")[1]?.split("\n          PY")[0];
   assert.ok(block,"Accounting Python block missing");
-  const script=block.split("\n").map(line=>line.replace(/^          /,"")).join("\n");
+  const script=block.split("\n").map(line=>line.replace(/^ {10}/,"")).join("\n");
   withFixture(tmp=>{
     const relative=path.join("research","evidencemotion-director","ATOMIC-LANE-PROGRESS.json");
     const dest=path.join(tmp,relative);
     fs.mkdirSync(path.dirname(dest),{recursive:true});
     const original=JSON.parse(fs.readFileSync(path.join(root,"ATOMIC-LANE-PROGRESS.json"),"utf8"));
     for(const resolved of [false,true]){
-      const input=structuredClone(original);
+      const input=JSON.parse(JSON.stringify(original));
       if(resolved){
         input.global.orphanCards=[];
         input.global.overlap=0;
@@ -141,7 +141,7 @@ test("evidence artifact physically includes byte-identical reconciled card inven
     "Artifact copy step missing");
   assert.ok(workflow.includes("path: ${{ runner.temp }}/em-progress/"),"Evidence upload path missing");
   const script=section.split("        run: |\n")[1]?.split("\n").filter(line=>line.trim())
-    .map(line=>line.replace(/^          /,"")).join("\n");
+    .map(line=>line.replace(/^ {10}/,"")).join("\n");
   assert.ok(script,"Artifact copy command missing");
   withFixture(tmp=>{
     const source=path.join(tmp,"research/evidencemotion-director/ATOMIC-LANE-PROGRESS.json");
