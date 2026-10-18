@@ -7,6 +7,7 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
+import process from "node:process";
 
 const root=path.dirname(fileURLToPath(import.meta.url));
 const copy=(out,name)=>{
