@@ -13,6 +13,7 @@ import os
 import re
 import subprocess
 import tempfile
+from contextlib import contextmanager
 from pathlib import Path
 
 from scientific_uncertainty_ledger import frozen_claim_spans, FROZEN_SPOKEN_LEDGER
@@ -220,6 +221,29 @@ def _hash_file(path, *, max_bytes=None):
     return h.hexdigest()
 
 
+@contextmanager
+def _pinned_review_movie(movie, expected_sha256):
+    """Decode only an immutable independently pinned copy of source H264.
+
+    Reuses the bounded copy guard used by encoded-source credit OCR. A second
+    original-path check on exit detects swaps during FFmpeg execution. This
+    establishes file identity, never a scientific or editorial approval.
+    """
+    from encoded_source_credit_guard import _frozen_source
+    movie=Path(movie)
+    with tempfile.TemporaryDirectory(prefix="em00707-pinned-h264-") as folder:
+        frozen=Path(folder)/"pinned-input.mp4"
+        _frozen_source(movie,frozen,expected_sha256)
+        if _hash_file(frozen)!=expected_sha256:
+            hold("SCIENCE_REVIEW_FROZEN_SOURCE_SHA_CHANGED")
+        try:
+            yield frozen
+        finally:
+            if (not movie.is_file() or movie.is_symlink()
+                or _hash_file(movie)!=expected_sha256):
+                hold("SCIENCE_REVIEW_ORIGINAL_CHANGED_DURING_DECODE")
+
+
 def verify_original_review_stills(folder, gate, packet):
     """Independently rehash exported PNGs against the exact science HOLD packet.
 
@@ -416,7 +440,9 @@ def screen_original_no_reaction_temporal(movie, gate, packet):
                  "-fps_mode","passthrough","-frames:v",str(len(indexes)),
                  "-start_number","0",str(folder/"intro-%02d.png")]
         try:
-            subprocess.run(command,check=True,capture_output=True,timeout=100)
+            with _pinned_review_movie(movie,FILM_SHA) as frozen:
+                command[command.index("-i")+1]=str(frozen)
+                subprocess.run(command,check=True,capture_output=True,timeout=100)
         except (subprocess.CalledProcessError,subprocess.TimeoutExpired,
                 FileNotFoundError) as error:
             hold("NO_REACTION_TIMELINE_ARCHIVE_DECODE_FAILED:"+
@@ -536,7 +562,9 @@ def original_review_stills(movie, gate, packet, output_dir):
             "-start_number","0",output,
         ]
         try:
-            subprocess.run(ffmpeg,check=True,capture_output=True,timeout=100)
+            with _pinned_review_movie(movie,FILM_SHA) as frozen:
+                ffmpeg[ffmpeg.index("-i")+1]=str(frozen)
+                subprocess.run(ffmpeg,check=True,capture_output=True,timeout=100)
         except (subprocess.CalledProcessError,subprocess.TimeoutExpired) as error:
             hold("ORIGINAL_H264_FRAME_EXTRACTION_FAILED:"+type(error).__name__)
         captures=[]
