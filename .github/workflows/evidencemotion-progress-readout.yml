@@ -11,6 +11,9 @@ on:
       - 'research/evidencemotion-director/test_github_em_merge_snapshot.py'
       - 'research/evidencemotion-director/atomic_progress_reconciler.py'
       - 'research/evidencemotion-director/test_atomic_progress_reconciler.py'
+      - 'research/evidencemotion-director/build_atomic_lane_progress.mjs'
+      - 'research/evidencemotion-director/ATOMIC-LANE-PROGRESS.md'
+      - 'research/evidencemotion-director/ATOMIC-LANE-PROGRESS.json'
       - '.github/workflows/evidencemotion-progress-readout.yml'
   workflow_dispatch:
 permissions:
@@ -32,6 +35,27 @@ jobs:
           python -m unittest discover -s research/evidencemotion-director -p 'test_validate_atomic_proof_ledger.py' -v
           python -m unittest discover -s research/evidencemotion-director -p 'test_atomic_progress_reconciler.py' -v
           python -m unittest discover -s research/evidencemotion-director -p 'test_github_em_merge_snapshot.py' -v
+      - name: Reconcile each of the 1,590 canonical atomic stages and reject stale percentages
+        run: |
+          set -euo pipefail
+          node research/evidencemotion-director/build_atomic_lane_progress.mjs --check
+      - name: Append exact five-lane stage evidence percentages
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=Path("research/evidencemotion-director/ATOMIC-LANE-PROGRESS.json")
+          obj=json.loads(p.read_text(encoding="utf-8"))
+          g=obj["global"]
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a",encoding="utf-8") as fp:
+              fp.write("### Sub-atomic five-lane evidence map (not video approval)\\n\\n")
+              fp.write("| Lane | Individually machine-audited research stages | Historically inherited | Unique mapped, research-only | Unmapped |\\n")
+              fp.write("|---|---:|---:|---:|---:|\\n")
+              for lane in obj["lanes"]:
+                  s=lane["stats"]
+                  fp.write(f"| {lane['lane']}. {lane['name']} | {s['machine']}/{s['total']} ({s['machinePercent']}%) | {s['inherited']} | {s['unique']}/{s['total']} ({s['mappedPercent']}%) | {s['unmapped']} |\\n")
+              fp.write(f"\\n**Arithmetic HOLD:** existing ledger {g['ledgerClaimedProvisional']}/1590 counts {g['overlap']} inherited/audited overlaps and {len(g['orphanCards'])} unmatched card(s). Canonical distinct mapping = **{g['unique']}/1590**; no authority or quality credit.\\n")
+          PY
       - name: Read GitHub merged PRs into a fresh, time-stamped receipt
         env:
           GH_TOKEN: ${{ github.token }}
