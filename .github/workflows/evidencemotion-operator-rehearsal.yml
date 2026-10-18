@@ -31,6 +31,8 @@ on:
       - 'research/evidencemotion-director/test_finished_dual_delivery_guard.py'
       - 'research/evidencemotion-director/exact_film_research_join.py'
       - 'research/evidencemotion-director/test_exact_film_research_join.py'
+      - 'research/evidencemotion-director/lane6/artifact_intake.py'
+      - 'research/evidencemotion-director/lane6/test_artifact_intake.py'
       - 'research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md'
       - '.github/workflows/evidencemotion-operator-rehearsal.yml'
 concurrency:
@@ -88,6 +90,11 @@ jobs:
           PY
           ffmpeg -version | head -1
           ffprobe -version | head -1
+      - name: Refuse source-mutating exact-media artifact handoffs (research HOLD)
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/lane6/artifact_intake.py
+          python3 -m unittest discover -s research/evidencemotion-director/lane6 -p 'test_artifact_intake.py' -v
       - name: Reject incomplete original-RGB24-stdin captures (research only)
         run: |
           set -euo pipefail
