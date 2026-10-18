@@ -17,6 +17,12 @@ class TransientEncodedTextTests(unittest.TestCase):
         cls.tmp = tempfile.TemporaryDirectory()
         cls.root = Path(cls.tmp.name)
         cls.clean = cls.encode('clean', None)
+        # Real 1080x1920 H.264 bytes with a nontrivial MP4 display matrix:
+        # normal players rotate to 1920x1080, unlike native -noautorotate OCR.
+        cls.rotated = cls.root / 'display-rotated-h264.mp4'
+        subprocess.run(['ffmpeg', '-nostdin', '-hide_banner', '-loglevel', 'error',
+            '-display_rotation', '90', '-i', str(cls.clean), '-map', '0:v:0',
+            '-c:v', 'copy', '-y', str(cls.rotated)], check=True, timeout=45)
         cls.flash = cls.encode('single-frame-flash', 'flash')
         cls.repeated = cls.encode('single-frame-duplicated-negation', 'repeat')
         cls.unplanned_negation = cls.encode('single-frame-unplanned-negation', 'unplanned_negation')
@@ -81,6 +87,55 @@ class TransientEncodedTextTests(unittest.TestCase):
         self.assertEqual((r['framesOCRChecked'],r['defectFrames']), (30,0))
         self.assertFalse(r['mayPublish'])
         self.assertFalse(r['handsetReadabilityApproved'])
+
+    def test_actual_h264_display_rotation_holds_before_ocr(self):
+        from fullframe_text_negative_probe import command as native_command
+        decoded = []
+
+        def reject_other_decoders(argv):
+            if argv[0] in ('ffmpeg', 'tesseract'):
+                decoded.append(argv[0])
+                raise AssertionError('rotated playback must not reach OCR')
+            return native_command(argv)
+
+        with patch('fullframe_text_negative_probe.command', side_effect=reject_other_decoders):
+            with self.assertRaisesRegex(ValueError, 'DISPLAY_TRANSFORM_METADATA_PRESENT'):
+                check(self.rotated, self.manifest(self.rotated))
+        self.assertEqual(decoded, [])
+
+    def test_legacy_rotate_tag_without_display_matrix_holds(self):
+        from fullframe_text_negative_probe import command as native_command
+        def inject_legacy_rotate_tag(argv):
+            data = native_command(argv)
+            if argv[0] == 'ffprobe' and '-show_frames' in argv:
+                report = json.loads(data)
+                report['streams'][0]['tags'] = {'rotate': '90'}
+                return json.dumps(report).encode('utf-8')
+            if argv[0] in ('ffmpeg', 'tesseract'):
+                raise AssertionError('rotated playback must not reach OCR')
+            return data
+
+        with patch('fullframe_text_negative_probe.command', side_effect=inject_legacy_rotate_tag):
+            with self.assertRaisesRegex(ValueError, 'DISPLAY_TRANSFORM_METADATA_PRESENT'):
+                check(self.clean, self.manifest(self.clean))
+
+    def test_frame_only_identity_matrix_holds_without_ocr(self):
+        from fullframe_text_negative_probe import command as native_command
+        def inject_frame_matrix(argv):
+            data = native_command(argv)
+            if argv[0] == 'ffprobe' and '-show_frames' in argv:
+                report = json.loads(data)
+                report['frames'][0]['side_data_list'] = [
+                    {'side_data_type': '3x3 displaymatrix', 'rotation': 0,
+                     'displaymatrix': 'native coordinates untrusted'}]
+                return json.dumps(report).encode('utf-8')
+            if argv[0] in ('ffmpeg', 'tesseract'):
+                raise AssertionError('matrix-bearing frames must not reach OCR')
+            return data
+
+        with patch('fullframe_text_negative_probe.command', side_effect=inject_frame_matrix):
+            with self.assertRaisesRegex(ValueError, 'DISPLAY_TRANSFORM_METADATA_PRESENT'):
+                check(self.clean, self.manifest(self.clean))
 
     def test_one_frame_false_science_word_observed_outside_three_sample_indices(self):
         r=check(self.flash,self.manifest(self.flash))
