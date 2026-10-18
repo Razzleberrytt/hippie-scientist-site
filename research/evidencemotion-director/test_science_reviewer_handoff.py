@@ -64,6 +64,45 @@ class IndependentScienceIntakeTests(unittest.TestCase):
                      "strength":"c"*64})
         return film,gate
 
+    def test_source_review_media_hash_is_bounded_and_rejects_symlinks(self):
+        # A small file can become an enormous regular file after initial
+        # inspection. This reuses the source-credit guard rather than adding
+        # another unlimited review-media hashing path.
+        import hashlib
+        import science_reviewer_handoff as handoff
+        with tempfile.TemporaryDirectory() as tmp:
+            original = Path(tmp) / "review-media.mp4"
+            original.write_bytes(b"R" * 4096)
+            with patch.object(handoff, "MAX_REVIEW_MEDIA_BYTES", 4096):
+                self.assertEqual(handoff._hash_file(original),
+                                 hashlib.sha256(original.read_bytes()).hexdigest())
+                original.write_bytes(b"R" * 4097)
+                with self.assertRaisesRegex(ValueError,
+                                            "ENCODED_SOURCE_RECHECK_EXCEEDS_LIMIT"):
+                    handoff._hash_file(original)
+                with original.open("wb") as output:
+                    output.truncate(16 * 1024 * 1024)
+                with self.assertRaisesRegex(ValueError,
+                                            "ENCODED_SOURCE_RECHECK_EXCEEDS_LIMIT"):
+                    handoff._hash_file(original)
+            alias = Path(tmp) / "aliased-source.mp4"
+            alias.symlink_to(original)
+            with self.assertRaisesRegex(ValueError,
+                                        "REVIEW_MEDIA_SOURCE_SYMLINK_NOT_ALLOWED"):
+                handoff._hash_file(alias)
+
+    def test_current_film_review_intake_refuses_oversized_mutated_path(self):
+        import science_reviewer_handoff as handoff
+        with tempfile.TemporaryDirectory() as tmp:
+            film, gate = self.current_candidate_fixture(tmp)
+            # Negative control for the actual science intake caller, not only
+            # a hashing helper: fail closed before a forged approval packet.
+            with patch.object(handoff, "MAX_REVIEW_MEDIA_BYTES", 16):
+                with self.assertRaisesRegex(
+                    ValueError, "ENCODED_SOURCE_RECHECK_EXCEEDS_LIMIT"
+                ):
+                    handoff.current_candidate_reviewer_packet(gate, film)
+
     def test_current_render_packet_binds_real_other_h264_identity_and_holds(self):
         from science_reviewer_handoff import (
             FILM_SHA,CURRENT_SCHEMA,current_candidate_reviewer_packet,
