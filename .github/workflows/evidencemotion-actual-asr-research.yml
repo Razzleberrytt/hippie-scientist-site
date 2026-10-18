@@ -111,6 +111,11 @@ jobs:
             python=3.11 montreal-forced-aligner=3.3.8
             kaldi=*=cpu* pytorch=*=cpu*
           cache-environment: true
+      - name: Reject stress-only MFA label mismatches before source download
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_mfa_acoustic_alignment.py -v
       - name: Restore original WAV, brief and immutable official MFA model bytes
         id: original_source_restore
         env:
