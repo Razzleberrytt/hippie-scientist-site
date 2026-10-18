@@ -219,6 +219,33 @@ class AutonomousFilmCriticTests(unittest.TestCase):
                           verdict["reviewCandidates"])
             self.assertFalse(verdict["automaticallyApprovedPremiumCraft"])
             self.assertFalse(verdict["mayPublish"])
+            # No legacy hard-negative existed for this moving-chrome/still-hero
+            # film. When a source-locked visual action was PROMISED, it must
+            # graduate from an advisory to the root negative revision verdict.
+            import json
+            import hashlib
+            pinned_plan = root / "cue-plan.json"
+            plan = {"schemaVersion":"ths-em-visual-cue-plan-research-v1",
+                    "sourceManifestSha256":"a"*64,
+                    "lockedNarrationWavSha256":"b"*64,
+                    "scenes":[{"beatId":"hero-1","startSec":0,"endSec":18,
+                               "lockedNarrationWavSha256":"b"*64,
+                               "sourceClaimIds":["claim-1"],
+                               "sourceAssetIds":["source-1"],
+                               "heroBox":{"x1":.32,"y1":.28,"x2":.68,"y2":.6},
+                               "actions":[{"atSec":6.0,"visualVerb":"REVEAL",
+                                          "heroObjectId":"source-hero",
+                                          "beforeStateId":"closed",
+                                          "afterStateId":"revealed"}]}]}
+            pinned_plan.write_text(json.dumps(plan,sort_keys=True))
+            plan_sha=hashlib.sha256(pinned_plan.read_bytes()).hexdigest()
+            valid=m.load_pinned_visual_cue_plan(pinned_plan,plan_sha)
+            negative=m.analyze_video(clip,pinned,valid,plan_sha)
+            self.assertIn("DECODED_HERO_VISUAL_VERB_NOT_OBSERVABLE",
+                          negative["issues"])
+            self.assertEqual(negative["decision"],"AUTO_REVISE")
+            self.assertEqual(negative["actualVideoSha256"],pinned)
+            self.assertFalse(negative["mayPublish"])
 
     def test_source_locked_cue_checks_real_4hz_subject_not_moving_chrome(self):
         from PIL import Image, ImageDraw
