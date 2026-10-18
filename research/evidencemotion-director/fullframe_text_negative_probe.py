@@ -153,10 +153,14 @@ def check(movie, manifest):
             missing = sorted(required - set(observed))
             unexpected = sorted(set(observed) - allowed)
             out_of_order = not missing and not preserves_required_order(observed, required_order)
-            if missing or unexpected or out_of_order:
+            # Duplicate required words can invert a negation (e.g. NOT NOT).
+            # Hold instead of treating an in-order subsequence as sufficient.
+            repeated = sorted(token for token in required if observed.count(token) > 1)
+            if missing or unexpected or out_of_order or repeated:
                 defects.append({'frameIndex': n, 'timestampSec': round(n/30, 6),
                                 'cropSha256': sha(path), 'observedWords': observed,
                                 'missingRequiredWords': missing, 'unexpectedWords': unexpected,
+                                'repeatedRequiredWords': repeated,
                                 'requiredWordsOutOfOrder': out_of_order})
     if sha(movie) != initial_sha or sha(manifest) != manifest_sha:
         fail('SOURCE_CHANGED_DURING_AUDIT')
