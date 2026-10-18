@@ -48,6 +48,7 @@ const event=(atSec,overrides={})=>({
 })
 const scene=(beatId,startSec,endSec,family,actions)=>({
  beatId,startSec,endSec,compositionFamily:family,
+ heroBox:{x1:0.2,y1:0.25,x2:0.72,y2:0.65},
  lockedNarrationWavSha256:V,sourceClaimIds:['claim1'],
  sourceAssetIds:['source1'],actions
 })
@@ -68,6 +69,11 @@ test('camera-only, particles, text swap and unchanged hero cannot count as instr
   assert.ok(errors(p=>p.scenes[1].actions[0].visualVerb=verb).includes('INVALID_VISUAL_VERB_OR_AUDIO_ANCHOR'))
  assert.ok(errors(p=>p.scenes[1].actions[0].afterStateId='closed').includes('HERO_STATE_DOES_NOT_CHANGE'))
  assert.ok(errors(p=>p.scenes[1].actions[0].movingParticlesOnly=true).includes('VISUAL_EFFECT_SUBSTITUTED_FOR_ACTION'))
+})
+test('hero ROI is explicit, visible and bounded away from phone UI',()=>{
+ assert.ok(errors(p=>delete p.scenes[1].heroBox).includes('MISSING_OR_UNSAFE_SCENE_HERO_ROI'))
+ assert.ok(errors(p=>p.scenes[0].heroBox={x1:0,y1:0,x2:1,y2:1}).includes('MISSING_OR_UNSAFE_SCENE_HERO_ROI'))
+ assert.ok(errors(p=>p.scenes[0].heroBox={x1:.2,y1:.2,x2:.22,y2:.22}).includes('MISSING_OR_UNSAFE_SCENE_HERO_ROI'))
 })
 test('source, audio, timing, and composition changes are not cosmetic bypasses',()=>{
  assert.ok(errors(p=>p.scenes[1].lockedNarrationWavSha256=C).includes('SCENE_SOURCE_OR_VOICE_IDENTITY_MISSING'))
