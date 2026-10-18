@@ -311,6 +311,15 @@ class AutonomousFilmCriticTests(unittest.TestCase):
             self.assertEqual(audit["videoSha256"],m.sha256(clip))
             self.assertEqual(audit["scenePlanSha256"],pinned_plan)
             self.assertFalse(movie["mayPublish"])
+            # The in-memory-library entry cannot attach any old source SHA
+            # to an arbitrary dict or to a loader result changed afterward.
+            with self.assertRaisesRegex(ValueError, "VISUAL_PLAN_SOURCE_SHA_MISMATCH"):
+                m.analyze_video(clip,m.sha256(clip),dict(validated),pinned_plan)
+            with self.assertRaisesRegex(ValueError, "VISUAL_PLAN_SOURCE_SHA_MISMATCH"):
+                m.analyze_video(clip,m.sha256(clip),validated,"f"*64)
+            validated["scenes"][0]["actions"][0]["visualVerb"]="TRACE"
+            with self.assertRaisesRegex(ValueError, "VISUAL_PLAN_MUTATED_AFTER_LOAD"):
+                m.analyze_video(clip,m.sha256(clip),validated,pinned_plan)
             with self.assertRaisesRegex(ValueError,"VISUAL_PLAN_SOURCE_SHA_MISMATCH"):
                 m.load_pinned_visual_cue_plan(locked,"f"*64)
             with self.assertRaisesRegex(ValueError,"EXACT_VIDEO_AND_PLAN_EXTERNAL_PINS_REQUIRED"):
