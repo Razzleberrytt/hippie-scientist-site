@@ -19,6 +19,7 @@ class TransientEncodedTextTests(unittest.TestCase):
         cls.flash = cls.encode('single-frame-flash', 'flash')
         cls.omission = cls.encode('single-frame-omission', 'omission')
         cls.inversion = cls.encode('single-frame-word-inversion', 'inversion')
+        cls.nonsquare = cls.encode('non-square-sample-pixels', 'non_square')
 
     @classmethod
     def tearDownClass(cls):
@@ -43,6 +44,8 @@ class TransientEncodedTextTests(unittest.TestCase):
                 f'drawtext=fontfile={FONT}:text=EFFECTS:fontcolor=white:fontsize=60:x=100:y=780:enable=eq(n,9)',
                 f'drawtext=fontfile={FONT}:text=STRUCTURE:fontcolor=white:fontsize=60:x=650:y=780:enable=eq(n,9)',
             ])
+        if mutation == 'non_square':
+            vf += ',setsar=4/3'
         vf = vf.replace('eq(n,9)', 'eq(n\,9)')
         subprocess.run(['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-f','lavfi',
             '-i','color=c=black:s=1080x1920:r=30:d=1', '-vf', vf, '-c:v','libx264',
@@ -87,6 +90,10 @@ class TransientEncodedTextTests(unittest.TestCase):
         self.assertEqual(r['defects'][0]['missingRequiredWords'], [])
         self.assertEqual(r['defects'][0]['unexpectedWords'], [])
         self.assertTrue(r['defects'][0]['requiredWordsOutOfOrder'])
+
+    def test_nonsquare_h264_is_rejected_before_ocr_even_at_native_pixel_dimensions(self):
+        with self.assertRaisesRegex(ValueError, 'NATIVE_H264_1080X1920_30FPS_SQUARE_PIXEL_REQUIRED'):
+            check(self.nonsquare, self.manifest(self.nonsquare))
 
     def test_modified_film_hash_cannot_inherit_ocr_receipt(self):
         def change(x): x['filmSha256']='0'*64
@@ -167,9 +174,14 @@ class TransientEncodedTextTests(unittest.TestCase):
         self.assertEqual(output.read_text(),'{"owner":"independent"}')
 
     def test_missing_source_word_requires_negative_hold_not_silence(self):
-        def change(x): x['windows'][0]['requiredWords']=['SOURCE']
-        with self.assertRaisesRegex(ValueError,'INVALID_WINDOW_WORD_ORACLE'):
-            check(self.clean,self.manifest(self.clean,change))
+        # Manifest permits SOURCE but demands its actual presence in the encoded frame.
+        def change(x):
+            x['windows'][0]['requiredWords'] = ['SOURCE']
+            x['windows'][0]['allowedWords'].append('SOURCE')
+        result = check(self.clean, self.manifest(self.clean, change))
+        self.assertEqual(result['status'], 'HOLD')
+        self.assertEqual(result['defectFrames'], 30)
+        self.assertIn('source', result['defects'][0]['missingRequiredWords'])
 
 
 if __name__ == '__main__':
