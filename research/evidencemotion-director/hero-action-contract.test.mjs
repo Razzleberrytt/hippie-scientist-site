@@ -44,6 +44,7 @@ const H='a'.repeat(64), V='b'.repeat(64), C='c'.repeat(64)
 const event=(atSec,overrides={})=>({
  atSec,visualVerb:'OPENS_TO_REVEAL',heroObjectId:'science-vial',
  lockedHeroArtSha256:C,beforeStateId:'closed',afterStateId:'open',
+ sourceClaimId:'claim1',sourceAssetId:'source1',
  visibleObjectIds:['science-vial'],cameraMoveCount:1,...overrides
 })
 const scene=(beatId,startSec,endSec,family,actions)=>({
@@ -69,6 +70,16 @@ test('camera-only, particles, text swap and unchanged hero cannot count as instr
   assert.ok(errors(p=>p.scenes[1].actions[0].visualVerb=verb).includes('INVALID_VISUAL_VERB_OR_AUDIO_ANCHOR'))
  assert.ok(errors(p=>p.scenes[1].actions[0].afterStateId='closed').includes('HERO_STATE_DOES_NOT_CHANGE'))
  assert.ok(errors(p=>p.scenes[1].actions[0].movingParticlesOnly=true).includes('VISUAL_EFFECT_SUBSTITUTED_FOR_ACTION'))
+})
+test('each teaching action binds its own scene-approved claim and visual asset',()=>{
+ for (const key of ['sourceClaimId','sourceAssetId'])
+  assert.ok(errors(p=>delete p.scenes[0].actions[0][key]).includes('UNBOUND_ACTION_SOURCE_OR_CLAIM'))
+ assert.ok(errors(p=>p.scenes[0].actions[0].sourceClaimId='foreign-claim').includes('UNBOUND_ACTION_SOURCE_OR_CLAIM'))
+ assert.ok(errors(p=>p.scenes[1].actions[0].sourceAssetId='foreign-asset').includes('UNBOUND_ACTION_SOURCE_OR_CLAIM'))
+ const p=good();p.scenes[0].sourceClaimIds.push('second-claim')
+ p.scenes[0].actions[0].sourceClaimId='second-claim'
+ assert.equal(visual(p).status,'PLAN_READY_FOR_ACTUAL_DECODED_CRAFT_REVIEW')
+ assert.equal(visual(p).craftCertified,false)
 })
 test('hero ROI is explicit, visible and bounded away from phone UI',()=>{
  assert.ok(errors(p=>delete p.scenes[1].heroBox).includes('MISSING_OR_UNSAFE_SCENE_HERO_ROI'))
