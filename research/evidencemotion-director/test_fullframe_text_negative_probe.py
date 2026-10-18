@@ -18,6 +18,7 @@ class TransientEncodedTextTests(unittest.TestCase):
         cls.clean = cls.encode('clean', None)
         cls.flash = cls.encode('single-frame-flash', 'flash')
         cls.omission = cls.encode('single-frame-omission', 'omission')
+        cls.inversion = cls.encode('single-frame-word-inversion', 'inversion')
 
     @classmethod
     def tearDownClass(cls):
@@ -33,6 +34,15 @@ class TransientEncodedTextTests(unittest.TestCase):
         vf = f'{constant},{middle},{tail}'
         if mutation == 'flash':
             vf += f',drawtext=fontfile={FONT}:text=WRONG:fontcolor=white:fontsize=60:x=100:y=860:enable=eq(n\,9)'
+        if mutation == 'inversion':
+            # All words remain present, but their on-screen semantic order flips for one frame.
+            vf = ','.join([
+                f'drawtext=fontfile={FONT}:text=STRUCTURE:fontcolor=white:fontsize=60:x=100:y=780:enable=not(eq(n,9))',
+                f'drawtext=fontfile={FONT}:text=EFFECTS:fontcolor=white:fontsize=60:x=700:y=780:enable=not(eq(n,9))',
+                f'drawtext=fontfile={FONT}:text=NOT:fontcolor=white:fontsize=60:x=500:y=780',
+                f'drawtext=fontfile={FONT}:text=EFFECTS:fontcolor=white:fontsize=60:x=100:y=780:enable=eq(n,9)',
+                f'drawtext=fontfile={FONT}:text=STRUCTURE:fontcolor=white:fontsize=60:x=650:y=780:enable=eq(n,9)',
+            ])
         vf = vf.replace('eq(n,9)', 'eq(n\,9)')
         subprocess.run(['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-f','lavfi',
             '-i','color=c=black:s=1080x1920:r=30:d=1', '-vf', vf, '-c:v','libx264',
@@ -69,6 +79,14 @@ class TransientEncodedTextTests(unittest.TestCase):
         self.assertEqual(r['status'],'HOLD')
         self.assertEqual([x['frameIndex'] for x in r['defects']],[9])
         self.assertIn('not',r['defects'][0]['missingRequiredWords'])
+
+    def test_one_frame_reversed_scientific_word_order_is_hold_even_with_all_words(self):
+        r = check(self.inversion, self.manifest(self.inversion))
+        self.assertEqual(r['status'], 'HOLD')
+        self.assertEqual([d['frameIndex'] for d in r['defects']], [9])
+        self.assertEqual(r['defects'][0]['missingRequiredWords'], [])
+        self.assertEqual(r['defects'][0]['unexpectedWords'], [])
+        self.assertTrue(r['defects'][0]['requiredWordsOutOfOrder'])
 
     def test_modified_film_hash_cannot_inherit_ocr_receipt(self):
         def change(x): x['filmSha256']='0'*64
