@@ -72,6 +72,11 @@ test('R817 encoded MP4 checks are independent from owner and human release appro
  const a=assessR817EncodedMaster(r)
  assert.equal(a.technicalPassed,true)
  assert.equal(a.publicationReady,false)
+ assert.equal(a.technicalPassed,true)
+ assert.equal(a.audienceQualityPassed,false)
+ assert.equal(a.postingRecommendationAllowed,false)
+ assert.equal(a.audienceQuality.decision,'REVIEW_PENDING')
+ assert.ok(a.blockers.some(b=>b.includes('audience-quality independent full-film review not approved')))
  assert.ok(a.blockers.includes('independent exact-audio word alignment pending'))
  assert.throws(()=>assessR817EncodedMaster({...r,audio:{...r.audio,sampleRate:48000}}),/AAC/)
  const finalApproved={...r,captionProof:{type:'mfa-offline-reviewed',mode:'mfa-acoustic-progressive-word',wordCount:35,phraseFlashFallback:false},

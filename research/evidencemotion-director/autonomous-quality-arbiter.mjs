@@ -1,3 +1,5 @@
+import { assessEvidenceMotionAudienceQuality } from '../../scripts/distribution/evidencemotion-audience-quality.mjs';
+
 /** EvidenceMotion autonomous film adjudication — research-only.
  * Machine evidence can veto a movie with no owner/listener. A positive verdict
  * requires independently source-grounded claim evidence, exact WAV+transcript,
@@ -7,7 +9,7 @@
  */
 const sha=x=>typeof x==='string'&&/^[a-f0-9]{64}$/i.test(x);
 const DIMS=['firstSecond','narrative','artDirection','motionPurpose','typography','cohesion','audioNaturalness'];
-export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=[]}={}){
+export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=[],audienceBrief,audiencePixelReview,audienceCritics=[],observedPerformance}={}){
  const blockers=[],needs=[],fixes=[];
  if(!sha(videoSha256))blockers.push('MISSING_EXACT_FILM_SHA');
  if(!decodedVisual||decodedVisual.actualVideoSha256!==videoSha256
@@ -121,12 +123,22 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
    if(voted.some(v=>v.timecodedFaults.some(f=>f.severity==='CRITICAL')))
      fixes.push('CRITICAL_PERCEPTUAL_VIDEO_DEFECT');
  }
+ const audienceQuality=assessEvidenceMotionAudienceQuality({
+   filmSha256:videoSha256,audienceBrief,
+   decodedPixelReview:audiencePixelReview,
+   independentCritics:audienceCritics,observedPerformance
+ });
+ if(audienceQuality.decision==='HOLD_INVALID_EVIDENCE')
+   blockers.push('AUDIENCE_REVIEW_INVALID_EXACT_FILM_EVIDENCE');
+ fixes.push(...audienceQuality.timecodedRepairTargets);
+ if(audienceQuality.decision==='REVIEW_PENDING')
+   needs.push('AUDIENCE_FULL_FILM_INDEPENDENT_CRITIQUE_MISSING');
  // Until a trusted in-process runner executes the independent science, ASR
  // and multimodal models and verifies their actual inputs/results, caller-
  // supplied JSON can never serve as affirmative proof. This research stage
  // intentionally allows automatic REVISE but not fabricated AUTO_PASS.
- if(!blockers.length&&!fixes.length&&!needs.length)
-   needs.push('TRUSTED_MULTIMODAL_AND_SOURCE_RUN_ATTESTATION_NOT_IMPLEMENTED');
+ // Every current path still lacks a trusted in-process independent proof runner.
+ needs.push('TRUSTED_MULTIMODAL_AND_SOURCE_RUN_ATTESTATION_NOT_IMPLEMENTED');
  const uniq=arr=>[...new Set(arr)];
  const decision=blockers.length?'AUTO_HOLD_INVALID_PROOF':fixes.length?'AUTO_REVISE':
    'AUTO_RUN_MISSING_REVIEWS';
@@ -135,6 +147,8 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
     blockers:uniq(blockers),fixes:uniq(fixes),missingMachineWork:uniq(needs),
     requiredHumanListener:false,requiredOwnerTasteVerdict:false,
     humanReviewerImpersonated:false,
+    audienceQuality,technicalReviewNotAudienceReview:true,
+    postingRecommendationAllowed:false,
     contentMayPublish:false,productionVersionFreezeLifted:false,
     caveat:'Independent calibrated multimodal models and retrieved source identity are still required; JSON shape and score votes alone are not evidence that an actual reviewer ran.'};
 }
