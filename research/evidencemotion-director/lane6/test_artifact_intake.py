@@ -428,6 +428,19 @@ class IntakeTests(unittest.TestCase):
         write(self.pinfile, self.pin)
         self.rejected('UNBOUND_SOURCE:wav')
 
+    def test_nested_handoff_must_not_mutate_original_source(self):
+        before = {p.name: digest(p) for p in self.bundle.iterdir() if p.is_file()}
+        dest = self.bundle/'lane4-handoff'
+        self.rejected('DESTINATION_INSIDE_SOURCE', destination=dest)
+        self.assertFalse(dest.exists())
+        after = {p.name: digest(p) for p in self.bundle.iterdir() if p.is_file()}
+        self.assertEqual(before, after)
+
+    def test_nested_handoff_is_rejected_before_missing_parent(self):
+        dest = self.bundle/'new-parent'/'lane4-handoff'
+        self.rejected('DESTINATION_INSIDE_SOURCE', destination=dest)
+        self.assertFalse((self.bundle/'new-parent').exists())
+
     def test_no_overwrite(self):
         dest = self.root/'existing'
         dest.mkdir()
