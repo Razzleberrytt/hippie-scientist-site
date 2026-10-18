@@ -15,6 +15,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
+from encoded_source_credit_guard import MAX_VIDEO_BYTES, sha256_file
 from scientific_uncertainty_ledger import frozen_claim_spans, FROZEN_SPOKEN_LEDGER
 from science_gate_process_attestation import (
     GATE, canonical, hold, prepare_report_destination, read_record,
@@ -192,12 +193,16 @@ def verify_packet(packet, gate):
     return True
 
 
+# Shared source-credit media cap: a mutable pathname can grow after the
+# original file-size preflight. Never hash an unbounded outside MP4/PNG here.
+MAX_REVIEW_MEDIA_BYTES = MAX_VIDEO_BYTES
+
+
 def _hash_file(path):
-    h=hashlib.sha256()
-    with open(path,"rb") as source:
-        for block in iter(lambda:source.read(1024*1024),b""):
-            h.update(block)
-    return h.hexdigest()
+    """Recheck review media with at most the shared size cap plus one byte."""
+    if Path(path).is_symlink():
+        hold("REVIEW_MEDIA_SOURCE_SYMLINK_NOT_ALLOWED")
+    return sha256_file(path, max_bytes=MAX_REVIEW_MEDIA_BYTES)
 
 
 def verify_original_review_stills(folder, gate, packet):
