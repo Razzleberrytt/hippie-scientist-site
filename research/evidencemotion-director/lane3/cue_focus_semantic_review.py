@@ -114,6 +114,14 @@ def validate_report(report, source_cues):
         raise FocusHold('SOURCE_CUE_ID_INVALID')
     if len(refs)!=len({c['cueId'] for c in refs}):
         raise FocusHold('SOURCE_CUE_DUPLICATE')
+    # A report hash authenticates the report's bytes, not its completeness.
+    # Require precisely every original SRT cue containing at least one actual
+    # scene-frame center; a pinned but truncated report must not pass review.
+    overlapping_ids={c['cueId'] for c in source_cues if any(
+        (2*n+1)*1000>=2*FPS*c['startMs'] and
+        (2*n+1)*1000<2*FPS*c['endMs'] for n in range(f0,f1+1))}
+    if {c['cueId'] for c in refs}!=overlapping_ids:
+        raise FocusHold('SOURCE_CUE_EVIDENCE_INCOMPLETE_OR_EXTRA')
     for ref in refs:
         if not isinstance(ref,dict):raise FocusHold('SOURCE_CUE_EVIDENCE_MISSING')
         src=source_map.get(ref.get('cueId'))
@@ -197,6 +205,12 @@ def main():
     if a.out.exists() or a.out.resolve() in {a.report.resolve(),a.film.resolve(),a.original_srt.resolve()}:
         raise FocusHold('REPORT_OUTPUT_ALIASES_SOURCE_OR_ALREADY_EXISTS')
     v=audit(report_path=a.report,expected_report_sha=a.report_sha256,film_path=a.film,srt_path=a.original_srt)
-    a.out.write_text(json.dumps(v,indent=2)+'\n','utf8')
+    # Open exclusively *after* the potentially long film hash/decode review.
+    # A preflight exists() check alone has a TOCTOU overwrite race.
+    try:
+        with a.out.open('x',encoding='utf8') as output:
+            output.write(json.dumps(v,indent=2)+'\n')
+    except FileExistsError as e:
+        raise FocusHold('REPORT_OUTPUT_ALIASES_SOURCE_OR_ALREADY_EXISTS') from e
     print(json.dumps({'status':v['status'],'reviewFindings':len(v['findings']),'mayPublish':False}))
 if __name__=='__main__':main()

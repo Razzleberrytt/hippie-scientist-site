@@ -5,6 +5,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 import cue_focus_semantic_review as guard
 
@@ -42,6 +43,38 @@ class CueFocusNegativeTests(unittest.TestCase):
         self.assertEqual(target[0]['visualRole'],'OTHER MEDS')
         self.assertTrue(result['needsEditorialSourceMapping'])
         self.assertFalse(result['scienceApproved'])
+
+    def test_reject_authenticated_but_truncated_cue_evidence(self):
+        # Even if the producer deliberately SHA-pinned a truncated report,
+        # omissions of overlapping original SRT cues cannot pass silently.
+        data=copy.deepcopy(self.report)
+        data['cueEvidence']=[ref for ref in data['cueEvidence'] if ref['cueId']!=17]
+        with self.assertRaisesRegex(guard.FocusHold,'SOURCE_CUE_EVIDENCE_INCOMPLETE_OR_EXTRA'):
+            guard.evaluate(data,self.srt)
+
+    def test_reject_extra_cue_not_overlapping_scene(self):
+        data=copy.deepcopy(self.report)
+        extra=copy.deepcopy(data['cueEvidence'][-1])
+        src=next(c for c in self.srt if c['cueId']==1)
+        extra.update({'cueId':1,'originalText':src['text'],
+                      'declaredStartMs':src['startMs'],'declaredEndMs':src['endMs']})
+        data['cueEvidence'].append(extra)
+        with self.assertRaisesRegex(guard.FocusHold,'SOURCE_CUE_EVIDENCE_INCOMPLETE_OR_EXTRA'):
+            guard.evaluate(data,self.srt)
+
+    def test_output_create_is_exclusive_when_other_process_wins_race(self):
+        with tempfile.TemporaryDirectory() as d:
+            out=Path(d)/'fresh-report.json'
+            def competitor(**_kwargs):
+                out.write_bytes(b'original-data-owned-by-other-process')
+                return {'status':'RESEARCH_SEMANTIC_FOCUS_REVIEW_HOLD','findings':[]}
+            args=['cue_focus_semantic_review.py','--report',str(REAL),
+                  '--report-sha256',EXPECTED_REPORT_SHA,
+                  '--film',str(REAL),'--original-srt',str(SRT),'--out',str(out)]
+            with patch('sys.argv',args), patch.object(guard,'audit',side_effect=competitor):
+                with self.assertRaisesRegex(guard.FocusHold,'REPORT_OUTPUT_ALIASES_SOURCE_OR_ALREADY_EXISTS'):
+                    guard.main()
+            self.assertEqual(out.read_bytes(),b'original-data-owned-by-other-process')
 
     def test_reject_report_with_falsified_source_phrase(self):
         data=copy.deepcopy(self.report)
