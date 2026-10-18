@@ -110,7 +110,9 @@ approval; `mayPublish=false`.
 
 7. Run the bridge; capture stdout in a new receipt file **outside** the bundle.
    Python 3.10+ and FFmpeg/ffprobe on PATH are required. The destination's parent
-   must exist, and the destination itself must not exist. Files use portable
+   must exist, the destination itself must not exist, and the destination
+   must be outside the original source directory. Nested handoff destinations
+   fail before staging or copying so transfer cannot modify input evidence. Files use portable
    relative names, at most 256 members / 512 MiB, with no symlinks, junctions,
    absolute paths, traversal, device names, ADS or case aliases. Every parent
    component must keep identical spelling/case throughout the package, including
