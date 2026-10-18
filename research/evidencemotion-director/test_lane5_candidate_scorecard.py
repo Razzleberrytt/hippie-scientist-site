@@ -58,6 +58,32 @@ class Lane5ScorecardTests(unittest.TestCase):
             self.assertEqual(len(intercepted), 1)
             self.assertTrue(candidate.exists())
 
+    def test_json_intake_windows_path_descriptor_ctime_surfaces(self):
+        from lane5_candidate_scorecard import _read_json, _safe_file
+        with tempfile.TemporaryDirectory() as td:
+            candidate = Path(td) / "input.json"
+            candidate.write_text('{"status":"RESEARCH_ONLY"}')
+            actual_safe_file = _safe_file
+
+            def windows_path_stat_surface(path, *, maximum=None):
+                original = actual_safe_file(path, maximum=maximum)
+                # Windows may expose creation time via stat(path) but
+                # a different change time via fstat(fd).
+                return SimpleNamespace(
+                    st_mode=original.st_mode,
+                    st_dev=original.st_dev,
+                    st_ino=original.st_ino,
+                    st_size=original.st_size,
+                    st_mtime_ns=original.st_mtime_ns,
+                    st_ctime_ns=original.st_ctime_ns + 86400000000000,
+                )
+
+            with patch("lane5_candidate_scorecard._safe_file",
+                       side_effect=windows_path_stat_surface):
+                record, digest = _read_json(candidate)
+            self.assertEqual(record["status"], "RESEARCH_ONLY")
+            self.assertEqual(digest, h(candidate.read_bytes()))
+
     def test_json_intake_detects_same_descriptor_midread_mutation(self):
         from lane5_candidate_scorecard import _read_json
         with tempfile.TemporaryDirectory() as td:
