@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {inspectFilmEvidenceJoins} from './film-evidence-join.mjs';
+import {parseStudyIdentity as canonicalParser} from '../../lib/study-identity-runtime.mjs';
 
 const graph = () => ({
   schema_version:'claim-dna-1c-relationships/0.1', batch_id:'synthetic-only',
@@ -40,3 +41,60 @@ test('duplicate film claim ID refused',()=>{const f=[...film(),...film()];denied
 test('DOI identifier can never be put into PMID field',()=>{const g=graph();g.studies['doi:10.1000/example'].pmid='doi:10.1000/example';denied(run(g));});
 test('unknown claimed clinical authority cannot self-promote',()=>{const f=film();f[0].scientificClaimsApproved=true;const r=run(graph(),f);assert.equal(r.scientificClaimsApproved,false);assert.equal(r.mayPublish,false);});
 test('all-or-nothing joins, no partial list when one claim is bad',()=>{const f=[...film(),{...film()[0],filmClaimId:'shot-02',canonicalStudyIds:['pmid:999']}];denied(run(graph(),f));});
+
+test('self-consistent, rehashed graph cannot assign a different PMID to a PMID-typed root',()=>{
+  const g=graph(),f=film(),root='pmid:31415926';
+  g.claims['claim-1'].studies=[root];
+  g.ingredients['test-ingredient'].studies=[root];
+  g.studies={[root]:{canonical_id:root,pmid:'27182818',claims:['claim-1'],ingredients:['test-ingredient']}};
+  f[0].canonicalStudyIds=[root];
+  const r=run(g,f);denied(r);
+  assert.ok(r.errors.some(x=>x.includes('STUDY_CANONICAL_IDENTITY_MISMATCH')));
+});
+test('missing PMID under a PMID-typed study is a hold, not inferred linkage',()=>{
+  const g=graph(),f=film(),root='pmid:31415926';
+  g.claims['claim-1'].studies=[root];
+  g.ingredients['test-ingredient'].studies=[root];
+  g.studies={[root]:{canonical_id:root,pmid:null,claims:['claim-1'],ingredients:['test-ingredient']}};
+  f[0].canonicalStudyIds=[root];
+  const r=run(g,f);denied(r);
+  assert.ok(r.errors.some(x=>x.includes('STUDY_CANONICAL_IDENTITY_MISMATCH')));
+});
+test('correct typed PMID remains a review-only identity candidate',()=>{
+  const g=graph(),f=film(),root='pmid:31415926';
+  g.claims['claim-1'].studies=[root];
+  g.ingredients['test-ingredient'].studies=[root];
+  g.studies={[root]:{canonical_id:root,pmid:'31415926',claims:['claim-1'],ingredients:['test-ingredient']}};
+  f[0].canonicalStudyIds=[root];
+  const r=run(g,f);
+  assert.equal(r.status,'IDENTITY_LINKS_READY_FOR_EDITORIAL_REVIEW');
+  assert.equal(r.joins[0].status,'IDENTITY_LINK_ONLY_REVIEW_REQUIRED');
+  assert.equal(r.scientificClaimsApproved,false);
+  assert.equal(r.mayPublish,false);
+});
+test('self-consistent source-ref and malformed DOI roots cannot masquerade as canonical studies',()=>{
+  for (const root of ['source-ref:uncorroborated','doi:not-a-valid-doi','study:unknown']) {
+    const g=graph(),f=film();
+    g.claims['claim-1'].studies=[root];
+    g.ingredients['test-ingredient'].studies=[root];
+    g.studies={[root]:{canonical_id:root,pmid:null,claims:['claim-1'],ingredients:['test-ingredient']}};
+    f[0].canonicalStudyIds=[root];
+    const r=run(g,f);denied(r);
+    assert.ok(r.errors.some(x=>x.includes('STUDY_CANONICAL_IDENTITY_MISMATCH')),root);
+  }
+});
+test('DOI-root numeric associated PMID stays unapproved pending independent source evidence',()=>{
+  const g=graph();
+  g.studies['doi:10.1000/example'].pmid='31415926';
+  const r=run(g);
+  assert.equal(r.status,'IDENTITY_LINKS_READY_FOR_EDITORIAL_REVIEW');
+  assert.equal(r.scientificClaimsApproved,false);
+  assert.equal(r.mayPublish,false);
+});
+
+test('the film identity gate uses the same canonical runtime parser as Claim DNA',()=>{
+  assert.equal(canonicalParser('pmid:31415926').pmid,'31415926');
+  assert.equal(canonicalParser('doi:10.1000/Example').doi,'10.1000/example');
+  assert.equal(canonicalParser('source-ref:unverified').type,'source-ref');
+  assert.equal(canonicalParser('doi:malformed').type,'unknown');
+});
