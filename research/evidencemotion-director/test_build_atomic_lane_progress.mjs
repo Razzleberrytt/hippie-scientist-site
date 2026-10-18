@@ -114,7 +114,7 @@ test("accounting step uses the same real discrepancy rule for HOLD and resolved 
       const input=JSON.parse(JSON.stringify(original));
       if(resolved){
         input.global.orphanCards=[];
-        input.global.overlap=0;
+        input.global.overlap=54; // legitimate category overlap is not arithmetic inflation
         input.global.inflation=0;
       }
       fs.writeFileSync(dest,JSON.stringify(input));
@@ -167,5 +167,29 @@ test("change to a canonical stage instruction with identical ID fails closed",()
     const result=run(tmp);
     assert.notEqual(result.status,0);
     assert.match(result.stderr,/ATOMIC_STAGE_DEFINITION_DRIFT_HOLD:atomic\\/01-operating-science[.]md/);
+  });
+});
+
+test("corrected deduplicated headline regenerates the same 1590-card union without manufacturing accepted credit",()=>{
+  withFixture((tmp,ledger)=>{
+    const input=JSON.parse(JSON.stringify(ledger));
+    input.provisionalCoverageCardCount=820;
+    input.provisionalCoveragePercent=Number((820/1590*100).toFixed(4));
+    const ledgerPath=path.join(tmp,"ATOMIC-PROOF-LEDGER-20261015.json");
+    fs.writeFileSync(ledgerPath,JSON.stringify(input));
+    const write=spawnSync(process.execPath,[path.join(tmp,"build_atomic_lane_progress.mjs"),"--write"],{
+      cwd:tmp,encoding:"utf8",timeout:12000,maxBuffer:2*1024*1024
+    });
+    assert.equal(write.status,0,write.stderr||write.stdout);
+    const data=JSON.parse(fs.readFileSync(path.join(tmp,"ATOMIC-LANE-PROGRESS.json"),"utf8"));
+    assert.equal(data.global.unique,820);
+    assert.equal(data.global.machine,167);
+    assert.equal(data.global.inflation,0);
+    assert.equal(data.global.overlap,54);
+    assert.equal(data.mayPublish,false);
+    const check=run(tmp);
+    assert.equal(check.status,0,check.stderr||check.stdout);
+    assert.match(fs.readFileSync(path.join(tmp,"ATOMIC-LANE-PROGRESS.md"),"utf8"),
+      /Reconciled distinct research-stage headline/);
   });
 });
