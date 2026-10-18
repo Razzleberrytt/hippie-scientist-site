@@ -156,10 +156,40 @@ def validate(data,source_directory):
     if not set(sources).issubset(group_keys):
         hold("REQUIRED_PROOF_SET_NOT_EXHAUSTIVE")
     verified=len(cards)
-    coverage=707+verified
+    raw_coverage=707+verified
+    coverage=data.get("provisionalCoverageCardCount")
+    if type(coverage) is not int or not 0<=coverage<=MAX_CARDS:
+        hold("RESEARCH_CARD_ARITHMETIC_OR_ROLLUP_WRONG")
+    if coverage!=raw_coverage:
+        # A future corrected headline may *deduplicate* the legitimate
+        # overlap between independently machine-audited stages and 707
+        # inherited provisional stages. Never accept an arbitrary lower
+        # numerator: reconstruct all frozen stage IDs and the 46-parent
+        # acceptance mask from the physical canonical files.
+        plan_dir=source_directory/"atomic"
+        files=sorted(plan_dir.glob("0[1-5]-*.md"))
+        if len(files)!=5:
+            hold("DEDUPLICATED_CANONICAL_INVENTORY_REQUIRED")
+        canonical=[]
+        for file in files:
+            canonical.extend(re.findall(
+                r"^- \\[([ x])\\] \\*\\*(EM-\\d{3}\\.\\d{2}\\.[USOXTNR])\\*\\*",
+                file.read_text(encoding="utf-8"),re.M))
+        ids=[item[1] for item in canonical]
+        if len(ids)!=MAX_CARDS or len(set(ids))!=MAX_CARDS:
+            hold("DEDUPLICATED_CANONICAL_INVENTORY_INVALID")
+        checklist=source_directory/"COMPLETION-CHECKLIST.md"
+        if not checklist.is_file():
+            hold("DEDUPLICATED_PARENT_CHECKLIST_REQUIRED")
+        accepted=[match=="x" for match in re.findall(
+            r"^- \\[([x ])\\] ",checklist.read_text(encoding="utf-8"),re.M)]
+        if len(accepted)!=46:
+            hold("DEDUPLICATED_PARENT_CHECKLIST_INVALID")
+        inherited={card for card in ids if accepted[int(card[3:6])-1]}
+        distinct=len(inherited|(cards&set(ids)))
+        if len(inherited)!=707 or coverage!=distinct:
+            hold("RESEARCH_CARD_ARITHMETIC_OR_ROLLUP_WRONG")
     if (verified!=data.get("individualMachineVerifiedResearchCardCount")
-        or coverage!=data.get("provisionalCoverageCardCount")
-        or coverage>MAX_CARDS
         or abs(round(100*coverage/MAX_CARDS,4)-
                data.get("provisionalCoveragePercent",float("inf")))>0.0001):
         hold("RESEARCH_CARD_ARITHMETIC_OR_ROLLUP_WRONG")
