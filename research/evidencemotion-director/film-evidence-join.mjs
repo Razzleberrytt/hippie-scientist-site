@@ -11,6 +11,17 @@ const has = (object, key) => Object.hasOwn(object, key);
 const validId = value => typeof value === 'string' && value.length > 0 && value.length <= 256 && value.trim() === value;
 const arr = value => Array.isArray(value) && value.length > 0 && value.every(validId) && new Set(value).size === value.length;
 const fields = new Set(['chemical_identity', 'mechanism', 'human_effect', 'safety']);
+// Research-only structural check mirroring the canonical identity wire format.
+// DOI-to-PMID associations remain upstream-owned: a matching shape is never
+// proof that a study actually supports the film's scientific or human claim.
+const typedStudyIdentityMatches = (canonicalId, pmid) => {
+  const typedPmid = /^pmid:(\d+)$/i.exec(canonicalId);
+  if (typedPmid) return pmid === typedPmid[1];
+  if (/^doi:10\.\d+\/\S+$/i.test(canonicalId))
+    return pmid === null || (typeof pmid === 'string' && /^\d+$/.test(pmid));
+  // source-ref or invented/untyped identifiers are not established studies.
+  return false;
+};
 const hold = errors => ({status:'HOLD', errors:[...new Set(errors)].sort(), joins:[],
   scientificClaimsApproved:false, mediaApproved:false, mayPublish:false});
 
@@ -67,6 +78,9 @@ export function inspectFilmEvidenceJoins({relationshipIndexBytes, expectedIndexS
           !s.ingredients.includes(claim.ingredient) ||
           (s.pmid !== null && (typeof s.pmid !== 'string' || !/^\d+$/.test(s.pmid)))) {
         errors.push(unit+':STUDY_CROSS_LINK_MISSING_OR_INVALID'); continue;
+      }
+      if (!typedStudyIdentityMatches(canonicalId, s.pmid)) {
+        errors.push(unit+':STUDY_CANONICAL_IDENTITY_MISMATCH'); continue;
       }
       linked.push(canonicalId);
     }
