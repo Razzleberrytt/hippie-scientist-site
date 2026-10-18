@@ -1,4 +1,5 @@
 import test from 'node:test'
+import fs from 'node:fs'
 import assert from 'node:assert/strict'
 import sharp from 'sharp'
 import {assertNativeMobileOpeningPixels} from '../mobile-opening-native-pixels.mjs'
@@ -34,4 +35,20 @@ test('clutter on actual native pixels fails despite any otherwise clean SVG',asy
 test('no native frames and forged non-PNG proof both fail closed',async()=>{
  await assert.rejects(assertNativeMobileOpeningPixels([]),/ACTUAL_NATIVE_PIXEL_SAMPLES_REQUIRED/)
  await assert.rejects(assertNativeMobileOpeningPixels([Buffer.alloc(1024)]),/ACTUAL_NATIVE_FRAME_DECODE_FAILED/)
+})
+
+test('final encoded MP4 includes caption composition before mobile opening pixel screening',()=>{
+ // Contract test for the integration path; the pixel-screen functional tests
+ // above independently exercise real 1080x1920 PNG decoding and clutter HOLD.
+ const code=fs.readFileSync(new URL('../render-vertical-video-mp4.mjs',import.meta.url),'utf8')
+ const encoded=code.indexOf('const outputBytes = fs.readFileSync(output)')
+ const decoded=code.indexOf('const encodedFramePattern=path.join(tempDir,')
+ const screen=code.indexOf('const finalPixelGate=await assertNativeMobileOpeningPixels(',decoded)
+ assert.ok(encoded>=0&&decoded>encoded&&screen>decoded,
+   'decoded final-output inspection must follow H.264 encode, not just source PNG inspection')
+ assert.match(code.slice(decoded,screen), /'-i',output,[\\s\\S]*'-vf','fps=2',[\\s\\S]*'-frames:v','4'/)
+ assert.match(code.slice(decoded,screen), /FINAL_ENCODED_CAPTION_FRAMES_MISSING/)
+ assert.match(code.slice(screen), /inspectionScope:'FINAL_DECODED_MP4_AFTER_ASS_CAPTION_COMPOSITING'/)
+ assert.match(code.slice(screen), /exactMp4Sha256:sha256\\(outputBytes\\)/)
+ assert.match(code.slice(screen), /encodedMobileOpeningProof,hookPixelProof/)
 })
