@@ -81,6 +81,20 @@ test('source, audio, timing, and composition changes are not cosmetic bypasses',
  assert.ok(errors(p=>p.scenes[1].compositionFamily='macro').includes('NO_MEANINGFUL_COMPOSITION_FAMILY_CONTRAST'))
  assert.ok(errors(p=>p.scenes[1].actions[0].atSec=7).includes('INVALID_VISUAL_VERB_OR_AUDIO_ANCHOR'))
 })
+test('many individually short source cards cannot hide a long stagnant sequence',()=>{
+ const p=good();p.scenes=Array.from({length:6},(_,i)=>({
+   ...scene('source-read-'+i,i,i+1,'source',[]),
+   staticHold:{kind:'SOURCE_EVIDENCE_READ',sourceId:'source1',
+     reason:'Read the cited primary-source limitation'}
+ }))
+ assert.equal(visual(p).status,'HOLD')
+ assert.ok(visual(p).reasons.includes('CONSECUTIVE_STATIC_HOLDS_HIDE_STAGNATION'))
+ assert.ok(visual(p).reasons.includes('SOURCE_CARDS_ALONE_DO_NOT_PROVE_VISUAL_STORY'))
+ // Even two source cards cannot masquerade as a complete teaching film.
+ p.scenes=p.scenes.slice(0,2);p.durationSec=2
+ assert.ok(visual(p).reasons.includes('SOURCE_CARDS_ALONE_DO_NOT_PROVE_VISUAL_STORY'))
+})
+
 test('action-free gaps over three seconds fail; a short source read may be intentional',()=>{
  const p=good();p.durationSec=9;p.scenes[1].endSec=9
  assert.ok(visual(p).reasons.includes('PLANNED_TEACHING_ACTION_GAP_EXCEEDS_3_SECONDS'))
