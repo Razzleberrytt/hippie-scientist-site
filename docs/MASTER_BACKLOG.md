@@ -2,6 +2,12 @@
 
 **Status:** Authoritative ranked backlog
 
+### EvidenceMotion Lane 3 — event-level claim and asset lineage, #6743 / PR #6921 (2026-10-18; REVIEW HOLD)
+
+**Behavioral contract:** Existing research-only visual-scene guard (merged #6913) checks scene-level identities, but a scene's scientific `sourceClaimIds`/`sourceAssetIds` cannot establish attribution for every visual event. Scoped follow-up PR #6921 now requires valid `sourceClaimId` and `sourceAssetId` on *each* declared instructional action, and membership in that scene's approved identity arrays; otherwise `UNBOUND_ACTION_SOURCE_OR_CLAIM` yields `HOLD`. Missing, substituted and legitimate in-scene alternative identities are regression-tested. This establishes syntactic source/asset consistency only; it does **not** prove the narrated claim, depicted chemical model, real frames, or visual quality.
+
+**Status and proof dependency:** #6921 IN REVIEW and UNMERGED as of this control entry. Review requested authoritative documentation and exact-head hosted validations; release depends on final-head relevant CI/build, site/atomic and negative tests, zero unresolved review conversations and the sole serialized protected merge controller. Existing research owner #6743, no new normal D/R/A admission or second evaluator. Production integration, source/science approval, actual full-H264 creative acceptance, 0/1 first excellent render, 0/5 varied streak, and `/1590` accepted stage increase remain **NOT ESTABLISHED**.
+
 ### Existing research owner #6743 — EvidenceMotion 1,590-card canonical evidence reconciliation (2026-10-18)
 
 **Current metric definition (supersedes dated raw additive snapshots below):** The historical 875/1,590 headline adds **707 inherited provisional** and **168 raw machine-research claims**, double counting **54 M+I overlaps** and including one orphan **`EM-006.04.N`**. The stage-ID-distinct *provisionally mapped* count is **820/1,590 = 51.57%**, including **167/1,590 individually machine-audited research stages = 10.50%**; **770/1,590 have neither class**. These classify research evidence, not accepted software workcards, visual excellence, scientific review, or posting readiness. [Source-bound generated tracker PR #6912](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6912) is **IN REVIEW**, not merged or production approved. Lane 5 stage map: **0/351 individually mapped, 92/351 provisional inherited**—no claim of zero delivered engineering safeguards.
