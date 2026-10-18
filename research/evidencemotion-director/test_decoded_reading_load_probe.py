@@ -48,10 +48,43 @@ class DecodedReadingLoadTests(unittest.TestCase):
         result=self.run_guard()
         self.assertEqual(result["physicalCropsChecked"],6)
         self.assertEqual(result["nativeDecodedFrames"],60)
+        self.assertTrue(result["nativeFrameTimestampIntegrityVerified"])
+        self.assertTrue(result["everyFrameIndependentlyTimestampChecked"])
+        self.assertEqual(result["firstDecodedFramePtsSec"],0)
+        self.assertAlmostEqual(result["lastDecodedFramePtsSec"],59/30,places=5)
         self.assertEqual([r["frameIndex"] for r in result["observations"]],
                          [7,15,22,37,45,52])
         self.assertFalse(result["everyFrameIndependentlyTextAudited"])
         self.assertFalse(result["mayPublish"])
+
+    def test_nominal_30fps_h264_with_dropped_presentation_times_holds(self):
+        # Real encoded negative: nominal r_frame_rate stays 30/1 while
+        # physical video presentation times contain a 100 ms jump.
+        vfr=self.root/"nominal-30-with-pts-gap.mp4"
+        vf=r"setpts=if(eq(N\\,15)\\,PTS+0.1/TB\\,PTS)"
+        subprocess.run(["ffmpeg","-nostdin","-hide_banner","-loglevel","error",
+                        "-i",str(self.film),"-vf",vf,"-fps_mode","vfr",
+                        "-c:v","libx264","-preset","ultrafast","-crf","22",
+                        "-pix_fmt","yuv420p","-y",str(vfr)],
+                       check=True,timeout=45)
+        probe=json.loads(subprocess.check_output([
+            "ffprobe","-v","error","-select_streams","v:0",
+            "-count_frames","-show_entries",
+            "stream=r_frame_rate,nb_read_frames","-of","json",str(vfr)
+        ]))["streams"][0]
+        self.assertEqual(probe["r_frame_rate"],"30/1")
+        data=copy.deepcopy(self.manifest_data)
+        data["filmSha256"]=digest(vfr)
+        data["scenes"]=[{"id":"nominal-gap","startFrame":0,
+                         "endFrameExclusive":int(probe["nb_read_frames"]),
+                         "cropPx":[50,700,980,250],
+                         "requiredTokens":["STRUCTURE"]}]
+        manifest=self.root/"nominal-gap-manifest.json"
+        manifest.write_text(json.dumps(data))
+        report=self.root/"nominal-gap-report.json"
+        with self.assertRaisesRegex(ValueError,"NATIVE_FRAME_PTS_NOT_30FPS_CFR"):
+            inspect(vfr,manifest,report)
+        self.assertFalse(report.exists())
 
     def test_critical_word_must_appear_in_actual_scene_not_next_scene(self):
         data=copy.deepcopy(self.manifest_data)
