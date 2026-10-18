@@ -75656,6 +75656,82 @@
       "reservation_id": "a656f0656865fd5f8e6f",
       "reserved_at": "2026-10-18T18:12:51.974Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42168692",
+      "title": "Assessment of Test Strips for Detection of Fentanyl in Powders.",
+      "doi": "10.1007/s11121-026-01933-z",
+      "source_title": "Assessment of Test Strips for Detection of Fentanyl in Powders.",
+      "abstract": "Testing drug powders before consumption is a harm reduction measure that could help prevent accidental overdoses. Fentanyl test strips (FTS) are used to test for fentanyl in powders, but comprehensive, comparative data assessing commercial test strips' performance is currently unavailable. To address this gap, we analyzed drug powders using FTS from three different vendors using the manufacturer's recommended testing procedures. Each FTS was assessed for sensitivity to fentanyl, cross-reactivity with fentanyl analogs, and selectivity by testing other relevant compounds. None of the FTS was as sensitive as claimed by the manufacturer nor could they detect all fentanyl analogs tested, which were selected based on their recent prevalence. The drugs responsible for the most false positives were stimulants, hallucinogens, synthetic opioids, and the cutting agent, diphenhydramine. Overall, testing of DanceSafe FTS resulted in the highest sensitivity for fentanyl, the highest selectivity when tested with other substances (fewest false positives), and moderate cross-reactivity with analogs. Testing of BTNX FTS resulted in the highest cross-reactivity with fentanyl analogs and moderate sensitivity for fentanyl. These results provide valuable information when selecting FTS for harm reduction as well as understanding the implications of each test's results. While no FTS tested performed as marketed, they still remain valuable as drug checking or screening tools to prevent drug overdose deaths.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42168692/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42168692",
+        "doi": "10.1007/s11121-026-01933-z",
+        "journal": "Prevention science : the official journal of the Society for Prevention Research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-18T20:37:39.459Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "69e1f03fac94f20d5155",
+      "reserved_at": "2026-10-18T20:37:44.904Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -75685,16 +75761,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 967,
+    "total_reservations": 968,
     "by_lane": {
       "1": 91,
       "2": 186,
       "3": 133,
-      "4": 57,
+      "4": 58,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 967
+      "SOURCE_VERIFIED": 968
     },
     "batches": [
       {
@@ -75707,7 +75783,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 467,
+        "count": 468,
         "pr_number": null,
         "blocker": null
       }
