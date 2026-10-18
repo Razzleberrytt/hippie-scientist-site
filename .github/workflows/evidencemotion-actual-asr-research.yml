@@ -876,6 +876,7 @@ jobs:
           command -v tesseract
           test -s /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
           ffmpeg -version | head -n 1
+          python -m unittest discover -s research/evidencemotion-director -p test_encoded_source_credit_guard.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_gut_followup_science_guard.py -v
           python -m unittest discover -s research/evidencemotion-director -p test_gut_exact_film_science_crosswalk.py -v
           python - <<'PY'
