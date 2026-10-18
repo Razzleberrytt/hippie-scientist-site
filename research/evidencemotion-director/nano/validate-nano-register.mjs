@@ -18,7 +18,7 @@ const spec = Object.freeze([
 const srcHeading = /^### (EM-\d{3}\.\d{2}) — (.+)$/gm
 const srcCard = /^- \[[ x]\] \*\*(EM-\d{3}\.\d{2}\.[USOXTNR])\*\* — (.+)$/gm
 const nanoHeading = /^### (EM-\d{3}\.\d{2}) — (.+)$/gm
-const nanoCard = /^- \[ \] `(EM-\d{3}\.\d{2}\.[USOXTNR]\.0[123])` — \*\*.+?\*\*:/gm
+const nanoCard = /^- \[ \] `?(EM-\d{3}\.\d{2}\.[USOXTNR]\.0[123])`? — \*\*.+?:\*\* /gm
 const present = (s, re) => [...s.matchAll(new RegExp(re.source, 'gm'))]
 const unique = (xs, label) => {
   const set = new Set(xs)
