@@ -1,5 +1,6 @@
 name: EvidenceMotion actual 7-OH word-ASR research
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - 'research/evidencemotion-director/autonomous_script_asr_research.py'
