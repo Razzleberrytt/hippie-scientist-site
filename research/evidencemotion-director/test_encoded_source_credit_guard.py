@@ -38,6 +38,26 @@ class DecodedSourceCreditTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"INVALID_OCR"):
             guard.source_line_detected(None,"USP","2040")
 
+    def test_source_recheck_reads_no_more_than_limit_plus_one_byte(self):
+        # A sparse replacement simulates a source growing after the size
+        # preflight; this must HOLD instead of hashing arbitrary-length data.
+        with tempfile.TemporaryDirectory() as folder:
+            movie = Path(folder) / "oversized-after-stat.mp4"
+            movie.write_bytes(b"A" * 4096)
+            self.assertEqual(guard.sha256_file(movie),
+                             guard.sha256_file(movie, max_bytes=4096))
+            with mock.patch.object(guard, "MAX_VIDEO_BYTES", 4096):
+                movie.write_bytes(b"A" * 4097)
+                with self.assertRaisesRegex(ValueError,
+                                            "ENCODED_SOURCE_RECHECK_EXCEEDS_LIMIT"):
+                    guard.sha256_file(movie, max_bytes=guard.MAX_VIDEO_BYTES)
+                with movie.open("wb") as out:
+                    out.truncate(16 * 1024 * 1024)
+                with self.assertRaisesRegex(ValueError,
+                                            "ENCODED_SOURCE_RECHECK_EXCEEDS_LIMIT"):
+                    guard.sha256_file(movie, max_bytes=guard.MAX_VIDEO_BYTES)
+                self.assertEqual(movie.stat().st_size, 16 * 1024 * 1024)
+
     @unittest.skipUnless(shutil.which("ffmpeg") and shutil.which("ffprobe") and
                          shutil.which("tesseract"), "physical H264 + OCR required")
     def test_actual_h264_pixels_not_manifest_can_prove_sampled_credit(self):
@@ -115,6 +135,33 @@ class DecodedSourceCreditTests(unittest.TestCase):
             self.assertTrue(swapped["done"])
             self.assertEqual(used, ["pinned-input.mp4"] * 3)
             self.assertEqual(good.read_bytes(), changed.read_bytes())
+
+            # Same verified physical film, but a source replacement *grows*
+            # after the frozen copy has been made. Recheck may read only
+            # MAX_VIDEO_BYTES + 1 from the hostile mutable pathname.
+            swapped["done"] = False
+            current_pin = guard.sha256_file(good)
+            original_movie_length = good.stat().st_size
+            cap = max(256 * 1024, original_movie_length + 4096)
+
+            def grow_on_probe(argv, timeout=45):
+                if argv[0] == "ffprobe" and not swapped["done"]:
+                    with good.open("wb") as changed_source:
+                        changed_source.truncate(cap + 8192)
+                    swapped["done"] = True
+                return original_command(argv, timeout=timeout)
+
+            with mock.patch.object(guard, "MAX_VIDEO_BYTES", cap), mock.patch.object(
+                guard, "command", side_effect=grow_on_probe
+            ):
+                with self.assertRaisesRegex(
+                    ValueError, "ENCODED_SOURCE_RECHECK_EXCEEDS_LIMIT"
+                ):
+                    guard.inspect(good, current_pin, frame_indices=[2, 13],
+                                  roi=[20, 70, 570, 130],
+                                  source_name="USP", source_number="2040")
+            self.assertTrue(swapped["done"])
+            self.assertEqual(good.stat().st_size, cap + 8192)
 
 
 if __name__=="__main__": unittest.main()
