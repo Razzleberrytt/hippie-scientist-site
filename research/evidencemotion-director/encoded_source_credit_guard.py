@@ -43,16 +43,28 @@ def source_line_detected(ocr_text, source_name, source_number):
         hold("INVALID_SOURCE_AUTHORITY")
     if not isinstance(source_number, str) or re.fullmatch(r"[1-9][0-9]{1,9}", source_number) is None:
         hold("INVALID_SOURCE_DOCUMENT_NUMBER")
-    for line in ocr_text.splitlines():
-        words = re.findall(r"[A-Z0-9]+", line.upper())
-        # A bag-of-words match mislabels negated or unrelated mentions:
-        # "NOT SOURCE USP 2040" previously received affirmative pixel credit.
-        # Require an unambiguous contiguous source attribution, with only
-        # the conventional optional "CHAPTER" marker. Other prose must HOLD.
-        if words in (["SOURCE", source_name, source_number],
+    # OCR can split a negation onto a neighboring line, or recover two
+    # contradictory SOURCE lines in one crop. In either case, the positive
+    # string alone is not sufficient evidence of an unambiguous attribution.
+    lines = [re.findall(r"[A-Z0-9]+", line.upper())
+             for line in ocr_text.splitlines()]
+    nonempty = [words for words in lines if words]
+    source_lines = [(i, words) for i, words in enumerate(nonempty)
+                    if words[0] == "SOURCE"]
+    if len(source_lines) != 1:
+        return False
+    i, words = source_lines[0]
+    if words not in (["SOURCE", source_name, source_number],
                      ["SOURCE", source_name, "CHAPTER", source_number]):
-            return True
-    return False
+        return False
+    # Only reject adjacent standalone/leading negative qualifiers, rather
+    # than arbitrary "NOT" elsewhere in a crop; a negative screen should
+    # fail closed without turning unrelated prose into source approval.
+    for nearby in nonempty[max(0, i - 1):i] + nonempty[i + 1:i + 2]:
+        if nearby[0] in ("NOT", "NO", "FALSE", "INVALID",
+                         "UNVERIFIED", "RETRACTED", "DISPUTED"):
+            return False
+    return True
 
 
 def inspect(movie, expected_sha256, *, frame_indices, roi, source_name, source_number):
