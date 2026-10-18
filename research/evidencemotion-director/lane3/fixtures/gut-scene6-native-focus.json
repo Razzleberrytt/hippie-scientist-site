@@ -1,0 +1,126 @@
+{
+  "schema": "ths-lane3-scene6-decoded-focus-narration-negative-v1",
+  "status": "SEMANTIC_VISUAL_CUE_ALIGNMENT_REVIEW_HOLD",
+  "scope": "existing original, physically decoded native H264, SHA-pinned only; no film edit",
+  "exactFilmSha256": "4fb5f24dbd9fc8139be539e2e1286ac25c3525a6ad9510411b0acc72e595c6d4",
+  "exactArchiveSha256": "75bba97d3acb5f785ad3e3bfbf3bdcdc62825a9f38b6853b55853fd6bbc35241",
+  "exactSrtSha256": "40622b677cd6db8c493eff55727904c5017c4a3d7803b22d4c361e84a1ff9bee",
+  "decodedSceneFrames": 127,
+  "sceneFrameRangeInclusive": [
+    718,
+    844
+  ],
+  "method": {
+    "source": "native RGB frames strictly decoded FFmpeg, last scene only",
+    "cropNativePx": [
+      70,
+      810,
+      970,
+      1110
+    ],
+    "metric": "per-card active left border cyan pixel count; 1.12x runner-up confidence threshold",
+    "temporalBinding": "SRT cue-group windows and frame-center integral times, not independently verified word onset",
+    "imageFalseConfidenceControl": "Three physical reference frames matched observed active labels"
+  },
+  "focusRuns": [
+    {
+      "focus": "FORM",
+      "firstFrame": 718,
+      "lastFrame": 754,
+      "inclusiveFrames": 37
+    },
+    {
+      "focus": null,
+      "firstFrame": 755,
+      "lastFrame": 765,
+      "inclusiveFrames": 11
+    },
+    {
+      "focus": "FOOD",
+      "firstFrame": 766,
+      "lastFrame": 801,
+      "inclusiveFrames": 36
+    },
+    {
+      "focus": null,
+      "firstFrame": 802,
+      "lastFrame": 812,
+      "inclusiveFrames": 11
+    },
+    {
+      "focus": "OTHER MEDS",
+      "firstFrame": 813,
+      "lastFrame": 844,
+      "inclusiveFrames": 32
+    }
+  ],
+  "cueEvidence": [
+    {
+      "cueId": 17,
+      "originalText": "Form, food, and",
+      "declaredStartMs": 23930,
+      "declaredEndMs": 25080,
+      "frameSpanInclusive": [
+        718,
+        751
+      ],
+      "physicalFocusFrames": {
+        "FORM": 34,
+        "FOOD": 0,
+        "OTHER MEDS": 0,
+        "AMBIGUOUS": 0
+      },
+      "explicitVerbatimCardWordsInPhrase": [
+        "FORM",
+        "FOOD"
+      ]
+    },
+    {
+      "cueId": 18,
+      "originalText": "interactions matter. Read",
+      "declaredStartMs": 25080,
+      "declaredEndMs": 26790,
+      "frameSpanInclusive": [
+        752,
+        803
+      ],
+      "physicalFocusFrames": {
+        "FORM": 3,
+        "FOOD": 36,
+        "OTHER MEDS": 0,
+        "AMBIGUOUS": 13
+      },
+      "explicitVerbatimCardWordsInPhrase": []
+    },
+    {
+      "cueId": 19,
+      "originalText": "the supplement label.",
+      "declaredStartMs": 26790,
+      "declaredEndMs": 27860,
+      "frameSpanInclusive": [
+        804,
+        835
+      ],
+      "physicalFocusFrames": {
+        "FORM": 0,
+        "FOOD": 0,
+        "OTHER MEDS": 23,
+        "AMBIGUOUS": 9
+      },
+      "explicitVerbatimCardWordsInPhrase": []
+    }
+  ],
+  "risks": [
+    "Focus on FOOD extends into caption 18, although caption 18 says \"interactions matter. Read\"",
+    "Focus on OTHER MEDS extends into caption 19, although caption 19 says \"the supplement label.\"",
+    "The visual label OTHER MEDS and spoken \"interactions\" are not an independently reviewed synonym/claim mapping"
+  ],
+  "requiredAction": "HOLD creative-science narration mapping; establish source-approved visual relation and calibrate labels to original acoustic onset before rewriting director rhythm",
+  "negativeControl": "Earlier experiment adding redundant gold highlights to FORM and FOOD is rejected for creative promotion because native scene already has source-coded focus switches",
+  "scientificSourceApproved": false,
+  "actualPhoneReviewed": false,
+  "creativeApproved": false,
+  "excellentFirstRender": false,
+  "mayPublish": false,
+  "atomicCardsAccepted": 0
+}
