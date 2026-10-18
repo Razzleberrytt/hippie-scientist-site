@@ -20,11 +20,29 @@ def hold(code):
     raise ValueError("ENCODED_SOURCE_CREDIT_HOLD:" + code)
 
 
-def sha256_file(path):
+def sha256_file(path, *, max_bytes=None):
+    """Hash a bounded media source without reading beyond limit + one byte.
+
+    A small original can be replaced after stat with an enormous file. A
+    bounded recheck must fail promptly rather than hash attacker-sized data.
+    Unbounded hashing remains available for generated, local OCR crop PNGs.
+    """
     sha = hashlib.sha256()
-    with Path(path).open("rb") as f:
-        for chunk in iter(lambda: f.read(1 << 20), b""):
-            sha.update(chunk)
+    remaining = max_bytes
+    try:
+        with Path(path).open("rb") as f:
+            while True:
+                chunk = f.read((1 << 20) if remaining is None
+                               else min(1 << 20, remaining + 1))
+                if not chunk:
+                    break
+                if remaining is not None:
+                    if len(chunk) > remaining:
+                        hold("ENCODED_SOURCE_RECHECK_EXCEEDS_LIMIT")
+                    remaining -= len(chunk)
+                sha.update(chunk)
+    except OSError as exc:
+        hold("ENCODED_SOURCE_RECHECK_IO_FAILED:" + type(exc).__name__)
     return sha.hexdigest()
 
 
@@ -67,70 +85,97 @@ def source_line_detected(ocr_text, source_name, source_number):
     return True
 
 
-def inspect(movie, expected_sha256, *, frame_indices, roi, source_name, source_number):
-    """Decode SHA-pinned actual H264 frame crops and independently OCR the source.
+def _frozen_source(movie, snapshot, expected_sha256):
+    """Copy bounded original bytes once, then prove the exact independent pin."""
+    observed = hashlib.sha256()
+    count = 0
+    try:
+        with movie.open("rb") as source, snapshot.open("xb") as target:
+            for chunk in iter(lambda: source.read(1 << 20), b""):
+                count += len(chunk)
+                if count > MAX_VIDEO_BYTES:
+                    hold("ENCODED_SOURCE_SNAPSHOT_EXCEEDS_LIMIT")
+                target.write(chunk)
+                observed.update(chunk)
+    except OSError as exc:
+        hold("ENCODED_SOURCE_SNAPSHOT_IO_FAILED:" + type(exc).__name__)
+    if (count < 128 or observed.hexdigest() != expected_sha256
+        or not movie.is_file() or movie.is_symlink()
+        or sha256_file(movie, max_bytes=MAX_VIDEO_BYTES) != expected_sha256):
+        hold("ENCODED_SOURCE_CHANGED_DURING_SNAPSHOT")
 
-    The caller supplies an externally established movie SHA. ROI is inspection
-    scope, NOT a trusted visible-source flag. Only the sampled frames are
-    evidenced; source applicability and release always remain unresolved.
+
+def inspect(movie, expected_sha256, *, frame_indices, roi, source_name, source_number):
+    """Audit only exact pinned snapshot bytes, not a mutable original path.
+
+    Both FFprobe and FFmpeg operate on the same frozen copy. This eliminates
+    a check/use gap where the initial movie SHA could describe different bytes
+    from the actual decoded source-credit pixels. All authority remains HOLD.
     """
     movie = Path(movie)
     if (not movie.is_file() or movie.is_symlink()
         or movie.stat().st_size < 128 or movie.stat().st_size > MAX_VIDEO_BYTES
         or not isinstance(expected_sha256, str)
         or re.fullmatch(r"[a-f0-9]{64}", expected_sha256) is None
-        or sha256_file(movie) != expected_sha256):
+        or sha256_file(movie, max_bytes=MAX_VIDEO_BYTES) != expected_sha256):
         hold("EXACT_INDEPENDENT_ENCODED_MOVIE_PIN_REQUIRED")
     if (not isinstance(frame_indices, (tuple, list)) or len(frame_indices) < 2
         or len(frame_indices) > 8 or any(type(n) is not int or n < 0 for n in frame_indices)
         or sorted(set(frame_indices)) != list(frame_indices)):
         hold("TWO_TO_EIGHT_UNIQUE_ORDERED_ENCODED_FRAMES_REQUIRED")
-    meta = json.loads(command([
-        "ffprobe", "-v", "error", "-select_streams", "v:0",
-        "-show_entries", "stream=codec_name,width,height,nb_frames",
-        "-of", "json", str(movie)
-    ]))
-    streams = meta.get("streams", [])
-    if (len(streams) != 1 or streams[0].get("codec_name") != "h264"
-        or any(type(streams[0].get(k)) is not int or streams[0][k] <= 0
-               for k in ("width", "height"))):
-        hold("ACTUAL_H264_GEOMETRY_REQUIRED")
-    w,h = streams[0]["width"], streams[0]["height"]
-    try:
-        count = int(streams[0]["nb_frames"])
-    except (ValueError, TypeError, KeyError):
-        hold("EXACT_FRAME_COUNT_REQUIRED")
-    if frame_indices[-1] >= count:
-        hold("SAMPLED_FRAME_OUTSIDE_MOVIE")
     if (not isinstance(roi, (list, tuple)) or len(roi) != 4
         or any(type(z) is not int for z in roi)):
         hold("EXACT_NATIVE_SOURCE_REGION_REQUIRED")
-    x,y,width,height = roi
-    if not (0 <= x < x+width <= w and 0 <= y < y+height <= h
-            and width >= 60 and height >= 20):
-        hold("SOURCE_REGION_OUTSIDE_ENCODED_MOVIE")
+
     rows = []
     with tempfile.TemporaryDirectory(prefix="ths-source-credit-") as folder:
+        frozen = Path(folder) / "pinned-input.mp4"
+        _frozen_source(movie, frozen, expected_sha256)
+        meta = json.loads(command([
+            "ffprobe", "-v", "error", "-select_streams", "v:0",
+            "-show_entries", "stream=codec_name,width,height,nb_frames",
+            "-of", "json", str(frozen)
+        ]))
+        streams = meta.get("streams", [])
+        if (len(streams) != 1 or streams[0].get("codec_name") != "h264"
+            or any(type(streams[0].get(k)) is not int or streams[0][k] <= 0
+                   for k in ("width", "height"))):
+            hold("ACTUAL_H264_GEOMETRY_REQUIRED")
+        w, h = streams[0]["width"], streams[0]["height"]
+        try:
+            count = int(streams[0]["nb_frames"])
+        except (ValueError, TypeError, KeyError):
+            hold("EXACT_FRAME_COUNT_REQUIRED")
+        if frame_indices[-1] >= count:
+            hold("SAMPLED_FRAME_OUTSIDE_MOVIE")
+        x, y, width, height = roi
+        if not (0 <= x < x + width <= w and 0 <= y < y + height <= h
+                and width >= 60 and height >= 20):
+            hold("SOURCE_REGION_OUTSIDE_ENCODED_MOVIE")
         for frame in frame_indices:
             dest = Path(folder) / f"source-{frame}.png"
             command([
-                "ffmpeg", "-v", "error", "-nostdin", "-i", str(movie),
-                "-vf", f"select=eq(n\,{frame}),crop={width}:{height}:{x}:{y}",
+                "ffmpeg", "-v", "error", "-nostdin", "-i", str(frozen),
+                "-vf", f"select=eq(n\\,{frame}),crop={width}:{height}:{x}:{y}",
                 "-vsync", "0", "-frames:v", "1", "-update", "1", "-y", str(dest)
             ], timeout=65)
             if not dest.is_file() or dest.stat().st_size < 100:
                 hold("ENCODED_SAMPLE_FRAME_NOT_DECODED")
             ocr = command(["tesseract", str(dest), "stdout", "--psm", "6"], timeout=35).decode("utf-8", "replace")
             if not source_line_detected(ocr, source_name, source_number):
-                hold("IDENTIFIABLE_SCIENTIFIC_SOURCE_NOT_RECOVERED_IN_ENCODED_FRAME:"+str(frame))
-            rows.append({"frameIndex": frame, "actualPixelCropSha256":sha256_file(dest),
-                         "ocrObservationSha256":hashlib.sha256(ocr.encode()).hexdigest(),
-                         "sourceIdentifierPhysicallyReadable":True})
-    return {"schema":SCHEMA, "exactMovieSha256":expected_sha256,
-            "sourceName":source_name,"sourceNumber":source_number,
-            "actualNativeROI":[x,y,width,height], "actualEncodedFramesSampled":len(rows),
-            "sampledVisibleSourceCreditRecovered":True, "rows":rows,
-            "scientificSourceApplicabilityVerified":False,
-            "scientificClaimApproved":False,"allFilmFramesVerified":False,
-            "independentQualifiedScienceReviewPassed":False,
-            "realPhoneLegibilityVerified":False,"mayPublish":False}
+                hold("IDENTIFIABLE_SCIENTIFIC_SOURCE_NOT_RECOVERED_IN_ENCODED_FRAME:" + str(frame))
+            rows.append({"frameIndex": frame, "actualPixelCropSha256": sha256_file(dest),
+                         "ocrObservationSha256": hashlib.sha256(ocr.encode()).hexdigest(),
+                         "sourceIdentifierPhysicallyReadable": True})
+        if (sha256_file(frozen, max_bytes=MAX_VIDEO_BYTES) != expected_sha256
+            or not movie.is_file() or movie.is_symlink()
+            or sha256_file(movie, max_bytes=MAX_VIDEO_BYTES) != expected_sha256):
+            hold("ENCODED_SOURCE_CHANGED_DURING_REPLAY")
+    return {"schema": SCHEMA, "exactMovieSha256": expected_sha256,
+            "sourceName": source_name, "sourceNumber": source_number,
+            "actualNativeROI": [x, y, width, height], "actualEncodedFramesSampled": len(rows),
+            "sampledVisibleSourceCreditRecovered": True, "rows": rows,
+            "scientificSourceApplicabilityVerified": False,
+            "scientificClaimApproved": False, "allFilmFramesVerified": False,
+            "independentQualifiedScienceReviewPassed": False,
+            "realPhoneLegibilityVerified": False, "mayPublish": False}
