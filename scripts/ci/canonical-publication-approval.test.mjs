@@ -7,7 +7,9 @@ const older='b'.repeat(40)
 const pr={number:6703,base:{repo:{owner:{login:'Razzleberrytt'},full_name:'Razzleberrytt/hippie-scientist-site'}},head:{sha,repo:{full_name:'Razzleberrytt/hippie-scientist-site'}}}
 const publicFile='content/articles/new-licorice-claim.md'
 const approval=(head=sha,login='Razzleberrytt',id=1)=>({
-  id, user:{login,type:'User'},body:`THS-PUBLICATION-APPROVED PR=#6703 HEAD=${head}`,created_at:'2026-10-12T16:00:00Z'
+  id, user:{login,type:'User'},performed_via_github_app:null,
+  body:`THS-PUBLICATION-APPROVED PR=#6703 HEAD=${head}`,created_at:'2026-10-12T16:00:00Z',
+  updated_at:'2026-10-12T16:00:00Z'
 })
 const decide=(changedFiles,extra={})=>assessPublicationApproval({pr,changedFiles,...extra})
 
@@ -47,23 +49,99 @@ describe('canonical publication approval',()=>{
       expect(decide([publicFile],{comments:[c]}).allowed).toBe(false)
     }
   })
-  it('accepts trusted owner comment bound to exact current head while retaining other gates',()=>{
+  it('holds even unedited owner comments until an immutable creation receipt exists',()=>{
     const r=decide([publicFile],{comments:[approval()]})
-    expect(r.allowed).toBe(true)
+    expect(r.allowed).toBe(false)
     expect(r.kind).toBe('HUMAN_PUBLICATION')
-    expect(r.reason).toMatch(/existing science and release gates/)
+    expect(r.reason).toMatch(/publication review hold/)
+    expect(r.reason).toContain('positive PR-comment approval tokens are disabled')
+    expect(r.reason).not.toContain('owner must post THS-PUBLICATION-APPROVED')
   })
   it('owner revocation after approval must close the publication gate',()=>{
     const revoked={...approval(sha,'Razzleberrytt',2),body:`THS-PUBLICATION-REVOKED PR=#6703 HEAD=${sha}`,created_at:'2026-10-12T17:00:00Z'}
     expect(decide([publicFile],{comments:[approval(),revoked]}).allowed).toBe(false)
   })
-  it('accepts only the current exact-head approved reviewer state',()=>{
+  it('does not mistake unproven GitHub review authorship for a direct human approval',()=>{
     const prior={id:1, user:{login:'Razzleberrytt',type:'User'},commit_id:sha, state:'APPROVED',submitted_at:'2026-10-12T16:00:00Z'}
     const change={...prior,id:2,state:'CHANGES_REQUESTED',submitted_at:'2026-10-12T17:00:00Z'}
-    expect(decide([publicFile],{reviews:[prior]}).allowed).toBe(true)
-    expect(decide([publicFile],{reviews:[prior,change]}).allowed).toBe(false)
+    // GitHub REST review responses may not include app-origin provenance.
+    expect(decide([publicFile],{reviews:[prior]}).allowed).toBe(false)
+    expect(decide([publicFile],{reviews:[{...prior,performed_via_github_app:{slug:'chatgpt-codex-connector'}}]}).allowed).toBe(false)
+    expect(decide([publicFile],{reviews:[{...prior,performed_via_github_app:null}]}).allowed).toBe(true)
+    expect(decide([publicFile],{reviews:[{...prior,performed_via_github_app:null},change]}).allowed).toBe(false)
     expect(decide([publicFile],{reviews:[{...prior,commit_id:older}]}).allowed).toBe(false)
     expect(decide([publicFile],{reviews:[{...prior,user:{login:'other',type:'User'}}]}).allowed).toBe(false)
+  })
+  it('blocks app-authored and origin-unknown owner approval comments even when username is Owner',()=>{
+    const asApp={...approval(),performed_via_github_app:{slug:'chatgpt-codex-connector',id:1144995}}
+    const originUnknown={...approval()}
+    delete originUnknown.performed_via_github_app
+    expect(decide([publicFile],{comments:[asApp]}).allowed).toBe(false)
+    expect(decide([publicFile],{comments:[originUnknown]}).allowed).toBe(false)
+    expect(decide([publicFile],{comments:[approval()]}).allowed).toBe(false)
+  })
+  it('blocks approval even from same-second edited-comment ambiguity',()=>{
+    const original=approval()
+    const sameSecond={...original,created_at:'2026-10-12T16:00:00Z',updated_at:'2026-10-12T16:00:00Z'}
+    expect(decide([publicFile],{comments:[sameSecond]}).allowed).toBe(false)
+    expect(decide([publicFile],{comments:[{...sameSecond,id:22}]}).allowed).toBe(false)
+  })
+  it('rejects edited or timestamp-unknown owner comments, including a collaborator edit',()=>{
+    const original=approval()
+    const edited={...original,updated_at:'2026-10-12T16:01:00Z'}
+    const missingUpdated={...original}
+    delete missingUpdated.updated_at
+    const missingCreated={...original}
+    delete missingCreated.created_at
+    const invalid={...original,updated_at:'not-a-timestamp'}
+    expect(decide([publicFile],{comments:[original]}).allowed).toBe(false)
+    for(const c of [edited,missingUpdated,missingCreated,invalid]){
+      expect(decide([publicFile],{comments:[c]}).allowed).toBe(false)
+    }
+    // Retyping the right token into an existing owner's prior comment after
+    // a different person edited it must NOT inherit the original owner.
+    const alteredByCollaborator={...original,id:99,created_at:'2026-10-11T16:00:00Z',updated_at:'2026-10-12T16:00:00Z'}
+    expect(decide([publicFile],{comments:[alteredByCollaborator]}).allowed).toBe(false)
+  })
+  it('honors negative reviews/revocations after a separately proven review',()=>{
+    const prior={id:1,user:{login:'Razzleberrytt',type:'User'},
+      commit_id:sha,state:'APPROVED',performed_via_github_app:null,
+      submitted_at:'2026-10-12T16:00:00Z'}
+    const revoked={...approval(sha,'Razzleberrytt',2),
+      body:`THS-PUBLICATION-REVOKED PR=#6703 HEAD=${sha}`,
+      performed_via_github_app:{slug:'chatgpt-codex-connector'},
+      created_at:'2026-10-12T17:00:00Z'}
+    const changed={id:3,user:{login:'Razzleberrytt',type:'User'},
+      commit_id:sha,state:'CHANGES_REQUESTED',submitted_at:'2026-10-12T18:00:00Z'}
+    expect(decide([publicFile],{comments:[revoked],reviews:[prior]}).allowed).toBe(false)
+    expect(decide([publicFile],{reviews:[prior,changed]}).allowed).toBe(false)
+  })
+  it('same-second revocation overrides a higher-ID approved review',()=>{
+    const review={id:9000001,user:{login:'Razzleberrytt',type:'User'},commit_id:sha,
+      state:'APPROVED',performed_via_github_app:null,
+      submitted_at:'2026-10-12T16:00:00Z'}
+    const revoke={...approval(sha,'Razzleberrytt',4),
+      body:`THS-PUBLICATION-REVOKED PR=#6703 HEAD=${sha}`,
+      created_at:'2026-10-12T16:00:00Z',
+      updated_at:'2026-10-12T16:00:00Z'}
+    // Issue-comment IDs and review IDs are not chronologically comparable.
+    expect(decide([publicFile],{comments:[revoke],reviews:[review]}).allowed).toBe(false)
+    expect(decide([publicFile],{comments:[revoke],reviews:[{...review,id:1}]}).allowed).toBe(false)
+  })
+  it('same-second CHANGES_REQUESTED vetoes an apparently approved review',()=>{
+    const a={id:9000001,user:{login:'Razzleberrytt',type:'User'},commit_id:sha,
+      state:'APPROVED',performed_via_github_app:null,
+      submitted_at:'2026-10-12T16:00:00Z'}
+    const revoked={...a,id:1,state:'CHANGES_REQUESTED'}
+    expect(decide([publicFile],{reviews:[a,revoked]}).allowed).toBe(false)
+  })
+  it('only an unambiguous later independently verified review can clear an earlier revocation',()=>{
+    const a={id:12,user:{login:'Razzleberrytt',type:'User'},commit_id:sha,
+      state:'APPROVED',performed_via_github_app:null,
+      submitted_at:'2026-10-12T17:00:00Z'}
+    const revoked={...a,id:100,state:'CHANGES_REQUESTED',
+      submitted_at:'2026-10-12T16:00:00Z'}
+    expect(decide([publicFile],{reviews:[a,revoked]}).allowed).toBe(true)
   })
   it('blocks when exact PR or base owner identity is missing',()=>{
     const tampered={...pr,base:{repo:{full_name:'Razzleberrytt/hippie-scientist-site'}}}
@@ -89,7 +167,11 @@ describe('integration into trusted merge readiness',()=>{
   it('human approval cannot bypass required workflows or their failures',()=>{
     const r=evaluateReadiness({
       pr:targetPr,workflowRuns:[],checkRuns:[],changedFiles:[publicFile],
-      approvalEvidence:{comments:[approval()],reviews:[]},
+      approvalEvidence:{comments:[],reviews:[{
+        id:1,user:{login:'Razzleberrytt',type:'User'},
+        commit_id:sha,state:'APPROVED',performed_via_github_app:null,
+        submitted_at:'2026-10-12T16:00:00Z'
+      }]},
       expectedHeadSha:sha,currentBaseSha:currentBase,
       riskTier:'high',controllerRunId:'test-controller',
     })
