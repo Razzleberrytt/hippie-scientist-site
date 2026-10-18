@@ -6,7 +6,8 @@ const hash = x => typeof x === 'string' && /^[a-f\d]{64}$/i.test(x)
 const finite = x => typeof x === 'number' && Number.isFinite(x)
 const meaningful = new Set([
   'OPENS_TO_REVEAL', 'FOLDS_TO_REVEAL', 'MOVES_INTO_BOUND_SPACE',
-  'ASSEMBLES_FROM_PARTS', 'SEPARATES_INTO_PARTS', 'PHYSICAL_SCALE_REVEAL'
+  'ASSEMBLES_FROM_PARTS', 'SEPARATES_INTO_PARTS', 'PHYSICAL_SCALE_REVEAL',
+  'REVEAL', 'TRACE', 'COMPARE_ACTIVE', 'FOCUS_TO_NEW_EVIDENCE', 'TRANSFORM_SOURCE_BOUND'
 ])
 const merelyDecorative = new Set([
   'CAMERA_ONLY', 'COLOR_WIPE', 'PARTICLES_ONLY', 'TEXT_SWAP',
@@ -146,8 +147,11 @@ export function inspectSceneVisualVerbPlan(plan) {
   for (let i=1;i<changePoints.length;i++) {
     const a=changePoints[i-1], b=changePoints[i]
     if (b-a <= MAX_ACTION_GAP_SEC + TIME_EPS) continue
-    // Bounded reading holds are the only documented reason to defer action.
-    if (!holds.some(h=>h.start<=a+TIME_EPS && h.end>=b-TIME_EPS))
+    // A verified, short source-card reading interval does not force fake motion.
+    // Only the time actually inside an authorized hold is discounted.
+    const holdSeconds=holds.reduce((total,h)=>
+      total+Math.max(0,Math.min(b,h.end)-Math.max(a,h.start)),0)
+    if (b-a-holdSeconds > MAX_ACTION_GAP_SEC + TIME_EPS)
       add('PLANNED_TEACHING_ACTION_GAP_EXCEEDS_3_SECONDS')
   }
   for (let i=1;i<holds.length;i++)
