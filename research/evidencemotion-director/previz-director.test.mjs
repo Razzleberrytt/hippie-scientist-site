@@ -36,6 +36,10 @@ test('scientific ID and locked audio timing requirements fail closed',()=>{
  assert.equal(proposeShots({...beat,spokenAnchorTimes:[1.9,.4,3.5]}).code,'MISSING_AUDIO_ANCHORS');
  assert.equal(proposeShots({...beat,spokenAnchorTimes:[.4,.4,3.5]}).code,'MISSING_AUDIO_ANCHORS');
  assert.equal(proposeShots({...beat,spokenAnchorTimes:[.4,NaN,3.5]}).code,'MISSING_AUDIO_ANCHORS');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:new Array(1)}).code,'MISSING_AUDIO_ANCHORS');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:[.4,,3.5]}).code,'MISSING_AUDIO_ANCHORS');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:[,.4,3.5]}).code,'MISSING_AUDIO_ANCHORS');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:[.4,1.9,]}).status,'PROPOSED');
  assert.equal(proposeShots({...beat,spokenAnchorTimes:[0,.4,3.5,4]}).status,'PROPOSED');
 });
 test('source-bound comparison and process constraints prevent arbitrary animations',()=>{
