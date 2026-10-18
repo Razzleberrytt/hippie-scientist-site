@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 from pathlib import Path
-from fullframe_text_negative_probe import SCHEMA, sha, check
+from fullframe_text_negative_probe import SCHEMA, MAX_MANIFEST_BYTES, sha, check
 
 FONT = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
 
@@ -128,6 +128,23 @@ class TransientEncodedTextTests(unittest.TestCase):
         link.symlink_to(self.clean)
         with self.assertRaisesRegex(ValueError, 'BOUNDED_REGULAR_ENCODED_MOVIE_REQUIRED'):
             check(link, self.manifest(self.clean))
+
+    def test_oversized_manifest_holds_before_ffmpeg_and_ocr(self):
+        manifest = self.root / 'oversized-manifest.json'
+        manifest.write_bytes(b'{' + b' ' * MAX_MANIFEST_BYTES + b'}')
+        with patch('fullframe_text_negative_probe.command',
+                   side_effect=AssertionError('decoder must not run')):
+            with self.assertRaisesRegex(ValueError, 'MANIFEST_EXCEEDS_LIMIT'):
+                check(self.clean, manifest)
+
+    def test_symlinked_manifest_holds_before_decoding(self):
+        original = self.manifest(self.clean)
+        link = self.root / 'linked-manifest.json'
+        link.symlink_to(original)
+        with patch('fullframe_text_negative_probe.command',
+                   side_effect=AssertionError('decoder must not run')):
+            with self.assertRaisesRegex(ValueError, 'REGULAR_MANIFEST_REQUIRED'):
+                check(self.clean, link)
 
     def test_snapshot_rejects_source_replaced_between_pin_and_copy(self):
         from fullframe_text_negative_probe import _frozen_source as real_snapshot
