@@ -94,6 +94,16 @@ def check(movie, manifest):
         if (not math.isfinite(pts) or not math.isfinite(inferred)
             or abs(pts - index / 30) > .001 or abs(pts - inferred) > .001):
             fail('PHYSICAL_FRAME_PTS_DISCONTINUITY:' + str(index))
+    # Audit the entire container stream inventory as well as the validated v:0
+    # sequence: a second video track could otherwise be selected by a player.
+    inventory = json.loads(command(['ffprobe', '-v', 'error',
+        '-show_streams', '-show_entries', 'stream=index,codec_type',
+        '-of', 'json', str(movie)]))
+    all_streams = inventory.get('streams')
+    if (not isinstance(all_streams, list) or
+        sum(isinstance(track, dict) and track.get('codec_type') == 'video'
+            for track in all_streams) != 1):
+        fail('AMBIGUOUS_MULTIPLE_OR_MISSING_VIDEO_STREAMS')
     crop = data['cropPx']
     if (not isinstance(crop, list) or len(crop) != 4 or
         any(type(n) is not int for n in crop)):
@@ -130,7 +140,7 @@ def check(movie, manifest):
     with tempfile.TemporaryDirectory(prefix='em-l4-frames-') as d:
         folder = Path(d)
         command(['ffmpeg', '-nostdin', '-v', 'error', '-xerror', '-i', str(movie),
-                 '-vf', f'crop={width}:{height}:{x}:{y}', '-fps_mode', 'passthrough',
+                 '-map', '0:v:0', '-vf', f'crop={width}:{height}:{x}:{y}', '-fps_mode', 'passthrough',
                  '-start_number', '0', '-y', str(folder / 'frame-%06d.png')])
         actual_files = sorted(folder.glob('frame-*.png'))
         if len(actual_files) != len(frames):
