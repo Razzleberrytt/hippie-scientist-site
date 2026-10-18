@@ -31,8 +31,11 @@ const fail=(code)=>({status:'HOLD',code,candidates:[],productionEligible:false})
 export function proposeShots(beat,{previousGrammar=null,previousCamera=null}={}){
   if(!beat||!clean(beat.id)||!Number.isFinite(beat.durationSec)||beat.durationSec<=0)
     return fail('INVALID_BEAT');
+  // Word-aligned cue times must progress in original narration order.
+  // Duplicates or reversed anchors cannot govern a deterministic shot plan.
   if(!Array.isArray(beat.spokenAnchorTimes)||!beat.spokenAnchorTimes.length||
-     beat.spokenAnchorTimes.some(t=>!Number.isFinite(t)||t<0||t>beat.durationSec))
+     beat.spokenAnchorTimes.some((t,i,anchors)=>!Number.isFinite(t)||t<0||
+       t>beat.durationSec||(i>0&&t<=anchors[i-1])))
     return fail('MISSING_AUDIO_ANCHORS');
   if(!uniqueIds(beat.claimIds)||!uniqueIds(beat.scientificAssetIds))
     return fail('SOURCE_BOUND_IDS_REQUIRED');
