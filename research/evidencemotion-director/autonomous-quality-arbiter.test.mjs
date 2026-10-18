@@ -70,6 +70,32 @@ test('hard decoded-frame defect overrides advisory and stays AUTO_REVISE',()=>{
  assert.ok(x.fixes.includes('MISSING_RECOGNIZABLE_SUBJECT_OR_NEAR_BLANK_CENTRAL_STAGE'));
  assert.equal(x.contentMayPublish,false);
 });
+test('pending visual decision cannot silently erase actual decoded craft warnings',()=>{
+ const warnings=[
+   {reviewCandidates:['CENTERED_TEACHING_HERO_STASIS_MASKED_BY_PERIPHERAL_MOTION'],
+    centerHeroStasisPeripheralMotionWindowsSec:[{startSec:0,endSec:6,repeatedPairCount:3}]},
+   {twoStateAlternationWindowsSec:[{startSec:0,endSec:12,lagTwoMatchedPairs:5}]},
+   {interleavedBlankPhaseWindowsSec:[{startSec:1,endSec:8,blankSamples:4,blankPhase:1}]},
+   {reviewCandidates:'MALFORMED'},
+   {reviewCandidates:null},
+ ];
+ for(const fields of warnings){
+   const x=adjudicateFilm({...full(),decodedVisual:{...frame(),...fields}});
+   assert.equal(x.decision,'AUTO_HOLD_INVALID_PROOF');
+   assert.ok(x.blockers.includes('VISUAL_CRAFT_WARNING_SUPPRESSED'));
+   assert.equal(x.contentMayPublish,false);
+ }
+});
+test('empty decoded craft warning collections preserve research-only pending state',()=>{
+ const decodedVisual={...frame(),reviewCandidates:[],
+   centerHeroStasisPeripheralMotionWindowsSec:[],
+   twoStateAlternationWindowsSec:[],
+   interleavedBlankPhaseWindowsSec:[]};
+ const x=adjudicateFilm({...full(),decodedVisual});
+ assert.deepEqual(x.blockers,[]);
+ assert.equal(x.decision,'AUTO_RUN_MISSING_REVIEWS');
+ assert.equal(x.contentMayPublish,false);
+});
 test('missing machine reviewers schedules more evidence, never asks an owner to be the judge',()=>{
  const x=adjudicateFilm({...full(),voice:undefined,critics:[]});
  assert.equal(x.decision,'AUTO_RUN_MISSING_REVIEWS');
