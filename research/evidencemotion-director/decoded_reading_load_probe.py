@@ -80,6 +80,45 @@ def probe_movie(movie):
     return frames
 
 
+
+def verify_native_frame_timestamps(movie, frames):
+    """Assert decoded presentation times match true 30 Hz CFR, not just nominal metadata.
+
+    A 30/1 r_frame_rate can coexist with missing/delayed video PTS. Frame
+    indices divided by 30 then misstate the time of encoded captions/science.
+    This is a full decoded-frame timestamp check, NOT a full-frame text audit.
+    """
+    # Raw PTS is mandatory. The FFmpeg best-effort value may be synthesized
+    # from DTS; it cannot stand in for a missing presentation timestamp.
+    raw = run(["ffprobe", "-v", "error", "-select_streams", "v:0",
+               "-show_frames", "-show_entries",
+               "frame=pts_time,best_effort_timestamp_time", "-of", "json",
+               str(movie)], "NATIVE_FRAME_TIMESTAMP_PROBE_FAILED")
+    try:
+        timeline = json.loads(raw)["frames"]
+    except (ValueError, KeyError, TypeError):
+        hold("NATIVE_FRAME_TIMESTAMPS_MISSING")
+    if not isinstance(timeline, list) or len(timeline) != frames:
+        hold("NATIVE_FRAME_TIMESTAMP_COUNT_MISMATCH")
+    first, last = None, None
+    for index, frame in enumerate(timeline):
+        if not isinstance(frame, dict) or "pts_time" not in frame:
+            hold("NATIVE_FRAME_RAW_PTS_MISSING:" + str(index))
+        try:
+            actual = float(frame["pts_time"])
+            estimated = float(frame["best_effort_timestamp_time"])
+        except (TypeError, ValueError, KeyError):
+            hold("NATIVE_FRAME_TIMESTAMPS_MISSING")
+        if (not math.isfinite(actual) or not math.isfinite(estimated)
+            or abs(actual - index / 30.0) > 0.001
+            or abs(actual - estimated) > 0.001):
+            hold("NATIVE_FRAME_PTS_NOT_30FPS_CFR:" + str(index))
+        if first is None:
+            first = actual
+        last = actual
+    return round(first, 6), round(last, 6)
+
+
 def manifest_scenes(data, frames):
     if (not isinstance(data, dict) or set(data) !=
         {"schema", "filmSha256", "status", "mayPublish", "scenes"}
@@ -166,6 +205,7 @@ def inspect(movie, manifest, out):
         or data["filmSha256"] != movie_sha):
         hold("EXACT_ENCODED_FILM_SHA_MISMATCH")
     frames = probe_movie(movie)
+    first_pts, last_pts = verify_native_frame_timestamps(movie, frames)
     scenes = manifest_scenes(data, frames)
     observations = []
     with tempfile.TemporaryDirectory(prefix="em034-decoded-") as folder:
@@ -205,7 +245,12 @@ def inspect(movie, manifest, out):
         hold("ENCODED_INPUT_CHANGED_DURING_AUDIT")
     receipt = {"schema":SCHEMA, "status":"SAMPLED_NEGATIVE_SCREEN_NO_HOLD_REVIEW_REQUIRED",
                "filmSha256":movie_sha, "manifestSha256":manifest_sha,
-               "nativeDecodedFrames":frames, "observations":observations,
+               "nativeDecodedFrames":frames,
+               "nativeFrameTimestampIntegrityVerified":True,
+               "firstDecodedFramePtsSec":first_pts,
+               "lastDecodedFramePtsSec":last_pts,
+               "everyFrameIndependentlyTimestampChecked":True,
+               "observations":observations,
                "physicalCropsChecked":len(observations),
                "maximumSampleWords":MAX_SAMPLE_WORDS,
                "everyFrameIndependentlyTextAudited":False,
