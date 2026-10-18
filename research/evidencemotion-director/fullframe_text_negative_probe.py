@@ -76,13 +76,15 @@ def check(movie, manifest):
     # ffprobe reports *all actual decoded frame PTS*, not header frame rate alone.
     probe = json.loads(command(['ffprobe', '-v', 'error', '-select_streams', 'v:0',
         '-show_streams', '-show_frames', '-show_entries',
-        'stream=codec_name,width,height,r_frame_rate:frame=pts_time,best_effort_timestamp_time',
+        'stream=codec_name,width,height,r_frame_rate,sample_aspect_ratio:frame=pts_time,best_effort_timestamp_time',
         '-of', 'json', str(movie)]))
     streams, frames = probe.get('streams', []), probe.get('frames', [])
     if (len(streams) != 1 or streams[0].get('codec_name') != 'h264' or
         (streams[0].get('width'), streams[0].get('height')) != (1080, 1920) or
-        streams[0].get('r_frame_rate') != '30/1' or not 12 <= len(frames) <= 1800):
-        fail('NATIVE_H264_1080X1920_30FPS_REQUIRED')
+        streams[0].get('r_frame_rate') != '30/1' or
+        streams[0].get('sample_aspect_ratio') != '1:1' or
+        not 12 <= len(frames) <= 1800):
+        fail('NATIVE_H264_1080X1920_30FPS_SQUARE_PIXEL_REQUIRED')
     for index, frame in enumerate(frames):
         try:
             pts = float(frame['pts_time'])
