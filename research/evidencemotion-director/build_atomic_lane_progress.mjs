@@ -4,6 +4,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import process from "node:process";
+import console from "node:console";
 const dir = path.dirname(fileURLToPath(import.meta.url));
 const read=(name)=>fs.readFileSync(path.join(dir,name),"utf8");
 const buildReport=function buildReport(input) {
