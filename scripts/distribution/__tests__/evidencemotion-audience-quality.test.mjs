@@ -7,7 +7,9 @@ const brief={viewerSegment:'Adults seeking substance science and harm reduction'
   firstTwoSecondsPromise:'What hidden risk follows a calming pitch?',
   viewerPayoff:'Recognize withdrawal danger and seek medical advice'}
 const pixel=(faults=[])=>({origin:'ACTUAL_DECODED_MP4_PIXEL_REVIEW',filmSha256:F,
-  sampleFramesSha256:H,firstTwoSecondsCovered:true,phoneSizedFramesReviewed:true,sampleCount:12,faults})
+  sampleFramesSha256:H,firstTwoSecondsCovered:true,phoneSizedFramesReviewed:true,
+  sampleCount:12,mediaDurationSeconds:30,fullFilmCoverageAttested:true,
+  sampleTimesSeconds:[0,.5,1.5,3,6,9,12,15,18,21,24,29.5],faults})
 const dims=['openingClarity','topicAudienceFit','curiosityGap','visualDistinctiveness','narrativeMomentum','soundOffComprehension','payoff']
 const critic=(modelFamily,runHash)=>({origin:'INDEPENDENT_CALIBRATED_FULL_FILM_AUDIENCE_CRITIC',
  filmSha256:F,modelFamily,modelRunSha256:runHash,referenceSetSha256:S,
@@ -83,4 +85,30 @@ test('missing independent critic collection remains review pending, never approv
  assert.equal(x.decision,'REVIEW_PENDING')
  assert.equal(x.audienceQualityApproved,false)
  assert.equal(x.mayRecommendPosting,false)
+})
+
+test('opening-only phone pixels are not misrepresented as whole-film coverage',()=>{
+ const p=full()
+ p.decodedPixelReview.sampleTimesSeconds=[0,.1,.2,.3,.4,.5,.6,.7,.8,1,1.5,2]
+ const x=assessEvidenceMotionAudienceQuality(p)
+ assert.ok(x.missingReviews.includes('EXACT_VIDEO_FIRST_SECONDS_PHONE_PIXELS_AND_FULL_FILM_REQUIRED'))
+ assert.equal(x.mayRecommendPosting,false)
+})
+test('endpoint-only images do not prove visual coverage between them',()=>{
+ const p=full()
+ p.decodedPixelReview.sampleTimesSeconds=[0,.1,.2,.3,.4,.5,.6,.7,.8,1,1.5,29.5]
+ assert.ok(assessEvidenceMotionAudienceQuality(p).missingReviews.includes('EXACT_VIDEO_FIRST_SECONDS_PHONE_PIXELS_AND_FULL_FILM_REQUIRED'))
+})
+test('fabricated nonmonotone and out-of-video sample times do not count',()=>{
+ for(const samples of [undefined,[],[0,2,1,3,6,9,12,15,18,21,24,29.5],
+ [0,.5,1.5,3,6,9,12,15,18,21,24,999]]){
+  const p=full();p.decodedPixelReview.sampleTimesSeconds=samples
+  assert.ok(assessEvidenceMotionAudienceQuality(p).missingReviews.includes('EXACT_VIDEO_FIRST_SECONDS_PHONE_PIXELS_AND_FULL_FILM_REQUIRED'))
+ }
+})
+test('timecoded faults after the film duration cannot become repair evidence',()=>{
+ const x=assessEvidenceMotionAudienceQuality({...full(),decodedPixelReview:pixel([{seconds:40,
+ code:'OPENING_TEXT_CLUTTER',whatFailed:'Not a time on this film'}])})
+ assert.equal(x.decision,'HOLD_INVALID_EVIDENCE')
+ assert.ok(x.failedReasons.includes('MALFORMED_TIMECODED_AUDIENCE_FAULT'))
 })
