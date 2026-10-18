@@ -86,6 +86,52 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
    }
    else blockers.push('VISUAL_DECISION_UNRECOGNIZED');
  }
+ // The native decoded critic also measures 1Hz center-hero stagnation.
+ // Its warning has never been a root-level issue: keep it visible as a
+ // source-bound craft REVIEW dependency, not a cosmetic/publishing veto.
+ // Missing legacy evidence requires a new physical review, never a PASS.
+ if(decodedVisual&&decodedVisual.actualVideoSha256===videoSha256){
+   const cadence=decodedVisual.oneHzHeroCadence;
+   if(cadence===undefined){
+     needs.push('DECODED_1HZ_HERO_CADENCE_EVIDENCE_MISSING');
+   }else{
+     const n=decodedVisual.oneHzOpticalScreenSamples;
+     const windows=cadence?.stagnationWindows;
+     const validWindow=w=>w&&Number.isInteger(w.startSec)&&w.startSec>=0
+       &&Number.isInteger(w.endSec)&&w.endSec>w.startSec
+       &&w.endSec<n&&Number.isInteger(w.stagnantSecondsAtOneHz)
+       &&w.stagnantSecondsAtOneHz===w.endSec-w.startSec
+       &&w.stagnantSecondsAtOneHz>=3
+       &&w.severity===(w.stagnantSecondsAtOneHz>6?'REVISE_CANDIDATE':'CRAFT_HOLD_CANDIDATE');
+     // Bound both the report's sampled clock and its window inventory to the
+     // actual decoded film; shortened "clean" grids cannot hide its ending.
+     const duration=decodedVisual.actualDurationSeconds;
+     const longest=Array.isArray(windows)&&Number.isInteger(n)
+       &&n>=4&&n<=92&&windows.length<=n
+       ?windows.reduce((max,w)=>Math.max(max,w?.stagnantSecondsAtOneHz??NaN),0):NaN;
+     const valid=cadence!==null&&typeof cadence==='object'&&Number.isInteger(n)&&n>=4&&n<=92
+       &&Number.isFinite(duration)&&duration>=12&&duration<=90
+       &&Math.abs(n-duration)<=1.05
+       &&Number.isInteger(decodedVisual.samples)&&decodedVisual.samples===Math.ceil(n/2)
+       &&cadence.probe==='SHA_PINNED_ACTUAL_FRAME_CENTER_HERO_1HZ_RESEARCH_NEGATIVE_ONLY'
+       &&cadence.sampleCount===n&&cadence.thresholdSec===3
+       &&Array.isArray(cadence.centerHeroBoxPixels)
+       &&cadence.centerHeroBoxPixels.length===4
+       &&cadence.centerHeroBoxPixels.every((v,i)=>v===[58,86,122,190][i])
+       &&Number.isInteger(cadence.visibleCenterHeroSamples)
+       &&cadence.visibleCenterHeroSamples>=0&&cadence.visibleCenterHeroSamples<=n
+       &&Array.isArray(windows)&&windows.length<=n&&windows.every(validWindow)
+       &&windows.every((w,i)=>i===0||windows[i-1].endSec<w.startSec)
+       &&cadence.longestFlaggedStagnationSec===longest
+       &&cadence.creativeScreenVerdict===(windows.length?'CRAFT_HOLD':'NO_NEGATIVE_FOUND_NOT_CRAFT_PASS')
+       &&cadence.sceneSpecificHeroAndMeaningVerified===false
+       &&cadence.offCenterAndIntentionalReadingHoldNotAdjudicated===true
+       &&cadence.automaticallyApprovedArt===false;
+     if(!valid) blockers.push('DECODED_1HZ_HERO_CADENCE_PROOF_INVALID');
+     else if(windows.length)
+       needs.push('SOURCE_BOUND_CRAFT_REVIEW_FOR_1HZ_HERO_STAGNATION');
+   }
+ }
  if(!science||science.filmSha256!==videoSha256||science.origin!=='INDEPENDENT_SOURCE_GRAPH_AUDIT'
      ||science.underlyingSourcesVerified!==true||!Array.isArray(science.claimChecks)
      ||!science.claimChecks.length)
