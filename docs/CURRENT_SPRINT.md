@@ -2,6 +2,12 @@
 
 **Status:** Authoritative immediate execution queue
 
+### EvidenceMotion Lane 3 — per-action source identity guard, #6743 / PR #6921 (2026-10-18; IN REVIEW)
+
+**Current contract change, NOT YET MERGED:** After #6913 merged its research-only visual-action/stagnation negative gate, existing #6743 PR #6921 proposes requiring each instructional `scene.actions[]` event to declare `sourceClaimId` and `sourceAssetId`, both valid IDs present in the containing scene's `sourceClaimIds` and `sourceAssetIds`. A missing or foreign action identity produces `UNBOUND_ACTION_SOURCE_OR_CLAIM` and a research `HOLD`; scene-wide provenance no longer substitutes for action-specific lineage. The current two-code-file patch has negative regressions for missing/foreign IDs and a permitted second in-scene claim. This checks identity consistency only: it cannot verify source accuracy, actual decoded teaching motion, premium craft, independent review, or publishability.
+
+**Review/merge record:** #6921 is open and has an unresolved Codex project-controls review finding until this control update is reviewed; previously completed atomic, site, build-quality and negative research checks on the earlier head do **not** validate the new head. Re-run all triggered exact-head checks, resolve the review finding, then allow ONLY the sole serialized protected controller to merge and verify `main` before marking done. Research-only under existing #6743; no new D/R/A slot, accepted `/1590` proof, first-excellent render, streak, or production/publishing authority.
+
 ### EvidenceMotion #6743 — current reconciled research-only evidence (2026-10-18; PR #6912 IN REVIEW)
 
 **Do not use the old additive 875/1,590 as completed, audited or even distinct provisional stages.** Historic ledger nominal `707 inherited provisional + 168 raw machine-research claims = 875` includes **54 inherited/machine overlaps and one orphan `EM-006.04.N`**. Current source-reconciled distinct provisional mapping is **820/1,590 (51.57%)**; **167/1,590 (10.50%)** individual canonical stages have source-validated *machine-research* evidence, and **770/1,590** have neither class. The 707 inherited are not separately audited; there is **no verified count of fully accepted production workcards**. Source snapshot in [#6912](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6912), derived from the frozen atomic inventory and existing receipts; PR must merge via the protected controller and fresh exact-head checks before calling this readout shipped.
