@@ -14,6 +14,9 @@ on:
       - 'research/evidencemotion-director/build_atomic_lane_progress.mjs'
       - 'research/evidencemotion-director/ATOMIC-LANE-PROGRESS.md'
       - 'research/evidencemotion-director/ATOMIC-LANE-PROGRESS.json'
+      - 'research/evidencemotion-director/ATOMIC-PROOF-LEDGER-20261015.json'
+      - 'research/evidencemotion-director/COMPLETION-CHECKLIST.md'
+      - 'research/evidencemotion-director/atomic/**'
       - '.github/workflows/evidencemotion-progress-readout.yml'
   workflow_dispatch:
 permissions:
