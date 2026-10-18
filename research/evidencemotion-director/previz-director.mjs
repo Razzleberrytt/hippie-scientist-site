@@ -33,8 +33,10 @@ export function proposeShots(beat,{previousGrammar=null,previousCamera=null}={})
     return fail('INVALID_BEAT');
   // Word-aligned cue times must progress in original narration order.
   // Duplicates or reversed anchors cannot govern a deterministic shot plan.
-  if(!Array.isArray(beat.spokenAnchorTimes)||!beat.spokenAnchorTimes.length||
-     beat.spokenAnchorTimes.some((t,i,anchors)=>!Number.isFinite(t)||t<0||
+  // A dense copy turns sparse array holes into undefined, which fail the
+  // finite-value gate. Array.prototype.some on the raw array skips holes.
+  const anchors=Array.isArray(beat.spokenAnchorTimes)?Array.from(beat.spokenAnchorTimes):[];
+  if(!anchors.length||anchors.some((t,i)=>!Number.isFinite(t)||t<0||
        t>beat.durationSec||(i>0&&t<=anchors[i-1])))
     return fail('MISSING_AUDIO_ANCHORS');
   if(!uniqueIds(beat.claimIds)||!uniqueIds(beat.scientificAssetIds))
