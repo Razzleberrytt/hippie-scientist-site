@@ -114,6 +114,32 @@ class IndependentScienceIntakeTests(unittest.TestCase):
                 with handoff._pinned_review_movie(movie,pin):
                     self.fail("cannot enter after source changed")
 
+    def test_frozen_copy_mutation_during_decode_fails_closed(self):
+        import science_reviewer_handoff as handoff
+        with tempfile.TemporaryDirectory() as folder:
+            movie=Path(folder)/"immutable-original.mp4"
+            original=b"A"*256
+            movie.write_bytes(original)
+            pin=hashlib.sha256(original).hexdigest()
+            with self.assertRaisesRegex(
+                ValueError,"SCIENCE_REVIEW_FROZEN_CHANGED_DURING_DECODE"
+            ):
+                with handoff._pinned_review_movie(movie,pin) as frozen:
+                    self.assertEqual(frozen.read_bytes(),original)
+                    frozen.write_bytes(b"B"*256)
+                    self.assertEqual(movie.read_bytes(),original)
+            self.assertFalse(frozen.exists())
+            self.assertEqual(movie.read_bytes(),original)
+            # Unchanged originals still pass the post-decode integrity check.
+            with handoff._pinned_review_movie(movie,pin) as frozen:
+                self.assertEqual(frozen.read_bytes(),original)
+            # Deleted snapshots are never implicitly accepted as proof.
+            with self.assertRaisesRegex(
+                ValueError,"SCIENCE_REVIEW_FROZEN_CHANGED_DURING_DECODE"
+            ):
+                with handoff._pinned_review_movie(movie,pin) as frozen:
+                    frozen.unlink()
+
     def test_science_review_rehash_stops_after_limit_plus_one_byte(self):
         import hashlib
         import science_reviewer_handoff as handoff

@@ -239,6 +239,12 @@ def _pinned_review_movie(movie, expected_sha256):
         try:
             yield frozen
         finally:
+            # Recheck the actual bytes FFmpeg consumed: a same-user process can
+            # modify the frozen copy after the entry SHA check. Never label
+            # resulting frames with the original film SHA when this changes.
+            if (not frozen.is_file() or frozen.is_symlink()
+                or _hash_file(frozen)!=expected_sha256):
+                hold("SCIENCE_REVIEW_FROZEN_CHANGED_DURING_DECODE")
             if (not movie.is_file() or movie.is_symlink()
                 or _hash_file(movie)!=expected_sha256):
                 hold("SCIENCE_REVIEW_ORIGINAL_CHANGED_DURING_DECODE")
