@@ -80,8 +80,8 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
         'reviewCandidates','centerHeroStasisPeripheralMotionWindowsSec',
         'twoStateAlternationWindowsSec','interleavedBlankPhaseWindowsSec'
       ];
-      if(warningFields.some(key=>decodedVisual[key]!==undefined&&
-           (!Array.isArray(decodedVisual[key])||decodedVisual[key].length>0)))
+      if(warningFields.some(key=>!Array.isArray(decodedVisual[key])
+           ||decodedVisual[key].length!==0))
         blockers.push('VISUAL_CRAFT_WARNING_SUPPRESSED');
    }
    else blockers.push('VISUAL_DECISION_UNRECOGNIZED');
