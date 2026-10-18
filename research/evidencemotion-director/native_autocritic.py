@@ -305,8 +305,15 @@ def review_actual_visual_action_cues(four_hz_frames, plan):
         x1, x2 = int(box["x1"] * FRAME_W), int(box["x2"] * FRAME_W)
         y1, y2 = int(box["y1"] * FRAME_H), int(box["y2"] * FRAME_H)
         if not actions:
-            if not isinstance(scene.get("staticHold"), dict):
+            hold = scene.get("staticHold")
+            if not isinstance(hold, dict):
                 raise ValueError("ACTIONLESS_SCENE_WITHOUT_SOURCE_READ_HOLD")
+            if (hold.get("kind") != "SOURCE_EVIDENCE_READ"
+                    or not ident(hold.get("sourceId"))
+                    or hold["sourceId"] not in assets
+                    or not isinstance(hold.get("reason"), str)
+                    or len(hold["reason"].strip()) < 12):
+                raise ValueError("UNJUSTIFIED_STATIC_SOURCE_READ_HOLD")
             if end - start > 3.205:
                 raise ValueError("VISUAL_CUE_UNBOUNDED_SOURCE_READ_HOLD")
             continue
@@ -358,6 +365,8 @@ def review_actual_visual_action_cues(four_hz_frames, plan):
                 observed.append(dict(item, reason="PIXEL_CHANGE_OBSERVED_MEANING_NOT_VERIFIED"))
     if abs(previous_end - max_time) > .75:
         raise ValueError("VISUAL_SCENES_DO_NOT_COVER_ACTUAL_DECODE")
+    if total_actions == 0:
+        raise ValueError("SOURCE_CARDS_ALONE_DO_NOT_PROVE_VISUAL_STORY")
     return {
         "schemaVersion": "ths-em-pinned-visual-cue-negative-audit-v1",
         "sampleHz": 4, "independentFullDecodeRequired": True,
@@ -462,6 +471,24 @@ def analyze_video(path, expected_sha=None, scene_plan=None, scene_plan_sha=None)
         result["renderedVisualCueReview"] = review_actual_visual_action_cues(four, scene_plan)
         result["renderedVisualCueReview"]["scenePlanSha256"] = scene_plan_sha
         result["renderedVisualCueReview"]["videoSha256"] = source_sha
+        # Make real-film negative cue proof actionable to the EXISTING arbiter.
+        # Merely attaching a buried nested report leaves the root decision green.
+        # Rejected pixel windows or static named heroes require research revision;
+        # a detectable change is still NOT an artistic or scientific PASS.
+        for finding in result["renderedVisualCueReview"]["unobservedOrUnreviewable"]:
+            reason = finding["reason"]
+            code = {
+                "DECLARED_HERO_ACTION_NOT_OBSERVABLE":
+                    "DECODED_HERO_VISUAL_VERB_NOT_OBSERVABLE",
+                "CUE_BOUNDARY_PIXEL_WINDOW_MISSING":
+                    "DECODED_VISUAL_VERB_CUE_WINDOW_MISSING",
+                "HERO_REGION_TOO_SMALL":
+                    "DECODED_VISUAL_VERB_HERO_REGION_INSUFFICIENT",
+            }.get(reason)
+            if code is None:
+                raise ValueError("UNRECOGNIZED_DECODED_VISUAL_CUE_FINDING")
+            if code not in result["issues"]:
+                result["issues"].append(code)
     phase_windows = interleaved_blank_phase_windows(frames)
     result["interleavedBlankPhaseWindowsSec"] = phase_windows
     result["oneHzOpticalScreenSamples"] = len(frames)
@@ -482,6 +509,10 @@ def analyze_video(path, expected_sha=None, scene_plan=None, scene_plan_sha=None)
         "mayPublish": False,
         "excellentFirstRenderCredited": False,
     })
+    # An independently submitted path is mutable: refuse even accidental changes
+    # between the initial exact pin and the completed physical decode/probes.
+    if sha256(path) != source_sha:
+        raise ValueError("VIDEO_CHANGED_DURING_PHYSICAL_REVIEW")
     return result
 
 
