@@ -300,6 +300,8 @@ test('scene missing a meaningful lesson or valid evidence identity fails closed'
     assert.equal(r.status,'HOLD',JSON.stringify(change));
     assert.ok(r.errors.includes('UNBOUND_SHOT_LESSON_OR_CLAIM'));
     assert.equal(r.excellentCertified,false);
+    assert.equal(r.productionEligible,false);
+    assert.equal(r.mayPublish,false);
   }
 });
 
@@ -315,6 +317,8 @@ test('overlapping, shuffled or negative shot timeline cannot masquerade as adjac
     assert.ok(r.errors.includes('OUT_OF_ORDER_OR_OVERLAPPING_SHOTS'));
     assert.equal(r.craftRemediationRequired,true);
     assert.equal(r.excellentCertified,false);
+    assert.equal(r.productionEligible,false);
+    assert.equal(r.mayPublish,false);
   }
   // An intentional silent interlude is not falsely categorized as overlap.
   const gap=auditShotRepetition([stagedShot(0),stagedShot(1,{startSec:2.5,endSec:4.5})]);
@@ -330,4 +334,20 @@ test('real source-bound teaching survives punctuation and Unicode normalization'
   assert.equal(r.status,'CRAFT_REDIRECTION_REQUIRED');
   assert.ok(r.findings.some(f=>f.reason==='THREE_PLUS_IDENTICAL_TEACHING_PAYOFFS_DESPITE_VISUAL_CHURN'));
   assert.equal(r.mayPublish,false);
+});
+
+// Guard the entire refusal contract independently of individual error reasons.
+test('invalid and vacuous source-bound shots never receive render or release eligibility',()=>{
+  const malformed=[
+    [stagedShot(0),stagedShot(1,{viewerLearns:'\u200d\u2060'})],
+    [stagedShot(0),stagedShot(1,{startSec:1.999})],
+    [stagedShot(0),stagedShot(1,{sourceClaimIds:['claim:verified','claim:verified']})]
+  ];
+  for(const shots of malformed){
+    const r=auditShotRepetition(shots);
+    assert.equal(r.status,'HOLD');
+    assert.equal(r.productionEligible,false);
+    assert.equal(r.mayPublish,false);
+    assert.equal(r.excellentCertified,false);
+  }
 });
