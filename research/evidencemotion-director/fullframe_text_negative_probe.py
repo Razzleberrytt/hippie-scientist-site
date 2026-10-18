@@ -5,10 +5,13 @@ Every decoded frame in a declared, fully partitioned crop/word plan is OCR'd.
 Research-only: no actual phone, comprehension, or publication approval.
 """
 import argparse
+import errno
 import hashlib
 import json
 import math
+import os
 import re
+import stat
 import subprocess
 import tempfile
 from pathlib import Path
@@ -57,6 +60,30 @@ def strict_json(path):
     return strict_json_payload(Path(path).read_bytes())
 
 
+def pinned_manifest_bytes(path):
+    """Read a bounded regular manifest from one O_NOFOLLOW file descriptor.
+
+    A path-level is_symlink/open check is racy. Keep the observed inode so
+    final validation also rejects path replacement with byte-identical data.
+    """
+    flags = os.O_RDONLY | os.O_NOFOLLOW | getattr(os, 'O_NONBLOCK', 0)
+    try:
+        fd = os.open(path, flags)
+    except OSError as exc:
+        fail('REGULAR_MANIFEST_REQUIRED' if exc.errno == errno.ELOOP else 'MANIFEST_READ_FAILED')
+    try:
+        with os.fdopen(fd, 'rb') as source:
+            opened = os.fstat(source.fileno())
+            if not stat.S_ISREG(opened.st_mode):
+                fail('REGULAR_MANIFEST_REQUIRED')
+            content = source.read(MAX_MANIFEST_BYTES + 1)
+    except OSError:
+        fail('MANIFEST_READ_FAILED')
+    if len(content) > MAX_MANIFEST_BYTES:
+        fail('MANIFEST_EXCEEDS_LIMIT')
+    return content, (opened.st_dev, opened.st_ino)
+
+
 def words(value):
     return TOKEN.findall(value.casefold())
 
@@ -71,17 +98,9 @@ def check(movie, manifest):
     movie, manifest = Path(movie), Path(manifest)
     if movie.resolve() == manifest.resolve():
         fail('FILM_AND_MANIFEST_ALIAS')
-    # Hash and parse one immutable in-memory byte string: hashing a pathname
-    # separately from strict_json(path) leaves a manifest swap/use race.
-    if not manifest.is_file() or manifest.is_symlink():
-        fail('REGULAR_MANIFEST_REQUIRED')
-    try:
-        with manifest.open('rb') as source:
-            manifest_bytes = source.read(MAX_MANIFEST_BYTES + 1)
-    except OSError:
-        fail('MANIFEST_READ_FAILED')
-    if len(manifest_bytes) > MAX_MANIFEST_BYTES:
-        fail('MANIFEST_EXCEEDS_LIMIT')
+    # Hash and parse identical bytes from a pinned, no-follow regular inode;
+    # rejecting pathname symlinks *before* open would leave a replacement race.
+    manifest_bytes, manifest_inode = pinned_manifest_bytes(manifest)
     manifest_sha = hashlib.sha256(manifest_bytes).hexdigest()
     data = strict_json_payload(manifest_bytes)
     if (not isinstance(data, dict) or set(data) !=
@@ -169,7 +188,8 @@ def check(movie, manifest):
         defects = []
         with tempfile.TemporaryDirectory(prefix='em-l4-frames-') as d:
             folder = Path(d)
-            command(['ffmpeg', '-nostdin', '-v', 'error', '-xerror', '-i', str(frozen),
+            # Crop source-encoded pixels, never an implicit rotation-metadata transform.
+            command(['ffmpeg', '-nostdin', '-v', 'error', '-xerror', '-noautorotate', '-i', str(frozen),
                      '-map', '0:v:0', '-vf', f'crop={width}:{height}:{x}:{y}', '-fps_mode', 'passthrough',
                      '-start_number', '0', '-y', str(folder / 'frame-%06d.png')])
             actual_files = sorted(folder.glob('frame-*.png'))
@@ -196,10 +216,12 @@ def check(movie, manifest):
                                     'repeatedRequiredWords': repeated,
                                     'unplannedNegations': unplanned_negations,
                                     'requiredWordsOutOfOrder': out_of_order})
+        final_manifest_bytes, final_manifest_inode = pinned_manifest_bytes(manifest)
         if (not movie.is_file() or movie.is_symlink() or
             sha256_file(movie, max_bytes=MAX_VIDEO_BYTES) != initial_sha or
             sha256_file(frozen, max_bytes=MAX_VIDEO_BYTES) != initial_sha or
-            sha256_file(manifest, max_bytes=MAX_MANIFEST_BYTES) != manifest_sha):
+            final_manifest_inode != manifest_inode or
+            hashlib.sha256(final_manifest_bytes).hexdigest() != manifest_sha):
             fail('SOURCE_CHANGED_DURING_AUDIT')
         return {'schema': SCHEMA, 'status': 'HOLD' if defects else 'MECHANICAL_OCR_NO_HOLD_REVIEW_REQUIRED',
                 'filmSha256': initial_sha, 'manifestSha256': manifest_sha,
