@@ -187,6 +187,30 @@ class TransientEncodedTextTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'AMBIGUOUS_MULTIPLE_OR_MISSING_VIDEO_STREAMS'):
             check(self.multi_video, self.manifest(self.multi_video))
 
+    def test_manifest_read_swap_cannot_hide_one_frame_unplanned_word(self):
+        # The previous two-read hash/parse sequence let a temporary forged
+        # allowlist hide frame 9's WRONG text, then report the original hash.
+        film = self.flash
+        manifest = self.manifest(film)
+        original_sha = sha(manifest)
+        forged = json.loads(manifest.read_text())
+        forged['windows'][0]['allowedWords'].append('WRONG')
+        original_read = Path.read_text
+
+        def transient_manifest_override(path, *args, **kwargs):
+            if path == manifest:
+                return json.dumps(forged)
+            return original_read(path, *args, **kwargs)
+
+        with patch.object(Path, 'read_text', transient_manifest_override):
+            report = check(film, manifest)
+        self.assertEqual(sha(manifest), original_sha)
+        self.assertEqual(report['manifestSha256'], original_sha)
+        self.assertEqual(report['status'], 'HOLD')
+        self.assertEqual([item['frameIndex'] for item in report['defects']], [9])
+        self.assertIn('wrong', report['defects'][0]['unexpectedWords'])
+        self.assertFalse(report['mayPublish'])
+
     def test_modified_film_hash_cannot_inherit_ocr_receipt(self):
         def change(x): x['filmSha256']='0'*64
         with self.assertRaisesRegex(ValueError,'ENCODED_SHA_MISMATCH'):

@@ -39,7 +39,8 @@ def command(argv):
         fail('ENCODED_FRAME_OR_OCR_EXECUTION_FAILED')
 
 
-def strict_json(path):
+def strict_json_payload(payload):
+    """Parse exactly the bytes represented by a manifest proof hash."""
     def pairs(items):
         obj = {}
         for key, value in items:
@@ -47,8 +48,12 @@ def strict_json(path):
                 fail('DUPLICATE_MANIFEST_FIELD')
             obj[key] = value
         return obj
-    return json.loads(Path(path).read_text(encoding='utf-8'), object_pairs_hook=pairs,
+    return json.loads(payload.decode('utf-8'), object_pairs_hook=pairs,
                       parse_constant=lambda _: fail('NONFINITE_MANIFEST_VALUE'))
+
+
+def strict_json(path):
+    return strict_json_payload(Path(path).read_bytes())
 
 
 def words(value):
@@ -65,8 +70,14 @@ def check(movie, manifest):
     movie, manifest = Path(movie), Path(manifest)
     if movie.resolve() == manifest.resolve():
         fail('FILM_AND_MANIFEST_ALIAS')
-    manifest_sha = sha(manifest)
-    data = strict_json(manifest)
+    # Hash and parse one immutable in-memory byte string: hashing a pathname
+    # separately from strict_json(path) leaves a manifest swap/use race.
+    try:
+        manifest_bytes = manifest.read_bytes()
+    except OSError:
+        fail('MANIFEST_READ_FAILED')
+    manifest_sha = hashlib.sha256(manifest_bytes).hexdigest()
+    data = strict_json_payload(manifest_bytes)
     if (not isinstance(data, dict) or set(data) !=
         {'schema', 'status', 'mayPublish', 'filmSha256', 'cropPx', 'windows'} or
         data['schema'] != SCHEMA or data['status'] != 'RESEARCH_ONLY' or
