@@ -55,8 +55,8 @@ for (const [file, wantTask, wantAtom, wantNano] of spec) {
   totalAtomic += atoms.length
   totalNano += nanos.length
   totalNegative += atoms.filter(id => id.endsWith('.N')).length
-  console.log(`OK ${file}: ${originals.length} source tasks / ${atoms.length} atomic cards / ${nanos.length} nano instructions`)
+  process.stdout.write(`OK ${file}: ${originals.length} source tasks / ${atoms.length} atomic cards / ${nanos.length} nano instructions\n`)
 }
 assert.deepEqual([totalTasks, totalAtomic, totalNegative, totalNano], [243, 1590, 132, 4770])
-console.log('PASS 46 canonical milestones / 243 subtasks / 1,590 atomic cards (132 N) / 4,770 nano instruction steps')
-console.log('NOTICE: structural registry validation only; zero newly accepted atomic/canonical/film/phone/publishing credit')
+process.stdout.write('PASS 46 canonical milestones / 243 subtasks / 1,590 atomic cards (132 N) / 4,770 nano instruction steps\n')
+process.stdout.write('NOTICE: structural registry validation only; zero newly accepted atomic/canonical/film/phone/publishing credit\n')
