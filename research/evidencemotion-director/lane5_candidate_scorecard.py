@@ -77,13 +77,37 @@ def _physical_sha(path):
 def _read_json(path, expected_sha=None):
     if expected_sha is not None and not HEX.fullmatch(expected_sha):
         hold("INVALID_EXPECTED_JSON_SHA")
-    _safe_file(path, maximum=MAX_JSON)
-    raw = Path(path).read_bytes()
-    if len(raw) > MAX_JSON:
-        hold("UNBOUNDED_JSON")
-    sha = _physical_sha(path)
-    if hashlib.sha256(raw).hexdigest() != sha:
+    # A stat-based size preflight does not bound read_bytes(): another writer
+    # can enlarge a file after preflight and exhaust the intake worker's RAM.
+    # Read at most MAX_JSON + 1 bytes, reread on the same descriptor, and
+    # verify its inode/metadata still matches the final path.
+    before = _safe_file(path, maximum=MAX_JSON)
+    flags = (os.O_RDONLY | getattr(os, "O_BINARY", 0)
+             | getattr(os, "O_NOFOLLOW", 0) | getattr(os, "O_NONBLOCK", 0))
+    try:
+        fd = os.open(path, flags)
+        with os.fdopen(fd, "rb") as stream:
+            opened = os.fstat(stream.fileno())
+            if (not stat.S_ISREG(opened.st_mode)
+                    or (opened.st_dev, opened.st_ino) != (before.st_dev, before.st_ino)):
+                hold("JSON_CHANGED_DURING_READ")
+            raw = stream.read(MAX_JSON + 1)
+            if len(raw) > MAX_JSON:
+                hold("UNBOUNDED_JSON")
+            stream.seek(0)
+            if raw != stream.read(MAX_JSON + 1):
+                hold("JSON_CHANGED_DURING_READ")
+            finished = os.fstat(stream.fileno())
+    except OSError:
         hold("JSON_CHANGED_DURING_READ")
+    after = _safe_file(path, maximum=MAX_JSON)
+    identity = lambda s: (s.st_dev, s.st_ino, s.st_size, s.st_mtime_ns, s.st_ctime_ns)
+    if (not raw or len(raw) != before.st_size
+            or identity(before) != identity(opened)
+            or identity(opened) != identity(finished)
+            or identity(finished) != identity(after)):
+        hold("JSON_CHANGED_DURING_READ")
+    sha = hashlib.sha256(raw).hexdigest()
     if expected_sha is not None and sha != expected_sha:
         hold("JSON_PIN_MISMATCH")
     try:
