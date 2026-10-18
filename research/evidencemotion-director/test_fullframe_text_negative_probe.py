@@ -18,6 +18,7 @@ class TransientEncodedTextTests(unittest.TestCase):
         cls.clean = cls.encode('clean', None)
         cls.flash = cls.encode('single-frame-flash', 'flash')
         cls.repeated = cls.encode('single-frame-duplicated-negation', 'repeat')
+        cls.unplanned_negation = cls.encode('single-frame-unplanned-negation', 'unplanned_negation')
         cls.omission = cls.encode('single-frame-omission', 'omission')
         cls.inversion = cls.encode('single-frame-word-inversion', 'inversion')
         cls.nonsquare = cls.encode('non-square-sample-pixels', 'non_square')
@@ -43,6 +44,8 @@ class TransientEncodedTextTests(unittest.TestCase):
             vf += f',drawtext=fontfile={FONT}:text=WRONG:fontcolor=white:fontsize=60:x=100:y=860:enable=eq(n\,9)'
         if mutation == 'repeat':
             vf += f',drawtext=fontfile={FONT}:text=NOT:fontcolor=white:fontsize=60:x=500:y=860:enable=eq(n,9)'
+        if mutation == 'unplanned_negation':
+            vf += f',drawtext=fontfile={FONT}:text=NO:fontcolor=white:fontsize=60:x=500:y=860:enable=eq(n,9)'
         if mutation == 'inversion':
             # All words remain present, but their on-screen semantic order flips for one frame.
             vf = ','.join([
@@ -93,6 +96,18 @@ class TransientEncodedTextTests(unittest.TestCase):
         self.assertEqual(r['defects'][0]['unexpectedWords'], [])
         self.assertEqual(r['defects'][0]['repeatedRequiredWords'], ['not'])
         self.assertFalse(r['defects'][0]['requiredWordsOutOfOrder'])
+
+    def test_one_frame_allowlisted_but_unplanned_negation_is_hold(self):
+        def allow_no(data):
+            data['windows'][0]['allowedWords'].append('NO')
+        film = self.unplanned_negation
+        r = check(film, self.manifest(film, allow_no))
+        self.assertEqual(r['status'], 'HOLD')
+        self.assertEqual([d['frameIndex'] for d in r['defects']], [9])
+        self.assertEqual(r['defects'][0]['missingRequiredWords'], [])
+        self.assertEqual(r['defects'][0]['unexpectedWords'], [])
+        self.assertEqual(r['defects'][0]['repeatedRequiredWords'], [])
+        self.assertEqual(r['defects'][0]['unplannedNegations'], ['no'])
 
     def test_one_frame_missing_required_word_is_hold(self):
         r=check(self.omission,self.manifest(self.omission))
