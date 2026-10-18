@@ -38,6 +38,97 @@ def screen(film, story, frames=12, bright=(), colored=()):
 
 
 class Lane5ScorecardTests(unittest.TestCase):
+    def test_json_intake_growth_after_preflight_is_bounded_and_held(self):
+        from lane5_candidate_scorecard import _read_json, MAX_JSON
+        with tempfile.TemporaryDirectory() as td:
+            candidate = Path(td) / "input.json"
+            candidate.write_text('{"status":"RESEARCH_ONLY"}')
+            original_open = os.open
+            intercepted = []
+            def grow_at_open(path, flags, *args, **kwargs):
+                if os.fspath(path) == os.fspath(candidate):
+                    intercepted.append(True)
+                    with candidate.open("ab") as writer:
+                        writer.write(b" " * (MAX_JSON + 1))
+                return original_open(path, flags, *args, **kwargs)
+            with patch("lane5_candidate_scorecard.os.open",
+                       side_effect=grow_at_open):
+                with self.assertRaisesRegex(ValueError, "UNBOUNDED_JSON"):
+                    _read_json(candidate)
+            self.assertEqual(len(intercepted), 1)
+            self.assertTrue(candidate.exists())
+
+    def test_json_intake_windows_path_descriptor_ctime_surfaces(self):
+        from lane5_candidate_scorecard import _read_json, _safe_file
+        with tempfile.TemporaryDirectory() as td:
+            candidate = Path(td) / "input.json"
+            candidate.write_text('{"status":"RESEARCH_ONLY"}')
+            actual_safe_file = _safe_file
+
+            def windows_path_stat_surface(path, *, maximum=None):
+                original = actual_safe_file(path, maximum=maximum)
+                # Windows may expose creation time via stat(path) but
+                # a different change time via fstat(fd).
+                return SimpleNamespace(
+                    st_mode=original.st_mode,
+                    st_dev=original.st_dev,
+                    st_ino=original.st_ino,
+                    st_size=original.st_size,
+                    st_mtime_ns=original.st_mtime_ns,
+                    st_ctime_ns=original.st_ctime_ns + 86400000000000,
+                )
+
+            with patch("lane5_candidate_scorecard._safe_file",
+                       side_effect=windows_path_stat_surface):
+                record, digest = _read_json(candidate)
+            self.assertEqual(record["status"], "RESEARCH_ONLY")
+            self.assertEqual(digest, h(candidate.read_bytes()))
+
+    def test_json_intake_detects_same_descriptor_midread_mutation(self):
+        from lane5_candidate_scorecard import _read_json
+        with tempfile.TemporaryDirectory() as td:
+            candidate = Path(td) / "input.json"
+            before = b'{"status":"RESEARCH_A"}'
+            after = b'{"status":"RESEARCH_B"}'
+            self.assertEqual(len(before), len(after))
+            candidate.write_bytes(before)
+            original_fdopen = os.fdopen
+
+            class SwapAfterFirstRead:
+                def __init__(self, stream):
+                    self.stream = stream
+                    self.once = True
+
+                def __enter__(self):
+                    self.stream.__enter__()
+                    return self
+
+                def __exit__(self, *args):
+                    return self.stream.__exit__(*args)
+
+                def fileno(self):
+                    return self.stream.fileno()
+
+                def seek(self, *args):
+                    return self.stream.seek(*args)
+
+                def read(self, *args):
+                    observed = self.stream.read(*args)
+                    if self.once:
+                        self.once = False
+                        with candidate.open("r+b") as writer:
+                            writer.write(after)
+                            writer.flush()
+                            os.fsync(writer.fileno())
+                    return observed
+
+            with patch("lane5_candidate_scorecard.os.fdopen",
+                       side_effect=lambda fd, mode:
+                           SwapAfterFirstRead(original_fdopen(fd, mode))):
+                with self.assertRaisesRegex(ValueError, "JSON_CHANGED_DURING_READ"):
+                    _read_json(candidate)
+            self.assertEqual(candidate.read_bytes(), after)
+
     def test_visual_critic_exact_film_negative_receipt_and_adversarial_holds(self):
         movie = h(b"exact-current-encoded-film")
         dims = (1080, 1920, 360)

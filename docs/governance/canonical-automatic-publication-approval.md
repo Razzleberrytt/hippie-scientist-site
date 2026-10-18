@@ -15,21 +15,21 @@
 
 ## Exact-version owner approval receipt
 
-For PRs touching a public publication surface, the trusted **base repository owner** must review the exact content and leave **either** a GitHub approved review tied to the latest PR commit **or** a top-level PR comment from that owner's verified GitHub account whose **first line** is exactly:
+For PRs touching a public publication surface, an **authenticated, tamper-resistant, exact-version approval** is still required. The former owner comment token was:
 
 ```text
 THS-PUBLICATION-APPROVED PR=#123 HEAD=<full-40-character-PR-head-SHA>
 ```
 
-The comment template is **not** an auto-generated approval token. Owner action must be intentional. The system fetches real GitHub user identity and the newest head SHA; it does not accept a user-written PR description, AI-generated JSON, green tests alone, “approve all”, comment from a different account, or an approval for an earlier commit. To revoke the exact-head approval, the owner can leave a later first-line comment:
+**Positive PR comment tokens are currently disabled.** The monitor/controller must report the safe hold and must **not** instruct the owner to submit a token that the policy will reject. A positive `APPROVED` review counts only with verifiable non-app origin metadata on that exact head; where GitHub omits this evidence, there is **currently no usable positive approval route**, and the public release remains held until an immutable human-origin mechanism is available. Delegated GitHub apps can post as the owner; separately, collaborators can edit an older owner comment while GitHub attributes it to that owner. Even a timestamp equality check cannot detect an edit within the same second. The canonical classifier therefore **rejects every comment attempting to grant publication**, including ordinary GitHub-website comments, until an immutable human-origin creation event and protected receipt store are implemented, reviewed and regression-tested. Negative revocation comments still conservatively veto prior approvals. This is a safety availability restriction, **not a solved human-approval automation system**; high-risk publication stays held if the only available positive receipt is editable. A future authenticated grant must be externally verifiable and bound to a final exact head, scoped intent, original reviewer and revocation semantics.
 
-```text
-THS-PUBLICATION-REVOKED PR=#123 HEAD=<same-full-head-SHA>
-```
-
-A later GitHub change-request review at that head also revokes an earlier approval. A subsequent content change **changes HEAD** and requires new approval. Reviews or issue-comment evidence unavailable due to API error, pagination, or missing provenance are not presumed successful. The actual source of approvals is GitHub's server-reported PR comments/reviews, not untrusted PR files.
+A later GitHub change-request review at that head also revokes an earlier approval. A subsequent content change **changes HEAD** and requires new approval. GitHub's REST pull-request review entries do not reliably expose app-origin provenance, so standalone `APPROVED` reviews **do not grant** publication permission unless the GitHub server explicitly reports `performed_via_github_app: null`; positive provenance absent is a hold. Negative `CHANGES_REQUESTED` / `DISMISSED` review states still revoke. **Where event timestamps tie at second resolution, any matching negative event wins.** GitHub review IDs and issue-comment IDs are unrelated sequences, not a trustworthy relative timeline. Reviews or issue-comment evidence unavailable due to API error, pagination, or missing provenance are not presumed successful. The actual source of approvals is GitHub's server-reported PR comments/reviews, not untrusted PR files.
 
 The receipt is **owner editorial approval** only. It cannot assert that the owner is a physician, that an independent scientific reviewer signed off, that the workbook/source registry is clean, or that a medical claim is correct. Those questions have separate gates and should remain held until their real evidence exists.
+
+### Approval-origin incident and rollback (October 13, 2026)
+
+GitHub comment `6158687768` was observed as `Razzleberrytt` / `User` **and** `performed_via_github_app.slug="chatgpt-codex-connector"`, demonstrating that owner identity alone does not prove direct human consent. This comment was ordinary audit prose, **not** an approval token. Repair is tracked against [#6672](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6672). Rollback of this stricter rule is unsafe until an alternative immutable, server-authenticated, human-origin proof mechanism is independently verified. GitHub PR review approvals also require explicit non-app provenance, which the available REST review response may not provide. The conservative fallback is to hold public merges rather than treating unverifiable approval as consent.
 
 ## Trusted-controller implementation
 

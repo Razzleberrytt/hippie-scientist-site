@@ -82,6 +82,19 @@ test('proposal is NEVER a substitute for complete film science or art approval',
  assert.equal(r.mayPublish,false);
 });
 
+test('non-array external claim ledgers fail closed without throwing or creating shots',()=>{
+ for(const malformed of [{id:'claim:known'},'claim:known',17,true,null]){
+   const p=source('science:malformed-ledger');
+   p.claimLedger=malformed;
+   const result=compileReusableDirector(p);
+   assert.equal(result.status,'HOLD',JSON.stringify(malformed));
+   assert.ok(result.errors.includes('UNVERIFIED_OR_MISMATCHED_CLAIMS'));
+   assert.deepEqual(result.shots,[]);
+   assert.equal(result.productionEligible,false);
+   assert.equal(result.excellentCertified,false);
+ }
+});
+
 test('malformed episode shape or missing total timing causes HOLD, never crash/approve',()=>{
  for(const mutate of [
   p=>{p.beats={invalid:true}},
