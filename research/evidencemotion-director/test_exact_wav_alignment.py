@@ -212,7 +212,74 @@ from test_voice_revision_invalidation import RevisionInvalidationTests  # noqa: 
 # This triages word disagreements but never gives pronunciation or release approval.
 from test_asr_mfa_disagreement_gate import CrossModelResearchTests  # noqa: F401
 from test_caption_word_cue_integrity import CaptionWordCueTests  # noqa: F401
+from test_narration_caption_authoring_gate import NarrationCaptionAuthoringTests  # noqa: F401
 from test_encoded_caption_transition_gate import EncodedCaptionBandTests  # noqa: F401
+# Lane 2 source-specific repeated-terminology acoustic research controls.
+# Hosted synthetic negatives run; source clips are SKIPPED unless SHA-pinned and supplied.
+from test_repeated_term_acoustic_guard import (  # noqa: F401
+    SpectralNegativeTests, ActualArchivedSourceTests, SyntheticMasterLinkTests,
+    OriginalDigitalZeroNegativeTests,  # actual original-media negatives stay SKIPPED without source
+    OriginalMfaCliContractTests, OriginalMasterMfaTests,
+    PoseConflictNegativeTests, ActualPoseConflictTests,
+    PoseInternalContrastNegativeTests, ActualPoseInternalContrastTests,
+    SpectralTraceSignalOnlyTests,
+    BlindReferenceBenchmarkTests,
+    BlindReferenceArchiveTests,
+    PhysicallyRecoveredOriginalPcmBlacklistTests,
+)
+
+
+class Lane2GuardRegistrationTests(unittest.TestCase):
+    def test_all_later_acoustic_test_classes_are_in_actual_hosted_suite(self):
+        # The audio workflow discovers this entrypoint, NOT test_repeated_term_*
+        # directly. A green workflow previously omitted an entire new class.
+        # Fail whenever a future local TestCase class is not imported above.
+        import test_repeated_term_acoustic_guard as source_tests
+        defined = {
+            name: cls for name, cls in vars(source_tests).items()
+            if isinstance(cls, type)
+            and issubclass(cls, unittest.TestCase)
+            and cls.__module__ == source_tests.__name__
+        }
+        missing = sorted(
+            name for name, cls in defined.items()
+            if globals().get(name) is not cls
+        )
+        self.assertTrue(defined, "Acoustic research suite unexpectedly empty")
+        self.assertFalse(missing, "Acoustic classes omitted from hosted CI: "
+                         + ", ".join(missing))
+
+
+class Lane2AudioWorkflowTriggerTests(unittest.TestCase):
+    """Make new acoustic guard changes activate the hosted audio test workflow."""
+
+    def test_guard_only_pull_requests_are_in_audio_workflow_paths(self):
+        workflow = (Path(__file__).resolve().parents[2] / ".github" /
+                    "workflows" / "evidencemotion-autonomous-audio-screen.yml")
+        yaml_text = workflow.read_text(encoding="utf-8")
+        self.assertIn("  pull_request:\n    paths:\n", yaml_text)
+        paths_text = yaml_text.split("  pull_request:\n    paths:\n", 1)[1].split(
+            "\npermissions:", 1)[0]
+        for file_name in (
+            "test_exact_wav_alignment.py",
+            "repeated_term_acoustic_guard.py",
+            "test_repeated_term_acoustic_guard.py",
+            "gut_caption_audio_gate.py",
+            "narration_caption_authoring_gate.py",
+            "test_narration_caption_authoring_gate.py",
+        ):
+            with self.subTest(file=file_name):
+                self.assertIn(
+                    "      - 'research/evidencemotion-director/" +
+                    file_name + "'",
+                    paths_text,
+                    "Changes to this Lane 2 file must launch native hosted audio tests",
+                )
+        self.assertIn(
+            "-p 'test_exact_wav_alignment.py'", yaml_text,
+            "Hosted workflow must actually run the aggregated test entrypoint",
+        )
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -17,10 +17,20 @@ from encoded_science_pixel_audit import CRITICAL, EXACT_SHOTS, pixel_criterion
 from narration_first_story_map import STORY
 
 SCHEMA = "ths-em00702-exact-film-visual-claim-inventory-v1"
+# A PubChem graph or an animated scene is not evidence of human outcome,
+# receptor pharmacology or safety. Include claims that evade the original
+# narrow treatment/euphoria vocabulary via synonyms and receptor language.
 EFFECT_CLAIMS = re.compile(
     r"\b(?:cures?|treats?|relieves?|analgesic|euphoria|high|"
     r"receptor binding (?:observed|proven)|shown to bind|"
-    r"clinically proven|safe to take|withdrawal relief)\b", re.I)
+    r"clinically proven|safe to take|withdrawal relief|"
+    r"(?:reduces?|decreases?|eases?|alleviates?|prevents?|eliminates?)"
+    r"\s+(?:[a-z-]+\s+){0,3}(?:pain|withdrawal|cravings?|anxiety|depression|insomnia|symptoms?)|"
+    r"(?:binds?|activates?|stimulates?)\s+(?:the\s+)?"
+    r"(?:(?:mu|μ|opioid|mor|kappa|delta)\s+){0,3}"
+    r"(?:receptors?|mor)\b|"
+    r"(?:mu[- ]?opioid|opioid|mor)\s+agonis(?:t|m)|"
+    r"(?:non[- ]?addictive|addiction[- ]?free|proven\s+safe))\b", re.I)
 # Question marks are explicit reviewer prompts, NOT a machine approval.
 INTERPRETATION_RISKS = {
     "sentence_1_part0": "Identity comparison may be mistaken for a reaction",
@@ -135,6 +145,13 @@ def inventory(movie, receipt_path, phone_path, science_path, story_path,
             or act.get("directedComposition")!=template[3]
             or act.get("scientificMeaningRestriction")!=template[4]):
             hold("VISUAL_STORY_SEMANTIC_DRIFT:" + sid)
+        # EM-008 exact-film scope gate: all nine source-locked native V5
+        # shots are deterministic chemical diagrams. An asset-kind reclassification
+        # (including an illustrative botanical shot) invalidates this candidate
+        # and requires a fresh source/film and disclosure review. This checks
+        # author-declared provenance, never the actual presence of plant pixels.
+        if shot.get("assetKind") != "deterministic_science":
+            hold("SOURCE_LOCKED_SCIENCE_ASSET_KIND:" + sid)
         annotations=shot.get("annotations")
         if (not isinstance(annotations,list) or any(
             not isinstance(a,dict) or a.get("role") not in
@@ -169,6 +186,7 @@ def inventory(movie, receipt_path, phone_path, science_path, story_path,
         rows.append({
             "all71SourceCaptionCuesForThisShot":all_caption_cues,
             "shot":sid,"startSec":start,"endSec":end,"act":act["act"],
+            "declaredAssetKind":"deterministic_science",
             "diagramOrComposition":act["directedComposition"],
             "learningObjective":act["learningObjective"],
             "scientificMeaningRestriction":act["scientificMeaningRestriction"],
@@ -194,6 +212,8 @@ def inventory(movie, receipt_path, phone_path, science_path, story_path,
             "phonePlanSha256":phone_hash,"encodedScienceOcrSha256":sha(science_path),
             "encodedCaptionOcrSha256":caption_hash,"storyMapSha256":sha(story_path),
             "shotsInspected":len(rows),"sourceCaptionCuesAssigned":71,"rows":rows,
+            "declaredBotanicalArtShotCount":0,
+            "botanicalFrameContentIndependentlyClassified":False,
             "captionCoverage":"ALL_71_SOURCE_EMISSION_CUES_PLUS_12_ENCODED_SAMPLES_NOT_ALL_FRAMES",
             "allFrameIndependentOCR":False,
             "scienceClaimsApproved":False,"impliedEffectRisksHumanReviewed":False,

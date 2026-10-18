@@ -1,0 +1,14 @@
+{
+  "scope": "local-production-build-not-deployment-or-film-approval",
+  "sourceCommit": "41f656b506906c70fff8f2a865bcd5ac72fbabb3",
+  "command": "npm run build",
+  "exitCode": 0,
+  "status": "PASS",
+  "stepsCompleted": 36,
+  "seconds": 1216.84,
+  "rawLocalLogSha256": "2fd323c7b8527b929b800c9b24811de393ce7a4d478980a75f8925145327a116",
+  "rawLogLocation": "system temporary directory/em-lane6-build.log",
+  "pagefindIndexedPages": 1604,
+  "mayPublish": false,
+  "filmVerified": false
+}

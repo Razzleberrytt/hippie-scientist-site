@@ -2,7 +2,7 @@
  * Reuses the existing G1–G6 previz director, source-first instead of 7-OH shot
  * hardcoding. Does NOT approve narration, science, craft, release or publishing.
  */
-import {proposeShots,GRAMMAR} from './previz-director.mjs';
+import {proposeShots,GRAMMAR,auditShotRepetition} from './previz-director.mjs';
 const HASH=x=>typeof x==='string'&&/^[0-9a-f]{64}$/.test(x);
 const ID=x=>typeof x==='string'&&/^[a-z0-9][a-z0-9_.:-]{1,90}$/.test(x);
 const unique=a=>Array.isArray(a)&&a.length>0&&new Set(a).size===a.length;
@@ -23,13 +23,15 @@ export function compileReusableDirector(program){
     ||program.mayPublish!==false)add(errors,'RESEARCH_BOUNDARY_REQUIRED');
  if(!ID(program.topicId)||!HASH(program.sourceManifestSha256)||!HASH(program.originalNarrationSha256))
     add(errors,'EXACT_TOPIC_SOURCE_VOICE_IDENTITY_REQUIRED');
- if(!Array.isArray(program.claimLedger)||!program.claimLedger.length
-    ||!unique(program.claimLedger.map(x=>x?.id))
-    ||program.claimLedger.some(x=>!ID(x?.id)||!ID(x?.sourceId)
+ // Malformed external claim ledgers must HOLD, not throw during .map/.some.
+ // Only arrays are eligible to establish source lineage.
+ const claimLedger=Array.isArray(program.claimLedger)?program.claimLedger:[];
+ if(!claimLedger.length||!unique(claimLedger.map(x=>x?.id))
+    ||claimLedger.some(x=>!ID(x?.id)||!ID(x?.sourceId)
       ||!['STRUCTURE','PRECLINICAL','HUMAN','LIMITATION','SOURCE'].includes(x?.class)
       ||x.assertsHumanEffect===true&&x.class!=='HUMAN'))
     add(errors,'UNVERIFIED_OR_MISMATCHED_CLAIMS');
- const allowed=new Set((program.claimLedger||[]).map(x=>x.id));
+ const allowed=new Set(claimLedger.map(x=>x.id));
  if(!Array.isArray(program.beats)||program.beats.length<2||!unique(program.beats.map(x=>x?.id)))
     add(errors,'AT_LEAST_TWO_DISTINCT_SOURCE_BEATS_REQUIRED');
  const outputs=[];
@@ -88,9 +90,17 @@ export function compileReusableDirector(program){
     add(errors,'EPISODE_NOT_TIMED_TO_ORIGINAL_VOICE');
  if(errors.length)return {status:'HOLD',errors:[...new Set(errors)],productionEligible:false,
                              excellentCertified:false,shots:[]};
+ // Mechanical negative review only: no grammar/camera variation, storyboard
+ // claim or decoded-pixel quantity is sufficient to certify good craft.
+ const sequenceCraft=auditShotRepetition(outputs);
+ if(sequenceCraft.status==='HOLD')return {status:'HOLD',
+  errors:sequenceCraft.errors,shots:[],productionEligible:false,
+  excellentCertified:false,mayPublish:false};
  return {status:'REUSABLE_G1_G6_PROGRAM_PROPOSED',topicId:program.topicId,
   grammarCoverage:[...new Set(outputs.map(x=>x.grammarId))].sort(),
   shots:outputs,errors:[],
+  sequenceCraftReview:sequenceCraft,
+  compositionRedirectionRequired:sequenceCraft.craftRemediationRequired,
   exactSourceManifestSha256:program.sourceManifestSha256,
   exactOriginalNarrationSha256:program.originalNarrationSha256,
   generatedScience:false,productionEligible:false,excellentCertified:false,

@@ -1,0 +1,45 @@
+{
+  "schema": "em-lane6-original-audio-test-inputs-1",
+  "sourceCombinedTree": "0af00db278f31dbfd15298ac76582291224da14d",
+  "testedSuite": "test_repeated_term_acoustic_guard",
+  "testsRun": 130,
+  "passed": 130,
+  "skips": 0,
+  "exitCode": 0,
+  "inputs": {
+    "EM_LANE2_ORIGINAL_WAV": {
+      "file": "narration.wav",
+      "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-original-audio-guard-recovery\\portable-inputs\\narration.wav",
+      "sha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435"
+    },
+    "EM_LANE2_MFA_RECEIPT": {
+      "file": "mfa-receipt.json",
+      "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-original-audio-guard-recovery\\portable-inputs\\mfa-receipt.json",
+      "sha256": "1b27276bfed4134ad8d2becd9b782fb7072ff2e88943da1776c8b1c99094e371"
+    },
+    "EM_LANE2_MFA_ALIGNMENT": {
+      "file": "mfa-alignment.json",
+      "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-original-audio-guard-recovery\\portable-inputs\\mfa-alignment.json",
+      "sha256": "a034f00c4fdffaa3574058093e506f184c6b347a5b5561556005c28ec86db626"
+    },
+    "EM_LANE2_ASR_RECEIPT": {
+      "file": "asr-research-receipt.json",
+      "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-original-audio-guard-recovery\\portable-inputs\\asr-research-receipt.json",
+      "sha256": "87a9c5fd757f269967dfc751ea322f8b33e774b9c0a41016f94e90b6b829cdaa"
+    },
+    "EM_LANE2_PREVIOUS_PACKET": {
+      "file": "original-term-triage.zip",
+      "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-original-audio-guard-recovery\\portable-inputs\\original-term-triage.zip",
+      "sha256": "e5c28e40e1c8c424f0ec6924e79a6d9b10b68f91ab038bd026734c858411cbf1"
+    }
+  },
+  "mayPublish": false,
+  "newAtomicCards": 0,
+  "portableCapsule": {
+    "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-original-audio-guard-recovery\\EvidenceMotion_Lane6_Exact_Original_Audio_Test_Inputs_20261017.zip",
+    "bytes": 1382852,
+    "sha256": "903903f26ef5b22001ae3f95d680473107c54fbcab3898283a89d753b71df030",
+    "zipCrc": "PASS",
+    "copiedInputHashesVerified": 5
+  }
+}

@@ -1,0 +1,96 @@
+--- a/research/evidencemotion-director/lane5_candidate_scorecard.py
++++ b/research/evidencemotion-director/lane5_candidate_scorecard.py
+@@ -54,10 +54,19 @@
+             hold("FILE_CHANGED_BEFORE_READ")
+         for chunk in iter(lambda: f.read(1024 * 1024), b""):
+             d.update(chunk)
++        # Metadata can miss same-size writes with restored mtime within one tick.
++        f.seek(0)
++        confirmation = hashlib.sha256()
++        for chunk in iter(lambda: f.read(1024 * 1024), b""):
++            confirmation.update(chunk)
++        if d.digest() != confirmation.digest():
++            hold("FILE_CHANGED_DURING_REVIEW")
+         after_fd = os.fstat(f.fileno())
+     after = _safe_file(path)
+     signature = lambda s: (s.st_dev, s.st_ino, s.st_size, s.st_mtime_ns, s.st_ctime_ns)
+-    if signature(before) != signature(after_fd) or signature(before) != signature(after):
++    # Windows path stat and descriptor stat can expose different ctime semantics.
++    # Compare each surface with itself; retain both mutation checks.
++    if signature(fd) != signature(after_fd) or signature(before) != signature(after):
+         hold("FILE_CHANGED_DURING_REVIEW")
+     return d.hexdigest()
+ 
+--- a/research/evidencemotion-director/test_lane5_candidate_scorecard.py
++++ b/research/evidencemotion-director/test_lane5_candidate_scorecard.py
+@@ -130,5 +130,70 @@
+                 _same_pin(p, True)
+ 
+ 
++
++class PhysicalStatSurfaceTests(unittest.TestCase):
++    def check_surfaces(self, *, path_after_ctime=10, fd_after_ctime=20,
++                       path_after_inode=7):
++        from types import SimpleNamespace
++        from lane5_candidate_scorecard import _physical_sha
++        def signature(ctime, inode=7):
++            return SimpleNamespace(st_dev=1, st_ino=inode, st_size=7,
++                                   st_mtime_ns=30, st_ctime_ns=ctime)
++        with tempfile.TemporaryDirectory() as td:
++            candidate = Path(td) / 'unchanged.bin'
++            candidate.write_bytes(b'payload')
++            with patch('lane5_candidate_scorecard._safe_file', side_effect=[
++                    signature(10), signature(path_after_ctime, path_after_inode)]), \
++                 patch('lane5_candidate_scorecard.os.fstat', side_effect=[
++                    signature(20), signature(fd_after_ctime)]):
++                return _physical_sha(candidate)
++
++    def test_stable_path_birthtime_and_descriptor_changetime_may_differ(self):
++        self.assertEqual(self.check_surfaces(), h(b'payload'))
++
++    def test_descriptor_ctime_change_rejected_with_stable_path(self):
++        with self.assertRaisesRegex(ValueError, 'FILE_CHANGED_DURING_REVIEW'):
++            self.check_surfaces(fd_after_ctime=21)
++
++    def test_path_ctime_change_rejected_with_stable_descriptor(self):
++        with self.assertRaisesRegex(ValueError, 'FILE_CHANGED_DURING_REVIEW'):
++            self.check_surfaces(path_after_ctime=11)
++
++    def test_path_replacement_after_open_rejected(self):
++        with self.assertRaisesRegex(ValueError, 'FILE_CHANGED_DURING_REVIEW'):
++            self.check_surfaces(path_after_inode=8)
++
++
++class ActualFileMutationTests(unittest.TestCase):
++    def test_mutation_with_restored_mtime_is_rejected(self):
++        from lane5_candidate_scorecard import _physical_sha
++        with tempfile.TemporaryDirectory() as td:
++            candidate = Path(td) / 'actual.bin'
++            candidate.write_bytes(b'payload')
++            before = candidate.stat()
++            original_open = open
++            class MutatingReader:
++                def __init__(self, stream):
++                    self.stream, self.changed = stream, False
++                def __enter__(self): return self
++                def __exit__(self, *args): return self.stream.__exit__(*args)
++                def fileno(self): return self.stream.fileno()
++                def seek(self, *args): return self.stream.seek(*args)
++                def read(self, size):
++                    data = self.stream.read(size)
++                    if not self.changed:
++                        candidate.write_bytes(b'changed')
++                        os.utime(candidate, ns=(before.st_atime_ns, before.st_mtime_ns))
++                        self.changed = True
++                    return data
++            def mutate_on_read(*args, **kwargs):
++                return MutatingReader(original_open(*args, **kwargs))
++            with patch('lane5_candidate_scorecard.open', side_effect=mutate_on_read,
++                       create=True):
++                with self.assertRaisesRegex(ValueError, 'FILE_CHANGED_DURING_REVIEW'):
++                    _physical_sha(candidate)
++            self.assertEqual(candidate.read_bytes(), b'changed')
++            self.assertEqual(candidate.stat().st_mtime_ns, before.st_mtime_ns)
++
+ if __name__ == "__main__":
+     unittest.main()
