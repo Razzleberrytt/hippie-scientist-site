@@ -71,6 +71,20 @@ class AtomicProofLedgerTests(unittest.TestCase):
     def setUpClass(cls):
         cls.good=json.loads(LEDGER.read_text(encoding="utf-8"))
 
+    def test_corrected_deduplicated_820_stage_headline_requires_real_union(self):
+        corrected=copy.deepcopy(self.good)
+        corrected["provisionalCoverageCardCount"]=820
+        corrected["provisionalCoveragePercent"]=round(820/1590*100,4)
+        report=validate(corrected,LEDGER.parent)
+        self.assertEqual(report["provisionalCoverage"],820)
+        self.assertEqual(report["individuallyAuditedMachineResearchOnly"],168)
+        self.assertFalse(report["mayPublish"])
+        bad=copy.deepcopy(corrected)
+        bad["provisionalCoverageCardCount"]=821
+        bad["provisionalCoveragePercent"]=round(821/1590*100,4)
+        with self.assertRaisesRegex(ValueError,"RESEARCH_CARD_ARITHMETIC_OR_ROLLUP_WRONG"):
+            validate(bad,LEDGER.parent)
+
     def test_exact_named_research_cards_and_honest_707_inherited_estimate(self):
         result=validate(self.good,LEDGER.parent)
         self.assertEqual(result["evidenceGroupCount"],26)
