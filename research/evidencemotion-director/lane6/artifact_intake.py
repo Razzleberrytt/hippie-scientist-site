@@ -267,7 +267,7 @@ def intake(source, pin_path, expected_pin_sha, destination=None):
             # A handoff must never create new files inside the original evidence
             # directory. The source is an immutable input, not a destination root.
             if source.is_dir():
-                require(not destination.absolute().is_relative_to(source.absolute()),
+                require(not destination.resolve(strict=False).is_relative_to(source.resolve(strict=False)),
                         'DESTINATION_INSIDE_SOURCE')
             require(destination.parent.is_dir(), 'DESTINATION_PARENT_MISSING')
         with tempfile.TemporaryDirectory(prefix='em-lane6-') as tmp:
