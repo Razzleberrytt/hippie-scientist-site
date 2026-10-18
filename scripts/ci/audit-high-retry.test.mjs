@@ -84,6 +84,29 @@ if (process.env.FAKE_AUDIT_MODE === 'valid-high') {
   }))
   process.exit(1)
 }
+if (process.env.FAKE_AUDIT_MODE.startsWith('braces-')) {
+  const ghsa = 'https://github.com/advisories/GHSA-vfj7-8cjw-p6xm'
+  const issues = {
+    braces: { name: 'braces', severity: 'high',
+      via: [{ severity: 'high', url: ghsa }] },
+    micromatch: { name: 'micromatch', severity: 'high', via: ['braces'] },
+    'fast-glob': { name: 'fast-glob', severity: 'high', via: ['micromatch'] },
+    'lint-staged': { name: 'lint-staged', severity: 'high', via: ['micromatch'] },
+    '@next/eslint-plugin-next': { name: '@next/eslint-plugin-next',
+      severity: 'high', via: ['fast-glob'] },
+  }
+  if (process.env.FAKE_AUDIT_MODE === 'braces-new-root-high') {
+    issues.braces.via.push({ severity: 'high',
+      url: 'https://example.invalid/GHSA-new-braces-high' })
+  }
+  if (process.env.FAKE_AUDIT_MODE === 'braces-new-wrapper-high') {
+    issues['fast-glob'].via.push({ severity: 'high',
+      url: 'https://example.invalid/GHSA-new-fast-glob-high' })
+  }
+  console.log(JSON.stringify({ auditReportVersion: 2, vulnerabilities: issues,
+    metadata: { vulnerabilities: { high: 5, critical: 0, total: 5 } } }))
+  process.exit(1)
+}
 if (process.env.FAKE_AUDIT_MODE === 'mdx-direct-high') {
   console.log(JSON.stringify({
     auditReportVersion: 2,
@@ -188,6 +211,30 @@ describe('high-severity audit transport retry', () => {
     expect(count).toBe(1)
     expect(result.stderr).toContain('unallowlisted high/critical vulnerabilities found')
     expect(result.stderr).toContain('mdx-bundler')
+  })
+
+  it('allows only the time-bounded braces root advisory and its transitive tooling wrappers', () => {
+    const { result, count } = runAuditFixture('braces-known-chain')
+    expect(result.status).toBe(0)
+    expect(count).toBe(1)
+    expect(result.stdout).toContain('[audit:high] PASS')
+    expect(result.stdout).toContain('braces-unpatched-build-tooling-only-2026-10')
+  })
+
+  it('rejects a newly disclosed direct high advisory on braces despite the exception', () => {
+    const { result, count } = runAuditFixture('braces-new-root-high')
+    expect(result.status).toBe(1)
+    expect(count).toBe(1)
+    expect(result.stderr).toContain('unallowlisted high/critical vulnerabilities')
+    expect(result.stderr).toContain('braces')
+  })
+
+  it('rejects a new wrapper advisory despite an allowlisted transitive braces branch', () => {
+    const { result, count } = runAuditFixture('braces-new-wrapper-high')
+    expect(result.status).toBe(1)
+    expect(count).toBe(1)
+    expect(result.stderr).toContain('unallowlisted high/critical vulnerabilities')
+    expect(result.stderr).toContain('fast-glob')
   })
 
   it('fails closed on the formerly allowlisted dependency-only TOML chain', () => {
