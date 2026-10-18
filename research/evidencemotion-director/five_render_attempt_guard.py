@@ -192,13 +192,28 @@ def _read_stable_register_bytes(file):
         after = os.stat(file, follow_symlinks=False)
     except OSError:
         hold("REGISTER_FILE_MISSING_OR_UNSAFE")
+    # Windows may expose creation time for stat(path).st_ctime_ns and
+    # metadata-change time for fstat(fd).st_ctime_ns. Compare stability
+    # within each stat surface, not an unrelated path-vs-descriptor clock.
+    # Still require the opened object and final path to have the same
+    # physical identity, and require two identical bounded descriptor reads.
+    path_metadata = (before.st_dev, before.st_ino, before.st_size,
+                     before.st_mtime_ns, before.st_ctime_ns)
+    final_path_metadata = (after.st_dev, after.st_ino, after.st_size,
+                           after.st_mtime_ns, after.st_ctime_ns)
+    descriptor_metadata = (opened.st_dev, opened.st_ino, opened.st_size,
+                           opened.st_mtime_ns, opened.st_ctime_ns)
+    final_descriptor_metadata = (finished.st_dev, finished.st_ino,
+                                 finished.st_size, finished.st_mtime_ns,
+                                 finished.st_ctime_ns)
     if (_has_symlinked_parent(file)
             or not stat.S_ISREG(after.st_mode)
+            or not stat.S_ISREG(finished.st_mode)
             or len(raw) == 0 or len(raw) > 2_000_000
-            or any((s.st_dev, s.st_ino, s.st_size, s.st_mtime_ns, s.st_ctime_ns)
-                   != (before.st_dev, before.st_ino, before.st_size,
-                       before.st_mtime_ns, before.st_ctime_ns)
-                   for s in (opened, finished, after))
+            or path_metadata != final_path_metadata
+            or descriptor_metadata != final_descriptor_metadata
+            or (opened.st_dev, opened.st_ino, opened.st_size, opened.st_mtime_ns)
+               != (before.st_dev, before.st_ino, before.st_size, before.st_mtime_ns)
             or len(raw) != before.st_size):
         hold("REGISTER_FILE_MISSING_OR_UNSAFE")
     return raw
