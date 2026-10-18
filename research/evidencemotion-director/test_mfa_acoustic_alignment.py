@@ -156,6 +156,16 @@ class RepeatedTermOriginalWavReceiptTests(unittest.TestCase):
             with self.subTest(indices=indices), self.assertRaisesRegex(ValueError, 'REPEATED_PHONE_REVIEW'):
                 review_repeated_term_phone_hypotheses(self.candidate(), w)
 
+    def test_duplicate_or_overlap_cannot_fake_repeat_consistency(self):
+        duplicate = [{'term': 'mitragynine', 'wordIndices': [0]},
+                     {'term': 'mitragynine', 'wordIndices': [0]}]
+        with self.assertRaisesRegex(ValueError, 'DUPLICATE_OR_OVERLAPPING_WINDOW'):
+            review_repeated_term_phone_hypotheses(self.candidate(), duplicate)
+        backwards = [{'term': 'mitragynine', 'wordIndices': [1]},
+                     {'term': 'mitragynine', 'wordIndices': [0]}]
+        with self.assertRaisesRegex(ValueError, 'DUPLICATE_OR_OVERLAPPING_WINDOW'):
+            review_repeated_term_phone_hypotheses(self.candidate(), backwards)
+
     def test_comparison_never_changes_candidate_word_or_phone_data(self):
         c, w = self.candidate(), self.windows()
         before = repr((c, w))
