@@ -114,7 +114,8 @@ const oneHzCadence=(windows=[])=>({
   automaticallyApprovedArt:false,
 });
 const withOneHz=(cadence=oneHzCadence())=>({
-  ...frame(),oneHzOpticalScreenSamples:34,oneHzHeroCadence:cadence
+  ...frame(),oneHzOpticalScreenSamples:34,
+  actualDurationSeconds:34.366667,oneHzHeroCadence:cadence
 });
 test('actual decoded 3s/7s center-hero windows remain a separate semantic craft review HOLD',()=>{
  const windows=[
@@ -163,6 +164,30 @@ test('forged or internally contradictory 1Hz cadence receipts fail closed',()=>{
    assert.ok(x.blockers.includes('DECODED_1HZ_HERO_CADENCE_PROOF_INVALID'));
    assert.equal(x.contentMayPublish,false);
  }
+});
+test('shortening an otherwise self-consistent one-Hz grid cannot erase the actual film tail',()=>{
+ const short={...oneHzCadence(),sampleCount:8,visibleCenterHeroSamples:8};
+ const fullLength=adjudicateFilm({...full(),decodedVisual:{
+   ...withOneHz(short),samples:4,oneHzOpticalScreenSamples:8,actualDurationSeconds:90
+ }});
+ assert.equal(fullLength.decision,'AUTO_HOLD_INVALID_PROOF');
+ assert.ok(fullLength.blockers.includes('DECODED_1HZ_HERO_CADENCE_PROOF_INVALID'));
+ assert.equal(fullLength.contentMayPublish,false);
+});
+test('one-Hz review requires a credible decoded duration and bounds oversized window inventories',()=>{
+ const window={startSec:4,endSec:7,stagnantSecondsAtOneHz:3,severity:'CRAFT_HOLD_CANDIDATE'};
+ for(const duration of [undefined,null,NaN,Infinity,4,95]){
+   const x=adjudicateFilm({...full(),decodedVisual:{
+     ...withOneHz(),actualDurationSeconds:duration
+   }});
+   assert.ok(x.blockers.includes('DECODED_1HZ_HERO_CADENCE_PROOF_INVALID'));
+ }
+ const many=Array(150000).fill(window);
+ const x=adjudicateFilm({...full(),decodedVisual:withOneHz({
+   ...oneHzCadence(),stagnationWindows:many
+ })});
+ assert.equal(x.decision,'AUTO_HOLD_INVALID_PROOF');
+ assert.ok(x.blockers.includes('DECODED_1HZ_HERO_CADENCE_PROOF_INVALID'));
 });
 test('missing machine reviewers schedules more evidence, never asks an owner to be the judge',()=>{
  const x=adjudicateFilm({...full(),voice:undefined,critics:[]});
