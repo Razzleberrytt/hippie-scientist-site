@@ -135,12 +135,12 @@
       "id": "braces-unpatched-build-tooling-only-2026-10",
       "package": "braces",
       "severity": "high",
-      "expiresOn": "2026-10-17",
+      "expiresOn": "2026-10-24",
       "advisoryUrls": [
         "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
       ],
       "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/6212",
-      "rationale": "braces 3.0.3 is the current npm release, while GHSA-vfj7-8cjw-p6xm / CVE-2026-93687 affects <=3.0.3 and currently lists no patched release. In this repository the affected package is reached through micromatch in trusted development/lint tooling (including fast-glob/@next/eslint-plugin-next and lint-staged), is not shipped in the static site output, and no production route evaluates attacker-controlled glob patterns. This narrow advisory-specific exception is temporary until an upstream patched release is available; issue #6212 owns removal and revalidation."
+      "rationale": "braces 3.0.3 is the current npm release, while GHSA-vfj7-8cjw-p6xm / CVE-2026-93687 affects <=3.0.3 and currently lists no patched release. In this repository the affected package is reached through micromatch in trusted development/lint tooling (including fast-glob/@next/eslint-plugin-next and lint-staged), is not shipped in the static site output, and no production route evaluates attacker-controlled glob patterns. This narrow advisory-specific exception is temporary until an upstream patched release is available; issue #6212 owns removal and revalidation. Reassessed 2026-10-18 UTC after exact-head CI #39082089936 failed solely on expiration and transitive wrappers: GitHub advisory GHSA-vfj7-8cjw-p6xm still reports no patched release; the npm registry continues to list braces 3.0.3 as latest. Same existing lint/dev-only trusted-pattern exposure per #6212, no newly verified runtime pathway. This is a seven-day renewal of the exact original advisory exception only, not a vulnerability fix or a waiver for any new advisory; require a fresh expiry review and remove immediately if upstream resolves it."
     }
   ],
   "_informational": {

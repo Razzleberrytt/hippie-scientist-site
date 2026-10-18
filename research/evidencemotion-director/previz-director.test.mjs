@@ -33,6 +33,18 @@ test('scientific ID and locked audio timing requirements fail closed',()=>{
  assert.equal(proposeShots({...beat,claimIds:['one','one']}).code,'SOURCE_BOUND_IDS_REQUIRED');
  assert.equal(proposeShots({...beat,spokenAnchorTimes:[]}).code,'MISSING_AUDIO_ANCHORS');
  assert.equal(proposeShots({...beat,spokenAnchorTimes:[8]}).code,'MISSING_AUDIO_ANCHORS');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:[1.9,.4,3.5]}).code,'MISSING_AUDIO_ANCHORS');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:[.4,.4,3.5]}).code,'MISSING_AUDIO_ANCHORS');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:[.4,NaN,3.5]}).code,'MISSING_AUDIO_ANCHORS');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:new Array(1)}).code,'MISSING_AUDIO_ANCHORS');
+ const sparseMiddle=new Array(3);
+ sparseMiddle[0]=.4; sparseMiddle[2]=3.5;
+ const sparseLeading=new Array(3);
+ sparseLeading[1]=.4; sparseLeading[2]=3.5;
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:sparseMiddle}).code,'MISSING_AUDIO_ANCHORS');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:sparseLeading}).code,'MISSING_AUDIO_ANCHORS');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:[.4,1.9,]}).status,'PROPOSED');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:[0,.4,3.5,4]}).status,'PROPOSED');
 });
 test('source-bound comparison and process constraints prevent arbitrary animations',()=>{
  assert.equal(proposeShots({...beat,visualIntent:'fair-comparison'}).code,'COMPARISON_OR_SCALE_REVIEW_REQUIRED');
@@ -280,7 +292,74 @@ test('missing scientific claim identity cannot be mistaken for matching teaching
     scientificAssetIds:['asset:source']
   }));
   const r=auditShotRepetition(shots);
-  assert.equal(r.status,'SEQUENCE_REVIEW_REQUIRED');
+  assert.equal(r.status,'HOLD');
+  assert.ok(r.errors.includes('UNBOUND_SHOT_LESSON_OR_CLAIM'));
   assert.equal(r.findings.length,0);
+  assert.equal(r.excellentCertified,false);
+});
+
+test('scene missing a meaningful lesson or valid evidence identity fails closed',()=>{
+  for(const change of [
+    {viewerLearns:''},{viewerLearns:'   '},{viewerLearns:undefined},
+    {viewerLearns:'!!!'},{viewerLearns:'\u200b'},
+    {viewerLearns:'\u200d\u2060'},{viewerLearns:'\u0301'},
+    {sourceClaimIds:[]},{sourceClaimIds:undefined},
+    {sourceClaimIds:['claim:verified','claim:verified']},
+    {sourceClaimIds:[' claim:verified']},{sourceClaimIds:['claim:verified ']}
+  ]){
+    const shots=[stagedShot(0),stagedShot(1,change),stagedShot(2)];
+    const r=auditShotRepetition(shots);
+    assert.equal(r.status,'HOLD',JSON.stringify(change));
+    assert.ok(r.errors.includes('UNBOUND_SHOT_LESSON_OR_CLAIM'));
+    assert.equal(r.excellentCertified,false);
+    assert.equal(r.productionEligible,false);
+    assert.equal(r.mayPublish,false);
+  }
+});
+
+test('overlapping, shuffled or negative shot timeline cannot masquerade as adjacent visual progress',()=>{
+  for(const shots of [
+    [stagedShot(0),stagedShot(1,{startSec:1.99}),stagedShot(2)],
+    [stagedShot(1),stagedShot(0),stagedShot(2)],
+    [stagedShot(0,{startSec:-0.1}),stagedShot(1)],
+    [stagedShot(0),stagedShot(1,{startSec:0.5,endSec:1.5})]
+  ]){
+    const r=auditShotRepetition(shots);
+    assert.equal(r.status,'HOLD');
+    assert.ok(r.errors.includes('OUT_OF_ORDER_OR_OVERLAPPING_SHOTS'));
+    assert.equal(r.craftRemediationRequired,true);
+    assert.equal(r.excellentCertified,false);
+    assert.equal(r.productionEligible,false);
+    assert.equal(r.mayPublish,false);
+  }
+  // An intentional silent interlude is not falsely categorized as overlap.
+  const gap=auditShotRepetition([stagedShot(0),stagedShot(1,{startSec:2.5,endSec:4.5})]);
+  assert.equal(gap.status,'SEQUENCE_REVIEW_REQUIRED');
+  assert.equal(gap.excellentCertified,false);
+});
+
+test('real source-bound teaching survives punctuation and Unicode normalization',()=>{
+  const shots=[stagedShot(0,{grammarId:'G1',viewerLearns:'What this study measures'}),
+    stagedShot(1,{grammarId:'G3',viewerLearns:' WHAT this study measures! '}),
+    stagedShot(2,{grammarId:'G5',viewerLearns:'What this study measures.'})];
+  const r=auditShotRepetition(shots);
+  assert.equal(r.status,'CRAFT_REDIRECTION_REQUIRED');
+  assert.ok(r.findings.some(f=>f.reason==='THREE_PLUS_IDENTICAL_TEACHING_PAYOFFS_DESPITE_VISUAL_CHURN'));
   assert.equal(r.mayPublish,false);
+});
+
+// Guard the entire refusal contract independently of individual error reasons.
+test('invalid and vacuous source-bound shots never receive render or release eligibility',()=>{
+  const malformed=[
+    [stagedShot(0),stagedShot(1,{viewerLearns:'\u200d\u2060'})],
+    [stagedShot(0),stagedShot(1,{startSec:1.999})],
+    [stagedShot(0),stagedShot(1,{sourceClaimIds:['claim:verified','claim:verified']})]
+  ];
+  for(const shots of malformed){
+    const r=auditShotRepetition(shots);
+    assert.equal(r.status,'HOLD');
+    assert.equal(r.productionEligible,false);
+    assert.equal(r.mayPublish,false);
+    assert.equal(r.excellentCertified,false);
+  }
 });

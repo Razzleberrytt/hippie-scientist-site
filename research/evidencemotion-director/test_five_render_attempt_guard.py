@@ -7,6 +7,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 from unittest import mock
 from five_render_attempt_guard import (SCHEMA, verify, verify_append_only,
                                        read_register, write_report_no_clobber)
@@ -219,6 +220,127 @@ class FirstRenderIntegrityTests(unittest.TestCase):
             link.symlink_to(path)
             with self.assertRaisesRegex(ValueError, "REGISTER_FILE_MISSING_OR_UNSAFE"):
                 read_register(link)
+
+    def test_windows_path_creation_time_may_differ_from_descriptor_change_time(self):
+        # Synthetic Windows surface: stable path stat() and stable descriptor
+        # fstat() may legitimately report different st_ctime_ns semantics.
+        prior = register([attempt(0)])
+        raw = json.dumps(prior).encode("utf-8")
+        with tempfile.TemporaryDirectory() as directory:
+            file = Path(directory) / "prior.json"
+            file.write_bytes(raw)
+            real_fstat = os.fstat
+
+            def descriptor_clock(fd):
+                observed = real_fstat(fd)
+                return SimpleNamespace(
+                    st_mode=observed.st_mode, st_dev=observed.st_dev,
+                    st_ino=observed.st_ino, st_size=observed.st_size,
+                    st_mtime_ns=observed.st_mtime_ns,
+                    st_ctime_ns=observed.st_ctime_ns + 86_400_000_000_000)
+
+            with mock.patch("five_render_attempt_guard.os.fstat",
+                            side_effect=descriptor_clock):
+                parsed, actual = read_register(
+                    file, required_sha=hashlib.sha256(raw).hexdigest())
+            self.assertEqual(parsed, prior)
+            self.assertEqual(actual, hashlib.sha256(raw).hexdigest())
+
+    def test_descriptor_metadata_change_during_read_remains_held(self):
+        prior = register([attempt(0)])
+        with tempfile.TemporaryDirectory() as directory:
+            file = Path(directory) / "prior.json"
+            file.write_text(json.dumps(prior))
+            real_fstat = os.fstat
+            calls = 0
+
+            def changing_descriptor_clock(fd):
+                nonlocal calls
+                observed = real_fstat(fd)
+                calls += 1
+                return SimpleNamespace(
+                    st_mode=observed.st_mode, st_dev=observed.st_dev,
+                    st_ino=observed.st_ino, st_size=observed.st_size,
+                    st_mtime_ns=observed.st_mtime_ns,
+                    st_ctime_ns=observed.st_ctime_ns
+                    + (86_400_000_000_000 if calls >= 2 else 0))
+
+            with mock.patch("five_render_attempt_guard.os.fstat",
+                            side_effect=changing_descriptor_clock):
+                with self.assertRaisesRegex(
+                        ValueError, "REGISTER_FILE_MISSING_OR_UNSAFE"):
+                    read_register(file)
+
+    def test_path_metadata_change_during_read_remains_held(self):
+        prior = register([attempt(0)])
+        with tempfile.TemporaryDirectory() as directory:
+            file = Path(directory) / "prior.json"
+            file.write_text(json.dumps(prior))
+            real_stat = os.stat
+            calls = 0
+
+            def changing_path_clock(path, *args, **kwargs):
+                nonlocal calls
+                observed = real_stat(path, *args, **kwargs)
+                if os.fspath(path) != os.fspath(file):
+                    return observed
+                calls += 1
+                return SimpleNamespace(
+                    st_mode=observed.st_mode, st_dev=observed.st_dev,
+                    st_ino=observed.st_ino, st_size=observed.st_size,
+                    st_mtime_ns=observed.st_mtime_ns,
+                    st_ctime_ns=observed.st_ctime_ns
+                    + (86_400_000_000_000 if calls >= 2 else 0))
+
+            with mock.patch("five_render_attempt_guard.os.stat",
+                            side_effect=changing_path_clock):
+                with self.assertRaisesRegex(
+                        ValueError, "REGISTER_FILE_MISSING_OR_UNSAFE"):
+                    read_register(file)
+
+    def test_same_descriptor_mid_read_byte_mutation_is_rejected(self):
+        # Even a byte-for-byte length-preserving update must not yield a
+        # silently accepted first-render history between two physical reads.
+        with tempfile.TemporaryDirectory() as directory:
+            file = Path(directory) / "attempts.json"
+            before = json.dumps(register([attempt(0)])).encode("utf-8")
+            after = json.dumps(register([attempt(1)])).encode("utf-8")
+            self.assertEqual(len(before), len(after))
+            file.write_bytes(before)
+            real_fdopen = os.fdopen
+
+            class MidReadSwap:
+                def __init__(self, stream):
+                    self.stream = stream
+                    self.once = True
+
+                def __enter__(self):
+                    self.stream.__enter__()
+                    return self
+
+                def __exit__(self, *args):
+                    return self.stream.__exit__(*args)
+
+                def read(self, *args):
+                    content = self.stream.read(*args)
+                    if self.once:
+                        self.once = False
+                        with open(file, "r+b") as writer:
+                            writer.write(after)
+                            writer.flush()
+                            os.fsync(writer.fileno())
+                    return content
+
+                def seek(self, *args):
+                    return self.stream.seek(*args)
+
+            with mock.patch("five_render_attempt_guard.os.fdopen",
+                            side_effect=lambda fd, mode:
+                                MidReadSwap(real_fdopen(fd, mode))):
+                with self.assertRaisesRegex(
+                        ValueError, "REGISTER_BYTES_CHANGED_DURING_READ"):
+                    read_register(file)
+            self.assertEqual(file.read_bytes(), after)
 
     def test_register_path_swap_between_preflight_and_open_is_rejected(self):
         # Existing path-then-read logic can accept changed, still-valid JSON.
