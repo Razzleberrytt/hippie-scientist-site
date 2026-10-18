@@ -15,6 +15,7 @@ from pathlib import Path
 from encoded_source_credit_guard import MAX_VIDEO_BYTES, _frozen_source, sha256_file
 
 SCHEMA = 'ths-em-lane4-fullframe-text-negative-v1'
+MAX_MANIFEST_BYTES = 4 * 1024 * 1024  # 1,800 bounded OCR word windows
 TOKEN = re.compile(r'[a-z0-9]+(?:-[a-z0-9]+)*')
 CRITICAL_NEGATIONS = frozenset({'not', 'no', 'never', 'without'})
 
@@ -72,10 +73,15 @@ def check(movie, manifest):
         fail('FILM_AND_MANIFEST_ALIAS')
     # Hash and parse one immutable in-memory byte string: hashing a pathname
     # separately from strict_json(path) leaves a manifest swap/use race.
+    if not manifest.is_file() or manifest.is_symlink():
+        fail('REGULAR_MANIFEST_REQUIRED')
     try:
-        manifest_bytes = manifest.read_bytes()
+        with manifest.open('rb') as source:
+            manifest_bytes = source.read(MAX_MANIFEST_BYTES + 1)
     except OSError:
         fail('MANIFEST_READ_FAILED')
+    if len(manifest_bytes) > MAX_MANIFEST_BYTES:
+        fail('MANIFEST_EXCEEDS_LIMIT')
     manifest_sha = hashlib.sha256(manifest_bytes).hexdigest()
     data = strict_json_payload(manifest_bytes)
     if (not isinstance(data, dict) or set(data) !=
@@ -193,7 +199,7 @@ def check(movie, manifest):
         if (not movie.is_file() or movie.is_symlink() or
             sha256_file(movie, max_bytes=MAX_VIDEO_BYTES) != initial_sha or
             sha256_file(frozen, max_bytes=MAX_VIDEO_BYTES) != initial_sha or
-            sha(manifest) != manifest_sha):
+            sha256_file(manifest, max_bytes=MAX_MANIFEST_BYTES) != manifest_sha):
             fail('SOURCE_CHANGED_DURING_AUDIT')
         return {'schema': SCHEMA, 'status': 'HOLD' if defects else 'MECHANICAL_OCR_NO_HOLD_REVIEW_REQUIRED',
                 'filmSha256': initial_sha, 'manifestSha256': manifest_sha,
