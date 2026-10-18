@@ -33,6 +33,18 @@ test('scientific ID and locked audio timing requirements fail closed',()=>{
  assert.equal(proposeShots({...beat,claimIds:['one','one']}).code,'SOURCE_BOUND_IDS_REQUIRED');
  assert.equal(proposeShots({...beat,spokenAnchorTimes:[]}).code,'MISSING_AUDIO_ANCHORS');
  assert.equal(proposeShots({...beat,spokenAnchorTimes:[8]}).code,'MISSING_AUDIO_ANCHORS');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:[1.9,.4,3.5]}).code,'MISSING_AUDIO_ANCHORS');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:[.4,.4,3.5]}).code,'MISSING_AUDIO_ANCHORS');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:[.4,NaN,3.5]}).code,'MISSING_AUDIO_ANCHORS');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:new Array(1)}).code,'MISSING_AUDIO_ANCHORS');
+ const sparseMiddle=new Array(3);
+ sparseMiddle[0]=.4; sparseMiddle[2]=3.5;
+ const sparseLeading=new Array(3);
+ sparseLeading[1]=.4; sparseLeading[2]=3.5;
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:sparseMiddle}).code,'MISSING_AUDIO_ANCHORS');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:sparseLeading}).code,'MISSING_AUDIO_ANCHORS');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:[.4,1.9,]}).status,'PROPOSED');
+ assert.equal(proposeShots({...beat,spokenAnchorTimes:[0,.4,3.5,4]}).status,'PROPOSED');
 });
 test('source-bound comparison and process constraints prevent arbitrary animations',()=>{
  assert.equal(proposeShots({...beat,visualIntent:'fair-comparison'}).code,'COMPARISON_OR_SCALE_REVIEW_REQUIRED');
