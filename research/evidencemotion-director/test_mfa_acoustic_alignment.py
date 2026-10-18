@@ -1,6 +1,6 @@
 import unittest
 
-from mfa_acoustic_alignment import LINES, select_dictionary, merge_candidates, term_windows, verify_brief_script, compare_mfa_phone_hypotheses
+from mfa_acoustic_alignment import LINES, select_dictionary, merge_candidates, term_windows, verify_brief_script, compare_mfa_phone_hypotheses, review_repeated_term_phone_hypotheses, WAV_SHA
 
 
 class AcousticPreparationTests(unittest.TestCase):
@@ -85,6 +85,83 @@ class MfaPhoneticLabelComparisonTests(unittest.TestCase):
         self.assertTrue(x['differencesAreModelLabelHypothesesNotAcousticTruth'])
         self.assertFalse(x['independentOriginalAudioPhonemeReferenceAvailable'])
         self.assertFalse(x['mayPublish'])
+
+
+
+class RepeatedTermOriginalWavReceiptTests(unittest.TestCase):
+    @staticmethod
+    def candidate(first=None, second=None):
+        # Frozen original-word MFA label hypotheses, not independently heard phones.
+        first = first or ['M','IH1','T','R','AH0','JH','AH0','N','AY2','N']
+        second = second or ['M','IH1','T','R','AH0','JH','IH0','N','AY2','N']
+        return {'inputSha256': {'wav': WAV_SHA}, 'mayPublish': False,
+                'wordAlignment': [
+                    {'word': 'mitragynine', 'phones': [{'phone': p} for p in first]},
+                    {'word': 'mitragynine', 'phones': [{'phone': p} for p in second]}]}
+
+    @staticmethod
+    def windows():
+        return [{'term': 'mitragynine', 'wordIndices': [0]},
+                {'term': 'mitragynine', 'wordIndices': [1]}]
+
+    def test_original_source_pair_appears_in_receipt_not_as_voice_approval(self):
+        x = review_repeated_term_phone_hypotheses(self.candidate(), self.windows())
+        self.assertEqual(len(x), 1)
+        self.assertEqual(x[0]['term'], 'mitragynine')
+        self.assertEqual(x[0]['firstWordIndices'], [0])
+        self.assertEqual(x[0]['secondWordIndices'], [1])
+        self.assertEqual((x[0]['rawTokenEditDistance'], x[0]['segmentalSymbolEditDistance'],
+                          x[0]['stressMarkerDifferencesOnAlignedIdenticalVowels']), (1, 1, 0))
+        self.assertFalse(x[0]['phoneticPronunciationVerified'])
+        self.assertFalse(x[0]['mayPublish'])
+
+    def test_same_source_stress_only_case_not_mislabeled_as_segment_change(self):
+        x = review_repeated_term_phone_hypotheses(
+            self.candidate(['M','IH1','T'], ['M','IH0','T']), self.windows())
+        self.assertEqual((x[0]['rawTokenEditDistance'], x[0]['segmentalSymbolEditDistance'],
+                          x[0]['stressMarkerDifferencesOnAlignedIdenticalVowels']), (1, 0, 1))
+        self.assertFalse(x[0]['independentOriginalAudioPhonemeReferenceAvailable'])
+
+    def test_one_occurrence_is_not_a_repeated_term(self):
+        self.assertEqual(review_repeated_term_phone_hypotheses(
+            self.candidate(), self.windows()[:1]), [])
+
+    def test_cross_word_sequence_is_compared_as_one_term(self):
+        c = self.candidate(['S','EH1','V','AH0','N'], ['OW1'])
+        x = review_repeated_term_phone_hypotheses(c, [
+            {'term': '7-OH', 'wordIndices': [0,1]},
+            {'term': 'mitragynine', 'wordIndices': [1]}])
+        self.assertEqual(x, [])
+
+    def test_spoofed_source_or_publish_flag_holds(self):
+        for key, value in (('inputSha256', {'wav': '0' * 64}), ('mayPublish', True),
+                           ('inputSha256', None), ('mayPublish', None)):
+            c = self.candidate()
+            c[key] = value
+            with self.subTest(key=key, value=value), self.assertRaisesRegex(ValueError, 'MFA_ACOUSTIC_RESEARCH_HOLD'):
+                review_repeated_term_phone_hypotheses(c, self.windows())
+
+    def test_missing_invalid_and_unbounded_phones_fail_closed(self):
+        for phones in ([], [{'phone':'IH9'}], [{'phone':'sil'}],
+                       [{'notPhone':'M'}], [None], [{'phone':'M'}] * 101):
+            c = self.candidate()
+            c['wordAlignment'][0]['phones'] = phones
+            with self.subTest(phones=str(phones)[:30]), self.assertRaisesRegex(ValueError, 'REPEATED_PHONE_REVIEW'):
+                review_repeated_term_phone_hypotheses(c, self.windows())
+
+    def test_forged_repeated_indices_fail_closed(self):
+        for indices in ([2], [-1], [True], ['0'], [1,0], [0,0], [], list(range(4))):
+            w = self.windows()
+            w[1]['wordIndices'] = indices
+            with self.subTest(indices=indices), self.assertRaisesRegex(ValueError, 'REPEATED_PHONE_REVIEW'):
+                review_repeated_term_phone_hypotheses(self.candidate(), w)
+
+    def test_comparison_never_changes_candidate_word_or_phone_data(self):
+        c, w = self.candidate(), self.windows()
+        before = repr((c, w))
+        review_repeated_term_phone_hypotheses(c, w)
+        self.assertEqual(repr((c, w)), before)
+
 
 
 if __name__ == '__main__':
