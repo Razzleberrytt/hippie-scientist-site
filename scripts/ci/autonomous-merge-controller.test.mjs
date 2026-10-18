@@ -614,3 +614,30 @@ describe('P0 source-register strict exact-head recovery', () => {
       'npm run typecheck']) expect(workflow).toContain(required)
   })
 })
+
+describe('P0 stale metadata versus verified exact-head ancestry', () => {
+  const oldBase='previous-main'
+  const stalePr={...pr,base:{...pr.base,sha:oldBase,repo:pr.base.repo}}
+  const staleRun={...run('CI'),pull_requests:[{number:pr.number,base:{sha:oldBase}}]}
+  const args={
+    pr:stalePr,workflowRuns:[staleRun],checkRuns:[check('Validation, tests, and data')],
+    expectedHeadSha:headSha,currentBaseSha:baseSha,controllerRunId:'controller',
+    riskTier:'low',changedFiles:['docs/merge-policy.md'],
+  }
+  it('fails closed when GitHub base metadata is stale and HEAD containment is unverified',()=>{
+    expect(evaluateReadiness(args).action).toBe('sync')
+    expect(evaluateReadiness({...args,baseContainmentVerified:false}).action).toBe('sync')
+  })
+  it('trusts only independently verified exact-head ancestry over stale PR/workflow association base metadata',()=>{
+    const v=evaluateReadiness({...args,baseContainmentVerified:true})
+    expect(v.action).toBe('merge')
+  })
+  it('never overrides moved head, merge conflicts, or draft/hold gates',()=>{
+    const checked={...args,baseContainmentVerified:true}
+    expect(evaluateReadiness({...checked,expectedHeadSha:'different'}).action).toBe('stop')
+    expect(evaluateReadiness({...checked,pr:{...stalePr,mergeable:false,mergeable_state:'dirty'}}).action).toBe('blocked')
+    expect(evaluateReadiness({...checked,pr:{...stalePr,draft:true}}).action).toBe('stop')
+    expect(evaluateReadiness({...checked,currentBaseSha:''}).action).toBe('wait')
+  })
+})
+
