@@ -89,6 +89,8 @@ on:
       - 'research/evidencemotion-director/test_reading_load_audit.py'
       - 'research/evidencemotion-director/decoded_reading_load_probe.py'
       - 'research/evidencemotion-director/test_decoded_reading_load_probe.py'
+      - 'research/evidencemotion-director/fullframe_text_negative_probe.py'
+      - 'research/evidencemotion-director/test_fullframe_text_negative_probe.py'
       - 'research/evidencemotion-director/actual_pixel_text_recovery.py'
       - 'research/evidencemotion-director/test_actual_pixel_text_recovery.py'
       - 'research/evidencemotion-director/test_narrated_claim_screen.py'
@@ -111,6 +113,11 @@ jobs:
             python=3.11 montreal-forced-aligner=3.3.8
             kaldi=*=cpu* pytorch=*=cpu*
           cache-environment: true
+      - name: Reject stress-only MFA label mismatches before source download
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p test_mfa_acoustic_alignment.py -v
       - name: Restore original WAV, brief and immutable official MFA model bytes
         id: original_source_restore
         env:
@@ -1175,3 +1182,5 @@ jobs:
           sudo apt-get install -y --no-install-recommends ffmpeg tesseract-ocr fonts-dejavu-core
           python -m unittest discover -s research/evidencemotion-director -p test_decoded_reading_load_probe.py -v
           python -m py_compile research/evidencemotion-director/decoded_reading_load_probe.py
+          python -m unittest discover -s research/evidencemotion-director -p test_fullframe_text_negative_probe.py -v
+          python -m py_compile research/evidencemotion-director/fullframe_text_negative_probe.py
