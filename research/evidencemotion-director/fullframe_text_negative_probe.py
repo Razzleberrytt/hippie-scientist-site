@@ -15,6 +15,7 @@ from pathlib import Path
 
 SCHEMA = 'ths-em-lane4-fullframe-text-negative-v1'
 TOKEN = re.compile(r'[a-z0-9]+(?:-[a-z0-9]+)*')
+CRITICAL_NEGATIONS = frozenset({'not', 'no', 'never', 'without'})
 
 
 def fail(reason):
@@ -156,11 +157,15 @@ def check(movie, manifest):
             # Duplicate required words can invert a negation (e.g. NOT NOT).
             # Hold instead of treating an in-order subsequence as sufficient.
             repeated = sorted(token for token in required if observed.count(token) > 1)
-            if missing or unexpected or out_of_order or repeated:
+            # An allowed-word list is not authorization to add a new negation:
+            # even one visible NO/NOT/NEVER/WITHOUT can reverse a claim.
+            unplanned_negations = sorted((set(observed) & CRITICAL_NEGATIONS) - required)
+            if missing or unexpected or out_of_order or repeated or unplanned_negations:
                 defects.append({'frameIndex': n, 'timestampSec': round(n/30, 6),
                                 'cropSha256': sha(path), 'observedWords': observed,
                                 'missingRequiredWords': missing, 'unexpectedWords': unexpected,
                                 'repeatedRequiredWords': repeated,
+                                'unplannedNegations': unplanned_negations,
                                 'requiredWordsOutOfOrder': out_of_order})
     if sha(movie) != initial_sha or sha(manifest) != manifest_sha:
         fail('SOURCE_CHANGED_DURING_AUDIT')
