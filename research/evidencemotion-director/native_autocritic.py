@@ -220,6 +220,32 @@ def review_one_hz_hero_cadence(one_hz_frames):
 
 
 
+class _PinnedVisualCuePlan(dict):
+    """Loader-attested scene plan with exact original bytes retained for rechecking."""
+
+    def __init__(self, data, raw, expected_sha):
+        super().__init__(data)
+        self._pinned_raw = raw
+        self._pinned_sha256 = expected_sha
+
+
+def _copy_verified_pinned_visual_plan(plan, expected_sha):
+    """Reject unbound/mutated in-memory plans; analyze a private raw-byte copy."""
+    if (type(plan) is not _PinnedVisualCuePlan or
+            not isinstance(expected_sha, str) or
+            expected_sha != plan._pinned_sha256 or
+            hashlib.sha256(plan._pinned_raw).hexdigest() != expected_sha):
+        raise ValueError("VISUAL_PLAN_SOURCE_SHA_MISMATCH")
+    try:
+        detached = json.loads(plan._pinned_raw.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise ValueError("VISUAL_PLAN_SOURCE_SHA_MISMATCH") from exc
+    if detached != dict(plan):
+        raise ValueError("VISUAL_PLAN_MUTATED_AFTER_LOAD")
+    # A caller cannot mutate this detached object during FFmpeg review.
+    return detached
+
+
 def load_pinned_visual_cue_plan(path, expected_sha):
     """Read an exact, externally pinned JSON plan. PIN!=pre-render registration."""
     p = Path(path)
@@ -240,7 +266,10 @@ def load_pinned_visual_cue_plan(path, expected_sha):
             out[key] = value
         return out
     try:
-        return json.loads(raw.decode("utf-8"), object_pairs_hook=no_duplicates)
+        parsed = json.loads(raw.decode("utf-8"), object_pairs_hook=no_duplicates)
+        if not isinstance(parsed, dict):
+            raise ValueError("INVALID_VISUAL_CUE_JSON")
+        return _PinnedVisualCuePlan(parsed, raw, expected_sha)
     except (UnicodeDecodeError, json.JSONDecodeError) as exc:
         raise ValueError("INVALID_VISUAL_CUE_JSON") from exc
 
@@ -492,6 +521,8 @@ def analyze_video(path, expected_sha=None, scene_plan=None, scene_plan_sha=None)
         raise ValueError("EXACT_VIDEO_AND_PLAN_EXTERNAL_PINS_REQUIRED")
     if scene_plan is None and scene_plan_sha is not None:
         raise ValueError("VISUAL_PLAN_ORPHAN_SHA")
+    if scene_plan is not None:
+        scene_plan = _copy_verified_pinned_visual_plan(scene_plan, scene_plan_sha)
     # Previous callers without an external SHA can still run research-only
     # negative screening. They cannot claim independently pinned provenance.
     with tempfile.TemporaryDirectory(prefix="ths-em-frozen-video-") as scratch:
