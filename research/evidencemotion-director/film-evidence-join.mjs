@@ -5,6 +5,7 @@
  * No runtime import, publication action, or new evidence dataset.
  */
 import { createHash } from 'node:crypto';
+import { parseStudyIdentity } from '../../lib/study-identity-runtime.mjs';
 
 const HEX = /^[a-f0-9]{64}$/i;
 const has = (object, key) => Object.hasOwn(object, key);
@@ -15,11 +16,11 @@ const fields = new Set(['chemical_identity', 'mechanism', 'human_effect', 'safet
 // DOI-to-PMID associations remain upstream-owned: a matching shape is never
 // proof that a study actually supports the film's scientific or human claim.
 const typedStudyIdentityMatches = (canonicalId, pmid) => {
-  const typedPmid = /^pmid:(\d+)$/i.exec(canonicalId);
-  if (typedPmid) return pmid === typedPmid[1];
-  if (/^doi:10\.\d+\/\S+$/i.test(canonicalId))
+  const identity = parseStudyIdentity(canonicalId);
+  if (identity.type === 'pmid') return pmid === identity.pmid;
+  if (identity.type === 'doi')
     return pmid === null || (typeof pmid === 'string' && /^\d+$/.test(pmid));
-  // source-ref or invented/untyped identifiers are not established studies.
+  // Unverified source-ref/unknown roots are not established study identities.
   return false;
 };
 const hold = errors => ({status:'HOLD', errors:[...new Set(errors)].sort(), joins:[],

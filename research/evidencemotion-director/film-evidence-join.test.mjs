@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {inspectFilmEvidenceJoins} from './film-evidence-join.mjs';
+import {parseStudyIdentity as canonicalParser} from '../../lib/study-identity-runtime.mjs';
 
 const graph = () => ({
   schema_version:'claim-dna-1c-relationships/0.1', batch_id:'synthetic-only',
@@ -89,4 +90,11 @@ test('DOI-root numeric associated PMID stays unapproved pending independent sour
   assert.equal(r.status,'IDENTITY_LINKS_READY_FOR_EDITORIAL_REVIEW');
   assert.equal(r.scientificClaimsApproved,false);
   assert.equal(r.mayPublish,false);
+});
+
+test('the film identity gate uses the same canonical runtime parser as Claim DNA',()=>{
+  assert.equal(canonicalParser('pmid:31415926').pmid,'31415926');
+  assert.equal(canonicalParser('doi:10.1000/Example').doi,'10.1000/example');
+  assert.equal(canonicalParser('source-ref:unverified').type,'source-ref');
+  assert.equal(canonicalParser('doi:malformed').type,'unknown');
 });
