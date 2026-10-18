@@ -1,6 +1,14 @@
 # Current Sprint
 
 **Status:** Authoritative immediate execution queue
+
+### EvidenceMotion #6743 — current reconciled research-only evidence (2026-10-18; PR #6912 IN REVIEW)
+
+**Do not use the old additive 875/1,590 as completed, audited or even distinct provisional stages.** Historic ledger nominal `707 inherited provisional + 168 raw machine-research claims = 875` includes **54 inherited/machine overlaps and one orphan `EM-006.04.N`**. Current source-reconciled distinct provisional mapping is **820/1,590 (51.57%)**; **167/1,590 (10.50%)** individual canonical stages have source-validated *machine-research* evidence, and **770/1,590** have neither class. The 707 inherited are not separately audited; there is **no verified count of fully accepted production workcards**. Source snapshot in [#6912](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6912), derived from the frozen atomic inventory and existing receipts; PR must merge via the protected controller and fresh exact-head checks before calling this readout shipped.
+
+**Lane 5 Operations:** 0/351 individually ledger-audited and 92/351 inherited/provisionally mapped in this frozen dataset—NOT zero merged engineering systems and NOT 92 finished cards. Research-only; first excellent film **0/1**, five varied excellent first renders **0/5**, `mayPublish=false`. Actual source-bound film/phone plan/voice/science/craft/iPhone release gates remain HOLD. The earlier 740/754/768 and raw-additive milestones below are **dated historical observations, not today's current metric**. This tracker correction adds **no D/R/A implementation admission, WIP, quality acceptance, publishing or revenue proof**.
+
+
 **Sprint:** Governed Distribution MVP + Measurement Foundation
 **Updated:** 2026-10-16 (retire verified merged D #6685; no new admission)
 **Current control reconciliation — 2026-10-16:** D #6685 was implemented by PR #6706, merged 2026-10-12 as `9ab23731835362718a42c6b0258f2ff778da4343`. Its hosted validation/tests/data, generator release suite and production build/output/SEO checks passed. On current main, `node scripts/ci/validate-ai-citation-protected-assets.mjs` passes with 25 protected source owners and zero unresolved URLs. Retire this completed owner; normal implementation WIP is 2/3 (A #6769 and R #6810), with D free. Older admission/count prose below is historical. This control-only correction grants no new admission, changes no repository behavior and claims no traffic, citation or revenue improvement.
