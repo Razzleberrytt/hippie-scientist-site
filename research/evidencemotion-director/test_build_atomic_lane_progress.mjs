@@ -97,3 +97,61 @@ test("pull-request workflow covers every claimed root-level proof receipt and re
   assert.equal(summary.includes(String.fromCharCode(92,92,110)),false,
     "Python must emit newline escapes rather than literal backslash-n text");
 });
+
+test("accounting step uses the same real discrepancy rule for HOLD and resolved ledgers",()=>{
+  const workflow=fs.readFileSync(path.resolve(root,"../../.github/workflows/evidencemotion-progress-readout.yml"),"utf8");
+  const step=workflow.split("      - name: Append exact five-lane stage evidence percentages")[1]
+    ?.split("      - name: Read GitHub merged PRs into a fresh, time-stamped receipt")[0]||"";
+  const block=step.split("          python - <<'PY'\\n")[1]?.split("\\n          PY")[0];
+  assert.ok(block,"Accounting Python block missing");
+  const script=block.split("\\n").map(line=>line.replace(/^          /,"")).join("\\n");
+  withFixture(tmp=>{
+    const relative=path.join("research","evidencemotion-director","ATOMIC-LANE-PROGRESS.json");
+    const dest=path.join(tmp,relative);
+    fs.mkdirSync(path.dirname(dest),{recursive:true});
+    const original=JSON.parse(fs.readFileSync(path.join(root,"ATOMIC-LANE-PROGRESS.json"),"utf8"));
+    for(const resolved of [false,true]){
+      const input=structuredClone(original);
+      if(resolved){
+        input.global.orphanCards=[];
+        input.global.overlap=0;
+        input.global.inflation=0;
+      }
+      fs.writeFileSync(dest,JSON.stringify(input));
+      const summary=path.join(tmp,"summary-"+resolved+".md");
+      const result=spawnSync("python3",["-c",script],{
+        cwd:tmp,encoding:"utf8",timeout:12000,
+        env:{...process.env,GITHUB_STEP_SUMMARY:summary}});
+      assert.equal(result.status,0,result.stderr);
+      const output=fs.readFileSync(summary,"utf8");
+      if(resolved){
+        assert.match(output,/Distinct mapping reconciled \\(research-only\\)/);
+        assert.doesNotMatch(output,/\\*\\*Arithmetic HOLD:/);
+      }else{
+        assert.match(output,/\\*\\*Arithmetic HOLD:/);
+      }
+    }
+  });
+});
+test("evidence artifact physically includes byte-identical reconciled card inventory",()=>{
+  const workflow=fs.readFileSync(path.resolve(root,"../../.github/workflows/evidencemotion-progress-readout.yml"),"utf8");
+  const section=workflow.split("      - name: Preserve corrected 1590-card inventory alongside GitHub events")[1]
+    ?.split("      - name: Preserve both snapshot and reviewed accounting")[0]||"";
+  assert.ok(section.includes("atomic-lane-progress-reconciled.json"),
+    "Artifact copy step missing");
+  assert.match(workflow,/path: \\$\\{\\{ runner\\.temp \\$?\\}\\}\\/em-progress\\//);
+  const script=section.split("        run: |\\n")[1]?.split("\\n").filter(line=>line.trim())
+    .map(line=>line.replace(/^          /,"")).join("\\n");
+  assert.ok(script,"Artifact copy command missing");
+  withFixture(tmp=>{
+    const source=path.join(tmp,"research/evidencemotion-director/ATOMIC-LANE-PROGRESS.json");
+    fs.mkdirSync(path.dirname(source),{recursive:true});
+    fs.copyFileSync(path.join(root,"ATOMIC-LANE-PROGRESS.json"),source);
+    fs.mkdirSync(path.join(tmp,"em-progress"),{recursive:true});
+    const result=spawnSync("bash",["-c",script],{cwd:tmp,encoding:"utf8",timeout:12000,
+      env:{...process.env,RUNNER_TEMP:tmp}});
+    assert.equal(result.status,0,result.stderr);
+    assert.deepEqual(fs.readFileSync(path.join(tmp,"em-progress/atomic-lane-progress-reconciled.json")),
+      fs.readFileSync(source));
+  });
+});
