@@ -163,7 +163,7 @@ class CueFocusNegativeTests(unittest.TestCase):
             def swapped_srt(source,limit):
                 raw=original(source,limit)
                 if Path(source)==SRT:
-                    return raw.replace(b'FORM',b'F0RM',1)
+                    return raw.replace(b'Taking',b'Faking',1)
                 return raw
             with patch.object(guard,'read_bounded_bytes',side_effect=swapped_srt):
                 with self.assertRaisesRegex(guard.FocusHold,'PINNED_FILM_OR_SRT_BYTES_CHANGED'):
