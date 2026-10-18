@@ -219,6 +219,231 @@ class AutonomousFilmCriticTests(unittest.TestCase):
                           verdict["reviewCandidates"])
             self.assertFalse(verdict["automaticallyApprovedPremiumCraft"])
             self.assertFalse(verdict["mayPublish"])
+            # No legacy hard-negative existed for this moving-chrome/still-hero
+            # film. When a source-locked visual action was PROMISED, it must
+            # graduate from an advisory to the root negative revision verdict.
+            import json
+            import hashlib
+            pinned_plan = root / "cue-plan.json"
+            plan = {"schemaVersion":"ths-em-visual-cue-plan-research-v1",
+                    "sourceManifestSha256":"a"*64,
+                    "lockedNarrationWavSha256":"b"*64,
+                    "scenes":[{"beatId":"hero-1","startSec":0,"endSec":18,
+                               "lockedNarrationWavSha256":"b"*64,
+                               "sourceClaimIds":["claim-1"],
+                               "sourceAssetIds":["source-1"],
+                               "heroBox":{"x1":.32,"y1":.28,"x2":.68,"y2":.6},
+                               "actions":[{"atSec":6.0,"visualVerb":"REVEAL",
+                                          "heroObjectId":"source-hero",
+                                          "beforeStateId":"closed",
+                                          "afterStateId":"revealed"}]}]}
+            pinned_plan.write_text(json.dumps(plan,sort_keys=True))
+            plan_sha=hashlib.sha256(pinned_plan.read_bytes()).hexdigest()
+            valid=m.load_pinned_visual_cue_plan(pinned_plan,plan_sha)
+            negative=m.analyze_video(clip,pinned,valid,plan_sha)
+            self.assertIn("DECODED_HERO_VISUAL_VERB_NOT_OBSERVABLE",
+                          negative["issues"])
+            self.assertEqual(negative["decision"],"AUTO_REVISE")
+            self.assertEqual(negative["actualVideoSha256"],pinned)
+            self.assertFalse(negative["mayPublish"])
+
+    def test_source_locked_cue_checks_real_4hz_subject_not_moving_chrome(self):
+        from PIL import Image, ImageDraw
+        import json
+        import hashlib
+        plan = {
+            "schemaVersion":"ths-em-visual-cue-plan-research-v1",
+            "sourceManifestSha256":"a"*64,
+            "lockedNarrationWavSha256":"b"*64,
+            "scenes":[{
+                "beatId":"beat-1", "startSec":0, "endSec":12,
+                "lockedNarrationWavSha256":"b"*64,
+                "sourceClaimIds":["claim-1"],"sourceAssetIds":["source-1"],
+                "heroBox":{"x1":.25,"y1":.25,"x2":.72,"y2":.65},
+                "actions":[{"atSec":5.0,"visualVerb":"REVEAL",
+                            "heroObjectId":"physical-hero",
+                            "beforeStateId":"state-1","afterStateId":"state-2"}]
+            }]
+        }
+        def create_frames(move_hero):
+            generated=[]
+            for i in range(48):
+                im=Image.new("L", (180,320), 14)
+                d=ImageDraw.Draw(im)
+                x=70+(23 if move_hero and i>=20 else 0)
+                d.rounded_rectangle((x,95,x+42,145),radius=8,fill=210,outline=245,width=3)
+                # Vary OUTSIDE the declared hero and inside the broad screen body.
+                d.rectangle((8,44+i%21,35,49+i%21),fill=180)
+                generated.append(np.asarray(im).copy())
+            return np.asarray(generated)
+        unchanged=m.review_actual_visual_action_cues(create_frames(False),plan)
+        self.assertEqual(unchanged["decision"],"CRAFT_HOLD_SCENE_CUES")
+        self.assertEqual(unchanged["unobservedOrUnreviewable"][0]["reason"],
+                         "DECLARED_HERO_ACTION_NOT_OBSERVABLE")
+        changed=m.review_actual_visual_action_cues(create_frames(True),plan)
+        self.assertEqual(changed["decision"],
+                         "PIXEL_CHANGE_PROXY_ONLY_NEEDS_SEMANTIC_CRAFT_REVIEW")
+        self.assertEqual(len(changed["observedPixelChangesNotApproved"]),1)
+        self.assertFalse(changed["semanticAnimationVerified"])
+        self.assertFalse(changed["mayPublish"])
+        if not shutil.which("ffmpeg") or not shutil.which("ffprobe"):
+            self.skipTest("ffmpeg required for actual H264 coverage")
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)
+            for i, image in enumerate(create_frames(False)):
+                Image.fromarray(image).save(root/f"frame-{i:03d}.png")
+            clip=root/"static-source-animated-chrome.mp4"
+            subprocess.run(["ffmpeg","-hide_banner","-loglevel","error","-nostdin",
+                            "-framerate","4","-i",str(root/"frame-%03d.png"),
+                            "-c:v","libx264","-pix_fmt","yuv420p","-y",str(clip)],
+                           check=True,capture_output=True,timeout=40)
+            locked=root/"cue-plan.json"
+            locked.write_text(json.dumps(plan,sort_keys=True))
+            pinned_plan=hashlib.sha256(locked.read_bytes()).hexdigest()
+            validated=m.load_pinned_visual_cue_plan(locked,pinned_plan)
+            movie=m.analyze_video(clip,m.sha256(clip),validated,pinned_plan)
+            audit=movie["renderedVisualCueReview"]
+            self.assertEqual(audit["decision"],"CRAFT_HOLD_SCENE_CUES")
+            # A nested JSON alert without a root arbiter verdict was silently
+            # skippable. The real encoded-film negative must force revision.
+            self.assertIn("DECODED_HERO_VISUAL_VERB_NOT_OBSERVABLE",movie["issues"])
+            self.assertEqual(movie["decision"],"AUTO_REVISE")
+            self.assertEqual(audit["videoSha256"],m.sha256(clip))
+            self.assertEqual(audit["scenePlanSha256"],pinned_plan)
+            self.assertFalse(movie["mayPublish"])
+            # The in-memory-library entry cannot attach any old source SHA
+            # to an arbitrary dict or to a loader result changed afterward.
+            with self.assertRaisesRegex(ValueError, "VISUAL_PLAN_SOURCE_SHA_MISMATCH"):
+                m.analyze_video(clip,m.sha256(clip),dict(validated),pinned_plan)
+            with self.assertRaisesRegex(ValueError, "VISUAL_PLAN_SOURCE_SHA_MISMATCH"):
+                m.analyze_video(clip,m.sha256(clip),validated,"f"*64)
+            validated["scenes"][0]["actions"][0]["visualVerb"]="TRACE"
+            with self.assertRaisesRegex(ValueError, "VISUAL_PLAN_MUTATED_AFTER_LOAD"):
+                m.analyze_video(clip,m.sha256(clip),validated,pinned_plan)
+            with self.assertRaisesRegex(ValueError,"VISUAL_PLAN_SOURCE_SHA_MISMATCH"):
+                m.load_pinned_visual_cue_plan(locked,"f"*64)
+            with self.assertRaisesRegex(ValueError,"EXACT_VIDEO_AND_PLAN_EXTERNAL_PINS_REQUIRED"):
+                m.analyze_video(clip,None,validated,pinned_plan)
+
+    def test_visual_cue_rejects_fake_actions_unbounded_rois_and_missing_held_sources(self):
+        frame=np.full((48,320,180),12,dtype=np.uint8)
+        plan={"schemaVersion":"ths-em-visual-cue-plan-research-v1",
+              "sourceManifestSha256":"a"*64,"lockedNarrationWavSha256":"b"*64,
+              "scenes":[{"beatId":"beat-1","startSec":0,"endSec":12,
+                         "lockedNarrationWavSha256":"b"*64,
+                         "sourceClaimIds":["claim-1"],"sourceAssetIds":["source-1"],
+                         "heroBox":{"x1":.2,"y1":.2,"x2":.72,"y2":.6},
+                         "actions":[{"atSec":5,"visualVerb":"PARTICLES_ONLY",
+                                     "heroObjectId":"hero-1",
+                                     "beforeStateId":"before","afterStateId":"after"}]}]}
+        with self.assertRaisesRegex(ValueError,"MISSING_OR_DECORATIVE_VISUAL_VERB"):
+            m.review_actual_visual_action_cues(frame,plan)
+        plan["scenes"][0]["actions"][0]["visualVerb"]="TRACE"
+        plan["scenes"][0]["sourceClaimIds"]=["claim-1","claim-1"]
+        with self.assertRaisesRegex(ValueError,"UNBOUND_OR_UNSAFE_HERO_REGION_OR_SCENE_TIMELINE"):
+            m.review_actual_visual_action_cues(frame,plan)
+        plan["scenes"][0]["sourceClaimIds"]=["claim-1"]
+        plan["scenes"][0]["sourceAssetIds"]=["source-1","source-1"]
+        with self.assertRaisesRegex(ValueError,"UNBOUND_OR_UNSAFE_HERO_REGION_OR_SCENE_TIMELINE"):
+            m.review_actual_visual_action_cues(frame,plan)
+        plan["scenes"][0]["sourceAssetIds"]=["source-1"]
+        plan["scenes"][0]["staticHold"]={"kind":"SOURCE_EVIDENCE_READ",
+                                          "sourceId":"source-1",
+                                          "reason":"Read the actual primary source"}
+        with self.assertRaisesRegex(ValueError,"ACTION_AND_SOURCE_READ_HOLD_MUTUALLY_EXCLUSIVE"):
+            m.review_actual_visual_action_cues(frame,plan)
+        del plan["scenes"][0]["staticHold"]
+        plan["scenes"][0]["heroBox"]["x2"]=.99
+        with self.assertRaisesRegex(ValueError,"UNBOUND_OR_UNSAFE_HERO_REGION_OR_SCENE_TIMELINE"):
+            m.review_actual_visual_action_cues(frame,plan)
+        plan["scenes"][0]["heroBox"]["x2"]=.72
+        plan["scenes"][0]["actions"]=[]
+        with self.assertRaisesRegex(ValueError,"ACTIONLESS_SCENE_WITHOUT_SOURCE_READ_HOLD"):
+            m.review_actual_visual_action_cues(frame,plan)
+        # A fabricated 'staticHold':{} used to hide a whole failed lesson.
+        plan["scenes"][0]["staticHold"]={}
+        with self.assertRaisesRegex(ValueError,"UNJUSTIFIED_STATIC_SOURCE_READ_HOLD"):
+            m.review_actual_visual_action_cues(frame,plan)
+        plan["scenes"][0]["staticHold"]={
+            "kind":"SOURCE_EVIDENCE_READ","sourceId":"invented-source",
+            "reason":"Read the exact cited paper footer"}
+        with self.assertRaisesRegex(ValueError,"UNJUSTIFIED_STATIC_SOURCE_READ_HOLD"):
+            m.review_actual_visual_action_cues(frame,plan)
+        # Even a perfectly declared source read cannot replace the entire film.
+        plan["scenes"][0]["staticHold"]["sourceId"]="source-1"
+        plan["scenes"][0]["endSec"]=3
+        with self.assertRaisesRegex(ValueError,"VISUAL_SCENES_DO_NOT_COVER_ACTUAL_DECODE"):
+            m.review_actual_visual_action_cues(frame,plan)
+        plan["scenes"][0]["endSec"]=12
+        with self.assertRaisesRegex(ValueError,"VISUAL_CUE_UNBOUNDED_SOURCE_READ_HOLD"):
+            m.review_actual_visual_action_cues(frame,plan)
+
+    def test_valid_bounded_source_hold_does_not_hide_an_unobserved_action(self):
+        from PIL import Image,ImageDraw
+        frames=[]
+        for i in range(48):
+            im=Image.new("L",(180,320),13)
+            d=ImageDraw.Draw(im)
+            d.rectangle((74,99,116,146),fill=221)
+            frames.append(np.asarray(im).copy())
+        plan={"schemaVersion":"ths-em-visual-cue-plan-research-v1",
+              "sourceManifestSha256":"a"*64,"lockedNarrationWavSha256":"b"*64,
+              "scenes":[
+                {"beatId":"evidence-1","startSec":0,"endSec":2,
+                 "lockedNarrationWavSha256":"b"*64,
+                 "sourceClaimIds":["claim-1"],"sourceAssetIds":["source-1"],
+                 "heroBox":{"x1":.25,"y1":.25,"x2":.72,"y2":.65},
+                 "actions":[],"staticHold":{"kind":"SOURCE_EVIDENCE_READ",
+                 "sourceId":"source-1","reason":"Read the exact source evidence"}},
+                {"beatId":"scene-2","startSec":2,"endSec":12,
+                 "lockedNarrationWavSha256":"b"*64,
+                 "sourceClaimIds":["claim-1"],"sourceAssetIds":["source-1"],
+                 "heroBox":{"x1":.25,"y1":.25,"x2":.72,"y2":.65},
+                 "actions":[{"atSec":6,"visualVerb":"TRACE",
+                  "heroObjectId":"physical-hero","beforeStateId":"initial",
+                  "afterStateId":"changed"}]}]}
+        verdict=m.review_actual_visual_action_cues(np.asarray(frames),plan)
+        self.assertEqual(verdict["declaredActionsExamined"],1)
+        self.assertEqual(verdict["decision"],"CRAFT_HOLD_SCENE_CUES")
+        self.assertIn("DECLARED_HERO_ACTION_NOT_OBSERVABLE",
+                      [f["reason"] for f in verdict["unobservedOrUnreviewable"]])
+        self.assertFalse(verdict["mayPublish"])
+
+    def test_one_hz_center_cadence_detects_three_seconds_despite_kinetic_chrome(self):
+        frames = _center_static_peripheral_kinetic_frames()
+        report = m.review_one_hz_hero_cadence(frames)
+        self.assertEqual(report["stagnationWindows"],
+                         [{"startSec":0,"endSec":8,"stagnantSecondsAtOneHz":8,
+                           "severity":"REVISE_CANDIDATE"}])
+        self.assertEqual(report["creativeScreenVerdict"], "CRAFT_HOLD")
+        self.assertFalse(report["automaticallyApprovedArt"])
+        self.assertFalse(report["sceneSpecificHeroAndMeaningVerified"])
+
+    def test_one_hz_center_cadence_three_second_floor_and_real_hero_motion(self):
+        from PIL import Image, ImageDraw
+        frames = []
+        for i in range(9):
+            image = Image.new("L", (180, 320), 12)
+            draw = ImageDraw.Draw(image)
+            x = 69 if i <= 3 else 69 + (i-3)*8
+            draw.rounded_rectangle((x,105,x+30,147), radius=5,
+                                   fill=215, outline=245, width=3)
+            frames.append(np.asarray(image).copy())
+        report = m.review_one_hz_hero_cadence(np.asarray(frames))
+        self.assertEqual(report["stagnationWindows"][0]["startSec"], 0)
+        self.assertEqual(report["stagnationWindows"][0]["endSec"], 3)
+        self.assertEqual(report["stagnationWindows"][0]["severity"],
+                         "CRAFT_HOLD_CANDIDATE")
+        self.assertFalse(any(x["startSec"]>=3 for x in report["stagnationWindows"]))
+
+    def test_one_hz_center_cadence_blank_or_invalid_cannot_certify_craft(self):
+        empty = m.review_one_hz_hero_cadence(np.zeros((9,320,180),dtype=np.uint8))
+        self.assertEqual(empty["visibleCenterHeroSamples"],0)
+        self.assertEqual(empty["creativeScreenVerdict"],
+                         "NO_NEGATIVE_FOUND_NOT_CRAFT_PASS")
+        self.assertFalse(empty["automaticallyApprovedArt"])
+        with self.assertRaisesRegex(ValueError,"ACTUAL_ONE_HZ_HERO_SAMPLES_REQUIRED"):
+            m.review_one_hz_hero_cadence(np.zeros((2,320,180),dtype=np.uint8))
 
     def test_interleaved_blank_phase_probe_is_negative_only(self):
         from PIL import Image, ImageDraw
@@ -266,6 +491,51 @@ class AutonomousFilmCriticTests(unittest.TestCase):
                               "blankSamples": 8, "blankPhase": 1})
             self.assertFalse(report["mayPublish"])
             self.assertFalse(report["automaticallyApprovedPremiumCraft"])
+
+    def test_actual_input_swap_between_source_pin_and_decoders_uses_frozen_bytes(self):
+        """Real black/white H264 swap: every decoded pixel comes from the first pin."""
+        if not shutil.which("ffmpeg") or not shutil.which("ffprobe"):
+            self.skipTest("FFmpeg required")
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)
+            source=root/"mutable.mp4"
+            swapped=root/"replacement.mp4"
+            for clip,color in ((source,"black"),(swapped,"white")):
+                subprocess.run(["ffmpeg","-hide_banner","-loglevel","error",
+                                "-nostdin","-f","lavfi","-i",
+                                f"color=c={color}:s=180x320:r=12:d=14",
+                                "-c:v","libx264","-pix_fmt","yuv420p",
+                                "-y",str(clip)],check=True,capture_output=True,timeout=40)
+            original_sha=m.sha256(source)
+            replacement_bytes=swapped.read_bytes()
+            replacement_sha=m.sha256(swapped)
+            self.assertNotEqual(original_sha,replacement_sha)
+            original_helper=m._analyze_frozen_video
+
+            def swap_before_any_decode(frozen, pinned, *extra_args):
+                # This hook fires AFTER snapshot SHA identity is established,
+                # but BEFORE ffprobe and both FFmpeg frame-sampling passes.
+                self.assertNotEqual(Path(frozen),source)
+                self.assertEqual(m.sha256(frozen),original_sha)
+                source.write_bytes(replacement_bytes)
+                return original_helper(frozen,pinned,*extra_args)
+
+            with patch.object(m,"_analyze_frozen_video",side_effect=swap_before_any_decode):
+                result=m.analyze_video(source,original_sha)
+            self.assertEqual(m.sha256(source),replacement_sha)
+            self.assertEqual(result["actualVideoSha256"],original_sha)
+            self.assertEqual(result["decision"],"AUTO_REVISE")
+            self.assertFalse(result["mayPublish"])
+            # No source swapping can manufacture the original pin from new
+            # content in a *new invocation*.
+            with self.assertRaisesRegex(ValueError,"VIDEO_IDENTITY_CHANGED"):
+                m.analyze_video(source,original_sha)
+
+    def test_unpinned_visual_cue_cannot_promote_internal_snapshot_hash(self):
+        plan={"schemaVersion":"ths-em-visual-cue-plan-research-v1","scenes":[]}
+        with self.assertRaisesRegex(ValueError,"EXACT_VIDEO_AND_PLAN_EXTERNAL_PINS_REQUIRED"):
+            m.analyze_video("absent.mp4",scene_plan=plan,scene_plan_sha="f"*64)
 
     def test_real_decode_pins_sha_and_blocks_static_mp4(self):
         if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
