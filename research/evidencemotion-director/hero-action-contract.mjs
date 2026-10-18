@@ -53,6 +53,10 @@ const VISUAL_VERBS = new Set([
   ...meaningful, 'REVEAL', 'TRACE', 'COMPARE_ACTIVE',
   'FOCUS_TO_NEW_EVIDENCE', 'TRANSFORM_SOURCE_BOUND'
 ])
+const HERO_ROI = b => b && typeof b === 'object' &&
+  ['x1','y1','x2','y2'].every(k => finite(b[k])) &&
+  b.x1 >= 0.04 && b.x2 <= 0.82 && b.y1 >= 0.11 && b.y2 <= 0.78 &&
+  b.x2 - b.x1 >= 0.1 && b.y2 - b.y1 >= 0.1
 const MAX_ACTION_GAP_SEC = 3
 const MAX_SOURCE_HOLD_SEC = 3.2
 const TIME_EPS = 0.005
@@ -90,6 +94,9 @@ export function inspectSceneVisualVerbPlan(plan) {
       add('SCENE_SOURCE_OR_VOICE_IDENTITY_MISSING')
       continue
     }
+    // The decoder needs a bounded, source-authored hero ROI instead of a
+    // guess that all teaching objects are exactly screen-centered.
+    if (!HERO_ROI(scene.heroBox)) add('MISSING_OR_UNSAFE_SCENE_HERO_ROI')
     if (scene.staticHold) {
       const h=scene.staticHold
       if (scene.actions?.length || h.kind !== 'SOURCE_EVIDENCE_READ' ||
