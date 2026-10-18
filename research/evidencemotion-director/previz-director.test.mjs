@@ -280,7 +280,42 @@ test('missing scientific claim identity cannot be mistaken for matching teaching
     scientificAssetIds:['asset:source']
   }));
   const r=auditShotRepetition(shots);
-  assert.equal(r.status,'SEQUENCE_REVIEW_REQUIRED');
+  assert.equal(r.status,'HOLD');
+  assert.ok(r.errors.includes('UNBOUND_SHOT_LESSON_OR_CLAIM'));
   assert.equal(r.findings.length,0);
-  assert.equal(r.mayPublish,false);
+  assert.equal(r.excellentCertified,false);
+});
+
+test('scene missing a meaningful lesson or valid evidence identity fails closed',()=>{
+  for(const change of [
+    {viewerLearns:''},{viewerLearns:'   '},{viewerLearns:undefined},
+    {sourceClaimIds:[]},{sourceClaimIds:undefined},
+    {sourceClaimIds:['claim:verified','claim:verified']},
+    {sourceClaimIds:[' claim:verified']},{sourceClaimIds:['claim:verified ']}
+  ]){
+    const shots=[stagedShot(0),stagedShot(1,change),stagedShot(2)];
+    const r=auditShotRepetition(shots);
+    assert.equal(r.status,'HOLD',JSON.stringify(change));
+    assert.ok(r.errors.includes('UNBOUND_SHOT_LESSON_OR_CLAIM'));
+    assert.equal(r.excellentCertified,false);
+  }
+});
+
+test('overlapping, shuffled or negative shot timeline cannot masquerade as adjacent visual progress',()=>{
+  for(const shots of [
+    [stagedShot(0),stagedShot(1,{startSec:1.99}),stagedShot(2)],
+    [stagedShot(1),stagedShot(0),stagedShot(2)],
+    [stagedShot(0,{startSec:-0.1}),stagedShot(1)],
+    [stagedShot(0),stagedShot(1,{startSec:0.5,endSec:1.5})]
+  ]){
+    const r=auditShotRepetition(shots);
+    assert.equal(r.status,'HOLD');
+    assert.ok(r.errors.includes('OUT_OF_ORDER_OR_OVERLAPPING_SHOTS'));
+    assert.equal(r.craftRemediationRequired,true);
+    assert.equal(r.excellentCertified,false);
+  }
+  // An intentional silent interlude is not falsely categorized as overlap.
+  const gap=auditShotRepetition([stagedShot(0),stagedShot(1,{startSec:2.5,endSec:4.5})]);
+  assert.equal(gap.status,'SEQUENCE_REVIEW_REQUIRED');
+  assert.equal(gap.excellentCertified,false);
 });
