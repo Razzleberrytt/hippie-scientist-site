@@ -94,6 +94,34 @@ def preserves_required_order(observed, required):
     return all(any(token == expected for token in stream) for expected in required)
 
 
+def reject_display_transform_metadata(streams, frames):
+    """Fail closed when playback would transform native ffprobe crop coordinates.
+
+    -noautorotate correctly inspects encoded pixels, but a real player may
+    honor a container display matrix or rotate tag and show other geometry.
+    Even zero-degree matrices can encode flips/translations, so any declared
+    display transform requires a separately reviewed native render.
+    """
+    for item in [*streams, *frames]:
+        if not isinstance(item, dict):
+            fail('AMBIGUOUS_DISPLAY_TRANSFORM_METADATA')
+        tags = item.get('tags') or {}
+        if not isinstance(tags, dict):
+            fail('AMBIGUOUS_DISPLAY_TRANSFORM_METADATA')
+        if any(str(key).casefold() == 'rotate' for key in tags):
+            fail('DISPLAY_TRANSFORM_METADATA_PRESENT')
+        side_data = item.get('side_data_list', [])
+        if not isinstance(side_data, list):
+            fail('AMBIGUOUS_DISPLAY_TRANSFORM_METADATA')
+        for entry in side_data:
+            if not isinstance(entry, dict):
+                fail('AMBIGUOUS_DISPLAY_TRANSFORM_METADATA')
+            kind = str(entry.get('side_data_type', '')).casefold()
+            if ('rotation' in entry or 'displaymatrix' in entry or
+                    'display matrix' in kind or 'displaymatrix' in kind):
+                fail('DISPLAY_TRANSFORM_METADATA_PRESENT')
+
+
 def check(movie, manifest):
     movie, manifest = Path(movie), Path(manifest)
     if movie.resolve() == manifest.resolve():
@@ -125,7 +153,7 @@ def check(movie, manifest):
         # ffprobe reports *all actual decoded frame PTS*, not header frame rate alone.
         probe = json.loads(command(['ffprobe', '-v', 'error', '-select_streams', 'v:0',
             '-show_streams', '-show_frames', '-show_entries',
-            'stream=codec_name,width,height,r_frame_rate,sample_aspect_ratio:frame=pts_time,best_effort_timestamp_time',
+            'stream=codec_name,width,height,r_frame_rate,sample_aspect_ratio:stream_tags=rotate:stream_side_data=rotation,displaymatrix,side_data_type:frame=pts_time,best_effort_timestamp_time:frame_side_data=rotation,displaymatrix,side_data_type',
             '-of', 'json', str(frozen)]))
         streams, frames = probe.get('streams', []), probe.get('frames', [])
         if (len(streams) != 1 or streams[0].get('codec_name') != 'h264' or
@@ -134,6 +162,7 @@ def check(movie, manifest):
             streams[0].get('sample_aspect_ratio') != '1:1' or
             not 12 <= len(frames) <= 1800):
             fail('NATIVE_H264_1080X1920_30FPS_SQUARE_PIXEL_REQUIRED')
+        reject_display_transform_metadata(streams, frames)
         for index, frame in enumerate(frames):
             try:
                 pts = float(frame['pts_time'])
