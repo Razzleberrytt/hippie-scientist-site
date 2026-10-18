@@ -277,6 +277,10 @@ class AutonomousFilmCriticTests(unittest.TestCase):
             movie=m.analyze_video(clip,m.sha256(clip),validated,pinned_plan)
             audit=movie["renderedVisualCueReview"]
             self.assertEqual(audit["decision"],"CRAFT_HOLD_SCENE_CUES")
+            # A nested JSON alert without a root arbiter verdict was silently
+            # skippable. The real encoded-film negative must force revision.
+            self.assertIn("DECODED_HERO_VISUAL_VERB_NOT_OBSERVABLE",movie["issues"])
+            self.assertEqual(movie["decision"],"AUTO_REVISE")
             self.assertEqual(audit["videoSha256"],m.sha256(clip))
             self.assertEqual(audit["scenePlanSha256"],pinned_plan)
             self.assertFalse(movie["mayPublish"])
@@ -306,6 +310,54 @@ class AutonomousFilmCriticTests(unittest.TestCase):
         plan["scenes"][0]["actions"]=[]
         with self.assertRaisesRegex(ValueError,"ACTIONLESS_SCENE_WITHOUT_SOURCE_READ_HOLD"):
             m.review_actual_visual_action_cues(frame,plan)
+        # A fabricated 'staticHold':{} used to hide a whole failed lesson.
+        plan["scenes"][0]["staticHold"]={}
+        with self.assertRaisesRegex(ValueError,"UNJUSTIFIED_STATIC_SOURCE_READ_HOLD"):
+            m.review_actual_visual_action_cues(frame,plan)
+        plan["scenes"][0]["staticHold"]={
+            "kind":"SOURCE_EVIDENCE_READ","sourceId":"invented-source",
+            "reason":"Read the exact cited paper footer"}
+        with self.assertRaisesRegex(ValueError,"UNJUSTIFIED_STATIC_SOURCE_READ_HOLD"):
+            m.review_actual_visual_action_cues(frame,plan)
+        # Even a perfectly declared source read cannot replace the entire film.
+        plan["scenes"][0]["staticHold"]["sourceId"]="source-1"
+        plan["scenes"][0]["endSec"]=3
+        with self.assertRaisesRegex(ValueError,"VISUAL_SCENES_DO_NOT_COVER_ACTUAL_DECODE"):
+            m.review_actual_visual_action_cues(frame,plan)
+        plan["scenes"][0]["endSec"]=12
+        with self.assertRaisesRegex(ValueError,"VISUAL_CUE_UNBOUNDED_SOURCE_READ_HOLD"):
+            m.review_actual_visual_action_cues(frame,plan)
+
+    def test_valid_bounded_source_hold_does_not_hide_an_unobserved_action(self):
+        from PIL import Image,ImageDraw
+        frames=[]
+        for i in range(48):
+            im=Image.new("L",(180,320),13)
+            d=ImageDraw.Draw(im)
+            d.rectangle((74,99,116,146),fill=221)
+            frames.append(np.asarray(im).copy())
+        plan={"schemaVersion":"ths-em-visual-cue-plan-research-v1",
+              "sourceManifestSha256":"a"*64,"lockedNarrationWavSha256":"b"*64,
+              "scenes":[
+                {"beatId":"evidence-1","startSec":0,"endSec":2,
+                 "lockedNarrationWavSha256":"b"*64,
+                 "sourceClaimIds":["claim-1"],"sourceAssetIds":["source-1"],
+                 "heroBox":{"x1":.25,"y1":.25,"x2":.72,"y2":.65},
+                 "actions":[],"staticHold":{"kind":"SOURCE_EVIDENCE_READ",
+                 "sourceId":"source-1","reason":"Read the exact source evidence"}},
+                {"beatId":"scene-2","startSec":2,"endSec":12,
+                 "lockedNarrationWavSha256":"b"*64,
+                 "sourceClaimIds":["claim-1"],"sourceAssetIds":["source-1"],
+                 "heroBox":{"x1":.25,"y1":.25,"x2":.72,"y2":.65},
+                 "actions":[{"atSec":6,"visualVerb":"TRACE",
+                  "heroObjectId":"physical-hero","beforeStateId":"initial",
+                  "afterStateId":"changed"}]}]}
+        verdict=m.review_actual_visual_action_cues(np.asarray(frames),plan)
+        self.assertEqual(verdict["declaredActionsExamined"],1)
+        self.assertEqual(verdict["decision"],"CRAFT_HOLD_SCENE_CUES")
+        self.assertIn("DECLARED_HERO_ACTION_NOT_OBSERVABLE",
+                      [f["reason"] for f in verdict["unobservedOrUnreviewable"]])
+        self.assertFalse(verdict["mayPublish"])
 
     def test_one_hz_center_cadence_detects_three_seconds_despite_kinetic_chrome(self):
         frames = _center_static_peripheral_kinetic_frames()
