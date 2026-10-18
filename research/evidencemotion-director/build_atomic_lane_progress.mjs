@@ -28,7 +28,7 @@ const buildReport=function buildReport(input) {
   ];
   for(let i=0;i<atomicFiles.length;i++){
     const doc=atomicFiles[i];
-    const gitBlob=createHash("sha1").update("blob "+Buffer.byteLength(doc,"utf8")+"\\0","utf8")
+    const gitBlob=createHash("sha1").update("blob "+Buffer.byteLength(doc,"utf8")+"\0","utf8")
       .update(doc,"utf8").digest("hex");
     if(gitBlob!==atomicBlobs[i]) throw Error("ATOMIC_STAGE_DEFINITION_DRIFT_HOLD:"+sources[i]);
   }
