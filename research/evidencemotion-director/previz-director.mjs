@@ -75,7 +75,8 @@ export function proposeShots(beat,{previousGrammar=null,previousCamera=null}={})
  */
 export function auditShotRepetition(shots){
   const refusal=code=>({status:'HOLD',errors:[code],findings:[],
-    craftRemediationRequired:true,excellentCertified:false});
+    craftRemediationRequired:true,excellentCertified:false,
+    productionEligible:false,mayPublish:false});
   if(!Array.isArray(shots)||shots.length<2)
     return refusal('SHOT_SEQUENCE_REQUIRED');
   const keys=[];
