@@ -480,6 +480,12 @@ def _freeze_pinned_video(source_path, destination, expected_sha=None):
 
 def analyze_video(path, expected_sha=None, scene_plan=None, scene_plan_sha=None):
     """Analyze an immutable, independently SHA-pinned snapshot of real media."""
+    # Do not turn an internally computed convenience hash into proof that an
+    # external producer precommitted the source/film for a declared visual cue.
+    if scene_plan is not None and expected_sha is None:
+        raise ValueError("EXACT_VIDEO_AND_PLAN_EXTERNAL_PINS_REQUIRED")
+    if scene_plan is None and scene_plan_sha is not None:
+        raise ValueError("VISUAL_PLAN_ORPHAN_SHA")
     # Previous callers without an external SHA can still run research-only
     # negative screening. They cannot claim independently pinned provenance.
     with tempfile.TemporaryDirectory(prefix="ths-em-frozen-video-") as scratch:
