@@ -9,7 +9,10 @@ without requiring a human to detect repeated frames. No release authority.
 import argparse
 import hashlib
 import json
+import os
+import stat
 import subprocess
+import tempfile
 from pathlib import Path
 
 import numpy as np
@@ -420,7 +423,73 @@ def interleaved_blank_phase_windows(one_hz_frames):
     return findings
 
 
+MAX_VIDEO_BYTES = 1024 * 1024 * 1024  # bounded CPU research artifact only
+
+
+def _freeze_pinned_video(source_path, destination, expected_sha=None):
+    """Copy bytes once from an opened regular-file descriptor into private scratch.
+
+    Every decoder runs only on the immutable, private, digest-checked copy.
+    An attacker swapping a public pathname after the copy cannot substitute
+    frames between our original source identity check and the second FFmpeg run.
+    """
+    path = Path(source_path)
+    if (path.is_symlink() or any(p.is_symlink() for p in path.parents)
+            or not path.is_file()):
+        raise ValueError("ACTUAL_REGULAR_VIDEO_REQUIRED")
+    before = path.stat()
+    if not stat.S_ISREG(before.st_mode) or not 0 < before.st_size <= MAX_VIDEO_BYTES:
+        raise ValueError("UNBOUNDED_OR_EMPTY_SOURCE_VIDEO")
+    flags = os.O_RDONLY | getattr(os, "O_BINARY", 0)
+    flags |= getattr(os, "O_NOFOLLOW", 0) | getattr(os, "O_NONBLOCK", 0)
+    try:
+        fd = os.open(path, flags)
+    except OSError as exc:
+        raise ValueError("SOURCE_VIDEO_CHANGED_BEFORE_OPEN") from exc
+    digest = hashlib.sha256()
+    with os.fdopen(fd, "rb") as handle, open(destination, "xb") as frozen:
+        opened = os.fstat(handle.fileno())
+        if (not stat.S_ISREG(opened.st_mode) or
+                (opened.st_dev, opened.st_ino) != (before.st_dev, before.st_ino)):
+            raise ValueError("SOURCE_VIDEO_CHANGED_BEFORE_OPEN")
+        total = 0
+        while True:
+            chunk = handle.read(1024 * 1024)
+            if not chunk:
+                break
+            total += len(chunk)
+            if total > MAX_VIDEO_BYTES:
+                raise ValueError("SOURCE_VIDEO_EXCEEDS_BOUNDED_RESEARCH_LIMIT")
+            digest.update(chunk)
+            frozen.write(chunk)
+        end_fd = os.fstat(handle.fileno())
+    if (not 0 < total == opened.st_size or
+            (opened.st_dev, opened.st_ino, opened.st_size,
+             opened.st_mtime_ns, opened.st_ctime_ns) !=
+            (end_fd.st_dev, end_fd.st_ino, end_fd.st_size,
+             end_fd.st_mtime_ns, end_fd.st_ctime_ns)):
+        raise ValueError("SOURCE_VIDEO_MUTATED_DURING_FREEZE")
+    source_sha = digest.hexdigest()
+    if expected_sha is not None and expected_sha != source_sha:
+        raise ValueError("VIDEO_IDENTITY_CHANGED")
+    # Verify the *actual decoded input* bytes, not a stale external path hash.
+    if sha256(destination) != source_sha:
+        raise ValueError("FROZEN_VIDEO_COPY_CHANGED")
+    return source_sha
+
+
 def analyze_video(path, expected_sha=None, scene_plan=None, scene_plan_sha=None):
+    """Analyze an immutable, independently SHA-pinned snapshot of real media."""
+    # Previous callers without an external SHA can still run research-only
+    # negative screening. They cannot claim independently pinned provenance.
+    with tempfile.TemporaryDirectory(prefix="ths-em-frozen-video-") as scratch:
+        movie = Path(scratch) / "source-pinned-h264.mp4"
+        frozen_sha = _freeze_pinned_video(path, movie, expected_sha)
+        return _analyze_frozen_video(movie, frozen_sha, scene_plan, scene_plan_sha)
+
+
+def _analyze_frozen_video(path, expected_sha, scene_plan=None, scene_plan_sha=None):
+
     """Measure actual MP4; abort on decoder errors or a wrong pinned file."""
     path = Path(path)
     if not path.is_file() or path.is_symlink():
