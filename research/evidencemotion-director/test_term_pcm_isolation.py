@@ -2,6 +2,14 @@ import copy
 import unittest
 from autonomous_script_asr_research import LINES, WAV_SHA, tokens
 from term_pcm_isolation import EXPECTED_COUNTS, pcm_slice, targets
+# The existing original-WAV CI invokes this test entry point explicitly.
+# Reuse that registered suite so EM-014 phoneme/stress research negatives run
+# without modifying protected workflow files or granting voice approval.
+from test_mfa_acoustic_alignment import (
+    AcousticPreparationTests,
+    MfaPhoneticLabelComparisonTests,
+    RepeatedTermOriginalWavReceiptTests,
+)
 
 
 class OriginalTermIsolationTests(unittest.TestCase):
