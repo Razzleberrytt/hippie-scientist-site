@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 from pathlib import Path
-from decoded_reading_load_probe import SCHEMA, digest, inspect
+from decoded_reading_load_probe import SCHEMA, digest, inspect, verify_native_frame_timestamps
 
 class DecodedReadingLoadTests(unittest.TestCase):
     @classmethod
@@ -85,6 +85,26 @@ class DecodedReadingLoadTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"NATIVE_FRAME_PTS_NOT_30FPS_CFR"):
             inspect(vfr,manifest,report)
         self.assertFalse(report.exists())
+
+    def test_missing_raw_pts_holds_even_if_best_effort_is_perfect(self):
+        # Simulate an actual ffprobe metadata omission at one decoded frame.
+        # The DTS-derived best-effort timeline is deliberately still valid.
+        timeline=[{"pts_time":str(n/30), "best_effort_timestamp_time":str(n/30)}
+                  for n in range(60)]
+        timeline[9].pop("pts_time")
+        with patch("decoded_reading_load_probe.run",
+                   return_value=json.dumps({"frames":timeline})):
+            with self.assertRaisesRegex(ValueError,"NATIVE_FRAME_RAW_PTS_MISSING:9"):
+                verify_native_frame_timestamps(self.film,60)
+
+    def test_raw_pts_jump_holds_even_if_best_effort_is_regular(self):
+        timeline=[{"pts_time":str(n/30), "best_effort_timestamp_time":str(n/30)}
+                  for n in range(60)]
+        timeline[9]["pts_time"]=str(9/30 + 0.1)
+        with patch("decoded_reading_load_probe.run",
+                   return_value=json.dumps({"frames":timeline})):
+            with self.assertRaisesRegex(ValueError,"NATIVE_FRAME_PTS_NOT_30FPS_CFR:9"):
+                verify_native_frame_timestamps(self.film,60)
 
     def test_critical_word_must_appear_in_actual_scene_not_next_scene(self):
         data=copy.deepcopy(self.manifest_data)
