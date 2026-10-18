@@ -289,6 +289,8 @@ test('missing scientific claim identity cannot be mistaken for matching teaching
 test('scene missing a meaningful lesson or valid evidence identity fails closed',()=>{
   for(const change of [
     {viewerLearns:''},{viewerLearns:'   '},{viewerLearns:undefined},
+    {viewerLearns:'!!!'},{viewerLearns:'\u200b'},
+    {viewerLearns:'\u200d\u2060'},{viewerLearns:'\u0301'},
     {sourceClaimIds:[]},{sourceClaimIds:undefined},
     {sourceClaimIds:['claim:verified','claim:verified']},
     {sourceClaimIds:[' claim:verified']},{sourceClaimIds:['claim:verified ']}
@@ -318,4 +320,14 @@ test('overlapping, shuffled or negative shot timeline cannot masquerade as adjac
   const gap=auditShotRepetition([stagedShot(0),stagedShot(1,{startSec:2.5,endSec:4.5})]);
   assert.equal(gap.status,'SEQUENCE_REVIEW_REQUIRED');
   assert.equal(gap.excellentCertified,false);
+});
+
+test('real source-bound teaching survives punctuation and Unicode normalization',()=>{
+  const shots=[stagedShot(0,{grammarId:'G1',viewerLearns:'What this study measures'}),
+    stagedShot(1,{grammarId:'G3',viewerLearns:' WHAT this study measures! '}),
+    stagedShot(2,{grammarId:'G5',viewerLearns:'What this study measures.'})];
+  const r=auditShotRepetition(shots);
+  assert.equal(r.status,'CRAFT_REDIRECTION_REQUIRED');
+  assert.ok(r.findings.some(f=>f.reason==='THREE_PLUS_IDENTICAL_TEACHING_PAYOFFS_DESPITE_VISUAL_CHURN'));
+  assert.equal(r.mayPublish,false);
 });
