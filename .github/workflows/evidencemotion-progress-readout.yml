@@ -17,6 +17,7 @@ on:
       - 'research/evidencemotion-director/ATOMIC-PROOF-LEDGER-20261015.json'
       - 'research/evidencemotion-director/COMPLETION-CHECKLIST.md'
       - 'research/evidencemotion-director/atomic/**'
+      - 'research/evidencemotion-director/EM*.md'
       - 'research/evidencemotion-director/GRANULAR-46-EXECUTION-REGISTER.md'
       - 'research/evidencemotion-director/ATOMIC-EXECUTION-INDEX.md'
       - 'research/evidencemotion-director/validate_atomic_proof_ledger.py'
@@ -87,12 +88,12 @@ jobs:
           else:
               accounting="DISTINCT-MAPPING VERIFIED — still research-only"
           with open(os.environ["GITHUB_STEP_SUMMARY"],"a",encoding="utf-8") as fp:
-              fp.write("### EvidenceMotion engineering events (NOT card credit) — GitHub snapshot\\n")
-              fp.write(f"Live verified observation **{report['sourceObservationAtUtc']}**; source mode **{report['sourceMode']}**.\\n\\n")
-              fp.write(f"Merged PRs **{report['mergedPRs']}**, distinct merge commits **{report['distinctMergeCommits']}**; five-lane PRs **{report['fiveActiveLanesMergedPRs']}**.\\n\\n")
-              fp.write(f"**Reconciled canonical inventory**: {g['machine']}/{g['total']} individually mapped machine-research stages; {g['inherited']} inherited historical-stage scope, {g['overlap']} overlap, {len(g['orphanCards'])} orphan(s); **{g['unique']}/{g['total']}** uniquely mapped provisional. {accounting}.\\n\\n")
-              fp.write(f"The ledger's **{g['ledgerClaimedProvisional']}/{g['total']}** is an unreconciled nominal claim, **NOT** accepted actual coverage; the older GitHub activity snapshot's arithmetic totals are superseded by the source-validated stage inventory above.\\n\\n")
-              fp.write("First excellent render **0/1**, five streak **0/5**, mayPublish=false; no real-device/independent-science/creative release approval.\\n")
+              fp.write("### EvidenceMotion engineering events (NOT card credit) — GitHub snapshot\n")
+              fp.write(f"Live verified observation **{report['sourceObservationAtUtc']}**; source mode **{report['sourceMode']}**.\n\n")
+              fp.write(f"Merged PRs **{report['mergedPRs']}**, distinct merge commits **{report['distinctMergeCommits']}**; five-lane PRs **{report['fiveActiveLanesMergedPRs']}**.\n\n")
+              fp.write(f"**Reconciled canonical inventory**: {g['machine']}/{g['total']} individually mapped machine-research stages; {g['inherited']} inherited historical-stage scope, {g['overlap']} overlap, {len(g['orphanCards'])} orphan(s); **{g['unique']}/{g['total']}** uniquely mapped provisional. {accounting}.\n\n")
+              fp.write(f"The ledger's **{g['ledgerClaimedProvisional']}/{g['total']}** is an unreconciled nominal claim, **NOT** accepted actual coverage; the older GitHub activity snapshot's arithmetic totals are superseded by the source-validated stage inventory above.\n\n")
+              fp.write("First excellent render **0/1**, five streak **0/5**, mayPublish=false; no real-device/independent-science/creative release approval.\n")
           PY
       - name: Preserve both snapshot and reviewed accounting
         uses: actions/upload-artifact@v4
