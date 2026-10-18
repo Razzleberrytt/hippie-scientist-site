@@ -28,6 +28,63 @@ MODEL_PINS = {
 PHONE = re.compile(r"(?:AA|AE|AH|AO|AW|AY|EH|ER|EY|IH|IY|OW|OY|UH|UW)[012]?|B|CH|D|DH|F|G|HH|JH|K|L|M|N|NG|P|R|S|SH|T|TH|V|W|Y|Z|ZH")
 
 
+
+def compare_mfa_phone_hypotheses(first, second):
+    """Compare *forced-aligner hypotheses*, never conclude spoken pronunciation.
+
+    Treat vowel stress digits separately from phone segments. The two actual
+    original-WAV candidate sequences for 'mitragynine' at 2.11s and 9.46s
+    differ at AH0 vs IH0; that is a vowel-*label* difference, not acoustic
+    proof of a different vowel. Use independently aligned edit distances for
+    full tokens and unstressed phone bases.
+    """
+    vowels = frozenset('AA AE AH AO AW AY EH ER EY IH IY OW OY UH UW'.split())
+
+    def validate(seq):
+        if not isinstance(seq, (list, tuple)) or not 1 <= len(seq) <= 100:
+            raise ValueError("MFA_PHONE_HYPOTHESES_REQUIRED")
+        if any(not isinstance(p, str) or not PHONE.fullmatch(p) for p in seq):
+            raise ValueError("MFA_PHONE_SYMBOL_INVALID")
+
+    def base(phone):
+        return phone[:-1] if phone[-1] in '012' and phone[:-1] in vowels else phone
+
+    validate(first)
+    validate(second)
+
+    def align(stress_neutral):
+        rows, cols = len(first), len(second)
+        # Each cell: (symbol edits, stress-only aligned disagreements).
+        prev = [(j, 0) for j in range(cols + 1)]
+        for i in range(1, rows + 1):
+            curr = [(i, 0)]
+            for j in range(1, cols + 1):
+                a, b = first[i - 1], second[j - 1]
+                same_base = base(a) == base(b)
+                equivalent = same_base if stress_neutral else a == b
+                old = prev[j - 1]
+                diagonal = (old[0] + (not equivalent),
+                            old[1] + int(stress_neutral and same_base and a != b))
+                deletion = (prev[j][0] + 1, prev[j][1])
+                insertion = (curr[j - 1][0] + 1, curr[j - 1][1])
+                # Stable tie preference: diagonal, deletion, insertion.
+                curr.append(min((diagonal, deletion, insertion), key=lambda pair: pair[0]))
+            prev = curr
+        return prev[cols]
+
+    raw, _ = align(False)
+    segmental, stress = align(True)
+    return {
+        "status": "MFA_PHONE_HYPOTHESIS_COMPARISON_ONLY",
+        "rawTokenEditDistance": int(raw),
+        "segmentalSymbolEditDistance": int(segmental),
+        "stressMarkerDifferencesOnAlignedIdenticalVowels": int(stress),
+        "differencesAreModelLabelHypothesesNotAcousticTruth": True,
+        "independentOriginalAudioPhonemeReferenceAvailable": False,
+        "phoneticPronunciationVerified": False,
+        "mayPublish": False,
+    }
+
 def hold(code):
     raise ValueError("MFA_ACOUSTIC_RESEARCH_HOLD:" + code)
 
