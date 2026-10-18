@@ -21,6 +21,10 @@ const INTENTS=Object.freeze({
   'source-bound-scale':'G6',
 });
 const clean=v=>String(v??'').trim();
+// Share the exact same meaningful-text rule between fail-closed validation
+// and the teaching-payoff comparison: punctuation/invisible marks are not a lesson.
+const normalizedLesson=v=>clean(v).normalize('NFKC').toLowerCase()
+  .replace(/[^\p{L}\p{N}]+/gu,' ').trim();
 const uniqueIds=a=>Array.isArray(a)&&a.length>0&&a.every(x=>typeof x==='string'&&x.trim()!==''&&x===x.trim())&&new Set(a).size===a.length;
 const fail=(code)=>({status:'HOLD',code,candidates:[],productionEligible:false});
 
@@ -93,7 +97,7 @@ export function auditShotRepetition(shots){
     // story compiler having already validated each scene's teaching/source
     // lineage or chronological placement before declaring reviewable craft.
     if(!uniqueIds(shot.sourceClaimIds)||
-       typeof shot.viewerLearns!=='string'||!shot.viewerLearns.trim())
+       typeof shot.viewerLearns!=='string'||!normalizedLesson(shot.viewerLearns))
       return refusal('UNBOUND_SHOT_LESSON_OR_CLAIM');
     if(shot.startSec<0||(previousEndSec!==null&&shot.startSec<previousEndSec))
       return refusal('OUT_OF_ORDER_OR_OVERLAPPING_SHOTS');
@@ -119,13 +123,9 @@ export function auditShotRepetition(shots){
   // not audience comprehension, paraphrase meaning or actual film pixels.
   // All source-derived findings require independent artistic review.
   const payoffKeys=shots.map(shot=>{
-    const outcome=clean(shot.viewerLearns).normalize('NFKC').toLowerCase()
-      .replace(/[^\p{L}\p{N}]+/gu,' ').trim();
-    if(!outcome)return null; // missing authoring proof never implies progress
-    // Missing or malformed source IDs cannot establish identical evidence.
-    // Do not fabricate an empty but apparently matching evidence identity.
-    if(!Array.isArray(shot.sourceClaimIds)||!uniqueIds(shot.sourceClaimIds))
-      return null;
+    const outcome=normalizedLesson(shot.viewerLearns);
+    // Lesson and claim/asset identity were validated above. Preserve the
+    // exact shared normalization for comparison; no absent evidence placeholder.
     const evidence=[...shot.sourceClaimIds].sort();
     return JSON.stringify([outcome,[...shot.scientificAssetIds].sort(),evidence]);
   });
