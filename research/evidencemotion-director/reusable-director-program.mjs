@@ -19,6 +19,25 @@ const hasCameraTeachingPlan=b=>{
    Number.isFinite(p.narrationAnchorSec)&&Array.isArray(b.spokenAnchorTimes)&&
    b.spokenAnchorTimes.includes(p.narrationAnchorSec);
 };
+const actionKey=v=>v.normalize('NFKC').toLowerCase()
+ .replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+// This is a source-pinned *author-declaration* negative review, not a score.
+const repeatedCameraTeachingActions=shots=>{
+ const findings=[];
+ for(let start=0;start<shots.length;){
+  const key=actionKey(shots[start].cameraTeachingPlan.action);
+  let end=start+1;
+  while(end<shots.length&&actionKey(shots[end].cameraTeachingPlan.action)===key)end++;
+  if(end-start>=3&&new Set(shots.slice(start,end).map(s=>s.visualPurposeId)).size>=2)
+   findings.push({
+    reason:'THREE_PLUS_RECYCLED_CAMERA_ACTIONS_ACROSS_DISTINCT_LESSONS',
+    firstBeatId:shots[start].beatId,lastBeatId:shots[end-1].beatId,
+    consecutiveCount:end-start
+   });
+  start=end;
+ }
+ return findings;
+};
 const PURPOSES=new Set([
  'everyday-to-mechanism','process-sequence','study-measurement',
  'fair-comparison','uncertainty','source-bound-scale'
@@ -114,11 +133,18 @@ export function compileReusableDirector(program){
  if(sequenceCraft.status==='HOLD')return {status:'HOLD',
   errors:sequenceCraft.errors,shots:[],productionEligible:false,
   excellentCertified:false,mayPublish:false};
+ // Camera motion can be formally documented while still being conceptually
+ // unmotivated. Flag 3+ recycled instructions across distinct lessons.
+ const cameraWarnings=repeatedCameraTeachingActions(outputs);
+ const craftFindings=[...sequenceCraft.findings,...cameraWarnings];
+ const craftReview={...sequenceCraft,findings:craftFindings,
+   status:craftFindings.length?'CRAFT_REDIRECTION_REQUIRED':sequenceCraft.status,
+   craftRemediationRequired:craftFindings.length>0};
  return {status:'REUSABLE_G1_G6_PROGRAM_PROPOSED',topicId:program.topicId,
   grammarCoverage:[...new Set(outputs.map(x=>x.grammarId))].sort(),
   shots:outputs,errors:[],
-  sequenceCraftReview:sequenceCraft,
-  compositionRedirectionRequired:sequenceCraft.craftRemediationRequired,
+  sequenceCraftReview:craftReview,
+  compositionRedirectionRequired:craftReview.craftRemediationRequired,
   exactSourceManifestSha256:program.sourceManifestSha256,
   exactOriginalNarrationSha256:program.originalNarrationSha256,
   generatedScience:false,productionEligible:false,excellentCertified:false,
