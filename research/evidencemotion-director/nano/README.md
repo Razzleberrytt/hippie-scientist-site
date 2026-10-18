@@ -65,6 +65,6 @@
 
 ## Integrity
 
-Run `node research/evidencemotion-director/nano/validate-nano-register.mjs` from repository root. The validator checks the full original atomic source vs nano IDs, ordering, original group titles, and denominators. Any original card additions/removals or in-place renumbering must cause a FAIL until the nano layer is deliberately revised. Validation of the *registry structure* does not prove tests/implementation passed.
+Run `node research/evidencemotion-director/nano/validate-nano-register.mjs` from repository root. The validator checks the full original atomic source against nano IDs, original group titles, exact copied atomic contract wording, stage order, and frozen denominators. It deliberately accepts both `[ ]` and `[x]` on nano instruction steps; a checked planning note remains non-scoring and never grants atomic acceptance. Any original card additions/removals or in-place renumbering must cause a FAIL until the nano layer is deliberately revised. Validation of the *registry structure* does not prove tests/implementation passed.
 
 **Keep this generated instruction layer stable** as code owners carry out work in their existing admitted issues. A reviewer can cite nano IDs in a PR comment or an existing ledger; do not churn thousands of checklist boxes or create 4,770 separate GitHub issues.
