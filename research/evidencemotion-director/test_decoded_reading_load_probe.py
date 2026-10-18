@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 from pathlib import Path
-from decoded_reading_load_probe import SCHEMA, digest, inspect
+from decoded_reading_load_probe import SCHEMA, digest, inspect, verify_native_frame_timestamps
 
 class DecodedReadingLoadTests(unittest.TestCase):
     @classmethod
@@ -48,10 +48,63 @@ class DecodedReadingLoadTests(unittest.TestCase):
         result=self.run_guard()
         self.assertEqual(result["physicalCropsChecked"],6)
         self.assertEqual(result["nativeDecodedFrames"],60)
+        self.assertTrue(result["nativeFrameTimestampIntegrityVerified"])
+        self.assertTrue(result["everyFrameIndependentlyTimestampChecked"])
+        self.assertEqual(result["firstDecodedFramePtsSec"],0)
+        self.assertAlmostEqual(result["lastDecodedFramePtsSec"],59/30,places=5)
         self.assertEqual([r["frameIndex"] for r in result["observations"]],
                          [7,15,22,37,45,52])
         self.assertFalse(result["everyFrameIndependentlyTextAudited"])
         self.assertFalse(result["mayPublish"])
+
+    def test_nominal_30fps_h264_with_dropped_presentation_times_holds(self):
+        # Real encoded negative: nominal r_frame_rate stays 30/1 while
+        # physical video presentation times contain a 100 ms jump.
+        vfr=self.root/"nominal-30-with-pts-gap.mp4"
+        vf=r"setpts=if(eq(N\,15)\,PTS+0.1/TB\,PTS)"
+        subprocess.run(["ffmpeg","-nostdin","-hide_banner","-loglevel","error",
+                        "-i",str(self.film),"-vf",vf,"-fps_mode","vfr",
+                        "-c:v","libx264","-preset","ultrafast","-crf","22",
+                        "-pix_fmt","yuv420p","-y",str(vfr)],
+                       check=True,timeout=45)
+        probe=json.loads(subprocess.check_output([
+            "ffprobe","-v","error","-select_streams","v:0",
+            "-count_frames","-show_entries",
+            "stream=r_frame_rate,nb_read_frames","-of","json",str(vfr)
+        ]))["streams"][0]
+        self.assertEqual(probe["r_frame_rate"],"30/1")
+        data=copy.deepcopy(self.manifest_data)
+        data["filmSha256"]=digest(vfr)
+        data["scenes"]=[{"id":"nominal-gap","startFrame":0,
+                         "endFrameExclusive":int(probe["nb_read_frames"]),
+                         "cropPx":[50,700,980,250],
+                         "requiredTokens":["STRUCTURE"]}]
+        manifest=self.root/"nominal-gap-manifest.json"
+        manifest.write_text(json.dumps(data))
+        report=self.root/"nominal-gap-report.json"
+        with self.assertRaisesRegex(ValueError,"NATIVE_FRAME_PTS_NOT_30FPS_CFR"):
+            inspect(vfr,manifest,report)
+        self.assertFalse(report.exists())
+
+    def test_missing_raw_pts_holds_even_if_best_effort_is_perfect(self):
+        # Simulate an actual ffprobe metadata omission at one decoded frame.
+        # The DTS-derived best-effort timeline is deliberately still valid.
+        timeline=[{"pts_time":str(n/30), "best_effort_timestamp_time":str(n/30)}
+                  for n in range(60)]
+        timeline[9].pop("pts_time")
+        with patch("decoded_reading_load_probe.run",
+                   return_value=json.dumps({"frames":timeline})):
+            with self.assertRaisesRegex(ValueError,"NATIVE_FRAME_RAW_PTS_MISSING:9"):
+                verify_native_frame_timestamps(self.film,60)
+
+    def test_raw_pts_jump_holds_even_if_best_effort_is_regular(self):
+        timeline=[{"pts_time":str(n/30), "best_effort_timestamp_time":str(n/30)}
+                  for n in range(60)]
+        timeline[9]["pts_time"]=str(9/30 + 0.1)
+        with patch("decoded_reading_load_probe.run",
+                   return_value=json.dumps({"frames":timeline})):
+            with self.assertRaisesRegex(ValueError,"NATIVE_FRAME_PTS_NOT_30FPS_CFR:9"):
+                verify_native_frame_timestamps(self.film,60)
 
     def test_critical_word_must_appear_in_actual_scene_not_next_scene(self):
         data=copy.deepcopy(self.manifest_data)
