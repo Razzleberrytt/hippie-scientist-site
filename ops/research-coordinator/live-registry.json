@@ -75502,6 +75502,160 @@
       "reservation_id": "f8af9d9ce4c216be3e39",
       "reserved_at": "2026-10-18T18:05:17.130Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42674313",
+      "title": "BLA astrocytes are associated with withdrawal somatic signs during high-dose naloxone-precipitated morphine withdrawal revealed by 3D-AI behavioral analysis.",
+      "doi": "10.1016/j.neuropharm.2026.111165",
+      "source_title": "BLA astrocytes are associated with withdrawal somatic signs during high-dose naloxone-precipitated morphine withdrawal revealed by 3D-AI behavioral analysis.",
+      "abstract": "Relapse triggered by withdrawal memory is the important challenge in addiction therapy, with somatic withdrawal symptoms acting as its physiological substrate. Clarifying the relevant neural mechanisms is vital for relapse intervention, yet the link between basolateral amygdala (BLA) astrocytes and somatic withdrawal responses remains elusive. In this study, we combined 3D-AI behavioral analysis, in vivo calcium recording, and astrocyte specific inhibition using HPMCA2w/b (a calcium extrusion pump) in male C57BL/6J mice to study the role of BLA astrocytes in morphine withdrawal. We observed that BLA astrocytes were activated during morphine withdrawal conditioning. Inhibiting their intracellular calcium signaling reduced CPA scores. 3D-AI behavioral analysis showed a significantly locomotor suppression in withdrawal mice. Further, we identified two categories of behaviors: (1) jumping and standing, which were associated with the naloxone-induced withdrawal during the acquisition phase; (2) sniffing and self-grooming, which appeared during both naloxone-induced withdrawal during the conditioning phase and spontaneous withdrawal during memory retrieval phase. Astrocytic calcium signals were elevated during the occurrences of all four behaviors. Notably, astrocyte inhibition reversed the locomotor suppression during spontaneous withdrawal in post-conditioning and selectively suppressed jumping and standing during conditioning in withdrawal mice, but not affected sniffing or self-grooming. These findings indicate that BLA astrocytes are critical for association of context cues with aversive state of morphine withdrawal and they participate in some of somatic withdrawal signs during high-dose naloxone-precipitated morphine withdrawal. This study provides new insights into withdrawal for further research on opioid addiction.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42674313/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42674313",
+        "doi": "10.1016/j.neuropharm.2026.111165",
+        "journal": "Neuropharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-18T18:12:45.144Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4035b27e81457c4f0dc2",
+      "reserved_at": "2026-10-18T18:12:51.974Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42710328",
+      "title": "Comparison of subanaesthetic ketamine and lidocaine as adjuvants to propofol-based total intravenous anesthesia on propofol requirement during emergency decompressive craniectomy for traumatic brain injury: a prospective, double-blind, three-arm randomized controlled trial.",
+      "doi": "10.1016/j.jocn.2026.112284",
+      "source_title": "Comparison of subanaesthetic ketamine and lidocaine as adjuvants to propofol-based total intravenous anesthesia on propofol requirement during emergency decompressive craniectomy for traumatic brain injury: a prospective, double-blind, three-arm randomized controlled trial.",
+      "abstract": "Prevention of secondary brain injury remains a key objective during emergency decompressive craniectomy for traumatic brain injury (TBI). Propofol-based total intravenous anesthesia (TIVA) is widely used in TBI because of its favorable cerebral physiological effects but may cause dose-dependent hypotension and compromise cerebral perfusion. Ketamine and lidocaine have been proposed as adjuncts that may reduce anesthetic requirements while preserving intracranial homeostasis. This study compared the effects of ketamine and lidocaine versus placebo on propofol consumption and perioperative intracranial pressure (ICP), cerebral perfusion pressure (CPP), and brain relaxation during TIVA in patients undergoing emergency decompressive craniectomy for TBI. In this prospective, double-blind, three-arm randomized controlled trial, 150 adults undergoing emergency decompressive craniectomy for traumatic acute subdural hematoma were randomized to receive adjunctive ketamine (0.5 mg/kg/h), lidocaine (2 mg/kg/h), or placebo during propofol-based TIVA. Propofol was administered using target-controlled infusion (TCI) to maintain mean arterial pressure within 20% of baseline. The primary outcome was mean propofol consumption (µg/kg/min). Secondary outcomes included intraoperative opioid consumption, vasopressor requirement, ICP, CPP, brain relaxation, and neurological outcomes. Mean propofol consumption differed significantly among groups and was lowest with ketamine (100.73 ± 31.72 vs. 115.86 ± 38.11 vs. 131.53 ± 44.54 µg/kg/min for ketamine, lidocaine, and placebo, respectively; p < 0.001). Ketamine was also associated with lower intraoperative fentanyl requirements (63.85 ± 36.23 vs. 83.64 ± 32.27 vs. 153.55 ± 57.28 µg; p < 0.001) and fewer vasopressor boluses (2 [2-3] vs. 3 [2-4] vs. 3 [2-4]; p = 0.031). Intracranial pressure, cerebral perfusion pressure, brain relaxation scores, and Glasgow Outcome Scale-Extended scores were comparable among the groups. Ketamine as an adjunct to propofol-based TIVA reduced propofol, opioid, and vasopressor requirements. As TIVA was titrated to haemodynamic responses rather than processed EEG, the relative contributions of direct propofol-sparing and ketamine's sympathomimetic effects cannot be determined. No detrimental effects on intracranial pressure, cerebral perfusion pressure, or brain relaxation were detected at the measured intraoperative time points, and no between-group differences in neurological outcomes were detected. Lidocaine demonstrated modest propofol-sparing effects without adverse effects on measured intracranial dynamics.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42710328/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42710328",
+        "doi": "10.1016/j.jocn.2026.112284",
+        "journal": "Journal of clinical neuroscience : official journal of the Neurosurgical Society of Australasia",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-18T18:12:45.145Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a656f0656865fd5f8e6f",
+      "reserved_at": "2026-10-18T18:12:51.974Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -75531,16 +75685,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 965,
+    "total_reservations": 967,
     "by_lane": {
       "1": 91,
       "2": 186,
       "3": 133,
-      "4": 55,
+      "4": 57,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 965
+      "SOURCE_VERIFIED": 967
     },
     "batches": [
       {
@@ -75553,7 +75707,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 465,
+        "count": 467,
         "pr_number": null,
         "blocker": null
       }
