@@ -102,10 +102,13 @@ def _read_json(path, expected_sha=None):
         hold("JSON_CHANGED_DURING_READ")
     after = _safe_file(path, maximum=MAX_JSON)
     identity = lambda s: (s.st_dev, s.st_ino, s.st_size, s.st_mtime_ns, s.st_ctime_ns)
+    # Windows can report path st_ctime as creation time but descriptor
+    # st_ctime as change time. Compare each stat surface against itself,
+    # while requiring the same inode/device across both surfaces.
     if (not raw or len(raw) != before.st_size
-            or identity(before) != identity(opened)
+            or identity(before) != identity(after)
             or identity(opened) != identity(finished)
-            or identity(finished) != identity(after)):
+            or (finished.st_dev, finished.st_ino) != (after.st_dev, after.st_ino)):
         hold("JSON_CHANGED_DURING_READ")
     sha = hashlib.sha256(raw).hexdigest()
     if expected_sha is not None and sha != expected_sha:
