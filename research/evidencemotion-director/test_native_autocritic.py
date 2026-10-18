@@ -330,6 +330,20 @@ class AutonomousFilmCriticTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"MISSING_OR_DECORATIVE_VISUAL_VERB"):
             m.review_actual_visual_action_cues(frame,plan)
         plan["scenes"][0]["actions"][0]["visualVerb"]="TRACE"
+        plan["scenes"][0]["sourceClaimIds"]=["claim-1","claim-1"]
+        with self.assertRaisesRegex(ValueError,"UNBOUND_OR_UNSAFE_HERO_REGION_OR_SCENE_TIMELINE"):
+            m.review_actual_visual_action_cues(frame,plan)
+        plan["scenes"][0]["sourceClaimIds"]=["claim-1"]
+        plan["scenes"][0]["sourceAssetIds"]=["source-1","source-1"]
+        with self.assertRaisesRegex(ValueError,"UNBOUND_OR_UNSAFE_HERO_REGION_OR_SCENE_TIMELINE"):
+            m.review_actual_visual_action_cues(frame,plan)
+        plan["scenes"][0]["sourceAssetIds"]=["source-1"]
+        plan["scenes"][0]["staticHold"]={"kind":"SOURCE_EVIDENCE_READ",
+                                          "sourceId":"source-1",
+                                          "reason":"Read the actual primary source"}
+        with self.assertRaisesRegex(ValueError,"ACTION_AND_SOURCE_READ_HOLD_MUTUALLY_EXCLUSIVE"):
+            m.review_actual_visual_action_cues(frame,plan)
+        del plan["scenes"][0]["staticHold"]
         plan["scenes"][0]["heroBox"]["x2"]=.99
         with self.assertRaisesRegex(ValueError,"UNBOUND_OR_UNSAFE_HERO_REGION_OR_SCENE_TIMELINE"):
             m.review_actual_visual_action_cues(frame,plan)
