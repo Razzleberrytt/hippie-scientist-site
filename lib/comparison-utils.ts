@@ -50,6 +50,7 @@ export const BUILT_COMPARE_SLUGS = [
   'melatonin-vs-valerian',
   'melatonin-vs-valerian-vs-magnesium-for-sleep',
   'oregano-vs-thyme',
+  'psyllium-husk',
   'rhodiola-vs-ashwagandha',
   'rhodiola-vs-l-theanine',
   'sleep-herbs-vs-melatonin',

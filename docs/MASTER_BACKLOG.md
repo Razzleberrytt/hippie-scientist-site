@@ -70,6 +70,8 @@
 
 ## Scoring and gates
 
+**PSY-001 — owner-directed 2026-10-18:** In progress as a single Discovery/SEO comparison review candidate at `/guides/compare/psyllium-husk/`, using the free D slot without changing A #6769 or R #6810. Deliver only an unmerged PR labeled `hold-merge`, with human review required; no automatic publication. B12 and D3+K2 remain deferred until further owner direction. Acceptance and fresh evidence: [execution record](content/psyllium-buyer-comparison-2026-10-18.md). Owner-directed order, not a fabricated demand or ROI score.
+
 `Score = (Business Impact × User Value × Traffic Potential × Strategic Leverage × Confidence) / Effort`
 
 Business impact, user value, traffic potential, strategic leverage, and effort use 1–5. Confidence is 0.50, 0.75, or 1.00. Higher is better; effort is the denominator. Dependencies and evidence/safety/provenance/disclosure/accessibility/security/release gates override numeric score.
