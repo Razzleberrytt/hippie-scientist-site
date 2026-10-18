@@ -1,6 +1,14 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
+
+### Existing research owner #6743 — EvidenceMotion 1,590-card canonical evidence reconciliation (2026-10-18)
+
+**Current metric definition (supersedes dated raw additive snapshots below):** The historical 875/1,590 headline adds **707 inherited provisional** and **168 raw machine-research claims**, double counting **54 M+I overlaps** and including one orphan **`EM-006.04.N`**. The stage-ID-distinct *provisionally mapped* count is **820/1,590 = 51.57%**, including **167/1,590 individually machine-audited research stages = 10.50%**; **770/1,590 have neither class**. These classify research evidence, not accepted software workcards, visual excellence, scientific review, or posting readiness. [Source-bound generated tracker PR #6912](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6912) is **IN REVIEW**, not merged or production approved. Lane 5 stage map: **0/351 individually mapped, 92/351 provisional inherited**—no claim of zero delivered engineering safeguards.
+
+**Execution / acceptance:** Reuse existing #6743 under protected controller and maximum **three** admitted D/R/A streams; the tracker is not a new workstream. Enforce exact canonical stage-definition fingerprint before reusing old receipts; permit a future deduplicated headline only with canonical ID/46-parent union proof. Require newest-head full CI, evidence/readout regression, build/security/mobile gates, reviewed source/film/phone/voice/science/craft and independent owner quality before acceptance. First-excellent film **0/1**, varied streak **0/5**, `mayPublish=false`. Older 740/754/768 and raw `707 + machine` dated paragraphs are **historical**, not the active numerator. Actual accepted completed card count remains **unverified**.
+
+
 **Updated:** 2026-10-15 (bounded #6810 R admission proposed, preserving D #6685 and A #6769; other P0 work unchanged)
 **WIP cap:** 3
 
