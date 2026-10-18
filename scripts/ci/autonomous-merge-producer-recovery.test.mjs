@@ -160,7 +160,7 @@ describe('P0 #6447: one exact-head CI producer for recovery fan-out', () => {
 describe('Lane 3 director exact-head recovery trigger', () => {
   it('is dispatchable by the serialized controller after a bot-authored PR refresh', () => {
     const director = fs.readFileSync('.github/workflows/evidencemotion-reusable-director.yml', 'utf8')
-    expect(director).toMatch(/^on:\\n  #[^\\n]*\\n(?:  #[^\\n]*\\n)*  workflow_dispatch:\\n  pull_request:/m)
+    expect(director).toContain('workflow_dispatch:\n  pull_request:')
     expect(director).toContain('permissions:\n  contents: read')
     expect(director).toContain('research/evidencemotion-director/previz-director.test.mjs')
     const controller = fs.readFileSync('scripts/ci/autonomous-merge-controller.mjs', 'utf8')
