@@ -40,7 +40,6 @@ test('static hero with only particles is not semantically progressing',()=>{
 
 // Research-only creative improvement negative regressions; kept in the existing CI-invoked suite.
 {
-import {inspectSceneVisualVerbPlan as visual,inspectImprovementPrecommit as precommit} from './hero-action-contract.mjs'
 const H='a'.repeat(64), V='b'.repeat(64), C='c'.repeat(64)
 const event=(atSec,overrides={})=>({
  atSec,visualVerb:'OPENS_TO_REVEAL',heroObjectId:'science-vial',
