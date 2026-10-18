@@ -220,6 +220,50 @@ class FirstRenderIntegrityTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "REGISTER_FILE_MISSING_OR_UNSAFE"):
                 read_register(link)
 
+    def test_same_descriptor_mid_read_byte_mutation_is_rejected(self):
+        # Even a byte-for-byte length-preserving update must not yield a
+        # silently accepted first-render history between two physical reads.
+        with tempfile.TemporaryDirectory() as directory:
+            file = Path(directory) / "attempts.json"
+            before = json.dumps(register([attempt(0)])).encode("utf-8")
+            after = json.dumps(register([attempt(1)])).encode("utf-8")
+            self.assertEqual(len(before), len(after))
+            file.write_bytes(before)
+            real_fdopen = os.fdopen
+
+            class MidReadSwap:
+                def __init__(self, stream):
+                    self.stream = stream
+                    self.once = True
+
+                def __enter__(self):
+                    self.stream.__enter__()
+                    return self
+
+                def __exit__(self, *args):
+                    return self.stream.__exit__(*args)
+
+                def read(self, *args):
+                    content = self.stream.read(*args)
+                    if self.once:
+                        self.once = False
+                        with open(file, "r+b") as writer:
+                            writer.write(after)
+                            writer.flush()
+                            os.fsync(writer.fileno())
+                    return content
+
+                def seek(self, *args):
+                    return self.stream.seek(*args)
+
+            with mock.patch("five_render_attempt_guard.os.fdopen",
+                            side_effect=lambda fd, mode:
+                                MidReadSwap(real_fdopen(fd, mode))):
+                with self.assertRaisesRegex(
+                        ValueError, "REGISTER_BYTES_CHANGED_DURING_READ"):
+                    read_register(file)
+            self.assertEqual(file.read_bytes(), after)
+
     def test_register_path_swap_between_preflight_and_open_is_rejected(self):
         # Existing path-then-read logic can accept changed, still-valid JSON.
         # Use a deterministic swap precisely at the descriptor-open boundary.
