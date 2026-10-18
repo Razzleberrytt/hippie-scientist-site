@@ -75120,6 +75120,388 @@
       "reservation_id": "0779851d0ee00368210c",
       "reserved_at": "2026-10-11T22:00:43.606Z",
       "source_branch": "research/intake/2/20261011-1756-cognition-metabolic-null-r78"
+    },
+    {
+      "pmid": "42640642",
+      "title": "Methadone vs Buprenorphine-Naloxone in Opioid Overdose Survivors.",
+      "doi": "10.1001/jamanetworkopen.2026.29313",
+      "source_title": "Methadone vs Buprenorphine-Naloxone in Opioid Overdose Survivors.",
+      "abstract": "Individuals who experience opioid overdoses are at high risk of death, and data are limited about the comparative effectiveness of medications for this high-risk population. To compare the effectiveness of methadone and buprenorphine-naloxone in individuals with a past-year history of opioid overdose. This retrospective cohort study with target trial emulation included individuals who started methadone or buprenorphine-naloxone treatment between January 1, 2017, and December 31, 2023, in Ontario, Canada. Participants had a past-year emergency department visit for an opioid overdose and no use of either medication for 7 days. Individuals starting each medication were matched on a 1:1 basis using propensity scores, sex, and index date. Data were analyzed from November 2024 to June 2026. The primary outcome was death from any cause within 1 year, analyzed using an initiator approach with Cox proportional hazards regression. The secondary outcomes were opioid overdose and treatment discontinuation. Per-protocol analyses evaluating outcomes before medication discontinuation were also conducted. A total of 5882 individuals were included in the matched cohort (mean [SD] age, 35.8 [10.8] years; 1888 female [32.1%]). In the methadone-initiating group, 165 individuals (5.6%) died within 1 year, compared with 210 (7.1%) in the buprenorphine-naloxone-initiating group (HR, 0.78; 95% CI, 0.63-0.95; P = .01), with an E-value of 1.9. Median time to treatment discontinuation was 25 days (IQR, 7-131 days) in the methadone group compared with 16 days (IQR, 5-69 days) in the buprenorphine-naloxone group (HR, 0.78; 95% CI, 0.74-0.82; P < .001). There was no significant difference in the time to first opioid overdose (HR, 1.07; 95% CI, 0.97-1.18; P = .17). In the per-protocol analyses, there was no significant difference in the hazard of death among individuals starting methadone and buprenorphine-naloxone (HR, 0.84; 95% CI, 0.48-1.47; P = .55) and an increased hazard of opioid overdose among individuals starting methadone (HR, 1.52; 95% CI, 1.19-1.93; P < .001). In this matched cohort of individuals with a past-year opioid overdose, starting methadone was associated with a reduced risk of death during the subsequent year compared with starting buprenorphine-naloxone. Treatment durations were short, particularly among individuals starting buprenorphine-naloxone, and there was no significant difference in mortality during receipt of opioid agonist treatment. These findings may be explained by unmeasured confounding, and epidemiologic studies in other jurisdictions are needed to confirm these findings.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42640642/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42640642",
+        "doi": "10.1001/jamanetworkopen.2026.29313",
+        "journal": "JAMA network open",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-18T18:05:08.894Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a055ada2c732d6c6ec5d",
+      "reserved_at": "2026-10-18T18:05:17.130Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42322177",
+      "title": "Perceptions of Buprenorphine With Naloxone Treatment and the Fear of Precipitated Withdrawal: A Qualitative Exploration With HIV Prevention Trials Network 094 INTEGRA Participants and Staff.",
+      "doi": "10.1111/dar.70198",
+      "source_title": "Perceptions of Buprenorphine With Naloxone Treatment and the Fear of Precipitated Withdrawal: A Qualitative Exploration With HIV Prevention Trials Network 094 INTEGRA Participants and Staff.",
+      "abstract": "Uptake of evidence-based medication for opioid use disorder (MOUD), including buprenorphine-naloxone, remains low despite the expanding US opioid crisis. This study examined participants' and staff perceptions of adopting and delivering buprenorphine-naloxone on a mobile unit providing integrated MOUD and HIV services for people with opioid use disorder who inject drugs in the HPTN 094 INTEGRA trial. We conducted semi-structured interviews with people with opioid use disorder who inject drugs in the intervention or control arm (n = 77) and mobile unit staff (n = 38) of HPTN 094 as part of an embedded qualitative implementation science evaluation across five US cities: Houston, Los Angeles, New York City, Philadelphia and Washington, DC. Interviews were transcribed and analysed using a pragmatic inductive and deductive thematic approach. Fear of precipitated withdrawal was a primary factor shaping perceptions of buprenorphine and other MOUD formulations. This fear was heightened by the widespread presence of fentanyl in the unregulated drug supply. Participants' MOUD preferences were influenced by their treatment goals and by misperceptions of the role of naloxone in buprenorphine and the risk of precipitated withdrawal. Additional barriers included stigma towards MOUD and infrastructure constraints that complicated buprenorphine-naloxone inductions on a mobile unit. Even with facilitated access, perceptions of evidence-based MOUD were strongly shaped by fear of precipitated withdrawal. Aligning MOUD formulations with the treatment goals of people who inject drugs, along with expanding flexibility in MOUD access, delivery and induction practices across formulations, may improve uptake of these life-saving treatments.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42322177/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42322177",
+        "doi": "10.1111/dar.70198",
+        "journal": "Drug and alcohol review",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-18T18:05:08.895Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a143496b30aedefd3323",
+      "reserved_at": "2026-10-18T18:05:17.130Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42601813",
+      "title": "Detection of Nitazenes in the Illicit Drug Supply Utilizing Precursor Ion Scan Methods With Paper Spray Mass Spectrometry.",
+      "doi": "10.1002/dta.70135",
+      "source_title": "Detection of Nitazenes in the Illicit Drug Supply Utilizing Precursor Ion Scan Methods With Paper Spray Mass Spectrometry.",
+      "abstract": "The emergence of nitazene compounds in the illicit drug supply is a significant and increasing concern due to their high potency and rapid evolution in several parts of the world. Nitazenes create challenges for harm reduction drug checking services, where there is a need to provide relevant information about the composition of drug samples to people who use drugs. While targeted paper spray mass spectrometry has demonstrated abilities for drug checking, it is difficult to keep analysis methods up to date for the rapidly evolving drug supply. We have developed a precursor ion scan method that monitors four common nitazene product ions paired with tooling to streamline data interpretation. Twenty-five control samples received at a community-level drug checking service were used in method development and evaluation to ensure direct applicability to illicit drug samples. Using the developed method, three nitazene compounds, N -pyrrolidino protonitazene, N -desethyl etonitazene, and N -pyrrolidino ethylene isotonitazene, were detected across 18 samples where a nitazene was not previously detected upon preliminary targeted analysis. This approach demonstrates rapid, nontargeted screening for the detection of emerging nitazenes, ultimately allowing more complete information about the composition of drug samples to be provided to people who use drugs, as well as public health monitoring and epidemiology. Data collected through drug checking service delivery found that nitazene compounds were most commonly detected in place of expected pharmaceutical opioids, combined with benzodiazepines, and in complex opioid mixtures alongside fentanyl. These findings highlight the wide-ranging presence of nitazene compounds in the illicit drug supply.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42601813/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42601813",
+        "doi": "10.1002/dta.70135",
+        "journal": "Drug testing and analysis",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-18T18:05:08.895Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "1a8280dcb9c8ff09dbec",
+      "reserved_at": "2026-10-18T18:05:17.130Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "41610958",
+      "title": "\"It's like scratching at the door\": Experiences of outpatient buprenorphine low dose initiation among people using fentanyl.",
+      "doi": "10.1016/j.josat.2026.209893",
+      "source_title": "\"It's like scratching at the door\": Experiences of outpatient buprenorphine low dose initiation among people using fentanyl.",
+      "abstract": "The fentanyl-driven overdose crisis has heightened challenges in buprenorphine initiation, as traditional methods risk precipitated withdrawal due to fentanyl's prolonged presence in the body. Buprenorphine low-dose initiation (LDI) offers a gradual approach to starting buprenorphine but requires continued full-agonist opioid use in outpatient settings, where success rates remain low and patient experiences have not been evaluated. To identify barriers and facilitators to successful LDI completion and inform strategies to improve outpatient buprenorphine treatment. We conducted 19 semi-structured interviews with people with opioid use disorder using fentanyl who had attempted LDI in the past three months. Using the COM-B framework, we applied thematic analysis to identify barriers and facilitators to LDI completion from interviews until reaching thematic saturation. We found that barriers and facilitators to LDI completion were linked to five COM-B model components: physical capability, physical opportunity, social opportunity, reflective motivation, and automatic motivation. Despite high desirability and acceptability among participants towards starting LDI, several main barriers to LDI completion emerged, including difficulty tolerating \"waves\" of discomfort throughout LDI, anticipatory anxiety of precipitated withdrawal with each buprenorphine dose, lack of symptomatic response from small buprenorphine doses, loss of \"high\" from fentanyl, readily available fentanyl access leading to temptations to use, unstable or triggering housing environments, and being around others using fentanyl. Facilitators for completing LDI included increased optimism for success, the appeal of gradual recovery, bubble-packing medications, use of prescribed and non-prescribed drugs, supportive personal relationships, and non-stigmatizing clinic and pharmacy environments. Our study applied a novel behavior-change framework to understanding barriers and facilitators to LDI completion. Barriers aligned closely with the COM-B model, providing a foundation for developing future interventions to enhance buprenorphine uptake and acceptability among people with OUD using fentanyl. Addressing barriers to automatic motivation is likely to have the largest benefit, with interventions such as incentivization (e.g., gift cards for completing LDI), environmental restructuring (e.g., temporary housing or comfort spaces for LDI), behavior modeling (e.g., peer coaches), and enablement (e.g., 24/7 phone lines for patients to call) most directly addressing this barrier category.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41610958/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41610958",
+        "doi": "10.1016/j.josat.2026.209893",
+        "journal": "Journal of substance use and addiction treatment",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-18T18:05:08.896Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "485be78eb12b909bae7b",
+      "reserved_at": "2026-10-18T18:05:17.130Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "41530267",
+      "title": "Collaborative harm reduction efforts lead to the first detection of 5-cyano isotodesnitazene in illicit street drugs.",
+      "doi": "10.1038/s41598-026-35256-4",
+      "source_title": "Collaborative harm reduction efforts lead to the first detection of 5-cyano isotodesnitazene in illicit street drugs.",
+      "abstract": "In the ongoing opioid crisis, regulatory restrictions on fentanyl and its derivatives have led to the emergence of nitazenes, a class of highly potent synthetic opioids synthesised during the 1950s but never approved for medical use. Structurally distinct from traditional opioids, nitazenes have gained increasing presence in illicit drug markets since 2019, contributing to a growing number of drug-related deaths across Europe, North America, and Australia. The rapid proliferation of novel nitazene analogues presents a significant challenge to law enforcement and public health systems. Drug-checking services (DCS) are currently one of the most effective tool for early detection and response, enabling real-time surveillance and consequently reducing the impact of overdoses due to Novel Synthetic Opioids. As a complement, universities can provide the scientific expertise and infrastructure necessary to confirm molecules detected by DCS. This study is the first report identifying and confirming 5-cyano isotodesnitazene in a street-sold drug, through an international collaboration involving two DCSs and three academic institutions. The structural elucidation was achieved through complementary analytical techniques comprising gas chromatography, mass spectrometry, and nuclear magnetic resonance spectroscopy. The present work highlights the essential role that cross-sector cooperation and analytical innovation play in tackling the rapidly evolving threat of novel synthetic opioids.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41530267/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41530267",
+        "doi": "10.1038/s41598-026-35256-4",
+        "journal": "Scientific reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-18T18:05:08.896Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f8af9d9ce4c216be3e39",
+      "reserved_at": "2026-10-18T18:05:17.130Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -75149,16 +75531,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 960,
+    "total_reservations": 965,
     "by_lane": {
       "1": 91,
       "2": 186,
       "3": 133,
-      "4": 50,
+      "4": 55,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 960
+      "SOURCE_VERIFIED": 965
     },
     "batches": [
       {
@@ -75171,7 +75553,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 460,
+        "count": 465,
         "pr_number": null,
         "blocker": null
       }
