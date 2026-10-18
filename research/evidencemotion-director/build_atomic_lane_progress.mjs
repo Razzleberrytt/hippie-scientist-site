@@ -6,6 +6,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import process from "node:process";
 import console from "node:console";
+import { spawnSync } from "node:child_process";
 const dir = path.dirname(fileURLToPath(import.meta.url));
 const read=(name)=>fs.readFileSync(path.join(dir,name),"utf8");
 const buildReport=function buildReport(input) {
@@ -18,6 +19,24 @@ const buildReport=function buildReport(input) {
   if (accepted.length!==46) throw Error("Cannot safely parse exact 46 canonical checklist rows: "+accepted.length);
   if (ledger.mayPublish!==false) throw Error("Reporting must remain non-publishing");
   if (denominator!==1590) throw Error("Planning denominator changed; reconcile before reporting");
+  // Require the independent first-party evidence validator to check actual
+  // receipt files/rows, source pins and merge/run contracts before tallying any
+  // research card. A ledger declaration alone is never an audit.
+  const checked=spawnSync("python3",[path.join(dir,"validate_atomic_proof_ledger.py")],
+    {cwd:dir,encoding:"utf8",maxBuffer:2*1024*1024,timeout:15000});
+  if(checked.error||checked.status!==0) throw Error("ATOMIC_RECEIPT_VALIDATION_HOLD: "+
+    String(checked.stderr||checked.error||"validator did not pass").slice(0,900));
+  let validated;
+  try {validated=JSON.parse(checked.stdout);} catch {
+    throw Error("ATOMIC_RECEIPT_VALIDATION_HOLD:INVALID_VALIDATOR_OUTPUT");
+  }
+  if(validated.mayPublish!==false||validated.totalAtomicTemplates!==denominator||
+     !Array.isArray(validated.individualResearchCardIDs))
+    throw Error("ATOMIC_RECEIPT_VALIDATION_HOLD:INVALID_VALIDATOR_SCOPE");
+  const provenIds=new Set(validated.individualResearchCardIDs);
+  if(provenIds.size!==validated.individualResearchCardIDs.length)
+    throw Error("ATOMIC_RECEIPT_VALIDATION_HOLD:DUPLICATE_VERIFIED_ID");
+
   const audits=new Map(),duplicates=[];
   for (const group of ledger.proofGroups) {
     for (const id of group.cards) {
@@ -26,6 +45,8 @@ const buildReport=function buildReport(input) {
     }
   }
   if (duplicates.length) throw Error("Duplicate proof cards: "+duplicates.join(", "));
+  if (provenIds.size!==audits.size||[...audits.keys()].some(id=>!provenIds.has(id)))
+    throw Error("ATOMIC_RECEIPT_VALIDATION_HOLD:CLAIMS_NOT_IN_VALIDATED_RECEIPTS");
   const byId=new Map();
   const lanes=atomicFiles.map((file,i)=>{
     const titles=new Map([...file.matchAll(/^### (EM-\d{3}\.\d{2}) — ([^\n]+)$/gm)].map(m=>[m[1],m[2].trim()]));
@@ -58,6 +79,28 @@ const buildReport=function buildReport(input) {
   });
   const all=[...byId.values()];
   if(all.length!==denominator) throw Error("Canonical 1590 card crosswalk incomplete");
+  // Cross-check both separately declared planning sources. A metadata-only
+  // change to the 243-item register or 46-item index cannot bypass --check.
+  const registered=[...read("GRANULAR-46-EXECUTION-REGISTER.md").matchAll(
+    /^- \\[([ x])\\] \\*\\*(EM-\\d{3}\\.\\d{2})\\*\\*/gm)].map(m=>m[2]);
+  const actualTasks=new Set(lanes.flatMap(l=>l.tasks.map(t=>t.id)));
+  if(registered.length!==243||new Set(registered).size!==243||
+     registered.some(id=>!actualTasks.has(id)))
+    throw Error("ATOMIC_INVENTORY_HOLD:243_TASK_REGISTER_MISMATCH");
+  const indexRows=[...read("ATOMIC-EXECUTION-INDEX.md").matchAll(
+    /^\\| (EM-\\d{3}) \\| (\\d+) \\| (\\d+) \\|/gm)];
+  if(indexRows.length!==46) throw Error("ATOMIC_INVENTORY_HOLD:46_MILESTONE_INDEX_REQUIRED");
+  const seenParents=new Set();
+  for(const m of indexRows){
+    const p=m[1];if(seenParents.has(p))throw Error("ATOMIC_INVENTORY_HOLD:DUPLICATE_INDEX_PARENT");
+    seenParents.add(p);
+    const tasks=lanes.flatMap(l=>l.tasks).filter(t=>t.parent===p);
+    const stages=tasks.reduce((n,t)=>n+t.cards.length,0);
+    if(tasks.length!==Number(m[2])||stages!==Number(m[3]))
+      throw Error("ATOMIC_INVENTORY_HOLD:INDEX_PARENT_COUNT_MISMATCH:"+p);
+  }
+  if(lanes.flatMap(l=>l.tasks).some(t=>!seenParents.has(t.parent)))
+    throw Error("ATOMIC_INVENTORY_HOLD:MISSING_PARENT_IN_INDEX");
   const orphan=[...audits.keys()].filter(id=>!byId.has(id)).sort();
   const inherited=all.filter(c=>c.inherited).length;
   const individuallyMapped=all.filter(c=>c.machine).length;
