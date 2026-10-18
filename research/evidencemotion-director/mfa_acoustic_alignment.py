@@ -122,6 +122,8 @@ def review_repeated_term_phone_hypotheses(candidate, windows):
         if not 1 <= len(phones) <= 100 or any(not isinstance(p, str) or not PHONE.fullmatch(p) for p in phones):
             hold("REPEATED_PHONE_REVIEW_PHONES_INVALID")
         entries = groups.setdefault(window["term"], [])
+        if entries and indices[0] <= entries[-1]["indices"][-1]:
+            hold("REPEATED_PHONE_REVIEW_DUPLICATE_OR_OVERLAPPING_WINDOW")
         entries.append({"indices": indices, "phones": phones})
         if len(entries) > 20:
             hold("REPEATED_PHONE_REVIEW_OCCURRENCES_UNBOUNDED")
