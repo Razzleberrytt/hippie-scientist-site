@@ -28,6 +28,134 @@ MODEL_PINS = {
 PHONE = re.compile(r"(?:AA|AE|AH|AO|AW|AY|EH|ER|EY|IH|IY|OW|OY|UH|UW)[012]?|B|CH|D|DH|F|G|HH|JH|K|L|M|N|NG|P|R|S|SH|T|TH|V|W|Y|Z|ZH")
 
 
+
+def compare_mfa_phone_hypotheses(first, second):
+    """Compare *forced-aligner hypotheses*, never conclude spoken pronunciation.
+
+    Treat vowel stress digits separately from phone segments. The two actual
+    original-WAV candidate sequences for 'mitragynine' at 2.11s and 9.46s
+    differ at AH0 vs IH0; that is a vowel-*label* difference, not acoustic
+    proof of a different vowel. Use independently aligned edit distances for
+    full tokens and unstressed phone bases.
+    """
+    vowels = frozenset('AA AE AH AO AW AY EH ER EY IH IY OW OY UH UW'.split())
+
+    def validate(seq):
+        if not isinstance(seq, (list, tuple)) or not 1 <= len(seq) <= 100:
+            raise ValueError("MFA_PHONE_HYPOTHESES_REQUIRED")
+        if any(not isinstance(p, str) or not PHONE.fullmatch(p) for p in seq):
+            raise ValueError("MFA_PHONE_SYMBOL_INVALID")
+
+    def base(phone):
+        return phone[:-1] if phone[-1] in '012' and phone[:-1] in vowels else phone
+
+    validate(first)
+    validate(second)
+
+    def align(stress_neutral):
+        rows, cols = len(first), len(second)
+        # Each cell: (symbol edits, stress-only aligned disagreements).
+        prev = [(j, 0) for j in range(cols + 1)]
+        for i in range(1, rows + 1):
+            curr = [(i, 0)]
+            for j in range(1, cols + 1):
+                a, b = first[i - 1], second[j - 1]
+                same_base = base(a) == base(b)
+                equivalent = same_base if stress_neutral else a == b
+                old = prev[j - 1]
+                diagonal = (old[0] + (not equivalent),
+                            old[1] + int(stress_neutral and same_base and a != b))
+                deletion = (prev[j][0] + 1, prev[j][1])
+                insertion = (curr[j - 1][0] + 1, curr[j - 1][1])
+                # Stable tie preference: diagonal, deletion, insertion.
+                curr.append(min((diagonal, deletion, insertion), key=lambda pair: pair[0]))
+            prev = curr
+        return prev[cols]
+
+    raw, _ = align(False)
+    segmental, stress = align(True)
+    return {
+        "status": "MFA_PHONE_HYPOTHESIS_COMPARISON_ONLY",
+        "rawTokenEditDistance": int(raw),
+        "segmentalSymbolEditDistance": int(segmental),
+        "stressMarkerDifferencesOnAlignedIdenticalVowels": int(stress),
+        "differencesAreModelLabelHypothesesNotAcousticTruth": True,
+        "independentOriginalAudioPhonemeReferenceAvailable": False,
+        "phoneticPronunciationVerified": False,
+        "mayPublish": False,
+    }
+
+
+def review_repeated_term_phone_hypotheses(candidate, windows):
+    """Compare repeated *MFA label candidates* on one byte-pinned original WAV.
+
+    A dictionary/forced alignment labels phones; it does not hear, identify,
+    independently calibrate or approve the actual narrator's pronunciation.
+    Invalid or mismatched evidence must not produce a review-looking receipt.
+    """
+    if not isinstance(candidate, dict) or candidate.get("mayPublish") is not False:
+        hold("SOURCE_BOUND_MFA_CANDIDATE_REQUIRED")
+    pins = candidate.get("inputSha256")
+    if not isinstance(pins, dict) or pins.get("wav") != WAV_SHA:
+        hold("REPEATED_PHONE_REVIEW_WRONG_WAV")
+    words = candidate.get("wordAlignment")
+    if not isinstance(words, list) or not 1 <= len(words) <= 2000:
+        hold("REPEATED_PHONE_REVIEW_WORDS_INVALID")
+    if not isinstance(windows, list) or len(windows) > 40:
+        hold("REPEATED_PHONE_REVIEW_WINDOWS_INVALID")
+
+    groups = {}
+    seen_indices = set()
+    for window in windows:
+        if not isinstance(window, dict) or not isinstance(window.get("term"), str):
+            hold("REPEATED_PHONE_REVIEW_WINDOW_INVALID")
+        indices = window.get("wordIndices")
+        if (not isinstance(indices, list) or not 1 <= len(indices) <= 3
+                or any(type(i) is not int or i < 0 or i >= len(words) for i in indices)
+                or indices != list(range(indices[0], indices[0] + len(indices)))):
+            hold("REPEATED_PHONE_REVIEW_INDICES_INVALID")
+        # A source hash cannot authenticate an arbitrary caller-supplied label.
+        # Check every declared term against the actual aligned word spellings
+        # before producing even a research-only repeated-pronunciation receipt.
+        expected_words = TERM_WORD_SEQUENCES.get(window["term"])
+        if expected_words is None:
+            hold("REPEATED_PHONE_REVIEW_UNKNOWN_TERM")
+        source_words = [words[i].get("word") if isinstance(words[i], dict) else None
+                        for i in indices]
+        if (any(not isinstance(word, str) for word in source_words)
+                or [word.casefold() for word in source_words] != expected_words):
+            hold("REPEATED_PHONE_REVIEW_TERM_WORD_MISMATCH")
+        if any(index in seen_indices for index in indices):
+            hold("REPEATED_PHONE_REVIEW_DUPLICATE_OR_OVERLAPPING_WINDOW")
+        seen_indices.update(indices)
+        phones = []
+        for idx in indices:
+            item = words[idx]
+            if not isinstance(item, dict) or not isinstance(item.get("phones"), list):
+                hold("REPEATED_PHONE_REVIEW_PHONES_MISSING")
+            phones.extend(p.get("phone") if isinstance(p, dict) else None for p in item["phones"])
+        if not 1 <= len(phones) <= 100 or any(not isinstance(p, str) or not PHONE.fullmatch(p) for p in phones):
+            hold("REPEATED_PHONE_REVIEW_PHONES_INVALID")
+        entries = groups.setdefault(window["term"], [])
+        if entries and indices[0] <= entries[-1]["indices"][-1]:
+            hold("REPEATED_PHONE_REVIEW_DUPLICATE_OR_OVERLAPPING_WINDOW")
+        entries.append({"indices": indices, "phones": phones})
+        if len(entries) > 20:
+            hold("REPEATED_PHONE_REVIEW_OCCURRENCES_UNBOUNDED")
+
+    result = []
+    for term, entries in groups.items():
+        for i, first in enumerate(entries):
+            for second in entries[i + 1:]:
+                result.append({
+                    "term": term,
+                    "firstWordIndices": first["indices"],
+                    "secondWordIndices": second["indices"],
+                    **compare_mfa_phone_hypotheses(first["phones"], second["phones"]),
+                })
+    return result
+
+
 def hold(code):
     raise ValueError("MFA_ACOUSTIC_RESEARCH_HOLD:" + code)
 
@@ -78,13 +206,16 @@ def merge_candidates(base, missing, generated_text):
     return {**base, **generated}
 
 
+TERM_WORD_SEQUENCES = {
+    "7-OH": ["seven", "o", "h"],
+    "hydroxyl": ["hydroxyl"],
+    "mitragynine": ["mitragynine"],
+    "7-hydroxymitragynine": ["seven", "hydroxymitragynine"],
+}
+
+
 def term_windows(words):
-    required = {
-        "7-OH": ["seven", "o", "h"],
-        "hydroxyl": ["hydroxyl"],
-        "mitragynine": ["mitragynine"],
-        "7-hydroxymitragynine": ["seven", "hydroxymitragynine"],
-    }
+    required = TERM_WORD_SEQUENCES
     windows = []
     names = [x["word"].casefold() for x in words]
     for term, sequence in required.items():
@@ -184,6 +315,8 @@ def execute(wav, brief, dictionary, acoustic_model, g2p_model, output):
     (work/"alignment-manifest.json").write_text(json.dumps(manifest, indent=2)+"\n", encoding="utf-8")
     candidate = inspect_alignment(work, manifest)
     (work/"alignment-candidate.json").write_text(json.dumps(candidate, indent=2)+"\n", encoding="utf-8")
+    review_windows = term_windows(candidate["wordAlignment"])
+    label_reviews = review_repeated_term_phone_hypotheses(candidate, review_windows)
     receipt = {"schema": "ths-actual-mfa-acoustic-research-v1",
                "origin": "ACTUAL_MFA_ALIGN_ONE_PINNED_ORIGINAL_WAV", "mfaVersion": MFA_VERSION,
                "originalWavSha256": WAV_SHA, "creativeBriefSha256": BRIEF_SHA,
@@ -191,7 +324,8 @@ def execute(wav, brief, dictionary, acoustic_model, g2p_model, output):
                "scriptTokenCount": len(words), "alignedWordCount": len(candidate["wordAlignment"]),
                "alignmentCandidateSha256": sha(work/"alignment-candidate.json"),
                "alignmentRevisionSha256": candidate["revisionSha256"], "invocations": records,
-               "termReviewWindows": term_windows(candidate["wordAlignment"]),
+               "termReviewWindows": review_windows,
+               "repeatedTermMfaLabelComparisons": label_reviews,
                "g2pCandidateWords": missing, "g2pCandidatesIndependentlyApproved": False,
                "timingAccuracyCalibrated": False, "phoneticPronunciationVerified": False,
                "scienceApproved": False, "craftApproved": False, "mayPublish": False,
