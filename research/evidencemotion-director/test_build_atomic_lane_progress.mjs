@@ -166,7 +166,8 @@ test("change to a canonical stage instruction with identical ID fails closed",()
       "Register exactly **one invented completion** for this objective"));
     const result=run(tmp);
     assert.notEqual(result.status,0);
-    assert.match(result.stderr,/ATOMIC_STAGE_DEFINITION_DRIFT_HOLD:atomic\\/01-operating-science[.]md/);
+    assert.ok(result.stderr.includes("ATOMIC_STAGE_DEFINITION_DRIFT_HOLD:atomic/01-operating-science.md"),
+      result.stderr);
   });
 });
 
