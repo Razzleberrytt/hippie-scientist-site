@@ -6,6 +6,38 @@ import {proposeShots,GRAMMAR,auditShotRepetition} from './previz-director.mjs';
 const HASH=x=>typeof x==='string'&&/^[0-9a-f]{64}$/.test(x);
 const ID=x=>typeof x==='string'&&/^[a-z0-9][a-z0-9_.:-]{1,90}$/.test(x);
 const unique=a=>Array.isArray(a)&&a.length>0&&new Set(a).size===a.length;
+// Research declaration, not independent decoded-camera or learning proof.
+const meaningful=v=>typeof v==='string'&&v===v.trim()&&
+  /[\p{L}\p{N}]/u.test(v.normalize('NFKC'));
+const hasCameraTeachingPlan=b=>{
+ const p=b?.cameraTeachingPlan;
+ return p&&typeof p==='object'&&!Array.isArray(p)&&
+   typeof p.camera==='string'&&meaningful(p.action)&&
+   ID(p.visualPurposeId)&&p.visualPurposeId===b.visualPurposeId&&
+   ID(p.claimId)&&Array.isArray(b.claimIds)&&b.claimIds.includes(p.claimId)&&
+   ID(p.assetId)&&Array.isArray(b.scientificAssetIds)&&b.scientificAssetIds.includes(p.assetId)&&
+   Number.isFinite(p.narrationAnchorSec)&&Array.isArray(b.spokenAnchorTimes)&&
+   b.spokenAnchorTimes.includes(p.narrationAnchorSec);
+};
+const actionKey=v=>v.normalize('NFKC').toLowerCase()
+ .replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+// This is a source-pinned *author-declaration* negative review, not a score.
+const repeatedCameraTeachingActions=shots=>{
+ const findings=[];
+ for(let start=0;start<shots.length;){
+  const key=actionKey(shots[start].cameraTeachingPlan.action);
+  let end=start+1;
+  while(end<shots.length&&actionKey(shots[end].cameraTeachingPlan.action)===key)end++;
+  if(end-start>=3&&new Set(shots.slice(start,end).map(s=>s.visualPurposeId)).size>=2)
+   findings.push({
+    reason:'THREE_PLUS_RECYCLED_CAMERA_ACTIONS_ACROSS_DISTINCT_LESSONS',
+    firstBeatId:shots[start].beatId,lastBeatId:shots[end-1].beatId,
+    consecutiveCount:end-start
+   });
+  start=end;
+ }
+ return findings;
+};
 const PURPOSES=new Set([
  'everyday-to-mechanism','process-sequence','study-measurement',
  'fair-comparison','uncertainty','source-bound-scale'
@@ -23,13 +55,15 @@ export function compileReusableDirector(program){
     ||program.mayPublish!==false)add(errors,'RESEARCH_BOUNDARY_REQUIRED');
  if(!ID(program.topicId)||!HASH(program.sourceManifestSha256)||!HASH(program.originalNarrationSha256))
     add(errors,'EXACT_TOPIC_SOURCE_VOICE_IDENTITY_REQUIRED');
- if(!Array.isArray(program.claimLedger)||!program.claimLedger.length
-    ||!unique(program.claimLedger.map(x=>x?.id))
-    ||program.claimLedger.some(x=>!ID(x?.id)||!ID(x?.sourceId)
+ // Malformed external claim ledgers must HOLD, not throw during .map/.some.
+ // Only arrays are eligible to establish source lineage.
+ const claimLedger=Array.isArray(program.claimLedger)?program.claimLedger:[];
+ if(!claimLedger.length||!unique(claimLedger.map(x=>x?.id))
+    ||claimLedger.some(x=>!ID(x?.id)||!ID(x?.sourceId)
       ||!['STRUCTURE','PRECLINICAL','HUMAN','LIMITATION','SOURCE'].includes(x?.class)
       ||x.assertsHumanEffect===true&&x.class!=='HUMAN'))
     add(errors,'UNVERIFIED_OR_MISMATCHED_CLAIMS');
- const allowed=new Set((program.claimLedger||[]).map(x=>x.id));
+ const allowed=new Set(claimLedger.map(x=>x.id));
  if(!Array.isArray(program.beats)||program.beats.length<2||!unique(program.beats.map(x=>x?.id)))
     add(errors,'AT_LEAST_TWO_DISTINCT_SOURCE_BEATS_REQUIRED');
  const outputs=[];
@@ -43,7 +77,8 @@ export function compileReusableDirector(program){
    last=b?.endSec??last;
    if(!ID(b?.visualPurposeId)||typeof b?.viewerLearns!=='string'||!b.viewerLearns.trim())
       add(errors,'EXPLANATION_INTENT_REQUIRED');
-   if(!unique(b?.claimIds)||b.claimIds.some(x=>!allowed.has(x)))
+   if(!hasCameraTeachingPlan(b))add(errors,'SOURCE_BOUND_CAMERA_TEACHING_PLAN_REQUIRED');
+    if(!unique(b?.claimIds)||b.claimIds.some(x=>!allowed.has(x)))
       add(errors,'SOURCE_CLAIM_LEDGER_MISMATCH');
    if(!unique(b?.scientificAssetIds))
       add(errors,'SOURCE_ASSET_IDS_MISSING');
@@ -63,16 +98,20 @@ export function compileReusableDirector(program){
    },{previousGrammar,previousCamera});
    if(proposed.status!=='PROPOSED')add(errors,proposed.code);
    else {
-     const hero=proposed.candidates[0];
+     // Choose the authored explanation-specific camera, never variation alone.
+      const hero=proposed.candidates.find(x=>x.camera===b.cameraTeachingPlan.camera);
+      if(!hero){add(errors,'CAMERA_NOT_ALLOWED_FOR_VISUAL_INTENT');continue;}
      previousGrammar=hero.grammarId;
      previousCamera=hero.camera;
      outputs.push({
        beatId:b.id,topicId:program.topicId,
        startSec:b.startSec,endSec:b.endSec,
        viewerLearns:b.viewerLearns,visualPurposeId:b.visualPurposeId,
+        cameraTeachingPlan:{...b.cameraTeachingPlan},
+        cameraPurposeStatus:'AUTHOR_DECLARED_REQUIRES_DECODED_FILM_REVIEW',
        grammarId:hero.grammarId,grammarName:hero.grammarName,
        primaryCamera:hero.camera,transition:hero.transition,
-       alternative:proposed.candidates[1],
+       alternative:proposed.candidates.find(x=>x.id!==hero.id),
        sourceClaimIds:hero.sourceClaimIds,scientificAssetIds:hero.scientificAssetIds,
        sourceManifestSha256:program.sourceManifestSha256,
        originalNarrationSha256:program.originalNarrationSha256,
@@ -94,11 +133,18 @@ export function compileReusableDirector(program){
  if(sequenceCraft.status==='HOLD')return {status:'HOLD',
   errors:sequenceCraft.errors,shots:[],productionEligible:false,
   excellentCertified:false,mayPublish:false};
+ // Camera motion can be formally documented while still being conceptually
+ // unmotivated. Flag 3+ recycled instructions across distinct lessons.
+ const cameraWarnings=repeatedCameraTeachingActions(outputs);
+ const craftFindings=[...sequenceCraft.findings,...cameraWarnings];
+ const craftReview={...sequenceCraft,findings:craftFindings,
+   status:craftFindings.length?'CRAFT_REDIRECTION_REQUIRED':sequenceCraft.status,
+   craftRemediationRequired:craftFindings.length>0};
  return {status:'REUSABLE_G1_G6_PROGRAM_PROPOSED',topicId:program.topicId,
   grammarCoverage:[...new Set(outputs.map(x=>x.grammarId))].sort(),
   shots:outputs,errors:[],
-  sequenceCraftReview:sequenceCraft,
-  compositionRedirectionRequired:sequenceCraft.craftRemediationRequired,
+  sequenceCraftReview:craftReview,
+  compositionRedirectionRequired:craftReview.craftRemediationRequired,
   exactSourceManifestSha256:program.sourceManifestSha256,
   exactOriginalNarrationSha256:program.originalNarrationSha256,
   generatedScience:false,productionEligible:false,excellentCertified:false,
