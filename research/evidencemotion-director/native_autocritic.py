@@ -159,6 +159,62 @@ def review_decoded_samples(samples):
     }
 
 
+
+def review_one_hz_hero_cadence(one_hz_frames):
+    """Find sustained unchanged center-hero silhouettes in independently decoded frames.
+
+    One-second sampling detects negative examples; it does NOT prove the visual
+    action is educational, find off-center subjects, or establish 3s exactness.
+    Any bright particles inside this probe or intentional source-reading holds
+    require separate scene-ROI and semantic review, not automatic acceptance.
+    """
+    frames = np.asarray(one_hz_frames, dtype=np.uint8)
+    if frames.ndim != 3 or frames.shape[1:] != (FRAME_H, FRAME_W) or len(frames) < 4:
+        raise ValueError("ACTUAL_ONE_HZ_HERO_SAMPLES_REQUIRED")
+    x0, y0, x1, y1 = CENTER_HERO_BOX
+    vectors, visible = [], []
+    for frame in frames:
+        core = frame[y0:y1, x0:x1]
+        visible.append(float(core.std()) >= MIN_VISIBLE_SUBJECT_STD)
+        edges = np.asarray(Image.fromarray(frame).filter(ImageFilter.FIND_EDGES))
+        vectors.append(edges[y0:y1, x0:x1].reshape(13, 8, 8, 8)
+                       .mean(axis=(1, 3)).ravel().astype(np.float64))
+    static_pairs = [
+        i for i in range(len(vectors)-1)
+        if visible[i] and visible[i+1] and
+        similarity(vectors[i], vectors[i+1]) >= CENTER_HERO_MATCH_LIMIT
+    ]
+    windows = []
+    if static_pairs:
+        start = end = static_pairs[0]
+        for i in static_pairs[1:] + [None]:
+            if i is not None and i == end + 1:
+                end = i
+                continue
+            seconds = end - start + 1
+            if seconds >= 3:
+                windows.append({
+                    "startSec": start, "endSec": end+1,
+                    "stagnantSecondsAtOneHz": seconds,
+                    "severity": "REVISE_CANDIDATE" if seconds > 6 else "CRAFT_HOLD_CANDIDATE",
+                })
+            if i is not None:
+                start = end = i
+    worst = max((w["stagnantSecondsAtOneHz"] for w in windows), default=0)
+    return {
+        "probe": "SHA_PINNED_ACTUAL_FRAME_CENTER_HERO_1HZ_RESEARCH_NEGATIVE_ONLY",
+        "sampleCount": len(frames),
+        "centerHeroBoxPixels": list(CENTER_HERO_BOX),
+        "visibleCenterHeroSamples": sum(visible),
+        "thresholdSec": 3,
+        "stagnationWindows": windows,
+        "longestFlaggedStagnationSec": worst,
+        "creativeScreenVerdict": "CRAFT_HOLD" if windows else "NO_NEGATIVE_FOUND_NOT_CRAFT_PASS",
+        "sceneSpecificHeroAndMeaningVerified": False,
+        "offCenterAndIntentionalReadingHoldNotAdjudicated": True,
+        "automaticallyApprovedArt": False,
+    }
+
 def interleaved_blank_phase_windows(one_hz_frames):
     """Provisional negative craft screen for phase-aliased blank interruptions.
 
@@ -234,6 +290,7 @@ def analyze_video(path, expected_sha=None):
         raise ValueError("INCOMPLETE_DECODED_SAMPLE_GRID")
     frames = np.frombuffer(raw, dtype=np.uint8).reshape(-1, FRAME_H, FRAME_W)
     result = review_decoded_samples(frames[::SAMPLE_STEP_SECONDS])
+    result["oneHzHeroCadence"] = review_one_hz_hero_cadence(frames)
     phase_windows = interleaved_blank_phase_windows(frames)
     result["interleavedBlankPhaseWindowsSec"] = phase_windows
     result["oneHzOpticalScreenSamples"] = len(frames)
