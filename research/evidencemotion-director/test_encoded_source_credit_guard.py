@@ -3,6 +3,7 @@ import shutil
 import subprocess
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 
 import encoded_source_credit_guard as guard
@@ -78,6 +79,42 @@ class DecodedSourceCreditTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,"SOURCE_REGION_OUTSIDE"):
                 guard.inspect(good,pin,frame_indices=[2,13],roi=[20,360,570,130],
                               source_name="USP",source_number="2040")
+
+            # Physically reproduce a check/use race. A second MP4 carries
+            # the same readable credit, but different bytes from the pinned
+            # one. The old implementation silently reported success under
+            # the first movie SHA after FFprobe read the replacement.
+            changed = root / "replaced-after-pin.mp4"
+            subprocess.run([
+                "ffmpeg", "-v", "error", "-y", "-i", str(good),
+                "-map", "0:v:0", "-c:v", "copy", "-metadata",
+                "comment=post-hash-replacement", str(changed)
+            ], capture_output=True, check=True, timeout=30)
+            self.assertNotEqual(pin, guard.sha256_file(changed))
+            original_command = guard.command
+            used = []
+            swapped = {"done": False}
+
+            def replace_on_probe(argv, timeout=45):
+                if argv[0] == "ffprobe":
+                    used.append(Path(argv[-1]).name)
+                    if not swapped["done"]:
+                        good.write_bytes(changed.read_bytes())
+                        swapped["done"] = True
+                elif argv[0] == "ffmpeg":
+                    used.append(Path(argv[argv.index("-i") + 1]).name)
+                return original_command(argv, timeout=timeout)
+
+            with mock.patch.object(guard, "command", side_effect=replace_on_probe):
+                with self.assertRaisesRegex(
+                    ValueError, "ENCODED_SOURCE_CHANGED_DURING_REPLAY"
+                ):
+                    guard.inspect(good, pin, frame_indices=[2, 13],
+                                  roi=[20, 70, 570, 130],
+                                  source_name="USP", source_number="2040")
+            self.assertTrue(swapped["done"])
+            self.assertEqual(used, ["pinned-input.mp4"] * 3)
+            self.assertEqual(good.read_bytes(), changed.read_bytes())
 
 
 if __name__=="__main__": unittest.main()
