@@ -1,5 +1,6 @@
 """Physical FFmpeg/H.264 and Tesseract per-frame negative regressions (research)."""
 import json
+import os
 import subprocess
 import tempfile
 import unittest
@@ -145,6 +146,68 @@ class TransientEncodedTextTests(unittest.TestCase):
                    side_effect=AssertionError('decoder must not run')):
             with self.assertRaisesRegex(ValueError, 'REGULAR_MANIFEST_REQUIRED'):
                 check(self.clean, link)
+
+    def test_manifest_symlink_swap_between_check_and_open_fails_closed(self):
+        manifest = self.manifest(self.clean)
+        backup = self.root / 'manifest-before-symlink-swap.json'
+        real_open = os.open
+        swapped = []
+
+        def swap_before_fd_open(path, flags, *args, **kwargs):
+            if Path(path) == manifest and not swapped:
+                swapped.append(True)
+                manifest.rename(backup)
+                manifest.symlink_to(backup)
+            return real_open(path, flags, *args, **kwargs)
+
+        try:
+            with patch('fullframe_text_negative_probe.os.open', side_effect=swap_before_fd_open), \
+                 patch('fullframe_text_negative_probe.command',
+                       side_effect=AssertionError('untrusted manifest must not decode')):
+                with self.assertRaisesRegex(ValueError, 'REGULAR_MANIFEST_REQUIRED'):
+                    check(self.clean, manifest)
+            self.assertTrue(swapped)
+        finally:
+            if manifest.is_symlink():
+                manifest.unlink()
+            if backup.exists():
+                backup.rename(manifest)
+
+    def test_same_content_manifest_inode_replacement_during_decode_holds(self):
+        from fullframe_text_negative_probe import command as original_command
+        manifest = self.manifest(self.clean)
+        copied_bytes = manifest.read_bytes()
+        replacements = []
+
+        def rewrite_during_probe(argv):
+            if argv[0] == 'ffprobe' and not replacements:
+                replacements.append(True)
+                manifest.unlink()
+                manifest.write_bytes(copied_bytes)
+            return original_command(argv)
+
+        with patch('fullframe_text_negative_probe.command', side_effect=rewrite_during_probe):
+            with self.assertRaisesRegex(ValueError, 'SOURCE_CHANGED_DURING_AUDIT'):
+                check(self.clean, manifest)
+        self.assertTrue(replacements)
+        self.assertEqual(manifest.read_bytes(), copied_bytes)
+
+    def test_crop_disables_rotation_metadata_before_encoded_frame_decode(self):
+        from fullframe_text_negative_probe import command as original_command
+        checked = []
+
+        def verify_crop_source(argv):
+            if argv[0] == 'ffmpeg':
+                self.assertIn('-noautorotate', argv)
+                self.assertLess(argv.index('-noautorotate'), argv.index('-i'))
+                checked.append(True)
+            return original_command(argv)
+
+        with patch('fullframe_text_negative_probe.command', side_effect=verify_crop_source):
+            result = check(self.clean, self.manifest(self.clean))
+        self.assertTrue(checked)
+        self.assertEqual((result['framesOCRChecked'], result['defectFrames']), (30, 0))
+        self.assertFalse(result['handsetReadabilityApproved'])
 
     def test_snapshot_rejects_source_replaced_between_pin_and_copy(self):
         from fullframe_text_negative_probe import _frozen_source as real_snapshot
