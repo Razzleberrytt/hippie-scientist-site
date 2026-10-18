@@ -48,13 +48,13 @@ jobs:
           obj=json.loads(p.read_text(encoding="utf-8"))
           g=obj["global"]
           with open(os.environ["GITHUB_STEP_SUMMARY"],"a",encoding="utf-8") as fp:
-              fp.write("### Sub-atomic five-lane evidence map (not video approval)\\n\\n")
-              fp.write("| Lane | Individually machine-audited research stages | Historically inherited | Unique mapped, research-only | Unmapped |\\n")
-              fp.write("|---|---:|---:|---:|---:|\\n")
+              fp.write("### Sub-atomic five-lane evidence map (not video approval)\n\n")
+              fp.write("| Lane | Individually machine-audited research stages | Historically inherited | Unique mapped, research-only | Unmapped |\n")
+              fp.write("|---|---:|---:|---:|---:|\n")
               for lane in obj["lanes"]:
                   s=lane["stats"]
-                  fp.write(f"| {lane['lane']}. {lane['name']} | {s['machine']}/{s['total']} ({s['machinePercent']}%) | {s['inherited']} | {s['unique']}/{s['total']} ({s['mappedPercent']}%) | {s['unmapped']} |\\n")
-              fp.write(f"\\n**Arithmetic HOLD:** existing ledger {g['ledgerClaimedProvisional']}/1590 counts {g['overlap']} inherited/audited overlaps and {len(g['orphanCards'])} unmatched card(s). Canonical distinct mapping = **{g['unique']}/1590**; no authority or quality credit.\\n")
+                  fp.write(f"| {lane['lane']}. {lane['name']} | {s['machine']}/{s['total']} ({s['machinePercent']}%) | {s['inherited']} | {s['unique']}/{s['total']} ({s['mappedPercent']}%) | {s['unmapped']} |\n")
+              fp.write(f"\n**Arithmetic HOLD:** existing ledger {g['ledgerClaimedProvisional']}/1590 counts {g['overlap']} inherited/audited overlaps and {len(g['orphanCards'])} unmatched card(s). Canonical distinct mapping = **{g['unique']}/1590**; no authority or quality credit.\n")
           PY
       - name: Read GitHub merged PRs into a fresh, time-stamped receipt
         env:
