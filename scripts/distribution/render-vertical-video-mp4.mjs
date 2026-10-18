@@ -562,6 +562,7 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       throw Error('R8.18 native frame iteration count differs from validated sequence')
     const outputBytes = fs.readFileSync(output)
     if (!outputBytes.length) throw new Error('ffmpeg produced an empty MP4')
+    let encodedMobileOpeningProof = null
     if (isR817) {
       const frameProbe=JSON.parse(runCommand(ffprobePath, [
         '-v','error','-select_streams','v:0','-count_frames',
@@ -572,6 +573,24 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       if(Number(stream?.nb_read_frames)!==verified.r818NativeFrames.frameCount||
          stream?.avg_frame_rate!=='30/1'||stream.width!==1080||stream.height!==1920)
         throw Error('R8.18 encoded MP4 has missing/duplicated frames or changed 30fps/1080p profile')
+      // Source PNGs are BEFORE the ASS caption burn-in. The safety gate must
+      // also inspect actual decoded H.264 output AFTER subtitles and final
+      // compositing, or caption/art collisions would escape the first screen.
+      const encodedFramePattern=path.join(tempDir,'final-caption-composited-%02d.png')
+      runCommand(ffmpegPath,[
+        '-hide_banner','-loglevel','error','-i',output,
+        '-vf','fps=2','-frames:v','4','-start_number','0',encodedFramePattern
+      ],{timeout:90000})
+      const decodedOpeningFrames=Array.from({length:4},(_,i)=>
+        path.join(tempDir,'final-caption-composited-'+String(i).padStart(2,'0')+'.png'))
+      if(decodedOpeningFrames.some(file=>!fs.existsSync(file)))
+        throw Error('MOBILE_OPENING_HOLD:FINAL_ENCODED_CAPTION_FRAMES_MISSING')
+      const finalPixelGate=await assertNativeMobileOpeningPixels(
+        decodedOpeningFrames.map(file=>fs.readFileSync(file)))
+      encodedMobileOpeningProof={...finalPixelGate,
+        exactMp4Sha256:sha256(outputBytes),
+        inspectionScope:'FINAL_DECODED_MP4_AFTER_ASS_CAPTION_COMPOSITING',
+        approvalGranted:false}
     }
     // Analyze the FINAL AAC/MP4 stream; filter intent is not loudness evidence.
     const r812Loudness = isR810 && verified.manifest.r812?.enabled === true
@@ -672,7 +691,7 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         allFramesPixelMatchedR818:r819FrameProofs.length===verified.r818NativeFrames.frameCount,
         layeredFrameProofLedgerSha256:sha256(Buffer.from(JSON.stringify(r819FrameProofs))),
         finalMp4PixelAndCraftApproval:'PENDING_INDEPENDENT_REVIEW',publicationApproved:false} : null,
-      r817FirstPass: verified.r817Proof ? { ...verified.r817Proof, intentSha256: clean(verified.manifest.r817FirstPass.sha256), status: 'encoded-review-only', exactMasterVisualApproval: false, progressiveWords:r817CaptionProof, finalMp4Motion:r817MotionProof,captionPixelProof:r817CaptionPixelProof,hookPixelProof:r817HookPixels,rendererTelemetry:verified.r818TelemetryProof,exactMp4Sha256:sha256(outputBytes),nativeSequenceFrameCount:verified.r818NativeFrames?.frameCount||null } : null,
+      r817FirstPass: verified.r817Proof ? { ...verified.r817Proof, intentSha256: clean(verified.manifest.r817FirstPass.sha256), status: 'encoded-review-only', exactMasterVisualApproval: false, progressiveWords:r817CaptionProof, finalMp4Motion:r817MotionProof,captionPixelProof:r817CaptionPixelProof,encodedMobileOpeningProof,hookPixelProof:r817HookPixels,rendererTelemetry:verified.r818TelemetryProof,exactMp4Sha256:sha256(outputBytes),nativeSequenceFrameCount:verified.r818NativeFrames?.frameCount||null } : null,
       creativeQuality: verified.release === 'R8.05' ? {
         semanticBeatMapSha256: clean(verified.manifest.creativeQuality?.semanticBeatMapSha256),
         creativeBriefSha256: clean(verified.manifest.r805Bindings?.creativeBrief?.sha256),
