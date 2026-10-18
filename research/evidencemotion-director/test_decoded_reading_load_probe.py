@@ -61,7 +61,7 @@ class DecodedReadingLoadTests(unittest.TestCase):
         # Real encoded negative: nominal r_frame_rate stays 30/1 while
         # physical video presentation times contain a 100 ms jump.
         vfr=self.root/"nominal-30-with-pts-gap.mp4"
-        vf=r"setpts=if(eq(N\\,15)\\,PTS+0.1/TB\\,PTS)"
+        vf=r"setpts=if(eq(N\,15)\,PTS+0.1/TB\,PTS)"
         subprocess.run(["ffmpeg","-nostdin","-hide_banner","-loglevel","error",
                         "-i",str(self.film),"-vf",vf,"-fps_mode","vfr",
                         "-c:v","libx264","-preset","ultrafast","-crf","22",
