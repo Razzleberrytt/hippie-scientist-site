@@ -23,13 +23,15 @@ export function compileReusableDirector(program){
     ||program.mayPublish!==false)add(errors,'RESEARCH_BOUNDARY_REQUIRED');
  if(!ID(program.topicId)||!HASH(program.sourceManifestSha256)||!HASH(program.originalNarrationSha256))
     add(errors,'EXACT_TOPIC_SOURCE_VOICE_IDENTITY_REQUIRED');
- if(!Array.isArray(program.claimLedger)||!program.claimLedger.length
-    ||!unique(program.claimLedger.map(x=>x?.id))
-    ||program.claimLedger.some(x=>!ID(x?.id)||!ID(x?.sourceId)
+ // Malformed external claim ledgers must HOLD, not throw during .map/.some.
+ // Only arrays are eligible to establish source lineage.
+ const claimLedger=Array.isArray(program.claimLedger)?program.claimLedger:[];
+ if(!claimLedger.length||!unique(claimLedger.map(x=>x?.id))
+    ||claimLedger.some(x=>!ID(x?.id)||!ID(x?.sourceId)
       ||!['STRUCTURE','PRECLINICAL','HUMAN','LIMITATION','SOURCE'].includes(x?.class)
       ||x.assertsHumanEffect===true&&x.class!=='HUMAN'))
     add(errors,'UNVERIFIED_OR_MISMATCHED_CLAIMS');
- const allowed=new Set((program.claimLedger||[]).map(x=>x.id));
+ const allowed=new Set(claimLedger.map(x=>x.id));
  if(!Array.isArray(program.beats)||program.beats.length<2||!unique(program.beats.map(x=>x?.id)))
     add(errors,'AT_LEAST_TWO_DISTINCT_SOURCE_BEATS_REQUIRED');
  const outputs=[];
