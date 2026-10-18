@@ -102,9 +102,9 @@ test("accounting step uses the same real discrepancy rule for HOLD and resolved 
   const workflow=fs.readFileSync(path.resolve(root,"../../.github/workflows/evidencemotion-progress-readout.yml"),"utf8");
   const step=workflow.split("      - name: Append exact five-lane stage evidence percentages")[1]
     ?.split("      - name: Read GitHub merged PRs into a fresh, time-stamped receipt")[0]||"";
-  const block=step.split("          python - <<'PY'\\n")[1]?.split("\\n          PY")[0];
+  const block=step.split("          python - <<'PY'\n")[1]?.split("\n          PY")[0];
   assert.ok(block,"Accounting Python block missing");
-  const script=block.split("\\n").map(line=>line.replace(/^          /,"")).join("\\n");
+  const script=block.split("\n").map(line=>line.replace(/^          /,"")).join("\n");
   withFixture(tmp=>{
     const relative=path.join("research","evidencemotion-director","ATOMIC-LANE-PROGRESS.json");
     const dest=path.join(tmp,relative);
@@ -125,10 +125,10 @@ test("accounting step uses the same real discrepancy rule for HOLD and resolved 
       assert.equal(result.status,0,result.stderr);
       const output=fs.readFileSync(summary,"utf8");
       if(resolved){
-        assert.match(output,/Distinct mapping reconciled \\(research-only\\)/);
-        assert.doesNotMatch(output,/\\*\\*Arithmetic HOLD:/);
+        assert.match(output,/Distinct mapping reconciled \(research-only\)/);
+        assert.doesNotMatch(output,/\*\*Arithmetic HOLD:/);
       }else{
-        assert.match(output,/\\*\\*Arithmetic HOLD:/);
+        assert.match(output,/\*\*Arithmetic HOLD:/);
       }
     }
   });
@@ -139,9 +139,9 @@ test("evidence artifact physically includes byte-identical reconciled card inven
     ?.split("      - name: Preserve both snapshot and reviewed accounting")[0]||"";
   assert.ok(section.includes("atomic-lane-progress-reconciled.json"),
     "Artifact copy step missing");
-  assert.match(workflow,/path: \\$\\{\\{ runner\\.temp \\$?\\}\\}\\/em-progress\\//);
-  const script=section.split("        run: |\\n")[1]?.split("\\n").filter(line=>line.trim())
-    .map(line=>line.replace(/^          /,"")).join("\\n");
+  assert.ok(workflow.includes("path: ${{ runner.temp }}/em-progress/"),"Evidence upload path missing");
+  const script=section.split("        run: |\n")[1]?.split("\n").filter(line=>line.trim())
+    .map(line=>line.replace(/^          /,"")).join("\n");
   assert.ok(script,"Artifact copy command missing");
   withFixture(tmp=>{
     const source=path.join(tmp,"research/evidencemotion-director/ATOMIC-LANE-PROGRESS.json");
