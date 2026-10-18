@@ -80,3 +80,20 @@ test("edited milestone stage count in index is rejected",()=>{
     assert.match(result.stderr,/ATOMIC_INVENTORY_HOLD:INDEX_PARENT_COUNT_MISMATCH:EM-001/);
   });
 });
+
+test("pull-request workflow covers every claimed root-level proof receipt and renders summary newlines",()=>{
+  const workflow=fs.readFileSync(path.resolve(root,"../../.github/workflows/evidencemotion-progress-readout.yml"),"utf8");
+  const prPaths=workflow.split("  pull_request:")[1]?.split("  workflow_dispatch:")[0]||"";
+  const ledger=JSON.parse(fs.readFileSync(path.join(root,"ATOMIC-PROOF-LEDGER-20261015.json"),"utf8"));
+  assert.ok(prPaths.includes("'research/evidencemotion-director/EM*.md'"),
+    "Missing explicit root receipt trigger");
+  for (const group of ledger.proofGroups) {
+    assert.match(group.source,/^EM[^/]*[.]md$/,
+      "Every current receipt must be covered by the EM*.md PR trigger: "+group.source);
+  }
+  const summary=workflow.split("      - name: Summarize real engineering activity without awarding cards")[1]
+    ?.split("      - name: Preserve both snapshot and reviewed accounting")[0]||"";
+  assert.ok(summary.includes("fp.write("),"Summary block missing");
+  assert.equal(summary.includes(String.fromCharCode(92,92,110)),false,
+    "Python must emit newline escapes rather than literal backslash-n text");
+});
