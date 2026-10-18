@@ -17,7 +17,14 @@ const source=topic=>({
    visualPurposeId:'explanation:'+i,
    cameraTeachingPlan:{visualPurposeId:'explanation:'+i,
      camera:['MACRO_PUSH','LATERAL_TRACK','FOCUS_TRANSFER','LATERAL_TRACK','LOCKED_HOLD','PULLBACK_SCALE'][i],
-     action:'Reveal the pinned scientific concept as the original narration advances',
+     action:[
+      'Reveal the object and then its evidence-limited mechanism',
+      'Track each reviewed step without skipping source-established order',
+      'Focus from a study instrument onto exactly what it measured',
+      'Compare the two source-defined quantities on the same declared scale',
+      'Hold uncertainty while showing what the source did not establish',
+      'Pull back to expose the source-defined scale boundary'
+     ][i],
      claimId:'claim:known',assetId:'asset:source-graphic',narrationAnchorSec:.25},
    viewerLearns:'Beat '+i+': a different evidence-backed teaching outcome',
    sequenceReviewed:true,comparisonOrScaleReviewed:true,
@@ -194,4 +201,40 @@ test('author rationale cannot authorize a camera outside its source-reviewed gra
  assert.equal(r.status,'HOLD');
  assert.ok(r.errors.includes('CAMERA_NOT_ALLOWED_FOR_VISUAL_INTENT'));
  assert.deepEqual(r.shots,[]);assert.equal(r.excellentCertified,false);
+});
+
+
+test('three copied camera explanations across different lessons prompt craft redirection',()=>{
+ const p=source('science:generic-camera-excuse');
+ for(let i=0;i<4;i++)
+  p.beats[i].cameraTeachingPlan.action=i===1?'SHOW  the same diagram!':'Show the same diagram';
+ const r=compileReusableDirector(p);
+ assert.equal(r.status,'REUSABLE_G1_G6_PROGRAM_PROPOSED');
+ assert.equal(r.compositionRedirectionRequired,true);
+ const findings=r.sequenceCraftReview.findings.filter(x=>
+  x.reason==='THREE_PLUS_RECYCLED_CAMERA_ACTIONS_ACROSS_DISTINCT_LESSONS');
+ assert.deepEqual(findings,[{
+   reason:'THREE_PLUS_RECYCLED_CAMERA_ACTIONS_ACROSS_DISTINCT_LESSONS',
+   firstBeatId:'beat:0',lastBeatId:'beat:3',consecutiveCount:4
+ }]);
+ assert.equal(r.sequenceCraftReview.status,'CRAFT_REDIRECTION_REQUIRED');
+ assert.equal(r.productionEligible,false);assert.equal(r.excellentCertified,false);
+ assert.equal(r.mayPublish,false);
+});
+test('six specific camera actions are not mislabeled a copied teaching rationale',()=>{
+ const p=source('science:specific-camera-actions');
+ const r=compileReusableDirector(p);
+ assert.equal(r.status,'REUSABLE_G1_G6_PROGRAM_PROPOSED');
+ assert.deepEqual(r.sequenceCraftReview.findings,[]);
+ assert.equal(r.compositionRedirectionRequired,false);
+ assert.equal(r.excellentCertified,false);assert.equal(r.mayPublish,false);
+});
+test('two repeated actions do not meet the three-beat review trigger',()=>{
+ const p=source('science:two-camera-actions');
+ p.beats[1].cameraTeachingPlan.action=p.beats[0].cameraTeachingPlan.action;
+ const r=compileReusableDirector(p);
+ assert.equal(r.status,'REUSABLE_G1_G6_PROGRAM_PROPOSED');
+ assert.ok(!r.sequenceCraftReview.findings.some(x=>
+  x.reason==='THREE_PLUS_RECYCLED_CAMERA_ACTIONS_ACROSS_DISTINCT_LESSONS'));
+ assert.equal(r.mayPublish,false);
 });
