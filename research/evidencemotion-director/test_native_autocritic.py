@@ -469,6 +469,51 @@ class AutonomousFilmCriticTests(unittest.TestCase):
             self.assertFalse(report["mayPublish"])
             self.assertFalse(report["automaticallyApprovedPremiumCraft"])
 
+    def test_actual_input_swap_between_source_pin_and_decoders_uses_frozen_bytes(self):
+        """Real black/white H264 swap: every decoded pixel comes from the first pin."""
+        if not shutil.which("ffmpeg") or not shutil.which("ffprobe"):
+            self.skipTest("FFmpeg required")
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)
+            source=root/"mutable.mp4"
+            swapped=root/"replacement.mp4"
+            for clip,color in ((source,"black"),(swapped,"white")):
+                subprocess.run(["ffmpeg","-hide_banner","-loglevel","error",
+                                "-nostdin","-f","lavfi","-i",
+                                f"color=c={color}:s=180x320:r=12:d=14",
+                                "-c:v","libx264","-pix_fmt","yuv420p",
+                                "-y",str(clip)],check=True,capture_output=True,timeout=40)
+            original_sha=m.sha256(source)
+            replacement_bytes=swapped.read_bytes()
+            replacement_sha=m.sha256(swapped)
+            self.assertNotEqual(original_sha,replacement_sha)
+            original_helper=m._analyze_frozen_video
+
+            def swap_before_any_decode(frozen, pinned, *extra_args):
+                # This hook fires AFTER snapshot SHA identity is established,
+                # but BEFORE ffprobe and both FFmpeg frame-sampling passes.
+                self.assertNotEqual(Path(frozen),source)
+                self.assertEqual(m.sha256(frozen),original_sha)
+                source.write_bytes(replacement_bytes)
+                return original_helper(frozen,pinned,*extra_args)
+
+            with patch.object(m,"_analyze_frozen_video",side_effect=swap_before_any_decode):
+                result=m.analyze_video(source,original_sha)
+            self.assertEqual(m.sha256(source),replacement_sha)
+            self.assertEqual(result["actualVideoSha256"],original_sha)
+            self.assertEqual(result["decision"],"AUTO_REVISE")
+            self.assertFalse(result["mayPublish"])
+            # No source swapping can manufacture the original pin from new
+            # content in a *new invocation*.
+            with self.assertRaisesRegex(ValueError,"VIDEO_IDENTITY_CHANGED"):
+                m.analyze_video(source,original_sha)
+
+    def test_unpinned_visual_cue_cannot_promote_internal_snapshot_hash(self):
+        plan={"schemaVersion":"ths-em-visual-cue-plan-research-v1","scenes":[]}
+        with self.assertRaisesRegex(ValueError,"EXACT_VIDEO_AND_PLAN_EXTERNAL_PINS_REQUIRED"):
+            m.analyze_video("absent.mp4",scene_plan=plan,scene_plan_sha="f"*64)
+
     def test_real_decode_pins_sha_and_blocks_static_mp4(self):
         if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
             self.skipTest('FFmpeg required for actual media test')
