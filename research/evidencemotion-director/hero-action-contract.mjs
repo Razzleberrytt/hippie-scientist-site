@@ -124,6 +124,11 @@ export function inspectSceneVisualVerbPlan(plan) {
         continue
       }
       lastAction = event.atSec
+      // A visual verb cannot borrow a different claim or unreviewed asset from the scene.
+      // This is an identity guard, not verification that the depicted science is correct.
+      if (!slug(event.sourceClaimId) || !scene.sourceClaimIds.includes(event.sourceClaimId) ||
+          !slug(event.sourceAssetId) || !scene.sourceAssetIds.includes(event.sourceAssetId))
+        add('UNBOUND_ACTION_SOURCE_OR_CLAIM')
       const physical = inspectHeroAction({
         beatId:scene.beatId, heroObjectId:event.heroObjectId,
         lockedHeroArtSha256:event.lockedHeroArtSha256,
