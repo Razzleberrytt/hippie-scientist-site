@@ -155,3 +155,17 @@ test("evidence artifact physically includes byte-identical reconciled card inven
       fs.readFileSync(source));
   });
 });
+
+test("change to a canonical stage instruction with identical ID fails closed",()=>{
+  withFixture(tmp=>{
+    const source=path.join(tmp,"atomic/01-operating-science.md");
+    const current=fs.readFileSync(source,"utf8");
+    const old="Register exactly **one hosted CPU execution** for this objective";
+    assert.ok(current.includes(old),"Expected current stage definition missing");
+    fs.writeFileSync(source,current.replace(old,
+      "Register exactly **one invented completion** for this objective"));
+    const result=run(tmp);
+    assert.notEqual(result.status,0);
+    assert.match(result.stderr,/ATOMIC_STAGE_DEFINITION_DRIFT_HOLD:atomic\\/01-operating-science[.]md/);
+  });
+});
