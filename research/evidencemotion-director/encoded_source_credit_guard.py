@@ -20,11 +20,29 @@ def hold(code):
     raise ValueError("ENCODED_SOURCE_CREDIT_HOLD:" + code)
 
 
-def sha256_file(path):
+def sha256_file(path, *, max_bytes=None):
+    """Hash a bounded media source without reading beyond limit + one byte.
+
+    A small original can be replaced after stat with an enormous file. A
+    bounded recheck must fail promptly rather than hash attacker-sized data.
+    Unbounded hashing remains available for generated, local OCR crop PNGs.
+    """
     sha = hashlib.sha256()
-    with Path(path).open("rb") as f:
-        for chunk in iter(lambda: f.read(1 << 20), b""):
-            sha.update(chunk)
+    remaining = max_bytes
+    try:
+        with Path(path).open("rb") as f:
+            while True:
+                chunk = f.read((1 << 20) if remaining is None
+                               else min(1 << 20, remaining + 1))
+                if not chunk:
+                    break
+                if remaining is not None:
+                    if len(chunk) > remaining:
+                        hold("ENCODED_SOURCE_RECHECK_EXCEEDS_LIMIT")
+                    remaining -= len(chunk)
+                sha.update(chunk)
+    except OSError as exc:
+        hold("ENCODED_SOURCE_RECHECK_IO_FAILED:" + type(exc).__name__)
     return sha.hexdigest()
 
 
@@ -83,7 +101,7 @@ def _frozen_source(movie, snapshot, expected_sha256):
         hold("ENCODED_SOURCE_SNAPSHOT_IO_FAILED:" + type(exc).__name__)
     if (count < 128 or observed.hexdigest() != expected_sha256
         or not movie.is_file() or movie.is_symlink()
-        or sha256_file(movie) != expected_sha256):
+        or sha256_file(movie, max_bytes=MAX_VIDEO_BYTES) != expected_sha256):
         hold("ENCODED_SOURCE_CHANGED_DURING_SNAPSHOT")
 
 
@@ -99,7 +117,7 @@ def inspect(movie, expected_sha256, *, frame_indices, roi, source_name, source_n
         or movie.stat().st_size < 128 or movie.stat().st_size > MAX_VIDEO_BYTES
         or not isinstance(expected_sha256, str)
         or re.fullmatch(r"[a-f0-9]{64}", expected_sha256) is None
-        or sha256_file(movie) != expected_sha256):
+        or sha256_file(movie, max_bytes=MAX_VIDEO_BYTES) != expected_sha256):
         hold("EXACT_INDEPENDENT_ENCODED_MOVIE_PIN_REQUIRED")
     if (not isinstance(frame_indices, (tuple, list)) or len(frame_indices) < 2
         or len(frame_indices) > 8 or any(type(n) is not int or n < 0 for n in frame_indices)
@@ -149,9 +167,9 @@ def inspect(movie, expected_sha256, *, frame_indices, roi, source_name, source_n
             rows.append({"frameIndex": frame, "actualPixelCropSha256": sha256_file(dest),
                          "ocrObservationSha256": hashlib.sha256(ocr.encode()).hexdigest(),
                          "sourceIdentifierPhysicallyReadable": True})
-        if (sha256_file(frozen) != expected_sha256
+        if (sha256_file(frozen, max_bytes=MAX_VIDEO_BYTES) != expected_sha256
             or not movie.is_file() or movie.is_symlink()
-            or sha256_file(movie) != expected_sha256):
+            or sha256_file(movie, max_bytes=MAX_VIDEO_BYTES) != expected_sha256):
             hold("ENCODED_SOURCE_CHANGED_DURING_REPLAY")
     return {"schema": SCHEMA, "exactMovieSha256": expected_sha256,
             "sourceName": source_name, "sourceNumber": source_number,
