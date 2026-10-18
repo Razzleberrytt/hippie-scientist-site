@@ -192,11 +192,31 @@ def verify_packet(packet, gate):
     return True
 
 
-def _hash_file(path):
+def _hash_file(path, *, max_bytes=None):
+    """Fail closed on oversized reviewer inputs, including post-stat growth.
+
+    Every source film/PNG rehash is streamed with the same movie ceiling used
+    by the encoded source-credit audit. A mutable pathname can grow after a
+    size check; never hash an unbounded replacement as a review source.
+    """
+    from encoded_source_credit_guard import MAX_VIDEO_BYTES
+    limit=MAX_VIDEO_BYTES if max_bytes is None else max_bytes
+    if type(limit) is not int or limit<0:
+        hold("SCIENCE_REVIEW_HASH_LIMIT_INVALID")
     h=hashlib.sha256()
-    with open(path,"rb") as source:
-        for block in iter(lambda:source.read(1024*1024),b""):
-            h.update(block)
+    remaining=limit
+    try:
+        with open(path,"rb") as source:
+            while True:
+                block=source.read(min(1024*1024,remaining+1))
+                if not block:
+                    break
+                if len(block)>remaining:
+                    hold("SCIENCE_REVIEW_SOURCE_EXCEEDS_BYTE_LIMIT")
+                remaining-=len(block)
+                h.update(block)
+    except OSError as error:
+        hold("SCIENCE_REVIEW_SOURCE_READ_FAILED:"+type(error).__name__)
     return h.hexdigest()
 
 
