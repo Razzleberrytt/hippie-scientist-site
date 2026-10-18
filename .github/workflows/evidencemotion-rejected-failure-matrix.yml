@@ -1,5 +1,6 @@
 name: EvidenceMotion nine rejected failure regressions
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - 'research/evidencemotion-director/rejected-failure-matrix.test.mjs'

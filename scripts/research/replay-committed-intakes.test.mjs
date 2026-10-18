@@ -108,3 +108,13 @@ test('replay fails closed for missing, empty, malformed or unsupported GitHub co
   await assert.rejects(parsePinnedReplayJson({sha,encoding:'base64',content:''},
     async()=>{throw Error('GitHub read failed 502')}),/GitHub read failed 502/)
 })
+
+
+test('completed wave baseline PMIDs are excluded from exact replay without changing partial batch holds',()=>{
+  const canonicalSeen=new Set(['42033722','12345678'])
+  assert.equal(selectReplaySeed({...seed,pmids:['42033722']},canonicalSeen).state,'already-reserved')
+  const held=selectReplaySeed({...seed,pmids:['42033722','22345678']},canonicalSeen)
+  assert.equal(held.state,'partial-reservation-hold')
+  assert.deepEqual(held.pmids,['22345678'])
+  assert.equal(selectReplaySeed({...seed,pmids:['22345678']},canonicalSeen).state,'ready')
+})

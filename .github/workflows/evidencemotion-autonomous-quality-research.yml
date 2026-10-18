@@ -1,5 +1,6 @@
 name: EvidenceMotion autonomous quality review research
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - 'research/evidencemotion-director/native_autocritic.py'

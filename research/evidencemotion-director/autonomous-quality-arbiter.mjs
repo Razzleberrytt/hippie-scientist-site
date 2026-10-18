@@ -71,8 +71,20 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
       }
       else blockers.push('VISUAL_CRAFT_HOLD_EVIDENCE_MISSING');
    }
-   else if(decodedVisual.decision!=='AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE')
-      blockers.push('VISUAL_DECISION_UNRECOGNIZED');
+   else if(decodedVisual.decision==='AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE'){
+      // A producer may not downgrade a decoded negative-screen warning to
+      // "awaiting review" by changing only its decision label. Missing,
+      // malformed, or nonempty warning evidence must fail closed. Actual
+      // craft/safety acceptance is independently held in all cases.
+      const warningFields=[
+        'reviewCandidates','centerHeroStasisPeripheralMotionWindowsSec',
+        'twoStateAlternationWindowsSec','interleavedBlankPhaseWindowsSec'
+      ];
+      if(warningFields.some(key=>!Array.isArray(decodedVisual[key])
+           ||decodedVisual[key].length!==0))
+        blockers.push('VISUAL_CRAFT_WARNING_SUPPRESSED');
+   }
+   else blockers.push('VISUAL_DECISION_UNRECOGNIZED');
  }
  if(!science||science.filmSha256!==videoSha256||science.origin!=='INDEPENDENT_SOURCE_GRAPH_AUDIT'
      ||science.underlyingSourcesVerified!==true||!Array.isArray(science.claimChecks)
