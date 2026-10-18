@@ -91,6 +91,39 @@ class IndependentScienceIntakeTests(unittest.TestCase):
             self.assertTrue(all(row["currentH264FrameContentInspectedForThisClaim"] is False
                                 for row in packet["eightClaimsToReview"]))
 
+    def test_science_review_rehash_stops_after_limit_plus_one_byte(self):
+        import hashlib
+        import science_reviewer_handoff as handoff
+        with tempfile.TemporaryDirectory() as root:
+            film=Path(root)/"growing-original.mp4"
+            film.write_bytes(b"A"*4096)
+            self.assertEqual(handoff._hash_file(film,max_bytes=4096),
+                             hashlib.sha256(film.read_bytes()).hexdigest())
+            with film.open("wb") as stream:
+                stream.truncate(16*1024*1024)
+            with self.assertRaisesRegex(
+                ValueError,"SCIENCE_REVIEW_SOURCE_EXCEEDS_BYTE_LIMIT"
+            ):
+                handoff._hash_file(film,max_bytes=4096)
+            self.assertEqual(film.stat().st_size,16*1024*1024)
+            with self.assertRaisesRegex(ValueError,"SCIENCE_REVIEW_HASH_LIMIT_INVALID"):
+                handoff._hash_file(film,max_bytes=-1)
+
+    def test_current_review_intake_rejects_oversize_film_not_fake_approval(self):
+        import science_reviewer_handoff as handoff
+        import encoded_source_credit_guard as credit_guard
+        with tempfile.TemporaryDirectory() as root:
+            movie,gate=self.current_candidate_fixture(root)
+            self.assertFalse(handoff.current_candidate_reviewer_packet(
+                gate,movie)["mayPublish"])
+            with movie.open("wb") as stream:
+                stream.truncate(8*1024*1024)
+            with patch.object(credit_guard,"MAX_VIDEO_BYTES",4096):
+                with self.assertRaisesRegex(
+                    ValueError,"SCIENCE_REVIEW_SOURCE_EXCEEDS_BYTE_LIMIT"
+                ):
+                    handoff.current_candidate_reviewer_packet(gate,movie)
+
     def test_current_render_intake_refuses_changed_actual_film_bytes(self):
         from science_reviewer_handoff import current_candidate_reviewer_packet
         with tempfile.TemporaryDirectory() as tmp:
