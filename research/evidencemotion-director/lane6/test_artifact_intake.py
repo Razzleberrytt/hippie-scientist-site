@@ -428,6 +428,32 @@ class IntakeTests(unittest.TestCase):
         write(self.pinfile, self.pin)
         self.rejected('UNBOUND_SOURCE:wav')
 
+    def test_nested_handoff_must_not_mutate_original_source(self):
+        before = {p.name: digest(p) for p in self.bundle.iterdir() if p.is_file()}
+        dest = self.bundle/'lane4-handoff'
+        self.rejected('DESTINATION_INSIDE_SOURCE', destination=dest)
+        self.assertFalse(dest.exists())
+        after = {p.name: digest(p) for p in self.bundle.iterdir() if p.is_file()}
+        self.assertEqual(before, after)
+
+    def test_nested_handoff_is_rejected_before_missing_parent(self):
+        dest = self.bundle/'new-parent'/'lane4-handoff'
+        self.rejected('DESTINATION_INSIDE_SOURCE', destination=dest)
+        self.assertFalse((self.bundle/'new-parent').exists())
+
+    def test_dotdot_alias_cannot_write_handoff_into_original_source(self):
+        # Lexical containment misses sibling/../bundle even though the OS writes
+        # into bundle; source evidence must stay immutable before staging.
+        sibling = self.root/'sibling'
+        sibling.mkdir()
+        dest = sibling/'..'/'bundle'/'lane4-handoff'
+        self.assertFalse(dest.absolute().is_relative_to(self.bundle.absolute()))
+        self.assertTrue(dest.resolve().is_relative_to(self.bundle.resolve()))
+        before = {p.name: digest(p) for p in self.bundle.iterdir() if p.is_file()}
+        self.rejected('DESTINATION_INSIDE_SOURCE', destination=dest)
+        self.assertFalse(dest.exists())
+        self.assertEqual(before, {p.name: digest(p) for p in self.bundle.iterdir() if p.is_file()})
+
     def test_no_overwrite(self):
         dest = self.root/'existing'
         dest.mkdir()
