@@ -1,6 +1,6 @@
 import unittest
 
-from mfa_acoustic_alignment import LINES, select_dictionary, merge_candidates, term_windows, verify_brief_script
+from mfa_acoustic_alignment import LINES, select_dictionary, merge_candidates, term_windows, verify_brief_script, compare_mfa_phone_hypotheses
 
 
 class AcousticPreparationTests(unittest.TestCase):
@@ -42,6 +42,49 @@ class AcousticPreparationTests(unittest.TestCase):
     def test_missing_scientific_word_never_creates_a_window(self):
         with self.assertRaisesRegex(ValueError, 'TERM_COVERAGE'):
             term_windows([{'word':'computed','startMs':0,'endMs':100}])
+
+
+
+class MfaPhoneticLabelComparisonTests(unittest.TestCase):
+    def test_actual_two_mitragynine_candidates_one_segmental_vowel_label(self):
+        # Actual first-party alignment-candidate.json, frozen revision
+        # 2414833bfd35c18ad6c629c3d10cbfab8501b09e296cc1963db01638b854bbaf.
+        # This test freezes candidate labels, NOT how speech really sounded.
+        first = ['M','IH1','T','R','AH0','JH','AH0','N','AY2','N']
+        second = ['M','IH1','T','R','AH0','JH','IH0','N','AY2','N']
+        x = compare_mfa_phone_hypotheses(first, second)
+        self.assertEqual((x['rawTokenEditDistance'], x['segmentalSymbolEditDistance'],
+                          x['stressMarkerDifferencesOnAlignedIdenticalVowels']), (1, 1, 0))
+        self.assertFalse(x['phoneticPronunciationVerified'])
+        self.assertFalse(x['mayPublish'])
+
+    def test_stress_only_is_not_a_different_segment(self):
+        x = compare_mfa_phone_hypotheses(['M','IH1','T'], ['M','IH0','T'])
+        self.assertEqual((x['rawTokenEditDistance'],x['segmentalSymbolEditDistance'],
+                          x['stressMarkerDifferencesOnAlignedIdenticalVowels']), (1,0,1))
+
+    def test_stress_shift_marks_both_vowels_without_phone_substitution(self):
+        x = compare_mfa_phone_hypotheses(['HH','AY1','D','R','AA0'],
+                                         ['HH','AY0','D','R','AA1'])
+        self.assertEqual((x['rawTokenEditDistance'],x['segmentalSymbolEditDistance'],
+                          x['stressMarkerDifferencesOnAlignedIdenticalVowels']), (2,0,2))
+
+    def test_phoneme_insertions_remain_segmental(self):
+        x = compare_mfa_phone_hypotheses(['M','IH1','T'],['M','IH1','T','R'])
+        self.assertEqual((x['rawTokenEditDistance'],x['segmentalSymbolEditDistance']), (1,1))
+
+    def test_invalid_phone_or_unbounded_candidates_hold(self):
+        for bad in ([], ['AH3'], ['not_a_phone'], ['IH1'] * 101, 'IH1'):
+            with self.subTest(bad=str(bad)[:25]), self.assertRaises(ValueError):
+                compare_mfa_phone_hypotheses(['M','IH1'], bad)
+
+    def test_unchanged_sequence_is_zero_and_still_unapproved(self):
+        x = compare_mfa_phone_hypotheses(('M','IH1','T'), ('M','IH1','T'))
+        self.assertEqual((x['rawTokenEditDistance'],x['segmentalSymbolEditDistance'],
+                          x['stressMarkerDifferencesOnAlignedIdenticalVowels']), (0,0,0))
+        self.assertTrue(x['differencesAreModelLabelHypothesesNotAcousticTruth'])
+        self.assertFalse(x['independentOriginalAudioPhonemeReferenceAvailable'])
+        self.assertFalse(x['mayPublish'])
 
 
 if __name__ == '__main__':
