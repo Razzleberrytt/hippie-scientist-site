@@ -136,6 +136,42 @@ class CueFocusNegativeTests(unittest.TestCase):
         self.assertEqual(result['status'],'RESEARCH_SEMANTIC_FOCUS_REVIEW_HOLD')
         self.assertFalse(result['productionEligible'])
 
+    def test_reject_transient_read_bytes_despite_unchanged_pinned_paths(self):
+        # Simulate a swapped pathname visible to the read while the on-disk
+        # pinned report/SRT bytes remain unchanged before and after audit.
+        with tempfile.TemporaryDirectory() as directory:
+            folder=Path(directory)
+            film=folder/'fixture-film.mp4'
+            film.write_bytes(b'exact-research-only-film-identity')
+            report=copy.deepcopy(self.report)
+            report['exactFilmSha256']=hashlib.sha256(film.read_bytes()).hexdigest()
+            report['exactSrtSha256']=hashlib.sha256(SRT.read_bytes()).hexdigest()
+            path=folder/'pinned-report.json'
+            path.write_text(json.dumps(report),encoding='utf8')
+            pin=hashlib.sha256(path.read_bytes()).hexdigest()
+            original=guard.read_bounded_bytes
+
+            def swapped_report(source,limit):
+                if Path(source)==path:
+                    return b'{"swapped":true}'
+                return original(source,limit)
+            with patch.object(guard,'read_bounded_bytes',side_effect=swapped_report):
+                with self.assertRaisesRegex(guard.FocusHold,'PINNED_AUDIT_REPORT_CHANGED'):
+                    guard.audit(report_path=path,expected_report_sha=pin,
+                                film_path=film,srt_path=SRT)
+
+            def swapped_srt(source,limit):
+                raw=original(source,limit)
+                if Path(source)==SRT:
+                    return raw.replace(b'FORM',b'F0RM',1)
+                return raw
+            with patch.object(guard,'read_bounded_bytes',side_effect=swapped_srt):
+                with self.assertRaisesRegex(guard.FocusHold,'PINNED_FILM_OR_SRT_BYTES_CHANGED'):
+                    guard.audit(report_path=path,expected_report_sha=pin,
+                                film_path=film,srt_path=SRT)
+            self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(),pin)
+            self.assertEqual(hashlib.sha256(SRT.read_bytes()).hexdigest(),report['exactSrtSha256'])
+
     def test_reject_file_growing_between_hash_preflight_and_source_read(self):
         with tempfile.TemporaryDirectory() as directory:
             p=Path(directory)/'grown.json'
