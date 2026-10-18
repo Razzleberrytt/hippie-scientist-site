@@ -220,6 +220,93 @@ class AutonomousFilmCriticTests(unittest.TestCase):
             self.assertFalse(verdict["automaticallyApprovedPremiumCraft"])
             self.assertFalse(verdict["mayPublish"])
 
+    def test_source_locked_cue_checks_real_4hz_subject_not_moving_chrome(self):
+        from PIL import Image, ImageDraw
+        import json
+        import hashlib
+        plan = {
+            "schemaVersion":"ths-em-visual-cue-plan-research-v1",
+            "sourceManifestSha256":"a"*64,
+            "lockedNarrationWavSha256":"b"*64,
+            "scenes":[{
+                "beatId":"beat-1", "startSec":0, "endSec":12,
+                "lockedNarrationWavSha256":"b"*64,
+                "sourceClaimIds":["claim-1"],"sourceAssetIds":["source-1"],
+                "heroBox":{"x1":.25,"y1":.25,"x2":.72,"y2":.65},
+                "actions":[{"atSec":5.0,"visualVerb":"REVEAL",
+                            "heroObjectId":"physical-hero",
+                            "beforeStateId":"state-1","afterStateId":"state-2"}]
+            }]
+        }
+        def create_frames(move_hero):
+            generated=[]
+            for i in range(48):
+                im=Image.new("L", (180,320), 14)
+                d=ImageDraw.Draw(im)
+                x=70+(23 if move_hero and i>=20 else 0)
+                d.rounded_rectangle((x,95,x+42,145),radius=8,fill=210,outline=245,width=3)
+                # Vary OUTSIDE the declared hero and inside the broad screen body.
+                d.rectangle((8,44+i%21,35,49+i%21),fill=180)
+                generated.append(np.asarray(im).copy())
+            return np.asarray(generated)
+        unchanged=m.review_actual_visual_action_cues(create_frames(False),plan)
+        self.assertEqual(unchanged["decision"],"CRAFT_HOLD_SCENE_CUES")
+        self.assertEqual(unchanged["unobservedOrUnreviewable"][0]["reason"],
+                         "DECLARED_HERO_ACTION_NOT_OBSERVABLE")
+        changed=m.review_actual_visual_action_cues(create_frames(True),plan)
+        self.assertEqual(changed["decision"],
+                         "PIXEL_CHANGE_PROXY_ONLY_NEEDS_SEMANTIC_CRAFT_REVIEW")
+        self.assertEqual(len(changed["observedPixelChangesNotApproved"]),1)
+        self.assertFalse(changed["semanticAnimationVerified"])
+        self.assertFalse(changed["mayPublish"])
+        if not shutil.which("ffmpeg") or not shutil.which("ffprobe"):
+            self.skipTest("ffmpeg required for actual H264 coverage")
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)
+            for i, image in enumerate(create_frames(False)):
+                Image.fromarray(image).save(root/f"frame-{i:03d}.png")
+            clip=root/"static-source-animated-chrome.mp4"
+            subprocess.run(["ffmpeg","-hide_banner","-loglevel","error","-nostdin",
+                            "-framerate","4","-i",str(root/"frame-%03d.png"),
+                            "-c:v","libx264","-pix_fmt","yuv420p","-y",str(clip)],
+                           check=True,capture_output=True,timeout=40)
+            locked=root/"cue-plan.json"
+            locked.write_text(json.dumps(plan,sort_keys=True))
+            pinned_plan=hashlib.sha256(locked.read_bytes()).hexdigest()
+            validated=m.load_pinned_visual_cue_plan(locked,pinned_plan)
+            movie=m.analyze_video(clip,m.sha256(clip),validated,pinned_plan)
+            audit=movie["renderedVisualCueReview"]
+            self.assertEqual(audit["decision"],"CRAFT_HOLD_SCENE_CUES")
+            self.assertEqual(audit["videoSha256"],m.sha256(clip))
+            self.assertEqual(audit["scenePlanSha256"],pinned_plan)
+            self.assertFalse(movie["mayPublish"])
+            with self.assertRaisesRegex(ValueError,"VISUAL_PLAN_SOURCE_SHA_MISMATCH"):
+                m.load_pinned_visual_cue_plan(locked,"f"*64)
+            with self.assertRaisesRegex(ValueError,"EXACT_VIDEO_AND_PLAN_EXTERNAL_PINS_REQUIRED"):
+                m.analyze_video(clip,None,validated,pinned_plan)
+
+    def test_visual_cue_rejects_fake_actions_unbounded_rois_and_missing_held_sources(self):
+        frame=np.full((48,320,180),12,dtype=np.uint8)
+        plan={"schemaVersion":"ths-em-visual-cue-plan-research-v1",
+              "sourceManifestSha256":"a"*64,"lockedNarrationWavSha256":"b"*64,
+              "scenes":[{"beatId":"beat-1","startSec":0,"endSec":12,
+                         "lockedNarrationWavSha256":"b"*64,
+                         "sourceClaimIds":["claim-1"],"sourceAssetIds":["source-1"],
+                         "heroBox":{"x1":.2,"y1":.2,"x2":.72,"y2":.6},
+                         "actions":[{"atSec":5,"visualVerb":"PARTICLES_ONLY",
+                                     "heroObjectId":"hero-1",
+                                     "beforeStateId":"before","afterStateId":"after"}]}]}
+        with self.assertRaisesRegex(ValueError,"MISSING_OR_DECORATIVE_VISUAL_VERB"):
+            m.review_actual_visual_action_cues(frame,plan)
+        plan["scenes"][0]["actions"][0]["visualVerb"]="TRACE"
+        plan["scenes"][0]["heroBox"]["x2"]=.99
+        with self.assertRaisesRegex(ValueError,"UNBOUND_OR_UNSAFE_HERO_REGION_OR_SCENE_TIMELINE"):
+            m.review_actual_visual_action_cues(frame,plan)
+        plan["scenes"][0]["heroBox"]["x2"]=.72
+        plan["scenes"][0]["actions"]=[]
+        with self.assertRaisesRegex(ValueError,"ACTIONLESS_SCENE_WITHOUT_SOURCE_READ_HOLD"):
+            m.review_actual_visual_action_cues(frame,plan)
+
     def test_one_hz_center_cadence_detects_three_seconds_despite_kinetic_chrome(self):
         frames = _center_static_peripheral_kinetic_frames()
         report = m.review_one_hz_hero_cadence(frames)
