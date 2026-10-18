@@ -75732,6 +75732,158 @@
       "reservation_id": "69e1f03fac94f20d5155",
       "reserved_at": "2026-10-18T20:37:44.904Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42668648",
+      "title": "Cardiotoxicological assessment of crocin-coated silver nanoparticles in an experimental rat model.",
+      "doi": "10.1016/j.toxrep.2026.102333",
+      "source_title": "Cardiotoxicological assessment of crocin-coated silver nanoparticles in an experimental rat model.",
+      "abstract": "Silver nanoparticles (AgNPs) are widely used for various industrial and biomedical applications; however, their potential cardiotoxicity remains insufficiently understood and requires further investigation. We evaluated the cardiotoxic effects of AgNPs and crocin-coated AgNPs (CR-AgNPs) administered at doses of 20, 40, and 80 µg/kg in male Wistar rats. Forty-two rats were randomly allocated to seven groups as follows: The groups included a control group (normal saline), three AgNPs-treated groups (20, 40, and 80 µg/kg), and three crocin-coated AgNPs-treated groups (20, 40, and 80 µg/kg), all of which received treatment via oral gavage for 30 days. At the end of the experiment, the animals were anesthetized with ketamine and xylazine, and blood samples and cardiac tissues were collected for biochemical and histopathological analyses. Our findings showed that malondialdehyde (MDA) levels were significantly increased in the AgNPs 80 group compared with the control group. In addition, administration of CR-AgNPs at 80 µg/kg significantly reduced MDA levels compared with the AgNPs 80 group. Histopathological examination confirmed the toxic effect of AgNPs at 80 µg/kg, as evidenced by mild interstitial edema and localized separation of myocardial muscle fibers. In conclusion, these findings suggest that CR-AgNPs may represent a safer alternative for pharmaceutical applications by reducing the risk of subacute cardiotoxicity in experimental animals. Further investigations are required to provide additional evidence in this field.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42668648/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42668648",
+        "doi": "10.1016/j.toxrep.2026.102333",
+        "journal": "Toxicology reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-18T20:54:46.729Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a2d991bbfae8e051a56a",
+      "reserved_at": "2026-10-18T20:54:52.599Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42641797",
+      "title": "Patient preferences for medications to treat opioid use disorder in carceral settings: Implications for tailored implementation and service delivery.",
+      "doi": "10.1016/j.josat.2026.210099",
+      "source_title": "Patient preferences for medications to treat opioid use disorder in carceral settings: Implications for tailored implementation and service delivery.",
+      "abstract": "A critical lack of knowledge exists about incarcerated individuals' preferences for the provision of medications to treat opioid use disorder (MOUD) in carceral settings (i.e., jail, prison) and of multilevel factors that influence preferences (e.g., health needs, institutional policies). This gap limits the ability to tailor MOUD programs effectively to patient needs and optimize outcomes within correctional systems. In 2025, 28 adults receiving MOUD in the community in the Northeastern United States and who previously received MOUD while incarcerated completed an in-depth, semi-structured interview. Transcripts were generated and then coded using template thematic analysis. The social-ecological model informed the interview guide and analysis. During their most recent incarceration, most participants received methadone (64.3%), one-fourth received sublingual buprenorphine, and the remaining first received buprenorphine then switched to methadone (10.7%). Four themes corresponding to social-ecological levels were developed. First, the context of the carceral environment underlies the MOUD experience while incarcerated, wherein the use of surveillance measures influenced participant experiences of the MOUD program. Second, the delivery of MOUD was affected by logistical complications that influenced MOUD course and could result in participants switching MOUD type or intending to stop MOUD use in the future. Third, MOUD-focused interactions were most often with correctional officers and peers and less often with medical personnel, sometimes resulting in information gaps and perceived stigma magnification. Fourth, withdrawal alleviation and medication maintenance motivated the desire to receive any MOUD while incarcerated, while side effects and knowledge affected the selection of MOUD type. Patients advocated for specific organizational and structural changes to reduce difficulties and enhance comfort and safety (e.g., reducing delays to dosing at intake). While incarcerated, patient MOUD preferences are informed by several factors spanning social-ecological levels that allow MOUD receipt with more ease (i.e., quicker receipt at intake) and flexibility (i.e., dose changes), and fewer negative interpersonal and individual experiences (i.e., poor interactions, withdrawal, side effects). Patient-guided treatment adaptations have the potential to reach and sustain more patients, advancing equitable provision of MOUD in correctional systems.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42641797/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42641797",
+        "doi": "10.1016/j.josat.2026.210099",
+        "journal": "Journal of substance use and addiction treatment",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-18T20:54:46.730Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "edbb5e7fff14ed3c08b5",
+      "reserved_at": "2026-10-18T20:54:52.599Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -75761,16 +75913,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 968,
+    "total_reservations": 970,
     "by_lane": {
       "1": 91,
       "2": 186,
       "3": 133,
-      "4": 58,
+      "4": 60,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 968
+      "SOURCE_VERIFIED": 970
     },
     "batches": [
       {
@@ -75783,7 +75935,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 468,
+        "count": 470,
         "pr_number": null,
         "blocker": null
       }
