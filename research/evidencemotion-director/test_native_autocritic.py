@@ -220,6 +220,42 @@ class AutonomousFilmCriticTests(unittest.TestCase):
             self.assertFalse(verdict["automaticallyApprovedPremiumCraft"])
             self.assertFalse(verdict["mayPublish"])
 
+    def test_one_hz_center_cadence_detects_three_seconds_despite_kinetic_chrome(self):
+        frames = _center_static_peripheral_kinetic_frames()
+        report = m.review_one_hz_hero_cadence(frames)
+        self.assertEqual(report["stagnationWindows"],
+                         [{"startSec":0,"endSec":8,"stagnantSecondsAtOneHz":8,
+                           "severity":"REVISE_CANDIDATE"}])
+        self.assertEqual(report["creativeScreenVerdict"], "CRAFT_HOLD")
+        self.assertFalse(report["automaticallyApprovedArt"])
+        self.assertFalse(report["sceneSpecificHeroAndMeaningVerified"])
+
+    def test_one_hz_center_cadence_three_second_floor_and_real_hero_motion(self):
+        from PIL import Image, ImageDraw
+        frames = []
+        for i in range(9):
+            image = Image.new("L", (180, 320), 12)
+            draw = ImageDraw.Draw(image)
+            x = 69 if i <= 3 else 69 + (i-3)*8
+            draw.rounded_rectangle((x,105,x+30,147), radius=5,
+                                   fill=215, outline=245, width=3)
+            frames.append(np.asarray(image).copy())
+        report = m.review_one_hz_hero_cadence(np.asarray(frames))
+        self.assertEqual(report["stagnationWindows"][0]["startSec"], 0)
+        self.assertEqual(report["stagnationWindows"][0]["endSec"], 3)
+        self.assertEqual(report["stagnationWindows"][0]["severity"],
+                         "CRAFT_HOLD_CANDIDATE")
+        self.assertFalse(any(x["startSec"]>=3 for x in report["stagnationWindows"]))
+
+    def test_one_hz_center_cadence_blank_or_invalid_cannot_certify_craft(self):
+        empty = m.review_one_hz_hero_cadence(np.zeros((9,320,180),dtype=np.uint8))
+        self.assertEqual(empty["visibleCenterHeroSamples"],0)
+        self.assertEqual(empty["creativeScreenVerdict"],
+                         "NO_NEGATIVE_FOUND_NOT_CRAFT_PASS")
+        self.assertFalse(empty["automaticallyApprovedArt"])
+        with self.assertRaisesRegex(ValueError,"ACTUAL_ONE_HZ_HERO_SAMPLES_REQUIRED"):
+            m.review_one_hz_hero_cadence(np.zeros((2,320,180),dtype=np.uint8))
+
     def test_interleaved_blank_phase_probe_is_negative_only(self):
         from PIL import Image, ImageDraw
         frames = []
