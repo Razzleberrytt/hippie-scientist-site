@@ -1,5 +1,9 @@
 name: EvidenceMotion reusable director grammar coverage
 on:
+  # The serialized merge controller dispatches this workflow after bot-authored
+  # branch refreshes. A PR-only trigger caused 422 on recovery and prevented
+  # exact-head craft verification from ever becoming green.
+  workflow_dispatch:
   pull_request:
     paths:
       - 'research/evidencemotion-director/reusable-director-program.mjs'
