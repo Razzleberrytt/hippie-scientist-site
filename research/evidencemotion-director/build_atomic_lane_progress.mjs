@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import process from "node:process";
 import console from "node:console";
 import { spawnSync } from "node:child_process";
+import { createHash } from "node:crypto";
 const dir = path.dirname(fileURLToPath(import.meta.url));
 const read=(name)=>fs.readFileSync(path.join(dir,name),"utf8");
 const buildReport=function buildReport(input) {
@@ -14,6 +15,24 @@ const buildReport=function buildReport(input) {
   const names=["Operating & Science","Voice & Word Timing","Cinematography & Craft","Mobile, Technical QA & Safety","Production & Operations"];
   const sources=["atomic/01-operating-science.md","atomic/02-narration-timing.md","atomic/03-direction-craft.md","atomic/04-trust-mobile.md","atomic/05-canonical-promotion.md"];
   const expected=[245,289,332,373,351];
+  // Frozen exact Git blob identities of ALL five canonical stage-definition
+  // documents. A changed requirement with unchanged EM ID must fail closed
+  // before any old receipt can be reused as evidence. A revision requires
+  // explicit source + receipt review and a separate updated frozen baseline.
+  const atomicBlobs=[
+    "07166394f7a9012cdaa3cef40d328efc947dbee6",
+    "336b5308c15603e686981ccd1a2979b09e2618e9",
+    "a555c9110fb6c19c34950fda05dc3a6fe9da1403",
+    "7925fb054692f24d0714c2cdd78aba4e87a39b7d",
+    "24b65f5721614be2a514241f036f398ca68f5373"
+  ];
+  for(let i=0;i<atomicFiles.length;i++){
+    const doc=atomicFiles[i];
+    const gitBlob=createHash("sha1").update("blob "+Buffer.byteLength(doc,"utf8")+"\\0","utf8")
+      .update(doc,"utf8").digest("hex");
+    if(gitBlob!==atomicBlobs[i]) throw Error("ATOMIC_STAGE_DEFINITION_DRIFT_HOLD:"+sources[i]);
+  }
+
   const denominator=ledger.denominator;
   const accepted=[...checklist.matchAll(/^- \[([x ])\] /gm)].map(x=>x[1]==="x");
   if (accepted.length!==46) throw Error("Cannot safely parse exact 46 canonical checklist rows: "+accepted.length);
