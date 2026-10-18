@@ -85,6 +85,60 @@ def compare_mfa_phone_hypotheses(first, second):
         "mayPublish": False,
     }
 
+
+def review_repeated_term_phone_hypotheses(candidate, windows):
+    """Compare repeated *MFA label candidates* on one byte-pinned original WAV.
+
+    A dictionary/forced alignment labels phones; it does not hear, identify,
+    independently calibrate or approve the actual narrator's pronunciation.
+    Invalid or mismatched evidence must not produce a review-looking receipt.
+    """
+    if not isinstance(candidate, dict) or candidate.get("mayPublish") is not False:
+        hold("SOURCE_BOUND_MFA_CANDIDATE_REQUIRED")
+    pins = candidate.get("inputSha256")
+    if not isinstance(pins, dict) or pins.get("wav") != WAV_SHA:
+        hold("REPEATED_PHONE_REVIEW_WRONG_WAV")
+    words = candidate.get("wordAlignment")
+    if not isinstance(words, list) or not 1 <= len(words) <= 2000:
+        hold("REPEATED_PHONE_REVIEW_WORDS_INVALID")
+    if not isinstance(windows, list) or len(windows) > 40:
+        hold("REPEATED_PHONE_REVIEW_WINDOWS_INVALID")
+
+    groups = {}
+    for window in windows:
+        if not isinstance(window, dict) or not isinstance(window.get("term"), str):
+            hold("REPEATED_PHONE_REVIEW_WINDOW_INVALID")
+        indices = window.get("wordIndices")
+        if (not isinstance(indices, list) or not 1 <= len(indices) <= 3
+                or any(type(i) is not int or i < 0 or i >= len(words) for i in indices)
+                or indices != list(range(indices[0], indices[0] + len(indices)))):
+            hold("REPEATED_PHONE_REVIEW_INDICES_INVALID")
+        phones = []
+        for idx in indices:
+            item = words[idx]
+            if not isinstance(item, dict) or not isinstance(item.get("phones"), list):
+                hold("REPEATED_PHONE_REVIEW_PHONES_MISSING")
+            phones.extend(p.get("phone") if isinstance(p, dict) else None for p in item["phones"])
+        if not 1 <= len(phones) <= 100 or any(not isinstance(p, str) or not PHONE.fullmatch(p) for p in phones):
+            hold("REPEATED_PHONE_REVIEW_PHONES_INVALID")
+        entries = groups.setdefault(window["term"], [])
+        entries.append({"indices": indices, "phones": phones})
+        if len(entries) > 20:
+            hold("REPEATED_PHONE_REVIEW_OCCURRENCES_UNBOUNDED")
+
+    result = []
+    for term, entries in groups.items():
+        for i, first in enumerate(entries):
+            for second in entries[i + 1:]:
+                result.append({
+                    "term": term,
+                    "firstWordIndices": first["indices"],
+                    "secondWordIndices": second["indices"],
+                    **compare_mfa_phone_hypotheses(first["phones"], second["phones"]),
+                })
+    return result
+
+
 def hold(code):
     raise ValueError("MFA_ACOUSTIC_RESEARCH_HOLD:" + code)
 
@@ -241,6 +295,8 @@ def execute(wav, brief, dictionary, acoustic_model, g2p_model, output):
     (work/"alignment-manifest.json").write_text(json.dumps(manifest, indent=2)+"\n", encoding="utf-8")
     candidate = inspect_alignment(work, manifest)
     (work/"alignment-candidate.json").write_text(json.dumps(candidate, indent=2)+"\n", encoding="utf-8")
+    review_windows = term_windows(candidate["wordAlignment"])
+    label_reviews = review_repeated_term_phone_hypotheses(candidate, review_windows)
     receipt = {"schema": "ths-actual-mfa-acoustic-research-v1",
                "origin": "ACTUAL_MFA_ALIGN_ONE_PINNED_ORIGINAL_WAV", "mfaVersion": MFA_VERSION,
                "originalWavSha256": WAV_SHA, "creativeBriefSha256": BRIEF_SHA,
@@ -248,7 +304,8 @@ def execute(wav, brief, dictionary, acoustic_model, g2p_model, output):
                "scriptTokenCount": len(words), "alignedWordCount": len(candidate["wordAlignment"]),
                "alignmentCandidateSha256": sha(work/"alignment-candidate.json"),
                "alignmentRevisionSha256": candidate["revisionSha256"], "invocations": records,
-               "termReviewWindows": term_windows(candidate["wordAlignment"]),
+               "termReviewWindows": review_windows,
+               "repeatedTermMfaLabelComparisons": label_reviews,
                "g2pCandidateWords": missing, "g2pCandidatesIndependentlyApproved": False,
                "timingAccuracyCalibrated": False, "phoneticPronunciationVerified": False,
                "scienceApproved": False, "craftApproved": False, "mayPublish": False,
