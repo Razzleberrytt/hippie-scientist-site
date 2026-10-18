@@ -215,6 +215,163 @@ def review_one_hz_hero_cadence(one_hz_frames):
         "automaticallyApprovedArt": False,
     }
 
+
+
+def load_pinned_visual_cue_plan(path, expected_sha):
+    """Read an exact, externally pinned JSON plan. PIN!=pre-render registration."""
+    p = Path(path)
+    if not isinstance(expected_sha, str) or len(expected_sha) != 64 or any(
+            c not in "0123456789abcdef" for c in expected_sha):
+        raise ValueError("INDEPENDENT_VISUAL_PLAN_SHA_REQUIRED")
+    if not p.is_file() or p.is_symlink() or p.stat().st_size < 1 or p.stat().st_size > 200000:
+        raise ValueError("BOUNDED_REGULAR_VISUAL_PLAN_REQUIRED")
+    raw = p.read_bytes()
+    if len(raw) > 200000 or hashlib.sha256(raw).hexdigest() != expected_sha:
+        raise ValueError("VISUAL_PLAN_SOURCE_SHA_MISMATCH")
+
+    def no_duplicates(pairs):
+        out = {}
+        for key, value in pairs:
+            if key in out:
+                raise ValueError("DUPLICATED_VISUAL_PLAN_KEY")
+            out[key] = value
+        return out
+    try:
+        return json.loads(raw.decode("utf-8"), object_pairs_hook=no_duplicates)
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise ValueError("INVALID_VISUAL_CUE_JSON") from exc
+
+
+def review_actual_visual_action_cues(four_hz_frames, plan):
+    """Negative frame evidence for predeclared narration-cued hero state changes.
+
+    Frames MUST come from an independent FFmpeg decoded stream. This function
+    cannot infer a correct scientific cause or award premium artistic quality.
+    Even visible differences can be caption/effect noise INSIDE an inaccurate ROI.
+    """
+    frames = np.asarray(four_hz_frames, dtype=np.uint8)
+    if frames.ndim != 3 or frames.shape[1:] != (FRAME_H, FRAME_W) or len(frames) < 8:
+        raise ValueError("ACTUAL_4HZ_FRAME_STREAM_REQUIRED")
+    def shahex(value):
+        return isinstance(value, str) and len(value) == 64 and all(
+            c in "0123456789abcdef" for c in value)
+    def ident(value):
+        return isinstance(value, str) and 2 <= len(value) <= 90 and all(
+            c.isascii() and (c.isalnum() or c in "_-.") for c in value)
+    if (not isinstance(plan, dict) or plan.get("schemaVersion") !=
+            "ths-em-visual-cue-plan-research-v1" or
+            not shahex(plan.get("sourceManifestSha256")) or
+            not shahex(plan.get("lockedNarrationWavSha256")) or
+            not isinstance(plan.get("scenes"), list) or
+            not 1 <= len(plan["scenes"]) <= 80):
+        raise ValueError("INCOMPLETE_EXACT_SCIENCE_VOICE_VISUAL_CUE_PLAN")
+    findings = []
+    observed = []
+    scene_ids = set()
+    previous_end = 0.0
+    total_actions = 0
+    max_time = len(frames) / 4
+    verbs = {
+        "OPENS_TO_REVEAL", "FOLDS_TO_REVEAL", "MOVES_INTO_BOUND_SPACE",
+        "ASSEMBLES_FROM_PARTS", "SEPARATES_INTO_PARTS", "PHYSICAL_SCALE_REVEAL",
+        "REVEAL", "TRACE", "COMPARE_ACTIVE", "FOCUS_TO_NEW_EVIDENCE",
+        "TRANSFORM_SOURCE_BOUND",
+    }
+    for scene in plan["scenes"]:
+        if not isinstance(scene, dict):
+            raise ValueError("INVALID_CUE_SCENE")
+        sid = scene.get("beatId")
+        start, end = scene.get("startSec"), scene.get("endSec")
+        wav = scene.get("lockedNarrationWavSha256")
+        claims, assets = scene.get("sourceClaimIds"), scene.get("sourceAssetIds")
+        box, actions = scene.get("heroBox"), scene.get("actions")
+        if (not ident(sid) or sid in scene_ids or wav != plan["lockedNarrationWavSha256"]
+                or type(start) not in (float, int) or type(end) not in (float, int)
+                or not np.isfinite(start) or not np.isfinite(end)
+                or abs(start - previous_end) > .005 or end <= start
+                or end > max_time + .75
+                or not isinstance(claims, list) or not claims or not all(map(ident, claims))
+                or not isinstance(assets, list) or not assets or not all(map(ident, assets))
+                or not isinstance(box, dict) or
+                not all(type(box.get(k)) in (float, int) and np.isfinite(box[k])
+                        for k in ("x1", "y1", "x2", "y2")) or
+                not (.04 <= box["x1"] < box["x2"] <= .82 and
+                     .11 <= box["y1"] < box["y2"] <= .78 and
+                     box["x2"] - box["x1"] >= .1 and box["y2"] - box["y1"] >= .1)
+                or not isinstance(actions, list)):
+            raise ValueError("UNBOUND_OR_UNSAFE_HERO_REGION_OR_SCENE_TIMELINE")
+        scene_ids.add(sid)
+        previous_end = end
+        x1, x2 = int(box["x1"] * FRAME_W), int(box["x2"] * FRAME_W)
+        y1, y2 = int(box["y1"] * FRAME_H), int(box["y2"] * FRAME_H)
+        if not actions:
+            if not isinstance(scene.get("staticHold"), dict):
+                raise ValueError("ACTIONLESS_SCENE_WITHOUT_SOURCE_READ_HOLD")
+            if end - start > 3.205:
+                raise ValueError("VISUAL_CUE_UNBOUNDED_SOURCE_READ_HOLD")
+            continue
+        for event in actions:
+            if not isinstance(event, dict) or event.get("visualVerb") not in verbs:
+                raise ValueError("MISSING_OR_DECORATIVE_VISUAL_VERB")
+            cue = event.get("atSec")
+            if (type(cue) not in (int, float) or not np.isfinite(cue)
+                    or cue < start or cue > end
+                    or not ident(event.get("heroObjectId"))
+                    or not ident(event.get("beforeStateId"))
+                    or not ident(event.get("afterStateId"))
+                    or event["beforeStateId"] == event["afterStateId"]):
+                raise ValueError("UNPINNED_CUE_OR_UNCHANGED_DECLARED_HERO")
+            total_actions += 1
+            if total_actions > 120:
+                raise ValueError("UNBOUNDED_VISUAL_CUE_COUNT")
+            # 4Hz evidence: nominal 0.5s on either side of spoken cue.
+            # Insufficient observations trigger HOLD rather than false PASS.
+            before_index = int(round((cue - .5) * 4))
+            after_index = int(round((cue + .5) * 4))
+            if (before_index < int(round(start * 4)) or
+                    after_index >= int(round(end * 4)) or
+                    before_index < 0 or after_index >= len(frames)):
+                findings.append({"beatId": sid, "heroObjectId": event["heroObjectId"],
+                                 "cueSec": cue, "reason": "CUE_BOUNDARY_PIXEL_WINDOW_MISSING"})
+                continue
+            before = frames[before_index, y1:y2, x1:x2]
+            after = frames[after_index, y1:y2, x1:x2]
+            if before.size < 256 or before.shape != after.shape:
+                findings.append({"beatId": sid, "heroObjectId": event["heroObjectId"],
+                                 "cueSec": cue, "reason": "HERO_REGION_TOO_SMALL"})
+                continue
+            a = np.asarray(Image.fromarray(before).resize((8, 8), Image.Resampling.BOX),
+                           dtype=np.float32)
+            b = np.asarray(Image.fromarray(after).resize((8, 8), Image.Resampling.BOX),
+                           dtype=np.float32)
+            diff = np.abs(a - b)
+            change_frac = float((diff >= 10).mean())
+            mean_diff = float(diff.mean())
+            item = {"beatId": sid, "heroObjectId": event["heroObjectId"],
+                    "cueSec": cue, "pixelBeforeSec": before_index / 4,
+                    "pixelAfterSec": after_index / 4,
+                    "broadPixelChangeFraction": round(change_frac, 4),
+                    "meanBroadLumaDifference": round(mean_diff, 3)}
+            if change_frac < .06 and mean_diff < 2.5:
+                findings.append(dict(item, reason="DECLARED_HERO_ACTION_NOT_OBSERVABLE"))
+            else:
+                observed.append(dict(item, reason="PIXEL_CHANGE_OBSERVED_MEANING_NOT_VERIFIED"))
+    if abs(previous_end - max_time) > .75:
+        raise ValueError("VISUAL_SCENES_DO_NOT_COVER_ACTUAL_DECODE")
+    return {
+        "schemaVersion": "ths-em-pinned-visual-cue-negative-audit-v1",
+        "sampleHz": 4, "independentFullDecodeRequired": True,
+        "declaredActionsExamined": total_actions,
+        "unobservedOrUnreviewable": findings,
+        "observedPixelChangesNotApproved": observed,
+        "decision": ("CRAFT_HOLD_SCENE_CUES" if findings
+                     else "PIXEL_CHANGE_PROXY_ONLY_NEEDS_SEMANTIC_CRAFT_REVIEW"),
+        "semanticAnimationVerified": False, "scientificClaimVerified": False,
+        "premiumCraftCertified": False, "mayPublish": False
+    }
+
+
+
 def interleaved_blank_phase_windows(one_hz_frames):
     """Provisional negative craft screen for phase-aliased blank interruptions.
 
@@ -254,7 +411,7 @@ def interleaved_blank_phase_windows(one_hz_frames):
     return findings
 
 
-def analyze_video(path, expected_sha=None):
+def analyze_video(path, expected_sha=None, scene_plan=None, scene_plan_sha=None):
     """Measure actual MP4; abort on decoder errors or a wrong pinned file."""
     path = Path(path)
     if not path.is_file() or path.is_symlink():
@@ -291,6 +448,20 @@ def analyze_video(path, expected_sha=None):
     frames = np.frombuffer(raw, dtype=np.uint8).reshape(-1, FRAME_H, FRAME_W)
     result = review_decoded_samples(frames[::SAMPLE_STEP_SECONDS])
     result["oneHzHeroCadence"] = review_one_hz_hero_cadence(frames)
+    if scene_plan is not None:
+        if expected_sha is None or not isinstance(scene_plan_sha, str) or len(scene_plan_sha) != 64:
+            raise ValueError("EXACT_VIDEO_AND_PLAN_EXTERNAL_PINS_REQUIRED")
+        raw4 = subprocess.check_output([
+            "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
+            "-xerror", "-i", str(path), "-vf",
+            f"fps=4,scale={FRAME_W}:{FRAME_H},format=gray",
+            "-f", "rawvideo", "-pix_fmt", "gray", "pipe:1"], timeout=90)
+        if not raw4 or len(raw4) % size:
+            raise ValueError("INCOMPLETE_4HZ_DECODED_HERO_FRAMES")
+        four = np.frombuffer(raw4, dtype=np.uint8).reshape(-1, FRAME_H, FRAME_W)
+        result["renderedVisualCueReview"] = review_actual_visual_action_cues(four, scene_plan)
+        result["renderedVisualCueReview"]["scenePlanSha256"] = scene_plan_sha
+        result["renderedVisualCueReview"]["videoSha256"] = source_sha
     phase_windows = interleaved_blank_phase_windows(frames)
     result["interleavedBlankPhaseWindowsSec"] = phase_windows
     result["oneHzOpticalScreenSamples"] = len(frames)
@@ -318,9 +489,15 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("video")
     p.add_argument("--expected-sha")
+    p.add_argument("--visual-cue-plan")
+    p.add_argument("--expected-plan-sha")
     p.add_argument("--out")
     args = p.parse_args()
-    report = analyze_video(args.video, args.expected_sha)
+    if (args.visual_cue_plan is None) != (args.expected_plan_sha is None):
+        raise ValueError("EXACT_VISUAL_PLAN_AND_EXTERNAL_PIN_BOTH_REQUIRED")
+    cue_plan = (load_pinned_visual_cue_plan(args.visual_cue_plan, args.expected_plan_sha)
+                if args.visual_cue_plan is not None else None)
+    report = analyze_video(args.video, args.expected_sha, cue_plan, args.expected_plan_sha)
     if args.out:
         Path(args.out).write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2))
