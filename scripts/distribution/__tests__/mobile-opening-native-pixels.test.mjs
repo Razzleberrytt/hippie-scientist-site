@@ -6,7 +6,7 @@ async function png(clutter=false){
  const width=1080,height=1920,bytes=Buffer.alloc(width*height*3,12)
  // A clean recognizable rectangular teaching object has broad geometry.
  for(let y=430;y<1050;y++)for(let x=280;x<790;x++){
-  let p=(y*width+x)*3;bytes[p]=185;bytes[p+1]=190;bytes[p+2]=193
+  const p=(y*width+x)*3;bytes[p]=185;bytes[p+1]=190;bytes[p+2]=193
  }
  if(clutter){
   // Nine distinct dense rows of text-like fragments. This reproduces the
@@ -15,7 +15,7 @@ async function png(clutter=false){
    const y=140+block*94+yy
    for(let x=120;x<930;x++){
     const ink=(Math.floor(x/6)%2===0)?252:16
-    let p=(y*width+x)*3;bytes[p]=ink;bytes[p+1]=ink;bytes[p+2]=ink
+    const p=(y*width+x)*3;bytes[p]=ink;bytes[p+1]=ink;bytes[p+2]=ink
    }
   }
  }
