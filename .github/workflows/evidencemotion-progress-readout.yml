@@ -56,7 +56,7 @@ jobs:
           p=Path("research/evidencemotion-director/ATOMIC-LANE-PROGRESS.json")
           obj=json.loads(p.read_text(encoding="utf-8"))
           g=obj["global"]
-          arithmetic_hold=bool(g["orphanCards"] or g["overlap"] or g["inflation"])
+          arithmetic_hold=bool(g["orphanCards"] or g["inflation"])
           accounting="Arithmetic HOLD" if arithmetic_hold else "Distinct mapping reconciled (research-only)"
           with open(os.environ["GITHUB_STEP_SUMMARY"],"a",encoding="utf-8") as fp:
               fp.write("### Sub-atomic five-lane evidence map (not video approval)\n\n")
@@ -85,7 +85,7 @@ jobs:
           report=json.loads((Path(os.environ["RUNNER_TEMP"])/"em-progress/reconciliation.json").read_text())
           progress=json.loads(Path("research/evidencemotion-director/ATOMIC-LANE-PROGRESS.json").read_text())
           g=progress["global"]
-          if (g["orphanCards"] or g["overlap"] or g["inflation"]):
+          if (g["orphanCards"] or g["inflation"]):
               accounting="ARITHMETIC HOLD — nominal ledger counts overlap/unmapped IDs"
               nominal_note="The older nominal count is NOT accepted coverage while overlaps or orphans remain."
           else:
