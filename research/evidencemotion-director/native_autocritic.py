@@ -301,8 +301,14 @@ def review_actual_visual_action_cues(four_hz_frames, plan):
                 not (.04 <= box["x1"] < box["x2"] <= .82 and
                      .11 <= box["y1"] < box["y2"] <= .78 and
                      box["x2"] - box["x1"] >= .1 and box["y2"] - box["y1"] >= .1)
-                or not isinstance(actions, list)):
+                or not isinstance(actions, list)
+                or len(set(claims)) != len(claims)
+                or len(set(assets)) != len(assets)):
             raise ValueError("UNBOUND_OR_UNSAFE_HERO_REGION_OR_SCENE_TIMELINE")
+        # Pre-render already rejects duplicate source IDs and contradictory
+        # action/source-read states. Independent decoded-media QA must agree.
+        if actions and scene.get("staticHold") is not None:
+            raise ValueError("ACTION_AND_SOURCE_READ_HOLD_MUTUALLY_EXCLUSIVE")
         scene_ids.add(sid)
         previous_end = end
         x1, x2 = int(box["x1"] * FRAME_W), int(box["x2"] * FRAME_W)
