@@ -46,9 +46,10 @@ test('final encoded MP4 includes caption composition before mobile opening pixel
  const screen=code.indexOf('const finalPixelGate=await assertNativeMobileOpeningPixels(',decoded)
  assert.ok(encoded>=0&&decoded>encoded&&screen>decoded,
    'decoded final-output inspection must follow H.264 encode, not just source PNG inspection')
- assert.match(code.slice(decoded,screen), /'-i',output,[\\s\\S]*'-vf','fps=2',[\\s\\S]*'-frames:v','4'/)
+ for(const needle of ["'-i',output,", "'-vf','fps=2'", "'-frames:v','4'"])
+   assert.ok(code.slice(decoded,screen).includes(needle), 'missing final-film decode contract: '+needle)
  assert.match(code.slice(decoded,screen), /FINAL_ENCODED_CAPTION_FRAMES_MISSING/)
  assert.match(code.slice(screen), /inspectionScope:'FINAL_DECODED_MP4_AFTER_ASS_CAPTION_COMPOSITING'/)
- assert.match(code.slice(screen), /exactMp4Sha256:sha256\\(outputBytes\\)/)
+ assert.ok(code.slice(screen).includes('exactMp4Sha256:sha256(outputBytes)'), 'final master hash binding missing')
  assert.match(code.slice(screen), /encodedMobileOpeningProof,hookPixelProof/)
 })
