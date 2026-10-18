@@ -22,6 +22,21 @@ export const AUDIENCE_FAULT_CODES=Object.freeze([
 const known=new Set(AUDIENCE_FAULT_CODES)
 const sha=v=>typeof v==='string'&&SHA.test(v)
 const uniq=a=>[...new Set(a)]
+function coversWholeFilm(review){
+ const duration=review?.mediaDurationSeconds
+ const times=review?.sampleTimesSeconds
+ if(!Number.isFinite(duration)||duration<4||duration>600
+   ||review?.fullFilmCoverageAttested!==true
+   ||!Array.isArray(times)||times.length!==review.sampleCount
+   ||times.length<4||times.some(t=>!Number.isFinite(t)||t<0||t>duration)
+   ||times.some((t,i)=>i>0&&t<=times[i-1])) return false
+ // Both ends plus the middle are indispensable. Widely separated endpoint-only
+ // screenshots are not evidence that the narrative between them was inspected.
+ if(times[0]>.5||times.at(-1)<duration-1
+   ||!times.some(t=>Math.abs(t-duration/2)<=duration/8)) return false
+ const maxGap=Math.max(...times.slice(1).map((t,i)=>t-times[i]))
+ return maxGap<=Math.max(2,duration/3)
+}
 
 export function assessEvidenceMotionAudienceQuality({
   filmSha256, audienceBrief, decodedPixelReview, independentCritics=[], observedPerformance
@@ -41,11 +56,13 @@ export function assessEvidenceMotionAudienceQuality({
    ||decodedPixelReview.phoneSizedFramesReviewed!==true
    ||!Number.isInteger(decodedPixelReview.sampleCount)
    ||decodedPixelReview.sampleCount<4
+   ||!coversWholeFilm(decodedPixelReview)
    ||!Array.isArray(decodedPixelReview.faults))
    missing.push('EXACT_VIDEO_FIRST_SECONDS_PHONE_PIXELS_AND_FULL_FILM_REQUIRED')
  else{
    for(const fault of decodedPixelReview.faults){
      if(!known.has(fault?.code)||!Number.isFinite(fault?.seconds)||fault.seconds<0
+       ||fault.seconds>decodedPixelReview.mediaDurationSeconds
        ||!clean(fault?.whatFailed)){
        invalid.push('MALFORMED_TIMECODED_AUDIENCE_FAULT');continue
      }
