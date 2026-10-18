@@ -6,6 +6,19 @@ import {proposeShots,GRAMMAR,auditShotRepetition} from './previz-director.mjs';
 const HASH=x=>typeof x==='string'&&/^[0-9a-f]{64}$/.test(x);
 const ID=x=>typeof x==='string'&&/^[a-z0-9][a-z0-9_.:-]{1,90}$/.test(x);
 const unique=a=>Array.isArray(a)&&a.length>0&&new Set(a).size===a.length;
+// Research declaration, not independent decoded-camera or learning proof.
+const meaningful=v=>typeof v==='string'&&v===v.trim()&&
+  /[\p{L}\p{N}]/u.test(v.normalize('NFKC'));
+const hasCameraTeachingPlan=b=>{
+ const p=b?.cameraTeachingPlan;
+ return p&&typeof p==='object'&&!Array.isArray(p)&&
+   typeof p.camera==='string'&&meaningful(p.action)&&
+   ID(p.visualPurposeId)&&p.visualPurposeId===b.visualPurposeId&&
+   ID(p.claimId)&&Array.isArray(b.claimIds)&&b.claimIds.includes(p.claimId)&&
+   ID(p.assetId)&&Array.isArray(b.scientificAssetIds)&&b.scientificAssetIds.includes(p.assetId)&&
+   Number.isFinite(p.narrationAnchorSec)&&Array.isArray(b.spokenAnchorTimes)&&
+   b.spokenAnchorTimes.includes(p.narrationAnchorSec);
+};
 const PURPOSES=new Set([
  'everyday-to-mechanism','process-sequence','study-measurement',
  'fair-comparison','uncertainty','source-bound-scale'
@@ -45,7 +58,8 @@ export function compileReusableDirector(program){
    last=b?.endSec??last;
    if(!ID(b?.visualPurposeId)||typeof b?.viewerLearns!=='string'||!b.viewerLearns.trim())
       add(errors,'EXPLANATION_INTENT_REQUIRED');
-   if(!unique(b?.claimIds)||b.claimIds.some(x=>!allowed.has(x)))
+   if(!hasCameraTeachingPlan(b))add(errors,'SOURCE_BOUND_CAMERA_TEACHING_PLAN_REQUIRED');
+    if(!unique(b?.claimIds)||b.claimIds.some(x=>!allowed.has(x)))
       add(errors,'SOURCE_CLAIM_LEDGER_MISMATCH');
    if(!unique(b?.scientificAssetIds))
       add(errors,'SOURCE_ASSET_IDS_MISSING');
@@ -65,16 +79,20 @@ export function compileReusableDirector(program){
    },{previousGrammar,previousCamera});
    if(proposed.status!=='PROPOSED')add(errors,proposed.code);
    else {
-     const hero=proposed.candidates[0];
+     // Choose the authored explanation-specific camera, never variation alone.
+      const hero=proposed.candidates.find(x=>x.camera===b.cameraTeachingPlan.camera);
+      if(!hero){add(errors,'CAMERA_NOT_ALLOWED_FOR_VISUAL_INTENT');continue;}
      previousGrammar=hero.grammarId;
      previousCamera=hero.camera;
      outputs.push({
        beatId:b.id,topicId:program.topicId,
        startSec:b.startSec,endSec:b.endSec,
        viewerLearns:b.viewerLearns,visualPurposeId:b.visualPurposeId,
+        cameraTeachingPlan:{...b.cameraTeachingPlan},
+        cameraPurposeStatus:'AUTHOR_DECLARED_REQUIRES_DECODED_FILM_REVIEW',
        grammarId:hero.grammarId,grammarName:hero.grammarName,
        primaryCamera:hero.camera,transition:hero.transition,
-       alternative:proposed.candidates[1],
+       alternative:proposed.candidates.find(x=>x.id!==hero.id),
        sourceClaimIds:hero.sourceClaimIds,scientificAssetIds:hero.scientificAssetIds,
        sourceManifestSha256:program.sourceManifestSha256,
        originalNarrationSha256:program.originalNarrationSha256,
