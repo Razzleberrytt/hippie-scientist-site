@@ -131,8 +131,8 @@ const buildReport=function buildReport(input) {
     throw Error("Canonical inherited parent credit does not match ledger");
   if (rawVerified!==ledger.individualMachineVerifiedResearchCardCount)
     throw Error("Ledger individual proof total invalid");
-  if (claimed!==inherited+rawVerified)
-    throw Error("Ledger raw rollup arithmetic invalid");
+  if (claimed!==inherited+rawVerified && claimed!==unique)
+    throw Error("Ledger rollup must be raw historic total or actual deduplicated canonical coverage");
   if (lanes.reduce((n,l)=>n+l.tasks.length,0)!==243) throw Error("Expected exactly 243 microtasks");
   const global={total:denominator,machine:individuallyMapped,rawMachineClaimed:rawVerified,inherited,overlap,unique,unmapped:denominator-unique,orphanCards:orphan,ledgerClaimedProvisional:claimed,ledgerClaimedPercent:ledger.provisionalCoveragePercent,reconciledMappedPercent:Number((100*unique/denominator).toFixed(2)),machinePercent:Number((100*individuallyMapped/denominator).toFixed(2)),inflation:claimed-unique,acceptedParents:accepted.filter(Boolean).length,totalParents:accepted.length,totalTasks:243};
   const stateLegend="`M` = individually machine-research audited, **not release accepted**; `I` = inherited canonical-parent scope, **not separately audited**; `M+I` = both (must not double count); `?` = not independently evidenced. Neither `M` nor `I` alone establishes final video quality, real-phone approval, independent science review, merge or posting.";
@@ -149,7 +149,9 @@ const buildReport=function buildReport(input) {
     `- **Individually reconciled machine-research stages:** ${global.machine}/${global.total} (${global.machinePercent}%). The proof ledger separately claims ${global.rawMachineClaimed}, of which **${orphan.length}** cannot be located in the frozen template inventory.`,
     `- **Inherited historical milestone scope:** ${global.inherited}/${global.total}, of which **${global.overlap}** also appear in individually audited groups. Never add these overlapping counts twice.`,
     `- **Unique stages mapped to at least one proof class (still provisional):** ${global.unique}/${global.total} (${global.reconciledMappedPercent}%). **Not evidenced by either class:** ${global.unmapped}/${global.total}.`,
-    `- **Original ledger's nominal provisional headline:** ${global.ledgerClaimedProvisional}/${global.total} (${global.ledgerClaimedPercent}%), which exceeds the unique inventory mapping by **${global.inflation}** card credits (${global.overlap} inherited/machine overlaps plus ${orphan.length} unmatched card). **HOLD arithmetic reconciliation**, not silent acceptance or a denominator change.`,
+    (claimed===unique
+      ? `- **Reconciled distinct research-stage headline:** ${global.unique}/${global.total} (${global.reconciledMappedPercent}%) is the physical canonical union, with ${global.overlap} legitimate inherited/machine overlaps counted once and ${orphan.length} uncounted orphan proof(s). Still provisional, never quality accepted.`
+      : `- **Original ledger's nominal provisional headline:** ${global.ledgerClaimedProvisional}/${global.total} (${global.ledgerClaimedPercent}%), which exceeds the unique inventory mapping by **${global.inflation}** card credits (${global.overlap} inherited/machine overlaps plus ${orphan.length} unmatched card). **HOLD arithmetic reconciliation**, not silent acceptance or a denominator change.`),
     `- **Unmatched card IDs:** ${orphan.length?orphan.map(c=>"`"+c+"`").join(", "):"none"}. Source group evidence is retained, but the ID gets no counted percentage until the canonical inventory and proof validator are reconciled.`,
     "- **Excellent first native render and five-render streak:** no new acceptance established by this progress report; read the [46-milestone checklist](COMPLETION-CHECKLIST.md) for actual release gates. `mayPublish=false` remains mandatory.",
     "",
