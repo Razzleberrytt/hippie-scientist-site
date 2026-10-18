@@ -135,7 +135,8 @@
       "id": "braces-unpatched-build-tooling-only-2026-10",
       "package": "braces",
       "severity": "high",
-      "expiresOn": "2026-10-17",
+      "expiresOn": "2026-10-24",
+      "requireExactHighAdvisories": true,
       "advisoryUrls": [
         "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
       ],
