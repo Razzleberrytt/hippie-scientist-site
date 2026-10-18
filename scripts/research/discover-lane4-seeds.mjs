@@ -5,7 +5,7 @@
 import fs from 'node:fs'
 import {resolve} from 'node:path'
 import {pathToFileURL} from 'node:url'
-import {readGithubContent} from './github-reservation-controller.mjs'
+import {readGithubContent,findMainThroughWave} from './github-reservation-controller.mjs'
 
 const ROOT='https://api.github.com'
 const VALID_PMID=/^\d{5,10}$/
@@ -46,7 +46,7 @@ export function createLane4Seed(pmids){
   }
 }
 
-export async function discoverLane4({repo,token,fetchImpl=fetch}={}){
+export async function discoverLane4({repo,token,fetchImpl=fetch,baselineReader=findMainThroughWave}={}){
   if(!/^[\w.-]+\/[\w.-]+$/.test(String(repo||''))||!token)throw Error('Missing authorized GitHub repository/token')
   const headers={
     Authorization:'Bearer '+token,Accept:'application/vnd.github+json',
@@ -71,7 +71,15 @@ export async function discoverLane4({repo,token,fetchImpl=fetch}={}){
   })
   if(!response.ok)throw Error('PubMed ESearch HTTP '+response.status)
   const result=await response.json()
-  const pmids=selectLane4Candidates(result?.esearchresult,registry.reservations)
+  // The live reservation ledger alone omits finalized wave identities.
+  // The reservation controller checks both sources; mirror its historical
+  // PMID coverage before staging a source-only seed, without weakening its
+  // title/DOI and competing-PR identity protections.
+  const baseline=await baselineReader()
+  if(!baseline||!Array.isArray(baseline.pmids)||baseline.pmids.some(p=>!VALID_PMID.test(String(p))))
+    throw Error('Authoritative finalized PMID baseline unavailable')
+  const known=[...registry.reservations,...baseline.pmids.map(pmid=>({pmid:String(pmid),state:'FINALIZED_BASELINE'}))]
+  const pmids=selectLane4Candidates(result?.esearchresult,known)
   return pmids.length?{state:'candidates',seed:createLane4Seed(pmids)}:{state:'no-new-pmids'}
 }
 

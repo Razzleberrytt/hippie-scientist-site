@@ -167,7 +167,7 @@ function reserveInto(reg,manifest,baseline){
  }
  return reserved;
 }
-async function findMainThroughWave(){
+export async function findMainThroughWave(){
  const dir='ops/enrichment-submissions/reconciliation';
  const batches=fs.readdirSync(dir,{withFileTypes:true}).filter(p=>p.isFile()&&p.name.endsWith('-final-manifest.json')).flatMap(p=>{try{
    const m=JSON.parse(fs.readFileSync(path.join(dir,p.name),'utf8')),range=String(m.range||'').match(/^(\d+)-(\d+)$/);
