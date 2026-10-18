@@ -26,6 +26,7 @@ const TEST_EXCLUDES = [
   // Native node:test suites validated by npm run test:node and the scoped
   // EvidenceMotion Mobile Opening Regression workflow; never run in Vitest.
   'scripts/distribution/__tests__/mobile-hook-clarity-gate.test.mjs',
+  'scripts/distribution/__tests__/mobile-opening-native-pixels.test.mjs',
   'scripts/distribution/__tests__/evidencemotion-audience-quality.test.mjs',
 ]
 
