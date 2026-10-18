@@ -232,3 +232,30 @@ test('two-state and opposite-second blank defects coexist without hiding either'
  assert.ok(x.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_INTERLEAVED_BLANK_INTERVALS'));
  assert.equal(x.contentMayPublish,false);
 });
+
+
+test('audience defects veto a technically valid beautiful science movie independently',()=>{
+ const p=full();
+ p.audienceBrief={viewerSegment:'Adult harm reduction learners',
+   relevanceReason:'Reveal non-obvious dependence risks',
+   firstTwoSecondsPromise:'Calming or dependence?',
+   viewerPayoff:'Know that sudden withdrawal can be serious'};
+ p.audiencePixelReview={origin:'ACTUAL_DECODED_MP4_PIXEL_REVIEW',
+   filmSha256:H,sampleFramesSha256:T,
+   firstTwoSecondsCovered:true,phoneSizedFramesReviewed:true,sampleCount:8,
+   mediaDurationSeconds:30,fullFilmCoverageAttested:true,
+   sampleTimesSeconds:[0,1,2,5,10,15,20,29.5],
+   faults:[{seconds:0.2,code:'OPENING_TEXT_CLUTTER',
+     whatFailed:'Many competing opening banners smother the hook'}]};
+ const x=adjudicateFilm(p);
+ assert.equal(x.decision,'AUTO_REVISE');
+ assert.equal(x.audienceQuality.decision,'REVISE');
+ assert.ok(x.fixes.includes('AUDIENCE_REVISE:OPENING_TEXT_CLUTTER'));
+ assert.equal(x.postingRecommendationAllowed,false);
+});
+test('excellent technical receipts without independent audience review cannot receive posting recommendation',()=>{
+ const x=adjudicateFilm(full());
+ assert.equal(x.audienceQuality.decision,'REVIEW_PENDING');
+ assert.equal(x.technicalReviewNotAudienceReview,true);
+ assert.equal(x.postingRecommendationAllowed,false);
+});

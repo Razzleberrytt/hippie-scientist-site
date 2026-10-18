@@ -8,6 +8,8 @@ import { validateR809CaptionsSrt, renderR809CaptionAss } from './r809-caption-tr
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
 import { verifyR819CanonicalHandoff } from './r819-canonical-handoff.mjs'
 import { verifyR819LayerInventory, compositeR819Frame } from './r819-native-layer-compositor.mjs'
+import { assertMobileOpeningHookSvg } from './mobile-hook-clarity-gate.mjs'
+import { assertNativeMobileOpeningPixels } from './mobile-opening-native-pixels.mjs'
 import { renderR810AlignedCaptionTracks, renderR817ProgressiveWordCaptions } from './r810-aligned-captions.mjs'
 import { measureR817FinalMotion, assertR817FinalMotion, R817_MOTION_LIMITS } from './r817-motion-qa.mjs'
 import { measureR817CaptionHighlightPixels, assertR817CaptionPixelQA } from './r817-caption-pixel-qa.mjs'
@@ -56,6 +58,9 @@ function verifyScene({ packageDir, asset, sourceUrl, sourceContentHash }) {
   const bytes = fs.readFileSync(file)
   if (sha256(bytes) !== clean(asset.sha256)) throw new Error(`video scene hash mismatch: ${asset.file}`)
   assertNoDecorativeVideoChrome(bytes.toString('utf8'))
+  // Fail before MP4 production if the first frame repeats the phenibut clutter pattern.
+  // Governed sources still belong in their designated proof/source beat.
+  if (Number(asset.start) === 0) assertMobileOpeningHookSvg(bytes.toString('utf8'))
   const metadata = parseSceneMetadata(bytes.toString('utf8'))
   if (clean(metadata.sourceUrl) !== sourceUrl) throw new Error(`video scene source URL mismatch: ${asset.file}`)
   if (clean(metadata.contentHash) !== sourceContentHash) throw new Error(`video scene source content hash mismatch: ${asset.file}`)
@@ -465,6 +470,7 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
     const nativeFrameDir=isR817?path.join(tempDir,'native-frames'):null
     if(nativeFrameDir)fs.mkdirSync(nativeFrameDir)
     let nativeFrameCount=0
+    const nativeOpeningPixelSamples=[]
     // R8.19 encoding must consume independently rendered pixels, never silently
     // fall back to the already baked R8.18 frames. The approved R8.18 sequence is
     // retained as a pixel-exact reference for every rebuilt native frame.
@@ -493,6 +499,11 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
             fs.linkSync(nativeFile,numberedFile)
             finalPng=nativeFile
           }
+          // The R8.18/R8.19 encode consumes THESE actual PNG bytes, never
+          // the governed-but-unused source SVG. Sample native/composited
+          // opening pixels at 0, .5, 1 and 1.5 seconds of the final sequence.
+          if(nativeFrameCount<60&&nativeFrameCount%15===0)
+            nativeOpeningPixelSamples.push(fs.readFileSync(numberedFile))
           nativeFrameCount++
         }
         continue
@@ -519,6 +530,10 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       finalPng = postPng
     }
     if (!finalPng) throw new Error('video renderer produced no scene frames')
+    // Source SVG role lint above is not enough for native mode: reject gross
+    // fine-detail overload on the actual frames handed to FFmpeg. This is
+    // only a negative pixel screen; it cannot certify text semantics or taste.
+    if(isR817)await assertNativeMobileOpeningPixels(nativeOpeningPixelSamples)
     if(!isR817)concatLines.push(`file '${finalPng.replace(/'/g, "'\\''")}'`)
     const concatFile = path.join(tempDir, 'concat.txt')
     fs.writeFileSync(concatFile, `${concatLines.join('\n')}\n`)
