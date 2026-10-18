@@ -177,20 +177,26 @@ class TransientEncodedTextTests(unittest.TestCase):
         from fullframe_text_negative_probe import command as original_command
         manifest = self.manifest(self.clean)
         copied_bytes = manifest.read_bytes()
+        prior_inode = self.root / 'prior-manifest-inode.json'
         replacements = []
 
         def rewrite_during_probe(argv):
             if argv[0] == 'ffprobe' and not replacements:
                 replacements.append(True)
-                manifest.unlink()
+                # Keep the old inode allocated: unlink+rewrite could reuse it,
+                # accidentally defeating the identity regression itself.
+                manifest.rename(prior_inode)
                 manifest.write_bytes(copied_bytes)
             return original_command(argv)
 
-        with patch('fullframe_text_negative_probe.command', side_effect=rewrite_during_probe):
-            with self.assertRaisesRegex(ValueError, 'SOURCE_CHANGED_DURING_AUDIT'):
-                check(self.clean, manifest)
-        self.assertTrue(replacements)
-        self.assertEqual(manifest.read_bytes(), copied_bytes)
+        try:
+            with patch('fullframe_text_negative_probe.command', side_effect=rewrite_during_probe):
+                with self.assertRaisesRegex(ValueError, 'SOURCE_CHANGED_DURING_AUDIT'):
+                    check(self.clean, manifest)
+            self.assertTrue(replacements)
+            self.assertEqual(manifest.read_bytes(), copied_bytes)
+        finally:
+            prior_inode.unlink(missing_ok=True)
 
     def test_crop_disables_rotation_metadata_before_encoded_frame_decode(self):
         from fullframe_text_negative_probe import command as original_command
