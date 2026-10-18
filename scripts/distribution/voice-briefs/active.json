@@ -1,0 +1,139 @@
+{
+  "release": "R8.05",
+  "sourceIdentity": {
+    "id": "ths-video-b6-20261018-nih-tga",
+    "sourceUrl": "https://ods.od.nih.gov/factsheets/vitaminb6-consumer/"
+  },
+  "premise": {
+    "interestScore": 4.4,
+    "coldViewerWhyCare": "An ordinary magnesium bottle may have an unexpected B6 ingredient and the combined amounts can matter",
+    "viewerQuestion": "Could hidden vitamin B6 in multiple supplements cause nerve problems?",
+    "earlyPayoff": "Some common supplements contain B6 and excessive supplemental exposure is linked to neuropathy",
+    "methodologyBeforePayoff": false
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "beats": [
+    {
+      "id": "B6-01",
+      "role": "hook",
+      "narration": "Your magnesium supplement might contain a vitamin that can damage nerves.",
+      "onScreenText": "HIDDEN VITAMIN?",
+      "visualPurpose": "Vitamin label transforms into an illustrated nerve signal.",
+      "spokenAnchor": "damage nerves",
+      "visualAction": "magnesium supplement revealed as containing B6",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "tga-2026",
+      "primaryEntities": [],
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "B6-02",
+      "role": "finding",
+      "narration": "It's vitamin B6. We need some, but too much from supplements can cause tingling or numbness in hands and feet.",
+      "onScreenText": "ESSENTIAL ≠ HARMLESS IN EXCESS",
+      "visualPurpose": "Essential vitamin appears beside a symbolic sensory nerve signal.",
+      "spokenAnchor": "too much",
+      "visualAction": "neutral nerve signal changes to broken signal with SYMBOLIC annotation",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "nih-ods-tga",
+      "primaryEntities": [],
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "B6-03",
+      "role": "evidence",
+      "narration": "Some multivitamins, B complexes, magnesium and zinc products contain B6. Using several can quietly stack your total intake.",
+      "onScreenText": "YOUR TOTAL CAN STACK",
+      "visualPurpose": "Four separate illustrative product silhouettes reveal B6 labels.",
+      "spokenAnchor": "stack",
+      "visualAction": "four additive exposure traces converge with no invented amounts",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "tga-2026",
+      "primaryEntities": [
+        "B6 products"
+      ],
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "B6-04",
+      "role": "context",
+      "narration": "Australia's medicines regulator has received reports involving people using multiple B6 containing supplements.",
+      "onScreenText": "MULTIPLE PRODUCTS IN REPORTS",
+      "visualPurpose": "Regulator report and supplement stack side by side.",
+      "spokenAnchor": "multiple",
+      "visualAction": "one regulator report sheet emerges, marked spontaneous reports",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "tga-2026",
+      "primaryEntities": [],
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "B6-05",
+      "role": "limitation",
+      "narration": "These reports can't tell us how common the problem is, and these symptoms have other possible causes.",
+      "onScreenText": "REPORTS ≠ INCIDENCE",
+      "visualPurpose": "Observation/report card divided from population risk counter.",
+      "spokenAnchor": "how common",
+      "visualAction": "incidence dial stays unknown rather than displaying fabricated rate",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "tga-2026",
+      "primaryEntities": [],
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "B6-06",
+      "role": "cta",
+      "narration": "Check every label for vitamin B6 or pyridoxine. If tingling or numbness develops, stop the supplements and seek medical advice.",
+      "onScreenText": "CHECK B6 ACROSS ALL LABELS",
+      "visualPurpose": "Clear illustrated Supplement Facts label followed by medical-help guidance.",
+      "spokenAnchor": "Check every label",
+      "visualAction": "pyridoxine text highlighted, then advice line appears",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "tga-2026",
+      "primaryEntities": [],
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "B6-07",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://ods.od.nih.gov/factsheets/vitaminb6-consumer/",
+      "visualPurpose": "Sources: NIH ODS and TGA; PMID 37447150.",
+      "spokenAnchor": "",
+      "visualAction": "silent source hold with exact primary URL",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "end",
+      "factualAuthority": "nih-ods",
+      "primaryEntities": [],
+      "pauseAfterSeconds": 0.16,
+      "holdSeconds": 3.4
+    }
+  ],
+  "recovery": {
+    "macroRebuildCount": 0
+  }
+}
