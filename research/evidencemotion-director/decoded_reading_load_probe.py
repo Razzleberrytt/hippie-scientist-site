@@ -88,10 +88,12 @@ def verify_native_frame_timestamps(movie, frames):
     indices divided by 30 then misstate the time of encoded captions/science.
     This is a full decoded-frame timestamp check, NOT a full-frame text audit.
     """
+    # Raw PTS is mandatory. The FFmpeg best-effort value may be synthesized
+    # from DTS; it cannot stand in for a missing presentation timestamp.
     raw = run(["ffprobe", "-v", "error", "-select_streams", "v:0",
                "-show_frames", "-show_entries",
-               "frame=best_effort_timestamp_time", "-of", "json", str(movie)],
-              "NATIVE_FRAME_TIMESTAMP_PROBE_FAILED")
+               "frame=pts_time,best_effort_timestamp_time", "-of", "json",
+               str(movie)], "NATIVE_FRAME_TIMESTAMP_PROBE_FAILED")
     try:
         timeline = json.loads(raw)["frames"]
     except (ValueError, KeyError, TypeError):
@@ -100,11 +102,16 @@ def verify_native_frame_timestamps(movie, frames):
         hold("NATIVE_FRAME_TIMESTAMP_COUNT_MISMATCH")
     first, last = None, None
     for index, frame in enumerate(timeline):
+        if not isinstance(frame, dict) or "pts_time" not in frame:
+            hold("NATIVE_FRAME_RAW_PTS_MISSING:" + str(index))
         try:
-            actual = float(frame["best_effort_timestamp_time"])
+            actual = float(frame["pts_time"])
+            estimated = float(frame["best_effort_timestamp_time"])
         except (TypeError, ValueError, KeyError):
             hold("NATIVE_FRAME_TIMESTAMPS_MISSING")
-        if not math.isfinite(actual) or abs(actual - index / 30.0) > 0.001:
+        if (not math.isfinite(actual) or not math.isfinite(estimated)
+            or abs(actual - index / 30.0) > 0.001
+            or abs(actual - estimated) > 0.001):
             hold("NATIVE_FRAME_PTS_NOT_30FPS_CFR:" + str(index))
         if first is None:
             first = actual
