@@ -167,8 +167,8 @@ describe('P0 EvidenceMotion independent zero-job recovery consumers', () => {
     ]
     for (const name of workflows) {
       const yaml = fs.readFileSync(`.github/workflows/${name}`, 'utf8')
-      expect(yaml).toMatch(/^on:\n  workflow_dispatch:\n  pull_request:\n    paths:/m)
-      expect(yaml).toMatch(/^permissions:\n  contents: read$/m)
+      expect(yaml).toMatch(/^on:\n {2}workflow_dispatch:\n {2}pull_request:\n {4}paths:/m)
+      expect(yaml).toMatch(/^permissions:\n {2}contents: read$/m)
       expect(yaml).not.toMatch(/^\s+(?:contents|actions|pull-requests|statuses): write\s*$/m)
       expect(yaml).not.toContain('pull_request_target:')
       expect(yaml).toContain('uses: actions/checkout@v4')
