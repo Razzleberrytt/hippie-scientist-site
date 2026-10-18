@@ -20,6 +20,11 @@ class TransientEncodedTextTests(unittest.TestCase):
         cls.omission = cls.encode('single-frame-omission', 'omission')
         cls.inversion = cls.encode('single-frame-word-inversion', 'inversion')
         cls.nonsquare = cls.encode('non-square-sample-pixels', 'non_square')
+        cls.multi_video = cls.root / 'ambiguous-two-video-streams.mp4'
+        subprocess.run(['ffmpeg', '-nostdin', '-hide_banner', '-loglevel', 'error',
+            '-i', str(cls.clean), '-i', str(cls.flash), '-map', '0:v:0',
+            '-map', '1:v:0', '-c:v', 'copy', '-y', str(cls.multi_video)],
+            check=True, timeout=45)
 
     @classmethod
     def tearDownClass(cls):
@@ -94,6 +99,12 @@ class TransientEncodedTextTests(unittest.TestCase):
     def test_nonsquare_h264_is_rejected_before_ocr_even_at_native_pixel_dimensions(self):
         with self.assertRaisesRegex(ValueError, 'NATIVE_H264_1080X1920_30FPS_SQUARE_PIXEL_REQUIRED'):
             check(self.nonsquare, self.manifest(self.nonsquare))
+
+    def test_two_physical_video_streams_cannot_let_clean_first_track_hide_bad_second(self):
+        # FFmpeg stream-copy keeps both authentic H.264 tracks. The v:0 OCR-only
+        # screen formerly passed while ignoring the alternate video track.
+        with self.assertRaisesRegex(ValueError, 'AMBIGUOUS_MULTIPLE_OR_MISSING_VIDEO_STREAMS'):
+            check(self.multi_video, self.manifest(self.multi_video))
 
     def test_modified_film_hash_cannot_inherit_ocr_receipt(self):
         def change(x): x['filmSha256']='0'*64
