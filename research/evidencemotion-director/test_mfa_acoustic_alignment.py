@@ -126,12 +126,20 @@ class RepeatedTermOriginalWavReceiptTests(unittest.TestCase):
         self.assertEqual(review_repeated_term_phone_hypotheses(
             self.candidate(), self.windows()[:1]), [])
 
-    def test_cross_word_sequence_is_compared_as_one_term(self):
+    def test_forged_cross_word_term_window_holds_even_when_no_pair_exists(self):
         c = self.candidate(['S','EH1','V','AH0','N'], ['OW1'])
-        x = review_repeated_term_phone_hypotheses(c, [
-            {'term': '7-OH', 'wordIndices': [0,1]},
-            {'term': 'mitragynine', 'wordIndices': [1]}])
-        self.assertEqual(x, [])
+        with self.assertRaisesRegex(ValueError, 'TERM_WORD_MISMATCH'):
+            review_repeated_term_phone_hypotheses(c, [
+                {'term': '7-OH', 'wordIndices': [0,1]},
+                {'term': 'mitragynine', 'wordIndices': [1]}])
+
+    def test_mislabeled_or_unknown_scientific_term_holds(self):
+        for term, reason in (('hydroxyl', 'TERM_WORD_MISMATCH'),
+                             ('invented-term', 'UNKNOWN_TERM')):
+            windows = self.windows()
+            windows[0] = {'term': term, 'wordIndices': [0]}
+            with self.subTest(term=term), self.assertRaisesRegex(ValueError, reason):
+                review_repeated_term_phone_hypotheses(self.candidate(), windows)
 
     def test_spoofed_source_or_publish_flag_holds(self):
         for key, value in (('inputSha256', {'wav': '0' * 64}), ('mayPublish', True),
