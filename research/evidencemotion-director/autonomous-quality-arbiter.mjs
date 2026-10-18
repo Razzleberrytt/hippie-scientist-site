@@ -105,7 +105,7 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
        &&w.severity===(w.stagnantSecondsAtOneHz>6?'REVISE_CANDIDATE':'CRAFT_HOLD_CANDIDATE');
      const longest=Array.isArray(windows)?
        Math.max(0,...windows.map(w=>w?.stagnantSecondsAtOneHz)):NaN;
-     const valid=Number.isInteger(n)&&n>=4&&n<=92
+     const valid=cadence!==null&&typeof cadence==='object'&&Number.isInteger(n)&&n>=4&&n<=92
        &&Number.isInteger(decodedVisual.samples)&&decodedVisual.samples===Math.ceil(n/2)
        &&cadence.probe==='SHA_PINNED_ACTUAL_FRAME_CENTER_HERO_1HZ_RESEARCH_NEGATIVE_ONLY'
        &&cadence.sampleCount===n&&cadence.thresholdSec===3
