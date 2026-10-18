@@ -23,6 +23,11 @@ const TEST_EXCLUDES = [
   'research/evidencemotion-director/*.test.mjs',
   // This suite uses node:test and is already exercised by npm run test:node.
   'scripts/distribution/__tests__/r818-voiced-review-qa.test.mjs',
+  // Native node:test suites validated by npm run test:node and the scoped
+  // EvidenceMotion Mobile Opening Regression workflow; never run in Vitest.
+  'scripts/distribution/__tests__/mobile-hook-clarity-gate.test.mjs',
+  'scripts/distribution/__tests__/mobile-opening-native-pixels.test.mjs',
+  'scripts/distribution/__tests__/evidencemotion-audience-quality.test.mjs',
 ]
 
 function workspaceAliasPlugin(): Plugin {

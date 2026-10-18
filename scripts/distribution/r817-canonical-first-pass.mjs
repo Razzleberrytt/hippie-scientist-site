@@ -5,6 +5,7 @@ import { assertR817RetentionPlan, assessR817RetentionMaster } from './r817-reten
 import { assertR817RenderedActionProof } from './r817-rendered-evidence.mjs'
 import { assertR817AlignmentAudit } from './r817-alignment-qa.mjs'
 import { assertR818TelemetryBinding } from './r818-telemetry-qa.mjs'
+import { assessEvidenceMotionAudienceQuality } from './evidencemotion-audience-quality.mjs'
 
 export const R817_CANONICAL = Object.freeze({
   "schemaVersion": "ths-evidencemotion-r817-first-pass-v1",
@@ -157,10 +158,27 @@ export function assessR817EncodedMaster(receipt){
     if(r.alignmentProof?.reviewerId===r.approvedPlan?.authorId)
       blockers.push("MFA audit cannot be approved by its plan author");
   }catch(error){blockers.push(error.message)}
+  // Audience interest is a separate evidence question from correct encoding,
+  // scientific validity, and aligned speech. Default to HOLD, never to praise.
+  const audienceQuality=assessEvidenceMotionAudienceQuality({
+    filmSha256:r.outputSha256,
+    audienceBrief:r.audienceBrief,
+    decodedPixelReview:r.audiencePixelReview,
+    independentCritics:r.audienceCritics,
+    observedPerformance:r.observedPerformance
+  });
+  if(audienceQuality.decision!=='APPROVED'){
+    blockers.push('audience-quality independent full-film review not approved: '+audienceQuality.decision);
+    blockers.push(...audienceQuality.timecodedRepairTargets);
+  }
   if(r.ownerDeviceReview?.status!=="accepted")blockers.push("owner iPhone visual/listening acceptance pending");
   if(r.independentScientificReview?.status!=="approved")blockers.push("independent exact-master scientific review pending");
   if(r.ownerPublicationApproval!==true)blockers.push("owner publication approval pending");
-  return {technicalPassed:true,publicationReady:blockers.length===0,blockers,autoPublished:false,independentVVerified:r.independentScientificReview?.reviewer==="V"&&r.independentScientificReview?.status==="approved"};
+  return {technicalPassed:true,technicalMeaning:'CORE_MEDIA_FORMAT_ONLY_NOT_AUDIENCE_APPROVAL',
+    audienceQuality, audienceQualityPassed:audienceQuality.audienceQualityApproved,
+    postingRecommendationAllowed:blockers.length===0&&audienceQuality.mayRecommendPosting,
+    publicationReady:blockers.length===0,blockers,autoPublished:false,
+    independentVVerified:r.independentScientificReview?.reviewer==="V"&&r.independentScientificReview?.status==="approved"};
 }
 
 

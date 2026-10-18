@@ -1,0 +1,61 @@
+name: EvidenceMotion Mobile Opening Regression
+on:
+  push:
+    branches:
+      - main
+      - fix/evidencemotion-mobile-hook-regression-20261017
+    paths:
+      - scripts/distribution/mobile-hook-clarity-gate.mjs
+      - scripts/distribution/mobile-opening-native-pixels.mjs
+      - scripts/distribution/__tests__/mobile-opening-native-pixels.test.mjs
+      - scripts/distribution/evidencemotion-audience-quality.mjs
+      - scripts/distribution/__tests__/evidencemotion-audience-quality.test.mjs
+      - scripts/distribution/__tests__/r817-canonical-first-pass.test.mjs
+      - scripts/distribution/r817-canonical-first-pass.mjs
+      - research/evidencemotion-director/autonomous-quality-arbiter.mjs
+      - research/evidencemotion-director/autonomous-quality-arbiter.test.mjs
+      - scripts/distribution/__tests__/mobile-hook-clarity-gate.test.mjs
+      - scripts/distribution/render-vertical-video-package.mjs
+      - scripts/distribution/render-vertical-video-mp4.mjs
+      - .github/workflows/evidencemotion-mobile-opening-qa.yml
+  pull_request:
+    paths:
+      - scripts/distribution/mobile-hook-clarity-gate.mjs
+      - scripts/distribution/mobile-opening-native-pixels.mjs
+      - scripts/distribution/__tests__/mobile-opening-native-pixels.test.mjs
+      - scripts/distribution/evidencemotion-audience-quality.mjs
+      - scripts/distribution/__tests__/mobile-hook-clarity-gate.test.mjs
+      - scripts/distribution/__tests__/evidencemotion-audience-quality.test.mjs
+      - scripts/distribution/__tests__/r817-canonical-first-pass.test.mjs
+      - scripts/distribution/r817-canonical-first-pass.mjs
+      - scripts/distribution/render-vertical-video-package.mjs
+      - scripts/distribution/render-vertical-video-mp4.mjs
+      - research/evidencemotion-director/autonomous-quality-arbiter.mjs
+      - research/evidencemotion-director/autonomous-quality-arbiter.test.mjs
+      - .github/workflows/evidencemotion-mobile-opening-qa.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  negative-filter:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install production image decoding dependency
+        run: npm ci --no-audit --no-fund
+      - name: Check production renderer and tests syntax
+        run: |
+          node --check scripts/distribution/render-vertical-video-package.mjs
+          node --check scripts/distribution/render-vertical-video-mp4.mjs
+          node --check scripts/distribution/mobile-hook-clarity-gate.mjs
+          node --check scripts/distribution/mobile-opening-native-pixels.mjs
+          node --check scripts/distribution/evidencemotion-audience-quality.mjs
+          node --check scripts/distribution/r817-canonical-first-pass.mjs
+          node --check research/evidencemotion-director/autonomous-quality-arbiter.mjs
+      - name: Run real clutter and approved capsule regression tests
+        run: |
+          node --test scripts/distribution/__tests__/mobile-hook-clarity-gate.test.mjs scripts/distribution/__tests__/evidencemotion-audience-quality.test.mjs research/evidencemotion-director/autonomous-quality-arbiter.test.mjs scripts/distribution/__tests__/mobile-opening-native-pixels.test.mjs
