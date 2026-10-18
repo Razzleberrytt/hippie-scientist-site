@@ -82,13 +82,13 @@ const buildReport=function buildReport(input) {
   // Cross-check both separately declared planning sources. A metadata-only
   // change to the 243-item register or 46-item index cannot bypass --check.
   const registered=[...read("GRANULAR-46-EXECUTION-REGISTER.md").matchAll(
-    /^- \\[([ x])\\] \\*\\*(EM-\\d{3}\\.\\d{2})\\*\\*/gm)].map(m=>m[2]);
+    /^- \[([ x])\] \*\*(EM-\d{3}\.\d{2})\*\*/gm)].map(m=>m[2]);
   const actualTasks=new Set(lanes.flatMap(l=>l.tasks.map(t=>t.id)));
   if(registered.length!==243||new Set(registered).size!==243||
      registered.some(id=>!actualTasks.has(id)))
     throw Error("ATOMIC_INVENTORY_HOLD:243_TASK_REGISTER_MISMATCH");
   const indexRows=[...read("ATOMIC-EXECUTION-INDEX.md").matchAll(
-    /^\\| (EM-\\d{3}) \\| (\\d+) \\| (\\d+) \\|/gm)];
+    /^\| (EM-\d{3}) \| (\d+) \| (\d+) \|/gm)];
   if(indexRows.length!==46) throw Error("ATOMIC_INVENTORY_HOLD:46_MILESTONE_INDEX_REQUIRED");
   const seenParents=new Set();
   for(const m of indexRows){
