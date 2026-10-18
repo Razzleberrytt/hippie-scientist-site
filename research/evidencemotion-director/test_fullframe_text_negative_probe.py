@@ -123,6 +123,60 @@ class TransientEncodedTextTests(unittest.TestCase):
         self.assertEqual(r['defects'][0]['unexpectedWords'], [])
         self.assertTrue(r['defects'][0]['requiredWordsOutOfOrder'])
 
+    def test_symlinked_video_is_rejected_before_audit(self):
+        link = self.root / 'linked-film.mp4'
+        link.symlink_to(self.clean)
+        with self.assertRaisesRegex(ValueError, 'BOUNDED_REGULAR_ENCODED_MOVIE_REQUIRED'):
+            check(link, self.manifest(self.clean))
+
+    def test_snapshot_rejects_source_replaced_between_pin_and_copy(self):
+        from fullframe_text_negative_probe import _frozen_source as real_snapshot
+        movie = self.root / 'swap-before-snapshot.mp4'
+        original = self.clean.read_bytes()
+        movie.write_bytes(original)
+        manifest = self.manifest(movie)
+
+        def swap_before_copy(source, snapshot, expected):
+            source.write_bytes(self.flash.read_bytes())
+            try:
+                return real_snapshot(source, snapshot, expected)
+            finally:
+                source.write_bytes(original)
+
+        with patch('fullframe_text_negative_probe._frozen_source', side_effect=swap_before_copy):
+            with self.assertRaisesRegex(ValueError, 'ENCODED_SOURCE_SNAPSHOT_HOLD'):
+                check(movie, manifest)
+        self.assertEqual(movie.read_bytes(), original)
+
+    def test_transient_source_swap_during_probe_cannot_change_decoded_frames(self):
+        from fullframe_text_negative_probe import command as real_command
+        movie = self.root / 'swap-during-probe.mp4'
+        original = self.clean.read_bytes()
+        altered = self.flash.read_bytes()
+        movie.write_bytes(original)
+        manifest = self.manifest(movie)
+        swapped = []
+
+        def mutate_during_probe(argv):
+            if argv[0] == 'ffprobe':
+                self.assertNotEqual(Path(argv[-1]), movie)
+            if argv[0] == 'ffmpeg':
+                self.assertNotEqual(Path(argv[argv.index('-i') + 1]), movie)
+            if argv[0] == 'ffprobe' and not swapped:
+                swapped.append(True)
+                movie.write_bytes(altered)
+                try:
+                    return real_command(argv)
+                finally:
+                    movie.write_bytes(original)
+            return real_command(argv)
+
+        with patch('fullframe_text_negative_probe.command', side_effect=mutate_during_probe):
+            result = check(movie, manifest)
+        self.assertTrue(swapped)
+        self.assertEqual((result['framesOCRChecked'], result['defectFrames']), (30, 0))
+        self.assertFalse(result['mayPublish'])
+
     def test_nonsquare_h264_is_rejected_before_ocr_even_at_native_pixel_dimensions(self):
         with self.assertRaisesRegex(ValueError, 'NATIVE_H264_1080X1920_30FPS_SQUARE_PIXEL_REQUIRED'):
             check(self.nonsquare, self.manifest(self.nonsquare))
