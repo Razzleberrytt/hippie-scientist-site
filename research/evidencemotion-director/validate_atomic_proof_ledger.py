@@ -173,7 +173,7 @@ def validate(data,source_directory):
         canonical=[]
         for file in files:
             canonical.extend(re.findall(
-                r"^- \\[([ x])\\] \\*\\*(EM-\\d{3}\\.\\d{2}\\.[USOXTNR])\\*\\*",
+                r"^- \[([ x])\] \*\*(EM-\d{3}\.\d{2}\.[USOXTNR])\*\*",
                 file.read_text(encoding="utf-8"),re.M))
         ids=[item[1] for item in canonical]
         if len(ids)!=MAX_CARDS or len(set(ids))!=MAX_CARDS:
@@ -182,7 +182,7 @@ def validate(data,source_directory):
         if not checklist.is_file():
             hold("DEDUPLICATED_PARENT_CHECKLIST_REQUIRED")
         accepted=[match=="x" for match in re.findall(
-            r"^- \\[([x ])\\] ",checklist.read_text(encoding="utf-8"),re.M)]
+            r"^- \[([x ])\] ",checklist.read_text(encoding="utf-8"),re.M)]
         if len(accepted)!=46:
             hold("DEDUPLICATED_PARENT_CHECKLIST_INVALID")
         inherited={card for card in ids if accepted[int(card[3:6])-1]}
