@@ -102,6 +102,68 @@ test('empty decoded craft warning collections preserve research-only pending sta
  assert.equal(x.decision,'AUTO_RUN_MISSING_REVIEWS');
  assert.equal(x.contentMayPublish,false);
 });
+const oneHzCadence=(windows=[])=>({
+  probe:'SHA_PINNED_ACTUAL_FRAME_CENTER_HERO_1HZ_RESEARCH_NEGATIVE_ONLY',
+  sampleCount:34,centerHeroBoxPixels:[58,86,122,190],
+  visibleCenterHeroSamples:34,thresholdSec:3,
+  stagnationWindows:windows,
+  longestFlaggedStagnationSec:Math.max(0,...windows.map(w=>w.stagnantSecondsAtOneHz)),
+  creativeScreenVerdict:windows.length?'CRAFT_HOLD':'NO_NEGATIVE_FOUND_NOT_CRAFT_PASS',
+  sceneSpecificHeroAndMeaningVerified:false,
+  offCenterAndIntentionalReadingHoldNotAdjudicated:true,
+  automaticallyApprovedArt:false,
+});
+const withOneHz=(cadence=oneHzCadence())=>({
+  ...frame(),oneHzOpticalScreenSamples:34,oneHzHeroCadence:cadence
+});
+test('actual decoded 3s/7s center-hero windows remain a separate semantic craft review HOLD',()=>{
+ const windows=[
+   {startSec:4,endSec:7,stagnantSecondsAtOneHz:3,severity:'CRAFT_HOLD_CANDIDATE'},
+   {startSec:10,endSec:17,stagnantSecondsAtOneHz:7,severity:'REVISE_CANDIDATE'},
+ ];
+ const x=adjudicateFilm({...full(),decodedVisual:withOneHz(oneHzCadence(windows))});
+ assert.deepEqual(x.blockers,[]);
+ assert.equal(x.decision,'AUTO_RUN_MISSING_REVIEWS');
+ assert.ok(x.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_1HZ_HERO_STAGNATION'));
+ assert.equal(x.qualityAcceptableForResearch,false);
+ assert.equal(x.contentMayPublish,false);
+});
+test('no detected 1Hz stagnation does not self-certify craft or release',()=>{
+ const x=adjudicateFilm({...full(),decodedVisual:withOneHz()});
+ assert.deepEqual(x.blockers,[]);
+ assert.ok(!x.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_1HZ_HERO_STAGNATION'));
+ assert.equal(x.decision,'AUTO_RUN_MISSING_REVIEWS');
+ assert.equal(x.contentMayPublish,false);
+});
+test('missing 1Hz decoded evidence is an explicit unfinished review dependency',()=>{
+ const x=adjudicateFilm(full());
+ assert.ok(x.missingMachineWork.includes('DECODED_1HZ_HERO_CADENCE_EVIDENCE_MISSING'));
+ assert.equal(x.contentMayPublish,false);
+});
+test('forged or internally contradictory 1Hz cadence receipts fail closed',()=>{
+ const w={startSec:4,endSec:7,stagnantSecondsAtOneHz:3,severity:'CRAFT_HOLD_CANDIDATE'};
+ const good=oneHzCadence([w]);
+ const cases=[
+   {...good,stagnationWindows:[{...w,endSec:999}]},
+   {...good,stagnationWindows:[{...w,stagnantSecondsAtOneHz:2}]},
+   {...good,stagnationWindows:[{...w,severity:'REVISE_CANDIDATE'}]},
+   {...good,stagnationWindows:[w,w]},
+   {...good,stagnationWindows:[]},
+   {...good,stagnationWindows:null},
+   {...good,sampleCount:35},
+   {...good,longestFlaggedStagnationSec:7},
+   {...good,creativeScreenVerdict:'NO_NEGATIVE_FOUND_NOT_CRAFT_PASS'},
+   {...good,automaticallyApprovedArt:true},
+   {...good,centerHeroBoxPixels:[0,0,320,180]},
+   null,
+ ];
+ for(const candidate of cases){
+   const x=adjudicateFilm({...full(),decodedVisual:withOneHz(candidate)});
+   assert.equal(x.decision,'AUTO_HOLD_INVALID_PROOF');
+   assert.ok(x.blockers.includes('DECODED_1HZ_HERO_CADENCE_PROOF_INVALID'));
+   assert.equal(x.contentMayPublish,false);
+ }
+});
 test('missing machine reviewers schedules more evidence, never asks an owner to be the judge',()=>{
  const x=adjudicateFilm({...full(),voice:undefined,critics:[]});
  assert.equal(x.decision,'AUTO_RUN_MISSING_REVIEWS');
