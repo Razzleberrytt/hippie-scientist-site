@@ -8,6 +8,7 @@ import process from "node:process";
 import console from "node:console";
 import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
+import { Buffer } from "node:buffer";
 const dir = path.dirname(fileURLToPath(import.meta.url));
 const read=(name)=>fs.readFileSync(path.join(dir,name),"utf8");
 const buildReport=function buildReport(input) {
