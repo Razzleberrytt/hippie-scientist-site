@@ -103,9 +103,15 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
        &&w.stagnantSecondsAtOneHz===w.endSec-w.startSec
        &&w.stagnantSecondsAtOneHz>=3
        &&w.severity===(w.stagnantSecondsAtOneHz>6?'REVISE_CANDIDATE':'CRAFT_HOLD_CANDIDATE');
-     const longest=Array.isArray(windows)?
-       Math.max(0,...windows.map(w=>w?.stagnantSecondsAtOneHz)):NaN;
+     // Bound both the report's sampled clock and its window inventory to the
+     // actual decoded film; shortened "clean" grids cannot hide its ending.
+     const duration=decodedVisual.actualDurationSeconds;
+     const longest=Array.isArray(windows)&&Number.isInteger(n)
+       &&n>=4&&n<=92&&windows.length<=n
+       ?windows.reduce((max,w)=>Math.max(max,w?.stagnantSecondsAtOneHz??NaN),0):NaN;
      const valid=cadence!==null&&typeof cadence==='object'&&Number.isInteger(n)&&n>=4&&n<=92
+       &&Number.isFinite(duration)&&duration>=12&&duration<=90
+       &&Math.abs(n-duration)<=1.05
        &&Number.isInteger(decodedVisual.samples)&&decodedVisual.samples===Math.ceil(n/2)
        &&cadence.probe==='SHA_PINNED_ACTUAL_FRAME_CENTER_HERO_1HZ_RESEARCH_NEGATIVE_ONLY'
        &&cadence.sampleCount===n&&cadence.thresholdSec===3
