@@ -105,6 +105,7 @@ def review_repeated_term_phone_hypotheses(candidate, windows):
         hold("REPEATED_PHONE_REVIEW_WINDOWS_INVALID")
 
     groups = {}
+    seen_indices = set()
     for window in windows:
         if not isinstance(window, dict) or not isinstance(window.get("term"), str):
             hold("REPEATED_PHONE_REVIEW_WINDOW_INVALID")
@@ -113,6 +114,20 @@ def review_repeated_term_phone_hypotheses(candidate, windows):
                 or any(type(i) is not int or i < 0 or i >= len(words) for i in indices)
                 or indices != list(range(indices[0], indices[0] + len(indices)))):
             hold("REPEATED_PHONE_REVIEW_INDICES_INVALID")
+        # A source hash cannot authenticate an arbitrary caller-supplied label.
+        # Check every declared term against the actual aligned word spellings
+        # before producing even a research-only repeated-pronunciation receipt.
+        expected_words = TERM_WORD_SEQUENCES.get(window["term"])
+        if expected_words is None:
+            hold("REPEATED_PHONE_REVIEW_UNKNOWN_TERM")
+        source_words = [words[i].get("word") if isinstance(words[i], dict) else None
+                        for i in indices]
+        if (any(not isinstance(word, str) for word in source_words)
+                or [word.casefold() for word in source_words] != expected_words):
+            hold("REPEATED_PHONE_REVIEW_TERM_WORD_MISMATCH")
+        if any(index in seen_indices for index in indices):
+            hold("REPEATED_PHONE_REVIEW_DUPLICATE_OR_OVERLAPPING_WINDOW")
+        seen_indices.update(indices)
         phones = []
         for idx in indices:
             item = words[idx]
@@ -191,13 +206,16 @@ def merge_candidates(base, missing, generated_text):
     return {**base, **generated}
 
 
+TERM_WORD_SEQUENCES = {
+    "7-OH": ["seven", "o", "h"],
+    "hydroxyl": ["hydroxyl"],
+    "mitragynine": ["mitragynine"],
+    "7-hydroxymitragynine": ["seven", "hydroxymitragynine"],
+}
+
+
 def term_windows(words):
-    required = {
-        "7-OH": ["seven", "o", "h"],
-        "hydroxyl": ["hydroxyl"],
-        "mitragynine": ["mitragynine"],
-        "7-hydroxymitragynine": ["seven", "hydroxymitragynine"],
-    }
+    required = TERM_WORD_SEQUENCES
     windows = []
     names = [x["word"].casefold() for x in words]
     for term, sequence in required.items():
