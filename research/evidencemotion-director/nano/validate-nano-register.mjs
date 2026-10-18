@@ -18,7 +18,8 @@ const spec = Object.freeze([
 const srcHeading = /^### (EM-\d{3}\.\d{2}) — (.+)$/gm
 const srcCard = /^- \[[ x]\] \*\*(EM-\d{3}\.\d{2}\.[USOXTNR])\*\* — (.+)$/gm
 const nanoHeading = /^### (EM-\d{3}\.\d{2}) — (.+)$/gm
-const nanoCard = /^- \[ \] `?(EM-\d{3}\.\d{2}\.[USOXTNR]\.0[123])`? — \*\*.+?:\*\* /gm
+const nanoCard = /^- \[[ x]\] `?(EM-\d{3}\.\d{2}\.[USOXTNR]\.0[123])`? — \*\*.+?:\*\* /gm
+const nanoContract = /^\*\*(EM-\d{3}\.\d{2}\.[USOXTNR]) — Existing atomic contract:\*\* (.+)$/gm
 const present = (s, re) => [...s.matchAll(new RegExp(re.source, 'gm'))]
 const unique = (xs, label) => {
   const set = new Set(xs)
@@ -36,8 +37,10 @@ for (const [file, wantTask, wantAtom, wantNano] of spec) {
   assert.match(nano, /mayPublish=false/)
   const originals = present(original, srcHeading).map(m => [m[1], m[2]])
   const nanoTasks = present(nano, nanoHeading).map(m => [m[1], m[2]])
-  const atoms = present(original, srcCard).map(m => m[1])
+  const sourceContracts = present(original, srcCard).map(m => [m[1], m[2]])
+  const atoms = sourceContracts.map(([id]) => id)
   const nanos = present(nano, nanoCard).map(m => m[1])
+  const copiedContracts = present(nano, nanoContract).map(m => [m[1], m[2]])
   assert.equal(originals.length, wantTask, `Source task count changed: ${file}`)
   assert.equal(atoms.length, wantAtom, `Source atom count changed: ${file}`)
   assert.equal(nanos.length, wantNano, `Nano count changed: ${file}`)
@@ -46,10 +49,8 @@ for (const [file, wantTask, wantAtom, wantNano] of spec) {
   unique(nanos, `nano IDs ${file}`)
   const expected = atoms.flatMap(id => [`${id}.01`, `${id}.02`, `${id}.03`])
   assert.deepEqual(nanos, expected, `Nano ID/order/parent drift: ${file}`)
-  for (const id of atoms) {
-    assert.ok(nano.includes(`**${id} — Existing atomic contract:**`), `Missing source atomic contract ${id}`)
-  }
-  const threePerCard = nano.match(/^- \[ \] `EM-\d{3}\.\d{2}\.[USOXTNR]\.0[123]`/gm) || []
+  assert.deepEqual(copiedContracts, sourceContracts, `Atomic contract wording/order drift: ${file}`)
+  const threePerCard = nano.match(/^- \[[ x]\] `EM-\d{3}\.\d{2}\.[USOXTNR]\.0[123]`/gm) || []
   assert.equal(threePerCard.length, nanos.length)
   totalTasks += originals.length
   totalAtomic += atoms.length
