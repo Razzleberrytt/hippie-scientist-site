@@ -53,6 +53,12 @@ def words(value):
     return TOKEN.findall(value.casefold())
 
 
+def preserves_required_order(observed, required):
+    """Require critical scientific words in the declared visual reading order."""
+    stream = iter(observed)
+    return all(any(token == expected for token in stream) for expected in required)
+
+
 def check(movie, manifest):
     movie, manifest = Path(movie), Path(manifest)
     if movie.resolve() == manifest.resolve():
@@ -112,7 +118,8 @@ def check(movie, manifest):
             len({t.casefold() for t in allowed}) != len(allowed) or
             not set(t.casefold() for t in required).issubset(t.casefold() for t in allowed)):
             fail('INVALID_WINDOW_WORD_ORACLE')
-        expected.extend([(set(t.casefold() for t in required),
+        expected.extend([(tuple(t.casefold() for t in required),
+                          set(t.casefold() for t in required),
                           set(t.casefold() for t in allowed))] * (end - start))
         cursor = end
     if cursor != len(frames):
@@ -130,13 +137,15 @@ def check(movie, manifest):
             if path.name != f'frame-{n:06d}.png':
                 fail('DECODED_FRAME_SEQUENCE_GAP')
             observed = words(command(['tesseract', str(path), 'stdout', '--psm', '6']).decode('utf-8', 'replace'))
-            required, allowed = expected[n]
+            required_order, required, allowed = expected[n]
             missing = sorted(required - set(observed))
             unexpected = sorted(set(observed) - allowed)
-            if missing or unexpected:
+            out_of_order = not missing and not preserves_required_order(observed, required_order)
+            if missing or unexpected or out_of_order:
                 defects.append({'frameIndex': n, 'timestampSec': round(n/30, 6),
                                 'cropSha256': sha(path), 'observedWords': observed,
-                                'missingRequiredWords': missing, 'unexpectedWords': unexpected})
+                                'missingRequiredWords': missing, 'unexpectedWords': unexpected,
+                                'requiredWordsOutOfOrder': out_of_order})
     if sha(movie) != initial_sha or sha(manifest) != manifest_sha:
         fail('SOURCE_CHANGED_DURING_AUDIT')
     return {'schema': SCHEMA, 'status': 'HOLD' if defects else 'MECHANICAL_OCR_NO_HOLD_REVIEW_REQUIRED',
