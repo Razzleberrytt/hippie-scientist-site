@@ -16,12 +16,12 @@ class DecodedSourceCreditTests(unittest.TestCase):
             "NOT SOURCE USP 2040", "NO SOURCE USP 2040",
             "SOURCE N/A USP 2040", "SOURCE USP 2040 NOT APPLICABLE",
             "USP 2040 SOURCE", "SOURCE NOT USP 2040",
-            "NOT\\nSOURCE USP 2040", "NO\\nSOURCE USP 2040",
-            "SOURCE USP 2040\\nNOT APPLICABLE",
-            "SOURCE USP 2040\\nUNVERIFIED",
-            "SOURCE USP 2040\\nSOURCE USP 2041",
-            "SOURCE NIH 2040\\nSOURCE USP 2040",
-            "SOURCE USP 2040\\nNOT SOURCE USP 2040",
+            "NOT\nSOURCE USP 2040", "NO\nSOURCE USP 2040",
+            "SOURCE USP 2040\nNOT APPLICABLE",
+            "SOURCE USP 2040\nUNVERIFIED",
+            "SOURCE USP 2040\nSOURCE USP 2041",
+            "SOURCE NIH 2040\nSOURCE USP 2040",
+            "SOURCE USP 2040\nNOT SOURCE USP 2040",
         ):
             with self.subTest(text=s):
                 self.assertFalse(guard.source_line_detected(s, "USP", "2040"))
