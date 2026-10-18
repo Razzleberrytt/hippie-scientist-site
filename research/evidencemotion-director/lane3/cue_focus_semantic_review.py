@@ -35,16 +35,22 @@ def sha256_file(path,*,limit=600_000_000):
             h.update(block)
     return h.hexdigest()
 
-def read_bounded_utf8(path,limit):
-    # Hash preflight alone cannot bound a path changed before read_text().
-    # A second bounded read fails closed if the exact source grows mid-review.
+def read_bounded_bytes(path,limit):
+    # Open once and retain the exact bounded bytes that will be evaluated.
+    # Never hash a pathname separately and then parse different pathname bytes.
     with Path(path).open('rb') as f:
         raw=f.read(limit+1)
     if len(raw)>limit:raise FocusHold('SOURCE_EXCEEDS_BYTE_LIMIT')
+    return raw
+
+def decode_source_utf8(raw):
     try:
         return raw.decode('utf8')
     except UnicodeDecodeError as e:
         raise FocusHold('SOURCE_DOCUMENT_INVALID') from e
+
+def read_bounded_utf8(path,limit):
+    return decode_source_utf8(read_bounded_bytes(path,limit))
 
 def ms(t):
     m=SRT_TIME.fullmatch(t)
@@ -175,16 +181,26 @@ def audit(*,report_path,expected_report_sha,film_path,srt_path):
         if not Path(x).is_file() or Path(x).is_symlink():raise FocusHold('SOURCE_FILE_MISSING_OR_SYMLINK')
     if not isinstance(expected_report_sha,str) or not HASH.fullmatch(expected_report_sha):
         raise FocusHold('EXTERNALLY_PINNED_REPORT_SHA_REQUIRED')
-    if sha256_file(report_path,limit=1_000_000)!=expected_report_sha:raise FocusHold('PINNED_AUDIT_REPORT_CHANGED')
+    # Hash the precise buffer consumed by JSON parsing, not a previous read.
+    report_bytes=read_bounded_bytes(report_path,1_000_000)
+    if hashlib.sha256(report_bytes).hexdigest()!=expected_report_sha:
+        raise FocusHold('PINNED_AUDIT_REPORT_CHANGED')
     try:
-        report=json.loads(read_bounded_utf8(report_path,1_000_000))
-        source_cues=parse_srt(read_bounded_utf8(srt_path,100_000))
+        report=json.loads(decode_source_utf8(report_bytes))
+        srt_bytes=read_bounded_bytes(srt_path,100_000)
+        source_cues=parse_srt(decode_source_utf8(srt_bytes))
     except (ValueError,UnicodeError) as e:
         raise FocusHold('SOURCE_DOCUMENT_INVALID') from e
-    for obj,key,path,limit in ((report,'exactFilmSha256',film_path,600_000_000),
-                               (report,'exactSrtSha256',srt_path,100_000)):
-        if not HASH.fullmatch(str(obj.get(key,''))) or sha256_file(path,limit=limit)!=obj[key]:
-            raise FocusHold('PINNED_FILM_OR_SRT_BYTES_CHANGED')
+    if not isinstance(report,dict):
+        raise FocusHold('SOURCE_DOCUMENT_INVALID')
+    # The SRT digest must identify the SAME bytes used to generate source_cues.
+    # The film is not decoded by this lexical review, but still requires its
+    # externally reported byte hash and the later no-mutation recheck.
+    if (not HASH.fullmatch(str(report.get('exactSrtSha256',''))) or
+            hashlib.sha256(srt_bytes).hexdigest()!=report['exactSrtSha256'] or
+            not HASH.fullmatch(str(report.get('exactFilmSha256',''))) or
+            sha256_file(film_path,limit=600_000_000)!=report['exactFilmSha256']):
+        raise FocusHold('PINNED_FILM_OR_SRT_BYTES_CHANGED')
     result=evaluate(report,source_cues)
     for path, expected, limit in ((report_path,expected_report_sha,1_000_000),
                                   (film_path,result['exactFilmSha256'],600_000_000),
