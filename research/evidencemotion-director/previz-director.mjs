@@ -80,6 +80,7 @@ export function auditShotRepetition(shots){
     return refusal('SHOT_SEQUENCE_REQUIRED');
   const keys=[];
   const ids=new Set();
+  let previousEndSec=null;
   for(const shot of shots){
     if(!shot||typeof shot!=='object'||!clean(shot.beatId)||
        ids.has(shot.beatId)||!Object.hasOwn(GRAMMAR,shot.grammarId)||
@@ -87,6 +88,15 @@ export function auditShotRepetition(shots){
        !Number.isFinite(shot.startSec)||!Number.isFinite(shot.endSec)||
        shot.endSec<=shot.startSec)
       return refusal('INCOMPLETE_OR_DUPLICATE_SHOT_SEQUENCE');
+    // This function is also exported directly. Do not rely on the separate
+    // story compiler having already validated each scene's teaching/source
+    // lineage or chronological placement before declaring reviewable craft.
+    if(!uniqueIds(shot.sourceClaimIds)||
+       typeof shot.viewerLearns!=='string'||!shot.viewerLearns.trim())
+      return refusal('UNBOUND_SHOT_LESSON_OR_CLAIM');
+    if(shot.startSec<0||(previousEndSec!==null&&shot.startSec<previousEndSec))
+      return refusal('OUT_OF_ORDER_OR_OVERLAPPING_SHOTS');
+    previousEndSec=shot.endSec;
     ids.add(shot.beatId);
     keys.push(JSON.stringify([shot.grammarId,[...shot.scientificAssetIds].sort()]));
   }
