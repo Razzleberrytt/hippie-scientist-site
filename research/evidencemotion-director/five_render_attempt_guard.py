@@ -179,6 +179,13 @@ def _read_stable_register_bytes(file):
             # read at most the configured limit plus one detection byte.
             with os.fdopen(os.dup(fd), "rb") as stream:
                 raw = stream.read(2_000_001)
+                # A same-length in-place edit may evade coarse timestamp checks
+                # (including restored mtime). Re-read on the SAME open file
+                # descriptor rather than trusting the path or file metadata.
+                # This checks mid-read stability, not atomic disk snapshots.
+                stream.seek(0)
+                if raw != stream.read(2_000_001):
+                    hold("REGISTER_BYTES_CHANGED_DURING_READ")
             finished = os.fstat(fd)
         finally:
             os.close(fd)
