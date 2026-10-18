@@ -161,10 +161,21 @@ export function inspectSceneVisualVerbPlan(plan) {
     if (b-a-holdSeconds > MAX_ACTION_GAP_SEC + TIME_EPS)
       add('PLANNED_TEACHING_ACTION_GAP_EXCEEDS_3_SECONDS')
   }
-  for (let i=1;i<holds.length;i++)
-    if (holds[i].start - holds[i-1].end < TIME_EPS &&
-        holds[i].end-holds[i-1].start > MAX_SOURCE_HOLD_SEC + TIME_EPS)
+  // Pairwise checks miss three or more small adjacent source cards.
+  // Count the entire unbroken source-reading run, not just neighboring pairs.
+  let runStart = null, runEnd = null
+  for (const h of holds) {
+    if (runEnd === null || h.start - runEnd > TIME_EPS)
+      runStart = h.start
+    runEnd = h.end
+    if (runEnd - runStart > MAX_SOURCE_HOLD_SEC + TIME_EPS) {
       add('CONSECUTIVE_STATIC_HOLDS_HIDE_STAGNATION')
+      break
+    }
+  }
+  // A whole film of source cards does not establish instructional movement.
+  if (eventTimes.length === 0)
+    add('SOURCE_CARDS_ALONE_DO_NOT_PROVE_VISUAL_STORY')
   return {
     status:reasons.length?'HOLD':'PLAN_READY_FOR_ACTUAL_DECODED_CRAFT_REVIEW',
     reasons, declaredActionCount:eventTimes.length,
