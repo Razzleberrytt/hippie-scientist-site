@@ -2,6 +2,8 @@
 
 > **Owner direction: 2026-10-15.** Atomic action map over [243 granular subtasks](GRANULAR-46-EXECUTION-REGISTER.md) and the one authoritative [46-milestone checklist](COMPLETION-CHECKLIST.md). This is a work-planning overlay, **not** a new completion score, runtime admission, publication permission or test result.
 
+**Nano agent instructions (owner-requested planning supplement):** [4,770 ordered nano steps beneath these same 1,590 atomic cards](nano/README.md), including lane-specific three-step instructions and a [read-only structural validator](nano/validate-nano-register.mjs). The nano layer is NOT a second authoritative completion count; no new PR/WIP lane, device/science/release approval or card acceptance is granted by decomposition. Keep the current atomic index, task ownership, receipts and 46 canonical milestones unchanged.
+
 ## Verified structural inventory
 
 - **46 original parent milestones:** 26 accepted research foundations / 20 open as recorded in the canonical tracker at preparation.
