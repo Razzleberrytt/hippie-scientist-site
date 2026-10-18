@@ -134,10 +134,12 @@ def _cmd(command, timeout=30):
                                    timeout=timeout)
 
 
-def ocr_image(path):
+def ocr_image(path, *, psm=11):
+    if type(psm) is not int or psm not in (6,7,11):
+        hold("UNSUPPORTED_OCR_PAGE_SEGMENTATION")
     if not shutil.which("tesseract"):
         hold("PINNED_LOCAL_OCR_EXECUTABLE_UNAVAILABLE")
-    return _cmd(["tesseract",str(path),"stdout","--psm","11"],
+    return _cmd(["tesseract",str(path),"stdout","--psm",str(psm)],
                 timeout=45).decode("utf-8","replace")
 
 

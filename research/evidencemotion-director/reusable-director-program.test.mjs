@@ -15,7 +15,7 @@ const source=topic=>({
    spokenAnchorTimes:[.25,1.3],claimIds:['claim:known'],
    scientificAssetIds:['asset:source-graphic'],
    visualPurposeId:'explanation:'+i,
-   viewerLearns:'How this specific source is supported and what remains unknown',
+   viewerLearns:'Beat '+i+': a different evidence-backed teaching outcome',
    sequenceReviewed:true,comparisonOrScaleReviewed:true,
    audioStretched:false,generatesScientificGeometry:false,
    claimsUnmeasuredEffect:false
@@ -82,6 +82,19 @@ test('proposal is NEVER a substitute for complete film science or art approval',
  assert.equal(r.mayPublish,false);
 });
 
+test('non-array external claim ledgers fail closed without throwing or creating shots',()=>{
+ for(const malformed of [{id:'claim:known'},'claim:known',17,true,null]){
+   const p=source('science:malformed-ledger');
+   p.claimLedger=malformed;
+   const result=compileReusableDirector(p);
+   assert.equal(result.status,'HOLD',JSON.stringify(malformed));
+   assert.ok(result.errors.includes('UNVERIFIED_OR_MISMATCHED_CLAIMS'));
+   assert.deepEqual(result.shots,[]);
+   assert.equal(result.productionEligible,false);
+   assert.equal(result.excellentCertified,false);
+ }
+});
+
 test('malformed episode shape or missing total timing causes HOLD, never crash/approve',()=>{
  for(const mutate of [
   p=>{p.beats={invalid:true}},
@@ -94,4 +107,47 @@ test('malformed episode shape or missing total timing causes HOLD, never crash/a
   assert.equal(result.productionEligible,false);
   assert.equal(result.excellentCertified,false);
  }
+});
+
+test('adjacent repeated same-asset uncertainty shots are detected even when cameras alternate',()=>{
+ const p=source('science:visual-repeat');
+ p.beats[0].visualIntent='uncertainty';
+ p.beats[1].visualIntent='uncertainty';
+ p.beats[2].visualIntent='uncertainty';
+ const r=compileReusableDirector(p);
+ assert.equal(r.status,'REUSABLE_G1_G6_PROGRAM_PROPOSED');
+ assert.equal(r.shots[0].grammarId,'G5');
+ assert.equal(r.shots[1].grammarId,'G5');
+ assert.notEqual(r.shots[0].primaryCamera,r.shots[1].primaryCamera);
+ assert.equal(r.compositionRedirectionRequired,true);
+ assert.equal(r.sequenceCraftReview.status,'CRAFT_REDIRECTION_REQUIRED');
+ assert.equal(r.sequenceCraftReview.findings[0].consecutiveCount,3);
+ assert.equal(r.excellentCertified,false);
+ assert.equal(r.productionEligible,false);
+ assert.equal(r.mayPublish,false);
+});
+
+test('a purposeful grammar change breaks immediate triple repetition but never certifies craft',()=>{
+ const p=source('science:distinct');
+ p.beats[0].visualIntent='uncertainty';
+ p.beats[1].visualIntent='study-measurement';
+ p.beats[2].visualIntent='uncertainty';
+ const r=compileReusableDirector(p);
+ assert.equal(r.status,'REUSABLE_G1_G6_PROGRAM_PROPOSED');
+ assert.equal(r.compositionRedirectionRequired,false);
+ assert.equal(r.sequenceCraftReview.status,'SEQUENCE_REVIEW_REQUIRED');
+ assert.equal(r.excellentCertified,false);
+});
+
+test('grammar rotation cannot launder three shots repeating one educational payoff',()=>{
+ const p=source('science:lesson-stasis');
+ for(let i=0;i<3;i++)p.beats[i].viewerLearns='What the same study measured';
+ const r=compileReusableDirector(p);
+ assert.equal(r.status,'REUSABLE_G1_G6_PROGRAM_PROPOSED');
+ assert.equal(r.compositionRedirectionRequired,true);
+ assert.ok(r.sequenceCraftReview.findings.some(f=>
+   f.reason==='THREE_PLUS_IDENTICAL_TEACHING_PAYOFFS_DESPITE_VISUAL_CHURN'));
+ assert.equal(r.productionEligible,false);
+ assert.equal(r.excellentCertified,false);
+ assert.equal(r.mayPublish,false);
 });

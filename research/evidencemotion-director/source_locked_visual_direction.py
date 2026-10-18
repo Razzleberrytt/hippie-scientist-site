@@ -6,6 +6,9 @@ Never invent atoms, labels, pharmacology or clinical inference.
 """
 import math
 
+from rdkit import Chem
+from verified_molecular_comparison import HYDROXYMITRAGYNINE, verified_molecule
+
 CID_7OH=44301524
 DIAGRAM_BASE=(1200,900)
 DIAGRAM_DEST=(35,545,800,600)
@@ -17,12 +20,26 @@ def hydroxyl_ring_location(asset,*,canvas=(1080,1920)):
     source=asset.get("source")
     if getattr(source,"pubchem_cid",None)!=CID_7OH:
         raise ValueError("DIRECTION_HOLD:WRONG_CHEMICAL_IDENTITY")
-    indices=asset.get("oh")
-    if not isinstance(indices,list) or len(indices)!=1:
-        raise ValueError("DIRECTION_HOLD:UNVERIFIED_HYDROXYL")
+    # CID on an untrusted asset is only a label. Before annotating the source
+    # oxygen, verify the *whole supplied graph* and the canonical source record.
+    # This is chemical identity research, not pixel or clinical approval.
+    if source != HYDROXYMITRAGYNINE:
+        raise ValueError("DIRECTION_HOLD:SOURCE_RECORD_NOT_PINNED")
     mol=asset.get("mol")
-    oxygen=mol.GetAtomWithIdx(indices[0]) if mol is not None else None
-    if oxygen is None or oxygen.GetSymbol()!="O" or oxygen.GetTotalNumHs()!=1:
+    if not isinstance(mol,Chem.Mol):
+        raise ValueError("DIRECTION_HOLD:ACTUAL_RDKIT_SOURCE_GRAPH_REQUIRED")
+    canonical=verified_molecule(HYDROXYMITRAGYNINE)
+    if (mol.GetNumAtoms()!=canonical.GetNumAtoms() or
+        len(Chem.GetMolFrags(mol))!=1 or
+        Chem.MolToSmiles(mol,isomericSmiles=True)!=
+        Chem.MolToSmiles(canonical,isomericSmiles=True)):
+        raise ValueError("DIRECTION_HOLD:PINNED_WHOLE_GRAPH_MISMATCH")
+    indices=asset.get("oh")
+    if (not isinstance(indices,list) or len(indices)!=1 or
+        type(indices[0]) is not int or not 0<=indices[0]<mol.GetNumAtoms()):
+        raise ValueError("DIRECTION_HOLD:UNVERIFIED_HYDROXYL")
+    oxygen=mol.GetAtomWithIdx(indices[0])
+    if oxygen.GetSymbol()!="O" or oxygen.GetTotalNumHs()!=1:
         raise ValueError("DIRECTION_HOLD:HIGHLIGHT_NOT_FREE_HYDROXYL_OXYGEN")
     coords=asset.get("diagramAtomXY")
     if not isinstance(coords,list) or len(coords)!=mol.GetNumAtoms():

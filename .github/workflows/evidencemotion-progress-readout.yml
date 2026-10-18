@@ -1,0 +1,65 @@
+name: EvidenceMotion progress readout
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research/evidencemotion-director/**'
+      - '.github/workflows/evidencemotion-progress-readout.yml'
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/github_em_merge_snapshot.py'
+      - 'research/evidencemotion-director/test_github_em_merge_snapshot.py'
+      - 'research/evidencemotion-director/atomic_progress_reconciler.py'
+      - 'research/evidencemotion-director/test_atomic_progress_reconciler.py'
+      - '.github/workflows/evidencemotion-progress-readout.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pull-requests: read
+  issues: read
+jobs:
+  source-backed-progress:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify merge-count, canonical workcards, and API negative controls
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p 'test_validate_atomic_proof_ledger.py' -v
+          python -m unittest discover -s research/evidencemotion-director -p 'test_atomic_progress_reconciler.py' -v
+          python -m unittest discover -s research/evidencemotion-director -p 'test_github_em_merge_snapshot.py' -v
+      - name: Read GitHub merged PRs into a fresh, time-stamped receipt
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/em-progress"
+          python research/evidencemotion-director/github_em_merge_snapshot.py \
+            --start 2026-10-17 \
+            --snapshot-out "$RUNNER_TEMP/em-progress/github-observation.json" \
+            --out "$RUNNER_TEMP/em-progress/reconciliation.json"
+      - name: Summarize real engineering activity without awarding cards
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          report=json.loads((Path(os.environ["RUNNER_TEMP"])/"em-progress/reconciliation.json").read_text())
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a") as fp:
+              fp.write("### EvidenceMotion verified progress — GitHub snapshot\n")
+              fp.write(f"Live verified observation **{report['sourceObservationAtUtc']}**; source mode **{report['sourceMode']}**.\n\n")
+              fp.write(f"Merged PRs **{report['mergedPRs']}**, unique integration commits **{report['distinctMergeCommits']}**; five lane PRs **{report['fiveActiveLanesMergedPRs']}**.\n\n")
+              fp.write(f"Individual machine-audited research cards: **{report['individualMachineVerifiedResearchCards']}/1590**. Inherited provisional but NOT audited: **{report['inheritedProvisionalNOTIndividuallyAudited']}**.\n\n")
+              fp.write(f"Provisional coverage only: **{report['provisionalCoverageOnly']}/1590**; reconciliation **{report['reconciliationState']}**.\n\n")
+              fp.write("First excellent render **0/1**, five streak **0/5**, mayPublish=false; no real-device/independent-science/creative release approval.\n")
+          PY
+      - name: Preserve both snapshot and reviewed accounting
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencemotion-progress-evidence
+          path: ${{ runner.temp }}/em-progress/
+          retention-days: 7
+          if-no-files-found: error

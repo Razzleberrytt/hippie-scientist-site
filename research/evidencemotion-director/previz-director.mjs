@@ -21,14 +21,23 @@ const INTENTS=Object.freeze({
   'source-bound-scale':'G6',
 });
 const clean=v=>String(v??'').trim();
-const uniqueIds=a=>Array.isArray(a)&&a.every(x=>typeof x==='string'&&x.trim()!=='')&&new Set(a).size===a.length;
+// Share the exact same meaningful-text rule between fail-closed validation
+// and the teaching-payoff comparison: punctuation/invisible marks are not a lesson.
+const normalizedLesson=v=>clean(v).normalize('NFKC').toLowerCase()
+  .replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+const uniqueIds=a=>Array.isArray(a)&&a.length>0&&a.every(x=>typeof x==='string'&&x.trim()!==''&&x===x.trim())&&new Set(a).size===a.length;
 const fail=(code)=>({status:'HOLD',code,candidates:[],productionEligible:false});
 
 export function proposeShots(beat,{previousGrammar=null,previousCamera=null}={}){
   if(!beat||!clean(beat.id)||!Number.isFinite(beat.durationSec)||beat.durationSec<=0)
     return fail('INVALID_BEAT');
-  if(!Array.isArray(beat.spokenAnchorTimes)||!beat.spokenAnchorTimes.length||
-     beat.spokenAnchorTimes.some(t=>!Number.isFinite(t)||t<0||t>beat.durationSec))
+  // Word-aligned cue times must progress in original narration order.
+  // Duplicates or reversed anchors cannot govern a deterministic shot plan.
+  // A dense copy turns sparse array holes into undefined, which fail the
+  // finite-value gate. Array.prototype.some on the raw array skips holes.
+  const anchors=Array.isArray(beat.spokenAnchorTimes)?Array.from(beat.spokenAnchorTimes):[];
+  if(!anchors.length||anchors.some((t,i)=>!Number.isFinite(t)||t<0||
+       t>beat.durationSec||(i>0&&t<=anchors[i-1])))
     return fail('MISSING_AUDIO_ANCHORS');
   if(!uniqueIds(beat.claimIds)||!uniqueIds(beat.scientificAssetIds))
     return fail('SOURCE_BOUND_IDS_REQUIRED');
@@ -64,12 +73,130 @@ export function proposeShots(beat,{previousGrammar=null,previousCamera=null}={})
 }
 
 /**
+ * Research-only negative filter for the same picture endlessly repeated.
+ * Three adjacent shots using the same source assets under the same visual
+ * grammar need a specifically redesigned idea, even if the camera moves,
+ * subtitles, palette, claims or wording change. Those changes alone are not
+ * meaningful visual variety. Use the actual decoded film for final critique.
+ *
+ * This is deliberately NOT an autonomous art score. Alternating grammars or
+ * assets merely removes this one mechanical warning; it never passes craft.
+ */
+export function auditShotRepetition(shots){
+  const refusal=code=>({status:'HOLD',errors:[code],findings:[],
+    craftRemediationRequired:true,excellentCertified:false,
+    productionEligible:false,mayPublish:false});
+  if(!Array.isArray(shots)||shots.length<2)
+    return refusal('SHOT_SEQUENCE_REQUIRED');
+  const keys=[];
+  const ids=new Set();
+  let previousEndSec=null;
+  for(const shot of shots){
+    if(!shot||typeof shot!=='object'||!clean(shot.beatId)||
+       ids.has(shot.beatId)||!Object.hasOwn(GRAMMAR,shot.grammarId)||
+       !uniqueIds(shot.scientificAssetIds)||
+       !Number.isFinite(shot.startSec)||!Number.isFinite(shot.endSec)||
+       shot.endSec<=shot.startSec)
+      return refusal('INCOMPLETE_OR_DUPLICATE_SHOT_SEQUENCE');
+    // This function is also exported directly. Do not rely on the separate
+    // story compiler having already validated each scene's teaching/source
+    // lineage or chronological placement before declaring reviewable craft.
+    if(!uniqueIds(shot.sourceClaimIds)||
+       typeof shot.viewerLearns!=='string'||!normalizedLesson(shot.viewerLearns))
+      return refusal('UNBOUND_SHOT_LESSON_OR_CLAIM');
+    if(shot.startSec<0||(previousEndSec!==null&&shot.startSec<previousEndSec))
+      return refusal('OUT_OF_ORDER_OR_OVERLAPPING_SHOTS');
+    previousEndSec=shot.endSec;
+    ids.add(shot.beatId);
+    keys.push(JSON.stringify([shot.grammarId,[...shot.scientificAssetIds].sort()]));
+  }
+  const findings=[];
+  let runStart=0;
+  for(let i=1;i<=shots.length;i++){
+    if(i!==shots.length&&keys[i]===keys[runStart])continue;
+    if(i-runStart>=3){
+      findings.push({reason:'THREE_PLUS_REPEATED_GRAMMAR_AND_SOURCE_SHOTS',
+        firstBeatId:shots[runStart].beatId,lastBeatId:shots[i-1].beatId,
+        consecutiveCount:i-runStart,grammarId:shots[runStart].grammarId,
+        scientificAssetIds:[...shots[runStart].scientificAssetIds].sort()});
+    }
+    runStart=i;
+  }
+  // Mechanical teaching-progression negative screen. A new visual grammar,
+  // camera, palette or transition does not by itself supply a new learning
+  // payoff. This compares declared outcomes and the pinned evidence/asset IDs,
+  // not audience comprehension, paraphrase meaning or actual film pixels.
+  // All source-derived findings require independent artistic review.
+  const payoffKeys=shots.map(shot=>{
+    const outcome=normalizedLesson(shot.viewerLearns);
+    // Lesson and claim/asset identity were validated above. Preserve the
+    // exact shared normalization for comparison; no absent evidence placeholder.
+    const evidence=[...shot.sourceClaimIds].sort();
+    return JSON.stringify([outcome,[...shot.scientificAssetIds].sort(),evidence]);
+  });
+  // Three or more consecutive shots promising the identical learning with
+  // identical evidence but cosmetically different grammars need redirection.
+  // Do not double-report an existing identical-grammar/source plateau.
+  for(let start=0;start<shots.length;){
+    let end=start+1;
+    if(payoffKeys[start]!==null)
+      while(end<shots.length&&payoffKeys[end]===payoffKeys[start])end++;
+    if(payoffKeys[start]!==null&&end-start>=3&&
+       !keys.slice(start,end).every(key=>key===keys[start]))
+      findings.push({reason:'THREE_PLUS_IDENTICAL_TEACHING_PAYOFFS_DESPITE_VISUAL_CHURN',
+        firstBeatId:shots[start].beatId,lastBeatId:shots[end-1].beatId,
+        consecutiveCount:end-start});
+    start=end;
+  }
+  // An A/B/A/B/A/B teaching-outcome loop otherwise evades the adjacent rule.
+  // Intentional didactic comparisons may be valid; this is a research HOLD,
+  // never an automatic artistic or scientific verdict.
+  for(let start=0;start+5<shots.length;){
+    const a=payoffKeys[start],b=payoffKeys[start+1];
+    if(a===null||b===null||a===b){start++;continue;}
+    let end=start+2;
+    while(end<shots.length&&payoffKeys[end]===((end-start)%2===0?a:b))end++;
+    if(end-start>=6){
+      findings.push({reason:'REPEATED_TWO_PAYOFF_TEACHING_CYCLE_REQUIRES_REVIEW',
+        firstBeatId:shots[start].beatId,lastBeatId:shots[end-1].beatId,
+        consecutiveCount:end-start,alternatingPayoffCount:2});
+      start=end;
+    }else start++;
+  }
+  return {status:findings.length?'CRAFT_REDIRECTION_REQUIRED':'SEQUENCE_REVIEW_REQUIRED',
+    errors:[],findings,craftRemediationRequired:findings.length>0,
+    excellentCertified:false,mayPublish:false,
+    caveat:'Source-bound sequence metadata alone cannot establish composition novelty or film quality. Inspect actual preview frames and reference clips.'};
+}
+
+/**
  * Critique evidence collected from actual preview rendering (not the authored
  * storyboard). This API is a *contract*, not a pixel decoder. Receipts alone
  * are not cryptographic proof; final review requires independent media checks.
  */
+const sameList=(left,right)=>Array.isArray(left)&&Array.isArray(right)&&left.length>0&&
+  left.length===right.length&&left.every((value,index)=>value===right[index]);
+
+/**
+ * Tie an independently decoded preview receipt to its exact authored shot.
+ * These equalities detect stale/swapped review files; they DO NOT prove that
+ * receipt contents came from the media. The independent byte decoder must
+ * still establish that separately.
+ */
 export function evaluatePreviz(candidate,receipt){
   const reasons=[];
+  const bound=Boolean(candidate&&receipt&&
+    typeof candidate.id==='string'&&candidate.id.length>0&&
+    receipt.candidateId===candidate.id&&
+    receipt.beatId===candidate.beatId&&
+    receipt.grammarId===candidate.grammarId&&
+    receipt.camera===candidate.camera&&
+    Number.isFinite(candidate.originalBeatDurationSec)&&candidate.originalBeatDurationSec>0&&
+    receipt.originalBeatDurationSec===candidate.originalBeatDurationSec&&
+    sameList(candidate.sourceClaimIds,receipt.sourceClaimIds)&&
+    sameList(candidate.scientificAssetIds,receipt.scientificAssetIds)&&
+    sameList(candidate.anchorTimes,receipt.anchorTimes));
+  if(!bound)reasons.push('SHOT_REVIEW_SOURCE_OR_TIMING_IDENTITY_MISMATCH');
   const decoded=inspectDecodedProof(receipt);
   for(const code of decoded.errors){
     reasons.push(code==='STATIC_COMPOSITION_KILL'?code:'DECODED_PROOF_'+code);
