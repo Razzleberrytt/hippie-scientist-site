@@ -182,6 +182,15 @@ function matchesRule(vuln, rule) {
 
   const advisoryUrls = via.filter((x) => x && typeof x === 'object' && x.url).map((x) => x.url)
   if (Array.isArray(rule.advisoryUrls) && rule.advisoryUrls.length > 0) {
+    if (rule.requireExactHighAdvisories === true) {
+      // A temporary one-advisory exception must not quietly authorize a
+      // second, newly discovered high/critical advisory for that package.
+      // Missing URL, duplicate URL or extra direct high advisory all fail.
+      const observed = directHighAdvisories.map((item) => item.url)
+      return observed.length === rule.advisoryUrls.length
+        && new Set(observed).size === observed.length
+        && rule.advisoryUrls.every((url) => observed.includes(url))
+    }
     return rule.advisoryUrls.every((url) => advisoryUrls.includes(url))
   }
   return true
