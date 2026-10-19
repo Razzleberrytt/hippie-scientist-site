@@ -351,6 +351,41 @@ class TransientEncodedTextTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'NATIVE_H264_8BIT_420_PIXEL_FORMAT_REQUIRED'):
                 check(self.clean, self.manifest(self.clean))
 
+    def test_midstream_pixel_format_change_is_held_before_any_crop_or_ocr(self):
+        # The stream header remains 4:2:0, but an individual decoded frame
+        # reports unsupported 4:4:4. A stream-only check would miss this.
+        from fullframe_text_negative_probe import command as native_command
+        def switch_one_frame(argv):
+            if argv[0] in ('ffmpeg', 'tesseract'):
+                raise AssertionError('mixed format reached crop decode or OCR')
+            raw = native_command(argv)
+            if argv[0] == 'ffprobe' and '-show_frames' in argv:
+                report = json.loads(raw)
+                self.assertEqual(report['streams'][0]['pix_fmt'], 'yuv420p')
+                self.assertEqual(report['frames'][9]['pix_fmt'], 'yuv420p')
+                report['frames'][9]['pix_fmt'] = 'yuv444p'
+                return json.dumps(report).encode('utf-8')
+            return raw
+        with patch('fullframe_text_negative_probe.command', side_effect=switch_one_frame):
+            with self.assertRaisesRegex(ValueError, 'NATIVE_H264_8BIT_420_PIXEL_FORMAT_REQUIRED'):
+                check(self.clean, self.manifest(self.clean))
+
+    def test_missing_individual_frame_pixel_format_is_held_before_ocr(self):
+        from fullframe_text_negative_probe import command as native_command
+        def remove_one_frame_format(argv):
+            if argv[0] in ('ffmpeg', 'tesseract'):
+                raise AssertionError('unproven frame format reached OCR')
+            raw = native_command(argv)
+            if argv[0] == 'ffprobe' and '-show_frames' in argv:
+                report = json.loads(raw)
+                self.assertEqual(report['streams'][0]['pix_fmt'], 'yuv420p')
+                report['frames'][9].pop('pix_fmt', None)
+                return json.dumps(report).encode('utf-8')
+            return raw
+        with patch('fullframe_text_negative_probe.command', side_effect=remove_one_frame_format):
+            with self.assertRaisesRegex(ValueError, 'NATIVE_H264_8BIT_420_PIXEL_FORMAT_REQUIRED'):
+                check(self.clean, self.manifest(self.clean))
+
     def test_two_physical_video_streams_cannot_let_clean_first_track_hide_bad_second(self):
         # FFmpeg stream-copy keeps both authentic H.264 tracks. The v:0 OCR-only
         # screen formerly passed while ignoring the alternate video track.
