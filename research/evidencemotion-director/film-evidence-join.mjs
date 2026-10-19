@@ -12,6 +12,11 @@ const has = (object, key) => Object.hasOwn(object, key);
 const validId = value => typeof value === 'string' && value.length > 0 && value.length <= 256 && value.trim() === value;
 const arr = value => Array.isArray(value) && value.length > 0 && value.every(validId) && new Set(value).size === value.length;
 const fields = new Set(['chemical_identity', 'mechanism', 'human_effect', 'safety']);
+// Interpret source-provenance and metadata-resolution separately. A cited but
+// uncached publication can still be an identity-only review candidate; an
+// unresolved or unrecognized reference cannot. Neither status approves science.
+const linkedProvenance = new Set(['primary_linked', 'secondary_linked', 'editorial_documented']);
+const reviewableResolution = new Set(['resolved', 'metadata_unavailable']);
 // Research-only structural check mirroring the canonical identity wire format.
 // DOI-to-PMID associations remain upstream-owned: a matching shape is never
 // proof that a study actually supports the film's scientific or human claim.
@@ -69,6 +74,9 @@ export function inspectFilmEvidenceJoins({relationshipIndexBytes, expectedIndexS
         !Array.isArray(ing.claims) || !ing.claims.includes(claim.claimId) ||
         !arr(c.studies) || !Array.isArray(ing.studies)) {
       errors.push(unit+':CLAIM_INGREDIENT_RELATIONSHIP_MISSING'); continue;
+    }
+    if (!linkedProvenance.has(c.provenance_status) || !reviewableResolution.has(c.resolution_status)) {
+      errors.push(unit+':CLAIM_PROVENANCE_OR_RESOLUTION_NOT_REVIEWABLE'); continue;
     }
     const linked=[];
     for (const canonicalId of claim.canonicalStudyIds) {
