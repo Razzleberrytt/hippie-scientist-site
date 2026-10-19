@@ -109,6 +109,12 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
      const longest=Array.isArray(windows)&&Number.isInteger(n)
        &&n>=4&&n<=92&&windows.length<=n
        ?windows.reduce((max,w)=>Math.max(max,w?.stagnantSecondsAtOneHz??NaN),0):NaN;
+     // Each stagnant second is a pair of consecutively visible 1Hz hero
+     // samples. Disjoint windows therefore require seconds+1 visible
+     // samples apiece; a forged tiny visibility count cannot substantiate
+     // several long freeze windows.
+     const minVisible=Array.isArray(windows)&&Number.isInteger(n)&&n>=4&&n<=92&&windows.length<=n
+       ?windows.reduce((sum,w)=>sum+(w?.stagnantSecondsAtOneHz??NaN)+1,0):NaN;
      const valid=cadence!==null&&typeof cadence==='object'&&Number.isInteger(n)&&n>=4&&n<=92
        &&Number.isFinite(duration)&&duration>=12&&duration<=90
        &&Math.abs(n-duration)<=1.05
@@ -120,6 +126,7 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
        &&cadence.centerHeroBoxPixels.every((v,i)=>v===[58,86,122,190][i])
        &&Number.isInteger(cadence.visibleCenterHeroSamples)
        &&cadence.visibleCenterHeroSamples>=0&&cadence.visibleCenterHeroSamples<=n
+       &&cadence.visibleCenterHeroSamples>=minVisible
        &&Array.isArray(windows)&&windows.length<=n&&windows.every(validWindow)
        &&windows.every((w,i)=>i===0||windows[i-1].endSec<w.startSec)
        &&cadence.longestFlaggedStagnationSec===longest
