@@ -24,6 +24,9 @@ describe('psyllium evidence-first buyer comparison', () => {
       expect(container.innerHTML.indexOf('Affiliate disclosure')).toBeLessThan(container.innerHTML.indexOf(link.getAttribute('href')!.replaceAll('&', '&amp;')))
     }
     expect(screen.getByRole('heading', { level: 2, name: /Who should avoid psyllium/ })).toBeTruthy()
+    const region = screen.getByRole('region', { name: 'Psyllium forms comparison table; scroll horizontally on small screens' })
+    expect(region.getAttribute('aria-describedby')).toBeTruthy()
+    expect(region.textContent).toContain('Use Tab to focus the table region')
   })
   it('renders the same ten answers in FAQ schema without stronger claims', () => {
     const { container } = render(<Page />)

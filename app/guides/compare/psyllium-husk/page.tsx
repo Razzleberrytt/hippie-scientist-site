@@ -6,6 +6,7 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'
+import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { faqs, forms, studies } from './content'
 
 const pagePath = '/guides/compare/psyllium-husk/'
@@ -46,16 +47,14 @@ export default function PsylliumBuyerComparison() {
       <section id="compare" className="scroll-mt-24 space-y-5" aria-labelledby="compare-title">
         <h2 id="compare-title" className="text-2xl font-semibold">Four forms, compared head-to-head</h2>
         <p className="max-w-4xl leading-7 text-muted">Read each row across the same criteria. These are practical fits, not efficacy rankings. The evidence concerns psyllium preparations; no direct four-way retail comparison was identified in this selected study set. <Cite n={1} /> <Cite n={2} /></p>
-        {/* A focusable, named scroll region lets keyboard users reach off-screen table columns. */}
-        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
-        <div className="overflow-x-auto rounded-2xl border border-brand-900/15 dark:border-white/15" role="region" aria-label="Psyllium forms comparison table; scroll horizontally on small screens" tabIndex={0}>
+        <ResponsiveTable label="Psyllium forms comparison table; scroll horizontally on small screens" showTitle={false}>
           <table className="w-full min-w-[1100px] table-fixed text-left text-sm leading-7">
             <caption className="sr-only">Psyllium form, practical fit, label comparison, reasons to skip and evidence boundary</caption>
             <colgroup><col className="w-40" /><col /><col /><col /><col /></colgroup>
             <thead className="bg-brand-50 dark:bg-[var(--surface-subtle)]"><tr>{['Form', 'Practical fit', 'What to compare', 'Skip or pause if', 'Evidence boundary'].map(label => <th key={label} scope="col" className="p-4 align-top">{label}</th>)}</tr></thead>
             <tbody>{forms.map(form => <tr key={form.name} className="border-t border-brand-900/10 dark:border-white/10"><th scope="row" className="p-4 align-top font-semibold">{form.name}</th><td className="p-4 align-top">{form.fit}</td><td className="p-4 align-top">{form.compare}</td><td className="p-4 align-top">{form.skip}</td><td className="p-4 align-top">{form.evidence}</td></tr>)}</tbody>
           </table>
-        </div>
+        </ResponsiveTable>
         <div className="grid gap-4 sm:grid-cols-2">{forms.map(form => <div key={form.name} className="card-premium p-5 space-y-3"><h3 className="text-lg font-semibold">{form.name}</h3><p className="text-sm leading-7 text-muted">Compare current labels and sellers. This search is not an endorsement of any result.</p><a className="inline-flex min-h-11 items-center font-semibold underline" href={`https://www.amazon.com/s?k=${encodeURIComponent(form.query)}&tag=${AFFILIATE_TAGS.amazon}`} rel="sponsored nofollow noopener" target="_blank">Search Amazon: {form.name} (affiliate)</a></div>)}</div>
       </section>
       <section id="research" className="max-w-4xl scroll-mt-24 space-y-5">
