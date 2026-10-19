@@ -186,6 +186,18 @@ test('disjoint center-hero freeze windows cannot share fictitious visible sample
  assert.ok(consistent.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_1HZ_HERO_STAGNATION'));
  assert.equal(consistent.contentMayPublish,false);
 });
+test('oversized one-Hz sample grid cannot force an unbounded window reduction',()=>{
+ const poison={get stagnantSecondsAtOneHz(){
+   throw Error('SHOULD_NOT_SCAN_UNBOUNDED_WINDOW_INVENTORY');
+ }};
+ const forged=adjudicateFilm({...full(),decodedVisual:{
+   ...withOneHz(oneHzCadence()),oneHzOpticalScreenSamples:1_000_000,
+   oneHzHeroCadence:{...oneHzCadence(),stagnationWindows:[poison]}
+ }});
+ assert.equal(forged.decision,'AUTO_HOLD_INVALID_PROOF');
+ assert.ok(forged.blockers.includes('DECODED_1HZ_HERO_CADENCE_PROOF_INVALID'));
+ assert.equal(forged.contentMayPublish,false);
+});
 test('shortening an otherwise self-consistent one-Hz grid cannot erase the actual film tail',()=>{
  const short={...oneHzCadence(),sampleCount:8,visibleCenterHeroSamples:8};
  const fullLength=adjudicateFilm({...full(),decodedVisual:{
