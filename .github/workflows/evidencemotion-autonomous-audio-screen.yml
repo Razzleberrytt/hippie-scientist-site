@@ -14,6 +14,7 @@ on:
       - 'research/evidencemotion-director/test_narration_caption_authoring_gate.py'
       - 'research/evidencemotion-director/mfa_acoustic_alignment.py'
       - 'research/evidencemotion-director/test_mfa_acoustic_alignment.py'
+      - 'research/evidencemotion-director/em01402-hydroxyl-reference.json'
       - 'research/evidencemotion-director/audio-word-cuts.mjs'
       - 'research/evidencemotion-director/audio-word-cuts.test.mjs'
       - 'research/evidencemotion-director/EXACT-WAV-ALIGNMENT-2026-10-14.md'
