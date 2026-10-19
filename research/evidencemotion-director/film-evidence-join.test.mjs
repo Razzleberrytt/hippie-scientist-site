@@ -6,7 +6,8 @@ import {parseStudyIdentity as canonicalParser} from '../../lib/study-identity-ru
 
 const graph = () => ({
   schema_version:'claim-dna-1c-relationships/0.1', batch_id:'synthetic-only',
-  claims:{'claim-1':{claim_id:'claim-1',ingredient:'test-ingredient',studies:['doi:10.1000/example']}},
+  claims:{'claim-1':{claim_id:'claim-1',ingredient:'test-ingredient',studies:['doi:10.1000/example'],
+    provenance_status:'primary_linked',resolution_status:'resolved'}},
   studies:{'doi:10.1000/example':{canonical_id:'doi:10.1000/example',pmid:null,claims:['claim-1'],ingredients:['test-ingredient']}},
   ingredients:{'test-ingredient':{profile_slug:'test-ingredient',claims:['claim-1'],studies:['doi:10.1000/example']}}
 });
@@ -41,6 +42,35 @@ test('duplicate film claim ID refused',()=>{const f=[...film(),...film()];denied
 test('DOI identifier can never be put into PMID field',()=>{const g=graph();g.studies['doi:10.1000/example'].pmid='doi:10.1000/example';denied(run(g));});
 test('unknown claimed clinical authority cannot self-promote',()=>{const f=film();f[0].scientificClaimsApproved=true;const r=run(graph(),f);assert.equal(r.scientificClaimsApproved,false);assert.equal(r.mayPublish,false);});
 test('all-or-nothing joins, no partial list when one claim is bad',()=>{const f=[...film(),{...film()[0],filmClaimId:'shot-02',canonicalStudyIds:['pmid:999']}];denied(run(graph(),f));});
+
+test('unresolved or review-required provenance stays on HOLD despite reciprocal, rehashed study IDs',()=>{
+  for (const provenance_status of ['unresolved','review_required',null,'invented']) {
+    const g=graph();g.claims['claim-1'].provenance_status=provenance_status;
+    const r=run(g);denied(r);
+    assert.ok(r.errors.some(x=>x.includes('CLAIM_PROVENANCE_OR_RESOLUTION_NOT_REVIEWABLE')),String(provenance_status));
+  }
+});
+test('unrecognized, unattempted or missing metadata resolution cannot advance to editorial review',()=>{
+  for (const resolution_status of ['unrecognized_identifier','not_attempted',null,'unknown']) {
+    const g=graph();g.claims['claim-1'].resolution_status=resolution_status;
+    const r=run(g);denied(r);
+    assert.ok(r.errors.some(x=>x.includes('CLAIM_PROVENANCE_OR_RESOLUTION_NOT_REVIEWABLE')),String(resolution_status));
+  }
+});
+test('uncached metadata does not erase a valid primary bibliographic identity',()=>{
+  const g=graph();g.claims['claim-1'].resolution_status='metadata_unavailable';
+  const r=run(g);
+  assert.equal(r.status,'IDENTITY_LINKS_READY_FOR_EDITORIAL_REVIEW');
+  assert.equal(r.scientificClaimsApproved,false);assert.equal(r.mayPublish,false);
+});
+test('known secondary/editorial linkage remains identity-only, never clinical approval',()=>{
+  for(const provenance_status of ['secondary_linked','editorial_documented']) {
+    const g=graph();g.claims['claim-1'].provenance_status=provenance_status;
+    const r=run(g);
+    assert.equal(r.status,'IDENTITY_LINKS_READY_FOR_EDITORIAL_REVIEW');
+    assert.equal(r.scientificClaimsApproved,false);assert.equal(r.mayPublish,false);
+  }
+});
 
 test('self-consistent, rehashed graph cannot assign a different PMID to a PMID-typed root',()=>{
   const g=graph(),f=film(),root='pmid:31415926';
