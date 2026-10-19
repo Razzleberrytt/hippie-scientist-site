@@ -76189,6 +76189,158 @@
       "reservation_id": "fce51de88b43992c8aef",
       "reserved_at": "2026-10-19T01:24:41.112Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42457122",
+      "title": "Respiratory depressant interactions of fentanyl and xylazine and their reversal by naloxone and yohimbine in mice.",
+      "doi": "10.1016/j.neuropharm.2026.111106",
+      "source_title": "Respiratory depressant interactions of fentanyl and xylazine and their reversal by naloxone and yohimbine in mice.",
+      "abstract": "Opioid misuse remains a critical public health crisis in the U.S., causing over 82,000 opioid-related overdose deaths in 2023. Fentanyl, a potent synthetic opioid acting via μ-opioid receptors (MOR), poses unique challenges for overdose reversal due to its high potency and rapid onset. Increasingly, illicit fentanyl is adulterated with xylazine, an alpha-2 adrenergic receptor agonist (α2AR) used in veterinary medicine. This combination, known as \"tranq dope,\" is associated with polydrug dependence and enhanced respiratory depression that may be more resilient to naloxone reversal. Respiratory depression was assessed via whole-body plethysmography in adult male C57BL/6J mice. Dose-response curves were generated for fentanyl (0.01-10 mg/kg) and xylazine (0.3-10 mg/kg) over an 80-min recording period. A dose of 0.3 mg/kg for each agonist, which reduced minute volume (MVb) by ∼50% at T = 20, was used for antagonist reversal testing with naloxone (0.1-10 mg/kg) and yohimbine (1-10 mg/kg). Lastly, the agonists were co-administered and naloxone, yohimbine, or their combination were tested for their ability to reverse respiratory depression. Fentanyl reduced MVb by lowering frequency (Freq) and increasing tidal volume (TVb). Naloxone reversed fentanyl-induced MVb depression. Yohimbine transiently worsened fentanyl-induced depression. Xylazine reduced both TVb and Freq, which was reversed by yohimbine but not naloxone. The fentanyl-xylazine combination was reversed by naloxone, but not yohimbine. When compared to fentanyl-xylazine controls, the combination of naloxone and yohimbine produced a faster reversal than naloxone alone. Naloxone attenuated fentanyl-xylazine respiratory depression, but yohimbine co-treatment accelerated recovery, highlighting potential for α2AR antagonists as adjunctive therapy in suspected fentanyl-xylazine overdose.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42457122/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42457122",
+        "doi": "10.1016/j.neuropharm.2026.111106",
+        "journal": "Neuropharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-19T06:20:32.162Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "47f258c748f85bac47ac",
+      "reserved_at": "2026-10-19T06:20:43.279Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42385943",
+      "title": "PM289, a synthetic CB2 in vitro receptor agonist, modulates morphine-induced antinociceptive effect and withdrawal syndrome in an animal model of osteoarthritic pain.",
+      "doi": "10.1016/j.neuropharm.2026.111090",
+      "source_title": "PM289, a synthetic CB2 in vitro receptor agonist, modulates morphine-induced antinociceptive effect and withdrawal syndrome in an animal model of osteoarthritic pain.",
+      "abstract": "Osteoarthritis is a common condition, and the associated pain is a leading cause of disability. One main challenge in its management stems from the complexity of the disease and the limited efficacy of current analgesic treatments. Although evidence-based clinical guidelines provide valuable recommendations, they often prove inadequate. Opioids, while effective, are not considered first-line therapies due to adverse effects, particularly with long-term use. A promising strategy for chronic pain involves the coadministration of opioid and cannabinoid receptor agonists. This study investigates the efficacy of combining morphine with PM289, a novel and selective CB2 in vitro receptor agonist, in a rat model of knee osteoarthritis-associated pain, including both sexes. Effects on tactile allodynia, movement-evoked pain, analgesic tolerance, locomotor impairment, conditioned reward and anxiety-like behaviours, and naloxone-precipitated withdrawal symptoms were assessed. Additionally, protein levels of μ-opioid receptor and clusterin-a recognised biomarker of substance abuse-were analysed. PM289 alone produced sustained anti-allodynic and antinociceptive effects without inducing tolerance. When coadministered with morphine, it enhanced analgesia and attenuated opioid withdrawal symptoms, particularly in females. However, it did not reduce morphine-induced conditioned reward in this group. Chronic treatment also increased plasma clusterin levels in both sexes, with enhanced expression in the nucleus accumbens of males. These findings support the potential of PM289 as an adjuvant to chronic opioid therapy, highlighting the importance of sex-specific considerations in its efficacy and safety profile.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42385943/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42385943",
+        "doi": "10.1016/j.neuropharm.2026.111090",
+        "journal": "Neuropharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-19T06:20:32.162Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3fc003592a58c244e380",
+      "reserved_at": "2026-10-19T06:20:43.279Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -76218,16 +76370,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 974,
+    "total_reservations": 976,
     "by_lane": {
       "1": 91,
       "2": 186,
       "3": 133,
-      "4": 64,
+      "4": 66,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 974
+      "SOURCE_VERIFIED": 976
     },
     "batches": [
       {
@@ -76240,7 +76392,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 474,
+        "count": 476,
         "pr_number": null,
         "blocker": null
       }
