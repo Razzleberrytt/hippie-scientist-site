@@ -76341,6 +76341,158 @@
       "reservation_id": "3fc003592a58c244e380",
       "reserved_at": "2026-10-19T06:20:43.279Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42850819",
+      "title": "Diagnosis and Management of Nitazene Dependence in Sydney, Australia: A Case Series.",
+      "doi": "10.1111/dar.70277",
+      "source_title": "Diagnosis and Management of Nitazene Dependence in Sydney, Australia: A Case Series.",
+      "abstract": "Nitazenes are synthetic opioids with potent μ-receptor activity. There are increasing reports of nitazene overdoses worldwide. We report on a case series of protonitazene and metonitazene dependence responding to high dose medication for the treatment of opioid dependence in both inpatient and outpatient settings. Six young adult males, five with multicultural backgrounds, presented to a public hospital in metropolitan Sydney, Australia in severe opioid withdrawal after ongoing nitazene use. Five were regularly vaping what they believed to be cannabinoids or nicotine, later toxicologically confirmed as protonitazene. One case had intentional recreational use of confirmed metonitazene. All six were commenced on opioid dependence treatment, four in the inpatient setting and two as outpatients. Four remain engaged with treatment while two were lost to follow-up. This case series describes the diagnosis and management of nitazene dependence in metropolitan Sydney, Australia. Similar to fentanyl dependence in international literature, high doses of buprenorphine were required. Complexities included unintentional nitazene exposure through vaping, initial diagnostic confusion, delay in toxicological testing and treatment retention with local alcohol and other drug services. The management of nitazene dependence was initially complex due to diagnostic, medication and patient factors. All cases were successfully managed with either methadone or buprenorphine in the New South Wales opioid dependence treatment program. This case series describes potential management strategies for future cases of nitazene withdrawal and dependence. Public and clinician awareness is important to ensure early diagnosis and successful management.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42850819/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42850819",
+        "doi": "10.1111/dar.70277",
+        "journal": "Drug and alcohol review",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-19T13:38:01.632Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5fddc86ed6779d824485",
+      "reserved_at": "2026-10-19T13:38:12.518Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42600645",
+      "title": "Medetomidine-vatinoxan (Zenalpha) results in reduction of systolic function, blood pressure, and heart rate with prolongation of electrocardiographic intervals in healthy dogs.",
+      "doi": "10.2460/javma.26.03.0210",
+      "source_title": "Medetomidine-vatinoxan (Zenalpha) results in reduction of systolic function, blood pressure, and heart rate with prolongation of electrocardiographic intervals in healthy dogs.",
+      "abstract": "To determine the effects of medetomidine-vatinoxan (Zenalpha; MVZ) on echocardiographic parameters, blood pressure, and cardiac rhythm in healthy dogs. Healthy, client-owned dogs were eligible for enrollment in this prospective, pretest/posttest study. Exclusion criteria included preexisting cardiac disease or medications that could alter the measured study parameters. Echocardiography, blood pressure, and 1-hour Holter monitor were performed at baseline and after sedation with MVZ per the manufacturer's guidelines. Multiple echocardiographic parameters, blood pressure, and arrhythmic burden score were assessed with pairwise comparisons between baseline and sedation. 21 dogs were enrolled in the study. Compared to baseline, MVZ resulted in significant reduction in multiple echocardiography-derived systolic function parameters (including ejection fraction, fractional shortening, end-systolic volume index, stroke volume index, and fractional area change), blood pressure, and heart rate, along with prolongation in PR and absolute QT intervals; there were nonsignificant increases in corrected QT interval and arrhythmic burden scores. Thirteen of 21 dogs (62%) developed or had worsening of atrioventricular nodal conduction on Holter monitor, while 2 of 21 (9.5%) developed or had worsening atrial or ventricular ectopic activity. Of all measured echocardiographic systolic function parameters, 15 of 21 dogs (71.4%) had 2 or more parameters below reference range with MVZ sedation. Sedation with MVZ resulted in significant changes to multiple cardiovascular and hemodynamic parameters. The cardiovascular effects of MVZ should be considered prior to sedation in dogs with, or being screened for, cardiovascular disease.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42600645/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42600645",
+        "doi": "10.2460/javma.26.03.0210",
+        "journal": "Journal of the American Veterinary Medical Association",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-19T13:38:01.632Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5614c86984ac58c2ceb5",
+      "reserved_at": "2026-10-19T13:38:12.518Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -76370,16 +76522,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 976,
+    "total_reservations": 978,
     "by_lane": {
       "1": 91,
       "2": 186,
       "3": 133,
-      "4": 66,
+      "4": 68,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 976
+      "SOURCE_VERIFIED": 978
     },
     "batches": [
       {
@@ -76392,7 +76544,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 476,
+        "count": 478,
         "pr_number": null,
         "blocker": null
       }
