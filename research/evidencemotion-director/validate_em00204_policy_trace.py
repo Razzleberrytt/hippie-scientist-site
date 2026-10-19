@@ -17,7 +17,7 @@ POLICY = DIR / "EM00202-POLICY-CROSSWALK-20261016.md"
 PINNED_BLOBS = {
     "register": "8def8898cbd6ac3010e5e212ac981fd5b8fbc6ea",
     "canonical": "de3501764918492216e4a84c11e563d34fc71e6c",
-    "policy": "edfbc1013bd4bbce5011d5f3bb19162e45f69c8d",
+    "policy": "d5a5cc64aaf231d67d541b5085b14acb529bbcf9",
 }
 TRACE_MARKER = "**EM-002.04 research-only policy trace (NOT child/parent acceptance):**"
 TARGETS = {
