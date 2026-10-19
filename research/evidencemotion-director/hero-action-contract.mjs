@@ -114,6 +114,10 @@ export function inspectSceneVisualVerbPlan(plan) {
       continue
     }
     let lastAction = scene.startSec - TIME_EPS
+    // Source-declared pacing cannot be padded by replaying the same unchanged
+    // teaching-object transition. Reset at scene cuts, which may intentionally
+    // revisit an object for a different lesson.
+    const priorHeroTransitions = new Map()
     for (const event of scene.actions) {
       if (!event || !finite(event.atSec) ||
           event.atSec < scene.startSec - TIME_EPS ||
@@ -124,6 +128,17 @@ export function inspectSceneVisualVerbPlan(plan) {
         continue
       }
       lastAction = event.atSec
+      if (slug(event.heroObjectId) && hash(event.lockedHeroArtSha256) &&
+          slug(event.beforeStateId) && slug(event.afterStateId)) {
+        const heroKey = `${event.heroObjectId}:${event.lockedHeroArtSha256}`
+        const prior = priorHeroTransitions.get(heroKey)
+        if (prior && prior.before === event.beforeStateId &&
+            prior.after === event.afterStateId)
+          add('REPLAYED_HERO_TRANSITION_NOT_NEW_TEACHING_ACTION')
+        priorHeroTransitions.set(heroKey, {
+          before:event.beforeStateId, after:event.afterStateId
+        })
+      }
       // A visual verb cannot borrow a different claim or unreviewed asset from the scene.
       // This is an identity guard, not verification that the depicted science is correct.
       if (!slug(event.sourceClaimId) || !scene.sourceClaimIds.includes(event.sourceClaimId) ||
