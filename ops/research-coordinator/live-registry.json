@@ -76493,6 +76493,160 @@
       "reservation_id": "5614c86984ac58c2ceb5",
       "reserved_at": "2026-10-19T13:38:12.518Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42561820",
+      "title": "Validation of a Dried Blood Spot (DBS) Liquid Chromatography - High-Resolution Mass Spectrometry (LC-HRMS) workflow for simultaneous identification of emerging opioids.",
+      "doi": "10.1016/j.forsciint.2026.113094",
+      "source_title": "Validation of a Dried Blood Spot (DBS) Liquid Chromatography - High-Resolution Mass Spectrometry (LC-HRMS) workflow for simultaneous identification of emerging opioids.",
+      "abstract": "The rapid emergence of novel synthetic opioids, including fentanyl analogues and nitazene-class substances, represents a critical public health concern. Their high potency and continuous structural modification demand highly sensitive and adaptable analytical approaches for reliable forensic detection. This study evaluates dried blood spot (DBS) sampling as a robust alternative to conventional liquid matrices for the identification of synthetic opioids. A method based on liquid chromatography coupled with high-resolution mass spectrometry (LC-HRMS) was developed and validated. Data acquisition was performed in full-scan data-dependent acquisition (DDA) mode. The combined DBS-LC-HRMS methodology is suitable for the detection of known fentanyl analogues and nitazenes, while also allowing the identification of potentially unknown compounds through data analysis. The limits of detection (LOD) and quantification (LOQ) ranged from 0.05 to 0.2 ng/mL and 0.1-0.75 ng/mL, respectively. The method established a linear range of 0.5-3 ng/mL for all analytes, with validation results supporting the suitability of DBS as a sample storage and pre-treatment approach, with simplified collection, storage and transport compared to traditional matrices. Stability was also assessed, demonstrating that DBS is a more robust and cost-effective approach for analyte preservation than frozen whole blood over a 7 days period. Furthermore, the method was successfully applied to real samples, confirming its suitability as an effective tool for forensic toxicology screening and analysis. The proposed workflow demonstrated satisfactory analytical performance, enabling the identification and quantification of 37 synthetic opioids; Overall, this strategy provides a flexible and efficient tool for routine forensic toxicology, with the capacity to adapt to the dynamic and evolving landscape of illicit synthetic opioids.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42561820/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Validation Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Validation Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42561820",
+        "doi": "10.1016/j.forsciint.2026.113094",
+        "journal": "Forensic science international",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-19T20:00:35.831Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "60078d4215cf78748254",
+      "reserved_at": "2026-10-19T20:00:45.496Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42546860",
+      "title": "Comparison of xylazine-ketamine-guaifenesin and xylazine-tiletamine-zolazepam protocols for constant rate infusion anesthesia in horses undergoing field castration.",
+      "doi": "10.1016/j.jevs.2026.106109",
+      "source_title": "Comparison of xylazine-ketamine-guaifenesin and xylazine-tiletamine-zolazepam protocols for constant rate infusion anesthesia in horses undergoing field castration.",
+      "abstract": "The common use of \"triple drip\" (xylazine, ketamine, and guaifenesin; XKG) is a popular protocol for constant rate infusion (CRI) in equine practice. However, due to restrictions on ketamine and guaifenesin in many countries, tiletamine-zolazepam (TZ) could serve as an alternative. To date, there have been limited studies evaluating the use of xylazine in combination with TZ (XTZ) administered via CRI to maintain surgical anesthesia in equine field practice. To compare the effectiveness and safety of XTZ infusion with the classical XKG protocol for field anesthesia. Twelve healthy stallions were randomly allocated to two groups (XKG and XTZ) for castration. All horses were premedicated with xylazine at 1 mg/kg intravenously (IV). The XKG group received ketamine at 2 mg/kg IV for induction, followed by maintenance with xylazine 1.375 mg/kg/h, ketamine 2.75 mg/kg/h and guaifenesin 68.75 mg/kg/h The XTZ group was induced with TZ at 1 mg/kg IV and maintained with xylazine 0.75 mg/kg/h and TZ 1.5 mg/kg/h RESULTS: No clinically significant differences of anesthetic effects and cardiorespiratory parameters were observed between the XTZ and XKG formulation. The preparation of the CRI XTZ might be effectively alternated the triple drip for maintaining anesthesia in equine field practice.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42546860/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial, Veterinary",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial, Veterinary"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42546860",
+        "doi": "10.1016/j.jevs.2026.106109",
+        "journal": "Journal of equine veterinary science",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-19T20:00:35.831Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "98bc2a57e068da98edcb",
+      "reserved_at": "2026-10-19T20:00:45.496Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -76522,16 +76676,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 978,
+    "total_reservations": 980,
     "by_lane": {
       "1": 91,
       "2": 186,
       "3": 133,
-      "4": 68,
+      "4": 70,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 978
+      "SOURCE_VERIFIED": 980
     },
     "batches": [
       {
@@ -76544,7 +76698,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 478,
+        "count": 480,
         "pr_number": null,
         "blocker": null
       }
