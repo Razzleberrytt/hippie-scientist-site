@@ -29,6 +29,7 @@ class TransientEncodedTextTests(unittest.TestCase):
         cls.omission = cls.encode('single-frame-omission', 'omission')
         cls.inversion = cls.encode('single-frame-word-inversion', 'inversion')
         cls.nonsquare = cls.encode('non-square-sample-pixels', 'non_square')
+        cls.h264_444 = cls.encode('non-mobile-yuv444-h264', 'yuv444')
         cls.multi_video = cls.root / 'ambiguous-two-video-streams.mp4'
         subprocess.run(['ffmpeg', '-nostdin', '-hide_banner', '-loglevel', 'error',
             '-i', str(cls.clean), '-i', str(cls.flash), '-map', '0:v:0',
@@ -67,7 +68,8 @@ class TransientEncodedTextTests(unittest.TestCase):
         vf = vf.replace('eq(n,9)', 'eq(n\,9)')
         subprocess.run(['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-f','lavfi',
             '-i','color=c=black:s=1080x1920:r=30:d=1', '-vf', vf, '-c:v','libx264',
-            '-preset','ultrafast','-crf','19','-pix_fmt','yuv420p','-y',str(dest)],
+            '-preset','ultrafast','-crf','19','-pix_fmt',
+            'yuv444p' if mutation == 'yuv444' else 'yuv420p', '-y',str(dest)],
             check=True, timeout=45)
         return dest
 
@@ -321,6 +323,33 @@ class TransientEncodedTextTests(unittest.TestCase):
     def test_nonsquare_h264_is_rejected_before_ocr_even_at_native_pixel_dimensions(self):
         with self.assertRaisesRegex(ValueError, 'NATIVE_H264_1080X1920_30FPS_SQUARE_PIXEL_REQUIRED'):
             check(self.nonsquare, self.manifest(self.nonsquare))
+
+    def test_real_h264_444_is_held_before_crop_decode_or_ocr(self):
+        # A valid 1080x1920/30fps square-pixel H.264 can still be High 4:4:4,
+        # which cannot inherit the expected native mobile delivery receipt.
+        from fullframe_text_negative_probe import command as native_command
+        def reject_further_decode(argv):
+            if argv[0] in ('ffmpeg', 'tesseract'):
+                raise AssertionError('unsupported pixel format reached OCR')
+            return native_command(argv)
+        with patch('fullframe_text_negative_probe.command', side_effect=reject_further_decode):
+            with self.assertRaisesRegex(ValueError, 'NATIVE_H264_8BIT_420_PIXEL_FORMAT_REQUIRED'):
+                check(self.h264_444, self.manifest(self.h264_444))
+
+    def test_missing_pixel_format_metadata_is_not_assumed_to_be_yuv420p(self):
+        from fullframe_text_negative_probe import command as native_command
+        def drop_probe_format(argv):
+            raw = native_command(argv)
+            if argv[0] == 'ffprobe' and '-show_frames' in argv:
+                result = json.loads(raw)
+                result['streams'][0].pop('pix_fmt', None)
+                return json.dumps(result).encode('utf-8')
+            if argv[0] in ('ffmpeg', 'tesseract'):
+                raise AssertionError('unproven pixel format reached OCR')
+            return raw
+        with patch('fullframe_text_negative_probe.command', side_effect=drop_probe_format):
+            with self.assertRaisesRegex(ValueError, 'NATIVE_H264_8BIT_420_PIXEL_FORMAT_REQUIRED'):
+                check(self.clean, self.manifest(self.clean))
 
     def test_two_physical_video_streams_cannot_let_clean_first_track_hide_bad_second(self):
         # FFmpeg stream-copy keeps both authentic H.264 tracks. The v:0 OCR-only
