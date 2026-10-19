@@ -70,7 +70,7 @@
 
 ## Scoring and gates
 
-**PSY-001 — owner-directed 2026-10-18:** In progress as a single Discovery/SEO comparison review candidate at `/guides/compare/psyllium-husk/`, using the free D slot without changing A #6769 or R #6810. Deliver only an unmerged PR labeled `hold-merge`, with human review required; no automatic publication. B12 and D3+K2 remain deferred until further owner direction. Acceptance and fresh evidence: [execution record](content/psyllium-buyer-comparison-2026-10-18.md). Owner-directed order, not a fabricated demand or ROI score.
+**PSY-001 — owner-directed 2026-10-18:** In review as a single Discovery/SEO comparison review candidate at `/guides/compare/psyllium-husk/`, using the free D slot without changing A #6769 or R #6810. The owner subsequently authorized merge when finished, superseding unmerged-only delivery; retain exact-head CI, review and canonical publication gates. B12 and D3+K2 remain deferred until further owner direction. Acceptance and fresh evidence: [execution record](content/psyllium-buyer-comparison-2026-10-18.md). Owner-directed order, not a fabricated demand or ROI score.
 
 `Score = (Business Impact × User Value × Traffic Potential × Strategic Leverage × Confidence) / Effort`
 
