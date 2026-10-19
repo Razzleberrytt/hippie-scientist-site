@@ -76647,6 +76647,159 @@
       "reservation_id": "98bc2a57e068da98edcb",
       "reserved_at": "2026-10-19T20:00:45.496Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42401026",
+      "title": "Daily patterns of opioid and stimulant use and associated risk-behavior outcomes: A cohort study.",
+      "doi": "10.1016/j.addbeh.2026.108791",
+      "source_title": "Daily patterns of opioid and stimulant use and associated risk-behavior outcomes: A cohort study.",
+      "abstract": "People who use opioid and stimulant drugs have high overdose rates. Little is known about day-to-day variation in patterns of use of these drugs and their association with other drug use behaviors. Participants with past-two-week opioid or stimulant use completed daily cellphone surveys over a two-week period. We classified each day's opioid-stimulant combination into five mutually exclusive groups. We estimated associations of each group with prevalence of 7 same-day outcomes -alcohol, cigarette, THC, and tranquilizer use, injecting drugs, using xylazine, and using drugs alone - using random-intercept linear regression. 87 participants (38% female, 54% ≥ 55 years old) completed 868 daily surveys. The day-level prevalences of each opioid-stimulant combination were: 21% with opioids and stimulants used at least once at the same time; 13% with both drugs used but never at the same time; 28% with opioid use only; 8% with stimulant use only; and 31% with neither drug used. Within-person day-to-day variation was common. As compared to days when participants used opioids and stimulants at the same time, when participants used opioids only, they were significantly less likely to use cigarettes (within-person prevalence difference [wPD] -0.09, 95% CI -0.17 to -0.01), tranquilizers (wPD -0.08, 95% CI -0.12 to -0.05), or injection drugs (wPD -0.22, 95% CI -0.28 to -0.15). Within-person day-to-day changes in opioid-stimulant combinations were common. Use of opioids only was associated with lower prevalence of risky behaviors as compared to use with stimulants. Co-occurring stimulant use is a potentially modifiable target for harm reduction.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42401026/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42401026",
+        "doi": "10.1016/j.addbeh.2026.108791",
+        "journal": "Addictive behaviors",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-19T23:48:28.818Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "36f2e34a9bcc86b4b609",
+      "reserved_at": "2026-10-19T23:48:35.478Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42116745",
+      "title": "Salivary transcriptomic study to understand the molecular effects of feeding dysregulation in opioid-exposed neonates born late preterm.",
+      "doi": "10.1177/19345798261450464",
+      "source_title": "Salivary transcriptomic study to understand the molecular effects of feeding dysregulation in opioid-exposed neonates born late preterm.",
+      "abstract": "ObjectivesTo evaluate the effects of maternal opioid use on the expression of hypothalamic/reward genes involved in feeding regulation in late preterm neonates. We hypothesize that opioid use, rather than prematurity alone, is associated with feeding dysregulation and the need for tube feeding in this late preterm population.Study DesignIn this prospective, observational pilot study, the need for tube feeding was determined from subjects' medical records. The study population consisted of 39 opioid-exposed and 36 non-exposed neonates born at 34-37 weeks' gestation (late-preterm). Saliva was collected within 48 h of birth from the selected neonates; using RNA extraction and qPCR, the saliva was analyzed for select hypothalamic/reward and inflammatory genes involved in feeding regulation. The need for tube feeding (primary outcome) and salivary gene expression data (secondary outcome) were compared between the opioid-exposed and non-opioid exposed. Maternal and neonatal characteristics associated with increased need for tube feeding were explored using descriptive analyses.ResultsA significantly greater proportion of the opioid-exposed late preterm cohort, compared to non-exposed neonates, required tube feeding (51.2% vs 22.2%, p < 0.01). Opioid-exposed neonates also had lower expression of anorexigenic gene POMC (ΔCt 15.44 ± 2.76 vs 13.84 ± 4.03, p = 0.054), and this was accompanied by greater milk consumption in the first week of life (average of 24.2 mL/kg/day). Male sex, withdrawal severity, maternal polysubstance, and methadone use were associated with increased need for tube feeding.ConclusionModulation of hypothalamic/reward and inflammation genes may contribute to the need for tube feeding and its associated risks in opioid-exposed late preterm neonates.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42116745/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Observational Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Observational Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42116745",
+        "doi": "10.1177/19345798261450464",
+        "journal": "Journal of neonatal-perinatal medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-19T23:48:28.818Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0a05ab3a598bce50b103",
+      "reserved_at": "2026-10-19T23:48:35.478Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -76676,16 +76829,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 980,
+    "total_reservations": 982,
     "by_lane": {
       "1": 91,
       "2": 186,
       "3": 133,
-      "4": 70,
+      "4": 72,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 980
+      "SOURCE_VERIFIED": 982
     },
     "batches": [
       {
@@ -76698,7 +76851,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 480,
+        "count": 482,
         "pr_number": null,
         "blocker": null
       }
