@@ -76036,6 +76036,159 @@
       "reservation_id": "1413076bdee8429c896b",
       "reserved_at": "2026-10-18T23:23:04.217Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42571226",
+      "title": "Encephalopathy following subcutaneous administration of Brixadi® extended-release buprenorphine.",
+      "doi": "10.1016/j.toxrep.2026.102320",
+      "source_title": "Encephalopathy following subcutaneous administration of Brixadi® extended-release buprenorphine.",
+      "abstract": "Long-acting injectable buprenorphine is one option for the management of opioid use disorder. The United States Food and Drug Administration has approved two brands for monthly injection, Sublocade ® (Indivior, North Chesterfield, VA, USA) and Brixadi® (Braeburn, Plymouth Meeting, PA, USA). We report the development of encephalopathy following administration of Brixadi®. Consent was obtained from the patient. A 62-year-old patient with a history of current methamphetamine and prior fentanyl abuse, chronic pain due to lumbar radiculopathy presented to the emergency department with three days of altered mental status. She received subcutaneous Brixadi® 128 mg monthly formulation three days prior at an outpatient addiction medicine clinic, reportedly to treat simultaneously presumptive incidental opioid dependence from contaminated methamphetamine use due to serial positive urine fentanyl testing over the prior three visits, most recently 3 months prior, and chronic low back pain. Urine fentanyl testing on the date of presentation was negative. She developed persistent altered mentation and somnolence starting two hours after injection.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42571226/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42571226",
+        "doi": "10.1016/j.toxrep.2026.102320",
+        "journal": "Toxicology reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-19T01:24:33.471Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3b2cf731b2e65cc18b70",
+      "reserved_at": "2026-10-19T01:24:41.112Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42457124",
+      "title": "TRPA1 antagonism reveals sex-specific mechanisms in morphine withdrawal-induced negative emotional behavior via dopaminergic pathway.",
+      "doi": "10.1016/j.neuropharm.2026.111110",
+      "source_title": "TRPA1 antagonism reveals sex-specific mechanisms in morphine withdrawal-induced negative emotional behavior via dopaminergic pathway.",
+      "abstract": "Chronic opioid use facilitates changes in brain reward and affective systems. Cessation of opioid use induces negative affective states characterized by increased anxiety- and despair-like behaviors. In this study, the potential role of transient receptor potential ankyrin 1 channel (TRPA1) was assessed in morphine-induced dependence and negative emotional behaviors. Male and female C57BL/6J mice were exposed to escalating doses of morphine to induce dependence. Naloxone was administered to precipitate withdrawal symptoms. TRPA1 antagonism with A967079 treatment reduced withdrawal syndrome in both male and female mice. After 5 days of abstinence, mice were pre-treated with A967079 before behavioral tests to assess exploratory or anxiety-related, sociability, and despair-like behaviors induced by morphine withdrawal. We found a sex-specific effect of TRPA1 antagonism in different phases of addiction. For example, TRPA1 antagonism reduced withdrawal symptoms and immobility time during the tail suspension test. In contrast, only female mice showed improved sociability during the social interaction test. Additionally, enhanced immobility was observed in both sexes induced by A967079 treatment during the elevated plus maze. Additionally, involvement of the mesolimbic dopaminergic system was discovered to be sex- and brain region-specific in morphine withdrawal and abstinence, highlighting the importance of D2DR in modulating despair-like behavior via TRPA1 antagonism. Collectively, these results suggest that TRPA1 may modulate morphine dependence and negative affective states in a sex-dependent manner.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42457124/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42457124",
+        "doi": "10.1016/j.neuropharm.2026.111110",
+        "journal": "Neuropharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-19T01:24:33.472Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "fce51de88b43992c8aef",
+      "reserved_at": "2026-10-19T01:24:41.112Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -76065,16 +76218,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 972,
+    "total_reservations": 974,
     "by_lane": {
       "1": 91,
       "2": 186,
       "3": 133,
-      "4": 62,
+      "4": 64,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 972
+      "SOURCE_VERIFIED": 974
     },
     "batches": [
       {
@@ -76087,7 +76240,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 472,
+        "count": 474,
         "pr_number": null,
         "blocker": null
       }
