@@ -1,6 +1,9 @@
 import unittest
+import copy
+import json
+from pathlib import Path
 
-from mfa_acoustic_alignment import LINES, select_dictionary, merge_candidates, term_windows, verify_brief_script, compare_mfa_phone_hypotheses, review_repeated_term_phone_hypotheses, WAV_SHA
+from mfa_acoustic_alignment import LINES, select_dictionary, merge_candidates, term_windows, verify_brief_script, compare_mfa_phone_hypotheses, review_repeated_term_phone_hypotheses, validate_sourced_term_reference, WAV_SHA
 
 
 class AcousticPreparationTests(unittest.TestCase):
@@ -180,6 +183,72 @@ class RepeatedTermOriginalWavReceiptTests(unittest.TestCase):
         review_repeated_term_phone_hypotheses(c, w)
         self.assertEqual(repr((c, w)), before)
 
+
+
+class SourcePinnedPhoneticReferenceTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.ref = json.loads(Path(__file__).with_name("em01402-hydroxyl-reference.json").read_text(encoding="utf-8"))
+
+    def test_original_occurrence_and_published_dictionary_reference_only(self):
+        receipt = validate_sourced_term_reference(self.ref)
+        self.assertEqual(receipt["status"], "SOURCE_PINNED_DICTIONARY_REFERENCE_ONLY")
+        self.assertEqual(receipt["unitKey"], "EM-014.02:hydroxyl:3670-4540")
+        self.assertFalse(receipt["actualPhonemeEvidenceVerified"])
+        self.assertFalse(receipt["listenerCalibrationVerified"])
+        self.assertFalse(receipt["mayPublish"])
+
+    def test_source_voice_and_alignment_substitution_all_hold(self):
+        for field, bad in (
+            ("originalWavSha256", "0" * 64),
+            ("alignmentRevisionSha256", "0" * 64),
+            ("startMs", 3671),
+            ("endSampleExclusive", 108961),
+            ("voiceId", "other"),
+            ("modelSha256", "0" * 64),
+            ("voicebankSha256", "0" * 64),
+        ):
+            candidate = copy.deepcopy(self.ref)
+            candidate["source"][field] = bad
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, "EM01402_ORIGINAL_SOURCE_PIN_MISMATCH"):
+                validate_sourced_term_reference(candidate)
+
+    def test_reference_substitution_and_compound_scope_all_hold(self):
+        for field, bad in (
+            ("ipa", "haɪˈdrɑːk"),
+            ("primaryStressSyllable", 1),
+            ("primaryStressSyllable", True),
+            ("citedDictionaryUrl", "https://example.org/"),
+            ("dialect", "en-GB"),
+            ("scope", "also approves 7-hydroxymitragynine"),
+        ):
+            candidate = copy.deepcopy(self.ref)
+            candidate["reference"][field] = bad
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, "EM01402_SOURCE_ANCHOR_INVALID"):
+                validate_sourced_term_reference(candidate)
+
+    def test_false_approvals_and_missing_review_fields_hold(self):
+        for field, bad in (
+            ("originalClipReplayedForThisReference", True),
+            ("listenerGroundTruthAvailable", True),
+            ("pronunciationMatchesActualWav", True),
+            ("phoneticPronunciationVerified", True),
+            ("mayPublish", True),
+            ("sourcePcmSlicePreviouslyVerifiedUnder", None),
+        ):
+            candidate = copy.deepcopy(self.ref)
+            candidate["acousticReview"][field] = bad
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, "EM01402_FALSE_AUDIO_OR_PUBLICATION_APPROVAL"):
+                validate_sourced_term_reference(candidate)
+        candidate = copy.deepcopy(self.ref)
+        del candidate["acousticReview"]["mayPublish"]
+        with self.assertRaisesRegex(ValueError, "EM01402_FALSE_AUDIO_OR_PUBLICATION_APPROVAL"):
+            validate_sourced_term_reference(candidate)
+
+    def test_missing_or_wrong_units_hold(self):
+        for candidate in (None, {}, {"schemaVersion":"wrong"}, dict(self.ref, unitKey="EM-014.02:mitragynine")):
+            with self.assertRaises(ValueError):
+                validate_sourced_term_reference(candidate)
 
 
 if __name__ == '__main__':

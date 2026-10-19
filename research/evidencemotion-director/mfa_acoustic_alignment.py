@@ -29,6 +29,61 @@ PHONE = re.compile(r"(?:AA|AE|AH|AO|AW|AY|EH|ER|EY|IH|IY|OW|OY|UH|UW)[012]?|B|CH
 
 
 
+def validate_sourced_term_reference(record):
+    """Validate a sourced IPA *reference*, never certify the original speaker.
+
+    EM-014.02 must retain the exact EM-014.01 source interval; a published
+    dictionary reading is a candidate target, not acoustic ground truth for
+    Kokoro's actual WAV. In particular, standalone hydroxyl is not evidence
+    for the compound name 7-hydroxymitragynine.
+    """
+    if not isinstance(record, dict) or record.get("schemaVersion") != "em01402-sourced-pronunciation-reference-v1":
+        hold("EM01402_SCHEMA_INVALID")
+    if record.get("unitKey") != "EM-014.02:hydroxyl:3670-4540" or record.get("spokenOccurrence") != "hydroxyl":
+        hold("EM01402_UNIT_SUBSTITUTED")
+    source = record.get("source")
+    expected_source = {
+        "originalWavSha256": WAV_SHA,
+        "alignmentRevisionSha256": "2414833bfd35c18ad6c629c3d10cbfab8501b09e296cc1963db01638b854bbaf",
+        "startMs": 3670, "endMs": 4540,
+        "startSample": 88080, "endSampleExclusive": 108960, "sampleRate": 24000,
+        "voiceId": "am_michael", "engine": "kokoro-onnx==0.6.1",
+        "modelSha256": "ae315a79b623f244700e4afb9246c46a26066782e049ba174bf3ba433970ee9c",
+        "voicebankSha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d",
+    }
+    if not isinstance(source, dict) or source != expected_source:
+        hold("EM01402_ORIGINAL_SOURCE_PIN_MISMATCH")
+    reference = record.get("reference")
+    if not isinstance(reference, dict) or (
+        reference.get("dialect") != "en-US"
+        or reference.get("ipa") != "haɪˈdrɑːk.sɪl"
+        or type(reference.get("primaryStressSyllable")) is not int
+        or reference.get("primaryStressSyllable") != 2
+        or reference.get("citedDictionaryUrl") != "https://dictionary.cambridge.org/us/pronunciation/english/hydroxyl"
+        or reference.get("checkedOn") != "2026-10-18"
+        or reference.get("scope") != "standalone hydroxyl only; not 7-hydroxymitragynine and not actual-WAV listening proof"
+    ):
+        hold("EM01402_SOURCE_ANCHOR_INVALID")
+    review = record.get("acousticReview")
+    if not isinstance(review, dict) or (
+        review.get("originalClipReplayedForThisReference") is not False
+        or review.get("listenerGroundTruthAvailable") is not False
+        or review.get("pronunciationMatchesActualWav", "missing") is not None
+        or review.get("phoneticPronunciationVerified") is not False
+        or review.get("sourcePcmSlicePreviouslyVerifiedUnder") != "EM-014.01"
+        or review.get("mayPublish") is not False
+        or review.get("result") != "REFERENCE_ONLY_ACOUSTIC_AND_LISTENER_COMPARISON_PENDING"
+    ):
+        hold("EM01402_FALSE_AUDIO_OR_PUBLICATION_APPROVAL")
+    return {
+        "status": "SOURCE_PINNED_DICTIONARY_REFERENCE_ONLY",
+        "unitKey": record["unitKey"],
+        "actualPhonemeEvidenceVerified": False,
+        "listenerCalibrationVerified": False,
+        "mayPublish": False,
+    }
+
+
 def compare_mfa_phone_hypotheses(first, second):
     """Compare *forced-aligner hypotheses*, never conclude spoken pronunciation.
 

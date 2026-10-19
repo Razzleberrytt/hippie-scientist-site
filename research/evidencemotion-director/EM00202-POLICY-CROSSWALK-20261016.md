@@ -26,7 +26,7 @@ The source **Git blob SHA-1** values below bind the assertions to exact fetched 
 | Source path | Git blob SHA-1 at inspection |
 |---|---|
 | `AGENTS.md` | `08c7fb68759faec3dc26c83928eb7e73e3c1abf8` |
-| `docs/CURRENT_SPRINT.md` | `1010b8698bafa2c2b68de0625ddcf1996823c3a1` |
+| `docs/CURRENT_SPRINT.md` | `16f5f65e142e9268a190ae6e443aed79b992217d` |
 | `docs/DECISIONS.md` | `80e43540c3ef6c43025715bdbb4564d3bb45d0d1` |
 | `research/evidencemotion-director/COMPLETION-CHECKLIST.md` | `de3501764918492216e4a84c11e563d34fc71e6c` |
 | `research/evidencemotion-director/research_workflow_release_guard.py` | `738cd6d2b2fdf7607a9e686fc2fd59b54bc114bb` |
@@ -35,6 +35,10 @@ The source **Git blob SHA-1** values below bind the assertions to exact fetched 
 ### 2026-10-18 source revision (pending protected PR integration)
 
 The CURRENT_SPRINT source document has a new dated, research-only EvidenceMotion metric reconciliation paragraph under [PR #6912](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6912). The Git blob pin above now identifies the exact **current** sprint source `1010b8698bafa2c2b68de0625ddcf1996823c3a1` rather than the historic 2026-10-16 source `3fd3e60e6ed15679e1d11a8b97ea4aba632600f6`. The earlier hosted 5/5 report documents only its original historical source snapshot and is **not** offered as test approval of these amended bytes. A fresh source-locked EM-002.02 validation run, full exact-head CI, current-base controller merge and actual deployment receipt remain required. The amendment changes only the current reporting definition (820 distinct research-only mapped of 1,590; 167 machine-audited stages, 707 inherited including 54 overlaps, one orphan), not D/R/A admission, clinical/craft/handset acceptance or `mayPublish=false`.
+
+### 2026-10-19 source pin refresh after protected-main integration
+
+The authoritative `docs/CURRENT_SPRINT.md` changed on `main` during later protected merges. The original research crosswalk remains fail-closed; its one sprint Git-blob pin is refreshed above to the actual `16f5f65e142e9268a190ae6e443aed79b992217d` bytes after a non-conflicting current-main branch sync. The dated older source `1010b8698bafa2c2b68de0625ddcf1996823c3a1` is historical, and its hosted green checks must not be reused as current-head proof. This does not add admission, any scientific/voice/craft review, atomic /1,590 acceptance or release authorization; `mayPublish=false`.
 
 ## Measurable acceptance and held conditions
 
