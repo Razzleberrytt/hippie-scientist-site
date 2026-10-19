@@ -113,7 +113,7 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
      // samples. Disjoint windows therefore require seconds+1 visible
      // samples apiece; a forged tiny visibility count cannot substantiate
      // several long freeze windows.
-     const minVisible=Array.isArray(windows)&&Number.isInteger(n)&&windows.length<=n
+     const minVisible=Array.isArray(windows)&&Number.isInteger(n)&&n>=4&&n<=92&&windows.length<=n
        ?windows.reduce((sum,w)=>sum+(w?.stagnantSecondsAtOneHz??NaN)+1,0):NaN;
      const valid=cadence!==null&&typeof cadence==='object'&&Number.isInteger(n)&&n>=4&&n<=92
        &&Number.isFinite(duration)&&duration>=12&&duration<=90
