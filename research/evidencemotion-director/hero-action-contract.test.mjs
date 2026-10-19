@@ -81,6 +81,23 @@ test('each teaching action binds its own scene-approved claim and visual asset',
  assert.equal(visual(p).status,'PLAN_READY_FOR_ACTUAL_DECODED_CRAFT_REVIEW')
  assert.equal(visual(p).craftCertified,false)
 })
+test('replayed hero state transition is not a new teaching event or pacing escape',()=>{
+ const p=good()
+ p.scenes[0].actions=[event(1),event(2.5)]
+ const repeat=visual(p)
+ assert.equal(repeat.status,'HOLD')
+ assert.ok(repeat.reasons.includes('REPLAYED_HERO_TRANSITION_NOT_NEW_TEACHING_ACTION'))
+ assert.equal(repeat.craftCertified,false)
+ assert.equal(repeat.mayPublish,false)
+ // A genuinely new declared state within the same shot clears only this
+ // negative authoring screen; still requires physically decoded proof.
+ p.scenes[0].actions[1].beforeStateId='open'
+ p.scenes[0].actions[1].afterStateId='visible-evidence'
+ assert.equal(visual(p).status,'PLAN_READY_FOR_ACTUAL_DECODED_CRAFT_REVIEW')
+ assert.equal(visual(p).craftCertified,false)
+ // Reuse across distinct scene cuts is not automatically fraudulent.
+ assert.equal(visual(good()).status,'PLAN_READY_FOR_ACTUAL_DECODED_CRAFT_REVIEW')
+})
 test('hero ROI is explicit, visible and bounded away from phone UI',()=>{
  assert.ok(errors(p=>delete p.scenes[1].heroBox).includes('MISSING_OR_UNSAFE_SCENE_HERO_ROI'))
  assert.ok(errors(p=>p.scenes[0].heroBox={x1:0,y1:0,x2:1,y2:1}).includes('MISSING_OR_UNSAFE_SCENE_HERO_ROI'))

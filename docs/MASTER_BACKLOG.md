@@ -2,11 +2,13 @@
 
 **Status:** Authoritative ranked backlog
 
-### EvidenceMotion Lane 3 — event-level claim and asset lineage, #6743 / PR #6921 (2026-10-18; REVIEW HOLD)
+### EvidenceMotion Lane 3 — repeated teaching-object transition guard, #6743 / PR #6928 (2026-10-18; REVIEW HOLD)
 
-**Behavioral contract:** Existing research-only visual-scene guard (merged #6913) checks scene-level identities, but a scene's scientific `sourceClaimIds`/`sourceAssetIds` cannot establish attribution for every visual event. Scoped follow-up PR #6921 now requires valid `sourceClaimId` and `sourceAssetId` on *each* declared instructional action, and membership in that scene's approved identity arrays; otherwise `UNBOUND_ACTION_SOURCE_OR_CLAIM` yields `HOLD`. Missing, substituted and legitimate in-scene alternative identities are regression-tested. This establishes syntactic source/asset consistency only; it does **not** prove the narrated claim, depicted chemical model, real frames, or visual quality.
+**Previous owner change integrated:** [PR #6921](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6921) is MERGED on 2026-10-18, not an active blocker; it added the per-action sourceClaimId/sourceAssetId identity check. The earlier top-of-backlog `#6921 IN REVIEW` status is superseded by this reconciled entry.
 
-**Status and proof dependency:** #6921 IN REVIEW and UNMERGED as of this control entry. Review requested authoritative documentation and exact-head hosted validations; release depends on final-head relevant CI/build, site/atomic and negative tests, zero unresolved review conversations and the sole serialized protected merge controller. Existing research owner #6743, no new normal D/R/A admission or second evaluator. Production integration, source/science approval, actual full-H264 creative acceptance, 0/1 first excellent render, 0/5 varied streak, and `/1590` accepted stage increase remain **NOT ESTABLISHED**.
+**Current research-only increment:** [#6928](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6928) prevents `scene.actions[]` from inflating a 3-second planned-action cadence with the same source-pinned hero object's duplicate declared before/after transition within one scene. It adds `REPLAYED_HERO_TRANSITION_NOT_NEW_TEACHING_ACTION` / `HOLD` while allowing real declared state advancement and intentional repeats after scene cuts. Reuses the existing negative scene planner and Node suite; no duplicate critic or production renderer. This does **not** establish that the actual H264 physically changed or that the visual communicates approved science.
+
+**Review and completion dependency:** #6928 currently OPEN / UNMERGED; require all applicable latest-head production CI/build/SEO, site/atomic/negative suites and security/craft-related gates, resolved reviewer threads, current base and sole serialized protected controller merge with verified main SHA before another Lane 3 increment. No extra normal WIP admission, accepted /1590 production or research stage, 1+5 excellent-film credit, new daily video, live deployment, independent science/craft/phonetic/handset approval, or publication permission. `mayPublish=false`.
 
 ### Existing research owner #6743 — EvidenceMotion 1,590-card canonical evidence reconciliation (2026-10-18)
 
