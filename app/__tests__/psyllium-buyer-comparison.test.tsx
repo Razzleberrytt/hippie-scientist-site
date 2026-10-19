@@ -36,5 +36,7 @@ describe('psyllium evidence-first buyer comparison', () => {
     expect(container.textContent).toContain('No form or brand has demonstrated superiority')
     expect(container.textContent).toContain('quality of life did not differ')
     expect(container.textContent).toContain('did not establish clinically important malabsorption')
+    expect(container.textContent).toContain('Chey fruit comparison was funded by kiwifruit marketer Zespri International')
+    expect(container.textContent).toContain('Shanti Eswaran also disclosed receiving Zespri research funding')
   })
 })
