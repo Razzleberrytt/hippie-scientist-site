@@ -15,6 +15,10 @@
 
 The EM-002.02 policy-crosswalk was amended to pin the dated, distinct-count `docs/CURRENT_SPRINT.md` source at [PR #6912](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6912). This trace now pins its *revised* policy-crosswalk Git blob `edfbc1013bd4bbce5011d5f3bb19162e45f69c8d`. The earlier 2026-10-16 hosted 5/5 receipt above applies only to its original historical bytes (`978cf83a718e981010e8e19039b1548460475190`), not to the revised source. New exact-head policy-trace negatives and full protected CI must pass before the revision is accepted; `mayPublish=false`, D/R/A WIP, user film/craft/clinical/phone review and original canonical progress boundaries are unchanged.
 
+## October 19 downstream research pin refresh (not release authorization)
+
+The policy crosswalk was refreshed during existing research PR #6930 after a verified current-main sync to preserve the governing `docs/CURRENT_SPRINT.md` source hash. Its new exact Git blob is `d5a5cc64aaf231d67d541b5085b14acb529bbcf9`; the previous `edfbc1013bd4bbce5011d5f3bb19162e45f69c8d` in the October 18 historical receipt remains a historical snapshot only. `validate_em00204_policy_trace.py` now requires the updated policy hash, with register and canonical tracker pins unchanged. Fresh exact-head hosted tests and protected reviews are still required; no previously passed receipt is reused as new approval, and this change grants no progress, film, voice, medical, craft, device, merge or posting authority. `mayPublish=false`.
+
 ## Six distinct machine-research-only card receipts
 
 | Card | Scoped machine evidence |
