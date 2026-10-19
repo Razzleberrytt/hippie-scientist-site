@@ -153,7 +153,7 @@ def check(movie, manifest):
         # ffprobe reports *all actual decoded frame PTS*, not header frame rate alone.
         probe = json.loads(command(['ffprobe', '-v', 'error', '-select_streams', 'v:0',
             '-show_streams', '-show_frames', '-show_entries',
-            'stream=codec_name,width,height,r_frame_rate,sample_aspect_ratio:stream_tags=rotate:stream_side_data=rotation,displaymatrix,side_data_type:frame=pts_time,best_effort_timestamp_time:frame_side_data=rotation,displaymatrix,side_data_type',
+            'stream=codec_name,width,height,r_frame_rate,sample_aspect_ratio,pix_fmt:stream_tags=rotate:stream_side_data=rotation,displaymatrix,side_data_type:frame=pts_time,best_effort_timestamp_time,pix_fmt:frame_side_data=rotation,displaymatrix,side_data_type',
             '-of', 'json', str(frozen)]))
         streams, frames = probe.get('streams', []), probe.get('frames', [])
         if (len(streams) != 1 or streams[0].get('codec_name') != 'h264' or
@@ -162,6 +162,13 @@ def check(movie, manifest):
             streams[0].get('sample_aspect_ratio') != '1:1' or
             not 12 <= len(frames) <= 1800):
             fail('NATIVE_H264_1080X1920_30FPS_SQUARE_PIXEL_REQUIRED')
+        # H.264 alone does not establish native handset decode compatibility.
+        # High 4:4:4 / 10-bit profiles can preserve geometry while breaking
+        # common mobile hardware paths and the visual OCR/phone parity premise.
+        if (streams[0].get('pix_fmt') != 'yuv420p' or
+            any(not isinstance(frame, dict) or frame.get('pix_fmt') != 'yuv420p'
+                for frame in frames)):
+            fail('NATIVE_H264_8BIT_420_PIXEL_FORMAT_REQUIRED')
         reject_display_transform_metadata(streams, frames)
         for index, frame in enumerate(frames):
             try:
