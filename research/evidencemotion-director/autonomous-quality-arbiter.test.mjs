@@ -156,6 +156,9 @@ test('forged or internally contradictory 1Hz cadence receipts fail closed',()=>{
    {...good,creativeScreenVerdict:'NO_NEGATIVE_FOUND_NOT_CRAFT_PASS'},
    {...good,automaticallyApprovedArt:true},
    {...good,centerHeroBoxPixels:[0,0,320,180]},
+   // A 3-second flagged window needs four consecutive visible 1Hz frames.
+   {...good,visibleCenterHeroSamples:0},
+   {...good,visibleCenterHeroSamples:3},
    null,
  ];
  for(const candidate of cases){
@@ -164,6 +167,24 @@ test('forged or internally contradictory 1Hz cadence receipts fail closed',()=>{
    assert.ok(x.blockers.includes('DECODED_1HZ_HERO_CADENCE_PROOF_INVALID'));
    assert.equal(x.contentMayPublish,false);
  }
+});
+test('disjoint center-hero freeze windows cannot share fictitious visible samples',()=>{
+ const windows=[
+   {startSec:4,endSec:7,stagnantSecondsAtOneHz:3,severity:'CRAFT_HOLD_CANDIDATE'},
+   {startSec:10,endSec:17,stagnantSecondsAtOneHz:7,severity:'REVISE_CANDIDATE'},
+ ];
+ // Producer counts visible decoded frames. Disjoint windows need 4+8=12.
+ const forged=adjudicateFilm({...full(),decodedVisual:withOneHz({
+   ...oneHzCadence(windows),visibleCenterHeroSamples:11
+ })});
+ assert.equal(forged.decision,'AUTO_HOLD_INVALID_PROOF');
+ assert.ok(forged.blockers.includes('DECODED_1HZ_HERO_CADENCE_PROOF_INVALID'));
+ const consistent=adjudicateFilm({...full(),decodedVisual:withOneHz({
+   ...oneHzCadence(windows),visibleCenterHeroSamples:12
+ })});
+ assert.equal(consistent.decision,'AUTO_RUN_MISSING_REVIEWS');
+ assert.ok(consistent.missingMachineWork.includes('SOURCE_BOUND_CRAFT_REVIEW_FOR_1HZ_HERO_STAGNATION'));
+ assert.equal(consistent.contentMayPublish,false);
 });
 test('shortening an otherwise self-consistent one-Hz grid cannot erase the actual film tail',()=>{
  const short={...oneHzCadence(),sampleCount:8,visibleCenterHeroSamples:8};
