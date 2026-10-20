@@ -1,7 +1,7 @@
 {
   "name": "Capsicum",
   "slug": "capsicum-annuum",
-  "summary": "Pepper species used for topical and metabolic effects.",
+  "summary": "Capsicum/capsaicinoid evidence is dose-dependent and mostly stronger for metabolic/appetite or pain-related contexts than cognition.",
   "description": "Pepper species used for topical and metabolic effects.",
   "primaryActions": [
     "metabolic",
@@ -25,7 +25,7 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Strong evidence",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -161,5 +161,23 @@
     "safety-context",
     "summary-depth",
     "summary-quality-missing"
-  ]
+  ],
+  "evidence_grade": "A",
+  "evidence_grade_source": "a",
+  "evidence_tier": "Strong evidence",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Strong evidence",
+  "evidence_grade_band": "strong",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on strong evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Randomized controlled trial",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a randomized controlled trial, drawn from 4 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 4,
+  "evidence_strongest_design": "rct",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

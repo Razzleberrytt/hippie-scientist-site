@@ -1,7 +1,7 @@
 {
   "name": "Gotu Kola Centella asiatica",
   "slug": "gotu-kola",
-  "summary": "Gotu Kola (Centella asiatica) (Centella asiatica) carries a Grade B rating — moderate evidence. Recorded activity centres on oxidative stress modulation, neurotransmitter modulation and vascular function support, which describes mechanism rather than demonstrated benefit. Noted cautions include sedatives.",
+  "summary": "Gotu Kola (Centella asiatica) (Centella asiatica) carries an editorial Grade B rating, but the studies recorded on this profile do not demonstrate that grade. Recorded activity centres on oxidative stress modulation, neurotransmitter modulation and vascular function support, which describes mechanism rather than demonstrated benefit. Noted cautions include sedatives.",
   "description": "Gotu Kola (Centella asiatica) botanical profile with evidence, safety, and practical fit.",
   "primaryActions": [
     "cognitive_support",
@@ -29,7 +29,7 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Editorial grade not demonstrated by recorded studies",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -118,5 +118,24 @@
     "summary-quality-missing"
   ],
   "dosage": "300-600 mg/day standardized extract; traditional dried herb often 2-4 g/day",
-  "typical_dosage": "300-600 mg/day standardized extract; traditional dried herb often 2-4 g/day"
+  "typical_dosage": "300-600 mg/day standardized extract; traditional dried herb often 2-4 g/day",
+  "summary_source": "composed-from-record",
+  "evidence_grade": null,
+  "evidence_grade_source": "b",
+  "evidence_tier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_tier_source": "Moderate Human Evidence",
+  "evidenceTier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_grade_band": null,
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "The authored grade is preserved for provenance, but the recorded studies do not currently demonstrate that strength, so no settled public evidence grade is shown.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": false,
+  "evidence_grade_backing_gap": "no-human-study-recorded"
 }

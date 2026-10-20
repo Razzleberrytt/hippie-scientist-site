@@ -1,7 +1,7 @@
 {
   "name": "Lemon Balm",
   "slug": "melissa-officinalis",
-  "summary": "Lemon balm may support gentle calm, stress-related sleep, and relaxed focus without heavy sedation.",
+  "summary": "Systematic review/meta-analysis suggests improved anxiety and depression scores without serious side effects, but high heterogeneity and small number of trials limit confidence.",
   "description": "Gentle calming support for stress/sleep/focus contexts.",
   "primaryActions": [
     "sleep",
@@ -28,7 +28,7 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Moderate evidence",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -156,5 +156,23 @@
     "summary-depth",
     "summary-quality-missing",
     "curated_allowlist"
-  ]
+  ],
+  "evidence_grade": "B",
+  "evidence_grade_source": "b",
+  "evidence_tier": "Moderate evidence",
+  "evidence_tier_source": "Moderate Human Evidence",
+  "evidenceTier": "Moderate evidence",
+  "evidence_grade_band": "moderate",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on moderate evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Consistent",
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 6 recorded studies, 3 in people. No disagreement is recorded across them.",
+  "evidence_human_study_count": 3,
+  "evidence_recorded_study_count": 6,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }
