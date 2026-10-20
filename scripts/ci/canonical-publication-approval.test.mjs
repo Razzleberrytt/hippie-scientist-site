@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { evaluateReadiness } from './autonomous-merge-controller.mjs'
-import { assessPublicationApproval, classifyPublicationChange, verifyOwnerSignedTag, ownerSignedTagName, loadPublicationApprovalEvidence } from './canonical-publication-approval.mjs'
+import { assessPublicationApproval, classifyPublicationChange, verifyOwnerSignedTag, ownerSignedTagName, loadPublicationApprovalEvidence, protectedApprovalTagNamespace } from './canonical-publication-approval.mjs'
 
 const sha='a'.repeat(40)
 const older='b'.repeat(40)
@@ -280,17 +280,55 @@ describe('owner GPG-signed annotated release tags', () => {
     }).action).toBe('wait');
   });
 
+  it('requires an active, matching, nondelegable tag namespace ruleset', () => {
+    const namePattern='refs/tags/ths-publication-approved-pr-*';
+    const safe={
+      id:123,target:'tag',enforcement:'active',source_type:'Repository',
+      source:'Razzleberrytt/hippie-scientist-site',
+      conditions:{ref_name:{include:[namePattern],exclude:[]}},
+      rules:[{type:'creation'},{type:'deletion'},{type:'update'}],
+      bypass_actors:[{actor_type:'RepositoryRole',actor_id:5,bypass_mode:'always'}],
+    };
+    const protectedTag = rules => protectedApprovalTagNamespace(rules,name,'Razzleberrytt/hippie-scientist-site');
+    expect(protectedTag([safe])).toBe(true);
+    expect(protectedTag([ {...safe,conditions:{ref_name:{include:['refs/tags/other-*'],exclude:[]}}} ])).toBe(false);
+    expect(protectedTag([ {...safe,conditions:{ref_name:{include:[namePattern],exclude:[namePattern]}}} ])).toBe(false);
+    expect(protectedTag([ {...safe,enforcement:'evaluate'} ])).toBe(false);
+    expect(protectedTag([ {...safe,target:'branch'} ])).toBe(false);
+    expect(protectedTag([ {...safe,source:'other/repo'} ])).toBe(false);
+    expect(protectedTag([ {...safe,rules:[{type:'deletion'},{type:'update'}]} ])).toBe(false);
+    expect(protectedTag([ {...safe,bypass_actors:[{actor_type:'Integration',actor_id:12,bypass_mode:'always'}]} ])).toBe(false);
+    expect(protectedTag([ {...safe,bypass_actors:[{actor_type:'RepositoryRole',actor_id:4,bypass_mode:'always'}]} ])).toBe(false);
+    expect(protectedTag([ {...safe,bypass_actors:null} ])).toBe(false);
+  });
+
   it('reads trusted tag objects from GitHub and holds missing tags safely', async () => {
     const requests=[];
     const mock = async url => {
       requests.push(url);
       if (url.includes('/git/ref/tags/')) return validProof.tagRef;
       if (url.includes('/git/tags/')) return validProof.tag;
+      if (url.endsWith('/rulesets?targets=tag')) return [{id:123,target:'tag',enforcement:'active'}];
+      if (url.endsWith('/rulesets/123')) return {
+        id:123,target:'tag',enforcement:'active',source_type:'Repository',
+        source:'Razzleberrytt/hippie-scientist-site',
+        conditions:{ref_name:{include:['refs/tags/ths-publication-approved-pr-*'],exclude:[]}},
+        rules:[{type:'creation'},{type:'deletion'},{type:'update'}],
+        bypass_actors:[{actor_type:'RepositoryRole',actor_id:5,bypass_mode:'always'}],
+      };
       return [];
     };
     const evidence = await loadPublicationApprovalEvidence(mock,'Razzleberrytt/hippie-scientist-site',ownerPr.number,[publicFile],ownerPr);
     expect(evidence.signedTagProof).toEqual(validProof);
     expect(requests).toContain('/repos/Razzleberrytt/hippie-scientist-site/git/ref/tags/'+name);
+    expect(requests).toContain('/repos/Razzleberrytt/hippie-scientist-site/rulesets?targets=tag');
+    const unprotected = await loadPublicationApprovalEvidence(async url => {
+      if (url.includes('/git/ref/tags/')) return validProof.tagRef;
+      if (url.includes('/git/tags/')) return validProof.tag;
+      return [];
+    }, 'Razzleberrytt/hippie-scientist-site', ownerPr.number, [publicFile], ownerPr);
+    expect(unprotected.signedTagProof).toBeNull();
+
     const missing = await loadPublicationApprovalEvidence(async url => {
       if (url.includes('/git/ref/tags/')) throw Object.assign(new Error('not found'),{status:404});
       return [];
