@@ -341,7 +341,7 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
                                                   round(303*scale)))
             image.alpha_composite(panel,pos(x+21,728))
             draw=ImageDraw.Draw(image)
-            text(pos(x+20 if x==72 else x,1049),('PubChem CID ' if x==72 else 'CID ')+str(cid),font=f(42),
+            text(pos(x+20 if x==72 else x,1049),'CID '+str(cid),font=f(42),
                  fill=muted,role='source')
         text(pos(72,1136),'Orange = 7-OH hydroxyl',
              font=f(42,True),fill=accent,role='science')
