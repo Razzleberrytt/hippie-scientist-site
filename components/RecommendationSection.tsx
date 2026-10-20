@@ -7,6 +7,7 @@ import { shouldSuppressProductRecommendation } from '../lib/product-lifecycle'
 import { revenueProductSets } from '../config/revenue-products'
 import { getCompoundBySlug, getCompounds, getHerbBySlug, getHerbs } from '../lib/runtime-data'
 import { canRenderConfiguredRevenueProducts } from '../lib/revenue-product-governance'
+import type { RuntimeRecord } from '../types/content'
 
 export type RecommendationSlot = 'budget' | 'overall' | 'premium'
 
@@ -69,8 +70,8 @@ async function canRenderRecommendationProducts(
   // Compact list records can omit sources and otherwise misclassify supported
   // human evidence as mechanism-only after evidence-tier normalization.
   const [herbs, compounds] = await Promise.all([getHerbs(), getCompounds()])
-  const herb = herbs.find((item) => String(item.slug || '') === runtimeSlug)
-  const summary = herb || compounds.find((item) => String(item.slug || '') === runtimeSlug)
+  const herb = herbs.find((item: RuntimeRecord) => String(item.slug || '') === runtimeSlug)
+  const summary = herb || compounds.find((item: RuntimeRecord) => String(item.slug || '') === runtimeSlug)
   const detail = summary
     ? await (herb ? getHerbBySlug(runtimeSlug) : getCompoundBySlug(runtimeSlug))
     : null
