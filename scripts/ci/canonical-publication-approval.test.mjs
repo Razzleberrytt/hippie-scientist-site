@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { evaluateReadiness } from './autonomous-merge-controller.mjs'
-import { assessPublicationApproval, classifyPublicationChange } from './canonical-publication-approval.mjs'
+import { assessPublicationApproval, classifyPublicationChange, verifyOwnerSignedTag, ownerSignedTagName, loadPublicationApprovalEvidence } from './canonical-publication-approval.mjs'
 
 const sha='a'.repeat(40)
 const older='b'.repeat(40)
@@ -179,3 +179,115 @@ describe('integration into trusted merge readiness',()=>{
     expect(r.reason).toContain('required workflows')
   })
 })
+
+
+describe('owner GPG-signed annotated release tags', () => {
+  const ownerPr = {
+    ...pr,
+    base: { ...pr.base, repo: { ...pr.base.repo, owner: { login: 'Razzleberrytt', id: 216745723 } } },
+  };
+  const name = ownerSignedTagName(ownerPr.number, sha);
+  const email = '216745723+Razzleberrytt@users.noreply.github.com';
+  const message = 'THS-PUBLICATION-APPROVED PR=#6703 HEAD=' + sha;
+  const timestamp = '2026-10-20T12:00:00Z';
+  const payload = [
+    'object ' + sha,
+    'type commit',
+    'tag ' + name,
+    'tagger Razzleberrytt <' + email + '> ' + Date.parse(timestamp) / 1000 + ' +0000',
+    '',
+    message,
+    '',
+  ].join('\n');
+  const validProof = {
+    tagRef: { ref: 'refs/tags/' + name, object: { type: 'tag', sha: older } },
+    tag: {
+      sha: older, tag: name, object: { type: 'commit', sha },
+      tagger: { name: 'Razzleberrytt', email, date: timestamp },
+      message,
+      verification: { verified: true, reason: 'valid', signature: '-----BEGIN PGP SIGNATURE-----\nproof\n-----END PGP SIGNATURE-----', payload },
+    },
+  };
+
+  it('accepts only an exact-head owner-key GitHub-verified signed annotated tag', () => {
+    expect(verifyOwnerSignedTag({ pr: ownerPr, ...validProof })).toEqual({
+      approved: true, at: Date.parse(timestamp),
+    });
+    expect(assessPublicationApproval({pr: ownerPr, changedFiles:[publicFile],signedTagProof:validProof}).allowed).toBe(true);
+    expect(ownerSignedTagName(999, 'not-a-sha')).toBeNull();
+  });
+
+  it('rejects identity substitution, replay and forged or unsigned release tags', () => {
+    const mutate = (field, value) => ({
+      ...validProof,
+      tag: { ...validProof.tag, [field]: value },
+    });
+    const attempts = [
+      { ...validProof, tagRef: { ...validProof.tagRef, ref: 'refs/tags/other' } },
+      { ...validProof, tagRef: { ...validProof.tagRef, object: { type: 'commit', sha: older } } },
+      { ...validProof, tagRef: { ...validProof.tagRef, object: { type: 'tag', sha } } },
+      mutate('object', { type: 'commit', sha: older }),
+      mutate('tagger', { ...validProof.tag.tagger, email:'attacker@example.com' }),
+      mutate('message', 'approve all'),
+      mutate('verification', { ...validProof.tag.verification, verified:false }),
+      mutate('verification', { ...validProof.tag.verification, reason:'bad_email' }),
+      mutate('verification', { ...validProof.tag.verification, signature:null }),
+      mutate('verification', { ...validProof.tag.verification, payload:payload.replace('object '+sha,'object '+older) }),
+      mutate('verification', { ...validProof.tag.verification, payload:payload+'appended text' }),
+      mutate('verification', { ...validProof.tag.verification, payload:payload.replace(email,'attacker@example.com') }),
+      mutate('tagger', { ...validProof.tag.tagger, date:'2026-10-19T12:00:00Z' }),
+    ];
+    for (const proof of attempts) {
+      expect(assessPublicationApproval({pr:ownerPr,changedFiles:[publicFile],signedTagProof:proof}).allowed).toBe(false);
+    }
+    const moved={...ownerPr,head:{...ownerPr.head,sha:older}};
+    expect(verifyOwnerSignedTag({pr:moved,...validProof})).toBeNull();
+    const fork={...ownerPr,head:{...ownerPr.head,repo:{full_name:'other/evil'}}};
+    expect(verifyOwnerSignedTag({pr:fork,...validProof})).toBeNull();
+    expect(verifyOwnerSignedTag({pr,...validProof})).toBeNull();
+  });
+
+  it('keeps later negative owner revocations and same-second vetoes effective', () => {
+    const revocation={...approval(sha,'Razzleberrytt',20),
+      body:'THS-PUBLICATION-REVOKED PR=#6703 HEAD='+sha,
+      created_at:'2026-10-20T12:00:00Z',
+      updated_at:'2026-10-20T12:00:00Z'};
+    expect(assessPublicationApproval({
+      pr:ownerPr,changedFiles:[publicFile],signedTagProof:validProof,comments:[revocation],
+    }).allowed).toBe(false);
+    const later={...revocation,created_at:'2026-10-20T12:01:00Z',updated_at:'2026-10-20T12:01:00Z'};
+    expect(assessPublicationApproval({
+      pr:ownerPr,changedFiles:[publicFile],signedTagProof:validProof,comments:[later],
+    }).allowed).toBe(false);
+    // Signed tags do not relieve CI or independently verified source checks.
+    expect(evaluateReadiness({
+      pr:{...ownerPr,state:'open',draft:false,mergeable:true,mergeable_state:'clean',
+        base:{...ownerPr.base,sha:'c'.repeat(40),ref:'main'},labels:[]},
+      workflowRuns:[],checkRuns:[],changedFiles:[publicFile],
+      approvalEvidence:{comments:[],reviews:[],signedTagProof:validProof},
+      expectedHeadSha:sha,currentBaseSha:'c'.repeat(40),riskTier:'high',
+    }).action).toBe('wait');
+  });
+
+  it('reads trusted tag objects from GitHub and holds missing tags safely', async () => {
+    const requests=[];
+    const mock = async url => {
+      requests.push(url);
+      if (url.includes('/git/ref/tags/')) return validProof.tagRef;
+      if (url.includes('/git/tags/')) return validProof.tag;
+      return [];
+    };
+    const evidence = await loadPublicationApprovalEvidence(mock,'Razzleberrytt/hippie-scientist-site',ownerPr.number,[publicFile],ownerPr);
+    expect(evidence.signedTagProof).toEqual(validProof);
+    expect(requests).toContain('/repos/Razzleberrytt/hippie-scientist-site/git/ref/tags/'+name);
+    const missing = await loadPublicationApprovalEvidence(async url => {
+      if (url.includes('/git/ref/tags/')) throw Object.assign(new Error('not found'),{status:404});
+      return [];
+    },'Razzleberrytt/hippie-scientist-site',ownerPr.number,[publicFile],ownerPr);
+    expect(missing.signedTagProof).toBeNull();
+    await expect(loadPublicationApprovalEvidence(async url=>{
+      if(url.includes('/git/ref/tags/')) throw Object.assign(new Error('unauthorized'),{status:403});
+      return [];
+    },'Razzleberrytt/hippie-scientist-site',ownerPr.number,[publicFile],ownerPr)).rejects.toThrow('unauthorized');
+  });
+});
