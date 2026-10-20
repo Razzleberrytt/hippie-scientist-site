@@ -93,7 +93,7 @@ function loadSourceDesignsBySlug(): Map<string, Row[]> {
           .map((type) => normalizeStudyClass(type))
           .filter((studyClass) => studyClass !== 'unclassified')
         if (!classes.length) continue
-        designs.push({ study_class: strongestStudyClass(classes), study_class_source: meta.publicationTypes.join('; ') })
+        designs.push({ pmid, study_class: strongestStudyClass(classes), study_class_source: meta.publicationTypes.join('; ') })
       }
       if (designs.length) bySlug.set(slug, designs)
     }
