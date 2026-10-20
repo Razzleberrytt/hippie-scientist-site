@@ -15,8 +15,10 @@
  * build-runtime-from-workbook.mjs exactly.
  */
 
-import { readFileSync, writeFileSync } from 'node:fs'
+import { readFileSync } from 'node:fs'
 import path from 'node:path'
+
+import { writeJsonAtomic } from '../lib/atomic-json.mjs'
 
 const INDEX_FIELDS = [
   'slug', 'name', 'summary', 'primary_effects', 'effects', 'evidence_grade',
@@ -36,6 +38,6 @@ for (const [source, index] of [['herbs.json', 'herb-index.json'], ['compounds.js
   const rows = JSON.parse(readFileSync(path.join(DATA_DIR, source), 'utf8'))
   if (!Array.isArray(rows)) throw new Error(`${source}: expected a JSON array`)
   const out = rows.map((row) => pick(row, INDEX_FIELDS))
-  writeFileSync(path.join(DATA_DIR, index), `${JSON.stringify(out, null, 2)}\n`, 'utf8')
+  writeJsonAtomic(path.join(DATA_DIR, index), out)
   console.log(`${index}: ${out.length} rows refreshed from ${source}`)
 }
