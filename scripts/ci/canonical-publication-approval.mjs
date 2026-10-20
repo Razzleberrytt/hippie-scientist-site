@@ -42,9 +42,10 @@ export function classifyPublicationChange(changedFiles) {
 }
 
 
-// Immutable owner release authorization: GitHub verifies an annotated GPG-signed
-// tag. The GitHub API cannot manufacture the signing key; editable comments,
-// unsigned/lightweight tags and GitHub-App delegated owner activity cannot grant.
+// GPG tag verification remains an inert parser for negative/security tests.
+// Signed tags are NOT a positive grant: a delegated owner app can inherit
+// admin-role bypass and resurrect a valid but revoked ref. No workflow token
+// can independently inspect bypass_actors. The route is quarantined.
 export function ownerSignedTagName(prNumber, headSha) {
   if (!Number.isSafeInteger(prNumber) || prNumber <= 0 || !/^[a-f0-9]{40}$/u.test(String(headSha || ''))) return null;
   return 'ths-publication-approved-pr-' + prNumber + '-' + headSha;
@@ -67,12 +68,11 @@ export function protectedApprovalTagNamespace(rulesets, tagName, repo) {
         !includes.some(pattern => pattern === exact || pattern === namespace)) return false;
     const kinds = new Set((rule.rules || []).map(r => r?.type));
     if (!['creation', 'deletion', 'update'].every(kind => kinds.has(kind))) return false;
-    // Only repository admins may bypass restrictions. Other bypass actors
-    // would let write-enabled delegated applications resurrect revoked tags.
-    const bypasses = rule.bypass_actors;
-    if (!Array.isArray(bypasses)) return false;
-    return bypasses.every(actor => actor?.actor_type === 'RepositoryRole' &&
-      actor?.actor_id === 5 && actor?.bypass_mode === 'always');
+    // Delegated owner-app tokens can inherit the administrator role, so any
+    // role/integration bypass is unacceptable even for an informational check.
+    // The live controller does not fetch this privileged property: no tag
+    // can authorize publication until a nondelegable revocation mechanism exists.
+    return Array.isArray(rule.bypass_actors) && rule.bypass_actors.length === 0;
   });
 }
 
@@ -118,7 +118,7 @@ export function verifyOwnerSignedTag({ pr, tagRef, tag }) {
 const APPROVE = /^THS-PUBLICATION-APPROVED PR=#(\d+) HEAD=([a-f0-9]{40})$/u;
 const REVOKE = /^THS-PUBLICATION-REVOKED PR=#(\d+) HEAD=([a-f0-9]{40})$/u;
 
-function trustedApprovalEvents({ comments, reviews, owner, number, headSha, signedTagEvent = null }) {
+function trustedApprovalEvents({ comments, reviews, owner, number, headSha }) {
   const events = [];
   for (const comment of comments || []) {
     if (String(comment?.user?.login || '').toLowerCase() !== owner.toLowerCase()) continue;
@@ -158,11 +158,8 @@ function trustedApprovalEvents({ comments, reviews, owner, number, headSha, sign
       id: Number(review.id || 0),
     });
   }
-  // Tagger dates are signer-controlled. Never let a future-dated signed tag
-  // out-rank a genuine negative owner review/revocation for this exact head.
-  // A revoked head needs a new, separately reviewed release candidate.
-  if (signedTagEvent && events.some((event) => !event.approved)) return false;
-  if (signedTagEvent) events.push(signedTagEvent);
+  // No GPG-tag event is admitted here: even an authentic signed tag can be
+  // resurrected through a delegated app inheriting an owner/admin bypass.
   // REST timestamps have only second resolution and issue-comment IDs are
   // unrelated to PR-review IDs. If a revocation and an approval occur at the
   // same timestamp, their real ordering cannot be established: fail closed.
@@ -180,7 +177,7 @@ function trustedApprovalEvents({ comments, reviews, owner, number, headSha, sign
  * workflow file, or a proposed PR-local JSON receipt. User.login alone does
  * not prove direct manual intent when delegated GitHub apps can act as owner.
  */
-export function assessPublicationApproval({ pr, changedFiles, comments = [], reviews = [], signedTagProof = null }) {
+export function assessPublicationApproval({ pr, changedFiles, comments = [], reviews = [] }) {
   const classification = classifyPublicationChange(changedFiles);
   if (classification.kind === 'HOLD') return { allowed: false, ...classification };
   if (classification.kind !== 'HUMAN_PUBLICATION') {
@@ -195,14 +192,13 @@ export function assessPublicationApproval({ pr, changedFiles, comments = [], rev
   if (pr?.head?.repo?.full_name !== pr?.base?.repo?.full_name) {
     return { allowed: false, ...classification, reason: 'fork publication approval is not allowed' };
   }
-  const signedTagEvent = signedTagProof ? verifyOwnerSignedTag({ pr, ...signedTagProof }) : null;
-  const approved = trustedApprovalEvents({ comments, reviews, owner, number, headSha: head, signedTagEvent });
+  const approved = trustedApprovalEvents({ comments, reviews, owner, number, headSha: head });
   return {
     allowed: approved,
     ...classification,
     reason: approved
       ? 'exact-head approval from repository owner verified; existing science and release gates still apply'
-      : `publication review hold for PR #${number} exact head ${head}: positive PR-comment approval tokens are disabled; require a GitHub-verified owner GPG-signed exact-head tag or a server-verifiable non-app human-origin exact-head APPROVED review. Do not accept app-generated approvals or editable comments`,
+      : `publication review hold for PR #${number} exact head ${head}: positive PR-comment approval tokens and signed-tag approvals are disabled pending a nondelegable, revocable human-origin mechanism; only a server-verifiable non-app exact-head APPROVED review can grant. Do not accept app-generated approvals or editable comments`,
   };
 }
 
@@ -229,34 +225,9 @@ export async function loadPublicationApprovalEvidence(request, repo, number, cha
     loadAll(`issues/${number}/comments`),
     loadAll(`pulls/${number}/reviews`),
   ]);
-  let signedTagProof = null;
-  const tagName = ownerSignedTagName(number, pr?.head?.sha);
-  if (tagName) {
-    try {
-      const tagRef = await request('/repos/' + repo + '/git/ref/tags/' + tagName);
-      // A lightweight tag cannot authenticate a release, even if the commit
-      // to which it points has a valid signature.
-      if (tagRef?.object?.type === 'tag' && /^[a-f0-9]{40}$/u.test(tagRef.object.sha || '')) {
-        const tag = await request('/repos/' + repo + '/git/tags/' + tagRef.object.sha);
-        // Ref creation/deletion must be guarded by repository-level tag
-        // rules; a valid signature on a freely recreatable ref is not an
-        // independently revocable owner authorization.
-        const listedRulesets = await request('/repos/' + repo + '/rulesets?targets=tag');
-        if (!Array.isArray(listedRulesets)) throw new Error('Invalid tag protection ruleset listing');
-        const activeTagRules = listedRulesets.filter(rule => rule?.target === 'tag' && rule?.enforcement === 'active');
-        const fullRules = await Promise.all(activeTagRules.map(async rule => {
-          if (!Number.isSafeInteger(rule.id) || rule.id <= 0) throw new Error('Invalid tag ruleset ID');
-          return request('/repos/' + repo + '/rulesets/' + rule.id);
-        }));
-        if (protectedApprovalTagNamespace(fullRules, tagName, repo)) {
-          signedTagProof = { tagRef, tag };
-        }
-      }
-    } catch (error) {
-      // A missing tag is a normal safe hold. Auth, network, rate limit and
-      // signature service errors MUST NOT silently turn into approval.
-      if (error?.status !== 404) throw error;
-    }
-  }
+  // Quarantined: ordinary GITHUB_TOKEN cannot inspect ruleset bypass actors,
+  // and delegated admin-app tokens can resurrect tags after a revocation.
+  // Do not fetch tag refs or privileged rulesets or treat them as approval.
+  const signedTagProof = null;
   return {comments,reviews,signedTagProof};
 }
