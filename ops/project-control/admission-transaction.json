@@ -1,18 +1,18 @@
 {
   "version": 1,
   "mode": "fresh-admission",
-  "base_revision": "4f220b8223e6b1e1392c7f3f770cc5cbe3b3c9f8",
-  "last_verified": "2026-10-15",
-  "ticket": 6810,
-  "lane": "R",
-  "priority": "P2",
+  "base_revision": "001500cb5db8f5b6ffefbc6937881628f5102be8",
+  "last_verified": "2026-10-19",
+  "ticket": 6932,
+  "lane": "D",
+  "priority": "P1",
   "score_inputs": {
-    "businessImpact": 3,
-    "userValue": 4,
-    "trafficPotential": 3,
+    "businessImpact": 5,
+    "userValue": 5,
+    "trafficPotential": 4,
     "strategicLeverage": 5,
     "confidence": 0.75,
-    "effort": 3
+    "effort": 5
   },
-  "score": 45
+  "score": 75
 }

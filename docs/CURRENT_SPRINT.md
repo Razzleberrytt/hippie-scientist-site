@@ -123,7 +123,7 @@ Live GitHub #6259 is CLOSED and PR #6260 MERGED as `bba24cd536f7f75e95f86c0a8ec9
 
 Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0/3. Candidate #6149 is OPEN and `ready-next` with direct code reproduction and scored 4×4×3×5×1/1 = **240.0**. This separate control-plane PR admits only one R owner and does not implement consent logic or activate GA4/Ahrefs transport; exact-head checks, privacy and release proof remain required.
 
-## Active / in review — implementation WIP 2/3
+## Active / in review — implementation WIP 3/3
 
 **2026-10-15 exact-base R #6810 scored admission:** Owner-authorized continuation proposes admitting only the smallest read-only Publisher PUBLISHED job → existing Flywheel receipt integration in [#6810](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6810), grounded by merged Phase 0 audit. Existing score **45.0 = 3×4×3×5×0.75÷3**, estimated priority only; D #6685 and A #6769 remain owned independently. This control change itself is **not** a working bridge: a separate implementation PR with negative fixtures and exact-head CI/build must pass the sole controller, and a real published/metric observation remains Unknown pending real canonical receipts. No new publisher, future experiment winner automation, medical-claim rewriting, private data ingestion, EvidenceMotion checklist credit or sacrifice of the 46-item craft priority. (This R admission becomes effective only on protected merge.)
 
@@ -166,6 +166,7 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
+| D | #6932 | Repair public herb profile credibility and audit regressions | Active — owner-directed public presentation repair; scientific approvals unchanged | P1 | 75.0 | 2026-10-19 |
 | A | #6769 | Semantic Opportunity Compiler: source-bound cross-system review pilot | Active — admitted (research-only, review requests only; no publication) | P1 | 75.0 | 2026-10-13 |
 | R | #6810 | Read-only Publisher-verified published-video → R8.10 Flywheel integration | Active — narrowly admitted; no provider API, uploader or claims | P2 | 45.0 | 2026-10-15 |
 
