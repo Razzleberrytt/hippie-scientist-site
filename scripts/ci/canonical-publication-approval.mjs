@@ -41,10 +41,55 @@ export function classifyPublicationChange(changedFiles) {
   return { kind: 'EXISTING_GATES', reason: 'not eligible for new publication auto-approval; original governance unchanged' };
 }
 
+
+// Immutable owner release authorization: GitHub verifies an annotated GPG-signed
+// tag. The GitHub API cannot manufacture the signing key; editable comments,
+// unsigned/lightweight tags and GitHub-App delegated owner activity cannot grant.
+export function ownerSignedTagName(prNumber, headSha) {
+  if (!Number.isSafeInteger(prNumber) || prNumber <= 0 || !/^[a-f0-9]{40}$/u.test(String(headSha || ''))) return null;
+  return 'ths-publication-approved-pr-' + prNumber + '-' + headSha;
+}
+
+export function verifyOwnerSignedTag({ pr, tagRef, tag }) {
+  const name = ownerSignedTagName(Number(pr?.number), pr?.head?.sha);
+  const owner = pr?.base?.repo?.owner;
+  if (!name || !owner?.login || !Number.isSafeInteger(owner?.id) || owner.id <= 0) return null;
+  if (pr?.head?.repo?.full_name !== pr?.base?.repo?.full_name) return null;
+  if (tagRef?.ref !== 'refs/tags/' + name || tagRef?.object?.type !== 'tag') return null;
+  if (!/^[a-f0-9]{40}$/u.test(tagRef?.object?.sha || '') || tagRef.object.sha !== tag?.sha) return null;
+  if (tag?.tag !== name || tag?.object?.type !== 'commit' || tag.object.sha !== pr.head.sha) return null;
+  if (tag?.verification?.verified !== true || tag.verification.reason !== 'valid') return null;
+  if (!String(tag.verification.signature || '').includes('-----BEGIN PGP SIGNATURE-----')) return null;
+
+  // GitHub's "valid" verdict verifies the signed payload and requires the
+  // tagger email to be among the signing key's verified identity emails.
+  // Pin that email to the numeric owner ID; merely spelling the owner's
+  // username in a tag message is NOT sufficient.
+  const email = owner.id + '+' + owner.login + '@users.noreply.github.com';
+  if (String(tag.tagger?.email || '').toLowerCase() !== email.toLowerCase()) return null;
+  const message = 'THS-PUBLICATION-APPROVED PR=#' + pr.number + ' HEAD=' + pr.head.sha;
+  if (String(tag.message || '').trim() !== message) return null;
+
+  const payload = tag.verification.payload;
+  if (typeof payload !== 'string' || !payload.endsWith('\n\n' + message + '\n')) return null;
+  const header = payload.slice(0, payload.indexOf('\n\n')).split('\n');
+  if (header.length !== 4 || header[0] !== 'object ' + pr.head.sha ||
+      header[1] !== 'type commit' || header[2] !== 'tag ' + name) return null;
+  const tagger = /^tagger (.+) <([^<>]+)> (\d+) ([+-]\d{4})$/u.exec(header[3]);
+  if (!tagger || tagger[2].toLowerCase() !== email.toLowerCase()) return null;
+  const seconds = Number(tagger[3]);
+  const signedAt = Date.parse(tag.tagger?.date || '');
+  if (!Number.isSafeInteger(seconds) || !Number.isFinite(signedAt) ||
+      Math.abs(seconds * 1000 - signedAt) > 1000) return null;
+  // A signed tag is scoped to an exact PR/head; the grant is never transferable
+  // to another PR or revised head. Negative owner revocations remain effective.
+  return { approved: true, at: signedAt };
+}
+
 const APPROVE = /^THS-PUBLICATION-APPROVED PR=#(\d+) HEAD=([a-f0-9]{40})$/u;
 const REVOKE = /^THS-PUBLICATION-REVOKED PR=#(\d+) HEAD=([a-f0-9]{40})$/u;
 
-function trustedApprovalEvents({ comments, reviews, owner, number, headSha }) {
+function trustedApprovalEvents({ comments, reviews, owner, number, headSha, signedTagEvent = null }) {
   const events = [];
   for (const comment of comments || []) {
     if (String(comment?.user?.login || '').toLowerCase() !== owner.toLowerCase()) continue;
@@ -84,6 +129,7 @@ function trustedApprovalEvents({ comments, reviews, owner, number, headSha }) {
       id: Number(review.id || 0),
     });
   }
+  if (signedTagEvent) events.push(signedTagEvent);
   // REST timestamps have only second resolution and issue-comment IDs are
   // unrelated to PR-review IDs. If a revocation and an approval occur at the
   // same timestamp, their real ordering cannot be established: fail closed.
@@ -101,7 +147,7 @@ function trustedApprovalEvents({ comments, reviews, owner, number, headSha }) {
  * workflow file, or a proposed PR-local JSON receipt. User.login alone does
  * not prove direct manual intent when delegated GitHub apps can act as owner.
  */
-export function assessPublicationApproval({ pr, changedFiles, comments = [], reviews = [] }) {
+export function assessPublicationApproval({ pr, changedFiles, comments = [], reviews = [], signedTagProof = null }) {
   const classification = classifyPublicationChange(changedFiles);
   if (classification.kind === 'HOLD') return { allowed: false, ...classification };
   if (classification.kind !== 'HUMAN_PUBLICATION') {
@@ -116,13 +162,14 @@ export function assessPublicationApproval({ pr, changedFiles, comments = [], rev
   if (pr?.head?.repo?.full_name !== pr?.base?.repo?.full_name) {
     return { allowed: false, ...classification, reason: 'fork publication approval is not allowed' };
   }
-  const approved = trustedApprovalEvents({ comments, reviews, owner, number, headSha: head });
+  const signedTagEvent = signedTagProof ? verifyOwnerSignedTag({ pr, ...signedTagProof }) : null;
+  const approved = trustedApprovalEvents({ comments, reviews, owner, number, headSha: head, signedTagEvent });
   return {
     allowed: approved,
     ...classification,
     reason: approved
       ? 'exact-head approval from repository owner verified; existing science and release gates still apply'
-      : `publication review hold for PR #${number} exact head ${head}: positive PR-comment approval tokens are disabled; only a server-verifiable non-app human-origin exact-head APPROVED review is eligible (if GitHub exposes trusted provenance). Otherwise hold until an immutable human approval mechanism exists; do not request an unusable comment token`,
+      : `publication review hold for PR #${number} exact head ${head}: positive PR-comment approval tokens are disabled; require a GitHub-verified owner GPG-signed exact-head tag or a server-verifiable non-app human-origin exact-head APPROVED review. Do not accept app-generated approvals or editable comments`,
   };
 }
 
@@ -131,9 +178,9 @@ export function assessPublicationApproval({ pr, changedFiles, comments = [], rev
  * needed for public-clinical diffs; inert staging and ordinary control changes
  * do not incur API work. Missing/partial pages must fail closed.
  */
-export async function loadPublicationApprovalEvidence(request, repo, number, changedFiles) {
+export async function loadPublicationApprovalEvidence(request, repo, number, changedFiles, pr = null) {
   if (classifyPublicationChange(changedFiles).kind !== 'HUMAN_PUBLICATION') {
-    return { comments: [], reviews: [] };
+    return { comments: [], reviews: [], signedTagProof: null };
   }
   const loadAll = async endpoint => {
     const records=[];
@@ -149,5 +196,22 @@ export async function loadPublicationApprovalEvidence(request, repo, number, cha
     loadAll(`issues/${number}/comments`),
     loadAll(`pulls/${number}/reviews`),
   ]);
-  return {comments,reviews};
+  let signedTagProof = null;
+  const tagName = ownerSignedTagName(number, pr?.head?.sha);
+  if (tagName) {
+    try {
+      const tagRef = await request('/repos/' + repo + '/git/ref/tags/' + tagName);
+      // A lightweight tag cannot authenticate a release, even if the commit
+      // to which it points has a valid signature.
+      if (tagRef?.object?.type === 'tag' && /^[a-f0-9]{40}$/u.test(tagRef.object.sha || '')) {
+        const tag = await request('/repos/' + repo + '/git/tags/' + tagRef.object.sha);
+        signedTagProof = { tagRef, tag };
+      }
+    } catch (error) {
+      // A missing tag is a normal safe hold. Auth, network, rate limit and
+      // signature service errors MUST NOT silently turn into approval.
+      if (error?.status !== 404) throw error;
+    }
+  }
+  return {comments,reviews,signedTagProof};
 }
