@@ -43,9 +43,11 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
       { slug: 'guarana-vs-yerba-mate', label: 'Guarana vs Yerba Mate', note: 'Caffeine source and preparation differences' },
       { slug: 'caffeine-vs-l-theanine', label: 'Caffeine vs L-Theanine', note: 'Stimulation vs calm-focus context' },
       { slug: 'caffeine-vs-caffeine-plus-l-theanine', label: 'Caffeine vs Caffeine + L-Theanine', note: 'Caffeine alone vs the combined focus stack' },
+      { slug: 'caffeine-vs-caffeine-l-theanine', label: 'Caffeine Alone vs Caffeine with L-Theanine', note: 'Earlier comparison: preparation and evidence context' },
       { slug: 'caffeine-vs-l-theanine-vs-bacopa-for-focus', label: 'Caffeine vs L-Theanine vs Bacopa', note: 'Fast stimulation vs slower support' },
       { slug: 'bacopa-vs-citicoline', label: 'Bacopa vs Citicoline' },
       { slug: 'citicoline-vs-alpha-gpc', label: 'Citicoline vs Alpha-GPC' },
+      { slug: 'lions-mane-vs-bacopa', label: 'Lion’s Mane vs Bacopa' },
     ],
   },
   {
@@ -57,6 +59,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
       { slug: 'st-johns-wort-vs-saffron', label: "St. John’s Wort vs Saffron", note: 'Mood evidence with interaction burden front and center' },
       { slug: 'ashwagandha-vs-l-theanine-vs-magnesium', label: 'Ashwagandha vs L-Theanine vs Magnesium', note: 'Three different calm-support approaches' },
       { slug: 'ashwagandha-vs-magnesium', label: 'Ashwagandha vs Magnesium' },
+      { slug: 'rhodiola-vs-l-theanine', label: 'Rhodiola vs L-Theanine' },
       { slug: 'ashwagandha-vs-saffron', label: 'Ashwagandha vs Saffron' },
       { slug: 'l-theanine-vs-ashwagandha', label: 'L-Theanine vs Ashwagandha' },
       { slug: 'l-theanine-vs-magnesium', label: 'L-Theanine vs Magnesium' },
@@ -67,6 +70,8 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
     blurb: 'Compare sleep-oriented options by timing, next-day effects, and whether the evidence is about circadian timing, relaxation, or broader sleep support.',
     pairs: [
       { slug: 'melatonin-vs-magnesium', label: 'Melatonin vs Magnesium' },
+      { slug: 'melatonin-vs-l-theanine', label: 'Melatonin vs L-Theanine' },
+      { slug: 'melatonin-vs-valerian', label: 'Melatonin vs Valerian' },
       { slug: 'sleep-herbs-vs-melatonin', label: 'Sleep Herbs vs Melatonin' },
       { slug: 'melatonin-vs-valerian-vs-magnesium-for-sleep', label: 'Melatonin vs Valerian vs Magnesium' },
     ],
@@ -333,6 +338,7 @@ export default async function ComparePage() {
       <PremiumCard as="section" className="p-5">
         <p className="eyebrow-label">Good places to start</p>
         <h2 className="mt-2 text-xl font-semibold text-ink">Featured decision pages</h2>
+        <Link href="/guides/compare/psyllium-husk/" className="mt-3 inline-flex min-h-11 items-center font-semibold text-ink underline">Psyllium husk vs powder vs capsules: evidence and buying tradeoffs</Link>
         <p className="mt-2 text-sm leading-6 text-muted">A small set of useful entry points across energy, mood, stress, sleep, and botanical chemistry.</p>
         <ul className="mt-4 grid gap-2 text-sm leading-6 text-muted sm:grid-cols-2 lg:grid-cols-3">
           {popularComparisonPairs.map(pair => (
