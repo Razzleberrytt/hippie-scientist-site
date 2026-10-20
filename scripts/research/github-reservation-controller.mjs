@@ -154,7 +154,7 @@ export function validateManifest(m){
  }
  return m;
 }
-function reserveInto(reg,manifest,baseline){
+export function reserveInto(reg,manifest,baseline){
  const global={baseline:reconcileBaseline([...baseline,...reg.reservations.filter(r=>r.state!=='RELEASED')]),reservations:[]};validateSnapshot(global);
  const candidate={baseline:global.baseline,reservations:manifest.records};validateSnapshot(candidate);
  const stamp=new Date().toISOString();const reserved=[];
