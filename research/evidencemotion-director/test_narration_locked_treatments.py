@@ -515,12 +515,22 @@ class NarrationTreatments(unittest.TestCase):
         self.assertEqual(candidate['status'],'RESEARCH_ONLY')
         self.assertFalse(candidate['releaseApproved'])
         self.assertEqual(candidate['captionMode'],'TIMED_RESEARCH_NOT_FULL_FRAME_VERIFIED')
-        # Text and source labels must not silently change in the experiment.
+        # Only the deliberately reviewed source-locked scene-2 comparison
+        # may change overlays. All remaining scenes retain exact source text.
         for original,updated in zip(legacy['shots'],candidate['shots']):
-            self.assertEqual([(a['role'],a['text']) for a in original['annotations']
-                              if a['role']!='caption'],
-                             [(a['role'],a['text']) for a in updated['annotations']
-                              if a['role']!='caption'])
+            before=[(a['role'],a['text']) for a in original['annotations']
+                    if a['role']!='caption']
+            after=[(a['role'],a['text']) for a in updated['annotations']
+                   if a['role']!='caption']
+            if original['id']=='sentence_2':
+                self.assertEqual(before[:2],after[:2])
+                self.assertEqual(after[2:],[
+                    ('science','MITRAGYNINE'),('source','CID 3034396'),
+                    ('science','7-OH'),('source','CID 44301524'),
+                    ('science','Orange = 7-OH hydroxyl'),
+                    ('disclosure','Not a chemical reaction')])
+            else:
+                self.assertEqual(before,after)
             self.assertLessEqual(len([a for a in updated['annotations']
                                       if a['role']=='caption']),3)
         self.assertFalse(any(a['role']=='caption' for a in
