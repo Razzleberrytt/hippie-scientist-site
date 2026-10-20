@@ -810,7 +810,16 @@ async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha, co
     console.log(`Terminal merge revalidation blocked PR #${number}: approval changed before merge: ${finalApproval.reason}`)
     return false
   }
-  console.log(`Terminal merge revalidation passed for PR #${number}: head ${headSha} on base ${finalBaseSha}`)
+  // Publication authorization reload above may involve paginated requests.
+  // A separate main-branch writer can land during those requests despite the
+  // controller's own serialization. Merge API's expected SHA pins only HEAD,
+  // never the base; fail closed if the trusted base moved meanwhile.
+  const baseAfterApproval = await getBranchSha(repo, finalPr.base.ref)
+  if (baseAfterApproval !== validatedBaseSha) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: base changed during final publication approval reload`)
+    return false
+  }
+  console.log(`Terminal merge revalidation passed for PR #${number}: head ${headSha} on base ${baseAfterApproval}`)
   await mergePr(repo, number, headSha)
   return true
 }
