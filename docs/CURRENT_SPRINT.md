@@ -1,6 +1,13 @@
 # Current Sprint
 
 **Status:** Authoritative immediate execution queue
+### AUDIT-CLAIM-001 / #6940 — owner-directed safety-gate repair (2026-10-20)
+
+In review: close a reproduced claim-drift gate bypass caused by treating added
+`++` content as Git patch headers. This is a bounded safety interruption authorized
+by the owner's audit/fix and merge requests; no additional D/R/A slot or content
+admission is granted. Preserve existing thresholds and historical-debt behavior.
+See the [reproduction, acceptance criteria and validation record](audit/claim-drift-parser-2026-10-20.md).
 
 ### EvidenceMotion Lane 3 — same-scene replayed hero-transition negative guard, #6743 / PR #6928 (2026-10-18; IN REVIEW)
 
@@ -172,7 +179,7 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6932 | Repair public herb profile credibility and audit regressions | Active — owner-directed public presentation repair; scientific approvals unchanged | P1 | 75.0 | 2026-10-19 |
+| D | #6932 / PR #6934 | Repair public herb profile credibility and audit regressions | Active — owner-directed public presentation repair; scientific approvals unchanged | P1 | 75.0 | 2026-10-19 |
 | A | #6769 | Semantic Opportunity Compiler: source-bound cross-system review pilot | Active — admitted (research-only, review requests only; no publication) | P1 | 75.0 | 2026-10-13 |
 | R | #6810 | Read-only Publisher-verified published-video → R8.10 Flywheel integration | Active — narrowly admitted; no provider API, uploader or claims | P2 | 45.0 | 2026-10-15 |
 
