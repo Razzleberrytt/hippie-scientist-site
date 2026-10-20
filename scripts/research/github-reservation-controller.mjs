@@ -154,7 +154,7 @@ export function validateManifest(m){
  }
  return m;
 }
-function reserveInto(reg,manifest,baseline){
+export function reserveInto(reg,manifest,baseline){
  const global={baseline:reconcileBaseline([...baseline,...reg.reservations.filter(r=>r.state!=='RELEASED')]),reservations:[]};validateSnapshot(global);
  const candidate={baseline:global.baseline,reservations:manifest.records};validateSnapshot(candidate);
  const stamp=new Date().toISOString();const reserved=[];
@@ -326,8 +326,24 @@ async function refreshPrLifecycle(reg){
   }
  }
 }
+/** Reconcile terminal batch reservations in the same serialized registry write. */
+export function reconcileTerminalReservations(reg){
+ const terminalStates=new Map(reg.batches.filter(b=>b.state==='ABANDONED'||b.state==='MERGED').map(b=>[b.id,b.state==='ABANDONED'?'RELEASED':'MERGED']));
+ for(const reservation of reg.reservations){
+  const state=terminalStates.get(reservation.batch_id);
+  if(state)reservation.state=state;
+ }
+ return reg;
+}
 async function commitRegistryMutation(mutator,message){
- return withRecovery(async()=>{const current=await getRegistry(),reg=current.value;await mutator(reg);const saved=await putRegistry(current,reg,message);return {reg,saved}},{});
+ return withRecovery(async()=>{const current=await getRegistry(),reg=current.value;
+  // Repair stale terminal states BEFORE any reserve validation; otherwise a legacy
+  // abandoned PMID can falsely collide and abort before the repair is committed.
+  reconcileTerminalReservations(reg);
+  await mutator(reg);
+  // Capture batches that became terminal during this mutation as well.
+  reconcileTerminalReservations(reg);
+  const saved=await putRegistry(current,reg,message);return {reg,saved}},{});
 }
 async function persistObservatory(reg){
  const snapshot={...summarizeRegistry(reg),generated_at:new Date().toISOString(),research_only:true};
