@@ -1,0 +1,16 @@
+{
+  "status": "HOLD",
+  "scope": "offline-artifact-intake-only",
+  "errors": [
+    "MISSING_INPUT:BUNDLE_UNAVAILABLE"
+  ],
+  "mayPublish": false,
+  "craftApproved": false,
+  "scienceApproved": false,
+  "voiceApproved": false,
+  "phonePlaybackApproved": false,
+  "releaseApproved": false,
+  "ownerApproved": false,
+  "newAtomicCards": 0,
+  "trustedPinSha256": "ad262cd0b7a6750cab0a69c388b633ba7efcb25c4af85afba94f36ff6d8a70e2"
+}

@@ -1,0 +1,65 @@
+name: EvidenceMotion R8.18 physical 3D smoke
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/distribution/r818-physical-cinema.py'
+      - 'scripts/distribution/r818-physical-cinema-provider.mjs'
+      - 'scripts/distribution/r818-physical-smoke.mjs'
+      - 'scripts/distribution/r818-native-frame-sequence.mjs'
+      - 'scripts/distribution/r818-telemetry-qa.mjs'
+      - '.github/workflows/evidencemotion-r818-physical-smoke.yml'
+permissions:
+  contents: read
+jobs:
+  physical-native-3d:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Install headless open-source physical renderer
+        run: |
+          python -m pip install --disable-pip-version-check numpy==2.3.5 pillow==12.3.0 vtk==9.6.2
+          ffmpeg -version | head -n 1
+      - name: Install native headless software OpenGL and virtual display
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb libegl1 libosmesa6 libgl1-mesa-dri ffmpeg
+      - name: Build true-3D and 2D full-HD frame sequence, telemetry, reviewed contact sheet
+        run: xvfb-run -a node scripts/distribution/r818-physical-smoke.mjs artifacts/evidencemotion-r818
+      - name: Require real 1080p encoded frames and scientific QA receipt
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          import path from 'node:path'
+          const dir='artifacts/evidencemotion-r818'
+          const r=JSON.parse(fs.readFileSync(path.join(dir,'r818-physical-smoke-receipt.json')))
+          if(!r.status.startsWith('PHYSICAL_RENDERER_TECHNICAL_SMOKE_PASS') ||
+              r.frames!==285||r.decodedMp4FrameCount!==285 ||
+              !fs.existsSync(path.join(dir,r.mp4File)) ||
+              !fs.existsSync(path.join(dir,r.contactSheetFile)) ||
+              r.publicationApproved!==false||r.wordAlignedVoice!==false)
+            throw Error('R8.18 incorrectly claimed native 3D render completion')
+          console.log('PASS real physical 3D, SHA-bound semantic telemetry, exact 285 native 30fps decoded frames')
+          NODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evidencemotion-r818-native-physical-review
+          path: |
+            artifacts/evidencemotion-r818/r818-new-physical-pilot_REVIEW_ONLY_SILENT.mp4
+            artifacts/evidencemotion-r818/r818-exact-master-contact-sheet.png
+            artifacts/evidencemotion-r818/r818-contact-sheet-receipt.json
+            artifacts/evidencemotion-r818/r818-physical-smoke-receipt.json
+            artifacts/evidencemotion-r818/r818-telemetry.json
+            artifacts/evidencemotion-r818/r818-native-frames.json
+          retention-days: 7
+          if-no-files-found: warn

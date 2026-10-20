@@ -95,6 +95,7 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     ],
     children: [
       { section: 'Start here', label: 'Research library', href: '/research', description: 'Choose the research task you are trying to complete' },
+      { section: 'Find evidence', label: 'Deep research investigations', href: '/research/investigations', description: 'Explore the complete merged research-only investigation archive and source trails' },
       { section: 'Find evidence', label: 'Research source register', href: '/research/source-register', description: 'Source-verified papers and the research-only PubMed index' },
       { section: 'Find evidence', label: 'Research Intelligence Studio', href: '/research/intelligence', description: 'Explore source-grounded study DNA, evidence comparisons, gaps, timelines, and safety literature' },
       { section: 'Find evidence', label: 'Citation explorer', href: '/learn/citation-explorer', description: 'Find study-level source records' },

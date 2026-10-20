@@ -1,3 +1,7 @@
+import { assertNoDecorativeVideoChrome } from './evidencemotion-delivery-guardrails.mjs'
+import { assertR817FirstPass, assertR817SceneBinding } from './r817-canonical-first-pass.mjs'
+import { assertR818TelemetryBinding } from './r818-telemetry-qa.mjs'
+import { verifyR818NativeFrames } from './r818-native-frame-sequence.mjs'
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -686,7 +690,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
   const lineHeight = Math.ceil(fontSize * 1.42)
   const headlineVisible = !(scene.motionType === 'reveal' && motionPhase === 'pre')
   const headline = headlineVisible
-    ? lines.map((line, index) => `<text x="${x}" y="${contentTop + (index * lineHeight)}" font-size="${fontSize}" font-weight="700" fill="${foreground}">${escapeXml(line)}</text>`).join('')
+    ? lines.map((line, index) => `<text x="${x}" data-em-role="headline" y="${contentTop + (index * lineHeight)}" font-size="${fontSize}" font-weight="700" fill="${foreground}">${escapeXml(line)}</text>`).join('')
     : ''
   const highlight = scene.motionType === 'highlight' && motionPhase === 'post'
     ? `<rect x="${x}" y="${contentTop + (lines.length * lineHeight) + 16}" width="${Math.min(safeWidth, Math.max(180, safeWidth * 0.62))}" height="8" rx="4" fill="${foreground}"/>`
@@ -785,14 +789,31 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
   })
   // A zero-credit illustrated, layered-vector treatment with a restrained 2.5D appearance.
   const r809Depth = r809
-    ? `<defs><linearGradient id="r809-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${background}"/><stop offset="100%" stop-color="${foreground}" stop-opacity=".07"/></linearGradient><filter id="r809-shadow"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-opacity=".24"/></filter></defs><rect width="100%" height="100%" fill="url(#r809-bg)"/><circle cx="950" cy="300" r="265" fill="${foreground}" opacity=".045"/>`
+    ? `<defs><linearGradient id="r809-bg" x1="0" y1="0" x2=".9" y2="1"><stop offset="0%" stop-color="${background}"/><stop offset="56%" stop-color="${background}"/><stop offset="100%" stop-color="${foreground}" stop-opacity=".055"/></linearGradient><radialGradient id="r814-stage-light"><stop offset="0%" stop-color="#1db8b1" stop-opacity=".27"/><stop offset="65%" stop-color="#07848f" stop-opacity=".09"/><stop offset="100%" stop-color="#0b2130" stop-opacity="0"/></radialGradient><radialGradient id="r814-lens-glow"><stop offset="0%" stop-color="#fbc38a" stop-opacity=".14"/><stop offset="100%" stop-color="#e4aa81" stop-opacity="0"/></radialGradient><filter id="r809-shadow"><feDropShadow dx="0" dy="16" stdDeviation="17" flood-color="#000d1b" flood-opacity=".52"/></filter></defs><rect width="100%" height="100%" fill="url(#r809-bg)"/><g data-evidencemotion-stage-light="cinematic-2p5d"><ellipse cx="610" cy="1055" rx="650" ry="620" fill="url(#r814-stage-light)"/><ellipse cx="1020" cy="380" rx="400" ry="430" fill="url(#r814-lens-glow)"/><path d="M 96 720 C 370 610 685 735 1025 600 M 96 752 C 395 647 730 770 1025 636" stroke="#8decdd" stroke-opacity=".075" stroke-width="2" fill="none"/><circle cx="1000" cy="340" r="300" fill="none" stroke="#a6f3e4" stroke-opacity=".055" stroke-width="3"/></g>`
     : ''
   const styledComposition = r809 ? `<g filter="url(#r809-shadow)">${composition}</g>` : composition
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-r808-silent-role="${escapeXml(scene.silentRole || '')}" data-r808-hook-visible-first-frame="${scene.role === 'hook' && scene.motionType === 'highlight'}" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-label="${escapeXml(`${scene.role} scene`)}"><rect width="100%" height="100%" fill="${background}"/>${r809Depth}<text x="${x}" y="${safe.top + 70}" font-size="32" font-weight="600" fill="${foreground}">The Hippie Scientist</text>${headline}${highlight}${styledComposition}${ledgerSvg}<text x="${x}" y="${disclosureY}" font-size="24" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(disclosure)}</text><text x="${x}" y="${provenanceY}" font-size="22" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(sourceUrl)}</text><metadata>${escapeXml(metadata)}</metadata></svg>`
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-r808-silent-role="${escapeXml(scene.silentRole || '')}" data-r808-hook-visible-first-frame="${scene.role === 'hook' && scene.motionType === 'highlight'}" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-label="${escapeXml(`${scene.role} scene`)}"><rect width="100%" height="100%" fill="${background}"/>${r809Depth}<text x="${x}" data-em-role="brand" y="${safe.top + 70}" font-size="32" font-weight="600" fill="${foreground}">The Hippie Scientist</text>${headline}${highlight}${styledComposition}${ledgerSvg}<text x="${x}" data-em-role="disclosure" y="${disclosureY}" font-size="24" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(disclosure)}</text><text x="${x}" data-em-role="provenance" y="${provenanceY}" font-size="22" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(sourceUrl)}</text><metadata>${escapeXml(metadata)}</metadata></svg>`
+  assertNoDecorativeVideoChrome(svg)
   return { svg, width: canvas.width, height: canvas.height, hash: sha256(`${svg}\n`) }
 }
 
-export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir }) {
+export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir, rendererGeometryRecorder = null, nativeFrameRenderer = null }) {
+  // A new R8.17 quality lane is additive to the existing R8.10/R8.11
+  // science/voice pipeline; never replace that source of factual authority.
+  const r817Active = creativeSpec?.canonicalFirstPassRelease === 'R8.17'
+  if (r817Active !== Boolean(creativeSpec?.r817FirstPass)) {
+    throw Error('R8.17 first-pass quality intent/activation mismatch; no silent fallback to legacy render')
+  }
+  if (r817Active) {
+    assertR817FirstPass(creativeSpec.r817FirstPass, {
+      sourceUrl: mediaPack.source.url,
+      sourceContentHash: mediaPack.source.contentHash,
+    })
+    // New R8.18 lane only accepts physically rendered complete 30fps native
+    // frame sequences. No flat SVG stand-in for 3D, no static scene promotion.
+    if(typeof nativeFrameRenderer!=='function' || typeof rendererGeometryRecorder!=='function')
+      throw Error('R8.17 native 3D/2.5D cinematic renderer + physical geometry recorder required; no static SVG fallback')
+  }
   const dir = path.resolve(outputDir)
   fs.mkdirSync(dir, { recursive: true })
   const release = clean(creativeSpec?.systemRelease) || 'R8.04'
@@ -800,6 +821,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     ? buildTimelineR805(mediaPack, creativeSpec, dir)
     : { scenes: buildTimelineR804(mediaPack, creativeSpec), durationSeconds: 30, bindings: null }
   const { scenes, durationSeconds, bindings } = built
+  if (r817Active) assertR817SceneBinding(creativeSpec.r817FirstPass, scenes)
   if (creativeSpec.r812?.enabled === true) {
     if (creativeSpec.systemRelease !== 'R8.05'
       || creativeSpec.creativeMethodRelease !== 'R8.10'
@@ -974,6 +996,63 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     fs.writeFileSync(path.join(dir, 'r811-experiment-plan.json'), bytes)
     r811PlanSidecar = {file:'r811-experiment-plan.json',sha256:sha256(bytes)}
   }
+  let r818NativeFrameSidecar = null
+  if (r817Active) {
+    const result=nativeFrameRenderer({
+      outputDir:dir,scenes,assets,
+      canonicalFirstPassPlan:creativeSpec.r817FirstPass,
+      rendererCodeSha256,
+      sourceUrl:mediaPack.source.url,
+      sourceContentHash:mediaPack.source.contentHash
+    })
+    const frameFile=path.join(dir,'r818-native-frames.json')
+    if(result?.path!==frameFile||!fs.existsSync(frameFile))
+      throw Error('R8.18 native frame renderer did not create complete 30fps frame manifest')
+    const bytes=fs.readFileSync(frameFile)
+    const checked=verifyR818NativeFrames(dir,JSON.parse(bytes.toString('utf8')),scenes)
+    r818NativeFrameSidecar={file:'r818-native-frames.json',
+      sha256:sha256(bytes),nativeFrames:checked.frameCount}
+  }
+  let r818TelemetrySidecar = null
+  if (r817Active && rendererGeometryRecorder !== null) {
+    if(typeof rendererGeometryRecorder!=='function')
+      throw Error('R8.18 geometry recorder must be an actual native renderer callback')
+    const recorded=rendererGeometryRecorder({
+      outputDir:dir,assets,scenes,
+      rendererCodeSha256,
+      renderedSceneAssetsSha256:sha256(assets.map(a=>a.sha256).join('|')),
+      sourceManifestSha256:sha256(JSON.stringify({
+        sourceUrl:mediaPack.source.url,sourceContentHash:mediaPack.source.contentHash
+      })),
+      canonicalFirstPassPlan:creativeSpec.r817FirstPass
+    })
+    if(recorded?.path!==path.join(dir,'r818-telemetry.json'))
+      throw Error('R8.18 native recorder did not return actual canonical geometry sidecar')
+  }
+  if (r817Active) {
+    // Only actual SVG/3D renderer instrumentation can emit this file;
+    // never synthesize geometric motion from the approved storyboard.
+    const telemetryFile=path.join(dir,'r818-telemetry.json')
+    if (!fs.existsSync(telemetryFile)) throw Error('R8.18 renderer-native semantic telemetry missing; visual plan alone is not render proof')
+    const bytes=fs.readFileSync(telemetryFile)
+    const telemetry=JSON.parse(bytes.toString('utf8'))
+    const renderedSceneAssetsSha256=sha256(assets.map(a=>a.sha256).join('|'))
+    const sourceManifestSha256=sha256(JSON.stringify({sourceUrl:mediaPack.source.url,sourceContentHash:mediaPack.source.contentHash}))
+    if(telemetry.sourceManifestSha256!==sourceManifestSha256)
+      throw Error('R8.18 telemetry is bound to a different source manifest')
+    const checked=assertR818TelemetryBinding(creativeSpec.r817FirstPass,telemetry,{
+      rendererCodeSha256,renderedSceneAssetsSha256
+    })
+    r818TelemetrySidecar={file:'r818-telemetry.json',sha256:sha256(bytes),
+      checkedStatus:checked.status,framesChecked:checked.framesChecked,
+      rendererCodeSha256,renderedSceneAssetsSha256,sourceManifestSha256}
+  }
+  let r817Sidecar = null
+  if (r817Active) {
+    const exact = JSON.stringify(creativeSpec.r817FirstPass, null, 2) + '\n'
+    fs.writeFileSync(path.join(dir, 'r817-first-pass.json'), exact)
+    r817Sidecar = { file: 'r817-first-pass.json', sha256: sha256(exact) }
+  }
   const manifest = {
     schemaVersion: '1.1.0',
     release,
@@ -984,6 +1063,10 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     systemRelease: release,
     creativeMethodRelease: clean(creativeSpec?.creativeMethodRelease) || release,
     productionSystemRelease: creativeSpec.productionSystemRelease || null,
+    canonicalFirstPassRelease: r817Active ? 'R8.17' : null,
+    r817FirstPass: r817Sidecar,
+    r818Telemetry: r818TelemetrySidecar,
+    r818NativeFrames: r818NativeFrameSidecar,
     r812: creativeSpec.r812?.enabled === true ? { enabled: true, ctaUrl:clean(creativeSpec.r812.ctaUrl) } : null,
     r811Experiment: r811Bundle?.receipt ?? null,
     r811Plan: r811PlanSidecar,

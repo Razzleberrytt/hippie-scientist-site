@@ -1,0 +1,1079 @@
+{
+  "scope": "exhaustive-pinned-six-lane-serial-integration-read-only",
+  "base": "ecc249f5f460ca38be8850375b8b4f4a4d98b448",
+  "steps": [
+    {
+      "lane": "lane1",
+      "pr": 6840,
+      "head": "26d6735894aff0c0ce58e79bb037ea70f2944b61",
+      "exitCode": 0,
+      "tree": "b294381ea040eb3a14d1beb9a0847ace30a9b8c3"
+    },
+    {
+      "lane": "lane2",
+      "pr": 6844,
+      "head": "b1d6d0a16b28e498b9fde7a9eeb113040ed9176b",
+      "exitCode": 0,
+      "tree": "c835a3000d5cb28230cde71d3bfdb4f58e53b365"
+    },
+    {
+      "lane": "lane3",
+      "pr": 6831,
+      "head": "a3617e0b9dc2b0ec4847d4b98994109b80e173bf",
+      "exitCode": 0,
+      "tree": "fc3bde9f458a7ab45d11ceb7b2d8fd368cd13b66"
+    },
+    {
+      "lane": "lane4",
+      "pr": 6845,
+      "head": "cb5bb5dd45364fe60a370f00d13434054491992a",
+      "exitCode": 0,
+      "tree": "3eee9ea445d2fe49543e6cc71cdc01d80c818143"
+    },
+    {
+      "lane": "lane5",
+      "pr": 6846,
+      "head": "0da9c00f8d5b301dfd61dd669e3f2dca5db99c54",
+      "exitCode": 0,
+      "tree": "9a0477004dd5b8792bee15ac21c7607481ef8102"
+    },
+    {
+      "lane": "lane6",
+      "pr": 6847,
+      "head": "d4ed2a2eb9c701caae68604bc161b8c0772d9de0",
+      "exitCode": 0,
+      "tree": "0af00db278f31dbfd15298ac76582291224da14d"
+    }
+  ],
+  "combinedTree": "0af00db278f31dbfd15298ac76582291224da14d",
+  "combinedUnreferencedCommit": "8d30f733a9b15364bc1164d7c2199dc388a8e5c6",
+  "archiveSha256": "2922dc1e16ca0a41b1f81206a21048eaafb14d376be1bf23905d1da213087854",
+  "snapshot": "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-exhaustive-uff8cped",
+  "priorCombinedTree": "d2a9b70e81241fd8e876ad5fbafbed6e9b8cac2a",
+  "changedPathsSincePriorIntegration": [
+    "research/evidencemotion-director/EM00707-LATEST-REVISED-FILM-INTERNAL-SCIENCE-REDLINES-20261017.md",
+    "research/evidencemotion-director/EM00708-REAL-ARCHIVE-SCIENCE-HOLD-20261016.md",
+    "research/evidencemotion-director/lane3/SCENE4-CAMERA-RHYTHM-PHYSICAL-REVIEW-20261017.md",
+    "research/evidencemotion-director/lane3/SCENE4-SEQUENTIAL-PHONE-SAFE-RESEARCH-20261017.md",
+    "research/evidencemotion-director/lane3/SHOT5-MOBILE-SAFE-PHYSICAL-REPLAY-20261017.md",
+    "research/evidencemotion-director/lane3/decoded_craft_motion_review.py",
+    "research/evidencemotion-director/lane3/scene4_sequential_safe_research.py",
+    "research/evidencemotion-director/lane3/shot5_mobile_safe_research.py",
+    "research/evidencemotion-director/lane3/test_decoded_craft_motion_review.py",
+    "research/evidencemotion-director/lane3/test_scene4_camera_study.py",
+    "research/evidencemotion-director/lane3/test_scene4_sequential_safe_research.py",
+    "research/evidencemotion-director/lane3/test_shot5_mobile_safe_research.py",
+    "research/evidencemotion-director/lane5_candidate_scorecard.py",
+    "research/evidencemotion-director/lane6/CURRENT-HANDOFF.json",
+    "research/evidencemotion-director/lane6/README.md",
+    "research/evidencemotion-director/lane6/VALIDATION-20261016.md",
+    "research/evidencemotion-director/lane6/receipts/current-source-integration-20261017.json",
+    "research/evidencemotion-director/lane6/receipts/linux-complete-replay-guards-20261017.json",
+    "research/evidencemotion-director/lane6/receipts/linux-media-eight-test-followup-20261017.json",
+    "research/evidencemotion-director/lane6/receipts/revised-shot5-physical-receiver-20261017.json",
+    "research/evidencemotion-director/lane6/receipts/sequential-scene4-physical-receiver-20261017.json",
+    "research/evidencemotion-director/original_native_stdin_replay.py",
+    "research/evidencemotion-director/repeated_term_acoustic_guard.py",
+    "research/evidencemotion-director/science_reviewer_handoff.py",
+    "research/evidencemotion-director/test_lane5_candidate_scorecard.py",
+    "research/evidencemotion-director/test_native_stdin_capture_guard.py",
+    "research/evidencemotion-director/test_repeated_term_acoustic_guard.py",
+    "research/evidencemotion-director/test_science_reviewer_handoff.py"
+  ],
+  "testsSummary": {
+    "testsRun": 307,
+    "passed": 271,
+    "errorEvents": 20,
+    "failureEvents": 0,
+    "skipCount": 16
+  },
+  "supportedPlatformCoverage": {
+    "distinctPassedMethods": 307,
+    "distinctRemainingSkippedMethods": 0,
+    "remainingSkipIds": [],
+    "note": "307 distinct unchanged-source methods each pass on a declared supported runtime after original inputs recovered. This is a cross-platform union, not one307-method all-platform execution. Initial run exit1 remains; Windows scorecard owner patch is unadopted."
+  },
+  "postTestIntegrity": {
+    "pythonFilesByteIdenticalToPinnedTree": 180,
+    "exitCode": 0
+  },
+  "canonicalLane3Patch": {
+    "producerGitBlobBefore": "ce520eb23ec47b414b823d1a426445047fceadb1",
+    "producerGitBlobAtSelectedHead": "ce520eb23ec47b414b823d1a426445047fceadb1",
+    "currentApplyCheckExitCode": 0,
+    "priorProof": "lane3-windows-canonical-patch-proof.json",
+    "status": "OWNER_UNAPPLIED_SOURCE_BLOB_UNCHANGED",
+    "note": "No duplicate red/green execution on unchanged source. Inert existing patch still applies to selected owner head."
+  },
+  "launchCorrections": [
+    "Initial GitHub JSON subprocess decode used CP1252; reran as explicit UTF-8.",
+    "Windows font-specific suites failed Linux absolute font paths; reran unchanged on Linux after installing Pillow/fonts.",
+    "Ubuntu system RDKit lacks InChI; preserved errors, installed matching RDKit2025.09.4 binary wheel in isolated venv, then science suite38/38 passed."
+  ],
+  "linuxRuntime": {
+    "python": "3.12.3",
+    "pillow": "10.2.0",
+    "numpy": "1.26.4",
+    "rdkit": "2025.09.4 (PyPI binary wheel in local venv)",
+    "systemRdkitBoundary": "Ubuntu package lacks MolToInchiKey; its initial test errors preserved, not converted to product defect",
+    "fontPackage": "fonts-dejavu-core",
+    "binaryPath": "/home/devcontainers/.cache/evidencemotion-lane6-runtime/bin/python"
+  },
+  "boundary": "Read-only serial merge simulation and temporary tests. No owner branch/ref or code changes. Missing full original-media tests remain skips, not current film acceptance. Production build not rerun for access-only docs/inert owner-patch batch.",
+  "originalAudioBoundary": "All130 acoustic cases now run including16 original-dependent cases. Research HOLD and nonzero review CLI outcomes are expected tested behavior, not pronunciation or calibrated timing truth.",
+  "initialChecks": [
+    {
+      "module": "test_science_reviewer_handoff",
+      "runtime": "C:\\Users\\Will\\.codex\\worktrees\\evidencemotion-narration-audit\\hippie-scientist-site\\.local\\visual-runtime\\Scripts\\python.exe",
+      "command": [
+        "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+        "-B",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-isolated-suite-runner.py",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-exhaustive-uff8cped\\research\\evidencemotion-director",
+        "test_science_reviewer_handoff",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-suite-0.json",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-seen.json"
+      ],
+      "testsRun": 38,
+      "passed": 35,
+      "errorEvents": 3,
+      "failureEvents": 0,
+      "errorParentIds": [
+        "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_output_symlink_fails_before_mutating_source",
+        "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_cannot_overwrite_input_and_symlink_target",
+        "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_current_movie_alias_never_unlinks_source_before_validation"
+      ],
+      "skipCount": 0,
+      "skips": [],
+      "seconds": 0.734,
+      "exitCode": 1,
+      "logSha256": "1452b7e5cbe5ff57cd1eea383029c9920d6d7ed92fac32643428b2a81abf4e63",
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-suite-0.log",
+      "errorSummary": [
+        {
+          "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_cannot_overwrite_input_and_symlink_target",
+          "error": "OSError: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpc2fdog9t\\\\verified-gate.json' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpc2fdog9t\\\\output.json'"
+        },
+        {
+          "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_current_movie_alias_never_unlinks_source_before_validation",
+          "error": "OSError: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmp8a1kcdoi' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmp8a1kcdoi\\\\alias-directory'"
+        },
+        {
+          "test": "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_output_symlink_fails_before_mutating_source",
+          "error": "OSError: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmp4e6u7_pa\\\\source.json' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmp4e6u7_pa\\\\science-gate.json'"
+        }
+      ]
+    },
+    {
+      "module": "test_repeated_term_acoustic_guard",
+      "runtime": "C:\\Users\\Will\\.codex\\worktrees\\evidencemotion-narration-audit\\hippie-scientist-site\\.local\\visual-runtime\\Scripts\\python.exe",
+      "command": [
+        "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+        "-B",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-isolated-suite-runner.py",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-exhaustive-uff8cped\\research\\evidencemotion-director",
+        "test_repeated_term_acoustic_guard",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-suite-1.json",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-seen.json"
+      ],
+      "testsRun": 130,
+      "passed": 114,
+      "errorEvents": 0,
+      "failureEvents": 0,
+      "errorParentIds": [],
+      "skipCount": 16,
+      "skips": [
+        {
+          "test": "test_repeated_term_acoustic_guard.ActualArchivedSourceTests.test_actual_original_clip_substitution_is_a_physical_failure",
+          "reason": "Archived source audio absent from CI checkout; no fake original-media PASS"
+        },
+        {
+          "test": "test_repeated_term_acoustic_guard.ActualArchivedSourceTests.test_immutable_two_mitragynine_words_are_similar_not_certified",
+          "reason": "Archived source audio absent from CI checkout; no fake original-media PASS"
+        },
+        {
+          "test": "test_repeated_term_acoustic_guard.ActualArchivedSourceTests.test_valid_original_packet_exits_review_code_three_not_zero",
+          "reason": "Archived source audio absent from CI checkout; no fake original-media PASS"
+        },
+        {
+          "test": "test_repeated_term_acoustic_guard.ActualPoseConflictTests.test_cli_source_conflict_is_nonzero_even_when_pinned",
+          "reason": "Original complete WAV/MFA/ASR files unavailable in hosted checkout; no fake real-media PASS"
+        },
+        {
+          "test": "test_repeated_term_acoustic_guard.ActualPoseConflictTests.test_original_actual_pose_poles_conflict_is_review_hold",
+          "reason": "Original complete WAV/MFA/ASR files unavailable in hosted checkout; no fake real-media PASS"
+        },
+        {
+          "test": "test_repeated_term_acoustic_guard.ActualPoseConflictTests.test_real_source_word_alignment_or_asr_mutation_stays_hold",
+          "reason": "Original complete WAV/MFA/ASR files unavailable in hosted checkout; no fake real-media PASS"
+        },
+        {
+          "test": "test_repeated_term_acoustic_guard.ActualPoseInternalContrastTests.test_all_five_same_narrator_clips_source_sha_verified_without_phoneme_claim",
+          "reason": "Exact original media and model receipts absent from hosted CI; no fake controls PASS"
+        },
+        {
+          "test": "test_repeated_term_acoustic_guard.ActualPoseInternalContrastTests.test_changed_real_source_models_are_not_accepted_as_calibrated_evidence",
+          "reason": "Exact original media and model receipts absent from hosted CI; no fake controls PASS"
+        },
+        {
+          "test": "test_repeated_term_acoustic_guard.ActualPoseInternalContrastTests.test_cli_same_source_comparators_return_research_hold_exit_three",
+          "reason": "Exact original media and model receipts absent from hosted CI; no fake controls PASS"
+        },
+        {
+          "test": "test_repeated_term_acoustic_guard.OriginalMasterMfaTests.test_four_real_excerpts_bit_identical_and_repeat_controls_source_verified",
+          "reason": "Original SHA-pinned WAV + MFA inputs absent in CI; original-media proof NOT faked"
+        },
+        {
+          "test": "test_repeated_term_acoustic_guard.OriginalMasterMfaTests.test_real_alignment_modified_word_boundary_fails_before_clip_comparison",
+          "reason": "Original SHA-pinned WAV + MFA inputs absent in CI; original-media proof NOT faked"
+        },
+        {
+          "test": "test_repeated_term_acoustic_guard.OriginalMasterMfaTests.test_real_master_one_byte_mutation_fails_even_without_changed_mfa",
+          "reason": "Original SHA-pinned WAV + MFA inputs absent in CI; original-media proof NOT faked"
+        },
+        {
+          "test": "test_repeated_term_acoustic_guard.PhysicallyRecoveredOriginalPcmBlacklistTests.test_actual_original_pose_gain_changed_pcm_still_excluded",
+          "reason": "Original source WAV and MFA word windows unavailable in hosted checkout"
+        },
+        {
+          "test": "test_repeated_term_acoustic_guard.PhysicallyRecoveredOriginalPcmBlacklistTests.test_actual_original_rejects_trimmed_unlisted_pcm_window",
+          "reason": "Original source WAV and MFA word windows unavailable in hosted checkout"
+        },
+        {
+          "test": "test_repeated_term_acoustic_guard.PhysicallyRecoveredOriginalPcmBlacklistTests.test_nine_source_word_excerpts_rehash_to_exact_blacklist",
+          "reason": "Original source WAV and MFA word windows unavailable in hosted checkout"
+        },
+        {
+          "test": "test_repeated_term_acoustic_guard.PhysicallyRecoveredOriginalPcmBlacklistTests.test_original_pose_audio_rewrapped_with_new_wav_sha_is_excluded",
+          "reason": "Original source WAV and MFA word windows unavailable in hosted checkout"
+        }
+      ],
+      "seconds": 12.813,
+      "exitCode": 0,
+      "logSha256": "6fe6dba7de6bc899aa26874f42669b048f905ae2de90f9c78c0a704c1a986140",
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-suite-1.log",
+      "errorSummary": []
+    },
+    {
+      "module": "test_lane5_candidate_scorecard",
+      "runtime": "C:\\Users\\Will\\.codex\\worktrees\\evidencemotion-narration-audit\\hippie-scientist-site\\.local\\visual-runtime\\Scripts\\python.exe",
+      "command": [
+        "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+        "-B",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-isolated-suite-runner.py",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-exhaustive-uff8cped\\research\\evidencemotion-director",
+        "test_lane5_candidate_scorecard",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-suite-2.json",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-seen.json"
+      ],
+      "testsRun": 5,
+      "passed": 4,
+      "errorEvents": 1,
+      "failureEvents": 0,
+      "errorParentIds": [
+        "test_lane5_candidate_scorecard.Lane5ScorecardTests.test_all_research_flags_stay_false_even_when_screen_is_clear"
+      ],
+      "skipCount": 0,
+      "skips": [],
+      "seconds": 0.062,
+      "exitCode": 1,
+      "logSha256": "9ad941d13df13ce70f3511ff3e3cfa3d0602d295c996b0c18d2fac2f441579db",
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-suite-2.log",
+      "errorSummary": [
+        {
+          "test": "test_lane5_candidate_scorecard.Lane5ScorecardTests.test_all_research_flags_stay_false_even_when_screen_is_clear",
+          "error": "ValueError: LANE5_CANDIDATE_HOLD:FILE_CHANGED_DURING_REVIEW"
+        }
+      ]
+    },
+    {
+      "module": "test_decoded_craft_motion_review",
+      "runtime": "C:\\Users\\Will\\.codex\\worktrees\\evidencemotion-narration-audit\\hippie-scientist-site\\.local\\visual-runtime\\Scripts\\python.exe",
+      "command": [
+        "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+        "-B",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-isolated-suite-runner.py",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-exhaustive-uff8cped\\research\\evidencemotion-director",
+        "test_decoded_craft_motion_review",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-suite-3.json",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-seen.json"
+      ],
+      "testsRun": 12,
+      "passed": 12,
+      "errorEvents": 0,
+      "failureEvents": 0,
+      "errorParentIds": [],
+      "skipCount": 0,
+      "skips": [],
+      "seconds": 0.047,
+      "exitCode": 0,
+      "logSha256": "f872ca8c8c0acf9e560f2362f4d3ef366f9abc5bbbf4f207b25c6319c4f85d4a",
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-suite-3.log",
+      "errorSummary": []
+    },
+    {
+      "module": "test_scene4_camera_study",
+      "runtime": "C:\\Users\\Will\\.codex\\worktrees\\evidencemotion-narration-audit\\hippie-scientist-site\\.local\\visual-runtime\\Scripts\\python.exe",
+      "command": [
+        "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+        "-B",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-isolated-suite-runner.py",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-exhaustive-uff8cped\\research\\evidencemotion-director",
+        "test_scene4_camera_study",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-suite-4.json",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-seen.json"
+      ],
+      "testsRun": 9,
+      "passed": 3,
+      "errorEvents": 6,
+      "failureEvents": 0,
+      "errorParentIds": [
+        "test_scene4_camera_study.CameraStudyContract.test_content_never_bleeds_right_safe_strip",
+        "test_scene4_camera_study.CameraStudyContract.test_default_path_exact_optout",
+        "test_scene4_camera_study.CameraStudyContract.test_model_moves_without_header_motion",
+        "test_scene4_camera_study.CameraStudyContract.test_only_calculated_stage_receives_camera_motion",
+        "test_scene4_camera_study.CameraStudyContract.test_optin_legibility_and_native_bottom_padding",
+        "test_scene4_camera_study.CameraStudyContract.test_source_caveat_cue_remains_frame595"
+      ],
+      "skipCount": 0,
+      "skips": [],
+      "seconds": 0.031,
+      "exitCode": 1,
+      "logSha256": "1fc3b02c631c3062b7288a6543c1c5dac5ab3dcefc07af143d8e951c92409b4f",
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-suite-4.log",
+      "errorSummary": [
+        {
+          "test": "test_scene4_camera_study.CameraStudyContract.test_content_never_bleeds_right_safe_strip",
+          "error": "OSError: cannot open resource"
+        },
+        {
+          "test": "test_scene4_camera_study.CameraStudyContract.test_default_path_exact_optout",
+          "error": "OSError: cannot open resource"
+        },
+        {
+          "test": "test_scene4_camera_study.CameraStudyContract.test_model_moves_without_header_motion",
+          "error": "OSError: cannot open resource"
+        },
+        {
+          "test": "test_scene4_camera_study.CameraStudyContract.test_only_calculated_stage_receives_camera_motion",
+          "error": "OSError: cannot open resource"
+        },
+        {
+          "test": "test_scene4_camera_study.CameraStudyContract.test_optin_legibility_and_native_bottom_padding",
+          "error": "OSError: cannot open resource"
+        },
+        {
+          "test": "test_scene4_camera_study.CameraStudyContract.test_source_caveat_cue_remains_frame595",
+          "error": "OSError: cannot open resource"
+        }
+      ]
+    },
+    {
+      "module": "test_scene4_sequential_safe_research",
+      "runtime": "C:\\Users\\Will\\.codex\\worktrees\\evidencemotion-narration-audit\\hippie-scientist-site\\.local\\visual-runtime\\Scripts\\python.exe",
+      "command": [
+        "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+        "-B",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-isolated-suite-runner.py",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-exhaustive-uff8cped\\research\\evidencemotion-director",
+        "test_scene4_sequential_safe_research",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-suite-5.json",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-seen.json"
+      ],
+      "testsRun": 12,
+      "passed": 5,
+      "errorEvents": 7,
+      "failureEvents": 0,
+      "errorParentIds": [
+        "test_scene4_sequential_safe_research.SafeSequenceTest.test_2d_3d_science_art_not_redrawn",
+        "test_scene4_sequential_safe_research.SafeSequenceTest.test_caveat_strict_onset",
+        "test_scene4_sequential_safe_research.SafeSequenceTest.test_no_important_pixels_right_of_proxy_start",
+        "test_scene4_sequential_safe_research.SafeSequenceTest.test_optin_padding_keeps_existing_default_unchanged",
+        "test_scene4_sequential_safe_research.SafeSequenceTest.test_optin_padding_never_draws_in_right_exclusion",
+        "test_scene4_sequential_safe_research.SafeSequenceTest.test_optin_padding_preserves_actual_science_stage_pixels",
+        "test_scene4_sequential_safe_research.SafeSequenceTest.test_optin_padding_still_reveals_disclosure_only_at_cue"
+      ],
+      "skipCount": 0,
+      "skips": [],
+      "seconds": 0.031,
+      "exitCode": 1,
+      "logSha256": "66ee5489d322b1f255a169e5e830c7eb4962b5747f0eb201d53b6136a8d0c923",
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-suite-5.log",
+      "errorSummary": [
+        {
+          "test": "test_scene4_sequential_safe_research.SafeSequenceTest.test_2d_3d_science_art_not_redrawn",
+          "error": "OSError: cannot open resource"
+        },
+        {
+          "test": "test_scene4_sequential_safe_research.SafeSequenceTest.test_caveat_strict_onset",
+          "error": "OSError: cannot open resource"
+        },
+        {
+          "test": "test_scene4_sequential_safe_research.SafeSequenceTest.test_no_important_pixels_right_of_proxy_start",
+          "error": "OSError: cannot open resource"
+        },
+        {
+          "test": "test_scene4_sequential_safe_research.SafeSequenceTest.test_optin_padding_keeps_existing_default_unchanged",
+          "error": "OSError: cannot open resource"
+        },
+        {
+          "test": "test_scene4_sequential_safe_research.SafeSequenceTest.test_optin_padding_never_draws_in_right_exclusion",
+          "error": "OSError: cannot open resource"
+        },
+        {
+          "test": "test_scene4_sequential_safe_research.SafeSequenceTest.test_optin_padding_preserves_actual_science_stage_pixels",
+          "error": "OSError: cannot open resource"
+        },
+        {
+          "test": "test_scene4_sequential_safe_research.SafeSequenceTest.test_optin_padding_still_reveals_disclosure_only_at_cue",
+          "error": "OSError: cannot open resource"
+        }
+      ]
+    },
+    {
+      "module": "test_shot5_mobile_safe_research",
+      "runtime": "C:\\Users\\Will\\.codex\\worktrees\\evidencemotion-narration-audit\\hippie-scientist-site\\.local\\visual-runtime\\Scripts\\python.exe",
+      "command": [
+        "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+        "-B",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-isolated-suite-runner.py",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-exhaustive-uff8cped\\research\\evidencemotion-director",
+        "test_shot5_mobile_safe_research",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-suite-6.json",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-seen.json"
+      ],
+      "testsRun": 6,
+      "passed": 3,
+      "errorEvents": 3,
+      "failureEvents": 0,
+      "errorParentIds": [
+        "test_shot5_mobile_safe_research.Shot5PhoneSafeTests.test_actual_source_atom_pixels_are_copied_one_to_one",
+        "test_shot5_mobile_safe_research.Shot5PhoneSafeTests.test_nominal_right_strip_no_critical_new_art",
+        "test_shot5_mobile_safe_research.Shot5PhoneSafeTests.test_overlay_is_transparent_outside_owned_scene_region"
+      ],
+      "skipCount": 0,
+      "skips": [],
+      "seconds": 1.922,
+      "exitCode": 1,
+      "logSha256": "19044a6557feecb0ef431f8937a29093deae50097561c5b2a574990f23b10ad1",
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-exhaustive-suite-6.log",
+      "errorSummary": [
+        {
+          "test": "test_shot5_mobile_safe_research.Shot5PhoneSafeTests.test_actual_source_atom_pixels_are_copied_one_to_one",
+          "error": "OSError: cannot open resource"
+        },
+        {
+          "test": "test_shot5_mobile_safe_research.Shot5PhoneSafeTests.test_nominal_right_strip_no_critical_new_art",
+          "error": "OSError: cannot open resource"
+        },
+        {
+          "test": "test_shot5_mobile_safe_research.Shot5PhoneSafeTests.test_overlay_is_transparent_outside_owned_scene_region",
+          "error": "OSError: cannot open resource"
+        }
+      ]
+    },
+    {
+      "module": "test_native_stdin_capture_guard",
+      "runtime": "/usr/bin/python3",
+      "command": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--exec",
+        "python3",
+        "-B",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-isolated-suite-runner.py",
+        "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-exhaustive-uff8cped/research/evidencemotion-director",
+        "test_native_stdin_capture_guard",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-exhaustive-suite-7.json",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-exhaustive-seen.json"
+      ],
+      "testsRun": 95,
+      "passed": 95,
+      "errorEvents": 0,
+      "failureEvents": 0,
+      "errorParentIds": [],
+      "skipCount": 0,
+      "skips": [],
+      "seconds": 3.098,
+      "exitCode": 0,
+      "logSha256": "7fa6ceea6136c9f52fefc4c162457955a0a6638b4d192a15b36adba49b8538f7",
+      "log": "/mnt/c/Users/Will/AppData/Local/Temp/lane6-exhaustive-suite-7.log",
+      "errorSummary": []
+    }
+  ],
+  "linuxPlatformFollowups": [
+    {
+      "module": "test_science_reviewer_handoff",
+      "runtime": "/usr/bin/python3",
+      "command": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--exec",
+        "python3",
+        "-B",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-isolated-suite-runner.py",
+        "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-exhaustive-uff8cped/research/evidencemotion-director",
+        "test_science_reviewer_handoff",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-platform-followup-0.json",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-empty-seen.json"
+      ],
+      "testsRun": 1,
+      "passed": 0,
+      "errorEvents": 1,
+      "failureEvents": 0,
+      "errorParentIds": [
+        "unittest.loader._FailedTest.test_science_reviewer_handoff"
+      ],
+      "skipCount": 0,
+      "skips": [],
+      "seconds": 0.006,
+      "exitCode": 1,
+      "logSha256": "5d72211e11aa77f8e0d5058741e93e8f8f8e6c684bea2430126ae528f4a6a3e5",
+      "log": "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-platform-followup-0.log",
+      "errorSummary": [
+        {
+          "test": "unittest.loader._FailedTest.test_science_reviewer_handoff",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "module": "test_lane5_candidate_scorecard",
+      "runtime": "/usr/bin/python3",
+      "command": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--exec",
+        "python3",
+        "-B",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-isolated-suite-runner.py",
+        "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-exhaustive-uff8cped/research/evidencemotion-director",
+        "test_lane5_candidate_scorecard",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-platform-followup-1.json",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-empty-seen.json"
+      ],
+      "testsRun": 5,
+      "passed": 5,
+      "errorEvents": 0,
+      "failureEvents": 0,
+      "errorParentIds": [],
+      "skipCount": 0,
+      "skips": [],
+      "seconds": 0.012,
+      "exitCode": 0,
+      "logSha256": "cd27ade9104620bbc7b9fda37f5643a614626f5990f6e16e9a4db120770e1b8c",
+      "log": "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-platform-followup-1.log",
+      "errorSummary": []
+    },
+    {
+      "module": "test_scene4_camera_study",
+      "runtime": "/usr/bin/python3",
+      "command": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--exec",
+        "python3",
+        "-B",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-isolated-suite-runner.py",
+        "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-exhaustive-uff8cped/research/evidencemotion-director",
+        "test_scene4_camera_study",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-platform-followup-2.json",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-empty-seen.json"
+      ],
+      "testsRun": 9,
+      "passed": 9,
+      "errorEvents": 0,
+      "failureEvents": 0,
+      "errorParentIds": [],
+      "skipCount": 0,
+      "skips": [],
+      "seconds": 0.428,
+      "exitCode": 0,
+      "logSha256": "22f408ec06681e35836b203d475226ce183d277dfed0837ed07874e96e0116a5",
+      "log": "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-platform-followup-2.log",
+      "errorSummary": []
+    },
+    {
+      "module": "test_scene4_sequential_safe_research",
+      "runtime": "/usr/bin/python3",
+      "command": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--exec",
+        "python3",
+        "-B",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-isolated-suite-runner.py",
+        "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-exhaustive-uff8cped/research/evidencemotion-director",
+        "test_scene4_sequential_safe_research",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-platform-followup-3.json",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-empty-seen.json"
+      ],
+      "testsRun": 12,
+      "passed": 12,
+      "errorEvents": 0,
+      "failureEvents": 0,
+      "errorParentIds": [],
+      "skipCount": 0,
+      "skips": [],
+      "seconds": 0.213,
+      "exitCode": 0,
+      "logSha256": "c8a7772521bff3076def36659b431248cd36d2e797d7f9db0f9bb3babf0849ae",
+      "log": "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-platform-followup-3.log",
+      "errorSummary": []
+    },
+    {
+      "module": "test_shot5_mobile_safe_research",
+      "runtime": "/usr/bin/python3",
+      "command": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--exec",
+        "python3",
+        "-B",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-isolated-suite-runner.py",
+        "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-exhaustive-uff8cped/research/evidencemotion-director",
+        "test_shot5_mobile_safe_research",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-platform-followup-4.json",
+        "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-empty-seen.json"
+      ],
+      "testsRun": 6,
+      "passed": 6,
+      "errorEvents": 0,
+      "failureEvents": 0,
+      "errorParentIds": [],
+      "skipCount": 0,
+      "skips": [],
+      "seconds": 1.647,
+      "exitCode": 0,
+      "logSha256": "a3c21f56f93cd77313ef865bb16ee335951d87d980cc4df2a089f6033f04da48",
+      "log": "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-platform-followup-4.log",
+      "errorSummary": []
+    }
+  ],
+  "linuxSystemRdkitFailure": {
+    "module": "test_science_reviewer_handoff",
+    "runtime": "/usr/bin/python3",
+    "command": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--exec",
+      "python3",
+      "-B",
+      "/mnt/c/Users/Will/AppData/Local/Temp/lane6-isolated-suite-runner.py",
+      "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-exhaustive-uff8cped/research/evidencemotion-director",
+      "test_science_reviewer_handoff",
+      "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-science-rdkit-followup.json",
+      "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-empty-seen.json"
+    ],
+    "testsRun": 38,
+    "passed": 0,
+    "errorEvents": 38,
+    "failureEvents": 0,
+    "errorParentIds": [
+      "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_actual_cli_writes_three_real_parent_sha_receipts_and_holds",
+      "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_all_eight_claims_keep_machine_receipt_and_open_holds",
+      "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_clinical_upgrades_in_any_parent_cannot_issue_attestation",
+      "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_duplicate_source_key_and_alias_path_are_rejected",
+      "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_failed_atomic_rename_leaves_no_report_or_temp",
+      "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_failed_second_cli_run_removes_stale_science_receipt",
+      "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_missing_or_reordered_claims_refused",
+      "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_output_symlink_fails_before_mutating_source",
+      "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_process_digest_detects_changed_hold_or_film",
+      "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_rehashed_claim_id_missing_reviewer_hold_or_extra_scope_refused",
+      "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_rehashed_process_report_still_cannot_self_approve",
+      "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_wrong_parent_sha_or_stale_uncertainty_fails",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_cannot_overwrite_input_and_symlink_target",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_cli_current_film_emits_provisional_unapproved_distinct_intake",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_cli_emits_open_review_and_fails_closed_on_bad_next_run",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_current_movie_alias_never_unlinks_source_before_validation",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_current_render_intake_refuses_changed_actual_film_bytes",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_current_render_intake_rejects_rehashed_claim_review_approval",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_current_render_packet_binds_real_other_h264_identity_and_holds",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_eight_original_wav_windows_are_precisely_film_frame_bounded",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_frozen_spoken_ledger_alias_cannot_destroy_original_source",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_gate_hardlink_alias_rejected_before_report_cleanup",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_handoff_is_exactly_eight_claims_with_no_fake_review",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_human_axes_are_requested_without_implying_no_trials_exist",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_incomplete_frame_render_refuses_and_leaves_no_approved_manifest",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_known_original_no_reaction_ocr_risk_never_self_approves",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_mocked_png_extraction_has_exact_eight_original_claim_ids",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_modified_frozen_wav_timing_or_claim_id_cannot_rehash_to_review",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_no_reaction_ocr_risk_refuses_false_or_absent_source_wording",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_no_reaction_ocr_risk_rejects_rehashed_swapped_or_preapproved_frame",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_real_review_images_refuse_any_substituted_fake_film",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_real_review_images_refuse_rehashed_forged_review_packet",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_rehashed_fabricated_review_or_source_swap_never_approves",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_rehashed_source_gate_publishing_claim_refused",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_rehashed_time_window_or_original_media_claim_cannot_self_approve",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_temporal_no_reaction_refuses_missing_one_selected_frame",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_temporal_no_reaction_refuses_ocr_without_source_phrase",
+      "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_temporal_no_reaction_requires_actual_archived_h264"
+    ],
+    "skipCount": 0,
+    "skips": [],
+    "seconds": 0.542,
+    "exitCode": 1,
+    "logSha256": "f16690cbb56fe86973ed5ba049f24b8ca04f99c9440e67adadc49f2ff02c21b0",
+    "log": "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-science-rdkit-followup.log",
+    "errorSummary": [
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_cannot_overwrite_input_and_symlink_target",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_cli_current_film_emits_provisional_unapproved_distinct_intake",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_cli_emits_open_review_and_fails_closed_on_bad_next_run",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_current_movie_alias_never_unlinks_source_before_validation",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_current_render_intake_refuses_changed_actual_film_bytes",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_current_render_intake_rejects_rehashed_claim_review_approval",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_current_render_packet_binds_real_other_h264_identity_and_holds",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_eight_original_wav_windows_are_precisely_film_frame_bounded",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_frozen_spoken_ledger_alias_cannot_destroy_original_source",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_gate_hardlink_alias_rejected_before_report_cleanup",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_handoff_is_exactly_eight_claims_with_no_fake_review",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_human_axes_are_requested_without_implying_no_trials_exist",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_incomplete_frame_render_refuses_and_leaves_no_approved_manifest",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_known_original_no_reaction_ocr_risk_never_self_approves",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_mocked_png_extraction_has_exact_eight_original_claim_ids",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_modified_frozen_wav_timing_or_claim_id_cannot_rehash_to_review",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_no_reaction_ocr_risk_refuses_false_or_absent_source_wording",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_no_reaction_ocr_risk_rejects_rehashed_swapped_or_preapproved_frame",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_real_review_images_refuse_any_substituted_fake_film",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_real_review_images_refuse_rehashed_forged_review_packet",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_rehashed_fabricated_review_or_source_swap_never_approves",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_rehashed_source_gate_publishing_claim_refused",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_rehashed_time_window_or_original_media_claim_cannot_self_approve",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_temporal_no_reaction_refuses_missing_one_selected_frame",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_temporal_no_reaction_refuses_ocr_without_source_phrase",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_reviewer_handoff.IndependentScienceIntakeTests.test_temporal_no_reaction_requires_actual_archived_h264",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_actual_cli_writes_three_real_parent_sha_receipts_and_holds",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_all_eight_claims_keep_machine_receipt_and_open_holds",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_clinical_upgrades_in_any_parent_cannot_issue_attestation",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_duplicate_source_key_and_alias_path_are_rejected",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_failed_atomic_rename_leaves_no_report_or_temp",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_failed_second_cli_run_removes_stale_science_receipt",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_missing_or_reordered_claims_refused",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_output_symlink_fails_before_mutating_source",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_process_digest_detects_changed_hold_or_film",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_rehashed_claim_id_missing_reviewer_hold_or_extra_scope_refused",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_rehashed_process_report_still_cannot_self_approve",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      },
+      {
+        "test": "test_science_gate_process_attestation.ScienceGateProcessAttestationTests.test_wrong_parent_sha_or_stale_uncertainty_fails",
+        "error": "AttributeError: module 'rdkit.Chem' has no attribute 'MolToInchiKey'"
+      }
+    ]
+  },
+  "linuxCompleteRdkitFollowup": {
+    "module": "test_science_reviewer_handoff",
+    "runtime": "/home/devcontainers/.cache/evidencemotion-lane6-runtime/bin/python",
+    "command": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--exec",
+      "/home/devcontainers/.cache/evidencemotion-lane6-runtime/bin/python",
+      "-B",
+      "/mnt/c/Users/Will/AppData/Local/Temp/lane6-isolated-suite-runner.py",
+      "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-exhaustive-uff8cped/research/evidencemotion-director",
+      "test_science_reviewer_handoff",
+      "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-science-wheel-followup.json",
+      "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-empty-seen.json"
+    ],
+    "testsRun": 38,
+    "passed": 38,
+    "errorEvents": 0,
+    "failureEvents": 0,
+    "errorParentIds": [],
+    "skipCount": 0,
+    "skips": [],
+    "seconds": 1.542,
+    "exitCode": 0,
+    "logSha256": "072a23500e448456a4aa586fb12cae168b4ad0ecf1207b82fa62ab5a478bf003",
+    "log": "/mnt/c/Users/Will/AppData/Local/Temp/lane6-linux-science-wheel-followup.log",
+    "errorSummary": []
+  },
+  "windowsScorecardRechecks": [
+    {
+      "module": "test_lane5_candidate_scorecard",
+      "runtime": "C:\\Users\\Will\\.codex\\worktrees\\evidencemotion-narration-audit\\hippie-scientist-site\\.local\\visual-runtime\\Scripts\\python.exe",
+      "command": [
+        "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+        "-B",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-isolated-suite-runner.py",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-exhaustive-uff8cped\\research\\evidencemotion-director",
+        "test_lane5_candidate_scorecard",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-windows-scorecard-recheck-0.json",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-linux-empty-seen.json"
+      ],
+      "testsRun": 5,
+      "passed": 2,
+      "errorEvents": 2,
+      "failureEvents": 1,
+      "errorParentIds": [
+        "test_lane5_candidate_scorecard.Lane5ScorecardTests.test_all_research_flags_stay_false_even_when_screen_is_clear",
+        "test_lane5_candidate_scorecard.Lane5ScorecardTests.test_duplicate_json_keys_and_cross_film_screen_are_never_accepted",
+        "test_lane5_candidate_scorecard.Lane5ScorecardTests.test_external_original_wav_pin_required"
+      ],
+      "skipCount": 0,
+      "skips": [],
+      "seconds": 0.047,
+      "exitCode": 1,
+      "logSha256": "6011f1e485ae08efb6f5fe027dd3bc79241dd65fc99bbfe7101835de65767c99",
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-windows-scorecard-recheck-0.log",
+      "errorSummary": [
+        {
+          "test": "test_lane5_candidate_scorecard.Lane5ScorecardTests.test_all_research_flags_stay_false_even_when_screen_is_clear",
+          "error": "ValueError: LANE5_CANDIDATE_HOLD:FILE_CHANGED_DURING_REVIEW"
+        },
+        {
+          "test": "test_lane5_candidate_scorecard.Lane5ScorecardTests.test_external_original_wav_pin_required",
+          "error": "ValueError: LANE5_CANDIDATE_HOLD:FILE_CHANGED_DURING_REVIEW"
+        },
+        {
+          "test": "test_lane5_candidate_scorecard.Lane5ScorecardTests.test_duplicate_json_keys_and_cross_film_screen_are_never_accepted",
+          "error": "AssertionError: \"INVALID_JSON\" does not match \"LANE5_CANDIDATE_HOLD:FILE_CHANGED_DURING_REVIEW\""
+        }
+      ]
+    },
+    {
+      "module": "test_lane5_candidate_scorecard",
+      "runtime": "C:\\Users\\Will\\.codex\\worktrees\\evidencemotion-narration-audit\\hippie-scientist-site\\.local\\visual-runtime\\Scripts\\python.exe",
+      "command": [
+        "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+        "-B",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-isolated-suite-runner.py",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-exhaustive-uff8cped\\research\\evidencemotion-director",
+        "test_lane5_candidate_scorecard",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-windows-scorecard-recheck-1.json",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-linux-empty-seen.json"
+      ],
+      "testsRun": 5,
+      "passed": 4,
+      "errorEvents": 1,
+      "failureEvents": 0,
+      "errorParentIds": [
+        "test_lane5_candidate_scorecard.Lane5ScorecardTests.test_all_research_flags_stay_false_even_when_screen_is_clear"
+      ],
+      "skipCount": 0,
+      "skips": [],
+      "seconds": 0.062,
+      "exitCode": 1,
+      "logSha256": "fb8a4c80e2cf058b7fe5670eff85e82bacf36547e19542cb992fd5324aa261ea",
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-windows-scorecard-recheck-1.log",
+      "errorSummary": [
+        {
+          "test": "test_lane5_candidate_scorecard.Lane5ScorecardTests.test_all_research_flags_stay_false_even_when_screen_is_clear",
+          "error": "ValueError: LANE5_CANDIDATE_HOLD:FILE_CHANGED_DURING_REVIEW"
+        }
+      ]
+    },
+    {
+      "module": "test_lane5_candidate_scorecard",
+      "runtime": "C:\\Users\\Will\\.codex\\worktrees\\evidencemotion-narration-audit\\hippie-scientist-site\\.local\\visual-runtime\\Scripts\\python.exe",
+      "command": [
+        "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+        "-B",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-isolated-suite-runner.py",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-exhaustive-uff8cped\\research\\evidencemotion-director",
+        "test_lane5_candidate_scorecard",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-windows-scorecard-recheck-2.json",
+        "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-linux-empty-seen.json"
+      ],
+      "testsRun": 5,
+      "passed": 3,
+      "errorEvents": 2,
+      "failureEvents": 0,
+      "errorParentIds": [
+        "test_lane5_candidate_scorecard.Lane5ScorecardTests.test_all_research_flags_stay_false_even_when_screen_is_clear",
+        "test_lane5_candidate_scorecard.Lane5ScorecardTests.test_external_original_wav_pin_required"
+      ],
+      "skipCount": 0,
+      "skips": [],
+      "seconds": 0.031,
+      "exitCode": 1,
+      "logSha256": "7120d45461d234c4c913f0f1feaf185d71ce08c91782e5d4450c4882a0f58263",
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-windows-scorecard-recheck-2.log",
+      "errorSummary": [
+        {
+          "test": "test_lane5_candidate_scorecard.Lane5ScorecardTests.test_all_research_flags_stay_false_even_when_screen_is_clear",
+          "error": "ValueError: LANE5_CANDIDATE_HOLD:FILE_CHANGED_DURING_REVIEW"
+        },
+        {
+          "test": "test_lane5_candidate_scorecard.Lane5ScorecardTests.test_external_original_wav_pin_required",
+          "error": "ValueError: LANE5_CANDIDATE_HOLD:FILE_CHANGED_DURING_REVIEW"
+        }
+      ]
+    }
+  ],
+  "recoveredOriginalAudioSuite": {
+    "module": "test_repeated_term_acoustic_guard",
+    "runtime": "C:\\Users\\Will\\.codex\\worktrees\\evidencemotion-narration-audit\\hippie-scientist-site\\.local\\visual-runtime\\Scripts\\python.exe",
+    "command": [
+      "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+      "-B",
+      "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-isolated-suite-runner.py",
+      "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-exhaustive-uff8cped\\research\\evidencemotion-director",
+      "test_repeated_term_acoustic_guard",
+      "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-original-audio-complete-suite.json",
+      "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-linux-empty-seen.json"
+    ],
+    "testsRun": 130,
+    "passed": 130,
+    "errorEvents": 0,
+    "failureEvents": 0,
+    "errorParentIds": [],
+    "skipCount": 0,
+    "skips": [],
+    "seconds": 14.75,
+    "exitCode": 0,
+    "logSha256": "f511141ed8cf0fcb858bb20e3a613cd7fb6898c5c1521492a4e5a308ecebb738",
+    "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-original-audio-complete-suite.log",
+    "errorSummary": [],
+    "sourceInputs": {
+      "EM_LANE2_ORIGINAL_WAV": {
+        "path": "C:/Users/Will/.codex/attachments/lane6-revised-receiver-07e808e3/sources/original_narration.wav",
+        "sha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435"
+      },
+      "EM_LANE2_MFA_RECEIPT": {
+        "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-original-audio-guard-recovery\\pinned-recovered\\mfa-receipt.json",
+        "sha256": "1b27276bfed4134ad8d2becd9b782fb7072ff2e88943da1776c8b1c99094e371"
+      },
+      "EM_LANE2_MFA_ALIGNMENT": {
+        "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-original-audio-guard-recovery\\pinned-recovered\\mfa-alignment.json",
+        "sha256": "a034f00c4fdffaa3574058093e506f184c6b347a5b5561556005c28ec86db626"
+      },
+      "EM_LANE2_ASR_RECEIPT": {
+        "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-original-audio-guard-recovery\\asr-research-receipt.json",
+        "sha256": "87a9c5fd757f269967dfc751ea322f8b33e774b9c0a41016f94e90b6b829cdaa"
+      },
+      "EM_LANE2_PREVIOUS_PACKET": {
+        "path": "C:\\Users\\Will\\Downloads\\EvidenceMotion_Lane2_Term_Provenance_and_ASR_Triage.zip",
+        "sha256": "e5c28e40e1c8c424f0ec6924e79a6d9b10b68f91ab038bd026734c858411cbf1"
+      }
+    },
+    "sourceRecovery": {
+      "mfaArtifact": 12050024032,
+      "asrArtifact": 12049743937,
+      "mfaAlignmentHash": "a034f00c4fdffaa3574058093e506f184c6b347a5b5561556005c28ec86db626",
+      "firstMfaRunReceiptRejected": "213c72e4... did not match pinned1b27276b; recovered exact receipt from owner Library OriginalWAV_MFA_Review.zip, no reconstruction",
+      "mfaLibraryArchiveSha256": "383c545fd5705148c101bb52ace2b018c53875229a44d78a2e0e82fa61a310b8",
+      "originalPacketZipCrc": "PASS"
+    }
+  },
+  "mayPublish": false,
+  "newAtomicCards": 0
+}

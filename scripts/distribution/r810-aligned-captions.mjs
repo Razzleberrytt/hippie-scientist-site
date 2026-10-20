@@ -28,7 +28,7 @@ export function buildR810AlignedCues(scenes,words){
       const split=Math.min(3,chunk.length)
       const lines=chunk.length<=4?[chunk.map(x=>x.word).join(' ')]:[chunk.slice(0,split).map(x=>x.word).join(' '),chunk.slice(split).map(x=>x.word).join(' ')]
       if(lines.some(line=>line.length>45))throw Error('R8.10 caption line exceeds safe width; revise narration')
-      cues.push({start:first.time.start,end:last.time.end,beatId:scene.beatId,text:lines.join('\n')})
+      cues.push({start:first.time.start,end:last.time.end,beatId:scene.beatId,text:lines.join('\n'),words:chunk.map(x=>({word:x.word,start:Number(x.time.start),end:Number(x.time.end)})),lineBreakAfterWord:chunk.length>4?split:null})
       chunk=[]
     }
     for(let i=0;i<lexemes.length;i++){
@@ -58,4 +58,45 @@ export function renderR810AlignedCaptionTracks(scenes,words){
     return 'Dialogue: 0,'+stamp(c.start,true)+','+stamp(c.end,true)+',THS,,0,0,0,,'+c.text.replace(/\n/g,'\\N')
   })
   return {srt,ass:[...header,...lines,''].join('\n'),cueCount:cues.length}
+}
+
+
+// R8.17 renders the existing reviewed MFA word timing directly into the
+// canonical MP4 via ASS karaoke; phrase-only flashes are not a fallback.
+// ASS \k changes from secondary/unhighlighted to primary/highlighted at
+// each verified acoustic word onset. No provider credits or timing guesses.
+export function renderR817ProgressiveWordCaptions(scenes, alignedWords) {
+  const cues=buildR810AlignedCues(scenes,alignedWords)
+  const header=[
+    '[Script Info]','ScriptType: v4.00+','PlayResX: 1080','PlayResY: 1920',
+    'WrapStyle: 2','ScaledBorderAndShadow: yes','',
+    '[V4+ Styles]',
+    'Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding',
+    // ASS colours are BBGGRR: foreground white, pending words muted teal-grey.
+    'Style: THSKaraoke,DejaVu Sans,58,&H00FFFFFF,&H00B6C4BF,&HAA0A1320,&H99000000,-1,0,0,0,100,100,0,0,1,4,1,2,140,140,440,1','',
+    '[Events]','Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text',
+  ]
+  let count=0
+  const lines=cues.map(cue=>{
+    if(!Array.isArray(cue.words)||!cue.words.length) throw Error('R8.17 word-level captions cannot use phrase-only timing')
+    if(cue.words.some(w=>/[{}\\]/.test(w.word)))throw Error('R8.17 unsafe caption markup in source word')
+    let text=''
+    for(let i=0;i<cue.words.length;i++){
+      const word=cue.words[i],next=cue.words[i+1]
+      const duration=Math.round(((next?next.start:cue.end)-word.start)*100)
+      if(!Number.isFinite(duration)||duration<8)throw Error('R8.17 imperceptible karaoke word (minimum 8 centiseconds)')
+      // Explicit per-word progression. The last word of a line owns the linebreak.
+      text+='{'+'\\k'+duration+'}'+word.word
+      if(cue.lineBreakAfterWord===i+1)text+='\\N'
+      else if(next)text+=' '
+      count++
+    }
+    return 'Dialogue: 0,'+stamp(cue.start,true)+','+stamp(cue.end,true)+',THSKaraoke,,0,0,0,,'+text
+  })
+  if(count!==alignedWords.length) throw Error('R8.17 progressive captions omitted an acoustic word')
+  const ass=[...header,...lines,''].join('\n')
+  if(lines.some(line=>!line.includes('{\\k')))throw Error('R8.17 phrase-flash caption found')
+  return {ass,srt:renderR810AlignedCaptionTracks(scenes,alignedWords).srt,
+    wordCount:count,cueCount:cues.length,mode:'mfa-acoustic-progressive-word',
+    phraseFlashFallback:false,cues}
 }

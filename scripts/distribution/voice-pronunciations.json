@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "ths-voice-pronunciation-lexicon-v1",
+  "language": "en-US",
+  "entries": [
+    {
+      "term": "kratom",
+      "spokenAs": "craytum",
+      "reading": "KRAY-tum",
+      "authority": "owner-preference",
+      "source": "Owner directive, 2026-10-12"
+    },
+    {
+      "term": "mitragynine",
+      "spokenAs": "mitragynine",
+      "reading": "mih-TRA-juh-neen",
+      "authority": "owner-feedback-native-fallback",
+      "source": "https://www.merriam-webster.com/dictionary/mitragynine",
+      "note": "Restore continuous native articulation; hyphenated respelling rejected by owner for choppy syllables. Alternative single-token spellings require audition."
+    }
+  ]
+}

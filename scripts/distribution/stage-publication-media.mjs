@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { assertMobilePlaybackReceipt } from './evidencemotion-delivery-guardrails.mjs'
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import { validateR808HudReview } from './r808-hud-inspection.mjs'
@@ -137,6 +138,8 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
   if (receipt.profile?.audio !== true || clean(receipt.profile?.audioCodec) !== 'aac') {
     throw new Error('R8.04 publication staging rejects silent vertical video')
   }
+  // Check the exact decoded, stereo mobile-delivery receipt, not merely AAC presence.
+  assertMobilePlaybackReceipt(receipt.profile)
   if (clean(receipt.localNarration?.engineKind) !== 'local-open-source' || receipt.localNarration?.meteredCreditsRequired !== false) {
     throw new Error('R8.04 publication staging requires zero-credit local narration provenance')
   }

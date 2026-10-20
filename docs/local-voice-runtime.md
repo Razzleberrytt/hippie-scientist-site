@@ -16,6 +16,48 @@ Prerequisites:
 - packages in `scripts/distribution/requirements-local-voice.txt`
 - verified `THS_VOICE_VAULT` pointing to the restored original ONNX model/voicebank and manifest (see `docs/voice-model-vault.md`)
 
+## Scientific term pronunciation (spoken audio only)
+
+The governed house narrator applies `scripts/distribution/voice-pronunciations.json`
+through `voice_pronunciation.py` immediately before Kokoro synthesis. The
+source script, scientific spelling, on-screen captions, article text and
+word-alignment transcript **must not** be rewritten to phonetic approximations.
+
+Initial entries (October 12, 2026):
+- `kratom` → "craytum" (owner-selected English reading: KRAY-tum).
+- `mitragynine` → **native Kokoro spelling** (`mitragynine`) after owner rejected
+  syllable-split phonetic input. Target dictionary stress is mi-TRA-juh-neen,
+  https://www.merriam-webster.com/dictionary/mitragynine. A new one-token alias
+  must be auditioned before replacing native synthesis.
+
+To add another term, append a unique, lowercase canonical term, a TTS-friendly
+`spokenAs`, readable `reading`, and a credible `source` to the lexicon.
+Never encode pronunciation guides with hyphens into `spokenAs`: these have
+produced artificial syllable separation in the house voice. Whole-word natural
+readings are preferred; audition candidates side-by-side. Override whole terms only; related compounds (such as
+`7-hydroxymitragynine`) need their own verified entries rather than unsafe
+substring edits. If the dictionary is corrupt or missing, synthesis stops.
+
+Narration receipts include the lexicon SHA-256, version, and a
+`humanAuditoryReview: required` marker. Text replacements are only a first
+pass: produce a short pronunciation probe using the pinned `am_michael`
+voice, **listen** to the exact rendered WAV, check stress and natural pacing,
+and leave the audio unapproved until it sounds right. Any phonetic alias that
+sounds stilted must be iterated before publication. Audio changes alter beat
+timings; regenerate alignment, captions/timing receipts and the final MP4
+from the corrected WAV. Do not rubber-stamp previously approved audio.
+
+For R8.10 Montreal Forced Aligner, keep canonical words in the alignment
+transcript and ensure its acoustic pronunciation dictionary reflects the
+reviewed reading; do not pass the phonetic TTS alias as visible text. If
+word alignment cannot be validated, block the final release.
+
+Run lexical contract tests with:
+
+```bash
+python -m unittest discover -s scripts/distribution/tests -p 'test_voice_pronunciation.py' -v
+```
+
 ## R8.05 canonical sequence
 
 ### 1. Approve the creative brief before generating media

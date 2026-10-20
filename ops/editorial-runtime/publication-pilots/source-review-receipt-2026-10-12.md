@@ -1,0 +1,40 @@
+# Two-article scientific source spot-check receipt — 2026-10-12
+
+**Review scope:** Source-level checking using the original PubMed record, PubMed Central full text when supplied, and NIH/Cochrane or NICE primary institutional material. **AI-assisted editorial spot-check only**; **not independent human verification, not V_VERIFIED, not clinical publication clearance**. All source URLs below were checked during the active PR review. This is a document of exact-source identity and bounded claims, not canonical admission.
+
+## Pilot A: D-mannose and recurrent UTI (DE11-08)
+
+| Source | Classification and exact check | Finding | Disposition |
+| --- | --- | --- | --- |
+| [PMID 38587819](https://pubmed.ncbi.nlm.nih.gov/38587819/) / DOI 10.1001/jamainternmed.2024.0264 | 2024 double-blind, placebo-controlled **598 randomized women** across 99 UK primary-care centres; six months. Full text [PMC11002776](https://pmc.ncbi.nlm.nih.gov/articles/PMC11002776/). | Primary data **150/294 (51.0%) vs 161/289 (55.7%)**, difference **−5 percentage points**, 95% CI **−13 to +3**, **p=.26**. 15 lacked primary endpoint data (598−583); secondary comparisons also nonsignificant. | Exact source and numerator/denominator **spot-checked**; abstract and manuscript consistent. No proven prevention for studied setting. |
+| [PMID 23633128](https://pubmed.ncbi.nlm.nih.gov/23633128/) / DOI 10.1007/s00345-013-1091-6 | 2014 randomized comparison, 308 women: D-mannose (**103**), nitrofurantoin (**103**) or **no prophylaxis (102)** following treatment of acute infection. | Six-month recurrence **15/103**, **21/103**, **62/102**, respectively. No blinded matched placebo arm; does not establish noninferiority to nitrofurantoin. | Exact comparator and denominators checked; preserve older positive data but distinguish from 2024. |
+| [PMID 36041061](https://pubmed.ncbi.nlm.nih.gov/36041061/) / DOI 10.1002/14651858.CD013608.pub2 | Cochrane systematic review; search **through 22 February 2022**, **7 RCTs, 719 total participants**. | Heterogeneity prevented reliable meta-analysis; very-low-certainty evidence. Not updated for the later 2024 RCT. | Study count and search cutoff verified. |
+| [PMID 41195062](https://pubmed.ncbi.nlm.nih.gov/41195062/) / DOI 10.1177/17571774251394869 | 2025 updated RCT-only meta-analysis, **4 trials, 890 women**. | Recurrent UTI risk ratio **0.44**, CI **0.18–1.11**, **p=.082**, heterogeneity **I² 90%**: not statistically significant. | Exact result verified; component RCTs not counted as independent new data. |
+| [PMID 41942398](https://pubmed.ncbi.nlm.nih.gov/41942398/) / DOI 10.5152/tud.2026.25070 | 2026 review, **5 total studies: 3 RCTs, 2 observational cohorts; 1,038 women**. | Three-study placebo/control pooling, **n=831**, RR **0.37**, CI **0.11–1.30**, **p=.10**, **I² 94%**. | Source identity and mixed designs verified. Do not present as five RCTs. |
+| [NICE NG112 self-care](https://www.nice.org.uk/guidance/ng112/chapter/recommendations) + [evidence summary](https://www.nice.org.uk/guidance/ng112/chapter/Summary-of-the-evidence) | NICE wording for D-mannose remains rooted in a 2018 discussion of the 2014 *no-prophylaxis* study. 2024 wording edit mentions gender inclusivity, not a reappraisal of the later trial. | NICE's permissive self-care language does not contradict 2024 RCT data if the dates, comparator and clinical setting are shown clearly. | Time provenance verified. Human reviewer should assess current guideline language prior to release. |
+
+**Scientific constraint:** In the published article, use one 2024 RCT plus supportive reviews for synthesis; do not portray these reviews as additional independent clinical trials. Avoid claim of certainty in special populations not studied. Do not promote the source identities into governed runtime or switch the existing noindex D-mannose profile solely by merging this review draft.
+
+## Pilot B: Magnesium for idiopathic nighttime leg cramps (DE13-08)
+
+| Source | Classification and exact check | Finding | Disposition |
+| --- | --- | --- | --- |
+| [PMID 28241153](https://pubmed.ncbi.nlm.nih.gov/28241153/) / DOI 10.1001/jamainternmed.2016.9261 | 2017 randomized placebo-controlled trial: **94 randomized**, **48 magnesium oxide / 46 placebo**, mean age **64.9**, 4-week intervention after 2-week screening; full text [PMC5818780](https://pmc.ncbi.nlm.nih.gov/articles/PMC5818780/). | Weekly cramp change **−3.41** active vs **−3.03** placebo, **difference in change 0.38/week**, **p=.67**, with sleep and severity outcomes also null. | Exact outcome and interpretation checked. Do not confuse the numerical difference in change with an improvement attributable to treatment. |
+| [PMID 32956536](https://pubmed.ncbi.nlm.nih.gov/32956536/) / DOI 10.1002/14651858.CD009402.pub3 | 2020 Cochrane review of **11 RCTs, 735 participants**, search to **September 2019**. | Idiopathic older-adult cramp outcomes show no clinically meaningful advantage; pregnancy studies conflict and carry higher risk of bias. No RCT evidence specifically testing exertional cramps. | Exact review year/DOI/study count verified. Includes the 2017 trial, not a separate replication cohort. |
+| [PMID 24280947](https://pubmed.ncbi.nlm.nih.gov/24280947/) / DOI 10.1093/fampra/cmt065 | 2014 earlier systematic review: **7 RCTs, 361 participants**, including pregnancy subgroup; literature search through 2012. | Broad null for general adults, possible smaller pregnancy effect with weak evidence. | Earlier review overlaps trial data and 2020 update; no double-count. |
+| [NIH ODS magnesium fact sheet](https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/) | Institutional safety reference, not a cramps efficacy RCT. | GI effects, impaired renal clearance, antibiotic/bisphosphonate absorption interactions require context-specific evaluation. | Do not turn efficacy null into advice to leave deficiency untreated; separate supplements from dietary magnesium. |
+
+**Potential copy improvement still pending independent reviewer:** “Magnesium oxide did not beat placebo” is source-specific; the broader Cochrane finding can support “magnesium is unlikely to prevent idiopathic nighttime cramps in typical older adults” but should not be generalized to pregnancy, exercise, neurological disease, or clinical deficiency.
+
+## Repository publication gates
+
+- [x] Both drafts are in `ops/editorial-runtime/publication-pilots/`, **outside** the public `content/articles/` route collection.
+- [x] Primary authors, PMID/DOI, study class, numerators/denominators, exact comparators, primary outcome vs secondary/physiological surrogate, contradictory/null findings have undergone **AI source spot-check**.
+- [x] DE11-08 and DE13-08 both marked as staged pilot in the DE10–DE13 closure queue. All other investigations preserve `NOT_COMPLETED` audit state.
+- [ ] **Independent scientific/editorial adjudication**, including current retractions, source-identity aliases and strength of claims.
+- [ ] **Recorded named human owner approval of the exact text**, with approval date and immutable PR-head identification, before safety or conflicting-evidence publication. Owner authorization and clinical qualification are different attributes.
+- [ ] Resolve [#6672](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6672) publication approval gate and [#6600](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6600) governed enrichment admission defect as applicable. No auto publication merely because a docs-only PR passes.
+- [ ] Confirm other public pages and canonical study identities before choosing whether to publish a **new** article or update an **existing** article; avoid duplicate query-intent pages.
+- [ ] Separate downstream content-implementation PR with full exact-head checks, human approval receipt, verified production deploy, and observed crawl/indexing results. Traffic and AI citation effects remain **Unknown**.
+
+**Verdict:** `SOURCE_SPOT_CHECKED_AI`; `INDEPENDENT_REVIEW_PENDING`; `OWNER_APPROVAL_PENDING`; `PUBLICATION_NOT_AUTHORIZED`.

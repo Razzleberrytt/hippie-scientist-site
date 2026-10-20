@@ -1,0 +1,115 @@
+{
+  "schema": "em-lane6-physical-revised-receiver-1",
+  "scope": "independent-byte-intake-not-complete-seven-role-acceptance",
+  "archive": {
+    "name": "EvidenceMotion_Lane3_Shot5_Mobile_Safe_Research_20261017.zip",
+    "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-fdece1d9\\EvidenceMotion_Lane3_Shot5_Mobile_Safe_Research_20261017.zip",
+    "bytes": 5239915,
+    "sha256": "404df9ba41ffa3dde87d638d5500d5e7318c50b50681ce2c766ba7830adda196",
+    "zipCrc": "PASS",
+    "manifestMembersVerified": 12
+  },
+  "sourceReport": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6847#issuecomment-6233245121",
+  "receivedFiles": {
+    "README.txt": "3673963c31785c671cc99df82ba1372e0412a4140a2cfde994cf6666e2ce453c",
+    "film/before_exact_h264.mp4": "53cbd9c4d35df96602280d713f6d2f2a1e2ba1bb57a3ec6af593c09d3e83f496",
+    "film/shot5_mobile_safe_research.mp4": "fdece1d9bbd021d514c2510c5bf1e787a2555712f0fd48af8807994ed1816725",
+    "original/7OH_source.mol": "150ccd331963beab2481ad47c36e1e171db6bdd37e4d50746a3d6b4b5be60bcb",
+    "original/narration.wav": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+    "proof/actual_source_movie_receipt.json": "fec3d175760c8d870aae2b4519a2e312bb423a2082f6126fd12d2d85a71c856e",
+    "proof/actual_source_overlay.png": "9e26a5c281eda5ff6b884d3f0b18dd7d802760c954396d927484f3878e48b27d",
+    "proof/phone_375_before_after.png": "f48aa823492d1e2834afb160263cede16fd91903338c1c0962c408e2b2c29c3d",
+    "source/physical_audit.py": "4846152f1810c2848ff844bfcc00397edc0d08dedbfb177fd6875c785a79f35c",
+    "source/shot5_mobile_safe_research.py": "139bd1e60b92a11431a8ab99e2adc12e98d2bbf77090104d9a386065d97a764f",
+    "source/test_shot5_mobile_safe_research.py": "5bb67de9ea14c6b16662e927c5f24aa4c607c1d9f64b94ebc1781d4b9b9b2f20",
+    "story/candidate_bound_research_story.json": "3c48c814244d9b3bb6ac1fdbb28e98a68c7cada48031eb0a410801c9ee978ffa"
+  },
+  "localSharedRoot": "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-fdece1d9",
+  "media": {
+    "film/before_exact_h264.mp4": {
+      "sha256": "53cbd9c4d35df96602280d713f6d2f2a1e2ba1bb57a3ec6af593c09d3e83f496",
+      "videoCodec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": "30/1",
+      "decodedFrames": 1031,
+      "audioCodec": "aac",
+      "audioAdtsSha256": "f0057c19c9d06b8a2f3c6d8fec948ca4555966114579fd1a48b0bcfccc84aa98",
+      "audioPacketCount": 807,
+      "packetTimelineSha256": "d87214664c880ea9234cef9c8f966d9b0ccec981276bd3bcc7c7690e8e7b5efd",
+      "fullAudioVideoDecodeExitCode": 0
+    },
+    "film/shot5_mobile_safe_research.mp4": {
+      "sha256": "fdece1d9bbd021d514c2510c5bf1e787a2555712f0fd48af8807994ed1816725",
+      "videoCodec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": "30/1",
+      "decodedFrames": 1031,
+      "audioCodec": "aac",
+      "audioAdtsSha256": "f0057c19c9d06b8a2f3c6d8fec948ca4555966114579fd1a48b0bcfccc84aa98",
+      "audioPacketCount": 807,
+      "packetTimelineSha256": "d87214664c880ea9234cef9c8f966d9b0ccec981276bd3bcc7c7690e8e7b5efd",
+      "fullAudioVideoDecodeExitCode": 0
+    }
+  },
+  "checks": [
+    {
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-xerror",
+        "-i",
+        "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-fdece1d9\\film\\before_exact_h264.mp4",
+        "-f",
+        "null",
+        "-"
+      ],
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-xerror",
+        "-i",
+        "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-fdece1d9\\film\\shot5_mobile_safe_research.mp4",
+        "-f",
+        "null",
+        "-"
+      ],
+      "exitCode": 0,
+      "stderr": ""
+    }
+  ],
+  "mayPublish": false,
+  "newAtomicCards": 0,
+  "wav": {
+    "sha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+    "channels": 1,
+    "sampleWidthBytes": 2,
+    "rateHz": 24000,
+    "samples": 824336,
+    "compression": "NONE"
+  },
+  "story": {
+    "sha256": "3c48c814244d9b3bb6ac1fdbb28e98a68c7cada48031eb0a410801c9ee978ffa",
+    "candidateAndWavHashesMatchReceivedBytes": true,
+    "phonePlanSha256": null,
+    "shots": 9,
+    "mayPublish": false
+  },
+  "status": "RECEIVED_VERIFIED_BYTES_INTAKE_HOLD",
+  "seconds": 6.429,
+  "boundaries": [
+    "Current candidate at this reported handoff only, not a rolling latest-film claim",
+    "No authored non-null phone plan in archive",
+    "No complete seven-role pin/source manifest/timed caption/claim-asset review package",
+    "AAC equality to prior film verified; PCM-to-AAC lexical/phonetic identity not inferred",
+    "Local shared path verified in this execution context only; other receiver access not yet confirmed",
+    "No science/craft/handset approval; no media modified"
+  ]
+}

@@ -1,0 +1,74 @@
+name: EvidenceMotion reusable director grammar coverage
+on:
+  # The serialized merge controller dispatches this workflow after bot-authored
+  # branch refreshes. A PR-only trigger caused 422 on recovery and prevented
+  # exact-head craft verification from ever becoming green.
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/reusable-director-program.mjs'
+      - 'research/evidencemotion-director/reusable-director-program.test.mjs'
+      - 'research/evidencemotion-director/previz-director.mjs'
+      - 'research/evidencemotion-director/lane3/**'
+      - 'research/evidencemotion-director/preview-proof.mjs'
+      - '.github/workflows/evidencemotion-reusable-director.yml'
+permissions:
+  contents: read
+jobs:
+  six-grammars-two-topics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify all six source-linked reusable grammars and two-topic negative fixtures
+        run: |
+          node --test \
+            research/evidencemotion-director/reusable-director-program.test.mjs \
+            research/evidencemotion-director/previz-director.test.mjs \
+            research/evidencemotion-director/story-first-gates.test.mjs
+      - name: State no artistic positive approval or publication authority
+        if: always()
+        run: |
+          echo 'G1–G6 grammar extraction is source/voice-identical across more than one synthetic research topic.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'A source-locked director proposal is not an actual multimedia clip, first-rate visual originality, or a scientific claim approval.' >> "$GITHUB_STEP_SUMMARY"
+  source-locked-craft-splice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Provision free CPU-only FFmpeg for real-byte test fixtures
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1 || ! command -v ffprobe >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+          command -v python3
+          command -v ffmpeg
+          command -v ffprobe
+          ffmpeg -version | head -n 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned free raster test dependency and verify research fonts
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check Pillow==12.0.0
+          if [ ! -f /usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf ]; then
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends fonts-dejavu-core
+          fi
+          python -c "from PIL import __version__; assert __version__ == '12.0.0'"
+      - name: Reproduce source-pinned research-contract tests and genuine encoded-film tamper rejection
+        run: |
+          python -m unittest discover \
+            -s research/evidencemotion-director/lane3 \
+            -p 'test_*.py' -v
+      - name: State narrow evidence and explicitly retain creative, clinical and release holds
+        if: always()
+        run: |
+          echo 'Lane 3 tests use an automatically generated synthetic H.264/AAC movie; this checks splice mechanics, external-manifest pin rules, decoded outside-scene preservation and tamper rejection.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'The large archived real 7-OH movie is NOT checked by this hosted workflow. No human comprehension, source science, genuine iPhone playback, craft excellence, or publish permission is established.' >> "$GITHUB_STEP_SUMMARY"

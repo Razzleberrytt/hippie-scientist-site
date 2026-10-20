@@ -1,0 +1,342 @@
+{
+  "schema": "ths-atomic-workcard-proof-ledger-v1",
+  "recordedDate": "2026-10-17",
+  "authoritativePlanningIndex": "https://github.com/Razzleberrytt/hippie-scientist-site/blob/main/research/evidencemotion-director/ATOMIC-EXECUTION-INDEX.md",
+  "note": "26 exact-source machine research evidence groups, 168 individually machine-audited research-only atomic stages + 707 inherited provisional NOT individually audited = 875/1590 (55.0314%). Newly reconciled EM-007.07 U/S/O are one source-locked original spoken-001 claim, real original H264/WAV/source IDs, and independent-review fail-closed acceptance oracle ONLY. EM-007.07 X/T/N/R remain deliberately UNVERIFIED: no qualified/calibrated independent scientific reviewer actual-film verdict, no human/device/craft acceptance. No 7-OH current-film science release or gut-absorption Scene2 remedy. Parent science milestone, excellent-first-render and varied-streak, promotion/merge/posting all remain HOLD; mayPublish=false.",
+  "denominator": 1590,
+  "inheritedMappedToAcceptedFoundationsNotIndividuallyAudited": 707,
+  "status": "PROVISIONAL_COVERAGE_NOT_FINAL_ACCEPTANCE",
+  "mayPublish": false,
+  "allCreativeScientificHumanHandsetAndMergeGatesPassed": false,
+  "proofGroups": [
+    {
+      "group": "EM-034.04",
+      "source": "EM03404-ATOMIC-EVIDENCE-RECONCILIATION-20261015.md",
+      "cards": [
+        "EM-034.04.U",
+        "EM-034.04.S",
+        "EM-034.04.O",
+        "EM-034.04.X",
+        "EM-034.04.T",
+        "EM-034.04.N",
+        "EM-034.04.R",
+        "EM-034.02.U",
+        "EM-034.02.S",
+        "EM-034.02.O",
+        "EM-034.02.X",
+        "EM-034.02.T",
+        "EM-034.02.N",
+        "EM-034.02.R"
+      ]
+    },
+    {
+      "group": "EM-034.11",
+      "source": "EM03411-ATOMIC-EVIDENCE-RECONCILIATION-20261015.md",
+      "cards": [
+        "EM-034.11.U",
+        "EM-034.11.S",
+        "EM-034.11.O",
+        "EM-034.11.X",
+        "EM-034.11.T",
+        "EM-034.11.N",
+        "EM-034.11.R"
+      ]
+    },
+    {
+      "group": "EM-023.01",
+      "source": "EM02301-ATOMIC-STORY-EVIDENCE-20261015.md",
+      "cards": [
+        "EM-023.01.U",
+        "EM-023.01.S",
+        "EM-023.01.O",
+        "EM-023.01.X"
+      ]
+    },
+    {
+      "group": "EM-023.03",
+      "source": "EM02303-ATOMIC-VISUAL-REPAIR-20261015.md",
+      "cards": [
+        "EM-023.03.U",
+        "EM-023.03.S",
+        "EM-023.03.O",
+        "EM-023.03.X"
+      ]
+    },
+    {
+      "group": "EM-034.12",
+      "source": "EM03412-ATOMIC-TIMED-SOUNDOFF-INSTRUMENT-20261016.md",
+      "cards": [
+        "EM-034.12.U",
+        "EM-034.12.S",
+        "EM-034.12.O",
+        "EM-034.12.X"
+      ]
+    },
+    {
+      "group": "EM-007.01",
+      "source": "EM00701-ATOMIC-SPOKEN-INVENTORY-20261016.md",
+      "cards": [
+        "EM-007.01.U",
+        "EM-007.01.S",
+        "EM-007.01.O",
+        "EM-007.01.X",
+        "EM-007.01.T",
+        "EM-007.01.N",
+        "EM-007.01.R"
+      ]
+    },
+    {
+      "group": "EM-014.01",
+      "source": "EM01401-ORIGINAL-PCM-TERM-ISOLATION-20261016.md",
+      "cards": [
+        "EM-014.01.U",
+        "EM-014.01.S",
+        "EM-014.01.O",
+        "EM-014.01.X",
+        "EM-014.01.T",
+        "EM-014.01.N",
+        "EM-014.01.R"
+      ]
+    },
+    {
+      "group": "EM-007.02",
+      "source": "EM00702-VISUAL-CLAIM-INVENTORY-20261016.md",
+      "cards": [
+        "EM-007.02.U",
+        "EM-007.02.S",
+        "EM-007.02.O",
+        "EM-007.02.X",
+        "EM-007.02.T",
+        "EM-007.02.N",
+        "EM-007.02.R"
+      ]
+    },
+    {
+      "group": "EM-007.03",
+      "source": "EM00703-PRIMARY-SOURCE-CONTEXT-20261016.md",
+      "cards": [
+        "EM-007.03.U",
+        "EM-007.03.S",
+        "EM-007.03.O",
+        "EM-007.03.X",
+        "EM-007.03.T",
+        "EM-007.03.N",
+        "EM-007.03.R"
+      ]
+    },
+    {
+      "group": "EM-007.04",
+      "source": "EM00704-FILM-SOURCE-UNCERTAINTY-20261016.md",
+      "cards": [
+        "EM-007.04.U",
+        "EM-007.04.S",
+        "EM-007.04.O",
+        "EM-007.04.X",
+        "EM-007.04.T",
+        "EM-007.04.N",
+        "EM-007.04.R"
+      ]
+    },
+    {
+      "group": "EM-007.06",
+      "source": "EM00706-SCIENCE-ADVERSARIAL-RECEIPT-20261016.md",
+      "cards": [
+        "EM-007.06.U",
+        "EM-007.06.S",
+        "EM-007.06.O",
+        "EM-007.06.X",
+        "EM-007.06.T",
+        "EM-007.06.N",
+        "EM-007.06.R"
+      ]
+    },
+    {
+      "group": "EM-007.05",
+      "source": "EM00705-REAL-ARCHIVE-SOURCE-STRENGTH-20261016.md",
+      "cards": [
+        "EM-007.05.U",
+        "EM-007.05.S",
+        "EM-007.05.O",
+        "EM-007.05.X",
+        "EM-007.05.T",
+        "EM-007.05.N",
+        "EM-007.05.R"
+      ]
+    },
+    {
+      "group": "EM-007.08",
+      "source": "EM00708-REAL-ARCHIVE-SCIENCE-HOLD-20261016.md",
+      "cards": [
+        "EM-007.08.U",
+        "EM-007.08.S",
+        "EM-007.08.O",
+        "EM-007.08.X",
+        "EM-007.08.T",
+        "EM-007.08.N",
+        "EM-007.08.R"
+      ]
+    },
+    {
+      "group": "EM-001.01",
+      "source": "EM00101-THREE-HOSTED-CPU-RUNS-20261016.md",
+      "cards": [
+        "EM-001.01.U",
+        "EM-001.01.S",
+        "EM-001.01.O",
+        "EM-001.01.X",
+        "EM-001.01.T",
+        "EM-001.01.R"
+      ]
+    },
+    {
+      "group": "EM-001.02",
+      "source": "EM00102-CPU-ONLY-PLAYABLE-ARTIFACT-20261016.md",
+      "cards": [
+        "EM-001.02.U",
+        "EM-001.02.S",
+        "EM-001.02.O",
+        "EM-001.02.X",
+        "EM-001.02.T",
+        "EM-001.02.R"
+      ]
+    },
+    {
+      "group": "EM-001.04",
+      "source": "EM00104-REQUIRED-CPU-NO-GPU-20261016.md",
+      "cards": [
+        "EM-001.04.U",
+        "EM-001.04.S",
+        "EM-001.04.O",
+        "EM-001.04.X",
+        "EM-001.04.T",
+        "EM-001.04.R"
+      ]
+    },
+    {
+      "group": "EM-001.03",
+      "source": "EM00103-IPHONE-HANDOFF-BYTES-REVIEW-20261016.md",
+      "cards": [
+        "EM-001.03.U",
+        "EM-001.03.S",
+        "EM-001.03.O",
+        "EM-001.03.X",
+        "EM-001.03.R"
+      ]
+    },
+    {
+      "group": "EM-002.03",
+      "source": "EM00203-RESEARCH-WORKFLOW-RELEASE-GUARD-20261016.md",
+      "cards": [
+        "EM-002.03.U",
+        "EM-002.03.S",
+        "EM-002.03.O",
+        "EM-002.03.X",
+        "EM-002.03.T",
+        "EM-002.03.N",
+        "EM-002.03.R"
+      ]
+    },
+    {
+      "group": "EM-002.02",
+      "source": "EM00202-POLICY-CROSSWALK-20261016.md",
+      "cards": [
+        "EM-002.02.U",
+        "EM-002.02.S",
+        "EM-002.02.O",
+        "EM-002.02.X",
+        "EM-002.02.T",
+        "EM-002.02.R"
+      ]
+    },
+    {
+      "group": "EM-002.04",
+      "source": "EM00204-POLICY-TRACKER-TRACE-20261016.md",
+      "cards": [
+        "EM-002.04.U",
+        "EM-002.04.S",
+        "EM-002.04.O",
+        "EM-002.04.X",
+        "EM-002.04.T",
+        "EM-002.04.R"
+      ]
+    },
+    {
+      "group": "EM-002.01",
+      "source": "EM00201-DATED-OWNER-POLICY-20261016.md",
+      "cards": [
+        "EM-002.01.U",
+        "EM-002.01.S",
+        "EM-002.01.O",
+        "EM-002.01.X",
+        "EM-002.01.T",
+        "EM-002.01.R"
+      ]
+    },
+    {
+      "group": "EM-006.04",
+      "source": "EM00604-BOTANICAL-CAPTION-NEGATIVE-20261016.md",
+      "cards": [
+        "EM-006.04.U",
+        "EM-006.04.S",
+        "EM-006.04.O",
+        "EM-006.04.X",
+        "EM-006.04.T",
+        "EM-006.04.N",
+        "EM-006.04.R"
+      ]
+    },
+    {
+      "group": "EM-008.05",
+      "source": "EM00805-ENCODED-BOTANICAL-NEGATIVES-20261016.md",
+      "cards": [
+        "EM-008.05.U",
+        "EM-008.05.S",
+        "EM-008.05.O",
+        "EM-008.05.X",
+        "EM-008.05.T",
+        "EM-008.05.N",
+        "EM-008.05.R"
+      ]
+    },
+    {
+      "group": "EM-008.03",
+      "source": "EM00803-ACTUAL-375PX-PIXEL-RESEARCH-20261016.md",
+      "cards": [
+        "EM-008.03.U",
+        "EM-008.03.S",
+        "EM-008.03.O",
+        "EM-008.03.X",
+        "EM-008.03.T",
+        "EM-008.03.N",
+        "EM-008.03.R"
+      ]
+    },
+    {
+      "group": "EM-008.04",
+      "source": "EM00804-ENCODED-375PX-OCR-RESEARCH-20261016.md",
+      "cards": [
+        "EM-008.04.U",
+        "EM-008.04.S",
+        "EM-008.04.O",
+        "EM-008.04.X",
+        "EM-008.04.T",
+        "EM-008.04.N",
+        "EM-008.04.R"
+      ]
+    },
+    {
+      "group": "EM-007.07",
+      "source": "EM00707-ONE-CLAIM-INDEPENDENT-SCIENCE-PREREQUISITES-20261017.md",
+      "cards": [
+        "EM-007.07.U",
+        "EM-007.07.S",
+        "EM-007.07.O"
+      ]
+    }
+  ],
+  "individualMachineVerifiedResearchCardCount": 168,
+  "provisionalCoverageCardCount": 875,
+  "provisionalCoveragePercent": 55.0314,
+  "individuallyVerifiedResearchCardsAreNotReleaseAcceptance": true,
+  "noDoubleCountAsserted": true
+}

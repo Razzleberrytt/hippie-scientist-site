@@ -1,0 +1,48 @@
+name: EvidenceMotion autonomous quality review research
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/native_autocritic.py'
+      - 'research/evidencemotion-director/test_native_autocritic.py'
+      - 'research/evidencemotion-director/autonomous-quality-arbiter.mjs'
+      - 'research/evidencemotion-director/autonomous-quality-arbiter.test.mjs'
+      - 'research/evidencemotion-director/autonomous-quality-handoff.test.mjs'
+      - '.github/workflows/evidencemotion-autonomous-quality-research.yml'
+permissions:
+  contents: read
+jobs:
+  autonomous-negative-and-calibrated-consensus-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test automatic quality decisions and human-replacement safety boundaries
+        run: |
+          node --test research/evidencemotion-director/autonomous-quality-arbiter.test.mjs
+      - name: Install CPU-only actual-video proof tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg
+          python -m pip install 'numpy==2.3.3' 'pillow==12.0.0'
+      - name: Decode actual 14-second MP4 and autonomously reject blank and static scenes
+        run: |
+          python -m unittest discover -s research/evidencemotion-director -p test_native_autocritic.py -v
+          python -m py_compile research/evidencemotion-director/native_autocritic.py
+      - name: Run actual Python decoded-pixel to Node arbiter handoff in the provisioned media runner
+        env:
+          EVIDENCEMOTION_ACTUAL_MEDIA_HANDOFF: '1'
+        run: |
+          node --test research/evidencemotion-director/autonomous-quality-handoff.test.mjs
+      - name: Keep true model review and source recognition prerequisites honest
+        if: always()
+        run: |
+          echo 'This job PROVES automatic negative visual triage and conditional multi-critic decision contracts, not a new foundation model.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Actual source retrieval/clinical claim matching, ASR+phonetic review and calibrated independent full-video models are not supplied by fake JSON scores.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No manual owner verdict required to AUTO_REVISE. No automatic publication or qualified-review impersonation. Full 1+5 milestone remains evidence-gated.' >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,55 @@
+name: EvidenceMotion autonomous signal audio screening
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/autonomous_voice_signal_audit.py'
+      - 'research/evidencemotion-director/test_autonomous_voice_signal_audit.py'
+      - 'research/evidencemotion-director/AUTONOMOUS-AUDIO-REVIEW-2026-10-13.md'
+      - 'research/evidencemotion-director/exact_wav_alignment.py'
+      - 'research/evidencemotion-director/test_exact_wav_alignment.py'
+      - 'research/evidencemotion-director/repeated_term_acoustic_guard.py'
+      - 'research/evidencemotion-director/test_repeated_term_acoustic_guard.py'
+      - 'research/evidencemotion-director/gut_caption_audio_gate.py'
+      - 'research/evidencemotion-director/narration_caption_authoring_gate.py'
+      - 'research/evidencemotion-director/test_narration_caption_authoring_gate.py'
+      - 'research/evidencemotion-director/mfa_acoustic_alignment.py'
+      - 'research/evidencemotion-director/test_mfa_acoustic_alignment.py'
+      - 'research/evidencemotion-director/em01402-hydroxyl-reference.json'
+      - 'research/evidencemotion-director/audio-word-cuts.mjs'
+      - 'research/evidencemotion-director/audio-word-cuts.test.mjs'
+      - 'research/evidencemotion-director/EXACT-WAV-ALIGNMENT-2026-10-14.md'
+      - '.github/workflows/evidencemotion-autonomous-audio-screen.yml'
+permissions:
+  contents: read
+jobs:
+  exact-audio-decode-negative-regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install free CPU-only audio signal tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg
+          python -m pip install 'numpy==2.3.3'
+      - name: Test genuine PCM/AAC audio tracking and actual damaged audio refusals
+        run: |
+          python -m unittest discover -s research/evidencemotion-director -p 'test_autonomous_voice_signal_audit.py' -v
+          python -m py_compile research/evidencemotion-director/autonomous_voice_signal_audit.py
+      - name: Verify byte-bound word/phone imports and stale narration cut invalidation
+        run: |
+          python -m unittest discover -s research/evidencemotion-director -p 'test_exact_wav_alignment.py' -v
+          python -m unittest discover -s research/evidencemotion-director -p 'test_mfa_acoustic_alignment.py' -v
+          node --test research/evidencemotion-director/audio-word-cuts.test.mjs
+      - name: Preserve research and speech-recognition boundaries
+        if: always()
+        run: |
+          echo 'Actual AAC bytes decoded; measured signal/source integrity only. Synthetic speech-like samples are not real voices or real pronunciation judgements.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No ASR, specialist phoneme judge, naturalness proof, expert scientific review, or publication approvals were provided.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Research-only coverage is not voice, phoneme, word timing, premium-render or publishing approval; preserve the owner version freeze and evidence-based checklist reconciliation.' >> "$GITHUB_STEP_SUMMARY"

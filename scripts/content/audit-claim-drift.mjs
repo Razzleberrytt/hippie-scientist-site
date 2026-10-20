@@ -132,7 +132,12 @@ function addedLinesSince(ref) {
     let newLine = null
 
     for (const line of output.split(/\r?\n/)) {
-      if (line.startsWith('+++ b/')) {
+      if (line.startsWith('diff --git ')) {
+        currentFile = null
+        newLine = null
+        continue
+      }
+      if (newLine == null && line.startsWith('+++ b/')) {
         currentFile = line.slice('+++ b/'.length)
         if (!added.has(currentFile)) added.set(currentFile, new Set())
         continue
@@ -145,10 +150,10 @@ function addedLinesSince(ref) {
       }
 
       if (!currentFile || newLine == null) continue
-      if (line.startsWith('+') && !line.startsWith('+++')) {
+      if (line.startsWith('+')) {
         added.get(currentFile).add(newLine)
         newLine += 1
-      } else if (line.startsWith('-') && !line.startsWith('---')) {
+      } else if (line.startsWith('-')) {
         // Removed lines do not advance the new-file line counter.
       } else if (line.startsWith(' ')) {
         newLine += 1

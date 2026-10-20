@@ -167,7 +167,7 @@ The key distinction is between **what was reported**, **how confidently it can b
 
 A five-patient case series from Iceland and the US Drug-Induced Liver Injury Network described jaundice appearing **2–12 weeks** after patients started ashwagandha-containing supplements. Itching, fatigue and abdominal symptoms were common. Liver injury was cholestatic or mixed; four patients had documented normalization of liver tests within one to five months, while one was lost to follow-up. In available tested products, the researchers confirmed ashwagandha, though other supplements were used by some patients. [1]
 
-A May 2026 scoping review synthesized the expanding published case literature, including reports of severe outcomes in susceptible patients. It should not be interpreted as an incidence study: it assembled reported cases rather than tracking all people taking ashwagandha. [2]
+A May 2026 scoping review assembled **13 publications describing 25 patients**. Severe outcomes included **one liver transplant and three deaths, all three deaths occurring among patients with pre-existing cirrhosis** who developed decompensation. The review assembled published cases rather than following everyone who took ashwagandha, so these counts cannot establish the risk of injury or death for an individual user. [2]
 
 **What matters:** The reassuring safety results of short-term wellness trials do not rule out rare, serious reactions. People with advanced chronic liver disease or cirrhosis should be particularly cautious. [2,3]
 
@@ -177,7 +177,7 @@ For benefits and other safety considerations, see our [ashwagandha evidence revi
 
 **What they are:** Concentrated products derived from *Curcuma longa*, often marketed for joints or inflammation.
 
-The US Drug-Induced Liver Injury Network published **10 adjudicated turmeric-associated cases**. Five patients were hospitalized and one died from acute liver failure. Turmeric was chemically confirmed in all seven available products tested; three also contained piperine, which can increase curcumin exposure. [4]
+The US Drug-Induced Liver Injury Network published **10 adjudicated turmeric-associated cases**. Five patients were hospitalized and one died from acute liver failure. Turmeric was chemically confirmed in all seven available products tested; three also contained piperine, which can increase curcumin exposure. **Seven of the 10 patients carried the HLA-B*35:01 allele**, suggesting a susceptibility association; this small case series does not establish individual risk or justify treating genetic status as a safety guarantee. [4]
 
 Enhanced-bioavailability formulations figure prominently in case reports. However, NIH LiverTox also describes cases linked to ground turmeric powder and turmeric-containing teas. It would therefore be inaccurate to say the risk exists *only* with black-pepper-enhanced extracts. [5]
 

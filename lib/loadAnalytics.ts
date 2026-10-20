@@ -1,4 +1,4 @@
-import { canTrackAnalytics, getConsent } from '@/lib/consent'
+import { canLoadGa4, canTrackAnalytics, getConsent, initConsentDefault } from '@/lib/consent'
 import { getSocialAttribution } from '@/lib/social-attribution'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA4_ID?.trim() ?? ''
@@ -7,7 +7,6 @@ const PLAUSIBLE_DOMAIN = 'thehippiescientist.net'
 // Preserve the Plausible domain for future use without triggering unused variable warnings.
 void PLAUSIBLE_DOMAIN
 
-let loaded = false
 let scheduled = false
 let gaBootstrapped = false
 
@@ -21,7 +20,6 @@ function injectScript(src: string, attrs: Record<string, string> = {}) {
     'error',
     () => {
       script.remove()
-      loaded = false
     },
     { once: true },
   )
@@ -35,43 +33,39 @@ function injectScriptOnce(id: string, src: string, attrs: Record<string, string>
 }
 
 function bootstrapGaQueue() {
-  if (!GA_ID || gaBootstrapped || typeof window === 'undefined' || !canTrackAnalytics()) return
+  if (!GA_ID || gaBootstrapped || typeof window === 'undefined' || !canLoadGa4()) return
 
   const dataLayer = (window.dataLayer = window.dataLayer || [])
   const gtag: NonNullable<Window['gtag']> = (command, ...args) => {
     dataLayer.push([command, ...args])
   }
   window.gtag = gtag
+  // Consent Mode must be enqueued before any GA configuration or collection.
+  initConsentDefault()
   gtag('js', new Date())
   gtag('config', GA_ID, { anonymize_ip: true, send_page_view: false })
   gaBootstrapped = true
 }
 
 function loadAnalyticsNow() {
-  if (loaded) return
   scheduled = false
-  if (!GA_ID && !AHREFS_ANALYTICS_KEY) return
-  if (!canTrackAnalytics()) return
-
-  // The local GA command queue is created synchronously after consent so events
-  // emitted before the deferred network script arrives are preserved.
-  bootstrapGaQueue()
-
-  if (GA_ID) {
+  // Only GA4 bypasses explicit opt-in. Ahrefs remains consent-gated.
+  if (GA_ID && canLoadGa4()) {
+    bootstrapGaQueue()
     injectScriptOnce('ga4-script', `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`)
   }
-
-  if (AHREFS_ANALYTICS_KEY) {
+  if (AHREFS_ANALYTICS_KEY && canTrackAnalytics()) {
     injectScriptOnce('ahrefs-analytics', 'https://analytics.ahrefs.com/analytics.js', {
       'data-key': AHREFS_ANALYTICS_KEY,
     })
   }
-
-  loaded = true
 }
 
 function scheduleAnalyticsLoad() {
-  if (scheduled || loaded || typeof window === 'undefined') return
+  if (scheduled || typeof window === 'undefined') return
+  const gaNeeded = GA_ID && canLoadGa4() && !document.getElementById('ga4-script')
+  const ahrefsNeeded = AHREFS_ANALYTICS_KEY && canTrackAnalytics() && !document.getElementById('ahrefs-analytics')
+  if (!gaNeeded && !ahrefsNeeded) return
   scheduled = true
 
   const win = window as Window & {
@@ -87,17 +81,13 @@ function scheduleAnalyticsLoad() {
 }
 
 export function loadAnalytics() {
-  if (!canTrackAnalytics()) return
-
-  // A consented tagged landing needs its bounded session attribution even
-  // without a configured GA4/Ahrefs transport. getSocialAttribution() owns
-  // first-touch, input validation, and never stores raw query strings.
-  getSocialAttribution()
+  // Preserve explicit-consent requirements for first-party attribution and Ahrefs.
+  if (canTrackAnalytics()) getSocialAttribution()
   if (!GA_ID && !AHREFS_ANALYTICS_KEY) return
 
-  // Bootstrap only the in-memory queue immediately. Network loading remains
-  // deferred for performance, and nothing is created before analytics consent.
-  bootstrapGaQueue()
+  // GA4 is the sole default-on transport. Explicit denial and DNT/GPC prevent
+  // both queue creation and script loading on fresh/reloaded pages.
+  if (canLoadGa4()) bootstrapGaQueue()
   scheduleAnalyticsLoad()
 }
 

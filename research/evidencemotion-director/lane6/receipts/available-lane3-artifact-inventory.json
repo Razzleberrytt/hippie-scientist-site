@@ -1,0 +1,51 @@
+{
+  "artifactId": 12079387576,
+  "runId": 38976358908,
+  "zipSha256": "eb6b9037a2636c3c62a91d0bdcc6f6a4a17e6b0ab1c96fa9a6ed446d2e2c5b1e",
+  "zipBytes": 21897215,
+  "memberCount": 136,
+  "media": [
+    {
+      "path": "atlas/atlas_NEW_RESEARCH_CANDIDATE.mp4",
+      "size": 1130227,
+      "sha256": "9de5ba21419579516b7fd9c7be828466e37d909ae111e143a7bf043423a1e1cf"
+    },
+    {
+      "path": "specimen/specimen_NEW_RESEARCH_CANDIDATE.mp4",
+      "size": 1287730,
+      "sha256": "325712875261ba36c4330c6a45b320fc811c01e8a3936ff802e93f3c601d0a5a"
+    },
+    {
+      "path": "specimen-native/muted-review/film-sound-off.mp4",
+      "size": 1920794,
+      "sha256": "0e3e131ddd83b134f98f6fe58d437704a1e03ab629925fefd8a7fbc4a45ba68c"
+    },
+    {
+      "path": "specimen-native/specimen_NEW_RESEARCH_CANDIDATE.mp4",
+      "size": 2358359,
+      "sha256": "a12869890fe5dca905492834a5de9a75768978001b220ad5277de5b3ad3d04b0"
+    },
+    {
+      "path": "specimen-timed-native/blind-review/viewer-only/film-sound-off.mp4",
+      "size": 1925695,
+      "sha256": "e8423e8e44a54d96d9a5e3de2c2c728420caccdd763c2b0c5353f8bd1d31e454"
+    },
+    {
+      "path": "specimen-timed-native/specimen_NEW_RESEARCH_CANDIDATE.mp4",
+      "size": 2363260,
+      "sha256": "8d7c5e8649a9ba5ce905ae5ac0a968ac6051405547b34109eda75f89cb9ac3eb"
+    }
+  ],
+  "expectedRevisedVideoSha256": "e79e44746e8a8581ecc592e41de20bb67ded7e999042234902ed30b0142a0c9a",
+  "containsExpectedRevisedVideo": false,
+  "scope": "access-only-artifact-availability-not-media-or-publication-acceptance",
+  "artifactUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/38976358908/artifacts/12079387576",
+  "zipCrcCheck": "PASS_ALL_136_MEMBERS",
+  "status": "HOLD_REVISED_FILM_NOT_IN_THIS_ARTIFACT",
+  "mayPublish": false,
+  "newAtomicCards": 0,
+  "originalWavPresent": false,
+  "registryBoundary": "Inspected this exact latest lane3 ASR artifact and latest director/critic runs only; not proof of global artifact absence. Repository-wide list failed with unexpected end of JSON input.",
+  "reportedBundlePath": "C:/handoff/EvidenceMotion_Lane3_Shot5_RepoIntegrated_Research_v3.zip",
+  "reportedBundlePathPresent": false
+}

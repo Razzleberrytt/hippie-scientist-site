@@ -96,6 +96,7 @@ const HEADINGS: Heading[] = [
   { id: 'natural-foundations', text: 'Natural approaches beyond supplements', level: 2 },
   { id: 'safety', text: 'Safety & interactions', level: 2 },
   { id: 'choose', text: 'How to choose an evidence-aligned option', level: 2 },
+  { id: 'next-step', text: 'Compare the right next step', level: 2 },
   { id: 'faq', text: 'Frequently asked questions', level: 2 },
 ]
 
@@ -547,6 +548,30 @@ export default function Page() {
                 <p className="mt-2 text-sm text-muted">{copy}</p>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section id="next-step" className="card-premium scroll-mt-20 space-y-4 p-6">
+          <p className="eyebrow-label">Put the evidence to work</p>
+          <h2 className="text-2xl font-semibold text-ink">What should you compare next?</h2>
+          <p className="text-sm leading-7 text-muted">
+            Choose the question that matches your sleep problem before looking at brands or prices.
+            These are evidence guides, not endorsements of specific retail products. We do not present
+            unverified product listings as clinically proven sleep aids.
+          </p>
+          <div className="grid gap-3 sm:grid-cols-3">
+            <Link href="/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/" data-decision-cta="true" data-tracking-location="sleep-evidence-next-step" data-cta-variant="compare-options" className="rounded-xl border border-brand-900/10 p-4 hover:border-brand-700/40">
+              <span className="block font-semibold text-brand-700">Compare sleep-aid options →</span>
+              <span className="mt-2 block text-xs leading-5 text-muted">Melatonin, valerian and magnesium have very different targets and evidence.</span>
+            </Link>
+            <Link href="/guides/sleep/best-magnesium-for-sleep/" data-decision-cta="true" data-tracking-location="sleep-evidence-next-step" data-cta-variant="magnesium-forms" className="rounded-xl border border-brand-900/10 p-4 hover:border-brand-700/40">
+              <span className="block font-semibold text-brand-700">Compare magnesium forms →</span>
+              <span className="mt-2 block text-xs leading-5 text-muted">Form, elemental dose, stomach tolerance and sleep evidence.</span>
+            </Link>
+            <Link href="/articles/how-to-choose-supplement-quality/" data-decision-cta="true" data-tracking-location="sleep-evidence-next-step" data-cta-variant="quality-check" className="rounded-xl border border-brand-900/10 p-4 hover:border-brand-700/40">
+              <span className="block font-semibold text-brand-700">Check product quality →</span>
+              <span className="mt-2 block text-xs leading-5 text-muted">Read the label, evaluate testing and avoid misleading claims before buying.</span>
+            </Link>
           </div>
         </section>
 

@@ -1,0 +1,579 @@
+name: EvidenceMotion offline operator rehearsal tests
+on:
+  pull_request:
+    # Fast research guard suite runs on pushes; full native A/B source renders
+    # require a deliberate controller label event, not every commit.
+    types: [opened, synchronize, reopened, labeled]
+    paths:
+      - 'research/evidencemotion-director/operator_evidence_rehearsal.py'
+      - 'research/evidencemotion-director/test_operator_evidence_rehearsal.py'
+      - 'research/evidencemotion-director/five_render_attempt_guard.py'
+      - 'research/evidencemotion-director/test_five_render_attempt_guard.py'
+      - 'research/evidencemotion-director/native_stdin_capture_guard.py'
+      - 'research/evidencemotion-director/original_replay_admission.py'
+      - 'research/evidencemotion-director/original_replay_source_restore.py'
+      - 'research/evidencemotion-director/original_frame_replay_probe.py'
+      - 'research/evidencemotion-director/original_native_stdin_replay.py'
+      - 'research/evidencemotion-director/test_native_stdin_capture_guard.py'
+      - 'research/evidencemotion-director/lane5_candidate_scorecard.py'
+      - 'research/evidencemotion-director/test_lane5_candidate_scorecard.py'
+      - 'research/evidencemotion-director/audio_only_remaster_guard.py'
+      - 'research/evidencemotion-director/test_audio_only_remaster_guard.py'
+      - 'research/evidencemotion-director/silent_static_experience_probe.py'
+      - 'research/evidencemotion-director/test_silent_static_experience_probe.py'
+      - 'research/evidencemotion-director/visual_scene_repair_guard.py'
+      - 'research/evidencemotion-director/test_visual_scene_repair_guard.py'
+      - 'research/evidencemotion-director/caption_multiwindow_repair_guard.py'
+      - 'research/evidencemotion-director/test_caption_multiwindow_repair_guard.py'
+      - 'research/evidencemotion-director/finished_master_caption_intake.py'
+      - 'research/evidencemotion-director/test_finished_master_caption_intake.py'
+      - 'research/evidencemotion-director/finished_dual_delivery_guard.py'
+      - 'research/evidencemotion-director/test_finished_dual_delivery_guard.py'
+      - 'research/evidencemotion-director/exact_film_research_join.py'
+      - 'research/evidencemotion-director/test_exact_film_research_join.py'
+      - 'research/evidencemotion-director/lane6/artifact_intake.py'
+      - 'research/evidencemotion-director/lane6/test_artifact_intake.py'
+      - 'research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md'
+      - '.github/workflows/evidencemotion-operator-rehearsal.yml'
+concurrency:
+  group: evidencemotion-operator-rehearsal-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+  actions: read
+jobs:
+  offline-operator-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact proposed research code
+        uses: actions/checkout@v4
+      - name: Recover 11 exact original research renderer sources without production edits
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin ecc249f5f460ca38be8850375b8b4f4a4d98b448
+          git fetch --no-tags --depth=1 origin 5fde6994c09e8464606074e5a1f21b06385b95e5
+          TEMP_ROOT="$(mktemp -d)"
+          trap 'rm -rf "$TEMP_ROOT"' EXIT
+          python3 research/evidencemotion-director/original_replay_source_restore.py \
+            --repo "$PWD" --out "$TEMP_ROOT/original-eleven"
+          test "$(find "$TEMP_ROOT/original-eleven" -type f | wc -l)" -eq 11
+          echo 'Original 11 SHA-pinned archived renderer source bytes recovered; NO renderer launched.'
+      - name: Compile and test offline operator handoff and negative controls
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/operator_evidence_rehearsal.py
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_operator_evidence_rehearsal.py' -v
+      - name: Reject forged five-render first-attempt streaks (research only)
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_five_render_attempt_guard.py' -v
+      - name: Install open-source FFmpeg and FFprobe for physical pipe fixture
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          font_dir = Path('/usr/share/fonts/truetype/dejavu')
+          pins = {
+              'DejaVuSans.ttf': 'ae7b7855e115a5966d8b1b3f80f254ccc117ec86f9965e202ee2940453837280',
+              'DejaVuSans-Bold.ttf': '5c1247acef7f2b8522a31742c76d6adcb5569bacc0be7ceaa4dc39dd252ce895',
+          }
+          for name, wanted in pins.items():
+              path = font_dir / name
+              observed = hashlib.sha256(path.read_bytes()).hexdigest()
+              print(name, observed, 'PIN_MATCH' if observed == wanted else 'PIN_MISMATCH')
+              assert observed == wanted, 'Original archived Ubuntu font bytes changed'
+          print('Archived original font bytes exactly available, no film was rendered.')
+          PY
+          ffmpeg -version | head -1
+          ffprobe -version | head -1
+      - name: Refuse source-mutating exact-media artifact handoffs (research HOLD)
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/lane6/artifact_intake.py
+          python3 -m unittest discover -s research/evidencemotion-director/lane6 -p 'test_artifact_intake.py' -v
+      - name: Reject incomplete original-RGB24-stdin captures (research only)
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/original_replay_admission.py
+          python3 -m py_compile research/evidencemotion-director/original_replay_source_restore.py
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_native_stdin_capture_guard.py' -v
+      - name: Fail-closed machine candidate acceptance scorecard (research only)
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/lane5_candidate_scorecard.py
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_lane5_candidate_scorecard.py' -v
+      - name: Physically test immutable audio-only hotfix provenance (release still HOLD)
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/audio_only_remaster_guard.py
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_audio_only_remaster_guard.py' -v
+      - name: Physically test finished-film silent/static experience warning (research HOLD)
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/silent_static_experience_probe.py
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_silent_static_experience_probe.py' -v
+      - name: Test independent exact-film visual-scene repair boundary (research HOLD)
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/visual_scene_repair_guard.py
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_visual_scene_repair_guard.py' -v
+      - name: Reject stale or inconsistent same-film research QA handoffs
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/exact_film_research_join.py
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_exact_film_research_join.py' -v
+      - name: Reject unauthorized disjoint SRT caption edits in physical encoded films (research HOLD)
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/caption_multiwindow_repair_guard.py
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_caption_multiwindow_repair_guard.py' -v
+      - name: Reject stale prior-master caption QA evidence in actual physical video packages (research HOLD)
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/finished_master_caption_intake.py
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_finished_master_caption_intake.py' -v
+      - name: Physically reject mismatched full/phone delivery and missing current QA (research HOLD)
+        run: |
+          set -euo pipefail
+          python3 -m py_compile research/evidencemotion-director/finished_dual_delivery_guard.py
+          python3 -m unittest discover -s research/evidencemotion-director -p 'test_finished_dual_delivery_guard.py' -v
+      - name: Ensure no production publishing privileges are implied
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          t=Path('research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md').read_text()
+          p=Path('research/evidencemotion-director/operator_evidence_rehearsal.py').read_text()
+          assert 'PASS_RESEARCH_ONLY_RELEASE_HELD' in t and 'PASS_RESEARCH_ONLY_RELEASE_HELD' in p
+          assert "'mayPublish':False" in p
+          assert "'realProductionRollbackExecuted':False" in p
+          assert 'Do not mark EvidenceMotion checklist #46 complete' in t
+          print('Operator pass is research-only, no deployment or publication authorization.')
+          PY
+
+  archived-eight-frame-native-source-pixel-replay:
+    # Bounded real original-source physical probe, NEVER publish or promote.
+    # Explicit authorized-on-repo label action is required for costly source
+    # staging and native replay; a persistent label does not re-run on push.
+    # No publication or D/R/A admission is implied by scheduling research.
+    if: github.event.pull_request.number == 6846 && github.event.action == 'labeled' && github.event.label.name == 'em-lane5-native-replay-admitted'
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Restore all exact 11 historical renderer source files
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin ecc249f5f460ca38be8850375b8b4f4a4d98b448
+          git fetch --no-tags --depth=1 origin 5fde6994c09e8464606074e5a1f21b06385b95e5
+          mkdir -p "$RUNNER_TEMP/em-original-source"
+          python research/evidencemotion-director/original_replay_source_restore.py \
+            --repo "$PWD" --out "$RUNNER_TEMP/em-original-source/eleven"
+      - name: Restore original, immutable WAV and original-source research archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/em-archive/source" "$RUNNER_TEMP/em-archive/voice"
+          gh run download 38918216741 --repo "$GITHUB_REPOSITORY" \
+            --name evidencemotion-original-wav-mfa-acoustic-candidate \
+            --dir "$RUNNER_TEMP/em-archive/source"
+          gh run download 38417454106 --repo "$GITHUB_REPOSITORY" \
+            --name ths-kokoro-narration \
+            --dir "$RUNNER_TEMP/em-archive/voice"
+          test -s "$RUNNER_TEMP/em-archive/voice/narration.wav"
+          printf '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435  %s\n' \
+            "$RUNNER_TEMP/em-archive/voice/narration.wav" | sha256sum -c -
+      - name: Match archived Pillow RDKit and original Ubuntu font bytes
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends fonts-dejavu-core
+          python -m pip install --disable-pip-version-check 'pillow==12.0.0' 'rdkit==2025.9.4'
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          import PIL, rdkit
+          assert PIL.__version__ == "12.0.0" and rdkit.__version__ == "2025.09.4"
+          pins = {
+              'DejaVuSans.ttf': 'ae7b7855e115a5966d8b1b3f80f254ccc117ec86f9965e202ee2940453837280',
+              'DejaVuSans-Bold.ttf': '5c1247acef7f2b8522a31742c76d6adcb5569bacc0be7ceaa4dc39dd252ce895',
+          }
+          for name, sha in pins.items():
+              real = Path('/usr/share/fonts/truetype/dejavu') / name
+              assert hashlib.sha256(real.read_bytes()).hexdigest() == sha, name
+          print('All 11 original code source pins, source WAV, Pillow/RDKit versions and both font pins are locally checkable.')
+          PY
+      - name: Execute eight actual original pre-encoder RGB24 frames and compare original PNG pixel bytes
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/original_frame_replay_probe.py \
+            --source-dir "$RUNNER_TEMP/em-original-source/eleven" \
+            --font-dir /usr/share/fonts/truetype/dejavu \
+            --wav "$RUNNER_TEMP/em-archive/voice/narration.wav" \
+            --archive-dir "$RUNNER_TEMP/em-archive/source" \
+            --out "$RUNNER_TEMP/em-archive/eight-native-original-frame-replay.json"
+      - name: Stage only verified original source inputs once for the paired render jobs
+        run: |
+          set -euo pipefail
+          dest="$RUNNER_TEMP/em-staged-original-pins"
+          mkdir -p "$dest/source/specimen-timed-native" "$dest/source/result" "$dest/voice"
+          cp "$RUNNER_TEMP/em-archive/source/specimen-timed-native/render-receipt.json" "$dest/source/specimen-timed-native/"
+          cp "$RUNNER_TEMP/em-archive/source/result/alignment-candidate.json" "$dest/source/result/"
+          for number in 0 60 120 360 540 750 870 1000; do
+            printf -v frame 'source_frame_%04d.png' "$number"
+            cp "$RUNNER_TEMP/em-archive/source/specimen-timed-native/$frame" "$dest/source/specimen-timed-native/"
+          done
+          cp "$RUNNER_TEMP/em-archive/voice/narration.wav" "$dest/voice/"
+          printf '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435  %s\n' "$dest/voice/narration.wav" | sha256sum -c -
+          ( cd "$dest" && find source voice -type f -print0 | sort -z | xargs -0 sha256sum > PINNED-FILE-SHA256SUMS )
+          test "$(find "$dest/source/specimen-timed-native" -type f | wc -l)" -eq 9
+          test "$(find "$dest" -type f | wc -l)" -eq 12
+          echo 'Research-only transport: one already-verified original input snapshot, no replacement WAV.'
+      - name: Upload minimal source inputs only after original 8-frame physical probe passed
+        uses: actions/upload-artifact@v4
+        with:
+          name: em-lane5-stage-pinned-original-inputs
+          path: ${{ runner.temp }}/em-staged-original-pins/
+          if-no-files-found: error
+          retention-days: 1
+      - name: Preserve research-only physical eight-frame receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: em-lane5-original-eight-frame-rgb-replay
+          path: ${{ runner.temp }}/em-archive/eight-native-original-frame-replay.json
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Explicit no native or creative approval from eight samples
+        if: always()
+        run: |
+          echo 'Eight restored original-source RGB frames are a diagnostic only. This job does NOT encode the full original film or authenticate two independent original 1031-frame stdin streams. No release, excellence or five-render streak credit.' >> "$GITHUB_STEP_SUMMARY"
+
+  full-original-native-stdin-replay:
+    # Original SOURCE-ALGORITHM replays, not original historical CPU/x264 proof.
+    # Matrix jobs execute on separately provisioned Ubuntu GitHub runners.
+    if: github.event.pull_request.number == 6846 && needs.archived-eight-frame-native-source-pixel-replay.result == 'success'
+    needs: [archived-eight-frame-native-source-pixel-replay, offline-operator-contract]
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    strategy:
+      fail-fast: false
+      matrix:
+        attempt: ['a', 'b']
+    env:
+      MATRIX_ATTEMPT: ${{ matrix.attempt }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Restore exact original immutable 11 renderer source files
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin ecc249f5f460ca38be8850375b8b4f4a4d98b448
+          git fetch --no-tags --depth=1 origin 5fde6994c09e8464606074e5a1f21b06385b95e5
+          mkdir -p "$RUNNER_TEMP/em-original-source"
+          python research/evidencemotion-director/original_replay_source_restore.py \
+            --repo "$PWD" --out "$RUNNER_TEMP/em-original-source/eleven"
+      - name: Download this-run archived and pinned input snapshot (not old artifact twice)
+        uses: actions/download-artifact@v4
+        with:
+          name: em-lane5-stage-pinned-original-inputs
+          path: ${{ runner.temp }}/em-archive
+      - name: Check actual staged bytes and original-WAV SHA in each independent runner
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP/em-archive"
+          sha256sum -c PINNED-FILE-SHA256SUMS
+          printf '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435  %s\n' "$RUNNER_TEMP/em-archive/voice/narration.wav" | sha256sum -c -
+          test "$(find source/specimen-timed-native -type f | wc -l)" -eq 9
+          test "$(find . -type f | wc -l)" -eq 12
+          echo 'Original archive bytes staged from successful 8-frame probe; no substituted voice.'
+      - name: Freeze actual Ubuntu source-render environment
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core
+          python -m pip install --disable-pip-version-check 'pillow==12.0.0' 'rdkit==2025.9.4'
+          python -m py_compile research/evidencemotion-director/original_native_stdin_replay.py
+      - name: Physically generate, capture and full-decode all 1,031 original source RGB24 frames
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/original_native_stdin_replay.py render \
+            --source-dir "$RUNNER_TEMP/em-original-source/eleven" \
+            --font-dir /usr/share/fonts/truetype/dejavu \
+            --wav "$RUNNER_TEMP/em-archive/voice/narration.wav" \
+            --archive-dir "$RUNNER_TEMP/em-archive/source" \
+            --out "$RUNNER_TEMP/em-native-run" \
+            --run-id "github-${GITHUB_RUN_ID}-native-${MATRIX_ATTEMPT}"
+      - name: Preserve actual original native source-to-stdin and encoded movie evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: em-lane5-native-full-${{ matrix.attempt }}
+          path: |
+            ${{ runner.temp }}/em-native-run/full-original-replay.json
+            ${{ runner.temp }}/em-native-run/environment.json
+            ${{ runner.temp }}/em-native-run/specimen_NEW_RESEARCH_CANDIDATE.mp4
+            ${{ runner.temp }}/em-native-run/encoder.log
+          if-no-files-found: warn
+          retention-days: 7
+      - name: No promotional, human or original FFmpeg historical equivalence approval
+        if: always()
+        run: |
+          echo 'The native RGB24/FFmpeg run is archival SOURCE-replay research only; original historical encoder SHA, source-review, human/phone and premium-artistry gates are NOT proved.' >> "$GITHUB_STEP_SUMMARY"
+
+  compare-two-original-native-stdin-replays:
+    if: github.event.pull_request.number == 6846 && needs.full-original-native-stdin-replay.result == 'success'
+    needs: [full-original-native-stdin-replay]
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install independent physical MP4/AAC validator on comparator runner
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg
+          test -x /usr/bin/ffmpeg
+          test -x /usr/bin/ffprobe
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: em-lane5-native-full-*
+          path: ${{ runner.temp }}/em-original-pair
+      - name: Independently compare every actual pre-encoder source frame and runtime SHA
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/original_native_stdin_replay.py compare \
+            --first "$RUNNER_TEMP/em-original-pair/em-lane5-native-full-a" \
+            --second "$RUNNER_TEMP/em-original-pair/em-lane5-native-full-b" \
+            --out "$RUNNER_TEMP/em-original-pair/PAIR-RESEARCH-HOLD.json"
+      - name: Diagnose actual H264 AAC and container byte divergence without relaxing HOLD
+        if: failure()
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          for attempt in a b; do
+            movie="$RUNNER_TEMP/em-original-pair/em-lane5-native-full-$attempt/specimen_NEW_RESEARCH_CANDIDATE.mp4"
+            test -s "$movie"
+            echo "=== Original native replay $attempt: physical container SHA ==="
+            sha256sum "$movie"
+            echo "=== Original native replay $attempt: H264 elementary packet digest ==="
+            ffmpeg -nostdin -v error -i "$movie" -map 0:v:0 -c copy -f streamhash -hash SHA256 -
+            echo "=== Original native replay $attempt: AAC elementary packet digest ==="
+            ffmpeg -nostdin -v error -i "$movie" -map 0:a:0 -c copy -f streamhash -hash SHA256 -
+          done
+          echo 'Stream hashes diagnose mismatch only; never override failed bitwise film comparison.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Persist physical peer comparison without promotion
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: em-lane5-full-source-stdin-pair-hold
+          path: ${{ runner.temp }}/em-original-pair/PAIR-RESEARCH-HOLD.json
+          if-no-files-found: warn
+          retention-days: 7
+      - name: State exactly what did not pass
+        if: always()
+        run: |
+          echo 'Two original source-algorithm runs are not verification of historical FFmpeg/x264 bytes, independent trust attestation, creator/craft/science/handset judgment or publication. First excellent remains 0/1, streak 0/5.' >> "$GITHUB_STEP_SUMMARY"
+
+  verify-archived-original-receiver-once:
+    # Only an explicit labelled PR event is allowed to pull the earlier known
+    # original A/B artifacts. This is a cheap receiver regression, never a new
+    # render, publisher release, WIP admission, or repeatability re-attestation.
+    # The pinned 2026-10-16 source artifacts have finite 7-day retention.
+    if: github.event.pull_request.number == 6846 && github.event.action == 'labeled' && github.event.label.name == 'em-lane5-archived-receiver-admitted'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact current Lane 5 consumer implementation
+        uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install independent FFmpeg for received film verification
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg
+          test -x /usr/bin/ffmpeg
+          test -x /usr/bin/ffprobe
+      - name: Download specifically pinned older first-party full original films
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/em-archived-pair/a" "$RUNNER_TEMP/em-archived-pair/b"
+          gh run download 38975231562 --repo "$GITHUB_REPOSITORY" \
+            --name em-lane5-native-full-a --dir "$RUNNER_TEMP/em-archived-pair/a"
+          gh run download 38975231562 --repo "$GITHUB_REPOSITORY" \
+            --name em-lane5-native-full-b --dir "$RUNNER_TEMP/em-archived-pair/b"
+          for tag in a b; do
+            root="$RUNNER_TEMP/em-archived-pair/$tag"
+            test "$(find "$root" -maxdepth 1 -type f | wc -l)" -eq 4
+            printf 'c100779c2c6c15005fdef9c5166da957c8dd6f51226d45f7c2264f0a89206322  %s\n' \
+              "$root/specimen_NEW_RESEARCH_CANDIDATE.mp4" | sha256sum -c -
+            printf '401c5c7eec184d77aeaf16bd55c430e4515106b130d4cdcd0ce39d052cbc7a88  %s\n' \
+              "$root/environment.json" | sha256sum -c -
+          done
+      - name: Run CURRENT consumer against physically downloaded original A/B
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/original_native_stdin_replay.py compare \
+            --first "$RUNNER_TEMP/em-archived-pair/a" \
+            --second "$RUNNER_TEMP/em-archived-pair/b" \
+            --out "$RUNNER_TEMP/em-archived-pair/RECEIVER-RESEARCH-HOLD.json"
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          p = Path(os.environ["RUNNER_TEMP"]) / "em-archived-pair/RECEIVER-RESEARCH-HOLD.json"
+          result = json.loads(p.read_text())
+          assert result["twoResearchSingleThreadEncodedMoviesBitwiseIdentical"] is True
+          assert result["downloadedMovieBytesRehashedAgainstBothEncoderReceipts"] is True
+          assert result["twoDownloadedNativeMoviesIndependentlyFullyDecoded"] is True
+          assert result["twoPhysicalX264DisabledCpuAsmLogsIndependentlyValidated"] is True
+          assert result["mayPublish"] is False
+          assert result["twoActualIndependentJobExecutionsAuthenticated"] is False
+          assert result["nativeFullMediaDecodeAndCraftApproved"] is False
+          assert result["status"] == "SINGLE_THREAD_ORIGINAL_SOURCE_H264_BITWISE_REPLAY_RESEARCH_HOLD"
+          print("RECEIVER_REPLAY_PASS: both physically downloaded original H264/AAC films decoded; research HOLD maintained")
+          PY
+      - name: Preserve small independently created acceptance-HOLD research record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: em-lane5-archived-receiver-only-hold
+          path: ${{ runner.temp }}/em-archived-pair/RECEIVER-RESEARCH-HOLD.json
+          if-no-files-found: warn
+          retention-days: 7
+  native-windows-owned-stage-and-canonical-lf-retest:
+    # One-time native Windows integration: no media binaries, source rerenders,
+    # publisher secrets or new WIP slot. Only the owner-admitted label event
+    # verifies two actual Lane6 Windows compatibility blockers.
+    if: github.event.pull_request.number == 6846 && github.event.action == 'labeled' && github.event.label.name == 'em-lane5-windows-fix-retest-admitted'
+    runs-on: windows-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Reproduce Windows original-source readonly and exact-LF pair invariants
+        shell: bash
+        run: |
+          set -euo pipefail
+          export PYTHONPATH="$GITHUB_WORKSPACE/research/evidencemotion-director"
+          python --version
+          git --version
+          python -m unittest -v \
+            test_native_stdin_capture_guard.Tests.test_original_source_restore_unavailable_git_commit_fails_atomically \
+            test_native_stdin_capture_guard.Tests.test_win_readonly_staging_cleanup_preserves_git_hold \
+            test_native_stdin_capture_guard.Tests.test_readonly_stage_cleanup_rejects_foreign_file_repair \
+            test_native_stdin_capture_guard.Tests.test_pair_fixture_is_actual_canonical_lf_bytes_not_windows_text_mode \
+            test_native_stdin_capture_guard.Tests.test_pair_fixture_physical_environment_crlf_mutation_still_hold \
+            test_native_stdin_capture_guard.Tests.test_physical_pair_json_valid_synthetic_fixture_still_research_only
+      - name: Keep research and release approval explicitly on HOLD
+        if: always()
+        shell: bash
+        run: |
+          echo 'Native Windows checks only test recovery staging and exact JSON bytes; Linux-pinned FFmpeg and independent science/voice/craft/device approvals still HOLD.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No production promotion, source film rewrite, premium first render, five-film streak, or posting implied.' >> "$GITHUB_STEP_SUMMARY"
+  recovery-bundle-original-inputs-and-encoded-film:
+    # Deliberate one-time source recovery, NOT source re-render, publishing,
+    # original archived FFmpeg equivalence or approval of a creative film.
+    if: github.event.pull_request.number == 6846 && github.event.action == 'labeled' && github.event.label.name == 'em-lane5-source-recovery-admitted'
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Recover 11 exactly pinned original renderer scripts
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin ecc249f5f460ca38be8850375b8b4f4a4d98b448
+          git fetch --no-tags --depth=1 origin 5fde6994c09e8464606074e5a1f21b06385b95e5
+          mkdir -p "$RUNNER_TEMP/em-source-recovery"
+          python research/evidencemotion-director/original_replay_source_restore.py \
+            --repo "$PWD" --out "$RUNNER_TEMP/em-source-recovery/original-renderer"
+          test "$(find "$RUNNER_TEMP/em-source-recovery/original-renderer" -maxdepth 1 -type f | wc -l)" -eq 11
+      - name: Download immutable first-party original source + WAV + encoded A/B inputs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP/em-source-recovery"
+          mkdir -p original-inputs film-a film-b
+          gh run download 38975231562 --repo "$GITHUB_REPOSITORY" \
+            --name em-lane5-stage-pinned-original-inputs --dir original-inputs
+          gh run download 38975231562 --repo "$GITHUB_REPOSITORY" \
+            --name em-lane5-native-full-a --dir film-a
+          gh run download 38975231562 --repo "$GITHUB_REPOSITORY" \
+            --name em-lane5-native-full-b --dir film-b
+          (cd original-inputs && sha256sum --check PINNED-FILE-SHA256SUMS)
+          printf '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435  %s\n' \
+            original-inputs/voice/narration.wav | sha256sum --check -
+          for tag in film-a film-b; do
+            test "$(find "$tag" -maxdepth 1 -type f | wc -l)" -eq 4
+            printf 'c100779c2c6c15005fdef9c5166da957c8dd6f51226d45f7c2264f0a89206322  %s\n' \
+              "$tag/specimen_NEW_RESEARCH_CANDIDATE.mp4" | sha256sum --check -
+            printf '401c5c7eec184d77aeaf16bd55c430e4515106b130d4cdcd0ce39d052cbc7a88  %s\n' \
+              "$tag/environment.json" | sha256sum --check -
+          done
+      - name: Write honest research-only portable source/input evidence manifest
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP/em-source-recovery"
+          cat > RECOVERY-NOT-RELEASE.txt <<'EOF'
+          EvidenceMotion ORIGINAL SOURCE RECOVERY (archival research ONLY)
+          Inputs: 11 SHA-pinned original historical renderer scripts, original
+          first-party 24000Hz mono narrator WAV, original source/alignment receipt
+          and eight PNG pixel reference frames, plus two historically controlled
+          A/B MP4 H264/AAC encodes and full original stream/environment receipts.
+          Origin: Git refs ecc249f5... and 5fde6994..., GH workflow 38975231562.
+          Code stage was SHA-checked; source WAV, staged input SHA manifest,
+          both encoded MP4 and both environment.json hashes checked on recovery.
+          Open-source DejaVu font bytes, environment-specific installed libraries,
+          original historical FFmpeg/x264 binaries, and independent external
+          runner attestation are NOT included or authenticated in this bundle.
+          This is NOT a fresh render, production deploy, science review, verified
+          audience understanding, real handset check or premium craft approval.
+          Revised Lane 3 finished film and sidecars are NOT included.
+          mayPublish=false
+          firstExcellentMasterAccepted=false
+          fiveRenderStreakAccepted=false
+          Original excellent-first 0/1. Diverse 5-render streak 0/5.
+          EOF
+          find original-renderer original-inputs film-a film-b -type f -print0 \
+            | LC_ALL=C sort -z | xargs -0 sha256sum > RECOVERED-FILES-SHA256SUMS
+          test "$(find original-renderer original-inputs film-a film-b -type f | wc -l)" -eq 31
+          sha256sum --check RECOVERED-FILES-SHA256SUMS
+          zip -q -r "$RUNNER_TEMP/EvidenceMotion_Original_Source_WAV_Film_Research_HOLD.zip" \
+            original-renderer original-inputs film-a film-b \
+            RECOVERED-FILES-SHA256SUMS RECOVERY-NOT-RELEASE.txt
+          unzip -tqq "$RUNNER_TEMP/EvidenceMotion_Original_Source_WAV_Film_Research_HOLD.zip"
+          echo 'Full portable archive (research only):' >> "$GITHUB_STEP_SUMMARY"
+          sha256sum "$RUNNER_TEMP/EvidenceMotion_Original_Source_WAV_Film_Research_HOLD.zip" \
+            | tee -a "$GITHUB_STEP_SUMMARY"
+          du -h "$RUNNER_TEMP/EvidenceMotion_Original_Source_WAV_Film_Research_HOLD.zip"
+      - name: Preserve research-only source and film archive for independent private download
+        uses: actions/upload-artifact@v4
+        with:
+          name: em-lane5-original-source-wav-film-recovery-hold
+          path: ${{ runner.temp }}/EvidenceMotion_Original_Source_WAV_Film_Research_HOLD.zip
+          if-no-files-found: error
+          retention-days: 7

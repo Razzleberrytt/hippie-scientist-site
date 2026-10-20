@@ -1,0 +1,33 @@
+name: EvidenceMotion sourced-reading hold research regression
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/source-reading-hold.mjs'
+      - 'research/evidencemotion-director/source-reading-hold.test.mjs'
+      - '.github/workflows/evidencemotion-research-source-hold.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'research/evidencemotion-director/source-reading-hold.mjs'
+      - 'research/evidencemotion-director/source-reading-hold.test.mjs'
+      - '.github/workflows/evidencemotion-research-source-hold.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fail-closed-source-citation-exemption:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Reject malformed research source and execute adverse examples
+        run: |
+          node --check research/evidencemotion-director/source-reading-hold.mjs
+          node --check research/evidencemotion-director/source-reading-hold.test.mjs
+          node --test research/evidencemotion-director/source-reading-hold.test.mjs
+      - name: Explicit scope
+        run: |
+          echo 'Research motion-hold exemption test only. Does not establish visual excellence, caption legibility on real phones, science review or permission to publish.' >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,119 @@
+{
+  "scope": "temporary-combined-snapshot-not-branch-merge-or-runtime-acceptance",
+  "base": "ecc249f5f460ca38be8850375b8b4f4a4d98b448",
+  "steps": [
+    {
+      "lane": "lane1",
+      "head": "2536a8f08576f1363b956a55ac01a0b70a1ddfdd",
+      "tree": "9e31ad63730756e389111df51dd7c56f5719dc4a"
+    },
+    {
+      "lane": "lane2",
+      "head": "23e42b4a0ce37fe1c0832e71adb8362d3e4f55d4",
+      "tree": "35eac1be7743b7c3283cca1b622c79905f064932"
+    },
+    {
+      "lane": "lane3",
+      "head": "a1ad5e797a3838e726c46240d4a5becbb4f6c667",
+      "tree": "15fb6f8bf017de396bce2d3fed8016d0f96ad0bb"
+    },
+    {
+      "lane": "lane4",
+      "head": "27db8a98d9ea0d61bc4a61b869582f265b8aa781",
+      "tree": "d0414c0b48b096b7cfd75451bc424be2539b5978"
+    },
+    {
+      "lane": "lane5",
+      "head": "da1703cd43690a65c1a076c088a0683e3d765027",
+      "tree": "ae734725a79f4be3f6aff3d462dd185107ff1cf3"
+    },
+    {
+      "lane": "lane6",
+      "head": "3a285313bf5fb2841ec71cd91f98735982453e51",
+      "tree": "fb11bde189ecc1c69f0aa8e9ef880f3731a52b43"
+    }
+  ],
+  "combinedTree": "fb11bde189ecc1c69f0aa8e9ef880f3731a52b43",
+  "temporarySnapshot": "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-integration-9qgxip9n",
+  "archiveSha256": "11bd53fc8c89ef617910c370e92d381e53b21762c5d78e058bd682088ba1a5fa",
+  "mayPublish": false,
+  "newAtomicCards": 0,
+  "testRuntime": "C:\\Users\\Will\\.codex\\worktrees\\evidencemotion-narration-audit\\hippie-scientist-site\\.local\\visual-runtime\\Scripts\\python.exe",
+  "checks": [
+    {
+      "test": "test_timed_caption_windows.py",
+      "exitCode": 0,
+      "seconds": 0.3,
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-combined-test_timed_caption_windows.py.log",
+      "tail": "test_an_early_frame_never_reveals_a_future_negation (test_timed_caption_windows.CaptionWindowsTests.test_an_early_frame_never_reveals_a_future_negation) ... ok\ntest_group_does_not_pre_display_future_words_or_qualifiers (test_timed_caption_windows.CaptionWindowsTests.test_group_does_not_pre_display_future_words_or_qualifiers) ... ok\ntest_identical_repeated_words_do_not_appear_as_future_instances (test_timed_caption_windows.CaptionWindowsTests.test_identical_repeated_words_do_not_appear_as_future_instances) ... ok\ntest_malformed_sample_time_fails_closed (test_timed_caption_windows.CaptionWindowsTests.test_malformed_sample_time_fails_closed) ... ok\ntest_one_original_word_per_cue_survives_some_window (test_timed_caption_windows.CaptionWindowsTests.test_one_original_word_per_cue_survives_some_window) ... ok\ntest_reject_modified_bad_missing_and_overlapping_cues (test_timed_caption_windows.CaptionWindowsTests.test_reject_modified_bad_missing_and_overlapping_cues) ... ok\ntest_silent_source_hold_contains_no_captions (test_timed_caption_windows.CaptionWindowsTests.test_silent_source_hold_contains_no_captions) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.001s\n\nOK\n",
+      "logSha256": "4a67cc0224fea344e7173e375b5b74a43b87138c09c457ddabcefd448b3158fe",
+      "tests": 7,
+      "passed": 7,
+      "setupErrors": 0,
+      "skipped": 0
+    },
+    {
+      "test": "test_narration_locked_treatments.py",
+      "exitCode": 0,
+      "seconds": 8.81,
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-combined-test_narration_locked_treatments.py.log",
+      "tail": "cked_without_stretching_original_voice) ... ok\ntest_long_chemical_term_is_never_clipped_or_split_silently (test_narration_locked_treatments.NarrationTreatments.test_long_chemical_term_is_never_clipped_or_split_silently) ... ok\ntest_misspelled_or_reordered_words_cannot_reuse_captions (test_narration_locked_treatments.NarrationTreatments.test_misspelled_or_reordered_words_cannot_reuse_captions) ... ok\ntest_native_caption_plus_overlay_load_fits_observed_sentence_windows (test_narration_locked_treatments.NarrationTreatments.test_native_caption_plus_overlay_load_fits_observed_sentence_windows) ... ok\ntest_native_emitted_text_fits_existing_phone_ui_rules (test_narration_locked_treatments.NarrationTreatments.test_native_emitted_text_fits_existing_phone_ui_rules) ... ok\ntest_native_oxygen_spotlight_is_source_locked_and_not_early (test_narration_locked_treatments.NarrationTreatments.test_native_oxygen_spotlight_is_source_locked_and_not_early)\nActual native pixels must change only after original 'different' cue. ... ok\ntest_opt_in_timed_caption_frame_matches_exact_original_word_cue (test_narration_locked_treatments.NarrationTreatments.test_opt_in_timed_caption_frame_matches_exact_original_word_cue) ... ok\ntest_real_emitter_contract_covers_all_spoken_words_and_exact_split (test_narration_locked_treatments.NarrationTreatments.test_real_emitter_contract_covers_all_spoken_words_and_exact_split) ... ok\ntest_real_graphs_have_distinct_identities_and_one_verified_free_hydroxyl (test_narration_locked_treatments.NarrationTreatments.test_real_graphs_have_distinct_identities_and_one_verified_free_hydroxyl) ... ok\ntest_silent_source_pause_has_no_caption_cues (test_narration_locked_treatments.NarrationTreatments.test_silent_source_pause_has_no_caption_cues) ... ok\ntest_specimen_native_labels_meet_phone_type_and_reflow_geometry (test_narration_locked_treatments.NarrationTreatments.test_specimen_native_labels_meet_phone_type_and_reflow_geometry) ... ok\ntest_spoken_scene_missing_word_cues_holds (test_narration_locked_treatments.NarrationTreatments.test_spoken_scene_missing_word_cues_holds) ... ok\ntest_teaching_view_is_rigid_right_handed_and_avoids_edge_on_plane (test_narration_locked_treatments.NarrationTreatments.test_teaching_view_is_rigid_right_handed_and_avoids_edge_on_plane) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 8.434s\n\nOK\n",
+      "logSha256": "9846ebd25670fe11a65ae084525b3e147f1808d89f1531674e05a2cb7a54f989",
+      "tests": 19,
+      "passed": 19,
+      "setupErrors": 0,
+      "skipped": 0
+    },
+    {
+      "test": "test_phone_ui_audit.py",
+      "exitCode": 1,
+      "seconds": 10.62,
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-combined-test_phone_ui_audit.py.log",
+      "tail": "leted (test_phone_ui_audit.ReviewImageOwnershipSafety.test_unowned_pattern_matching_png_is_never_deleted) ... ok\ntest_unowned_same_name_cannot_be_overwritten (test_phone_ui_audit.ReviewImageOwnershipSafety.test_unowned_same_name_cannot_be_overwritten) ... ok\n\n======================================================================\nERROR: test_symlinked_output_dir_cannot_hide_generated_input_path (test_phone_ui_audit.ReportOutputAliasSafety.test_symlinked_output_dir_cannot_hide_generated_input_path)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-integration-9qgxip9n\\research\\evidencemotion-director\\test_phone_ui_audit.py\", line 418, in test_symlinked_output_dir_cannot_hide_generated_input_path\n    (root / \"review-link\").symlink_to(source_dir, target_is_directory=True)\n  File \"C:\\Users\\Will\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py\", line 1386, in symlink_to\n    os.symlink(target, self, target_is_directory)\nOSError: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpmjfn0z76\\\\originals' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpmjfn0z76\\\\review-link'\n\n======================================================================\nERROR: test_symlinked_output_directory_cannot_bypass_alias_guard (test_phone_ui_audit.ReportOutputAliasSafety.test_symlinked_output_directory_cannot_bypass_alias_guard)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-integration-9qgxip9n\\research\\evidencemotion-director\\test_phone_ui_audit.py\", line 435, in test_symlinked_output_directory_cannot_bypass_alias_guard\n    (root / \"output-alias\").symlink_to(source_dir, target_is_directory=True)\n  File \"C:\\Users\\Will\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py\", line 1386, in symlink_to\n    os.symlink(target, self, target_is_directory)\nOSError: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmph6o5arfk\\\\original-inputs' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmph6o5arfk\\\\output-alias'\n\n----------------------------------------------------------------------\nRan 123 tests in 10.219s\n\nFAILED (errors=2)\n",
+      "logSha256": "d7ef0c008361a5a24419b18c0043ec547c52754204243b2d3dd5e6d3c61a88d5",
+      "tests": 123,
+      "passed": 121,
+      "setupErrors": 2,
+      "skipped": 0
+    },
+    {
+      "test": "test_native_master_audit.py",
+      "exitCode": 0,
+      "seconds": 0.36,
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-combined-test_native_master_audit.py.log",
+      "tail": "tual_audio_hash_uses_adts_bytes (test_native_master_audit.NativeMasterAuditTests.test_actual_audio_hash_uses_adts_bytes) ... ok\ntest_actual_timestamp_parser_uses_frame_timestamps (test_native_master_audit.NativeMasterAuditTests.test_actual_timestamp_parser_uses_frame_timestamps) ... ok\ntest_bad_duration_is_rejected (test_native_master_audit.NativeMasterAuditTests.test_bad_duration_is_rejected) ... ok\ntest_decoded_frame_count_mismatch_rejected (test_native_master_audit.NativeMasterAuditTests.test_decoded_frame_count_mismatch_rejected) ... ok\ntest_duration_not_consistent_with_frame_count_rejected (test_native_master_audit.NativeMasterAuditTests.test_duration_not_consistent_with_frame_count_rejected) ... ok\ntest_empty_audio_stream_is_hard_error (test_native_master_audit.NativeMasterAuditTests.test_empty_audio_stream_is_hard_error) ... ok\ntest_frame_timestamps_unavailable_rejected (test_native_master_audit.NativeMasterAuditTests.test_frame_timestamps_unavailable_rejected) ... ok\ntest_guessed_30fps_but_variable_frame_timestamps_rejected (test_native_master_audit.NativeMasterAuditTests.test_guessed_30fps_but_variable_frame_timestamps_rejected) ... ok\ntest_invalid_master_hash_rejected (test_native_master_audit.NativeMasterAuditTests.test_invalid_master_hash_rejected) ... ok\ntest_malformed_expected_hash_fails_without_probe (test_native_master_audit.NativeMasterAuditTests.test_malformed_expected_hash_fails_without_probe) ... ok\ntest_missing_master_audio_returns_structured_hold (test_native_master_audit.NativeMasterAuditTests.test_missing_master_audio_returns_structured_hold) ... ok\ntest_missing_media_rejected (test_native_master_audit.NativeMasterAuditTests.test_missing_media_rejected) ... ok\ntest_missing_reference_audio_returns_structured_hold (test_native_master_audit.NativeMasterAuditTests.test_missing_reference_audio_returns_structured_hold) ... ok\ntest_valid_media_still_never_grants_release (test_native_master_audit.NativeMasterAuditTests.test_valid_media_still_never_grants_release) ... ok\ntest_wrong_audio_stream_fails_closed (test_native_master_audit.NativeMasterAuditTests.test_wrong_audio_stream_fails_closed) ... ok\ntest_wrong_frame_rate_and_dimensions_rejected (test_native_master_audit.NativeMasterAuditTests.test_wrong_frame_rate_and_dimensions_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 0.127s\n\nOK\n",
+      "logSha256": "0ed5773b7a5b2a9e17a7498d27e99f279bc7604dc3c5fcbb4ed66fadb5d71818",
+      "tests": 16,
+      "passed": 16,
+      "setupErrors": 0,
+      "skipped": 0
+    },
+    {
+      "test": "test_artifact_intake.py",
+      "exitCode": 0,
+      "seconds": 6.81,
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-combined-test_artifact_intake.py.log",
+      "tail": "... ok\ntest_missing_real_bundle_is_hold (test_artifact_intake.IntakeTests.test_missing_real_bundle_is_hold) ... ok\ntest_missing_role_cannot_be_waived (test_artifact_intake.IntakeTests.test_missing_role_cannot_be_waived) ... ok\ntest_no_overwrite (test_artifact_intake.IntakeTests.test_no_overwrite) ... ok\ntest_nonfinite_json (test_artifact_intake.IntakeTests.test_nonfinite_json) ... ok\ntest_pin_itself_cannot_award_approval (test_artifact_intake.IntakeTests.test_pin_itself_cannot_award_approval) ... ok\ntest_stale_lineage_despite_rehashed_manifest (test_artifact_intake.IntakeTests.test_stale_lineage_despite_rehashed_manifest) ... ok\ntest_stale_review (test_artifact_intake.IntakeTests.test_stale_review) ... ok\ntest_stale_shot_plan (test_artifact_intake.IntakeTests.test_stale_shot_plan) ... ok\ntest_stale_source_manifest (test_artifact_intake.IntakeTests.test_stale_source_manifest) ... ok\ntest_swapped_film (test_artifact_intake.IntakeTests.test_swapped_film) ... ok\ntest_unbound_source_input (test_artifact_intake.IntakeTests.test_unbound_source_input) ... ok\ntest_unexpected_destination_file_before_completion_is_rejected (test_artifact_intake.IntakeTests.test_unexpected_destination_file_before_completion_is_rejected) ... ok\ntest_unpinned_extra_files_block_directory_and_zip_transfer (test_artifact_intake.IntakeTests.test_unpinned_extra_files_block_directory_and_zip_transfer) ... ok\ntest_unsafe_portable_paths (test_artifact_intake.IntakeTests.test_unsafe_portable_paths) ... ok\ntest_uppercase_json_cannot_hide_approval (test_artifact_intake.IntakeTests.test_uppercase_json_cannot_hide_approval) ... ok\ntest_wrong_decoded_geometry (test_artifact_intake.IntakeTests.test_wrong_decoded_geometry) ... ok\ntest_wrong_encoded_voice (test_artifact_intake.IntakeTests.test_wrong_encoded_voice) ... ok\ntest_wrong_trust_pin_hash (test_artifact_intake.IntakeTests.test_wrong_trust_pin_hash) ... ok\ntest_zip_case_alias (test_artifact_intake.IntakeTests.test_zip_case_alias) ... ok\ntest_zip_member_limit (test_artifact_intake.IntakeTests.test_zip_member_limit) ... ok\ntest_zip_symlink (test_artifact_intake.IntakeTests.test_zip_symlink) ... ok\ntest_zip_transfer (test_artifact_intake.IntakeTests.test_zip_transfer) ... ok\ntest_zip_traversal (test_artifact_intake.IntakeTests.test_zip_traversal) ... ok\n\n----------------------------------------------------------------------\nRan 38 tests in 6.539s\n\nOK\n",
+      "logSha256": "9bae5714c3fc07ecc4e5a000dca35e6c50a62ff6ecb3d278c6e6858c0b91d662",
+      "tests": 38,
+      "passed": 38,
+      "setupErrors": 0,
+      "skipped": 0
+    }
+  ],
+  "checksTotal": 203,
+  "passedTests": 201,
+  "setupErrors": 2,
+  "skippedTests": 0,
+  "status": "PARTIAL_201_PASS_2_WINDOWS_SYMLINK_SETUP_ERRORS",
+  "mergeSimulation": "All six sequential git merge-tree operations exit 0; no branch/ref or working-tree integration",
+  "scopeBoundary": "203 focused tests in a temporary source overlay, not full CI, production build, actual revised-film, media-quality, owner approval, or protected merge proof",
+  "sharedPath": "research/evidencemotion-director/narration_locked_treatments.py",
+  "mergedRendererBlob": "a79516a589cf9872a8c4b58782fbc1620433a923",
+  "reproduction": {
+    "merge": "Start at base. For each ordered step run git merge-tree --write-tree --name-only CURRENT STEP_HEAD, then git commit-tree TREE -p CURRENT -p STEP_HEAD using a temporary unreferenced commit; never update any ref.",
+    "snapshot": "git archive --format=zip FINAL_TREE research/evidencemotion-director; unpack only to a new temporary directory.",
+    "tests": "For each check run PYTHON -B -m unittest discover -s SNAPSHOT/research/evidencemotion-director[/lane6 for intake] -p TEST_NAME -v with cwd at the director folder.",
+    "fontDir": "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-fonts"
+  }
+}

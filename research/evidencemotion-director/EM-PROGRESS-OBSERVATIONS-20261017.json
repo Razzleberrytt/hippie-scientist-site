@@ -1,0 +1,210 @@
+{
+  "schema": "ths-em-progress-observation-v1",
+  "observedDate": "2026-10-17",
+  "observedAtUtc": "2026-10-17T19:31:07.235Z",
+  "source": "Individual GitHub get_pr_info merged metadata and repository PR searches; recorded in issue #6743",
+  "repository": "Razzleberrytt/hippie-scientist-site",
+  "baselineMachineAuditedResearchCards": 168,
+  "baselineInheritedProvisionalCards": 707,
+  "mergedPRs": [
+    {
+      "number": 6847,
+      "lane": "ancillary_research",
+      "title": "EvidenceMotion Lane 6: offline exact-byte artifact handoff (research only)",
+      "mergedAt": "2026-10-17T13:54:00Z",
+      "mergeCommitSha": "5a2fedcf0621e7e0f1cd3ce9bc88537f95f386a4",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6847"
+    },
+    {
+      "number": 6844,
+      "lane": "lane2",
+      "title": "EvidenceMotion Lane 2: source-pinned repeated-term acoustic consistency review",
+      "mergedAt": "2026-10-17T16:32:54Z",
+      "mergeCommitSha": "09032fc9593ff45d76343dc05ab1eac70b769338",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6844"
+    },
+    {
+      "number": 6831,
+      "lane": "lane3",
+      "title": "Research-only EvidenceMotion Lane 3: source-bound preview reviews and anti-template craft hold",
+      "mergedAt": "2026-10-17T17:02:33Z",
+      "mergeCommitSha": "7882858ebcdd948d37ac00a1b0594c75d7920fe0",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6831"
+    },
+    {
+      "number": 6850,
+      "lane": "daily_video_audit",
+      "title": "Research-only: exact gut-absorption V9 decoded-film failure audit and fail-closed triage",
+      "mergedAt": "2026-10-17T17:23:21Z",
+      "mergeCommitSha": "4472c696c483fffa2a6344225f1956861d9d5b18",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6850"
+    },
+    {
+      "number": 6854,
+      "lane": "lane3",
+      "title": "research(EvidenceMotion Lane 3): detect frozen hero masked by moving ornamentation",
+      "mergedAt": "2026-10-17T17:58:12Z",
+      "mergeCommitSha": "c6b0a0f3b5dac4e27c64b024ff98a7fd14e5fccb",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6854"
+    },
+    {
+      "number": 6852,
+      "lane": "integration",
+      "title": "EvidenceMotion: integrate remaining research guards and repair encoded-caption OCR (#6743)",
+      "mergedAt": "2026-10-17T18:14:07Z",
+      "mergeCommitSha": "3aceadcf156ebbfd14c07575d91ea8e40c33fd85",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6852"
+    },
+    {
+      "number": 6845,
+      "lane": "lane4",
+      "title": "EvidenceMotion Lane 4: fail-closed phone QA, exact-video OCR, muted-story continuity",
+      "mergedAt": "2026-10-17T18:14:08Z",
+      "mergeCommitSha": "3aceadcf156ebbfd14c07575d91ea8e40c33fd85",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6845"
+    },
+    {
+      "number": 6846,
+      "lane": "lane5",
+      "title": "EvidenceMotion Lane 5: research-only native stdin capture receipt CI",
+      "mergedAt": "2026-10-17T18:14:08Z",
+      "mergeCommitSha": "3aceadcf156ebbfd14c07575d91ea8e40c33fd85",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6846"
+    },
+    {
+      "number": 6856,
+      "lane": "lane5",
+      "title": "EvidenceMotion Lane 5: reject truncated original PCM hidden by valid WAV headers",
+      "mergedAt": "2026-10-17T18:33:03Z",
+      "mergeCommitSha": "2a650196b1a6953f012fcf7a8d5700eea293ca17",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6856"
+    },
+    {
+      "number": 6840,
+      "lane": "lane1",
+      "title": "EvidenceMotion Lane 1: restage scientific integrity on fixed main base",
+      "mergedAt": "2026-10-17T18:37:23Z",
+      "mergeCommitSha": "9fe4e7e4de66f462d888866359da24f4a36203e3",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6840"
+    },
+    {
+      "number": 6857,
+      "lane": "lane3",
+      "title": "research(EvidenceMotion Lane 3): detect A/B visual loops in decoded film",
+      "mergedAt": "2026-10-17T18:50:02Z",
+      "mergeCommitSha": "b8a3a9357d3407ad03f8f2a7632d59b662651823",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6857"
+    },
+    {
+      "number": 6860,
+      "lane": "lane1",
+      "title": "EvidenceMotion Lane 1: prevent science-receipt overwrite of immutable inputs",
+      "mergedAt": "2026-10-17T19:04:42Z",
+      "mergeCommitSha": "d858800d80ffb6455283809f64a881b3e52f03af",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6860"
+    },
+    {
+      "number": 6853,
+      "lane": "lane2",
+      "title": "EvidenceMotion Lane 2: block script–caption negation drift in source-bound research",
+      "mergedAt": "2026-10-17T19:07:49Z",
+      "mergeCommitSha": "0de388223e141cc0a06e9d1ef5f419eb4577bf90",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6853"
+    },
+    {
+      "number": 6858,
+      "lane": "lane4",
+      "title": "EvidenceMotion Lane 4: SHA-bound decoded reading-load negative screen (EM-034)",
+      "mergedAt": "2026-10-17T19:16:51Z",
+      "mergeCommitSha": "50094dde442c178e941b913dcb39b00ca652f777",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6858"
+    },
+    {
+      "number": 6855,
+      "lane": "lane3",
+      "title": "research(EvidenceMotion Lane 3): catch blank intervals hidden by 2s sample aliasing",
+      "mergedAt": "2026-10-17T19:24:54Z",
+      "mergeCommitSha": "8e60249957ad5540436b67c3c5ddbbfb024073e7",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6855"
+    }
+  ],
+  "openPRs": [
+    {
+      "number": 6859,
+      "lane": "lane5",
+      "summary": "Physically receive same-film phone plans",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6859",
+      "state": "OPEN_AT_OBSERVATION_ONLY"
+    },
+    {
+      "number": 6849,
+      "lane": "cross_lane",
+      "summary": "Hook and audience QA separation",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6849",
+      "state": "OPEN_AT_OBSERVATION_ONLY"
+    },
+    {
+      "number": 6825,
+      "lane": "cross_lane",
+      "summary": "Spoken-claim / term-isolation completion",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6825",
+      "state": "OPEN_AT_OBSERVATION_ONLY"
+    },
+    {
+      "number": 6817,
+      "lane": "backlog",
+      "summary": "99% QA integration / operator rehearsal",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6817",
+      "state": "OPEN_AT_OBSERVATION_ONLY"
+    },
+    {
+      "number": 6774,
+      "lane": "backlog",
+      "summary": "Five evidence-first science explainers",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6774",
+      "state": "OPEN_AT_OBSERVATION_ONLY"
+    },
+    {
+      "number": 6758,
+      "lane": "backlog",
+      "summary": "Five narration-first topic concepts",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6758",
+      "state": "OPEN_AT_OBSERVATION_ONLY"
+    },
+    {
+      "number": 6733,
+      "lane": "backlog",
+      "summary": "Radio-edit controls picture timing",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6733",
+      "state": "OPEN_AT_OBSERVATION_ONLY"
+    },
+    {
+      "number": 6677,
+      "lane": "backlog",
+      "summary": "Exact-master prepublish inspection",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6677",
+      "state": "OPEN_AT_OBSERVATION_ONLY"
+    },
+    {
+      "number": 6741,
+      "lane": "backlog",
+      "summary": "Source-locked tolerance explainer",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6741",
+      "state": "OPEN_AT_OBSERVATION_ONLY"
+    },
+    {
+      "number": 6814,
+      "lane": "backlog",
+      "summary": "Asset-intelligence baseline",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6814",
+      "state": "OPEN_AT_OBSERVATION_ONLY"
+    }
+  ],
+  "limits": [
+    "Dated checked snapshot, not live; refresh before later decisions.",
+    "One integration merge SHA can represent multiple source PRs; no duplicate code or atomic credit.",
+    "Daily-video audit and ancillary lane6 work are separated from the five active engine lanes.",
+    "Merged PRs are engineering events, not accepted scientific, handset, audience or publication milestones.",
+    "Open PR state may have changed after this observation."
+  ]
+}

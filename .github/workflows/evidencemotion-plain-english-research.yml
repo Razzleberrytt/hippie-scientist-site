@@ -1,0 +1,33 @@
+name: EvidenceMotion plain-English teaching research checks
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/plain_english_teaching_audit.py'
+      - 'research/evidencemotion-director/test_plain_english_teaching_audit.py'
+      - '.github/workflows/evidencemotion-plain-english-research.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'research/evidencemotion-director/plain_english_teaching_audit.py'
+      - 'research/evidencemotion-director/test_plain_english_teaching_audit.py'
+      - '.github/workflows/evidencemotion-plain-english-research.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  named-jargon-screening-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run 15 opt-in teaching and scientific-overclaim checks
+        run: |
+          python -m py_compile research/evidencemotion-director/plain_english_teaching_audit.py
+          python -m unittest discover -s research/evidencemotion-director -p test_plain_english_teaching_audit.py -v
+      - name: No self-issued comprehension or scientific approvals
+        run: |
+          echo 'Checks cover only a small explicit vocabulary; no content is automatically approved for audience comprehension or scientific correctness.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'The video version freeze, exact original WAV and owner phone/craft reviews remain unchanged.' >> "$GITHUB_STEP_SUMMARY"

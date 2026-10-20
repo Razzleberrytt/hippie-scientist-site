@@ -6,8 +6,22 @@ import { spawnSync } from 'node:child_process'
 import sharp from 'sharp'
 import { validateR809CaptionsSrt, renderR809CaptionAss } from './r809-caption-track.mjs'
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
-import { renderR810AlignedCaptionTracks } from './r810-aligned-captions.mjs'
+import { verifyR819CanonicalHandoff } from './r819-canonical-handoff.mjs'
+import { verifyR819LayerInventory, compositeR819Frame } from './r819-native-layer-compositor.mjs'
+import { assertMobileOpeningHookSvg } from './mobile-hook-clarity-gate.mjs'
+import { assertNativeMobileOpeningPixels } from './mobile-opening-native-pixels.mjs'
+import { renderR810AlignedCaptionTracks, renderR817ProgressiveWordCaptions } from './r810-aligned-captions.mjs'
+import { measureR817FinalMotion, assertR817FinalMotion, R817_MOTION_LIMITS } from './r817-motion-qa.mjs'
+import { measureR817CaptionHighlightPixels, assertR817CaptionPixelQA } from './r817-caption-pixel-qa.mjs'
+import { measureR817HookCenterChange } from './r817-rendered-evidence.mjs'
+import { assertR818TelemetryBinding } from './r818-telemetry-qa.mjs'
+import { verifyR818NativeFrames } from './r818-native-frame-sequence.mjs'
 import { parseR812Loudness, assertR812Loudness } from './r812-loudness.mjs'
+import { assertR817FirstPass } from './r817-canonical-first-pass.mjs'
+import {
+  assertNoDecorativeVideoChrome, mobileAacEncodeArgs,
+  assertMobileAudioProbe, assertAudibleDecodedAudio,
+} from './evidencemotion-delivery-guardrails.mjs'
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
 const clean = (value) => String(value ?? '').trim()
@@ -43,6 +57,10 @@ function verifyScene({ packageDir, asset, sourceUrl, sourceContentHash }) {
   const file = assertCanonicalChild(packageDir, asset.file, /^video-scene-\d{2}\.svg$/)
   const bytes = fs.readFileSync(file)
   if (sha256(bytes) !== clean(asset.sha256)) throw new Error(`video scene hash mismatch: ${asset.file}`)
+  assertNoDecorativeVideoChrome(bytes.toString('utf8'))
+  // Fail before MP4 production if the first frame repeats the phenibut clutter pattern.
+  // Governed sources still belong in their designated proof/source beat.
+  if (Number(asset.start) === 0) assertMobileOpeningHookSvg(bytes.toString('utf8'))
   const metadata = parseSceneMetadata(bytes.toString('utf8'))
   if (clean(metadata.sourceUrl) !== sourceUrl) throw new Error(`video scene source URL mismatch: ${asset.file}`)
   if (clean(metadata.contentHash) !== sourceContentHash) throw new Error(`video scene source content hash mismatch: ${asset.file}`)
@@ -79,6 +97,7 @@ function verifyMotionVariant({ packageDir, asset, sourceUrl, sourceContentHash }
   const file = assertCanonicalChild(packageDir, motion.preFile, /^video-scene-\d{2}-pre\.svg$/)
   const bytes = fs.readFileSync(file)
   if (sha256(bytes) !== clean(motion.preSha256)) throw new Error(`R8.05 pre-motion scene hash mismatch: ${motion.preFile}`)
+  assertNoDecorativeVideoChrome(bytes.toString('utf8'))
   const metadata = parseSceneMetadata(bytes.toString('utf8'))
   if (clean(metadata.sourceUrl) !== sourceUrl || clean(metadata.contentHash) !== sourceContentHash) {
     throw new Error(`R8.05 pre-motion provenance mismatch: ${motion.preFile}`)
@@ -110,6 +129,34 @@ function verifyPackage(packageDir) {
   const sourceUrl = clean(manifest.sourceUrl)
   const sourceContentHash = clean(manifest.sourceContentHash)
   if (!sourceUrl || !sourceContentHash) throw new Error('parent package source provenance is required')
+  const r817Active = manifest.canonicalFirstPassRelease === 'R8.17'
+  if (r817Active !== Boolean(manifest.r817FirstPass)) {
+    throw Error('R8.17 canonical plan sidecar mismatch; no legacy-quality downgrade')
+  }
+  let r817Proof = null
+  let r818TelemetryProof = null
+  let r818NativeFrames = null
+  if (r817Active) {
+    const file = assertCanonicalChild(packageDir, manifest.r817FirstPass.file, /^r817-first-pass\.json$/)
+    const bytes = fs.readFileSync(file)
+    if (sha256(bytes) !== manifest.r817FirstPass.sha256) throw Error('R8.17 immutable first-pass plan hash mismatch')
+    const plan=JSON.parse(bytes.toString('utf8'))
+    r817Proof = assertR817FirstPass(plan, manifest)
+    const meta=manifest.r818Telemetry
+    if(!meta||meta.file!=='r818-telemetry.json')throw Error('R8.18 telemetry manifest sidecar missing')
+    const telemetryFile=assertCanonicalChild(packageDir,meta.file,/^r818-telemetry\.json$/)
+    const telemetryBytes=fs.readFileSync(telemetryFile)
+    if(sha256(telemetryBytes)!==meta.sha256)throw Error('R8.18 renderer telemetry changed after package')
+    const t=JSON.parse(telemetryBytes.toString('utf8'))
+    if(t.sourceManifestSha256!==meta.sourceManifestSha256)
+      throw Error('R8.18 telemetry source-manifest changed')
+    const checked=assertR818TelemetryBinding(plan,t,{
+      rendererCodeSha256:meta.rendererCodeSha256,
+      renderedSceneAssetsSha256:meta.renderedSceneAssetsSha256
+    })
+    r818TelemetryProof={sha256:meta.sha256, ...checked,sourceManifestSha256:t.sourceManifestSha256}
+
+  }
 
   const timelineFile = assertCanonicalChild(packageDir, manifest.timeline?.file, /^video-timeline\.json$/)
   const timelineBytes = fs.readFileSync(timelineFile)
@@ -151,7 +198,7 @@ function verifyPackage(packageDir) {
         || clean(manifest.captions?.source) !== 'exact-governed-voice-script'
         || clean(manifest.creativeDirection?.schemaVersion) !== 'ths-r809-creative-receipt-v1'
         || clean(manifest.creativeDirection?.status) !== 'approved'
-        || clean(manifest.creativeDirection?.canonicalStyle) !== '2p5d-science-explainer-v1'
+        || clean(manifest.creativeDirection?.canonicalStyle) !== (manifest.r819?.enabled===true ? 'dark-cellular-organic-v1' : '2p5d-science-explainer-v1')
         || manifest.creativeDirection?.burnInNarrationCaptions !== true
         || clean(manifest.creativeSilentFoundation?.schemaVersion) !== 'ths-r808-creative-receipt-v1'
         || clean(manifest.creativeDirection?.inheritedR808OverlaySha256) !== clean(manifest.creativeSilentFoundation?.overlaySha256)) {
@@ -200,8 +247,20 @@ function verifyPackage(packageDir) {
   if (!timingMatches(expectedStart, durationSeconds) || !timingMatches(totalDuration, durationSeconds)) {
     throw new Error('video scene timing does not cover the exact governed runtime')
   }
+  if(r817Active){
+    const native=manifest.r818NativeFrames
+    if(native?.file!=='r818-native-frames.json'||!/^[a-f0-9]{64}$/.test(String(native.sha256||'')))
+      throw Error('R8.18 native frame manifest missing; refusing static SVG delivery')
+    const filePath=assertCanonicalChild(packageDir,native.file,/^r818-native-frames\.json$/)
+    const frameBytes=fs.readFileSync(filePath)
+    if(sha256(frameBytes)!==native.sha256)
+      throw Error('R8.18 native frame manifest hash differs from package')
+    r818NativeFrames=verifyR818NativeFrames(packageDir,JSON.parse(frameBytes.toString('utf8')),timeline.scenes)
+    if(r818NativeFrames.frameCount!==native.nativeFrames)
+      throw Error('R8.18 actual frame count mismatches manifest')
+  }
 
-  return { manifest, manifestBytes, timeline, sourceUrl, sourceContentHash, assets, release, durationSeconds }
+  return { manifest, manifestBytes, timeline, sourceUrl, sourceContentHash, assets, release, durationSeconds, r817Proof, r818TelemetryProof, r818NativeFrames }
 }
 
 function verifyLocalNarration(packageDir, manifest) {
@@ -327,12 +386,12 @@ export function buildMp4RenderKey({ manifestSha256, ffmpegVersionLine, narration
   if (r810 && Object.entries(extraInputs).some(([, v]) => !/^[a-f0-9]{64}$/.test(String(v || '')))) {
     throw new Error('R8.10 MP4 cache key must bind exact audio alignment, renderer code and final caption track')
   }
-  const legacyKeySource = `${renderer}\n${clean(manifestSha256)}\n${clean(ffmpegVersionLine)}\n${clean(narrationSha256)}\n${clean(voiceQaSha256)}\n1080x1920\n30fps\n${Number(durationSeconds).toFixed(4)}s\nlibx264\naac192k\nyuv420p\n`
+  const legacyKeySource = `${renderer}\n${clean(manifestSha256)}\n${clean(ffmpegVersionLine)}\n${clean(narrationSha256)}\n${clean(voiceQaSha256)}\n1080x1920\n30fps\n${Number(durationSeconds).toFixed(4)}s\nlibx264-baseline-level4-crf20-max4M\naac192k-44k1-stereo\nyuv420p\n`
   const r810Suffix = r810 ? Object.entries(extraInputs).map(([name, value]) => name + '=' + value).join('\n') : ''
   return sha256(r810 ? legacyKeySource + r810Suffix : legacyKeySource)
 }
 
-export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPath = process.env.FFMPEG_PATH || 'ffmpeg' }) {
+export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPath = process.env.FFMPEG_PATH || 'ffmpeg', ffprobePath = process.env.FFPROBE_PATH || 'ffprobe' }) {
   const inputDir = path.resolve(packageDir)
   const output = path.resolve(outputFile)
   if (path.extname(output).toLowerCase() !== '.mp4') throw new Error('outputFile must use .mp4 extension')
@@ -340,11 +399,19 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
 
   const verified = verifyPackage(inputDir)
   const isR810 = clean(verified.manifest.creativeMethodRelease) === 'R8.10'
+  const isR817 = Boolean(verified.r817Proof)
+  if (isR817 && !isR810) throw Error('R8.17 progressive word captions require reviewed R8.10 acoustic alignment; no phrase-flash fallback')
   const r810Proof = isR810 ? verifyR810PackageGate(inputDir, { requireAlignment: true }) : null
+  // R8.19 is strictly opt-in. Fail BEFORE encoding if pinned art, R8.18 geometry,
+  // or genuine independently heard R8.10 MFA cue bindings are absent.
+  const r819Proof = verified.manifest.r819?.enabled === true
+    ? verifyR819CanonicalHandoff(inputDir) : null
   const narration = verifyLocalNarration(inputDir, verified.manifest)
   const isR809 = ['R8.09', 'R8.10'].includes(clean(verified.manifest.creativeMethodRelease))
   let burnInCaptions = null
   let alignedCaptionSrtSha256 = null
+  let r817CaptionProof = null
+  let r817CaptionCues = null
   if (isR809) {
     const manifest = verified.manifest
     const captionFile = assertCanonicalChild(inputDir, manifest.captions?.file, /^captions\.srt$/)
@@ -356,8 +423,14 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
     const script = JSON.parse(fs.readFileSync(narrationFile, 'utf8'))
     validateR809CaptionsSrt(script.scenes, captionBytes.toString('utf8'))
     if (isR810) {
-      const aligned = renderR810AlignedCaptionTracks(script.scenes, r810Proof.alignment.receipt.words)
+      const aligned = isR817
+        ? renderR817ProgressiveWordCaptions(script.scenes, r810Proof.alignment.receipt.words)
+        : renderR810AlignedCaptionTracks(script.scenes, r810Proof.alignment.receipt.words)
       burnInCaptions = aligned.ass
+      if (isR817) {
+        r817CaptionProof = {mode:aligned.mode,wordCount:aligned.wordCount,cueCount:aligned.cueCount,phraseFlashFallback:false}
+        r817CaptionCues = aligned.cues
+      }
       fs.writeFileSync(path.join(inputDir, 'aligned-captions.srt'), aligned.srt)
       alignedCaptionSrtSha256 = sha256(Buffer.from(aligned.srt))
     } else {
@@ -391,13 +464,50 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       // teaching illustrations alive without a fake timer or paid video model.
       // Captions are drawn AFTER camera motion so their text never drifts.
       const escapedFile = assFile.replace(/\\/g, '\\\\').replace(/:/g, '\\:').replace(/'/g, "\\'")
-      filter = `fps=30,scale=1080:1920:flags=lanczos,zoompan=z='min(zoom+0.00018,1.045)':x='(iw-iw/zoom)/2':y='(ih-ih/zoom)/2':d=1:s=1080x1920:fps=30,ass='${escapedFile}'`
+      filter = isR817 ? `fps=30,scale=1080:1920:flags=lanczos,ass='${escapedFile}'` : `fps=30,scale=1080:1920:flags=lanczos,zoompan=z='min(zoom+0.00018,1.045)':x='(iw-iw/zoom)/2':y='(ih-ih/zoom)/2':d=1:s=1080x1920:fps=30,ass='${escapedFile}'`
     }
     const concatLines = []
+    const nativeFrameDir=isR817?path.join(tempDir,'native-frames'):null
+    if(nativeFrameDir)fs.mkdirSync(nativeFrameDir)
+    let nativeFrameCount=0
+    const nativeOpeningPixelSamples=[]
+    // R8.19 encoding must consume independently rendered pixels, never silently
+    // fall back to the already baked R8.18 frames. The approved R8.18 sequence is
+    // retained as a pixel-exact reference for every rebuilt native frame.
+    const r819Layers=r819Proof ? verifyR819LayerInventory(inputDir,
+      verified.manifest.r819.layerSequence,verified.r818NativeFrames) : null
+    const r819FrameProofs=[]
     let finalPng = null
     for (let index = 0; index < verified.assets.length; index += 1) {
       const asset = verified.assets[index]
+      // Always validate the science/caption source SVG, but encode actual
+      // 30fps owner-authored native frames whenever R8.18 is active.
       const { bytes } = verifyScene({ packageDir: inputDir, asset, sourceUrl: verified.sourceUrl, sourceContentHash: verified.sourceContentHash })
+      if (isR817) {
+        const nativeBeat=verified.r818NativeFrames.beats[index]
+        if(nativeBeat.beatId!==asset.beatId)throw Error('R8.18 scene/native beat identity drift')
+        const layerBeat=r819Layers?.sequence.beats[index]
+        for(let j=0;j<nativeBeat.frames.length;j++){
+          const frame=nativeBeat.frames[j]
+          const nativeFile=path.join(inputDir,frame.file)
+          const numberedFile=path.join(nativeFrameDir,'f'+String(nativeFrameCount).padStart(6,'0')+'.png')
+          if(r819Proof){
+            const proof=await compositeR819Frame(inputDir,layerBeat,layerBeat.frames[j],frame,numberedFile)
+            r819FrameProofs.push(proof)
+            finalPng=numberedFile
+          }else{
+            fs.linkSync(nativeFile,numberedFile)
+            finalPng=nativeFile
+          }
+          // The R8.18/R8.19 encode consumes THESE actual PNG bytes, never
+          // the governed-but-unused source SVG. Sample native/composited
+          // opening pixels at 0, .5, 1 and 1.5 seconds of the final sequence.
+          if(nativeFrameCount<60&&nativeFrameCount%15===0)
+            nativeOpeningPixelSamples.push(fs.readFileSync(numberedFile))
+          nativeFrameCount++
+        }
+        continue
+      }
       const suffix = String(index + 1).padStart(2, '0')
       const postPng = path.join(tempDir, `scene-${suffix}-post.png`)
       await sharp(bytes).png({ compressionLevel: 9, adaptiveFiltering: false }).toFile(postPng)
@@ -420,32 +530,112 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       finalPng = postPng
     }
     if (!finalPng) throw new Error('video renderer produced no scene frames')
-    concatLines.push(`file '${finalPng.replace(/'/g, "'\\''")}'`)
+    // Source SVG role lint above is not enough for native mode: reject gross
+    // fine-detail overload on the actual frames handed to FFmpeg. This is
+    // only a negative pixel screen; it cannot certify text semantics or taste.
+    if(isR817)await assertNativeMobileOpeningPixels(nativeOpeningPixelSamples)
+    if(!isR817)concatLines.push(`file '${finalPng.replace(/'/g, "'\\''")}'`)
     const concatFile = path.join(tempDir, 'concat.txt')
     fs.writeFileSync(concatFile, `${concatLines.join('\n')}\n`)
 
     runCommand(ffmpegPath, [
       '-hide_banner', '-loglevel', 'error',
-      '-f', 'concat', '-safe', '0', '-i', concatFile,
+      ...(isR817
+        ? ['-framerate','30','-start_number','0','-i',path.join(nativeFrameDir,'f%06d.png')]
+        : ['-f', 'concat', '-safe', '0', '-i', concatFile]),
       '-i', narration.file,
       '-vf', filter,
       '-af', isR809
         ? `acompressor=threshold=0.1:ratio=2:attack=10:release=150,apad=pad_dur=${verified.durationSeconds},atrim=duration=${verified.durationSeconds},loudnorm=I=-14:TP=-1:LRA=9`
         : `apad=pad_dur=${verified.durationSeconds},atrim=duration=${verified.durationSeconds},loudnorm=I=-16:TP=-1.5:LRA=11`,
       '-map', '0:v:0', '-map', '1:a:0',
-      '-c:v', 'libx264', '-preset', 'slow', '-crf', '18',
-      '-c:a', 'aac', '-b:a', '192k',
-      '-pix_fmt', 'yuv420p', '-t', String(verified.durationSeconds),
+      '-c:v', 'libx264', '-profile:v', 'baseline', '-level:v', '4.0',
+      '-preset', 'slow', '-crf', '20', '-maxrate', '4M', '-bufsize', '8M',
+      ...mobileAacEncodeArgs(),
+      '-pix_fmt', 'yuv420p',
+      ...(isR817?['-frames:v',String(verified.r818NativeFrames.frameCount)]:[]),
+      '-t', String(verified.durationSeconds),
       '-movflags', '+faststart', '-map_metadata', '-1', '-metadata', 'creation_time=', '-y', output,
     ])
 
+    if (isR817&&nativeFrameCount!==verified.r818NativeFrames.frameCount)
+      throw Error('R8.18 native frame iteration count differs from validated sequence')
     const outputBytes = fs.readFileSync(output)
     if (!outputBytes.length) throw new Error('ffmpeg produced an empty MP4')
+    let encodedMobileOpeningProof = null
+    if (isR817) {
+      const frameProbe=JSON.parse(runCommand(ffprobePath, [
+        '-v','error','-select_streams','v:0','-count_frames',
+        '-show_entries','stream=nb_read_frames,avg_frame_rate,width,height',
+        '-of','json',output
+      ]).stdout)
+      const stream=frameProbe.streams?.[0]
+      if(Number(stream?.nb_read_frames)!==verified.r818NativeFrames.frameCount||
+         stream?.avg_frame_rate!=='30/1'||stream.width!==1080||stream.height!==1920)
+        throw Error('R8.18 encoded MP4 has missing/duplicated frames or changed 30fps/1080p profile')
+      // Source PNGs are BEFORE the ASS caption burn-in. The safety gate must
+      // also inspect actual decoded H.264 output AFTER subtitles and final
+      // compositing, or caption/art collisions would escape the first screen.
+      const encodedFramePattern=path.join(tempDir,'final-caption-composited-%02d.png')
+      runCommand(ffmpegPath,[
+        '-hide_banner','-loglevel','error','-i',output,
+        '-vf','fps=2','-frames:v','4','-start_number','0',encodedFramePattern
+      ],{timeout:90000})
+      const decodedOpeningFrames=Array.from({length:4},(_,i)=>
+        path.join(tempDir,'final-caption-composited-'+String(i).padStart(2,'0')+'.png'))
+      if(decodedOpeningFrames.some(file=>!fs.existsSync(file)))
+        throw Error('MOBILE_OPENING_HOLD:FINAL_ENCODED_CAPTION_FRAMES_MISSING')
+      const finalPixelGate=await assertNativeMobileOpeningPixels(
+        decodedOpeningFrames.map(file=>fs.readFileSync(file)))
+      encodedMobileOpeningProof={...finalPixelGate,
+        exactMp4Sha256:sha256(outputBytes),
+        inspectionScope:'FINAL_DECODED_MP4_AFTER_ASS_CAPTION_COMPOSITING',
+        approvalGranted:false}
+    }
     // Analyze the FINAL AAC/MP4 stream; filter intent is not loudness evidence.
     const r812Loudness = isR810 && verified.manifest.r812?.enabled === true
       ? assertR812Loudness(parseR812Loudness(runCommand(ffmpegPath, [
           '-hide_banner', '-nostats', '-i', output, '-map', '0:a:0', '-af', 'ebur128=peak=true', '-f', 'null', '-'
         ]).stderr)) : null
+    // Check the encoded MP4 itself. Avoid assuming -ar/-ac and a successful
+    // encode imply an audible file on phones (Oct 12 playback regression).
+    const encodedAudio = assertMobileAudioProbe(JSON.parse(runCommand(ffprobePath, [
+      '-v', 'error', '-select_streams', 'a',
+      '-show_entries', 'stream=codec_name,sample_rate,channels,channel_layout',
+      '-of', 'json', output,
+    ]).stdout))
+    const decodedAudio = assertAudibleDecodedAudio(runCommand(ffmpegPath, [
+      '-hide_banner', '-nostats', '-i', output, '-map', '0:a:0',
+      '-af', 'volumedetect', '-f', 'null', '-',
+    ]).stderr)
+    let r817MotionProof = null
+    let r817CaptionPixelProof = null
+    let r817HookPixels = null
+    if (isR817) {
+      const raw = runCommand(ffmpegPath, [
+        '-hide_banner','-v','error','-i',output,
+        '-vf',`fps=5,${R817_MOTION_LIMITS.crop},scale=160:176:flags=bilinear,format=gray`,
+        '-f','rawvideo','-pix_fmt','gray','-'
+      ],{encoding:null,maxBuffer:24000000,timeout:120000}).stdout
+      if (!Buffer.isBuffer(raw)) throw Error('R8.17 decoded motion evidence not a binary frame stream')
+      r817MotionProof = assertR817FinalMotion(measureR817FinalMotion(raw, verified.timeline.scenes))
+      const rgb = runCommand(ffmpegPath, [
+        '-hide_banner','-v','error','-i',output,
+        '-vf','fps=4,crop=840:300:120:1190,scale=210:75:flags=bilinear,format=rgb24',
+        '-f','rawvideo','-pix_fmt','rgb24','-'
+      ],{encoding:null,maxBuffer:24000000,timeout:120000}).stdout
+      r817CaptionPixelProof = assertR817CaptionPixelQA(
+        measureR817CaptionHighlightPixels(rgb,r817CaptionCues))
+      const frameAt = second => runCommand(ffmpegPath, [
+        '-hide_banner','-v','error','-ss',String(second),'-i',output,
+        '-frames:v','1','-vf',`${R817_MOTION_LIMITS.crop},scale=160:176:flags=bilinear,format=gray`,
+        '-f','rawvideo','-pix_fmt','gray','-'
+      ],{encoding:null,maxBuffer:1000000,timeout:30000}).stdout
+      const hookPixel = measureR817HookCenterChange(frameAt(.30),frameAt(2.70))
+      r817HookPixels = {beforeSha256:hookPixel.beforeSha256,
+        afterSha256:hookPixel.afterSha256,afterAtSeconds:2.70,
+        outputSha256:sha256(outputBytes),pixelProof:hookPixel}
+    }
     const receipt = {
       schemaVersion: verified.release === 'R8.05' ? '3.0.0' : '2.0.0',
       release: verified.release,
@@ -463,10 +653,17 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         fps: 30,
         durationSeconds: verified.durationSeconds,
         codec: 'libx264',
+        codecProfile: 'baseline',
+        h264Level: '4.0',
         pixelFormat: 'yuv420p',
         audio: true,
         audioCodec: 'aac',
         audioBitrate: '192k',
+        audioSampleRate: encodedAudio.sampleRate,
+        audioChannels: encodedAudio.channels,
+        audioChannelLayout: encodedAudio.channelLayout,
+        mobileAudioVerified: true,
+        decodedAudio,
       },
       r810Governance: isR810 ? {
         governedPlanSha256: clean(verified.manifest.creativeR810?.governedPlanSha256),
@@ -483,11 +680,18 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         captionsSrtSha256: clean(verified.manifest.captions?.sha256),
         renderAssSha256: captionFileSha256,
         canvasSafeArea: 'platform-intersection',
-        style: '2p5d-science-explainer-v1',
+        style: r819Proof ? 'dark-cellular-organic-v1' : '2p5d-science-explainer-v1',
         audioProfile: 'voice-forward-minus14LUFS',
         exactMasterReview: 'pending',
       } : null,
       r812Audio: r812Loudness,
+      r819Canonical: r819Proof ? {...r819Proof,exactMp4Sha256:sha256(outputBytes),
+        layeredFrameInventorySha256:r819Layers.sha256,
+        exactLayeredFrameCount:r819FrameProofs.length,
+        allFramesPixelMatchedR818:r819FrameProofs.length===verified.r818NativeFrames.frameCount,
+        layeredFrameProofLedgerSha256:sha256(Buffer.from(JSON.stringify(r819FrameProofs))),
+        finalMp4PixelAndCraftApproval:'PENDING_INDEPENDENT_REVIEW',publicationApproved:false} : null,
+      r817FirstPass: verified.r817Proof ? { ...verified.r817Proof, intentSha256: clean(verified.manifest.r817FirstPass.sha256), status: 'encoded-review-only', exactMasterVisualApproval: false, progressiveWords:r817CaptionProof, finalMp4Motion:r817MotionProof,captionPixelProof:r817CaptionPixelProof,encodedMobileOpeningProof,hookPixelProof:r817HookPixels,rendererTelemetry:verified.r818TelemetryProof,exactMp4Sha256:sha256(outputBytes),nativeSequenceFrameCount:verified.r818NativeFrames?.frameCount||null } : null,
       creativeQuality: verified.release === 'R8.05' ? {
         semanticBeatMapSha256: clean(verified.manifest.creativeQuality?.semanticBeatMapSha256),
         creativeBriefSha256: clean(verified.manifest.r805Bindings?.creativeBrief?.sha256),

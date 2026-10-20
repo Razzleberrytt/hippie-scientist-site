@@ -22,6 +22,8 @@ from pathlib import Path
 
 import numpy as np
 
+from voice_pronunciation import apply_pronunciations, lexicon_receipt
+
 SAMPLE_RATE = 24_000
 SCHEMA = "ths-local-narration-receipt-v1"
 SCRIPT_SCHEMA = "ths-local-narration-script-v1"
@@ -132,7 +134,7 @@ def load_pipeline(language: str):
     def original_voice(text, *, voice: str, speed: float, split_pattern: str = r"\n+"):
         if voice != "am_michael" or language != "a":
             raise RuntimeError("THS house voice identity changed: only pinned am_michael/en-US approved")
-        samples, rate = engine.create(text, voice=voice, speed=speed, lang="en-us")
+        samples, rate = engine.create(apply_pronunciations(text), voice=voice, speed=speed, lang="en-us")
         if rate != SAMPLE_RATE:
             raise RuntimeError(f"Unexpected house voice sample rate: {rate}")
         from types import SimpleNamespace
@@ -273,6 +275,7 @@ def render_r805(package_dir: Path, brief_path: Path, args) -> int:
         "schemaVersion": SCHEMA,
         "release": "R8.05",
         "engine": engine_metadata(args.language, args.voice),
+        "pronunciationLexicon": lexicon_receipt(),
         "accountRequired": False,
         "apiKeyRequired": False,
         "meteredCreditsRequired": False,
@@ -376,6 +379,7 @@ def render_r804(package_dir: Path, args) -> int:
         "schemaVersion": SCHEMA,
         "release": "R8.04",
         "engine": engine_metadata(args.language, args.voice),
+        "pronunciationLexicon": lexicon_receipt(),
         "accountRequired": False,
         "apiKeyRequired": False,
         "meteredCreditsRequired": False,

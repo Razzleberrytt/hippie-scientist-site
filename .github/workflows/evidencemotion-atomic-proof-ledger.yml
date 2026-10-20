@@ -1,0 +1,175 @@
+name: EvidenceMotion atomic proof ledger gate
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/ATOMIC-PROOF-LEDGER-20261015.json'
+      - 'research/evidencemotion-director/atomic_progress_reconciler.py'
+      - 'research/evidencemotion-director/github_em_merge_snapshot.py'
+      - 'research/evidencemotion-director/test_github_em_merge_snapshot.py'
+      - 'research/evidencemotion-director/test_atomic_progress_reconciler.py'
+      - 'research/evidencemotion-director/EM-PROGRESS-OBSERVATIONS-20261017.json'
+      - 'research/evidencemotion-director/validate_atomic_proof_ledger.py'
+      - 'research/evidencemotion-director/test_validate_atomic_proof_ledger.py'
+      - 'research/evidencemotion-director/cpu_required_path_contract.py'
+      - 'research/evidencemotion-director/test_cpu_required_path_contract.py'
+      - 'research/evidencemotion-director/research_workflow_release_guard.py'
+      - 'research/evidencemotion-director/test_research_workflow_release_guard.py'
+      - 'research/evidencemotion-director/validate_em00202_policy_crosswalk.py'
+      - 'research/evidencemotion-director/test_em00202_policy_crosswalk.py'
+      - 'research/evidencemotion-director/validate_em00204_policy_trace.py'
+      - 'research/evidencemotion-director/test_em00204_policy_trace.py'
+      - 'research/evidencemotion-director/validate_em00201_decision_record.py'
+      - 'research/evidencemotion-director/test_em00201_decision_record.py'
+      - 'research/evidencemotion-director/EM00201-DATED-OWNER-POLICY-20261016.md'
+      - 'research/evidencemotion-director/EM00805-ENCODED-BOTANICAL-NEGATIVES-20261016.md'
+      - 'research/evidencemotion-director/EM00803-ACTUAL-375PX-PIXEL-RESEARCH-20261016.md'
+      - 'research/evidencemotion-director/EM00804-ENCODED-375PX-OCR-RESEARCH-20261016.md'
+      - 'research/evidencemotion-director/em00804_encoded_phone_ocr_research.py'
+      - 'research/evidencemotion-director/test_em00804_encoded_phone_ocr_research.py'
+      - '.github/workflows/evidencemotion-em00804-encoded-ocr-research.yml'
+      - 'research/evidencemotion-director/em00803_real_mobile_contrast.py'
+      - 'research/evidencemotion-director/test_em00803_real_mobile_contrast.py'
+      - '.github/workflows/evidencemotion-em00803-phone-contrast-research.yml'
+      - 'research/evidencemotion-director/em00805_botanical_video_probes.py'
+      - 'research/evidencemotion-director/test_em00805_botanical_video_probes.py'
+      - '.github/workflows/evidencemotion-em00805-botanical-negative.yml'
+      - 'research/evidencemotion-director/botanical_caption_honesty_gate.mjs'
+      - 'research/evidencemotion-director/test_em00604_botanical_caption_gate.mjs'
+      - 'research/evidencemotion-director/EM00604-BOTANICAL-CAPTION-NEGATIVE-20261016.md'
+      - 'research/evidencemotion-director/EM00204-POLICY-TRACKER-TRACE-20261016.md'
+      - 'research/evidencemotion-director/GRANULAR-46-EXECUTION-REGISTER.md'
+      - 'research/evidencemotion-director/EM00202-POLICY-CROSSWALK-20261016.md'
+      - 'research/evidencemotion-director/iphone_review_handoff.py'
+      - 'research/evidencemotion-director/test_iphone_review_handoff.py'
+      - '.github/workflows/evidencemotion-actual-asr-research.yml'
+      - 'research/evidencemotion-director/EM03404-ATOMIC-EVIDENCE-RECONCILIATION-20261015.md'
+      - 'research/evidencemotion-director/EM03411-ATOMIC-EVIDENCE-RECONCILIATION-20261015.md'
+      - 'research/evidencemotion-director/EM02301-ATOMIC-STORY-EVIDENCE-20261015.md'
+      - 'research/evidencemotion-director/EM02303-ATOMIC-VISUAL-REPAIR-20261015.md'
+      - 'research/evidencemotion-director/EM03412-ATOMIC-TIMED-SOUNDOFF-INSTRUMENT-20261016.md'
+      - 'research/evidencemotion-director/EM00203-RESEARCH-WORKFLOW-RELEASE-GUARD-20261016.md'
+      - 'research/evidencemotion-director/EM00701-ATOMIC-SPOKEN-INVENTORY-20261016.md'
+      - 'research/evidencemotion-director/EM01401-ORIGINAL-PCM-TERM-ISOLATION-20261016.md'
+      - 'research/evidencemotion-director/EM00702-VISUAL-CLAIM-INVENTORY-20261016.md'
+      - 'research/evidencemotion-director/EM00703-PRIMARY-SOURCE-CONTEXT-20261016.md'
+      - 'research/evidencemotion-director/EM00707-ONE-CLAIM-INDEPENDENT-SCIENCE-PREREQUISITES-20261017.md'
+      - 'research/evidencemotion-director/atomic_progress_stall_watch.py'
+      - 'research/evidencemotion-director/test_atomic_progress_stall_watch.py'
+      - '.github/workflows/evidencemotion-atomic-proof-ledger.yml'
+  workflow_dispatch:
+  # Research release gate forbids schedules: check progress during actual PR
+  # validations or explicit workflow_dispatch; no autonomous timer.
+permissions:
+  contents: read
+  actions: read
+jobs:
+  honest-atomic-workcard-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reject fictional, duplicate, falsely approved or unaudited atomic workcards
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_validate_atomic_proof_ledger.py' -v
+          python research/evidencemotion-director/validate_atomic_proof_ledger.py
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_atomic_progress_reconciler.py' -v
+          python research/evidencemotion-director/atomic_progress_reconciler.py \
+            --out "$RUNNER_TEMP/evidencemotion-progress-reconciliation.json"
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_cpu_required_path_contract.py' -v
+          python research/evidencemotion-director/cpu_required_path_contract.py
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_iphone_review_handoff.py' -v
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_research_workflow_release_guard.py' -v
+          python research/evidencemotion-director/research_workflow_release_guard.py
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_em00202_policy_crosswalk.py' -v
+          python research/evidencemotion-director/validate_em00202_policy_crosswalk.py
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_em00204_policy_trace.py' -v
+          python research/evidencemotion-director/validate_em00204_policy_trace.py
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_em00201_decision_record.py' -v
+          python research/evidencemotion-director/validate_em00201_decision_record.py
+          node --test research/evidencemotion-director/illustrative-crop-gate.test.mjs
+          node --test research/evidencemotion-director/test_em00604_botanical_caption_gate.mjs
+      - name: Prove live GitHub merge API paging and source binding (mocked)
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_github_em_merge_snapshot.py' -v
+      - name: Test atomic-progress stall detector and rejection cases
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director \
+            -p 'test_atomic_progress_stall_watch.py' -v
+      - name: Check exact-current atomic history and recommend bounded unsticker
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXACT_SOURCE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+          EXACT_BRANCH: ${{ github.head_ref || github.ref_name }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/em-atomic-watch"
+          python research/evidencemotion-director/atomic_progress_stall_watch.py \
+            --repo "$GITHUB_REPOSITORY" \
+            --branch "$EXACT_BRANCH" \
+            --run-id "$GITHUB_RUN_ID" \
+            --head-sha "$EXACT_SOURCE_HEAD" \
+            --snapshot-out "$RUNNER_TEMP/em-atomic-watch/snapshot.json" \
+            --report-out "$RUNNER_TEMP/em-atomic-watch/report.json" \
+            --read-gh-history
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          report=json.loads((Path(os.environ["RUNNER_TEMP"])/"em-atomic-watch/report.json").read_text())
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a") as out:
+              out.write("### EvidenceMotion atomic progress fail-safe\n")
+              out.write(f"Legacy provisional coverage (NOT completed): **{report['currentCount']}/1590**\n")
+              out.write(f"State: **{report['status']}**; prior counts: {report['previousCounts']}\n")
+              out.write(f"History: {report['historyFetchStatus']}\n")
+              if report["requiresRecovery"]:
+                  out.write("**Recovery triggered; NO automatic credit/approval.**\n")
+                  for x in report["namedBlockedRecoveryTargets"]:
+                      out.write(f"- {x['atomicId']} (Lane {x['lane']}): {x['blocker']} — {x['nextAction']}\n")
+          PY
+
+      - name: Explain evidence coverage versus verified GitHub merge throughput
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=Path(os.environ["RUNNER_TEMP"])/"evidencemotion-progress-reconciliation.json"
+          r=json.loads(p.read_text())
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a") as out:
+              out.write("### EvidenceMotion verified throughput vs atomic credit\n")
+              out.write(f"Observation date **{r['sourceObservationDate']}** (frozen snapshot, NOT live)\n\n")
+              out.write(f"Verified merged PRs: **{r['mergedPRs']}**, distinct merge commits: **{r['distinctMergeCommits']}**\n\n")
+              out.write(f"Five lane PRs: **{r['fiveActiveLanesMergedPRs']}**; counts {r['perLaneMergedPRs']}\n\n")
+              out.write(f"Individual machine-only research evidence: **{r['individualMachineVerifiedResearchCards']}/1590**\n\n")
+              out.write(f"Inherited un-audited provisional: **{r['inheritedProvisionalNOTIndividuallyAudited']}**; coverage only: **{r['provisionalCoverageOnly']}/1590**\n\n")
+              out.write(f"Reconciliation: **{r['reconciliationState']}**. New credit requires explicit canonical evidence, not just a merge.\n\n")
+              out.write("Creative/science/phone/release gates: **HOLD**; mayPublish=false.\n")
+          PY
+      - name: Keep two-readback progress checkpoints without committing run state
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencemotion-atomic-progress-checkpoint
+          path: ${{ runner.temp }}/em-atomic-watch/
+          if-no-files-found: error
+          retention-days: 7
+      - name: Preserve score interpretation
+        if: always()
+        run: |
+          echo 'Research machine evidence and 707 inherited coverage estimates are distinct.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'A checked template or machine receipt is not calibrated premium, clinical, device or publishing approval.' >> "$GITHUB_STEP_SUMMARY"

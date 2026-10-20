@@ -1,0 +1,48 @@
+{
+  "scope": "portable-bundle-path-implementation-verification-not-film-or-deployment-approval",
+  "sourceCommit": "d1f810f09273153b48caca7a4b3b81029d038a66",
+  "windowsTests": {
+    "discovered": 43,
+    "passed": 42,
+    "skipped": 1,
+    "errors": 0,
+    "failures": 0,
+    "seconds": 6.476,
+    "skipReason": "Case-distinct real source directories require Linux/case-sensitive filesystem",
+    "logSha256": "c8fb510c911c90c8511e09df8de37a2cfa6b1557047c5bfb8f94292ff98e2d39"
+  },
+  "linuxPortableTests": {
+    "discovered": 5,
+    "passed": 5,
+    "skipped": 0,
+    "errors": 0,
+    "seconds": 0.011,
+    "command": "wsl -d Ubuntu --cd /mnt/c/Users/Will/.codex/worktrees/em-lane6-artifact-handoff/hippie-scientist-site/research/evidencemotion-director/lane6 --exec python3 -B -m unittest -v test_artifact_intake.PortableSnapshotTests"
+  },
+  "productionBuild": {
+    "command": "npm run build",
+    "exitCode": 0,
+    "steps": 36,
+    "seconds": 898.93,
+    "generatedRoutes": 1722,
+    "languageHtmlPages": 1708,
+    "languageFindings": 0,
+    "structuredDataBlocks": 9240,
+    "structuredDataRoutes": 1652,
+    "sitemapUrls": 1098,
+    "pagefindPages": 1605,
+    "rawLogSha256": "46e8d1b48a72488c7290bdd0222c0ce1d02c07646556747f2f0cee7e51538930",
+    "rawLocalLog": "system temporary directory/lane6-portable-path-build.log"
+  },
+  "countBoundary": {
+    "governedIndexableHerbs": 231,
+    "governedIndexableCompounds": 102,
+    "sitemapHerbs": 213,
+    "sitemapCompounds": 99,
+    "note": "Different recorded inventories; no count-parity repair/claim in this scoped path-validation change."
+  },
+  "workspaceBoundary": "Pre-existing untracked generated profiles preserved; local build, not clean-checkout reproducibility proof",
+  "mayPublish": false,
+  "newAtomicCards": 0,
+  "restoredTrackedBuildPaths": 1686
+}

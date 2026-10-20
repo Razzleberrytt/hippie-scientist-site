@@ -60,7 +60,7 @@ test('oversized canonical registry uses exact Contents SHA blob and preserves re
     if(url.includes('esearch.fcgi?'))return {ok:true,json:async()=>({esearchresult:{idlist:['11111111','22222222','33333333']}})}
     throw Error('Unexpected endpoint '+url)
   }
-  const result=await discoverLane4({repo:'test/repository',token:'unit-test',fetchImpl})
+  const result=await discoverLane4({repo:'test/repository',token:'unit-test',fetchImpl,baselineReader:async()=>({pmids:[]})})
   assert.equal(result.state,'candidates')
   assert.deepEqual(result.seed.pmids,['22222222','33333333'])
   assert.ok(urls.some(x=>x.endsWith('/git/blobs/'+sha)), 'must read SHA-pinned blob, not mutable ref')
@@ -74,7 +74,7 @@ test('invalid oversize registry and absent PubMed idlist cannot look like no new
     if(url.includes('/git/blobs/'))return {ok:true,json:async()=>({encoding:'base64',content:'e2JhZA=='})}
     throw Error('Should never search after invalid ledger')
   }
-  await assert.rejects(discoverLane4({repo:'test/repository',token:'token',fetchImpl:invalid}),/Pinned registry JSON invalid/)
+  await assert.rejects(discoverLane4({repo:'test/repository',token:'token',fetchImpl:invalid,baselineReader:async()=>({pmids:[]})}),/Pinned registry JSON invalid/)
   const valid=async url=>{
     if(url.includes('/contents/'))return {ok:true,json:async()=>({
       sha,encoding:'base64',content:Buffer.from(JSON.stringify({schema_version:1,reservations:[],batches:[]})).toString('base64')
@@ -82,5 +82,22 @@ test('invalid oversize registry and absent PubMed idlist cannot look like no new
     if(url.includes('esearch.fcgi?'))return {ok:true,json:async()=>({esearchresult:{}})}
     throw Error('Unexpected fetch '+url)
   }
-  await assert.rejects(discoverLane4({repo:'test/repository',token:'token',fetchImpl:valid}),/Malformed PubMed/)
+  await assert.rejects(discoverLane4({repo:'test/repository',token:'token',fetchImpl:valid,baselineReader:async()=>({pmids:[]})}),/Malformed PubMed/)
+})
+
+
+test('finalized historical wave IDs are not rediscovered as new Lane 4 reservations',async()=>{
+  const registry={schema_version:1,reservations:[],batches:[]}
+  const sha='d'.repeat(40)
+  const fetchImpl=async url=>{
+    if(url.includes('/contents/'))return {ok:true,json:async()=>({sha,encoding:'base64',content:Buffer.from(JSON.stringify(registry)).toString('base64')})}
+    if(url.includes('esearch.fcgi?'))return {ok:true,json:async()=>({esearchresult:{idlist:['42812835','42333333','42222222']}})}
+    throw Error('Unexpected '+url)
+  }
+  const result=await discoverLane4({repo:'test/repository',token:'token',fetchImpl,baselineReader:async()=>({pmids:['42812835']})})
+  assert.equal(result.state,'candidates')
+  assert.deepEqual(result.seed.pmids,['42333333','42222222'])
+  const none=await discoverLane4({repo:'test/repository',token:'token',fetchImpl:async url=>url.includes('esearch.fcgi?')?{ok:true,json:async()=>({esearchresult:{idlist:['42812835']}})}:fetchImpl(url),baselineReader:async()=>({pmids:['42812835']})})
+  assert.equal(none.state,'no-new-pmids')
+  await assert.rejects(discoverLane4({repo:'test/repository',token:'token',fetchImpl,baselineReader:async()=>null}),/finalized PMID baseline unavailable/)
 })

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "em01402-sourced-pronunciation-reference-v1",
+  "unitKey": "EM-014.02:hydroxyl:3670-4540",
+  "spokenOccurrence": "hydroxyl",
+  "source": {
+    "originalWavSha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+    "alignmentRevisionSha256": "2414833bfd35c18ad6c629c3d10cbfab8501b09e296cc1963db01638b854bbaf",
+    "startMs": 3670,
+    "endMs": 4540,
+    "startSample": 88080,
+    "endSampleExclusive": 108960,
+    "sampleRate": 24000,
+    "voiceId": "am_michael",
+    "engine": "kokoro-onnx==0.6.1",
+    "modelSha256": "ae315a79b623f244700e4afb9246c46a26066782e049ba174bf3ba433970ee9c",
+    "voicebankSha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d"
+  },
+  "reference": {
+    "dialect": "en-US",
+    "ipa": "haɪˈdrɑːk.sɪl",
+    "primaryStressSyllable": 2,
+    "citedDictionaryUrl": "https://dictionary.cambridge.org/us/pronunciation/english/hydroxyl",
+    "checkedOn": "2026-10-18",
+    "scope": "standalone hydroxyl only; not 7-hydroxymitragynine and not actual-WAV listening proof"
+  },
+  "acousticReview": {
+    "originalClipReplayedForThisReference": false,
+    "listenerGroundTruthAvailable": false,
+    "pronunciationMatchesActualWav": null,
+    "phoneticPronunciationVerified": false,
+    "sourcePcmSlicePreviouslyVerifiedUnder": "EM-014.01",
+    "mayPublish": false,
+    "result": "REFERENCE_ONLY_ACOUSTIC_AND_LISTENER_COMPARISON_PENDING"
+  }
+}

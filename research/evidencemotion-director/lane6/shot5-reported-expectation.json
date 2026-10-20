@@ -1,0 +1,28 @@
+{
+  "schema": "em-lane6-trusted-pin-1",
+  "state": "INCOMPLETE",
+  "identityStatus": "REPORTED_IN_GITHUB_NOT_BYTE_VERIFIED_BY_LANE6",
+  "assignmentUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/6743#issuecomment-6222511493",
+  "sourceReportUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6831#issuecomment-6222146443",
+  "reportedBundleName": "EvidenceMotion_Lane3_Shot5_RepoIntegrated_Research_v3.zip",
+  "reportedBundleSha256": "86d802f3819320c6d645c5a8d93e8880ac82d02ed77de833c1cf5a4d1aaffea9",
+  "reportedVideoSha256": "e79e44746e8a8581ecc592e41de20bb67ded7e999042234902ed30b0142a0c9a",
+  "reportedOriginalKokoroWavSha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+  "media": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "frames": 1031,
+    "audioAdtsSha256": "f0057c19c9d06b8a2f3c6d8fec948ca4555966114579fd1a48b0bcfccc84aa98"
+  },
+  "roles": null,
+  "missing": [
+    "Actual delivered ZIP or directory with revised MP4 and original WAV",
+    "Exact caption source and nine-shot phone-plan bytes and independently reviewed hashes",
+    "Source manifest binding all delivered source inputs",
+    "Exact-film lineage and pending Lane 4 review handoff records",
+    "Separately reviewed COMPLETE pin and independently communicated pin SHA"
+  ],
+  "mayPublish": false,
+  "releaseApproved": false
+}

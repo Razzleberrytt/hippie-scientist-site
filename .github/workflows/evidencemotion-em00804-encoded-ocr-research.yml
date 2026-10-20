@@ -1,0 +1,98 @@
+name: EvidenceMotion EM-008.04 independent encoded phone-width OCR research
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/em00804_encoded_phone_ocr_research.py'
+      - 'research/evidencemotion-director/test_em00804_encoded_phone_ocr_research.py'
+      - 'research/evidencemotion-director/em00803_real_mobile_contrast.py'
+      - 'research/evidencemotion-director/em00805_botanical_video_probes.py'
+      - 'research/evidencemotion-director/EM00804-ENCODED-375PX-OCR-RESEARCH-20261016.md'
+      - '.github/workflows/evidencemotion-em00804-encoded-ocr-research.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual-encoded-independent-phone-width-ocr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install open CPU video decoder, independent OCR and 12.0 rasterizer
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            ffmpeg tesseract-ocr tesseract-ocr-eng fonts-dejavu-core
+          python -m pip install 'Pillow==12.0.0'
+          ffmpeg -version | head -n 1
+          tesseract --version 2>&1 | head -n 1
+      - name: Independently OCR sparse checkpoints and every H264 frame of transient-claim adversary
+        env:
+          THS_EM00804_RECEIPT: ${{ runner.temp }}/em00804/real-encoded-ocr-research-receipt.json
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director \
+            -p test_em00804_encoded_phone_ocr_research.py -v
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          data=json.loads(Path(os.environ['THS_EM00804_RECEIPT']).read_text())
+          assert data['schema']=='ths-em00804-true-encoded-phone-width-ocr-research-v1'
+          assert len(data['positiveReadings'])==18 and len(data['negativeCases'])==12
+          assert len([x for x in data['negativeCases']
+                      if x['mode']=='disclosed_but_fabricated_plant_measurement'])==2
+          assert len([x for x in data['negativeCases']
+                      if x['mode']=='disclosed_but_fabricated_plant_presence'])==2
+          assert all(x['contradictoryAssayTextRecognized']
+                     for x in data['negativeCases']
+                     if x['mode'].startswith('disclosed_but_fabricated_plant_'))
+          assert all(x['unsafeApprovalRejected'] for x in data['negativeCases'])
+          assert all(x['contradictoryAssayTextRecognized']
+                     for x in data['negativeCases']
+                     if x['mode']=='disclosed_but_fabricated_plant_measurement')
+          assert len({(x['frameIndex'],x['width'],x['tesseractPSM'])
+                      for x in data['positiveReadings']})==18
+          assert all(x['bothExpectedLinesRecovered'] for x in data['positiveReadings'])
+          assert all(x['unsafeApprovalRejected'] for x in data['negativeCases'])
+          temporal=data['temporalFullFrameResearchProbe']
+          assert temporal['researchFixtureOnly'] is True
+          assert temporal['researchFixtureFullScanVerified'] is True
+          assert temporal['originalStaticFilmFramesOCRed']==60
+          assert temporal['transientFilmFramesOCRed']==60
+          assert temporal['injectedAdversarialFrameIndices']==list(range(10,20))
+          assert temporal['verifiedUnsafeFrameIndices']==list(range(10,20))
+          assert [x['frameIndex'] for x in temporal['originalStaticFilmReadings']]==list(range(60))
+          assert [x['frameIndex'] for x in temporal['transientFilmReadings']]==list(range(60))
+          assert all(x['unsafeClaimMissed']
+                     for x in temporal['sparseCheckpointsWronglyAppearSafe'])
+          assert all(x['twoSafeDisclaimersAndNoVeto']
+                     for x in temporal['originalStaticFilmReadings'])
+          assert all(not x['twoSafeDisclaimersAndNoVeto']
+                     for x in temporal['transientFilmReadings']
+                     if x['frameIndex'] in range(10,20))
+          assert temporal['originalNarratedFilmApproved'] is False
+          assert temporal['mayPublish'] is False
+          assert data['actualHandsetReadabilityVerified'] is False
+          assert data['validatedAsHumanReadabilityPredictor'] is False
+          assert data['allVideoFramesReadByIndependentOCR'] is False
+          assert data['independentScientificClaimsApproved'] is False
+          assert data['mayPublish'] is False
+          print('EM00804_TRUE_H264_OCR_RESEARCH_PASS_PHYSICAL_HANDSET_AND_SCIENCE_HOLD')
+          PY
+      - name: Archive only recognized research words/encoded source hashes
+        uses: actions/upload-artifact@v4
+        with:
+          name: em00804-real-encoded-phone-width-ocr-research-receipt
+          path: ${{ runner.temp }}/em00804/real-encoded-ocr-research-receipt.json
+          retention-days: 14
+          if-no-files-found: error
+      - name: Keep physical-device, publication and claim-approval gates explicit
+        if: always()
+        run: |
+          echo 'Actual decoded H264; simulated viewport occlusion; second independently run OCR instrument. NOT a validated human readability method.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Also scanned ALL 60 encoded H264 frames of a synthetic safe fixture and 60 of a transient false-caption fixture, not a production narrated film.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No real iPhone device, original botanical image, species/plant 7OH assay, source signoff, full narration or platform UI approval.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Only nonfactual generated botanical fixture, no unsafe video artifacts, no publication authority.' >> "$GITHUB_STEP_SUMMARY"

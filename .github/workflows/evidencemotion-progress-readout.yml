@@ -1,0 +1,113 @@
+name: EvidenceMotion progress readout
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research/evidencemotion-director/**'
+      - '.github/workflows/evidencemotion-progress-readout.yml'
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/github_em_merge_snapshot.py'
+      - 'research/evidencemotion-director/test_github_em_merge_snapshot.py'
+      - 'research/evidencemotion-director/atomic_progress_reconciler.py'
+      - 'research/evidencemotion-director/test_atomic_progress_reconciler.py'
+      - 'research/evidencemotion-director/build_atomic_lane_progress.mjs'
+      - 'research/evidencemotion-director/ATOMIC-LANE-PROGRESS.md'
+      - 'research/evidencemotion-director/ATOMIC-LANE-PROGRESS.json'
+      - 'research/evidencemotion-director/ATOMIC-PROOF-LEDGER-20261015.json'
+      - 'research/evidencemotion-director/COMPLETION-CHECKLIST.md'
+      - 'research/evidencemotion-director/atomic/**'
+      - 'research/evidencemotion-director/EM*.md'
+      - 'research/evidencemotion-director/GRANULAR-46-EXECUTION-REGISTER.md'
+      - 'research/evidencemotion-director/ATOMIC-EXECUTION-INDEX.md'
+      - 'research/evidencemotion-director/validate_atomic_proof_ledger.py'
+      - 'research/evidencemotion-director/test_build_atomic_lane_progress.mjs'
+      - '.github/workflows/evidencemotion-progress-readout.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pull-requests: read
+  issues: read
+jobs:
+  source-backed-progress:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify merge-count, canonical workcards, and API negative controls
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director -p 'test_validate_atomic_proof_ledger.py' -v
+          python -m unittest discover -s research/evidencemotion-director -p 'test_atomic_progress_reconciler.py' -v
+          python -m unittest discover -s research/evidencemotion-director -p 'test_github_em_merge_snapshot.py' -v
+      - name: Reconcile each of the 1,590 canonical atomic stages and reject stale percentages
+        run: |
+          set -euo pipefail
+          node --test research/evidencemotion-director/test_build_atomic_lane_progress.mjs
+          node research/evidencemotion-director/build_atomic_lane_progress.mjs --check
+      - name: Append exact five-lane stage evidence percentages
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=Path("research/evidencemotion-director/ATOMIC-LANE-PROGRESS.json")
+          obj=json.loads(p.read_text(encoding="utf-8"))
+          g=obj["global"]
+          arithmetic_hold=bool(g["orphanCards"] or g["inflation"])
+          accounting="Arithmetic HOLD" if arithmetic_hold else "Distinct mapping reconciled (research-only)"
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a",encoding="utf-8") as fp:
+              fp.write("### Sub-atomic five-lane evidence map (not video approval)\n\n")
+              fp.write("| Lane | Individually machine-audited research stages | Historically inherited | Unique mapped, research-only | Unmapped |\n")
+              fp.write("|---|---:|---:|---:|---:|\n")
+              for lane in obj["lanes"]:
+                  s=lane["stats"]
+                  fp.write(f"| {lane['lane']}. {lane['name']} | {s['machine']}/{s['total']} ({s['machinePercent']}%) | {s['inherited']} | {s['unique']}/{s['total']} ({s['mappedPercent']}%) | {s['unmapped']} |\n")
+              fp.write(f"\n**{accounting}:** existing ledger {g['ledgerClaimedProvisional']}/1590 counts {g['overlap']} inherited/audited overlaps and {len(g['orphanCards'])} unmatched card(s). Canonical distinct mapping = **{g['unique']}/1590**; no authority or quality credit.\n")
+          PY
+      - name: Read GitHub merged PRs into a fresh, time-stamped receipt
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/em-progress"
+          python research/evidencemotion-director/github_em_merge_snapshot.py \
+            --start 2026-10-17 \
+            --snapshot-out "$RUNNER_TEMP/em-progress/github-observation.json" \
+            --out "$RUNNER_TEMP/em-progress/reconciliation.json"
+      - name: Summarize real engineering activity without awarding cards
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          report=json.loads((Path(os.environ["RUNNER_TEMP"])/"em-progress/reconciliation.json").read_text())
+          progress=json.loads(Path("research/evidencemotion-director/ATOMIC-LANE-PROGRESS.json").read_text())
+          g=progress["global"]
+          if (g["orphanCards"] or g["inflation"]):
+              accounting="ARITHMETIC HOLD — nominal ledger counts overlap/unmapped IDs"
+              nominal_note="The older nominal count is NOT accepted coverage while overlaps or orphans remain."
+          else:
+              accounting="DISTINCT-MAPPING VERIFIED — still research-only"
+              nominal_note="Nominal and distinct counts now reconcile, but still are NOT accepted production coverage."
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a",encoding="utf-8") as fp:
+              fp.write("### EvidenceMotion engineering events (NOT card credit) — GitHub snapshot\n")
+              fp.write(f"Live verified observation **{report['sourceObservationAtUtc']}**; source mode **{report['sourceMode']}**.\n\n")
+              fp.write(f"Merged PRs **{report['mergedPRs']}**, distinct merge commits **{report['distinctMergeCommits']}**; five-lane PRs **{report['fiveActiveLanesMergedPRs']}**.\n\n")
+              fp.write(f"**Reconciled canonical inventory**: {g['machine']}/{g['total']} individually mapped machine-research stages; {g['inherited']} inherited historical-stage scope, {g['overlap']} overlap, {len(g['orphanCards'])} orphan(s); **{g['unique']}/{g['total']}** uniquely mapped provisional. {accounting}.\n\n")
+              fp.write(f"The ledger's nominal headline is **{g['ledgerClaimedProvisional']}/{g['total']}**. {nominal_note} The older GitHub activity snapshot's arithmetic totals are superseded by the source-validated stage inventory above.\n\n")
+              fp.write("First excellent render **0/1**, five streak **0/5**, mayPublish=false; no real-device/independent-science/creative release approval.\n")
+          PY
+      - name: Preserve corrected 1590-card inventory alongside GitHub events
+        run: |
+          set -euo pipefail
+          cp research/evidencemotion-director/ATOMIC-LANE-PROGRESS.json "$RUNNER_TEMP/em-progress/atomic-lane-progress-reconciled.json"
+          cmp research/evidencemotion-director/ATOMIC-LANE-PROGRESS.json "$RUNNER_TEMP/em-progress/atomic-lane-progress-reconciled.json"
+      - name: Preserve both snapshot and reviewed accounting
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencemotion-progress-evidence
+          path: ${{ runner.temp }}/em-progress/
+          retention-days: 7
+          if-no-files-found: error

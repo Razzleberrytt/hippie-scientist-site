@@ -1,0 +1,51 @@
+{
+  "scope": "isolated-owner-patch-candidate-not-applied-to-lane3-or-production",
+  "lane3SourceHead": "12c4bb5cf3f052473c68c01cccbc625eabce3313",
+  "snapshot": "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-lane3-canonical-patch-ln1yl8n2",
+  "sourceArchiveSha256": "6f2a7070d95c2449ddb27851dd5985773f7641922b915d64799399d20049565a",
+  "command": [
+    "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "test_synthetic_craft_splice.OfflineActualCodecContract.test_actual_h264_aac_splice_and_outside_scene_tamper"
+  ],
+  "before": {
+    "exitCode": 1,
+    "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-lane3-canonical-before.log",
+    "logSha256": "93792513ebad27cf8f16c1be4afc5b714dc9b55f4f4eb5d3ea34f3b61f1a78ee",
+    "tail": "ac_splice_and_outside_scene_tamper (test_synthetic_craft_splice.OfflineActualCodecContract.test_actual_h264_aac_splice_and_outside_scene_tamper) ... ERROR\n\n======================================================================\nERROR: test_actual_h264_aac_splice_and_outside_scene_tamper (test_synthetic_craft_splice.OfflineActualCodecContract.test_actual_h264_aac_splice_and_outside_scene_tamper)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-lane3-canonical-patch-ln1yl8n2\\research\\evidencemotion-director\\lane3\\test_synthetic_craft_splice.py\", line 40, in test_actual_h264_aac_splice_and_outside_scene_tamper\n    proof=S.splice(source,scene,output,trusted)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-lane3-canonical-patch-ln1yl8n2\\research\\evidencemotion-director\\lane3\\source_locked_craft_splice.py\", line 461, in splice\n    publish_verified_pair_no_clobber(temp,staged_receipt,output,receipt_path,\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-lane3-canonical-patch-ln1yl8n2\\research\\evidencemotion-director\\lane3\\source_locked_craft_splice.py\", line 406, in publish_verified_pair_no_clobber\n    raise CraftHold('STAGED_RECEIPT_CONTENT_CHANGED')\nsource_locked_craft_splice.CraftHold: STAGED_RECEIPT_CONTENT_CHANGED\n\n----------------------------------------------------------------------\nRan 1 test in 2.652s\n\nFAILED (errors=1)\n"
+  },
+  "mayPublish": false,
+  "newAtomicCards": 0,
+  "patchPath": "research\\evidencemotion-director\\lane6\\patches\\lane3-windows-canonical-receipt.patch",
+  "patchSha256": "32e24b422862b5c9fad3998b3cc82b7c2eeee447295caea1942b9568b25167ee",
+  "patchApplyCheck": "PASS_ON_EXACT_PINNED_TEMP_SOURCE",
+  "originalSourceGitBlob": "ce520eb23ec47b414b823d1a426445047fceadb1",
+  "originalSourceSha256": "5e45c3d705a713b389e61e28b06e23de802bc2afc67fb237638537ab481b43dc",
+  "patchedSourceFileSha256": "8e47609569c49dd6da36647d1613f02c6db50169b07fe213cef87d1d66cf4b24",
+  "publisherAndVerifierAstUnchanged": true,
+  "localSetupCorrection": "git apply used CRLF checkout endings; exact comparison corrected to normalized source text before executing patched test, no semantic extra edit",
+  "after": {
+    "exitCode": 0,
+    "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-lane3-canonical-after.log",
+    "logSha256": "b802ea271cc35680b1f7b6cc513d2a88392c623339822fe67b0c35b5577c125f",
+    "tail": "test_actual_h264_aac_splice_and_outside_scene_tamper (test_synthetic_craft_splice.OfflineActualCodecContract.test_actual_h264_aac_splice_and_outside_scene_tamper) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 3.842s\n\nOK\n"
+  },
+  "status": "VERIFIED_ISOLATED_ONE_LINE_PATCH_CANDIDATE_NOT_OWNER_APPLIED",
+  "acceptanceObserved": [
+    "Unpatched exact head fails physical Windows codec test with STAGED_RECEIPT_CONTENT_CHANGED",
+    "git apply --check succeeds on exact pinned temporary source",
+    "One receipt-writer statement changes; publisher/verifier ASTs unchanged",
+    "Patched real H264/AAC source-to-splice test PASS including original AAC, 60 outside frames, tampered-output and wrong-scene negatives",
+    "Actual original/revised media never altered"
+  ],
+  "unverifiedBoundaries": [
+    "Not applied to Lane3 branch/source or merged",
+    "Only targeted synthetic physical test executed, not full Lane3 suite or full combined CI/build",
+    "No actual revised e79e4474 film or complete source/plan/caption bundle supplied",
+    "No voice/science/craft/device/publication approval, mayPublish=false",
+    "Patch should be rechecked against changed owner head before applying"
+  ]
+}

@@ -56,11 +56,20 @@ describe('best stress supplements evidence calibration', () => {
     expect(text).toMatch(/persistent severe anxiety.*worsening mental-health symptoms.*cause-focused evaluation/i)
   })
 
-  it('keeps monetization symmetric across compared ingredients', () => {
+  it('holds unverified product recommendations across all compared ingredients', () => {
     const text = read(SOURCE)
-    expect(text).toContain("['ashwagandha', 'rhodiola', 'magnesium', 'l-theanine']")
-    expect(text).toContain('getRevenueProductSet(slug)')
-    expect(text).toContain('<RecommendationSection products={comparisonProducts} />')
+    expect(text).toContain('id="product-checks"')
+    expect(text).toContain('unresolved product identifiers and search-only destinations')
+    expect(text).toContain('withholding product-specific shopping links')
+    expect(text).toContain('<RecommendationSection products={[]} title="Product listings pending verification" />')
+    expect(text).not.toContain('getRevenueProductSet(')
+    expect(text).not.toContain('comparisonProducts')
+    expect(text).not.toMatch(/affiliateUrl|amazon\.com|amzn\.to/)
+    for (const destination of [
+      '/guides/herbs/ashwagandha/',
+      '/guides/other/magnesium-types-guide/',
+      '/articles/how-to-choose-supplement-quality/',
+    ]) expect(text).toContain('href="' + destination + '"')
   })
 
   it('preserves canonical ownership and evidence-first metadata', () => {

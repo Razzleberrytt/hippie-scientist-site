@@ -81,6 +81,13 @@ export default async function ProductQualityPage() {
       <section className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm'>
         <div className='max-w-3xl space-y-2'><p className='eyebrow-label'>Use this page after intent is clear</p><h2 className='text-2xl font-bold tracking-tight text-ink'>Start with the goal, then judge product quality</h2><p className='text-sm leading-6 text-muted'>A clean certificate of analysis does not make the wrong supplement useful. Pick the goal page first, then use this checklist to compare form, dose transparency, third-party testing, and safety context.</p></div>
         <div className='mt-5 grid gap-3 md:grid-cols-3'>{qualityStartingPoints.map((item) => <Link key={item.href} href={item.href} className='rounded-2xl border border-brand-900/10 bg-brand-50/50 p-4 transition hover:border-brand-300 hover:bg-[var(--surface-card)]'><h3 className='text-sm font-bold text-ink'>{item.title}</h3><p className='mt-2 text-xs leading-5 text-muted'>{item.body}</p></Link>)}</div>
+        <p className='mt-5 max-w-3xl text-sm leading-6 text-muted'>
+          Need to verify a label, testing certificate, or quality claim before comparing products? Read our{' '}
+          <Link href='/articles/how-to-choose-supplement-quality/' className='font-semibold text-brand-700 underline underline-offset-2 hover:text-brand-800'>
+            evidence-first supplement quality checklist
+          </Link>{' '}
+          for specific questions to ask and red flags to check.
+        </p>
       </section>
 
       <ProductQualityExperimentLayout

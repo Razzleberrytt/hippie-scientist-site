@@ -104,6 +104,15 @@ function fixture({ embeddedSourceUrl = 'https://thehippiescientist.net/herbs/ash
     "  console.log('ffmpeg version test-1.0')",
     '  process.exit(0)',
     '}',
+    "if (args.includes('-show_entries')) {", 
+    "  console.log(JSON.stringify({ streams: [{ codec_name: 'aac', sample_rate: '44100', channels: 2, channel_layout: 'stereo' }] }))",
+    "  process.exit(0)",
+    "}",
+    "if (args.includes('volumedetect')) {",
+    "  console.error('mean_volume: -19.0 dB')",
+    "  console.error('max_volume: -1.2 dB')",
+    "  process.exit(0)",
+    "}",
     "fs.writeFileSync(args[args.length - 1], 'mp4-fixture-bytes')",
     '',
   ].join('\n'))
@@ -133,14 +142,14 @@ describe('vertical video MP4 renderer', () => {
   it('renders an MP4 receipt only after verifying the governed parent package', async () => {
     const { dir, fakeFfmpeg, sourceUrl, sourceContentHash } = fixture()
     const output = path.join(dir, 'vertical-video.mp4')
-    const receipt = await renderVerticalVideoMp4({ packageDir: dir, outputFile: output, ffmpegPath: fakeFfmpeg })
+    const receipt = await renderVerticalVideoMp4({ packageDir: dir, outputFile: output, ffmpegPath: fakeFfmpeg, ffprobePath: fakeFfmpeg })
     expect(fs.readFileSync(output, 'utf8')).toBe('mp4-fixture-bytes')
     expect(receipt.renderer).toBe('vertical-video-mp4-v2-r804')
     expect(receipt.parentRenderer).toBe('vertical-video-package-v1')
     expect(receipt.sourceUrl).toBe(sourceUrl)
     expect(receipt.sourceContentHash).toBe(sourceContentHash)
     expect(receipt.ffmpegVersion).toBe('ffmpeg version test-1.0')
-    expect(receipt.profile).toMatchObject({ width: 1080, height: 1920, fps: 30, durationSeconds: 30, codec: 'libx264', audio: true, audioCodec: 'aac' })
+    expect(receipt.profile).toMatchObject({ width: 1080, height: 1920, fps: 30, durationSeconds: 30, codec: 'libx264', audio: true, audioCodec: 'aac', audioSampleRate: 44100, audioChannels: 2, audioChannelLayout: 'stereo', mobileAudioVerified: true, decodedAudio: { meanVolumeDb: -19, maxVolumeDb: -1.2 } })
     expect(receipt.localNarration).toMatchObject({
       engine: 'kokoro',
       engineKind: 'local-open-source',

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { renderVerticalVideoSceneSvg } from '../render-vertical-video-package.mjs'
+import { assertMobileOpeningHookSvg } from '../mobile-hook-clarity-gate.mjs'
 
 const common = {
   sourceUrl: 'https://thehippiescientist.net/herbs/example/',
@@ -42,5 +43,24 @@ describe('R8.05 visible internal motion states', () => {
     expect(post).toContain('The canonical finding.')
     expect(pre).not.toContain('height="8" rx="4"')
     expect(post).toContain('height="8" rx="4"')
+  })
+})
+
+
+describe('EvidenceMotion original renderer and mobile opening gate integration', () => {
+  it('native producer opening quality gate preserves a two-line hook and exact source', () => {
+    const story = scene('highlight')
+    story.role = 'hook'
+    story.onScreenText = 'CALMING OR ADDICTIVE?'
+    const filmSvg = renderVerticalVideoSceneSvg(story, {
+      ...common,
+      maxChars: 12,
+      motionPhase: 'post',
+    }).svg
+    const rendered = assertMobileOpeningHookSvg(filmSvg)
+    expect(rendered.semanticGroups).toBe(1)
+    expect(rendered.governedTrustLabelsRetained).toBe(3)
+    expect(rendered.contentWords).toBe(3)
+    expect(filmSvg).toContain('&quot;sourceUrl&quot;:&quot;https://thehippiescientist.net/herbs/example/&quot;')
   })
 })

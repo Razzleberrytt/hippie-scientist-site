@@ -42,6 +42,11 @@ jobs:
         env:
           SITE_URL: ${{ github.event.inputs.target_url || 'https://thehippiescientist.net' }}
 
+      - name: Verify live Deep Enrichment investigation completeness
+        run: node scripts/ci/validate-deep-enrichment-live.mjs
+        env:
+          SITE_URL: ${{ github.event.inputs.target_url || 'https://thehippiescientist.net' }}
+
       - name: Full site crawl (linkinator)
         run: |
           TARGET="${{ github.event.inputs.target_url || 'https://thehippiescientist.net' }}"

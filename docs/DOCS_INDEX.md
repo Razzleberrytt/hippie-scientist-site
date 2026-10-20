@@ -1,8 +1,8 @@
 # Documentation Index
 
 **Status:** Authoritative documentation map
-**Updated:** 2026-10-08 (P0 planning references)
-**Inventory scope:** 277 live markdown files under `docs/` and at the repository root, after the 2026-08-29 documentation pass moved 88 documents into `docs/archive/2026-08/`. Classification stays rule-based so this index does not become a second per-file maintenance burden; the full per-file disposition is in [`generated/docs-disposition.md`](generated/docs-disposition.md).
+**Updated:** 2026-10-15 (Algorithm Observatory specification indexed; previous P0 planning references retained)
+**Inventory scope:** Live markdown files under `docs/` and at the repository root; the 2026-08-29 historical documentation pass moved 88 documents into `docs/archive/2026-08/`. The current live-file count has **not been freshly verified** in this edit. Classification stays rule-based so this index does not become a second per-file maintenance burden; the source-of-truth inventory and per-file disposition are in [`generated/docs-disposition.md`](generated/docs-disposition.md).
 
 **Archive:** [`archive/`](archive/README.md) holds retained context. It must not be used to select work or quote status. `scripts/ci/validate-doc-links.mjs`, part of `npm run check`, fails on any broken relative link outside the archive and generated output.
 
@@ -50,6 +50,11 @@ When documents conflict, current code/configuration/tests/deployment evidence es
 
 - [Generational Engineering P0](GENERATIONAL_ENGINEERING_P0.md) — accepted methodology, interoperability constraints, verification tiers and October 12–16 plan for [#6431](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6431).
 - [Generational Engineering Readiness](GENERATIONAL_ENGINEERING_READINESS.md) — dependency graph, 25 candidate capabilities, producer/consumer contracts, adversarial tests and release evidence. Candidate status never overrides current code, GitHub PR/deployment truth, CURRENT_SPRINT admission or MASTER_BACKLOG prioritization.
+- [P0 AI Citation Leadership & Evidence Expansion](AI_CITATION_P0_EXPANSION_BACKLOG.md) — owner-prioritized 18-item **candidate** register tracked under [#6695](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6695). Reuse #6690, #6685, #6670 and #6431; the Master Backlog and Current Sprint retain all actual work-selection/admission authority.
+- [THS Algorithm Observatory 1.0](THS_ALGORITHM_OBSERVATORY_V1_SPEC.md) — owner-approved additive **future** performance-learning and creative-experiment specification; unadmitted; extends the R8.10 flywheel, Publisher/Observer **publication receipts**, and the separate #4414 **experiment-history ledger**, without altering publishing/science authority.
+
+- [THS System Completion Program](THS_SYSTEM_COMPLETION_PROGRAM_V1.md) — owner-approved 16-system/128-outcome navigation and acceptance crosswalk across science, product, creative, operations and commercialization. Four linked domain checklists under `checklists/`; supporting **not** an execution queue, independent score or additional canonical 46/150 credit.
+
 ## Supporting documents
 
 These remain valuable but cannot override the control system.
@@ -57,6 +62,8 @@ These remain valuable but cannot override the control system.
 | Path or rule | Purpose | Audience | Authority / update expectation |
 |---|---|---|---|
 | `content-quality/**`, especially [`evidence-first-decision-page-standard.md`](content-quality/evidence-first-decision-page-standard.md) | Evidence-first release and editorial quality standards | Content/evidence/product agents | Supporting release gate; update through editorial/evidence review |
+| [`PLAIN_LANGUAGE_SCIENCE_EDITORIAL_STANDARD.md`](PLAIN_LANGUAGE_SCIENCE_EDITORIAL_STANDARD.md) | Begin with ordinary explanations, teach specialist vocabulary on first use, protect evidence limits, and verify beginner comprehension for all new video and article content | Editorial, science, media, accessibility agents | Owner decision recorded in `DECISIONS.md`; supporting standard, not a substitute for science/craft or product release gates |
+
 | [`site-information-architecture.md`](site-information-architecture.md), [`site-organization.md`](site-organization.md), `seo/**` | User-facing destination ownership, page roles, route taxonomy, SEO, canonical, sitemap, and linking policy | Product/SEO/engineering | Supporting; durable choices are recorded in `DECISIONS.md`, current shipped reality in `CURRENT_STATE.md`, and live routes/tests must be reconciled before route work |
 | [`data-pipeline.md`](data-pipeline.md), [`generated-data-policy.md`](generated-data-policy.md), `canonical-data-system/**`, workbook/XLSX/source-registry root docs | Workbook, identity, data, and generated-artifact contracts | Data/content engineering | Supporting; update with pipeline changes and builds |
 | [`build-and-verification.md`](build-and-verification.md), [`cloudflare-pages.md`](cloudflare-pages.md), `ci/**`, `security/**`, [`RELEASE.md`](RELEASE.md), [`VALIDATION.md`](VALIDATION.md) | Build, deploy, CI, dependency, and release procedures | Engineering/operations | Operational-supporting; commands must be tested before relying on them |

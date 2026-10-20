@@ -1,0 +1,84 @@
+name: EvidenceMotion decoded mobile UI research audit
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/phone_ui_audit.py'
+      - 'research/evidencemotion-director/test_phone_ui_audit.py'
+      - 'research/evidencemotion-director/bottom_caption_screen.py'
+      - 'research/evidencemotion-director/test_bottom_caption_screen.py'
+      - 'research/evidencemotion-director/caption_variant_review.py'
+      - 'research/evidencemotion-director/test_caption_variant_review.py'
+      - 'research/evidencemotion-director/mobile_delivery_guard.py'
+      - 'research/evidencemotion-director/test_mobile_delivery_guard.py'
+      - 'research/evidencemotion-director/phone_glyph_receipt_guard.py'
+      - 'research/evidencemotion-director/test_phone_glyph_receipt_guard.py'
+      - 'research/evidencemotion-director/narration_locked_treatments.py'
+      - 'research/evidencemotion-director/test_narration_locked_treatments.py'
+      - 'research/evidencemotion-director/PHONE-UI-AUDIT-2026-10-14.md'
+      - '.github/workflows/evidencemotion-phone-ui-research.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'research/evidencemotion-director/phone_ui_audit.py'
+      - 'research/evidencemotion-director/test_phone_ui_audit.py'
+      - 'research/evidencemotion-director/bottom_caption_screen.py'
+      - 'research/evidencemotion-director/test_bottom_caption_screen.py'
+      - 'research/evidencemotion-director/caption_variant_review.py'
+      - 'research/evidencemotion-director/test_caption_variant_review.py'
+      - 'research/evidencemotion-director/mobile_delivery_guard.py'
+      - 'research/evidencemotion-director/test_mobile_delivery_guard.py'
+      - 'research/evidencemotion-director/phone_glyph_receipt_guard.py'
+      - 'research/evidencemotion-director/test_phone_glyph_receipt_guard.py'
+      - 'research/evidencemotion-director/narration_locked_treatments.py'
+      - 'research/evidencemotion-director/test_narration_locked_treatments.py'
+      - 'research/evidencemotion-director/PHONE-UI-AUDIT-2026-10-14.md'
+      - '.github/workflows/evidencemotion-phone-ui-research.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual-decoded-frame-negative-regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install free FFmpeg tools and verify availability
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ffmpeg
+          command -v ffprobe
+          command -v ffmpeg
+          ffprobe -version | head -1
+          ffmpeg -version | head -1
+      - name: Run all portable Lane 4 research negative regressions
+        run: |
+          set -euo pipefail
+          for test_file in \
+            test_phone_ui_audit.py \
+            test_bottom_caption_screen.py \
+            test_caption_variant_review.py \
+            test_mobile_delivery_guard.py \
+            test_phone_glyph_receipt_guard.py; do
+            echo "::group::$test_file"
+            python -B -m unittest discover -s research/evidencemotion-director -p "$test_file" -v
+            echo "::endgroup::"
+          done
+          python -B -m py_compile \
+            research/evidencemotion-director/phone_ui_audit.py \
+            research/evidencemotion-director/bottom_caption_screen.py \
+            research/evidencemotion-director/caption_variant_review.py \
+            research/evidencemotion-director/mobile_delivery_guard.py \
+            research/evidencemotion-director/phone_glyph_receipt_guard.py \
+            research/evidencemotion-director/narration_locked_treatments.py \
+            research/evidencemotion-director/test_narration_locked_treatments.py
+      - name: Document remaining limits
+        if: always()
+        run: |
+          echo 'Research-only: five portable negative-control suites, including synthetic physically encoded H264/AAC fixtures and source-bound receipt validation.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Narration treatment requires separate pinned fonts, NumPy, Pillow and RDKit; it is syntax-checked here but its full science/render tests are NOT executed in this lightweight job.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No original finished film, actual phone, unmuted human perception, science, phonetics, cinematic excellence or publication approved by this job.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No atomic-card or first-render credit from test passing.' >> "$GITHUB_STEP_SUMMARY"

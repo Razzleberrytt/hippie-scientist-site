@@ -1,0 +1,34 @@
+name: THS voice pronunciation lexicon
+on:
+  pull_request:
+    paths:
+      - 'scripts/distribution/voice_pronunciation.py'
+      - 'scripts/distribution/voice-pronunciations.json'
+      - 'scripts/distribution/render-local-narration.py'
+      - 'scripts/distribution/r812-mitragynine-review-voice.py'
+      - 'scripts/distribution/tests/test_voice_pronunciation.py'
+      - '.github/workflows/voice-pronunciation-tests.yml'
+  push:
+    branches: ['voice/**']
+    paths:
+      - 'scripts/distribution/voice_pronunciation.py'
+      - 'scripts/distribution/voice-pronunciations.json'
+      - 'scripts/distribution/render-local-narration.py'
+      - 'scripts/distribution/r812-mitragynine-review-voice.py'
+      - 'scripts/distribution/tests/test_voice_pronunciation.py'
+      - '.github/workflows/voice-pronunciation-tests.yml'
+permissions:
+  contents: read
+jobs:
+  voice-pronunciation-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate voice-only pronunciation mapping
+        run: |
+          python -m py_compile scripts/distribution/voice_pronunciation.py scripts/distribution/render-local-narration.py scripts/distribution/r812-mitragynine-review-voice.py
+          python -m unittest discover -s scripts/distribution/tests -p 'test_voice_pronunciation.py' -v

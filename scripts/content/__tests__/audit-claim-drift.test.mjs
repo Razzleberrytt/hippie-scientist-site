@@ -68,3 +68,33 @@ test('PR claim gate ignores historical critical matches but blocks new component
     fs.rmSync(temp, { recursive: true, force: true })
   }
 })
+
+test('PR claim gate counts plus-prefixed content as added lines, not patch headers', () => {
+  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'claim-drift-prefix-'))
+  try {
+    fs.mkdirSync(path.join(temp, 'scripts/content'), { recursive: true })
+    fs.mkdirSync(path.join(temp, 'content'), { recursive: true })
+    fs.copyFileSync(SCRIPT, path.join(temp, 'scripts/content/audit-claim-drift.mjs'))
+    git(temp, 'init')
+    git(temp, 'config', 'user.email', 'ci@example.invalid')
+    git(temp, 'config', 'user.name', 'CI')
+    fs.writeFileSync(path.join(temp, 'content/example.mdx'), '# Example\n')
+    fs.writeFileSync(path.join(temp, 'content/z-other.mdx'), '# Other\n')
+    commitAll(temp, 'baseline')
+    const base = git(temp, 'rev-parse', 'HEAD').trim()
+
+    for (const prefix of ['++ decoration', '++ b/fake.mdx']) {
+      fs.writeFileSync(path.join(temp, 'content/example.mdx'), `# Example\n${prefix}\nCompletely safe.\n`)
+      fs.writeFileSync(path.join(temp, 'content/z-other.mdx'), '# Other\nTotally safe.\n')
+      commitAll(temp, `add claim after ${prefix}`)
+      const result = runAudit(temp, base)
+      assert.equal(result.status, 1, result.stderr || result.stdout)
+      const report = JSON.parse(fs.readFileSync(path.join(temp, 'reports/content-claim-drift.json'), 'utf8'))
+      assert.equal(report.blockingCriticalCount, 2)
+      assert.ok(report.findings.some((finding) => finding.introduced && finding.line === 3 && finding.file === 'content/example.mdx'))
+      assert.ok(report.findings.some((finding) => finding.introduced && finding.line === 2 && finding.file === 'content/z-other.mdx'))
+    }
+  } finally {
+    fs.rmSync(temp, { recursive: true, force: true })
+  }
+})

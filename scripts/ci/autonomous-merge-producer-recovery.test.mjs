@@ -155,3 +155,40 @@ describe('P0 #6447: one exact-head CI producer for recovery fan-out', () => {
     expect(source).not.toContain('return { action: \'merge\', reason: \'CI dispatched\' }')
   })
 })
+
+
+describe('P0 EvidenceMotion independent zero-job recovery consumers', () => {
+  it('preserves native PR checks and permits exact-head workflow_dispatch after bot refresh', () => {
+    const workflows = [
+      'evidencemotion-rejected-failure-matrix.yml',
+      'evidencemotion-autocritic-research.yml',
+      'evidencemotion-autonomous-quality-research.yml',
+      'evidencemotion-actual-asr-research.yml',
+    ]
+    for (const name of workflows) {
+      const yaml = fs.readFileSync(`.github/workflows/${name}`, 'utf8')
+      expect(yaml).toMatch(/^on:\n {2}workflow_dispatch:\n {2}pull_request:\n {4}paths:/m)
+      expect(yaml).toMatch(/^permissions:\n {2}contents: read$/m)
+      expect(yaml).not.toMatch(/^\s+(?:contents|actions|pull-requests|statuses): write\s*$/m)
+      expect(yaml).not.toContain('pull_request_target:')
+      expect(yaml).toContain('uses: actions/checkout@v4')
+    }
+    const controller = fs.readFileSync('scripts/ci/autonomous-merge-controller.mjs', 'utf8')
+    expect(controller).toContain('shouldDispatchRegisteredWorkflow')
+    expect(controller).toContain('verifiedZeroJobIds')
+    expect(controller).toContain('DISPATCH_EVENTS.has(run.event)')
+  })
+})
+
+
+describe('Lane 3 director exact-head recovery trigger', () => {
+  it('is dispatchable by the serialized controller after a bot-authored PR refresh', () => {
+    const director = fs.readFileSync('.github/workflows/evidencemotion-reusable-director.yml', 'utf8')
+    expect(director).toContain('workflow_dispatch:\n  pull_request:')
+    expect(director).toContain('permissions:\n  contents: read')
+    expect(director).toContain('research/evidencemotion-director/previz-director.test.mjs')
+    const controller = fs.readFileSync('scripts/ci/autonomous-merge-controller.mjs', 'utf8')
+    expect(controller).toContain('await dispatchWorkflowRun(repo, run, pr)')
+    expect(controller).toContain('/actions/workflows/${run.workflow_id}/dispatches')
+  })
+})

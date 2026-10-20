@@ -1,0 +1,231 @@
+{
+  "schema": "ths-evidencemotion-clean-restage-provenance-v1",
+  "sourceCommit": "2f78112292afd72d7da66d532850551a15ed58cb",
+  "baseCommit": "76e02b30259c9e2b375e8e69a64772d184208567",
+  "exactPreservedBlobCount": 54,
+  "exactPreservedBlobs": [
+    {
+      "path": ".github/workflows/evidencemotion-actual-asr-research.yml",
+      "gitBlob": "a7e088ba3871258bbe4b812e7488da9b47227f13"
+    },
+    {
+      "path": ".github/workflows/evidencemotion-atomic-proof-ledger.yml",
+      "gitBlob": "984bd7501f4d010f7b22733bafbd617591e3aca0"
+    },
+    {
+      "path": ".github/workflows/evidencemotion-operator-rehearsal.yml",
+      "gitBlob": "4a50ba721494e2a436789bb8fe01bb5b7d783d33"
+    },
+    {
+      "path": "research/evidencemotion-director/ATOMIC-PROOF-LEDGER-20261015.json",
+      "gitBlob": "8f6fb9ae7a7942597cf2f21f031e6ceb6185d548"
+    },
+    {
+      "path": "research/evidencemotion-director/EM02301-ATOMIC-STORY-EVIDENCE-20261015.md",
+      "gitBlob": "f8260083e16de21b6c4b4069edc66b2a4a6afa13"
+    },
+    {
+      "path": "research/evidencemotion-director/EM02303-ATOMIC-OXYGEN-REVEAL-20261015.md",
+      "gitBlob": "954d31f1efde68b74ccc3a38823a9d16002e8c17"
+    },
+    {
+      "path": "research/evidencemotion-director/EM02303-ATOMIC-VISUAL-REPAIR-20261015.md",
+      "gitBlob": "8463e94a039cd88544602ee6b6dd626d7c70eb0e"
+    },
+    {
+      "path": "research/evidencemotion-director/EM03404-ATOMIC-EVIDENCE-RECONCILIATION-20261015.md",
+      "gitBlob": "e3ad84e405aaa441b2dfac7ea8dfc6b96444fe2a"
+    },
+    {
+      "path": "research/evidencemotion-director/EM03411-ATOMIC-EVIDENCE-RECONCILIATION-20261015.md",
+      "gitBlob": "53b737321430f288176055611434cfe6a6c18557"
+    },
+    {
+      "path": "research/evidencemotion-director/EM03412-ATOMIC-TIMED-SOUNDOFF-INSTRUMENT-20261016.md",
+      "gitBlob": "af47db959827efec3f806128f6fa419bc17798cb"
+    },
+    {
+      "path": "research/evidencemotion-director/EXACT-WAV-ALIGNMENT-2026-10-14.md",
+      "gitBlob": "77f5e07a43b8bbea2f089a2a191edec133fc4feb"
+    },
+    {
+      "path": "research/evidencemotion-director/RESEARCH-OPERATOR-REHEARSAL.md",
+      "gitBlob": "e1421dbb56c5c105c1174dd0bb0be8826e43d70e"
+    },
+    {
+      "path": "research/evidencemotion-director/actual_pixel_text_recovery.py",
+      "gitBlob": "a4d6bcbb383332af384de073d8a5eb1b3fee0a8e"
+    },
+    {
+      "path": "research/evidencemotion-director/encoded_bond_sequence_audit.py",
+      "gitBlob": "a4aa532c9fed83107271105ac247f6d0ae3e94b1"
+    },
+    {
+      "path": "research/evidencemotion-director/encoded_caption_cue_audit.py",
+      "gitBlob": "e4841895e879cfd3e1e56e7d028edf114492fa43"
+    },
+    {
+      "path": "research/evidencemotion-director/encoded_science_motion_audit.py",
+      "gitBlob": "6c78a91fc309d668c09c65c57cd1d50b5673405d"
+    },
+    {
+      "path": "research/evidencemotion-director/encoded_science_pixel_audit.py",
+      "gitBlob": "66084ba2adc7e033d110276792794465d15a6820"
+    },
+    {
+      "path": "research/evidencemotion-director/encoded_spotlight_difference_audit.py",
+      "gitBlob": "ef6b124274af35b172e99c5c99e5ee378e09fde8"
+    },
+    {
+      "path": "research/evidencemotion-director/muted_answer_recovery.py",
+      "gitBlob": "44c710a6efee42e0874afd36aed81334d943fa05"
+    },
+    {
+      "path": "research/evidencemotion-director/muted_review_research.py",
+      "gitBlob": "af21208f83d12d4bcd9353ee141466c1879013e1"
+    },
+    {
+      "path": "research/evidencemotion-director/narrated_claim_screen.py",
+      "gitBlob": "b9fcf7ec121de31c590af3e16965d8eb11ff3368"
+    },
+    {
+      "path": "research/evidencemotion-director/narration_first_story_map.py",
+      "gitBlob": "14c0ffc36bbf06bf286012a864109b8139f7e0e2"
+    },
+    {
+      "path": "research/evidencemotion-director/narration_locked_treatments.py",
+      "gitBlob": "5c54744a71e08285a82034b06fa28425ce97d0ab"
+    },
+    {
+      "path": "research/evidencemotion-director/native_text_legibility_audit.py",
+      "gitBlob": "b6b1d776ab70d959ad7d25b66556862a30360533"
+    },
+    {
+      "path": "research/evidencemotion-director/objective_muted_score.py",
+      "gitBlob": "14306b0b384cec965c1f40cc1d1874a7529c697e"
+    },
+    {
+      "path": "research/evidencemotion-director/operator_evidence_rehearsal.py",
+      "gitBlob": "090ffd2bfbb7c0c2f6cc44aed94d005528633dc2"
+    },
+    {
+      "path": "research/evidencemotion-director/reading_load_audit.py",
+      "gitBlob": "5f5357c09f80f2495d4ed0f83a7de521e959d4b8"
+    },
+    {
+      "path": "research/evidencemotion-director/source_bond_trace_direction.py",
+      "gitBlob": "18bb4f0c19ea7ae146b5a9cee3091b8fe4b13f18"
+    },
+    {
+      "path": "research/evidencemotion-director/source_locked_visual_direction.py",
+      "gitBlob": "0a44dc954622b660e02d06d146e3f09a8ee34c4c"
+    },
+    {
+      "path": "research/evidencemotion-director/temporal_caption_audit.py",
+      "gitBlob": "920d514e850ff31a2ee8749111c1cc5962c35aa2"
+    },
+    {
+      "path": "research/evidencemotion-director/test_actual_pixel_text_recovery.py",
+      "gitBlob": "1f88a94bede63117d4445f35bb41b5d5566c34a5"
+    },
+    {
+      "path": "research/evidencemotion-director/test_encoded_bond_sequence_audit.py",
+      "gitBlob": "8cf50fdc1d589f3db3157aafd6355841549100fa"
+    },
+    {
+      "path": "research/evidencemotion-director/test_encoded_caption_cue_audit.py",
+      "gitBlob": "3bf0a2d47b214200a38ad0924ed0cc1c084198e5"
+    },
+    {
+      "path": "research/evidencemotion-director/test_encoded_science_motion_audit.py",
+      "gitBlob": "c8418f6072a7fd302543f428c65294976b352397"
+    },
+    {
+      "path": "research/evidencemotion-director/test_encoded_science_pixel_audit.py",
+      "gitBlob": "246d0e6a019f06278520ef0d6651dfb1f49b0fa9"
+    },
+    {
+      "path": "research/evidencemotion-director/test_encoded_spotlight_difference_audit.py",
+      "gitBlob": "986ced4bc21899339fe0827a98922a51928dfe99"
+    },
+    {
+      "path": "research/evidencemotion-director/test_muted_answer_recovery.py",
+      "gitBlob": "7a2b249d481833c39f0474dcb3c20315acbba56a"
+    },
+    {
+      "path": "research/evidencemotion-director/test_muted_review_research.py",
+      "gitBlob": "93a6bb1b8ff865263f9190465b950120e22f22f9"
+    },
+    {
+      "path": "research/evidencemotion-director/test_narrated_claim_screen.py",
+      "gitBlob": "739bc3e24a44a48a480603127b232638ff06dd84"
+    },
+    {
+      "path": "research/evidencemotion-director/test_narration_first_story_map.py",
+      "gitBlob": "48a3b220c3d1d2d9fd7627a1064174a1c09577a1"
+    },
+    {
+      "path": "research/evidencemotion-director/test_narration_locked_treatments.py",
+      "gitBlob": "1273d239ac5efa401726bef79ce2e7cdcb7c0366"
+    },
+    {
+      "path": "research/evidencemotion-director/test_native_text_legibility_audit.py",
+      "gitBlob": "fbbd6ffb675193de6af5411a1acb3849c1017f97"
+    },
+    {
+      "path": "research/evidencemotion-director/test_objective_muted_score.py",
+      "gitBlob": "51186407908c2a508d4309fb0b667703fef223fe"
+    },
+    {
+      "path": "research/evidencemotion-director/test_operator_evidence_rehearsal.py",
+      "gitBlob": "393152a436a36133d781d8433c3b6fab33a4e681"
+    },
+    {
+      "path": "research/evidencemotion-director/test_reading_load_audit.py",
+      "gitBlob": "1ca4baddaff28a4cedf20550129b1d3dbfe0efa1"
+    },
+    {
+      "path": "research/evidencemotion-director/test_source_bond_trace_direction.py",
+      "gitBlob": "dfac5781df534aa06bc68425cfd30a6edbcdd93d"
+    },
+    {
+      "path": "research/evidencemotion-director/test_source_locked_visual_direction.py",
+      "gitBlob": "59397757f74b25cd9f591d479a35312d299dcbc8"
+    },
+    {
+      "path": "research/evidencemotion-director/test_temporal_caption_audit.py",
+      "gitBlob": "1768b1dc69e40790283dd6ffaf43f11077d77e6e"
+    },
+    {
+      "path": "research/evidencemotion-director/test_timed_caption_windows.py",
+      "gitBlob": "0d9188bb8710cbb8c299b6ab6e8ab7abc944ff28"
+    },
+    {
+      "path": "research/evidencemotion-director/test_timed_soundoff_review_packet.py",
+      "gitBlob": "04672bc4f8f438e893d58d4ef7e595cd5420fc2a"
+    },
+    {
+      "path": "research/evidencemotion-director/test_validate_atomic_proof_ledger.py",
+      "gitBlob": "c59871fe7a1b389cc21257dca23d190bc068e4c4"
+    },
+    {
+      "path": "research/evidencemotion-director/timed_caption_windows.py",
+      "gitBlob": "491ff53e285b28318101e08f8655529f4b02c71b"
+    },
+    {
+      "path": "research/evidencemotion-director/timed_soundoff_review_packet.py",
+      "gitBlob": "7c7f7db2c77cfcbcfd151c4abd141152673d9caa"
+    },
+    {
+      "path": "research/evidencemotion-director/validate_atomic_proof_ledger.py",
+      "gitBlob": "abd7855c31109cbd089a97d1f7b5a3c17d3585a7"
+    }
+  ],
+  "manuallyReconciledPaths": [
+    "docs/CURRENT_SPRINT.md",
+    "docs/MASTER_BACKLOG.md"
+  ],
+  "updatedHandoff": "research/evidencemotion-director/IMPLEMENTATION-HANDOFF.md",
+  "newAtomicCredit": 0,
+  "mayPublish": false
+}

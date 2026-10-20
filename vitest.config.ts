@@ -19,6 +19,15 @@ const TEST_EXCLUDES = [
   'scripts/ci/__tests__/fabricated-source-quarantine.test.mjs',
   // Native node:test, never Vitest: npm run test:node already discovers and runs each file.
   'scripts/research/*.test.mjs',
+  // EvidenceMotion director suites use node:test and are owned by npm run test:node.
+  'research/evidencemotion-director/*.test.mjs',
+  // This suite uses node:test and is already exercised by npm run test:node.
+  'scripts/distribution/__tests__/r818-voiced-review-qa.test.mjs',
+  // Native node:test suites validated by npm run test:node and the scoped
+  // EvidenceMotion Mobile Opening Regression workflow; never run in Vitest.
+  'scripts/distribution/__tests__/mobile-hook-clarity-gate.test.mjs',
+  'scripts/distribution/__tests__/mobile-opening-native-pixels.test.mjs',
+  'scripts/distribution/__tests__/evidencemotion-audience-quality.test.mjs',
 ]
 
 function workspaceAliasPlugin(): Plugin {
@@ -89,6 +98,8 @@ export default defineConfig({
         extends: true,
         test: {
           name: 'scripts-node',
+          // Vitest requires distinct groups when projects use different worker limits.
+          sequence: { groupOrder: 0 },
           environment: 'node',
           include: [SCRIPT_TEST_GLOB],
           setupFiles: [],
@@ -99,6 +110,7 @@ export default defineConfig({
         extends: true,
         test: {
           name: 'app-dom',
+          sequence: { groupOrder: 1 },
           environment: 'jsdom',
           include: [ALL_TEST_GLOB],
           exclude: [...TEST_EXCLUDES, 'scripts/**'],

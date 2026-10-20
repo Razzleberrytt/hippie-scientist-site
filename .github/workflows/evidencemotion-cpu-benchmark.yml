@@ -1,0 +1,34 @@
+name: EvidenceMotion bounded CPU benchmark unit regressions
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/repeat_cpu_render_benchmark.py'
+      - 'research/evidencemotion-director/test_repeat_cpu_render_benchmark.py'
+      - '.github/workflows/evidencemotion-cpu-benchmark.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'research/evidencemotion-director/repeat_cpu_render_benchmark.py'
+      - 'research/evidencemotion-director/test_repeat_cpu_render_benchmark.py'
+      - '.github/workflows/evidencemotion-cpu-benchmark.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fail-closed-bounded-runner-budget:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check syntax and execute 13 adversarial budget cases
+        run: |
+          python -m py_compile research/evidencemotion-director/repeat_cpu_render_benchmark.py
+          python -m py_compile research/evidencemotion-director/test_repeat_cpu_render_benchmark.py
+          python -m unittest discover -s research/evidencemotion-director -p 'test_repeat_cpu_render_benchmark.py' -v
+      - name: Explicitly limit scope
+        run: |
+          echo 'Budget-unit tests only. CI has no private source ZIP or exact film.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Full CPU render measurements are host-specific and do not certify science, craft, voice, iPhone playback or release.' >> "$GITHUB_STEP_SUMMARY"

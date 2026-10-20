@@ -1,0 +1,234 @@
+{
+  "scope": "access-only-current-pinned-source-integration-not-merge",
+  "base": "ecc249f5f460ca38be8850375b8b4f4a4d98b448",
+  "steps": [
+    {
+      "lane": "lane1",
+      "head": "9f289f814b985a6828a35c16a7cd815c123b877c",
+      "tree": "728d564301e700d9aacc7532d8453fb2870ce02c"
+    },
+    {
+      "lane": "lane2",
+      "head": "ad943b3f6a1a85c292fc4070cd2d9492f504c99d",
+      "tree": "e6237409c779f7cd2fe3574ff17f56bd155b892a"
+    },
+    {
+      "lane": "lane3",
+      "head": "1695e65e8dd73a5b966eaf2c03f12a1cc943d034",
+      "tree": "5949549ae765fa59958d96efe6c0c9f33bb00238"
+    },
+    {
+      "lane": "lane4",
+      "head": "5a4b13666907111985f9496ab3348f0843abd6fa",
+      "tree": "c4e2c894d40267af24a7b8de980190b39a88fcf4"
+    },
+    {
+      "lane": "lane5",
+      "head": "febbdd81d6d3b752c2bb44dbfd7b4d0df6d3731a",
+      "tree": "840e39bd6562b731152ad447d5c660cd941f5034"
+    },
+    {
+      "lane": "lane6",
+      "head": "3dc392a0b64d9d9fbed396373a4635f03a26dd6a",
+      "tree": "bf1d306d4218ebb7047f8f497bf618cb274a7699"
+    }
+  ],
+  "combinedTree": "bf1d306d4218ebb7047f8f497bf618cb274a7699",
+  "snapshot": "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-audio-replay-integration-_e8227vx",
+  "archiveSha256": "16a461deb31d240ff76553278a90b9821a600c650845344b330bdd2ac51a02d7",
+  "mayPublish": false,
+  "newAtomicCards": 0,
+  "runtime": "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+  "checks": [
+    {
+      "test": "test_repeated_term_acoustic_guard.py",
+      "exitCode": 0,
+      "seconds": 7.71,
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-new-combined-test_repeated_term_acoustic_guard.py.log",
+      "logSha256": "34c5d6fa93306e9460d9d21104785f82eec79fbb066f616cc3cff1922eb48126",
+      "tail": "repeated_term_acoustic_guard.SpectralNegativeTests.test_gain_independent_positive_is_not_phonetic_proof) ... ok\ntest_invalid_waveform_cannot_be_read_as_voice (test_repeated_term_acoustic_guard.SpectralNegativeTests.test_invalid_waveform_cannot_be_read_as_voice) ... ok\ntest_missing_and_changed_source_packet_fail_closed (test_repeated_term_acoustic_guard.SpectralNegativeTests.test_missing_and_changed_source_packet_fail_closed) ... ok\ntest_replaced_second_term_rejected_by_pcm_comparison (test_repeated_term_acoustic_guard.SpectralNegativeTests.test_replaced_second_term_rejected_by_pcm_comparison) ... ok\ntest_short_or_nonfinite_or_multichannel_vectors_rejected (test_repeated_term_acoustic_guard.SpectralNegativeTests.test_short_or_nonfinite_or_multichannel_vectors_rejected) ... ok\ntest_silence_cannot_spoof_spectral_similarity (test_repeated_term_acoustic_guard.SpectralNegativeTests.test_silence_cannot_spoof_spectral_similarity) ... ok\ntest_standalone_cli_error_status_never_zero (test_repeated_term_acoustic_guard.SpectralNegativeTests.test_standalone_cli_error_status_never_zero) ... ok\ntest_frame_hop_and_trace_values_are_fixed_and_finite (test_repeated_term_acoustic_guard.SpectralTraceSignalOnlyTests.test_frame_hop_and_trace_values_are_fixed_and_finite) ... ok\ntest_low_and_high_spectral_signal_separation_is_not_phoneme_identity (test_repeated_term_acoustic_guard.SpectralTraceSignalOnlyTests.test_low_and_high_spectral_signal_separation_is_not_phoneme_identity) ... ok\ntest_relative_gain_does_not_invent_word_or_lateral_verdict (test_repeated_term_acoustic_guard.SpectralTraceSignalOnlyTests.test_relative_gain_does_not_invent_word_or_lateral_verdict) ... ok\ntest_silence_invalid_and_truncated_sources_fail (test_repeated_term_acoustic_guard.SpectralTraceSignalOnlyTests.test_silence_invalid_and_truncated_sources_fail) ... ok\ntest_source_provenance_exact_pcm_offsets (test_repeated_term_acoustic_guard.SyntheticMasterLinkTests.test_source_provenance_exact_pcm_offsets) ... ok\ntest_source_provenance_rejects_changed_master_hash (test_repeated_term_acoustic_guard.SyntheticMasterLinkTests.test_source_provenance_rejects_changed_master_hash) ... ok\ntest_source_provenance_rejects_modified_excerpt (test_repeated_term_acoustic_guard.SyntheticMasterLinkTests.test_source_provenance_rejects_modified_excerpt) ... ok\ntest_source_provenance_rejects_reused_identical_excerpt (test_repeated_term_acoustic_guard.SyntheticMasterLinkTests.test_source_provenance_rejects_reused_identical_excerpt) ... ok\ntest_source_provenance_rejects_wrong_master_audio_format (test_repeated_term_acoustic_guard.SyntheticMasterLinkTests.test_source_provenance_rejects_wrong_master_audio_format) ... ok\n\n----------------------------------------------------------------------\nRan 84 tests in 6.287s\n\nOK (skipped=16)\n",
+      "counts": {
+        "PASS": 68,
+        "ERROR": 0,
+        "SKIP": 16
+      }
+    },
+    {
+      "test": "test_exact_wav_alignment.py",
+      "exitCode": 0,
+      "seconds": 11.18,
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-new-combined-test_exact_wav_alignment.py.log",
+      "logSha256": "d6454070017e7f25a176b1d4b1d416cc994581b662ce2fa9e14e50683fc31cdc",
+      "tail": "peated_term_acoustic_guard.SpectralNegativeTests.test_gain_independent_positive_is_not_phonetic_proof) ... ok\ntest_invalid_waveform_cannot_be_read_as_voice (test_repeated_term_acoustic_guard.SpectralNegativeTests.test_invalid_waveform_cannot_be_read_as_voice) ... ok\ntest_missing_and_changed_source_packet_fail_closed (test_repeated_term_acoustic_guard.SpectralNegativeTests.test_missing_and_changed_source_packet_fail_closed) ... ok\ntest_replaced_second_term_rejected_by_pcm_comparison (test_repeated_term_acoustic_guard.SpectralNegativeTests.test_replaced_second_term_rejected_by_pcm_comparison) ... ok\ntest_short_or_nonfinite_or_multichannel_vectors_rejected (test_repeated_term_acoustic_guard.SpectralNegativeTests.test_short_or_nonfinite_or_multichannel_vectors_rejected) ... ok\ntest_silence_cannot_spoof_spectral_similarity (test_repeated_term_acoustic_guard.SpectralNegativeTests.test_silence_cannot_spoof_spectral_similarity) ... ok\ntest_standalone_cli_error_status_never_zero (test_repeated_term_acoustic_guard.SpectralNegativeTests.test_standalone_cli_error_status_never_zero) ... ok\ntest_frame_hop_and_trace_values_are_fixed_and_finite (test_repeated_term_acoustic_guard.SpectralTraceSignalOnlyTests.test_frame_hop_and_trace_values_are_fixed_and_finite) ... ok\ntest_low_and_high_spectral_signal_separation_is_not_phoneme_identity (test_repeated_term_acoustic_guard.SpectralTraceSignalOnlyTests.test_low_and_high_spectral_signal_separation_is_not_phoneme_identity) ... ok\ntest_relative_gain_does_not_invent_word_or_lateral_verdict (test_repeated_term_acoustic_guard.SpectralTraceSignalOnlyTests.test_relative_gain_does_not_invent_word_or_lateral_verdict) ... ok\ntest_silence_invalid_and_truncated_sources_fail (test_repeated_term_acoustic_guard.SpectralTraceSignalOnlyTests.test_silence_invalid_and_truncated_sources_fail) ... ok\ntest_source_provenance_exact_pcm_offsets (test_repeated_term_acoustic_guard.SyntheticMasterLinkTests.test_source_provenance_exact_pcm_offsets) ... ok\ntest_source_provenance_rejects_changed_master_hash (test_repeated_term_acoustic_guard.SyntheticMasterLinkTests.test_source_provenance_rejects_changed_master_hash) ... ok\ntest_source_provenance_rejects_modified_excerpt (test_repeated_term_acoustic_guard.SyntheticMasterLinkTests.test_source_provenance_rejects_modified_excerpt) ... ok\ntest_source_provenance_rejects_reused_identical_excerpt (test_repeated_term_acoustic_guard.SyntheticMasterLinkTests.test_source_provenance_rejects_reused_identical_excerpt) ... ok\ntest_source_provenance_rejects_wrong_master_audio_format (test_repeated_term_acoustic_guard.SyntheticMasterLinkTests.test_source_provenance_rejects_wrong_master_audio_format) ... ok\n\n----------------------------------------------------------------------\nRan 148 tests in 10.652s\n\nOK (skipped=17)\n",
+      "counts": {
+        "PASS": 131,
+        "ERROR": 0,
+        "SKIP": 17
+      }
+    },
+    {
+      "test": "test_native_stdin_capture_guard.py",
+      "exitCode": 1,
+      "seconds": 4.37,
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-new-combined-test_native_stdin_capture_guard.py.log",
+      "logSha256": "ec267409c1cc3b25bbe92e90d15634cc80a1c973b32592a75c1fda51f3eaed70",
+      "tail": "ocal\\Temp\\em-lane6-audio-replay-integration-_e8227vx\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 219, in test_research_pair_receipt_untrusted_parent_link_rejected\n    alias = root / \"shortcut\"; alias.symlink_to(real, target_is_directory=True)\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py\", line 1386, in symlink_to\n    os.symlink(target, self, target_is_directory)\nOSError: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmp8jjbvbpq\\\\owner' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmp8jjbvbpq\\\\shortcut'\n\n======================================================================\nERROR: test_symlinked_output_file_rejected (test_native_stdin_capture_guard.Tests.test_symlinked_output_file_rejected)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-audio-replay-integration-_e8227vx\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 887, in test_symlinked_output_file_rejected\n    alias.symlink_to(movie)\n  File \"C:\\Users\\Will\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py\", line 1386, in symlink_to\n    os.symlink(target, self, target_is_directory)\nOSError: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmp13dhj2on\\\\movie.bin' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmp13dhj2on\\\\alias.bin'\n\n======================================================================\nERROR: test_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected (test_native_stdin_capture_guard.Tests.test_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-audio-replay-integration-_e8227vx\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 543, in test_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected\n    movie.symlink_to(target)\n  File \"C:\\Users\\Will\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py\", line 1386, in symlink_to\n    os.symlink(target, self, target_is_directory)\nOSError: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpga4zkmjx\\\\other' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpga4zkmjx\\\\specimen_NEW_RESEARCH_CANDIDATE.mp4'\n\n----------------------------------------------------------------------\nRan 76 tests in 4.146s\n\nFAILED (errors=13)\n",
+      "counts": {
+        "PASS": 63,
+        "ERROR": 13,
+        "SKIP": 0
+      }
+    },
+    {
+      "test": "test_narration_locked_treatments.py",
+      "exitCode": 0,
+      "seconds": 8.14,
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-new-combined-test_narration_locked_treatments.py.log",
+      "logSha256": "cbaa01ec0c80569fa1b08258913af6d815a9e0801dbd29bc8f77f213a01161e5",
+      "tail": "eatments.test_encoded_hydroxyl_ocr_repair_has_actual_source_locked_native_pixels) ... ok\ntest_exact_visual_reflow_never_changes_source_claim (test_narration_locked_treatments.NarrationTreatments.test_exact_visual_reflow_never_changes_source_claim) ... ok\ntest_film_tail_is_frame_locked_without_stretching_original_voice (test_narration_locked_treatments.NarrationTreatments.test_film_tail_is_frame_locked_without_stretching_original_voice) ... ok\ntest_long_chemical_term_is_never_clipped_or_split_silently (test_narration_locked_treatments.NarrationTreatments.test_long_chemical_term_is_never_clipped_or_split_silently) ... ok\ntest_misspelled_or_reordered_words_cannot_reuse_captions (test_narration_locked_treatments.NarrationTreatments.test_misspelled_or_reordered_words_cannot_reuse_captions) ... ok\ntest_native_caption_plus_overlay_load_fits_observed_sentence_windows (test_narration_locked_treatments.NarrationTreatments.test_native_caption_plus_overlay_load_fits_observed_sentence_windows) ... ok\ntest_native_emitted_text_fits_existing_phone_ui_rules (test_narration_locked_treatments.NarrationTreatments.test_native_emitted_text_fits_existing_phone_ui_rules) ... ok\ntest_native_oxygen_spotlight_is_source_locked_and_not_early (test_narration_locked_treatments.NarrationTreatments.test_native_oxygen_spotlight_is_source_locked_and_not_early)\nActual native pixels must change only after original 'different' cue. ... ok\ntest_opt_in_timed_caption_frame_matches_exact_original_word_cue (test_narration_locked_treatments.NarrationTreatments.test_opt_in_timed_caption_frame_matches_exact_original_word_cue) ... ok\ntest_real_emitter_contract_covers_all_spoken_words_and_exact_split (test_narration_locked_treatments.NarrationTreatments.test_real_emitter_contract_covers_all_spoken_words_and_exact_split) ... ok\ntest_real_graphs_have_distinct_identities_and_one_verified_free_hydroxyl (test_narration_locked_treatments.NarrationTreatments.test_real_graphs_have_distinct_identities_and_one_verified_free_hydroxyl) ... ok\ntest_silent_source_pause_has_no_caption_cues (test_narration_locked_treatments.NarrationTreatments.test_silent_source_pause_has_no_caption_cues) ... ok\ntest_specimen_native_labels_meet_phone_type_and_reflow_geometry (test_narration_locked_treatments.NarrationTreatments.test_specimen_native_labels_meet_phone_type_and_reflow_geometry) ... ok\ntest_spoken_scene_missing_word_cues_holds (test_narration_locked_treatments.NarrationTreatments.test_spoken_scene_missing_word_cues_holds) ... ok\ntest_teaching_view_is_rigid_right_handed_and_avoids_edge_on_plane (test_narration_locked_treatments.NarrationTreatments.test_teaching_view_is_rigid_right_handed_and_avoids_edge_on_plane) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 7.860s\n\nOK\n",
+      "counts": {
+        "PASS": 19,
+        "ERROR": 0,
+        "SKIP": 0
+      }
+    },
+    {
+      "test": "test_timed_caption_windows.py",
+      "exitCode": 0,
+      "seconds": 0.15,
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-new-combined-test_timed_caption_windows.py.log",
+      "logSha256": "4a67cc0224fea344e7173e375b5b74a43b87138c09c457ddabcefd448b3158fe",
+      "tail": "test_an_early_frame_never_reveals_a_future_negation (test_timed_caption_windows.CaptionWindowsTests.test_an_early_frame_never_reveals_a_future_negation) ... ok\ntest_group_does_not_pre_display_future_words_or_qualifiers (test_timed_caption_windows.CaptionWindowsTests.test_group_does_not_pre_display_future_words_or_qualifiers) ... ok\ntest_identical_repeated_words_do_not_appear_as_future_instances (test_timed_caption_windows.CaptionWindowsTests.test_identical_repeated_words_do_not_appear_as_future_instances) ... ok\ntest_malformed_sample_time_fails_closed (test_timed_caption_windows.CaptionWindowsTests.test_malformed_sample_time_fails_closed) ... ok\ntest_one_original_word_per_cue_survives_some_window (test_timed_caption_windows.CaptionWindowsTests.test_one_original_word_per_cue_survives_some_window) ... ok\ntest_reject_modified_bad_missing_and_overlapping_cues (test_timed_caption_windows.CaptionWindowsTests.test_reject_modified_bad_missing_and_overlapping_cues) ... ok\ntest_silent_source_hold_contains_no_captions (test_timed_caption_windows.CaptionWindowsTests.test_silent_source_hold_contains_no_captions) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.001s\n\nOK\n",
+      "counts": {
+        "PASS": 7,
+        "ERROR": 0,
+        "SKIP": 0
+      }
+    },
+    {
+      "test": "test_artifact_intake.py",
+      "exitCode": 0,
+      "seconds": 6.97,
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-new-combined-test_artifact_intake.py.log",
+      "logSha256": "1e9d34fe7f52b3f2ff7b442357fbb6e631e58656fa108dddd24834b1ffd953a0",
+      "tail": ".IntakeTests.test_incomplete_pin) ... ok\ntest_invalid_movie_with_matching_hash_is_not_media_proof (test_artifact_intake.IntakeTests.test_invalid_movie_with_matching_hash_is_not_media_proof) ... ok\ntest_malformed_source_receipt (test_artifact_intake.IntakeTests.test_malformed_source_receipt) ... ok\ntest_missing_each_required_input (test_artifact_intake.IntakeTests.test_missing_each_required_input) ... ok\ntest_missing_real_bundle_is_hold (test_artifact_intake.IntakeTests.test_missing_real_bundle_is_hold) ... ok\ntest_missing_role_cannot_be_waived (test_artifact_intake.IntakeTests.test_missing_role_cannot_be_waived) ... ok\ntest_no_overwrite (test_artifact_intake.IntakeTests.test_no_overwrite) ... ok\ntest_nonfinite_json (test_artifact_intake.IntakeTests.test_nonfinite_json) ... ok\ntest_pin_itself_cannot_award_approval (test_artifact_intake.IntakeTests.test_pin_itself_cannot_award_approval) ... ok\ntest_stale_lineage_despite_rehashed_manifest (test_artifact_intake.IntakeTests.test_stale_lineage_despite_rehashed_manifest) ... ok\ntest_stale_review (test_artifact_intake.IntakeTests.test_stale_review) ... ok\ntest_stale_shot_plan (test_artifact_intake.IntakeTests.test_stale_shot_plan) ... ok\ntest_stale_source_manifest (test_artifact_intake.IntakeTests.test_stale_source_manifest) ... ok\ntest_swapped_film (test_artifact_intake.IntakeTests.test_swapped_film) ... ok\ntest_unbound_source_input (test_artifact_intake.IntakeTests.test_unbound_source_input) ... ok\ntest_unexpected_destination_file_before_completion_is_rejected (test_artifact_intake.IntakeTests.test_unexpected_destination_file_before_completion_is_rejected) ... ok\ntest_unpinned_extra_files_block_directory_and_zip_transfer (test_artifact_intake.IntakeTests.test_unpinned_extra_files_block_directory_and_zip_transfer) ... ok\ntest_unsafe_portable_paths (test_artifact_intake.IntakeTests.test_unsafe_portable_paths) ... ok\ntest_uppercase_json_cannot_hide_approval (test_artifact_intake.IntakeTests.test_uppercase_json_cannot_hide_approval) ... ok\ntest_wrong_decoded_geometry (test_artifact_intake.IntakeTests.test_wrong_decoded_geometry) ... ok\ntest_wrong_encoded_voice (test_artifact_intake.IntakeTests.test_wrong_encoded_voice) ... ok\ntest_wrong_trust_pin_hash (test_artifact_intake.IntakeTests.test_wrong_trust_pin_hash) ... ok\ntest_zip_case_alias (test_artifact_intake.IntakeTests.test_zip_case_alias) ... ok\ntest_zip_member_limit (test_artifact_intake.IntakeTests.test_zip_member_limit) ... ok\ntest_zip_symlink (test_artifact_intake.IntakeTests.test_zip_symlink) ... ok\ntest_zip_transfer (test_artifact_intake.IntakeTests.test_zip_transfer) ... ok\ntest_zip_traversal (test_artifact_intake.IntakeTests.test_zip_traversal) ... ok\n\n----------------------------------------------------------------------\nRan 38 tests in 6.697s\n\nOK\n",
+      "counts": {
+        "PASS": 38,
+        "ERROR": 0,
+        "SKIP": 0
+      }
+    },
+    {
+      "test": "test_synthetic_craft_splice.py",
+      "exitCode": 1,
+      "seconds": 2.68,
+      "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-new-combined-test_synthetic_craft_splice.py.log",
+      "logSha256": "ef2ec4c901c07e69212c7d2f40f272904fb107f818eafeac92476985b26d3ce7",
+      "tail": "test_actual_h264_aac_splice_and_outside_scene_tamper (test_synthetic_craft_splice.OfflineActualCodecContract.test_actual_h264_aac_splice_and_outside_scene_tamper) ... ERROR\n\n======================================================================\nERROR: test_actual_h264_aac_splice_and_outside_scene_tamper (test_synthetic_craft_splice.OfflineActualCodecContract.test_actual_h264_aac_splice_and_outside_scene_tamper)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-audio-replay-integration-_e8227vx\\research\\evidencemotion-director\\lane3\\test_synthetic_craft_splice.py\", line 40, in test_actual_h264_aac_splice_and_outside_scene_tamper\n    proof=S.splice(source,scene,output,trusted)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-audio-replay-integration-_e8227vx\\research\\evidencemotion-director\\lane3\\source_locked_craft_splice.py\", line 395, in splice\n    publish_verified_pair_no_clobber(temp,staged_receipt,output,receipt_path,\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-audio-replay-integration-_e8227vx\\research\\evidencemotion-director\\lane3\\source_locked_craft_splice.py\", line 340, in publish_verified_pair_no_clobber\n    raise CraftHold('STAGED_RECEIPT_CONTENT_CHANGED')\nsource_locked_craft_splice.CraftHold: STAGED_RECEIPT_CONTENT_CHANGED\n\n----------------------------------------------------------------------\nRan 1 test in 2.488s\n\nFAILED (errors=1)\n",
+      "counts": {
+        "PASS": 0,
+        "ERROR": 1,
+        "SKIP": 0
+      }
+    }
+  ],
+  "linuxFollowup": {
+    "command": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--cd",
+      "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-audio-replay-integration-_e8227vx/research/evidencemotion-director",
+      "--exec",
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_native_stdin_capture_guard.Tests.test_original_admission_font_symlink_rejected",
+      "test_native_stdin_capture_guard.Tests.test_physical_pair_rejects_symlink_or_mutated_film",
+      "test_native_stdin_capture_guard.Tests.test_reject_ignored_x264_cpu_asm_param_and_invalid_encoder_log",
+      "test_native_stdin_capture_guard.Tests.test_research_pair_receipt_rejects_symlink_without_target_change",
+      "test_native_stdin_capture_guard.Tests.test_research_pair_receipt_untrusted_parent_link_rejected",
+      "test_native_stdin_capture_guard.Tests.test_symlinked_output_file_rejected",
+      "test_native_stdin_capture_guard.Tests.test_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected",
+      "test_native_stdin_capture_guard.Tests.test_original_source_restore_unavailable_git_commit_fails_atomically",
+      "test_native_stdin_capture_guard.Tests.test_physical_pair_json_valid_synthetic_fixture_still_research_only"
+    ],
+    "tests": [
+      "test_native_stdin_capture_guard.Tests.test_original_admission_font_symlink_rejected",
+      "test_native_stdin_capture_guard.Tests.test_physical_pair_rejects_symlink_or_mutated_film",
+      "test_native_stdin_capture_guard.Tests.test_reject_ignored_x264_cpu_asm_param_and_invalid_encoder_log",
+      "test_native_stdin_capture_guard.Tests.test_research_pair_receipt_rejects_symlink_without_target_change",
+      "test_native_stdin_capture_guard.Tests.test_research_pair_receipt_untrusted_parent_link_rejected",
+      "test_native_stdin_capture_guard.Tests.test_symlinked_output_file_rejected",
+      "test_native_stdin_capture_guard.Tests.test_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected",
+      "test_native_stdin_capture_guard.Tests.test_original_source_restore_unavailable_git_commit_fails_atomically",
+      "test_native_stdin_capture_guard.Tests.test_physical_pair_json_valid_synthetic_fixture_still_research_only"
+    ],
+    "exitCode": 0,
+    "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-audio-replay-linux-followup-corrected.log",
+    "tail": "Tests.test_original_admission_font_symlink_rejected) ... ok\ntest_physical_pair_rejects_symlink_or_mutated_film (test_native_stdin_capture_guard.Tests.test_physical_pair_rejects_symlink_or_mutated_film) ... ok\ntest_reject_ignored_x264_cpu_asm_param_and_invalid_encoder_log (test_native_stdin_capture_guard.Tests.test_reject_ignored_x264_cpu_asm_param_and_invalid_encoder_log) ... ok\ntest_research_pair_receipt_rejects_symlink_without_target_change (test_native_stdin_capture_guard.Tests.test_research_pair_receipt_rejects_symlink_without_target_change) ... ok\ntest_research_pair_receipt_untrusted_parent_link_rejected (test_native_stdin_capture_guard.Tests.test_research_pair_receipt_untrusted_parent_link_rejected) ... ok\ntest_symlinked_output_file_rejected (test_native_stdin_capture_guard.Tests.test_symlinked_output_file_rejected) ... ok\ntest_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected (test_native_stdin_capture_guard.Tests.test_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected) ... ok\ntest_original_source_restore_unavailable_git_commit_fails_atomically (test_native_stdin_capture_guard.Tests.test_original_source_restore_unavailable_git_commit_fails_atomically) ... ok\ntest_physical_pair_json_valid_synthetic_fixture_still_research_only (test_native_stdin_capture_guard.Tests.test_physical_pair_json_valid_synthetic_fixture_still_research_only) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.133s\n\nOK\n",
+    "logSha256": "954386336e028285139013f6d067a87e2052c622d3cd9d565c79f94dafa052b7"
+  },
+  "linuxLaunchCorrection": {
+    "initialExitCode": 1,
+    "reason": "Local launcher duplicated method suffix in selected unittest IDs; nine loader errors, no tests executed. Corrected IDs; source/tests unchanged."
+  },
+  "stagedReceiptNewlineReproduction": {
+    "scope": "unchanged-publisher-unit-identity-check-not-film-acceptance",
+    "results": [
+      {
+        "producerWrite": "write_text",
+        "rawEqualsCanonical": false,
+        "rawHasCrlf": true,
+        "status": "STAGED_RECEIPT_CONTENT_CHANGED",
+        "outputMovieExists": false,
+        "canonicalSha256": "168e4c311d45d1154f721055a5dab2beec885c7f82148bcc07977d4ee897d1f6",
+        "rawSha256": "d2a7577ae06054434b6f48fff8b81e4684823ad7c679d7d556e6626ad6052b7b"
+      },
+      {
+        "producerWrite": "write_bytes",
+        "rawEqualsCanonical": true,
+        "rawHasCrlf": false,
+        "status": "PASS",
+        "outputMovieExists": true,
+        "canonicalSha256": "168e4c311d45d1154f721055a5dab2beec885c7f82148bcc07977d4ee897d1f6",
+        "rawSha256": "168e4c311d45d1154f721055a5dab2beec885c7f82148bcc07977d4ee897d1f6"
+      }
+    ]
+  },
+  "windowsSummary": {
+    "testExecutionsIncludingImportedRepeats": 373,
+    "distinctTests": 289,
+    "distinctPassed": 258,
+    "distinctErrors": 14,
+    "distinctSkipped": 17,
+    "duplicateExecutions": 84
+  },
+  "status": "PARTIAL_COMPATIBILITY_WITH_WINDOWS_PLATFORM_FINDINGS_AND_SOURCE_ABSENT_SKIPS",
+  "newFindings": [
+    {
+      "owner": "lane3 PR6831",
+      "kind": "Windows producer newline incompatibility",
+      "source": "source_locked_craft_splice.py staged_receipt.write_text versus exact canonical byte comparison",
+      "observed": "Real FFmpeg splice smoke test fails STAGED_RECEIPT_CONTENT_CHANGED; unchanged publisher fails CRLF text-write unit, passes canonical-byte unit.",
+      "smallestCandidate": "Write staged JSON with explicit UTF-8 canonical bytes, retaining allow_nan=False and all no-clobber/hash checks. Owner applies and validates; Lane6 has not changed owned source."
+    },
+    {
+      "owner": "lane5 PR6846",
+      "kind": "Windows read-only cleanup error",
+      "source": "original_replay_source_restore.py target.chmod(0o444) then finally shutil.rmtree(stage)",
+      "observed": "Unavailable later source revision followed by WinError5 deleting earlier read-only alpha.py; Linux test passes.",
+      "smallestCandidate": "Owner adds safe owned-staging cleanup handling for read-only Windows files; preserve original error and fresh-output/source-identity constraints."
+    },
+    {
+      "owner": "lane5 PR6846",
+      "kind": "Windows receipt fixture newline mismatch",
+      "source": "test_native_stdin_capture_guard.py _write_pair_fixture.write_text",
+      "observed": "Physical environment file hash mismatch on Windows; exact test passes on Linux.",
+      "smallestCandidate": "Write fixture as exact encoded bytes matching its pinned digest; do not normalize receiver bytes or weaken checks."
+    }
+  ],
+  "scopeBoundary": "Temporary pinned combined source tests only. No original revised film, full combined production build, phone/science/voice/craft acceptance or protected merge. Four fixed /usr/bin media admission cases remain unavailable on Windows; WSL has no FFmpeg."
+}

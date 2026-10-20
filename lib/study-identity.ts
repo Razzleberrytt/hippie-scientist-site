@@ -7,8 +7,8 @@
  * `source-ref:src_pubmed-999`. Those strings are the wire format of the
  * single bibliographic reconciler (union-find over DOI/PMID aliases).
  *
- * This module is the ONLY place permitted to interpret those strings into
- * typed fields. It performs NO reconciliation of its own: every typed value
+ * This TypeScript entry point and its shared Node-safe runtime helper are the
+ * ONLY canonical interpreter for those strings. It performs NO reconciliation of its own: every typed value
  * here is derived from a canonical string the reconciler already produced.
  * Consumers must use parseStudyIdentity / pmidForIdentity instead of
  * string-splitting canonical identifiers inline (e.g. `.replace(/^pmid:/,'')`,
@@ -22,6 +22,8 @@
  * - Persistent publication identity: stable internal key whose continuity
  *   survives alias discovery. NOT implemented here; R2A work.
  */
+import { parseStudyIdentity as parseCanonicalStudyIdentity } from './study-identity-runtime.mjs'
+
 export type StudyIdentityType = 'pmid' | 'doi' | 'source-ref' | 'unknown'
 
 export type StudyIdentity = {
@@ -40,25 +42,7 @@ export type StudyIdentity = {
  * they are never coerced into a fabricated PMID or DOI.
  */
 export function parseStudyIdentity(canonical: unknown): StudyIdentity {
-  const c = typeof canonical === 'string' ? canonical.trim() : String(canonical ?? '').trim()
-  const pmidMatch = /^pmid:(\d+)$/i.exec(c)
-  if (pmidMatch) {
-    return { canonical: c, type: 'pmid', pmid: pmidMatch[1], doi: null }
-  }
-  const doiMatch = /^doi:(.+)$/i.exec(c)
-  if (doiMatch) {
-    const rawDoi = doiMatch[1].trim()
-    // DOI syntax (ISO 26324): "10." + registrant code + "/" + suffix.
-    // Anything else after the prefix is malformed and must fall through to
-    // 'unknown' — a garbage doi:-root would otherwise merge unrelated records.
-    if (/^10\.\d+\/\S+$/i.test(rawDoi)) {
-      return { canonical: c, type: 'doi', pmid: null, doi: rawDoi.toLowerCase() }
-    }
-  }
-  if (/^source-ref:/i.test(c)) {
-    return { canonical: c, type: 'source-ref', pmid: null, doi: null }
-  }
-  return { canonical: c, type: 'unknown', pmid: null, doi: null }
+  return parseCanonicalStudyIdentity(canonical)
 }
 
 /**

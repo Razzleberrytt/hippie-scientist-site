@@ -1,0 +1,19 @@
+{
+  "schema": "ths-lane3-exact-film-splice-research-v1",
+  "researchOnly": true,
+  "mayPublish": false,
+  "scienceApproved": false,
+  "craftApproved": false,
+  "phonePlaybackApproved": false,
+  "sourceFilmSha256": "41807a178cb140d1753ca77d3d4eb097265ef8505d46d89c7b2eb0c8ae31ce1d",
+  "craftSceneSha256": "9c399813324a383587d927e2161122c3b1c3fd02c408d83f7fd9261ad875f239",
+  "originalNarrationSha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+  "frames": 1031,
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "startFrame": 498,
+  "endFrameExclusive": 702,
+  "computedSpokenOnsetSec": 18.48,
+  "negationSpokenOnsetSec": 19.83
+}

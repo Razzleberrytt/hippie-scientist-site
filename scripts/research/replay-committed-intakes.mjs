@@ -7,7 +7,7 @@ import fs from 'node:fs'
 import {spawnSync} from 'node:child_process'
 import {pathToFileURL} from 'node:url'
 import {resolve} from 'node:path'
-import {readGithubContent} from './github-reservation-controller.mjs'
+import {readGithubContent,findMainThroughWave} from './github-reservation-controller.mjs'
 
 const PREFIX='ops/research-intake/'
 const BRANCH_PREFIX='research/intake/'
@@ -110,7 +110,13 @@ export async function runReplay(){
   const branches=selectIntakeBranches(refs,maxBranches)
   const registry=await readJson('ops/research-coordinator/live-registry.json','research-coordination-registry')
   if(!Array.isArray(registry?.reservations))throw Error('Live reservation registry unavailable')
-  const seen=new Set(registry.reservations.filter(r=>r.state!=='RELEASED').map(r=>String(r.pmid)))
+  // Include finalized, immutable wave PMIDs: historical identities do not
+  // necessarily appear in the live rolling registry. The existing controller
+  // still owns strict title/DOI collision checks and every actual reservation.
+  const baseline=await findMainThroughWave()
+  if(!baseline||!Array.isArray(baseline.pmids)||baseline.pmids.some(p=>!VALID_PMID.test(String(p))))
+    throw Error('Authoritative finalized PMID baseline unavailable')
+  const seen=new Set([...baseline.pmids.map(String),...registry.reservations.filter(r=>r.state!=='RELEASED').map(r=>String(r.pmid))])
   const result={inspected:0,attempted:0,reserved:0,skipped:0,held:0,failed:0,branchCount:branches.length}
   for(const branch of branches){
     if(result.attempted>=maxFiles)break

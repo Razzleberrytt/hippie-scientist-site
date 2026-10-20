@@ -1,0 +1,72 @@
+name: EvidenceMotion EM-008.03 encoded phone-width botanical contrast research
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/em00803_real_mobile_contrast.py'
+      - 'research/evidencemotion-director/test_em00803_real_mobile_contrast.py'
+      - 'research/evidencemotion-director/em00805_botanical_video_probes.py'
+      - 'research/evidencemotion-director/EM00803-ACTUAL-375PX-PIXEL-RESEARCH-20261016.md'
+      - '.github/workflows/evidencemotion-em00803-phone-contrast-research.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  encoded-botanical-type-contrast-research-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install existing open-source CPU video/raster tools, not new runtime system
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+          test -r /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf || {
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends fonts-dejavu-core
+          }
+          python -m pip install 'Pillow==12.0.0'
+      - name: Decode true 1080p H264 and simulate 375px phone width; reject three unreadable disclaimers
+        env:
+          THS_EM00803_RECEIPT: ${{ runner.temp }}/em00803/decoded-phone-width-receipt.json
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director \
+            -p test_em00803_real_mobile_contrast.py -v
+          python - <<'PY'
+          from pathlib import Path
+          import json,os
+          p=Path(os.environ['THS_EM00803_RECEIPT'])
+          report=json.loads(p.read_text())
+          assert len(report['cases'])==4 and report['thresholdRatio']==7.
+          assert [c['decision'] for c in report['cases']]==[
+            'DECODED_PHONE_WIDTH_PIXEL_RESEARCH_ONLY',
+            'HOLD_MOBILE_DISCLOSURE_UNREADABLE_OR_MISSING',
+            'HOLD_MOBILE_DISCLOSURE_UNREADABLE_OR_MISSING',
+            'HOLD_MOBILE_DISCLOSURE_UNREADABLE_OR_MISSING']
+          for c in report['cases']:
+            assert len(c['sampledDecodedFrames'])==3 and not c['mayPublish']
+            for f in c['sampledDecodedFrames']:
+              assert not f['realHandsetTested'] and not f['independentOcrOrSemanticTruthVerified']
+              assert f['phoneWidth']==375 and f['phoneHeight']==667
+          assert report['realPhoneScaleValidated'] is False and not report['mayPublish']
+          print('EM00803_HOSTED_ACTUAL_ENCODED_PHONE_WIDTH_PIXEL_RESEARCH_PASS_HANDSET_HOLD')
+          PY
+      - name: Preserve minimal measurement JSON without releasing unsafe video clips
+        uses: actions/upload-artifact@v4
+        with:
+          name: em00803-real-h264-phone-width-contrast-research-receipt
+          path: ${{ runner.temp }}/em00803/decoded-phone-width-receipt.json
+          retention-days: 14
+          if-no-files-found: error
+      - name: Explain strict measured scope
+        if: always()
+        run: |
+          echo 'This is simulated 375px-scale decoded H264 RGB24 and conservative pixel contrast, not a physical iPhone or validated audience test.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Only self-authored fake botanical art was used; no species or plant 7OH assay source was authenticated.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No original EvidenceMotion 7OH movie or original WAV altered; review, first-acceptance and publishing HOLD.' >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,57 @@
+name: EvidenceMotion R8.14 cinematic visual proof
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - fix/evidencemotion-clean-mobile-delivery-20261012
+    paths:
+      - 'scripts/distribution/r814-visual-proof.mjs'
+      - 'scripts/distribution/r814-cinematic-director.mjs'
+      - 'scripts/distribution/r809-visual-actors.mjs'
+      - 'scripts/distribution/render-vertical-video-package.mjs'
+      - '.github/workflows/evidencemotion-r814-visual-proof.yml'
+  pull_request:
+    paths:
+      - 'scripts/distribution/r814-visual-proof.mjs'
+      - 'scripts/distribution/r814-cinematic-director.mjs'
+      - 'scripts/distribution/r809-visual-actors.mjs'
+permissions:
+  contents: read
+jobs:
+  visual-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Create real cinematic 2.5D SVG-to-PNG proof
+        run: node scripts/distribution/r814-visual-proof.mjs artifacts/evidencemotion-r814-visual-proof
+      - name: Verify all seven full-resolution frame receipts
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          import path from 'node:path'
+          import crypto from 'node:crypto'
+          const root='artifacts/evidencemotion-r814-visual-proof'
+          const j=JSON.parse(fs.readFileSync(path.join(root,'visual-proof-receipt.json')))
+          if(j.status!=='review-only'||j.scientificApproval!==false||j.stageCount!==7)throw Error('Unapproved/partial proof')
+          if(j.novelty.uniqueLooks < 7)throw Error('Repeated cinematic direction in art samples')
+          for(const item of j.items){
+            const p=path.join(root,item.file),buf=fs.readFileSync(p)
+            const hash=crypto.createHash('sha256').update(buf).digest('hex')
+            if(hash!==item.sha256||buf.length<15000)throw Error('Empty/mutated art: '+item.file)
+          }
+          const sheet=fs.statSync(path.join(root,'r814-cinematic-seven-look-contact-sheet.png'))
+          if(sheet.size<50000)throw Error('Missing cinematic art contact sheet')
+          console.log('PASS seven actual, unique cinematic scenes and verified artifact hashes')
+          NODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: evidencemotion-r814-cinematic-seven-look-proof
+          path: artifacts/evidencemotion-r814-visual-proof/
+          retention-days: 7
+          if-no-files-found: error

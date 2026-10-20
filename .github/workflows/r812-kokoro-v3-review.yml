@@ -4,6 +4,9 @@ on:
     paths:
       - '.github/workflows/r812-kokoro-v3-review.yml'
       - 'scripts/distribution/r812-mitragynine-review-voice.py'
+      - 'scripts/distribution/r812-pronunciation-probe.py'
+      - 'scripts/distribution/voice-pronunciations.json'
+      - 'scripts/distribution/voice_pronunciation.py'
       - 'scripts/distribution/voice-vault.py'
       - 'scripts/distribution/requirements-local-voice.txt'
   workflow_dispatch:
@@ -42,6 +45,8 @@ jobs:
           python -m pip install 'numpy<3' 'scipy<2' 'soundfile==0.14.0'
       - name: Synthesize exact V3 review script using authentic am_michael
         run: python scripts/distribution/r812-mitragynine-review-voice.py artifacts/r812
+      - name: Render native-versus-continuous pronunciation audition clips
+        run: python scripts/distribution/r812-pronunciation-probe.py artifacts/r812/mitragynine-probe
       - name: Check WAV codec, duration and independent pinned model receipts
         shell: bash
         run: |

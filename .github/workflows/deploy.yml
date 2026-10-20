@@ -504,6 +504,13 @@ jobs:
           DEPLOY_RECEIPT_INTERVAL_SECONDS: '10'
         run: node scripts/ci/deployment-receipt.mjs verify
 
+      # A deployed SHA is not enough: assert that the live region API, translated
+      # privacy control, and visitor-facing policy were actually published.
+      - name: Verify live regional privacy controls
+        env:
+          PRODUCTION_ORIGIN: https://thehippiescientist.net
+        run: node scripts/ci/verify-production-privacy.mjs
+
       - name: Notify IndexNow of changed URLs
         continue-on-error: true
         run: node scripts/seo/indexnow-submit.mjs --submit --bootstrap

@@ -5,7 +5,7 @@ import { onOpenConsent } from '../lib/consentBus'
 
 const ConsentManager = lazy(() => import('./ConsentManager'))
 
-export default function FooterConsentControls({ buttonClassName }: { buttonClassName: string }) {
+export default function FooterConsentControls({ buttonClassName, label = 'Privacy settings' }: { buttonClassName: string; label?: string }) {
   const [open, setOpen] = useState(false)
 
   useEffect(() => onOpenConsent(() => setOpen(true)), [])
@@ -13,7 +13,7 @@ export default function FooterConsentControls({ buttonClassName }: { buttonClass
   return (
     <>
       <button className={buttonClassName} type='button' onClick={() => setOpen(true)}>
-        Privacy settings
+        {label}
       </button>
       {open ? (
         <Suspense fallback={null}>

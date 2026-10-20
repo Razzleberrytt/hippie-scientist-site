@@ -1,0 +1,98 @@
+{
+  "schema": "evidencemotion-original-v5-recovery-research-v1",
+  "recoveredAtDate": "2026-10-15",
+  "origin": "actual earlier-conversation attachment downloads",
+  "conversationUrl": "https://chatgpt.com/c/6ad00716-b8ec-83ea-97c5-03656d916a0f",
+  "archiveSha256": "067a1cbf60c9668409bd05c7ccbe2604b5889a1f71f5f5adb8010c92a9e10fbf",
+  "archiveBytes": 6370389,
+  "archiveEntries": 28,
+  "manifestPayloadsVerified": 27,
+  "originalVideoSha256": "912bad01189718792f855ee2de2c84c88c6c39c30c9856c0ccc7bc4b75c9f224",
+  "originalVideoBytes": 4031235,
+  "originalWavSha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+  "freshOriginalSourceMediaReplay": {
+    "status": "NATIVE_SOURCE_AND_MEDIA_TECHNICAL_PASS_CREATIVE_HOLD",
+    "filmFile": "7OH_NATIVE_V5_NARRATION_LOCKED_RESEARCH.mp4",
+    "filmSha256": "912bad01189718792f855ee2de2c84c88c6c39c30c9856c0ccc7bc4b75c9f224",
+    "rendererScriptSha256": "50b82d2a0856b74c90c776f988f5a84462e24e1d007e20b231b23a23a6754ad8",
+    "sourceWavSha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+    "pubchemCids": [
+      3034396,
+      44301524
+    ],
+    "sourceInchiKeys": [
+      "LELBFTMXCIIKKX-QVRQZEMUSA-N",
+      "RYENLSMHLCNXJT-CYXFISRXSA-N"
+    ],
+    "dimensions": [
+      1080,
+      1920
+    ],
+    "fps": 30,
+    "actualDecodedFrameCount": 1031,
+    "measuredMaxDecodedPtsErrorSeconds": 3.3333333333333335e-07,
+    "audioSampleRateHz": 48000,
+    "audioOffsetSamplesAt24k": 0,
+    "audioCorrelationWithSource": 0.994774,
+    "sourceReadingSilenceRMS": 0.0,
+    "actualSourceVsEncodedFrameMeanAbsoluteError": {
+      "0.25s": 3.908,
+      "1.70s": 4.776,
+      "3.90s": 3.455,
+      "5.80s": 2.578,
+      "8.80s": 5.949,
+      "12.90s": 3.409,
+      "14.70s": 3.571,
+      "19.00s": 6.096,
+      "24.90s": 3.926,
+      "28.90s": 4.173,
+      "32.50s": 3.678
+    },
+    "sampledSemanticFrameChanges": {
+      "0.25->1.70": 43.888,
+      "1.70->3.90": 24.2,
+      "3.90->5.80": 21.914,
+      "5.80->8.80": 22.708,
+      "8.80->12.90": 18.713,
+      "12.90->14.70": 1.804,
+      "14.70->19.00": 85.819,
+      "19.00->24.90": 28.565,
+      "24.90->28.90": 81.402,
+      "28.90->32.50": 95.354
+    },
+    "exactRdkitHydroxylAtomLocalScenePixelChange": 15.5181,
+    "fullMediaDecodePassed": true,
+    "actualFramesComparedAgainstNativeSource": true,
+    "originalAudioPerformancePreserved": true,
+    "sourceClaimsApproved": false,
+    "realPhonePlaybackVerified": false,
+    "wordPhonemeAlignmentVerified": false,
+    "specialistPronunciationsVerified": false,
+    "independentCalibratedCraftApproved": false,
+    "mayPublish": false,
+    "note": "Native source renderer is not clinical truth, visual-reference-grade craft, real phone usability, or publication approval."
+  },
+  "originalContractTests": {
+    "passed": 7,
+    "failed": 0,
+    "errors": 0,
+    "exitCode": 0
+  },
+  "runtimeOnlyFontPathOverride": true,
+  "originalSourceFilesEdited": false,
+  "fonts": {
+    "Lato-Regular.ttf": "6f6940be0835c3ddec9199e5fc42be4cbc61ebcfd58c623fdf719366253f1780",
+    "Lato-Heavy.ttf": "4ce7ec20cd9c391b271b4149ad8cf5a71301d98965403f14fc5530d017146dbb"
+  },
+  "canonicalPixelCriticDecision": "AWAIT_MULTIMODAL_SCIENCE_VOICE_CRAFT_EVIDENCE",
+  "phonePreflightStatus": "OVERLAY_PREFLIGHT_PASS_REVIEW_REQUIRED",
+  "durableRemoteEscrowVerified": false,
+  "newColdEncodePerformed": false,
+  "scientificApproval": false,
+  "pronunciationApproval": false,
+  "calibratedCraftApproval": false,
+  "realHandsetPlaybackVerified": false,
+  "mayPublish": false,
+  "checklistTotalVerified": 26,
+  "checklistNewCredit": 0
+}

@@ -1,0 +1,79 @@
+name: EvidenceMotion nine rejected failure regressions
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/rejected-failure-matrix.test.mjs'
+      - 'research/evidencemotion-director/exact-voice-ear-verdict.mjs'
+      - 'research/evidencemotion-director/test_rejected_graph_faults.py'
+      - 'research/evidencemotion-director/validated_7oh_chemistry.py'
+      - 'research/evidencemotion-director/test_validated_7oh_chemistry.py'
+      - 'research/evidencemotion-director/native_master_audit.py'
+      - 'research/evidencemotion-director/semantic_negative_visual_audit.py'
+      - 'research/evidencemotion-director/story-first-gates.mjs'
+      - 'research/evidencemotion-director/scientific-view-contract.mjs'
+      - 'research/evidencemotion-director/hero-action-contract.mjs'
+      - 'research/evidencemotion-director/preview-proof.mjs'
+      - 'research/evidencemotion-director/test_rejected_real_aac_truncation.py'
+      - 'research/evidencemotion-director/audit_decoded_preview.py'
+      - 'research/evidencemotion-director/test_decoded_preview.py'
+      - 'research/evidencemotion-director/test_semantic_negative_visual_audit.py'
+      - 'research/evidencemotion-director/test_native_master_audit.py'
+      - 'research/evidencemotion-director/native_media_research_gate.py'
+      - 'research/evidencemotion-director/test_native_media_research_gate.py'
+      - 'research/evidencemotion-director/story-first-gates.test.mjs'
+      - 'research/evidencemotion-director/story-first-fixture.mjs'
+      - 'research/evidencemotion-director/scientific-view-contract.test.mjs'
+      - 'research/evidencemotion-director/hero-action-contract.test.mjs'
+      - 'research/evidencemotion-director/preview-proof.test.mjs'
+      - 'research/evidencemotion-director/native-test-isolation.test.mjs'
+      - 'vitest.config.ts'
+      - 'scripts/run-node-tests.mjs'
+      - '.github/workflows/evidencemotion-rejected-failure-matrix.yml'
+permissions:
+  contents: read
+jobs:
+  nine-adversarial-regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fail-closed existing narrative, crop, science, confetti, pronunciation, and native test discovery guards
+        run: |
+          node --test \
+            research/evidencemotion-director/rejected-failure-matrix.test.mjs \
+            research/evidencemotion-director/story-first-gates.test.mjs \
+            research/evidencemotion-director/scientific-view-contract.test.mjs \
+            research/evidencemotion-director/hero-action-contract.test.mjs \
+            research/evidencemotion-director/preview-proof.test.mjs \
+            research/evidencemotion-director/native-test-isolation.test.mjs
+      - name: Prepare independent source-pixel/chemical/video regression test dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg
+          python -m pip install 'rdkit==2025.9.4' 'numpy==2.3.3' 'pillow==12.0.0'
+      - name: Reproduce disconnected real RDKit bond and pin source identity
+        run: |
+          python -m unittest discover -s research/evidencemotion-director -p 'test_rejected_graph_faults.py' -v
+          python -m unittest discover -s research/evidencemotion-director -p 'test_validated_7oh_chemistry.py' -v
+      - name: Reproduce actual static-poster video and visually cropped/confetti source frames
+        run: |
+          python -m unittest discover -s research/evidencemotion-director -p 'test_decoded_preview.py' -v
+          python -m unittest discover -s research/evidencemotion-director -p 'test_semantic_negative_visual_audit.py' -v
+      - name: Reproduce clipped AAC, changed audio identity, and variable frame timestamps
+        run: |
+          python -m unittest discover -s research/evidencemotion-director -p 'test_native_master_audit.py' -v
+          python -m unittest discover -s research/evidencemotion-director -p 'test_native_media_research_gate.py' -v
+          python -m unittest discover -s research/evidencemotion-director -p 'test_rejected_real_aac_truncation.py' -v
+      - name: Explicit non-approval and failure-matrix evidence
+        if: always()
+        run: |
+          echo 'Scope: 9 named rejected failure classes across real existing pixel/audio/chemistry guards and an exact-WAV human-review FAIL receipt.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Actual pronunciation acoustic detection is NOT proven: a qualified human must listen to the exact emitted voice and record any failure.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Every test intentionally simulates a bad input; this suite is NOT a great-looking film, owner iPhone test or release approval.' >> "$GITHUB_STEP_SUMMARY"

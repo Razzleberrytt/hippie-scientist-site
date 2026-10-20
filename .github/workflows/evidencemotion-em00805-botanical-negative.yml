@@ -1,0 +1,75 @@
+name: EvidenceMotion EM-008.05 actual botanical disclosure adversarial research
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/em00805_botanical_video_probes.py'
+      - 'research/evidencemotion-director/test_em00805_botanical_video_probes.py'
+      - 'research/evidencemotion-director/EM00805-ENCODED-BOTANICAL-NEGATIVES-20261016.md'
+      - '.github/workflows/evidencemotion-em00805-botanical-negative.yml'
+      - 'research/evidencemotion-director/ATOMIC-PROOF-LEDGER-20261015.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  true-encoded-botanical-negative-probes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install open-source CPU encoder and rasterizer only
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+          test -r /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf || {
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends fonts-dejavu-core
+          }
+          python -m pip install 'Pillow==12.0.0'
+      - name: Reject deceptive captions using three actual H264-encoded films
+        env:
+          THS_EM00805_RECEIPT: ${{ runner.temp }}/em00805/encoded-botanical-negative-receipt.json
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/evidencemotion-director \
+            -p test_em00805_botanical_video_probes.py -v
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['THS_EM00805_RECEIPT'])
+          r=json.loads(p.read_text())
+          assert r['schema']=='ths-em00805-real-encoded-botanical-probes-v1'
+          assert len(r['probes'])==3 and not r['mayPublish'] and not r['sourceIsScientificImage']
+          assert [x['mode'] for x in r['probes']]==['disclosed','missing','fabricated_measurement']
+          assert [x['decision'] for x in r['probes']]==[
+            'CAPTION_REGION_OBSERVED_RESEARCH_ONLY',
+            'HOLD_MISSING_OR_DECEPTIVE_BOTANICAL_DISCLOSURE',
+            'HOLD_MISSING_OR_DECEPTIVE_BOTANICAL_DISCLOSURE']
+          assert all(x['actualEncodedPixelsInspected'] and x['sampleFrameIndex']==30
+              and x['decodedToAuthoredCaptionRoiMeanPixelError']<10
+              and not x['independentTextOCRVerified']
+              and not x['plantAlkaloidAssayVerified']
+              and not x['realHandsetPlaybackVerified']
+              and not x['mayPublish'] for x in r['probes'])
+          assert all(x['negativeControlRejected'] for x in r['probes'][1:])
+          assert len({x['encodedFilmSha256'] for x in r['probes']})==3
+          print('PASS_EM00805_ACTUAL_ENCODED_BOTANICAL_NEGATIVE_RESEARCH_ONLY')
+          PY
+      - name: Preserve receipt only — never upload deceptive footage or art
+        uses: actions/upload-artifact@v4
+        with:
+          name: em00805-actual-h264-botanical-disclosure-negative-research-receipt
+          path: ${{ runner.temp }}/em00805/encoded-botanical-negative-receipt.json
+          retention-days: 14
+          if-no-files-found: error
+      - name: Preserve narrow machine-evidence ceiling
+        if: always()
+        run: |
+          echo 'Actual H264 self-authored illustrative-leaf fixture only. Unverified Library art not uploaded.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Rendered pixel ROI decoded and matched authored glyphs; not independent OCR or semantic clinical verification.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No authenticated species, plant 7-OH assay, independent science, phone handset or publication approval.' >> "$GITHUB_STEP_SUMMARY"

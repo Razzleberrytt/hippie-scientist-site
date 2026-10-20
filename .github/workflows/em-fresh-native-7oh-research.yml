@@ -1,0 +1,117 @@
+name: EM fresh original Kokoro native research verification
+on:
+  push:
+    branches: ['fix/em-fresh-kokoro-native-20261020']
+    paths:
+      - '.github/workflows/em-fresh-native-7oh-research.yml'
+      - 'research/evidencemotion-director/narration_locked_treatments.py'
+      - 'research/evidencemotion-director/fresh_verified_mfa_guard.py'
+      - 'research/evidencemotion-director/test_fresh_verified_mfa_guard.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: em-fresh-native-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  real-native-fresh-voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      ROOT: /tmp/em-fresh-native
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact native CPU renderer dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core
+          python -m pip install 'rdkit==2025.9.4' 'pillow==12.0.0'
+      - name: Verify source guard and existing native science tests
+        run: |
+          python -m py_compile research/evidencemotion-director/narration_locked_treatments.py research/evidencemotion-director/fresh_verified_mfa_guard.py
+          python -m unittest discover -s research/evidencemotion-director -p 'test_fresh_verified_mfa_guard.py' -v
+          python -m unittest discover -s research/evidencemotion-director -p 'test_narration_locked_treatments.py' -v
+      - name: Restore exact fresh WAV and independent MFA evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$ROOT"/{voice,alignment,input,review}
+          gh run download 39318185726 --repo "$GITHUB_REPOSITORY" --name ths-kokoro-narration --dir "$ROOT/voice"
+          gh run download 39357173399 --repo "$GITHUB_REPOSITORY" --name em-7oh-fresh-original-kokoro-mfa-research --dir "$ROOT/alignment"
+          cp "$ROOT/voice/narration.wav" "$ROOT/input/fresh.wav"
+          cp "$ROOT/alignment/fresh.TextGrid" "$ROOT/input/fresh.TextGrid"
+          cp "$ROOT/alignment/script.txt" "$ROOT/input/script.txt"
+          cp "$ROOT/alignment/alignment.dict" "$ROOT/input/alignment.dict"
+          curl --fail --location --retry 2 -o "$ROOT/input/acoustic.zip" https://github.com/MontrealCorpusTools/mfa-models/releases/download/acoustic-english_us_arpa-v3.0.0/english_us_arpa.zip
+      - name: Build strictly pinned original voice manifest
+        run: |
+          python - <<'PY'
+          import sys,hashlib,json,os
+          from pathlib import Path
+          sys.path.insert(0,'research/evidencemotion-director')
+          from fresh_verified_mfa_guard import FRESH_INPUTS,verify_fresh_wave,verify_fresh_manifest
+          root=Path(os.environ['ROOT'])/'input'
+          names={'wav':'fresh.wav','transcript':'script.txt','textgrid':'fresh.TextGrid','dictionary':'alignment.dict','acousticModel':'acoustic.zip'}
+          manifest={k:{'path':name,'sha256':FRESH_INPUTS[k]} for k,name in names.items()}
+          verify_fresh_manifest(root,manifest)
+          for key,entry in manifest.items():
+              p=root/entry['path']
+              assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==entry['sha256'],('STALE_OR_MISSING',key)
+          assert 34.34 < verify_fresh_wave(root/'fresh.wav') < 34.39
+          (root/'alignment-manifest.json').write_text(json.dumps(manifest,sort_keys=True,indent=2)+'\n')
+          print('SHA_BOUND_ACTUAL_FRESH_KOKORO_MFA_INPUTS_PASS')
+          PY
+      - name: Render ONE physical fresh original-voice 1080x1920 native movie
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/narration_locked_treatments.py \
+            --alignment-root "$ROOT/input" \
+            --out "$ROOT/native" \
+            --font-dir /usr/share/fonts/truetype/dejavu \
+            --treatment specimen --native --experimental-timed-captions --fresh-verified-mfa
+      - name: Independently decode actual native movie, preserve release HOLD
+        run: |
+          set -euo pipefail
+          MOVIE="$ROOT/native/specimen_NEW_RESEARCH_CANDIDATE.mp4"
+          ffmpeg -v error -i "$MOVIE" -map 0:v:0 -f null -
+          ffmpeg -v error -i "$MOVIE" -map 0:a:0 -f null -
+          python - <<'PY'
+          import json,hashlib,os,subprocess
+          from pathlib import Path
+          base=Path(os.environ['ROOT'])/'native'
+          movie=base/'specimen_NEW_RESEARCH_CANDIDATE.mp4'
+          receipt=json.loads((base/'render-receipt.json').read_text())
+          streams=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-of','json',str(movie)]))['streams']
+          v=next(x for x in streams if x['codec_type']=='video')
+          a=next(x for x in streams if x['codec_type']=='audio')
+          assert (v['codec_name'],v['width'],v['height'],v['pix_fmt'],int(v['nb_frames']))==('h264',1080,1920,'yuv420p',1031)
+          assert a['codec_name']=='aac'
+          assert receipt['sourceWavSha256']=='31b349d76abaf29488c96422fb798bc62c6e9aa8428cf84304629159aeacfc28'
+          assert receipt['candidateCaptionWindowsAppliedToFilm'] is True
+          assert receipt['experimentCaptionMode']=='TIMED_RESEARCH'
+          assert receipt['mayPublish'] is False
+          assert receipt['scienceApproved'] is False and receipt['craftApproved'] is False and receipt['pronunciationVerified'] is False
+          assert hashlib.sha256(movie.read_bytes()).hexdigest()==receipt['videoSha256']
+          print('EXACT_NATIVE_H264_AAC_REVIEW_PASS_NO_PUBLICATION',receipt['videoSha256'])
+          PY
+      - name: Save native research review and failure logs only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: em-original-fresh-kokoro-native-research-review
+          if-no-files-found: warn
+          retention-days: 14
+          path: |
+            /tmp/em-fresh-native/native/*.mp4
+            /tmp/em-fresh-native/native/*.json
+            /tmp/em-fresh-native/native/*.png
+            /tmp/em-fresh-native/native/encoder.log
+      - name: No release authority
+        if: always()
+        run: |
+          echo 'Technical research only: not approved for posting, merger bypass, pronunciation, independent science, owner handset or premium craft.' >> "$GITHUB_STEP_SUMMARY"

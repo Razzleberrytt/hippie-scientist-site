@@ -4,6 +4,10 @@
 
 > **Source fidelity:** The owner supplied the complete THS-MASTER-P0 v1.0 text in conversation on 2026-10-09: **Parts I–XX, §§1–73, Phases 0–9, eight strategic milestones, nine initial execution steps, and the final system acceptance framework.** The file is an accurate **structured index/summary, not a verbatim copy**. It supersedes the earlier partial-source cutoff at §42. The separately reconstructed 150-task checklist is still *not* the original numbered task list. Do not infer extra implementation or measured business outcomes from receiving text.
 
+## Additive owner-approved extension — 2026-10-15 (not part of original recovered text)
+
+**THS Algorithm Observatory 1.0 is adopted as a future system specification** for TikTok/YouTube black-box performance learning and evidence-safe EvidenceMotion feedback. See the [full acceptance-gated extension](THS_ALGORITHM_OBSERVATORY_V1_SPEC.md). It explicitly reuses the existing R8.10 learning flywheel, SocialOS / Publisher / Observer, durable experiment history and outcome-ingestion identities. Proposed work is **not yet admitted, implemented, deployed or empirically validated**; it does not revise the original owner's 73 numbered sections, backfill original 150-item checklist credit, or bypass the current sprint/merge controller. EvidenceMotion 46-item quality completion remains the near-term delivery priority.
+
 ## Authority and safe use
 
 1. **Product intention:** this user-supplied v1.0 directive is the authoritative requirements source for the complete owner-supplied version. The reconstructed 150-item acceptance register is a **candidate decomposition** and must be aligned against it, not treated as original text.

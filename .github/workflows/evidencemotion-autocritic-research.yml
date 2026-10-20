@@ -1,0 +1,36 @@
+name: EvidenceMotion autonomous decoded-film critic research
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/native_autocritic.py'
+      - 'research/evidencemotion-director/test_native_autocritic.py'
+      - 'research/evidencemotion-director/AUTONOMOUS-REVIEW-CALIBRATION-2026-10-13.md'
+      - '.github/workflows/evidencemotion-autocritic-research.yml'
+permissions:
+  contents: read
+jobs:
+  actual-video-negative-screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare free CPU research media decoder
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg
+          python -m pip install 'numpy==2.3.3' 'pillow==12.0.0'
+      - name: Exercise actual MP4 decode and autonomous evidence-bound negative verdicts
+        run: |
+          python -m unittest discover -s research/evidencemotion-director -p 'test_native_autocritic.py' -v
+          python -m py_compile research/evidencemotion-director/native_autocritic.py
+      - name: State exactly what this test can and cannot determine
+        if: always()
+        run: |
+          echo 'The CPU critic can issue evidence-backed AUTO_REVISE for blank/repetitive layouts, without owner review.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'A moving image is NOT proof of premium artistic quality, true clinical claims, natural TTS pronunciation, or owner-approved release.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'New automated POSITIVE quality certification requires independent calibration, exact sources, audio evaluation and rigorous actual-media multimodal review.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'This job neither changes publishing permissions nor credits EvidenceMotion milestone/checklist gates.' >> "$GITHUB_STEP_SUMMARY"

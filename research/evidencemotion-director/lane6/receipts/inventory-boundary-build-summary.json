@@ -1,0 +1,15 @@
+{
+  "scope": "local-production-build-not-deployment-or-film-approval",
+  "sourceCommit": "8199b7de45621c5bd51e5f6fe43775b29c6d8001",
+  "command": "npm run build",
+  "exitCode": 0,
+  "status": "PASS",
+  "stepsCompleted": 36,
+  "seconds": 908.64,
+  "rawLocalLogSha256": "b6857310d067751216ede005602d39657fa83a18a9fd7245285319994056e5ce",
+  "rawLogLocation": "system temporary directory/lane6-inventory-build.log",
+  "pagefindIndexedPages": 1605,
+  "mayPublish": false,
+  "filmVerified": false,
+  "workspaceBoundary": "Existing generated untracked profile files present before execution; not a clean-checkout reproducibility claim."
+}

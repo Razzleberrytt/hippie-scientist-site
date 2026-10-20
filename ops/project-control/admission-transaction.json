@@ -1,19 +1,19 @@
 {
   "version": 1,
   "mode": "fresh-admission",
-  "base_revision": "66fe7f80b7c067cc9707124099049c816a197ee2",
-  "last_verified": "2026-10-09",
-  "ticket": 6149,
-  "lane": "R",
-  "title": "Capture consented social attribution before remote analytics transport check",
+  "base_revision": "b338e16bfb3bd145ba827a5f77cabfe8fd7ff43f",
+  "last_verified": "2026-10-19",
+  "ticket": 6932,
+  "lane": "D",
   "priority": "P1",
   "score_inputs": {
-    "businessImpact": 4,
-    "userValue": 4,
-    "trafficPotential": 3,
+    "businessImpact": 5,
+    "userValue": 5,
+    "trafficPotential": 4,
     "strategicLeverage": 5,
-    "confidence": 1,
-    "effort": 1
+    "confidence": 0.75,
+    "effort": 5
   },
-  "score": 240
+  "score": 75,
+  "title": "Repair public herb profile credibility and audit regressions"
 }

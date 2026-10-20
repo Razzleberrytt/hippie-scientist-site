@@ -1,0 +1,333 @@
+{
+  "scope": "access-only-current-source-six-lane-integration-not-merge",
+  "base": "ecc249f5f460ca38be8850375b8b4f4a4d98b448",
+  "steps": [
+    {
+      "lane": "lane1",
+      "head": "ed172d6f5ba3554c3be415789243db21e317d203",
+      "mergeTreeExitCode": 0,
+      "tree": "09f6883e27ceef0c347117c8295b8d07718d83ca"
+    },
+    {
+      "lane": "lane2",
+      "head": "4d1468adc77f3440346ac3c7289f406f7a8d2ad7",
+      "mergeTreeExitCode": 0,
+      "tree": "4a5e0c8a33714acb1373ee0c2106f7476d387ae2"
+    },
+    {
+      "lane": "lane3",
+      "head": "16580d70575505680951d881d73ba1ad19513062",
+      "mergeTreeExitCode": 0,
+      "tree": "9354503cbdb8ff8870a82318dfd6b442cd580729"
+    },
+    {
+      "lane": "lane4",
+      "head": "cb5bb5dd45364fe60a370f00d13434054491992a",
+      "mergeTreeExitCode": 0,
+      "tree": "ecb45cfe8a9329945e3b94823f392f9eb5ce80f3"
+    },
+    {
+      "lane": "lane5",
+      "head": "fcafcd50f7bd32dec35d003c77f99decd8c369b4",
+      "mergeTreeExitCode": 0,
+      "tree": "56dced47ce51fe5785fedbcc56d9f8c847d2e16b"
+    },
+    {
+      "lane": "lane6",
+      "head": "9ea973e2406585db3f0d6db298bbddfc8b19f5ef",
+      "mergeTreeExitCode": 0,
+      "tree": "785fa8a27b2da7d56306ec3f704adeafbd780833"
+    }
+  ],
+  "mayPublish": false,
+  "newAtomicCards": 0,
+  "status": "PARTIAL_FAILURE",
+  "launchCorrection": "Initial lane1 object absent locally; fetched its branch, verified commit exists, then reran. Not a merge conflict.",
+  "combinedTree": "785fa8a27b2da7d56306ec3f704adeafbd780833",
+  "archiveSha256": "7e139d081f25c67074fb4c533711fc37d0b2095ac46958480f50f7ae0d17bd14",
+  "snapshot": "C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo",
+  "tests": {
+    "modules": [
+      "test_timed_caption_windows",
+      "test_narration_locked_treatments",
+      "test_phone_ui_audit",
+      "test_native_master_audit",
+      "test_artifact_intake",
+      "test_scene4_legible_footnotes_research",
+      "test_native_stdin_capture_guard",
+      "test_exact_wav_alignment",
+      "test_synthetic_craft_splice"
+    ],
+    "runtime": "C:\\Users\\Will\\.codex\\worktrees\\evidencemotion-narration-audit\\hippie-scientist-site\\.local\\visual-runtime\\Scripts\\python.exe",
+    "discoveredDistinctIds": 543,
+    "run": 543,
+    "passed": 505,
+    "errors": 19,
+    "failures": 0,
+    "skips": [
+      {
+        "test": "test_directory_rejects_case_distinct_components (test_artifact_intake.PortableSnapshotTests.test_directory_rejects_case_distinct_components)",
+        "reason": "Case-distinct directories require a case-sensitive filesystem; run on Linux"
+      },
+      {
+        "test": "test_original_pair_receipt_rejects_nested_ancestor_alias_and_dotdot (test_native_stdin_capture_guard.Tests.test_original_pair_receipt_rejects_nested_ancestor_alias_and_dotdot)",
+        "reason": "directory symlinks unavailable: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpl1v191qf\\\\real' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpl1v191qf\\\\alias'"
+      },
+      {
+        "test": "test_original_replay_checks_all_pinned_input_bytes_after_render (test_native_stdin_capture_guard.Tests.test_original_replay_checks_all_pinned_input_bytes_after_render)",
+        "reason": "file symlinks unavailable: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpazndjp1z\\\\foreign-original.wav' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpazndjp1z\\\\original.wav'"
+      },
+      {
+        "test": "test_actual_original_clip_substitution_is_a_physical_failure (test_repeated_term_acoustic_guard.ActualArchivedSourceTests.test_actual_original_clip_substitution_is_a_physical_failure)",
+        "reason": "Archived source audio absent from CI checkout; no fake original-media PASS"
+      },
+      {
+        "test": "test_immutable_two_mitragynine_words_are_similar_not_certified (test_repeated_term_acoustic_guard.ActualArchivedSourceTests.test_immutable_two_mitragynine_words_are_similar_not_certified)",
+        "reason": "Archived source audio absent from CI checkout; no fake original-media PASS"
+      },
+      {
+        "test": "test_valid_original_packet_exits_review_code_three_not_zero (test_repeated_term_acoustic_guard.ActualArchivedSourceTests.test_valid_original_packet_exits_review_code_three_not_zero)",
+        "reason": "Archived source audio absent from CI checkout; no fake original-media PASS"
+      },
+      {
+        "test": "test_cli_source_conflict_is_nonzero_even_when_pinned (test_repeated_term_acoustic_guard.ActualPoseConflictTests.test_cli_source_conflict_is_nonzero_even_when_pinned)",
+        "reason": "Original complete WAV/MFA/ASR files unavailable in hosted checkout; no fake real-media PASS"
+      },
+      {
+        "test": "test_original_actual_pose_poles_conflict_is_review_hold (test_repeated_term_acoustic_guard.ActualPoseConflictTests.test_original_actual_pose_poles_conflict_is_review_hold)",
+        "reason": "Original complete WAV/MFA/ASR files unavailable in hosted checkout; no fake real-media PASS"
+      },
+      {
+        "test": "test_real_source_word_alignment_or_asr_mutation_stays_hold (test_repeated_term_acoustic_guard.ActualPoseConflictTests.test_real_source_word_alignment_or_asr_mutation_stays_hold)",
+        "reason": "Original complete WAV/MFA/ASR files unavailable in hosted checkout; no fake real-media PASS"
+      },
+      {
+        "test": "test_all_five_same_narrator_clips_source_sha_verified_without_phoneme_claim (test_repeated_term_acoustic_guard.ActualPoseInternalContrastTests.test_all_five_same_narrator_clips_source_sha_verified_without_phoneme_claim)",
+        "reason": "Exact original media and model receipts absent from hosted CI; no fake controls PASS"
+      },
+      {
+        "test": "test_changed_real_source_models_are_not_accepted_as_calibrated_evidence (test_repeated_term_acoustic_guard.ActualPoseInternalContrastTests.test_changed_real_source_models_are_not_accepted_as_calibrated_evidence)",
+        "reason": "Exact original media and model receipts absent from hosted CI; no fake controls PASS"
+      },
+      {
+        "test": "test_cli_same_source_comparators_return_research_hold_exit_three (test_repeated_term_acoustic_guard.ActualPoseInternalContrastTests.test_cli_same_source_comparators_return_research_hold_exit_three)",
+        "reason": "Exact original media and model receipts absent from hosted CI; no fake controls PASS"
+      },
+      {
+        "test": "test_parent_symlink_rejected_where_supported (test_exact_wav_alignment.AlignmentTests.test_parent_symlink_rejected_where_supported)",
+        "reason": "Host does not permit symlink creation"
+      },
+      {
+        "test": "test_four_real_excerpts_bit_identical_and_repeat_controls_source_verified (test_repeated_term_acoustic_guard.OriginalMasterMfaTests.test_four_real_excerpts_bit_identical_and_repeat_controls_source_verified)",
+        "reason": "Original SHA-pinned WAV + MFA inputs absent in CI; original-media proof NOT faked"
+      },
+      {
+        "test": "test_real_alignment_modified_word_boundary_fails_before_clip_comparison (test_repeated_term_acoustic_guard.OriginalMasterMfaTests.test_real_alignment_modified_word_boundary_fails_before_clip_comparison)",
+        "reason": "Original SHA-pinned WAV + MFA inputs absent in CI; original-media proof NOT faked"
+      },
+      {
+        "test": "test_real_master_one_byte_mutation_fails_even_without_changed_mfa (test_repeated_term_acoustic_guard.OriginalMasterMfaTests.test_real_master_one_byte_mutation_fails_even_without_changed_mfa)",
+        "reason": "Original SHA-pinned WAV + MFA inputs absent in CI; original-media proof NOT faked"
+      },
+      {
+        "test": "test_actual_original_pose_gain_changed_pcm_still_excluded (test_repeated_term_acoustic_guard.PhysicallyRecoveredOriginalPcmBlacklistTests.test_actual_original_pose_gain_changed_pcm_still_excluded)",
+        "reason": "Original source WAV and MFA word windows unavailable in hosted checkout"
+      },
+      {
+        "test": "test_actual_original_rejects_trimmed_unlisted_pcm_window (test_repeated_term_acoustic_guard.PhysicallyRecoveredOriginalPcmBlacklistTests.test_actual_original_rejects_trimmed_unlisted_pcm_window)",
+        "reason": "Original source WAV and MFA word windows unavailable in hosted checkout"
+      },
+      {
+        "test": "test_nine_source_word_excerpts_rehash_to_exact_blacklist (test_repeated_term_acoustic_guard.PhysicallyRecoveredOriginalPcmBlacklistTests.test_nine_source_word_excerpts_rehash_to_exact_blacklist)",
+        "reason": "Original source WAV and MFA word windows unavailable in hosted checkout"
+      },
+      {
+        "test": "test_original_pose_audio_rewrapped_with_new_wav_sha_is_excluded (test_repeated_term_acoustic_guard.PhysicallyRecoveredOriginalPcmBlacklistTests.test_original_pose_audio_rewrapped_with_new_wav_sha_is_excluded)",
+        "reason": "Original source WAV and MFA word windows unavailable in hosted checkout"
+      }
+    ],
+    "errorDetails": [
+      {
+        "test": "test_foreign_prior_report_symlink_is_preserved (test_phone_ui_audit.ReviewImageOwnershipSafety.test_foreign_prior_report_symlink_is_preserved)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_phone_ui_audit.py\", line 683, in test_foreign_prior_report_symlink_is_preserved\n    alias.symlink_to(foreign)\n  File \"C:\\Users\\Will\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py\", line 1386, in symlink_to\n    os.symlink(target, self, target_is_directory)\nOSError: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpw86hn48v\\\\personal-report.json' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpw86hn48v\\\\review\\\\research-report.json'\n"
+      },
+      {
+        "test": "test_downloaded_media_rejects_real_short_aac_attached_to_full_video (test_native_stdin_capture_guard.Tests.test_downloaded_media_rejects_real_short_aac_attached_to_full_video)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 765, in test_downloaded_media_rejects_real_short_aac_attached_to_full_video\n    movie = self._small_h264_aac_original_codec_fixture(\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 475, in _small_h264_aac_original_codec_fixture\n    original_media_executable(\"ffmpeg\"), \"-hide_banner\", \"-v\", \"info\",\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\original_native_stdin_replay.py\", line 77, in original_media_executable\n    raise ValueError(\"NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED\")\nValueError: NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED\n"
+      },
+      {
+        "test": "test_downloaded_native_media_real_codec_fixture (test_native_stdin_capture_guard.Tests.test_downloaded_native_media_real_codec_fixture)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 685, in test_downloaded_native_media_real_codec_fixture\n    self._small_h264_aac_original_codec_fixture(directory)\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 475, in _small_h264_aac_original_codec_fixture\n    original_media_executable(\"ffmpeg\"), \"-hide_banner\", \"-v\", \"info\",\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\original_native_stdin_replay.py\", line 77, in original_media_executable\n    raise ValueError(\"NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED\")\nValueError: NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED\n"
+      },
+      {
+        "test": "test_downloaded_native_media_rejects_removed_or_faked_encoder_control (test_native_stdin_capture_guard.Tests.test_downloaded_native_media_rejects_removed_or_faked_encoder_control)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 791, in test_downloaded_native_media_rejects_removed_or_faked_encoder_control\n    self._small_h264_aac_original_codec_fixture(directory)\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 475, in _small_h264_aac_original_codec_fixture\n    original_media_executable(\"ffmpeg\"), \"-hide_banner\", \"-v\", \"info\",\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\original_native_stdin_replay.py\", line 77, in original_media_executable\n    raise ValueError(\"NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED\")\nValueError: NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED\n"
+      },
+      {
+        "test": "test_downloaded_native_media_rejects_truncated_actual_encoded_movie (test_native_stdin_capture_guard.Tests.test_downloaded_native_media_rejects_truncated_actual_encoded_movie)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 801, in test_downloaded_native_media_rejects_truncated_actual_encoded_movie\n    movie = self._small_h264_aac_original_codec_fixture(directory)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 475, in _small_h264_aac_original_codec_fixture\n    original_media_executable(\"ffmpeg\"), \"-hide_banner\", \"-v\", \"info\",\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\original_native_stdin_replay.py\", line 77, in original_media_executable\n    raise ValueError(\"NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED\")\nValueError: NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED\n"
+      },
+      {
+        "test": "test_original_admission_font_symlink_rejected (test_native_stdin_capture_guard.Tests.test_original_admission_font_symlink_rejected)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 1141, in test_original_admission_font_symlink_rejected\n    font.unlink(); font.symlink_to(other)\n                   ^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py\", line 1386, in symlink_to\n    os.symlink(target, self, target_is_directory)\nOSError: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpk9ndhfoc\\\\fonts\\\\alternate.ttf' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpk9ndhfoc\\\\fonts\\\\DejaVuSans.ttf'\n"
+      },
+      {
+        "test": "test_original_import_cache_is_clean_between_two_real_python_imports (test_native_stdin_capture_guard.Tests.test_original_import_cache_is_clean_between_two_real_python_imports) (replay=0)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 634, in test_original_import_cache_is_clean_between_two_real_python_imports\n    self.assertTrue(assert_original_renderer_module_import_safe(root))\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\original_native_stdin_replay.py\", line 164, in assert_original_renderer_module_import_safe\n    raise ValueError(\nValueError: NATIVE_ORIGINAL_HOLD:ARCHIVED_RENDERER_MODULE_PRELOADED:narration_locked_treatments\n"
+      },
+      {
+        "test": "test_original_import_cache_is_clean_between_two_real_python_imports (test_native_stdin_capture_guard.Tests.test_original_import_cache_is_clean_between_two_real_python_imports) (replay=1)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 634, in test_original_import_cache_is_clean_between_two_real_python_imports\n    self.assertTrue(assert_original_renderer_module_import_safe(root))\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\original_native_stdin_replay.py\", line 164, in assert_original_renderer_module_import_safe\n    raise ValueError(\nValueError: NATIVE_ORIGINAL_HOLD:ARCHIVED_RENDERER_MODULE_PRELOADED:narration_locked_treatments\n"
+      },
+      {
+        "test": "test_original_media_executables_ignore_path_shadow (test_native_stdin_capture_guard.Tests.test_original_media_executables_ignore_path_shadow)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 878, in test_original_media_executables_ignore_path_shadow\n    self.assertEqual(original_media_executable(tool), \"/usr/bin/\" + tool)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\original_native_stdin_replay.py\", line 77, in original_media_executable\n    raise ValueError(\"NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED\")\nValueError: NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED\n"
+      },
+      {
+        "test": "test_original_receiver_refuses_encoder_proof_changed_during_decode (test_native_stdin_capture_guard.Tests.test_original_receiver_refuses_encoder_proof_changed_during_decode)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 739, in test_original_receiver_refuses_encoder_proof_changed_during_decode\n    movie = self._small_h264_aac_original_codec_fixture(directory)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 475, in _small_h264_aac_original_codec_fixture\n    original_media_executable(\"ffmpeg\"), \"-hide_banner\", \"-v\", \"info\",\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\original_native_stdin_replay.py\", line 77, in original_media_executable\n    raise ValueError(\"NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED\")\nValueError: NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED\n"
+      },
+      {
+        "test": "test_original_receiver_refuses_movie_replaced_during_actual_decode (test_native_stdin_capture_guard.Tests.test_original_receiver_refuses_movie_replaced_during_actual_decode)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 716, in test_original_receiver_refuses_movie_replaced_during_actual_decode\n    movie = self._small_h264_aac_original_codec_fixture(directory)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 475, in _small_h264_aac_original_codec_fixture\n    original_media_executable(\"ffmpeg\"), \"-hide_banner\", \"-v\", \"info\",\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\original_native_stdin_replay.py\", line 77, in original_media_executable\n    raise ValueError(\"NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED\")\nValueError: NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED\n"
+      },
+      {
+        "test": "test_original_receiver_requires_physically_pinned_film_on_cli_path (test_native_stdin_capture_guard.Tests.test_original_receiver_requires_physically_pinned_film_on_cli_path)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 697, in test_original_receiver_requires_physically_pinned_film_on_cli_path\n    movie = self._small_h264_aac_original_codec_fixture(directory)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 475, in _small_h264_aac_original_codec_fixture\n    original_media_executable(\"ffmpeg\"), \"-hide_banner\", \"-v\", \"info\",\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\original_native_stdin_replay.py\", line 77, in original_media_executable\n    raise ValueError(\"NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED\")\nValueError: NATIVE_ORIGINAL_HOLD:MEDIA_EXECUTABLE_UNVERIFIED\n"
+      },
+      {
+        "test": "test_physical_pair_rejects_symlink_or_mutated_film (test_native_stdin_capture_guard.Tests.test_physical_pair_rejects_symlink_or_mutated_film)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 459, in test_physical_pair_rejects_symlink_or_mutated_film\n    env.symlink_to(other)\n  File \"C:\\Users\\Will\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py\", line 1386, in symlink_to\n    os.symlink(target, self, target_is_directory)\nOSError: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpos9utjac\\\\alternate.json' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpos9utjac\\\\environment.json'\n"
+      },
+      {
+        "test": "test_reject_ignored_x264_cpu_asm_param_and_invalid_encoder_log (test_native_stdin_capture_guard.Tests.test_reject_ignored_x264_cpu_asm_param_and_invalid_encoder_log)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 921, in test_reject_ignored_x264_cpu_asm_param_and_invalid_encoder_log\n    logfile.symlink_to(other)\n  File \"C:\\Users\\Will\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py\", line 1386, in symlink_to\n    os.symlink(target, self, target_is_directory)\nOSError: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpqol0fcmr\\\\other' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpqol0fcmr\\\\encoder.log'\n"
+      },
+      {
+        "test": "test_research_pair_receipt_rejects_symlink_without_target_change (test_native_stdin_capture_guard.Tests.test_research_pair_receipt_rejects_symlink_without_target_change)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 226, in test_research_pair_receipt_rejects_symlink_without_target_change\n    link.symlink_to(target)\n  File \"C:\\Users\\Will\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py\", line 1386, in symlink_to\n    os.symlink(target, self, target_is_directory)\nOSError: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmp7j8b5214\\\\owner.txt' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmp7j8b5214\\\\original-pair-HOLD.json'\n"
+      },
+      {
+        "test": "test_research_pair_receipt_untrusted_parent_link_rejected (test_native_stdin_capture_guard.Tests.test_research_pair_receipt_untrusted_parent_link_rejected)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 237, in test_research_pair_receipt_untrusted_parent_link_rejected\n    alias = root / \"shortcut\"; alias.symlink_to(real, target_is_directory=True)\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py\", line 1386, in symlink_to\n    os.symlink(target, self, target_is_directory)\nOSError: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmp8yak3wbr\\\\owner' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmp8yak3wbr\\\\shortcut'\n"
+      },
+      {
+        "test": "test_symlinked_output_file_rejected (test_native_stdin_capture_guard.Tests.test_symlinked_output_file_rejected)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 1349, in test_symlinked_output_file_rejected\n    alias.symlink_to(movie)\n  File \"C:\\Users\\Will\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py\", line 1386, in symlink_to\n    os.symlink(target, self, target_is_directory)\nOSError: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpybb5isea\\\\movie.bin' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpybb5isea\\\\alias.bin'\n"
+      },
+      {
+        "test": "test_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected (test_native_stdin_capture_guard.Tests.test_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\test_native_stdin_capture_guard.py\", line 957, in test_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected\n    movie.symlink_to(target)\n  File \"C:\\Users\\Will\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py\", line 1386, in symlink_to\n    os.symlink(target, self, target_is_directory)\nOSError: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpsf_81h65\\\\other' -> 'C:\\\\Users\\\\Will\\\\AppData\\\\Local\\\\Temp\\\\tmpsf_81h65\\\\specimen_NEW_RESEARCH_CANDIDATE.mp4'\n"
+      },
+      {
+        "test": "test_actual_h264_aac_splice_and_outside_scene_tamper (test_synthetic_craft_splice.OfflineActualCodecContract.test_actual_h264_aac_splice_and_outside_scene_tamper)",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\lane3\\test_synthetic_craft_splice.py\", line 40, in test_actual_h264_aac_splice_and_outside_scene_tamper\n    proof=S.splice(source,scene,output,trusted)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\lane3\\source_locked_craft_splice.py\", line 461, in splice\n    publish_verified_pair_no_clobber(temp,staged_receipt,output,receipt_path,\n  File \"C:\\Users\\Will\\AppData\\Local\\Temp\\em-lane6-current-integration-1a2s3keo\\research\\evidencemotion-director\\lane3\\source_locked_craft_splice.py\", line 406, in publish_verified_pair_no_clobber\n    raise CraftHold('STAGED_RECEIPT_CONTENT_CHANGED')\nsource_locked_craft_splice.CraftHold: STAGED_RECEIPT_CONTENT_CHANGED\n"
+      }
+    ],
+    "seconds": 61.031,
+    "logSha256": "ef23ea4891e87c1c6f0f570c92157ddbb7158da6f12eef9a5b444c6ed27e9e4c",
+    "log": "C:\\Users\\Will\\AppData\\Local\\Temp\\lane6-current-integration-tests.log",
+    "exitCode": 1,
+    "countBoundary": "19 error events include two subtest errors in one parent test. Simple subtraction reported 504; corrected parent-test pass count is 505.",
+    "affectedErrorParentTests": 18,
+    "skipCount": 20
+  },
+  "scopeBoundary": "Pinned temporary source overlay; no refs updated, owner files changed, production behavior, full CI/build, latest media, human approval or release proof.",
+  "isolatedImportCacheFollowup": {
+    "command": [
+      "C:/Users/Will/.codex/worktrees/evidencemotion-narration-audit/hippie-scientist-site/.local/visual-runtime/Scripts/python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_native_stdin_capture_guard.Tests.test_original_import_cache_is_clean_between_two_real_python_imports"
+    ],
+    "exitCode": 0,
+    "output": "test_original_import_cache_is_clean_between_two_real_python_imports (test_native_stdin_capture_guard.Tests.test_original_import_cache_is_clean_between_two_real_python_imports) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.030s\n\nOK\n"
+  },
+  "errorEventClassification": {
+    "windowsSymlinkPrivilege": 8,
+    "linuxFixedBinaryUnavailable": 8,
+    "harnessPreloadedRenderer": 2,
+    "knownLane3ReceiptNewline": 1
+  },
+  "linuxFollowup": {
+    "command": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--cd",
+      "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-current-integration-1a2s3keo/research/evidencemotion-director",
+      "--exec",
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_phone_ui_audit.ReviewImageOwnershipSafety.test_foreign_prior_report_symlink_is_preserved",
+      "test_native_stdin_capture_guard.Tests.test_original_admission_font_symlink_rejected",
+      "test_native_stdin_capture_guard.Tests.test_physical_pair_rejects_symlink_or_mutated_film",
+      "test_native_stdin_capture_guard.Tests.test_reject_ignored_x264_cpu_asm_param_and_invalid_encoder_log",
+      "test_native_stdin_capture_guard.Tests.test_research_pair_receipt_rejects_symlink_without_target_change",
+      "test_native_stdin_capture_guard.Tests.test_research_pair_receipt_untrusted_parent_link_rejected",
+      "test_native_stdin_capture_guard.Tests.test_symlinked_output_file_rejected",
+      "test_native_stdin_capture_guard.Tests.test_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected",
+      "lane6.test_artifact_intake.PortableSnapshotTests"
+    ],
+    "exitCode": 1,
+    "output": "test_foreign_prior_report_symlink_is_preserved (test_phone_ui_audit.ReviewImageOwnershipSafety.test_foreign_prior_report_symlink_is_preserved) ... ok\ntest_original_admission_font_symlink_rejected (test_native_stdin_capture_guard.Tests.test_original_admission_font_symlink_rejected) ... ok\ntest_physical_pair_rejects_symlink_or_mutated_film (test_native_stdin_capture_guard.Tests.test_physical_pair_rejects_symlink_or_mutated_film) ... ok\ntest_reject_ignored_x264_cpu_asm_param_and_invalid_encoder_log (test_native_stdin_capture_guard.Tests.test_reject_ignored_x264_cpu_asm_param_and_invalid_encoder_log) ... ok\ntest_research_pair_receipt_rejects_symlink_without_target_change (test_native_stdin_capture_guard.Tests.test_research_pair_receipt_rejects_symlink_without_target_change) ... ok\ntest_research_pair_receipt_untrusted_parent_link_rejected (test_native_stdin_capture_guard.Tests.test_research_pair_receipt_untrusted_parent_link_rejected) ... ok\ntest_symlinked_output_file_rejected (test_native_stdin_capture_guard.Tests.test_symlinked_output_file_rejected) ... ok\ntest_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected (test_native_stdin_capture_guard.Tests.test_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected) ... ok\ntest_artifact_intake (unittest.loader._FailedTest.test_artifact_intake) ... ERROR\n\n======================================================================\nERROR: test_artifact_intake (unittest.loader._FailedTest.test_artifact_intake)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_artifact_intake\nTraceback (most recent call last):\n  File \"/usr/lib/python3.12/unittest/loader.py\", line 137, in loadTestsFromName\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-current-integration-1a2s3keo/research/evidencemotion-director/lane6/test_artifact_intake.py\", line 14, in <module>\n    from artifact_intake import FLAGS, IntakeError, digest, intake, relative, snapshot\nModuleNotFoundError: No module named 'artifact_intake'\n\n\n----------------------------------------------------------------------\nRan 9 tests in 0.102s\n\nFAILED (errors=1)\n"
+  },
+  "linuxPortableCorrectedFollowup": {
+    "command": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--cd",
+      "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-current-integration-1a2s3keo/research/evidencemotion-director/lane6",
+      "--exec",
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_artifact_intake.PortableSnapshotTests"
+    ],
+    "exitCode": 0,
+    "output": "test_consistent_explicit_and_implicit_directories_preserve_bytes (test_artifact_intake.PortableSnapshotTests.test_consistent_explicit_and_implicit_directories_preserve_bytes) ... ok\ntest_directory_rejects_case_distinct_components (test_artifact_intake.PortableSnapshotTests.test_directory_rejects_case_distinct_components) ... ok\ntest_zip_rejects_empty_directory_case_alias (test_artifact_intake.PortableSnapshotTests.test_zip_rejects_empty_directory_case_alias) ... ok\ntest_zip_rejects_file_directory_collision_in_either_order (test_artifact_intake.PortableSnapshotTests.test_zip_rejects_file_directory_collision_in_either_order) ... ok\ntest_zip_rejects_parent_component_case_aliases (test_artifact_intake.PortableSnapshotTests.test_zip_rejects_parent_component_case_aliases) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.011s\n\nOK\n",
+    "launchCorrection": "Run from lane6 directory so its direct artifact_intake import resolves unchanged."
+  },
+  "linuxSymlinkCorrectedFollowup": {
+    "command": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--cd",
+      "/mnt/c/Users/Will/AppData/Local/Temp/em-lane6-current-integration-1a2s3keo/research/evidencemotion-director",
+      "--exec",
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_phone_ui_audit.ReviewImageOwnershipSafety.test_foreign_prior_report_symlink_is_preserved",
+      "test_native_stdin_capture_guard.Tests.test_original_admission_font_symlink_rejected",
+      "test_native_stdin_capture_guard.Tests.test_physical_pair_rejects_symlink_or_mutated_film",
+      "test_native_stdin_capture_guard.Tests.test_reject_ignored_x264_cpu_asm_param_and_invalid_encoder_log",
+      "test_native_stdin_capture_guard.Tests.test_research_pair_receipt_rejects_symlink_without_target_change",
+      "test_native_stdin_capture_guard.Tests.test_research_pair_receipt_untrusted_parent_link_rejected",
+      "test_native_stdin_capture_guard.Tests.test_symlinked_output_file_rejected",
+      "test_native_stdin_capture_guard.Tests.test_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected"
+    ],
+    "exitCode": 0,
+    "output": "test_foreign_prior_report_symlink_is_preserved (test_phone_ui_audit.ReviewImageOwnershipSafety.test_foreign_prior_report_symlink_is_preserved) ... ok\ntest_original_admission_font_symlink_rejected (test_native_stdin_capture_guard.Tests.test_original_admission_font_symlink_rejected) ... ok\ntest_physical_pair_rejects_symlink_or_mutated_film (test_native_stdin_capture_guard.Tests.test_physical_pair_rejects_symlink_or_mutated_film) ... ok\ntest_reject_ignored_x264_cpu_asm_param_and_invalid_encoder_log (test_native_stdin_capture_guard.Tests.test_reject_ignored_x264_cpu_asm_param_and_invalid_encoder_log) ... ok\ntest_research_pair_receipt_rejects_symlink_without_target_change (test_native_stdin_capture_guard.Tests.test_research_pair_receipt_rejects_symlink_without_target_change) ... ok\ntest_research_pair_receipt_untrusted_parent_link_rejected (test_native_stdin_capture_guard.Tests.test_research_pair_receipt_untrusted_parent_link_rejected) ... ok\ntest_symlinked_output_file_rejected (test_native_stdin_capture_guard.Tests.test_symlinked_output_file_rejected) ... ok\ntest_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected (test_native_stdin_capture_guard.Tests.test_uploaded_original_movie_missing_symlink_and_forged_receipt_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.056s\n\nOK\n"
+  },
+  "conclusion": {
+    "mergeSimulation": "6/6 exit 0; no branch/ref update",
+    "combinedWindows": "543 distinct test methods:505 PASS,18 affected error parent tests (19 error events),20 SKIP; exit1",
+    "followups": "8 Linux symlink tests PASS;5 Linux portable tests PASS;1 isolated import-cache test PASS",
+    "remaining": "8 Linux-pinned media executable errors on Windows are unverified here; known Lane3 Windows staged-receipt newline error persists",
+    "newProductDefectsClaimed": 0,
+    "productionBuild": "Not rerun: access-only snapshot/receipts; no repository behavior changed"
+  },
+  "headFreshnessBoundary": "Heads pinned at selection. Lane1 advanced to 9fbfc2f6a during object fetch; this receipt proves ed172d6f5ba3554c3be415789243db21e317d203 only, not the later owner head."
+}

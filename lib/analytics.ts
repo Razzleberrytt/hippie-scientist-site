@@ -1,6 +1,6 @@
 'use client'
 
-import { canTrackAnalytics } from '@/lib/consent'
+import { canLoadGa4, canTrackAnalytics } from '@/lib/consent'
 import { markNewsletterSignup } from '@/lib/email-attribution'
 import { getSocialAttributionEventParams } from '@/lib/social-attribution'
 
@@ -85,6 +85,14 @@ function getGtag(): Gtag | null {
   return typeof candidate === 'function' ? (candidate as Gtag) : null
 }
 
+// This is intentionally used only for GA4 page_view. All other events retain
+// their existing explicit-consent gate in getGtag().
+function getGaPageViewTag(): Gtag | null {
+  if (!canLoadGa4()) return null
+  const candidate = (window as Window & { gtag?: unknown }).gtag
+  return typeof candidate === 'function' ? (candidate as Gtag) : null
+}
+
 function normalizePagePath(pathname: string): string {
   const pathOnly = pathname.split(/[?#]/, 1)[0]
   if (!pathOnly) return '/'
@@ -102,7 +110,7 @@ function getCurrentPagePath(explicitPath?: string): string {
 
 export function trackPageView(params: { pagePath?: string }): boolean {
   try {
-    const gtag = getGtag()
+    const gtag = getGaPageViewTag()
     if (!gtag) return false
 
     const pagePath = getCurrentPagePath(params.pagePath)

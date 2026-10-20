@@ -39,6 +39,10 @@ const researchPaths = [
 
 const secondaryResearchLinks = [
   {
+    label: 'Deep research investigations',
+    href: '/research/investigations/',
+  },
+  {
     label: 'Methodology',
     href: '/info/methodology/',
   },

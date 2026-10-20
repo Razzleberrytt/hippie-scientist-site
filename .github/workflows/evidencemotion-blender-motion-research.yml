@@ -1,0 +1,103 @@
+name: EvidenceMotion source-locked Blender motion research
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/blender_cpu_motion_research.py'
+      - 'research/evidencemotion-director/test_blender_cpu_motion_research.py'
+      - 'research/evidencemotion-director/blender_cpu_research.py'
+      - 'research/evidencemotion-director/validated_7oh_chemistry.py'
+      - '.github/workflows/evidencemotion-blender-motion-research.yml'
+permissions:
+  contents: read
+jobs:
+  cpu-narrative-motion-research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Provision bounded free-software CPU pipeline on remote runner
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends blender ffmpeg
+          python -m pip install 'rdkit==2025.9.4' 'pillow==12.0.0'
+          blender --version | head -2
+      - name: Fail-closed science, source and motion job regressions
+        run: |
+          python -m unittest discover -s research/evidencemotion-director -p test_validated_7oh_chemistry.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_blender_cpu_research.py -v
+          python -m unittest discover -s research/evidencemotion-director -p test_blender_cpu_motion_research.py -v
+          python -m py_compile research/evidencemotion-director/blender_cpu_motion_research.py
+      - name: Produce genuine source-verified RDKit geometry once
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/evidencemotion-motion
+          python research/evidencemotion-director/blender_cpu_research.py --export /tmp/evidencemotion-motion/source-verified.json
+          sha256sum /tmp/evidencemotion-motion/source-verified.json | cut -d' ' -f1 > /tmp/evidencemotion-motion/source.sha256
+      - name: Render two distinct scientific camera treatments from original source
+        shell: bash
+        run: |
+          set -euo pipefail
+          SHA="$(cat /tmp/evidencemotion-motion/source.sha256)"
+          for CONCEPT in oxygen-to-whole depth-orbit; do
+            blender --background --factory-startup --python-exit-code 22 \
+              --python research/evidencemotion-director/blender_cpu_motion_research.py -- \
+              --packet /tmp/evidencemotion-motion/source-verified.json \
+              --expected-sha "$SHA" \
+              --concept "$CONCEPT" \
+              --out /tmp/evidencemotion-motion
+          done
+      - name: Decode actual MP4s and reject silent video forgeries or static poster motion
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          from PIL import Image, ImageChops
+          root=Path('/tmp/evidencemotion-motion')
+          hashes=[]
+          for concept in ('oxygen-to-whole','depth-orbit'):
+              video=root/f'blender_7oh_{concept}_RESEARCH_ONLY_SILENT.mp4'
+              receipt=json.loads((root/f'blender_7oh_{concept}_RESEARCH_ONLY_receipt.json').read_text())
+              assert receipt['voice']=='NONE_SILENT_TEST_ONLY' and receipt['mayPublish'] is False
+              assert len(receipt['frameSha256'])==36 and len(set(receipt['frameSha256']))>=12
+              streams=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-of','json',str(video)]))['streams']
+              assert len(streams)==1 and streams[0]['codec_type']=='video'
+              assert streams[0]['width']==270 and streams[0]['height']==480
+              frames=int(subprocess.check_output(['ffprobe','-v','error','-count_frames','-select_streams','v:0','-show_entries','stream=nb_read_frames','-of','default=nk=1:nw=1',str(video)]).strip())
+              assert frames==36, (concept, frames)
+              folder=root/('frames_'+concept)
+              samples=[Image.open(folder/('frame_%04d.png'%n)).convert('RGB').crop((35,50,235,420)) for n in (0,18,35)]
+              for a,b in zip(samples,samples[1:]):
+                  delta=ImageChops.difference(a,b)
+                  changed=sum(1 for p in delta.getdata() if max(p)>14)
+                  print(concept,'actual subject changed pixels',changed)
+                  assert changed>250, (concept,'STATIC_SUBJECT')
+              hashes.append(receipt['videoSha256'])
+          assert len(set(hashes))==2, 'SAME_VIDEO_FOR_BOTH_CONCEPTS'
+          print('Both actual H264 files decoded with 36 frames, moving source pixels, no audio or release flag')
+          PY
+      - name: Save actual research movies, source receipts and sample PNGs
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencemotion-blender-source-locked-motion-research
+          path: |
+            /tmp/evidencemotion-motion/*.mp4
+            /tmp/evidencemotion-motion/*receipt.json
+            /tmp/evidencemotion-motion/source.sha256
+            /tmp/evidencemotion-motion/frames_oxygen-to-whole/frame_0000.png
+            /tmp/evidencemotion-motion/frames_oxygen-to-whole/frame_0018.png
+            /tmp/evidencemotion-motion/frames_oxygen-to-whole/frame_0035.png
+            /tmp/evidencemotion-motion/frames_depth-orbit/frame_0000.png
+            /tmp/evidencemotion-motion/frames_depth-orbit/frame_0018.png
+            /tmp/evidencemotion-motion/frames_depth-orbit/frame_0035.png
+          if-no-files-found: error
+          retention-days: 5
+      - name: Preserve creative, scientific and publishing holds
+        if: always()
+        run: |
+          echo 'SILENT LOW-RES RESEARCH: two short camera treatments, NOT two approved stories or 1080p film.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No original narrator WAV, exact word synchronization, independent scientific or craft review, phone proof, owner approval, production import or posting.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No EvidenceMotion milestone checklist tick or freeze lift is authorized by this proof.' >> "$GITHUB_STEP_SUMMARY"

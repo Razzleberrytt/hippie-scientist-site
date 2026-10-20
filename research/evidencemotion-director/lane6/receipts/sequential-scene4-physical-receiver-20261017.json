@@ -1,0 +1,116 @@
+{
+  "schema": "em-lane6-physical-revised-receiver-1",
+  "scope": "independent-byte-intake-not-complete-seven-role-acceptance",
+  "archive": {
+    "name": "EvidenceMotion_Lane3_Scene4_Sequential_Safe_Research_20261017.zip",
+    "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-45f86dad\\EvidenceMotion_Lane3_Scene4_Sequential_Safe_Research_20261017.zip",
+    "bytes": 5220499,
+    "sha256": "81ac8b662e5f270e0c78370b1992b6e620f12cbc14ad98347459fb64a2bed381",
+    "zipCrc": "PASS",
+    "manifestMembersVerified": 14
+  },
+  "sourceReport": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6831#issuecomment-6233401590",
+  "receivedFiles": {
+    "films/old_Shot5_repaired_Scene4_unsafe.mp4": "fdece1d9bbd021d514c2510c5bf1e787a2555712f0fd48af8807994ed1816725",
+    "films/new_Sequential2D_3D_Shot5_safe_research.mp4": "45f86dad98f82dbe0e7e21f831529a8bc4256a8a053bd74a94c5666d03a5e122",
+    "original/narration.wav": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+    "original/7OH_source.mol": "150ccd331963beab2481ad47c36e1e171db6bdd37e4d50746a3d6b4b5be60bcb",
+    "story/rebound_research_story.json": "e2fff8be001a692749c47617498f6c9654ef8a50666f223a54c49786d5ad44fb",
+    "code/scene4_sequential_safe_research.py": "606903b553ece43495a00b1cf30107b41b9013f14b5407e45c83ad93d3d8ec9e",
+    "code/test_scene4_sequential_safe_research.py": "7606ecaffdd1055edbc31b72d739b44e2e821dd57cee49bad6b4635341845a9b",
+    "proof/physical_film_audit.json": "1d2a065c97e3cc81f1796dce84b213b39b267236e0c46639f51af9fcf64295cc",
+    "proof/native_film_auditor.py": "bd2cf8f769b7b31378d9908c322ea464225c434b8b923474f170197ba861f887",
+    "proof/375_scene4_2D_f530.png": "a91f115d8934d94ee71d54d58f4b99e280cdfbaa837b2396fc5a87537530cdb7",
+    "proof/375_scene4_3D_f630.png": "409e0b6b3252e21b0a439f61f401befac4d32d24088f8a8bb4a8c31a06723c2a",
+    "proof/375_scene4_3D_f555.png": "50cfd1b4a4a7cefc2beb064ae053404777f17e1d9b06ee57f9084a22f0a0a28a",
+    "proof/375_scene5_NOT_SHOWN_f795.png": "8daa5ed1c8789b0429f96c9af70fb0e534889e94eb611bb02bb818fa7dfee5b8",
+    "README.md": "79895ba0fdd762143aa7b1ff89ac858c3924759c226805869d17c7958710b60b"
+  },
+  "localSharedRoot": "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-45f86dad",
+  "media": {
+    "films/old_Shot5_repaired_Scene4_unsafe.mp4": {
+      "sha256": "fdece1d9bbd021d514c2510c5bf1e787a2555712f0fd48af8807994ed1816725",
+      "videoCodec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": "30/1",
+      "decodedFrames": 1031,
+      "audioCodec": "aac",
+      "audioAdtsSha256": "f0057c19c9d06b8a2f3c6d8fec948ca4555966114579fd1a48b0bcfccc84aa98",
+      "audioPacketCount": 807,
+      "packetTimelineAndSizesSha256": "f2166f5bf411e55ef5273d281d24b70797fc7a1fd64c723823008e529be20f97",
+      "fullAudioVideoDecodeExitCode": 0
+    },
+    "films/new_Sequential2D_3D_Shot5_safe_research.mp4": {
+      "sha256": "45f86dad98f82dbe0e7e21f831529a8bc4256a8a053bd74a94c5666d03a5e122",
+      "videoCodec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": "30/1",
+      "decodedFrames": 1031,
+      "audioCodec": "aac",
+      "audioAdtsSha256": "f0057c19c9d06b8a2f3c6d8fec948ca4555966114579fd1a48b0bcfccc84aa98",
+      "audioPacketCount": 807,
+      "packetTimelineAndSizesSha256": "f2166f5bf411e55ef5273d281d24b70797fc7a1fd64c723823008e529be20f97",
+      "fullAudioVideoDecodeExitCode": 0
+    }
+  },
+  "checks": [
+    {
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-xerror",
+        "-i",
+        "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-45f86dad\\films\\old_Shot5_repaired_Scene4_unsafe.mp4",
+        "-f",
+        "null",
+        "-"
+      ],
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-xerror",
+        "-i",
+        "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-45f86dad\\films\\new_Sequential2D_3D_Shot5_safe_research.mp4",
+        "-f",
+        "null",
+        "-"
+      ],
+      "exitCode": 0,
+      "stderr": ""
+    }
+  ],
+  "mayPublish": false,
+  "newAtomicCards": 0,
+  "wav": {
+    "sha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+    "channels": 1,
+    "sampleWidthBytes": 2,
+    "rateHz": 24000,
+    "samples": 824336
+  },
+  "story": {
+    "sha256": "e2fff8be001a692749c47617498f6c9654ef8a50666f223a54c49786d5ad44fb",
+    "candidateAndWavHashesMatchReceivedBytes": true,
+    "shots": 9,
+    "phonePlanSha256": null,
+    "renderReceiptSha256": "fec3d175760c8d870aae2b4519a2e312bb423a2082f6126fd12d2d85a71c856e",
+    "renderReceiptPresentInCurrentArchive": false,
+    "actualCurrentPhysicalReceiptSha256": "1d2a065c97e3cc81f1796dce84b213b39b267236e0c46639f51af9fcf64295cc",
+    "referencedPriorReceiptCandidateSha256": "fdece1d9bbd021d514c2510c5bf1e787a2555712f0fd48af8807994ed1816725"
+  },
+  "status": "RECEIVED_VERIFIED_BYTES_INTAKE_HOLD",
+  "boundaries": [
+    "No complete authored seven-role intake; null phone plan",
+    "Story renderReceipt hash resolves to prior Shot5 proof, absent from current archive; requires explicit historical lineage vs current receipt binding",
+    "Current film science/mobile redlines reported by owners, not rerun by Lane6",
+    "No cross-context path access, qualified science, phonetic, craft, handset or publication approval"
+  ]
+}

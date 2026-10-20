@@ -1,0 +1,197 @@
+{
+  "schema": "em-lane6-current-handoff-1",
+  "scope": "one-exact-received-research-candidate-not-release",
+  "candidateVideoSha256": "07e808e35a82294fe8e1c0006b227f6d9435885dfd16daeb78d318edde027769",
+  "candidatePath": "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-07e808e3/films/new_legible_scene4.mp4",
+  "archive": {
+    "name": "EvidenceMotion_Lane3_Autonomous_Legibility_Repair_20261017.zip",
+    "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-07e808e3\\EvidenceMotion_Lane3_Autonomous_Legibility_Repair_20261017.zip",
+    "bytes": 5009993,
+    "sha256": "599d93991475d813ad54aaf8115e42cead76f70e00ea70f7805e9ece6a06984d",
+    "zipCrc": "PASS",
+    "manifestMembersVerified": 12
+  },
+  "originalWavSha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+  "storySha256": "275352f3b53c9fc04789613ec5c3283caf1616862615567ec59db37163d19cdb",
+  "phonePlanSha256": null,
+  "receipt": "receipts/legibility-candidate-physical-receiver-20261017.json",
+  "status": "HOLD_INCOMPLETE_AUTHORED_SIDECARS_AND_CURRENT_PROOF",
+  "blockers": [
+    {
+      "id": "L6-REVISED-BYTES",
+      "status": "RESOLVED_THIS_CONTEXT",
+      "evidence": "07e808e3 archive599d9399:CRC and12/12 member hashes; prior/current full A/V decode exit0;1031 H2641080x1920/30fps each;AAC hash and807 packet tuples equal;1031 actual monotonic video timestamps within0.000000334s of30fps grid"
+    },
+    {
+      "id": "L6-PHONE-PLAN",
+      "status": "OPEN",
+      "owner": "Lane3 authored handoff with Lane4 review",
+      "evidence": "Current story phonePlanSha256:null. Do not copy an older plan or manufacture an authored current hash."
+    },
+    {
+      "id": "L6-SEVEN-ROLE-PACKAGE",
+      "status": "OPEN",
+      "owner": "Lane3 source handoff with science/audio/mobile owners",
+      "evidence": "Exact current caption/claim/asset/source/lineage/review package is incomplete; recovered original MFA/ASR inputs are source references, not current film/layout approval."
+    },
+    {
+      "id": "L6-CURRENT-RENDER-RECEIPT",
+      "status": "OPEN_PHYSICALLY_VERIFIED_REFERENCE_MISMATCH",
+      "owner": "Lane3 authored story/proof handoff",
+      "evidence": {
+        "sha256": "275352f3b53c9fc04789613ec5c3283caf1616862615567ec59db37163d19cdb",
+        "candidateAndWavHashesMatchReceivedBytes": true,
+        "shots": 9,
+        "phonePlanSha256": null,
+        "renderReceiptSha256": "fec3d175760c8d870aae2b4519a2e312bb423a2082f6126fd12d2d85a71c856e",
+        "renderReceiptPresentInCurrentArchive": false,
+        "actualCurrentPhysicalReceiptSha256": "486bc12318584b4ed48487a796429ea8ac71b94470c444b1cce807869c95d14f",
+        "referencedPriorReceiptCandidateSha256": "fdece1d9bbd021d514c2510c5bf1e787a2555712f0fd48af8807994ed1816725"
+      },
+      "requiredDisposition": "Bind current proof explicitly or distinguish historical receipt from current execution proof; include all referenced bytes. No Lane6 edit to owner story."
+    },
+    {
+      "id": "L6-ARCHIVED-PRODUCER-GIT-BINDING",
+      "status": "SOURCE_BYTES_RECEIVED_SELECTED_GIT_REVISION_DIFFERS",
+      "owner": "Lane3 reproducibility handoff",
+      "evidence": {
+        "archiveSourcePath": "code/scene4_sequential_legible_research.py",
+        "archiveSourceSha256": "ae8f89d90eb4cb770957005b30939255289f5b2e99ac37ad5b9f5501ae6620e7",
+        "selectedGitHead": "a3617e0b9dc2b0ec4847d4b98994109b80e173bf",
+        "selectedGitPath": "research/evidencemotion-director/lane3/scene4_sequential_safe_research.py",
+        "selectedGitSourceSha256": "e58f11daab601e993ac8580107d8ba870fa518b4d3623e0661195074ff373c57",
+        "bytesMatch": false,
+        "note": "Filename mapped by source role; byte equality establishes code identity only, not execution provenance"
+      },
+      "requiredDisposition": "Declare source revision/file hash that actually produced07e; selected current Git source is a different byte stream. This does not by itself prove faulty provenance or a bad render."
+    },
+    {
+      "id": "L6-SCIENCE-OPENING-LABEL",
+      "status": "PRIOR_CANDIDATE_OWNER_REDLINE_REQUIRES_CURRENT_SHA_REVIEW",
+      "owner": "Lane3 correction; Lane1 scientific editorial review",
+      "lastMeasuredFilmSha256": "45f86dad98f82dbe0e7e21f831529a8bc4256a8a053bd74a94c5666d03a5e122",
+      "source": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6831#issuecomment-6233836204",
+      "evidence": "No reaction ambiguity reported for opening0-104 on45f; do not inherit semantic PASS or claim this was remeasured on07e."
+    },
+    {
+      "id": "L6-MOBILE-FOOTER-SPACING",
+      "status": "SENDER_REPORTED_REPAIR_AWAITS_INDEPENDENT_CURRENT_SHA_REVIEW",
+      "owner": "Lane3 source repair; Lane4 actual decoded review",
+      "source": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6831#issuecomment-6233894588",
+      "evidence": "07e sender receipt reports20nativepx margin and48px font; prior45f Lane4 finding was1px. Lane6 byte/decode receipt does not independently validate optical metrics, OCR or handset readability."
+    },
+    {
+      "id": "L6-CURRENT-VOICE-CAPTION-REVIEW",
+      "status": "EXACT_CANDIDATE_REVIEW_NOT_ESTABLISHED",
+      "owner": "Lane2",
+      "evidence": "Original source inputs now recovered and130/130 acoustic research tests pass with no skips. Source/ASR disagreement remains research HOLD; no current07e word/caption/phonetic calibration inferred from AAC identity."
+    },
+    {
+      "id": "L6-WINDOWS-RECEIPT",
+      "status": "OWNER_PATCH_READY_UNAPPLIED",
+      "owner": "Lane3",
+      "patch": "patches/lane3-windows-canonical-receipt.patch",
+      "evidence": {
+        "producerGitBlobBefore": "ce520eb23ec47b414b823d1a426445047fceadb1",
+        "producerGitBlobAtSelectedHead": "ce520eb23ec47b414b823d1a426445047fceadb1",
+        "currentApplyCheckExitCode": 0,
+        "priorProof": "receipts/lane3-windows-canonical-patch-proof.json",
+        "status": "OWNER_UNAPPLIED_SOURCE_BLOB_UNCHANGED",
+        "note": "No duplicate red/green execution on unchanged source. Inert existing patch still applies to selected owner head."
+      }
+    },
+    {
+      "id": "L6-WINDOWS-SCORECARD",
+      "status": "OWNER_PATCH_READY_UNAPPLIED",
+      "owner": "Lane5",
+      "patch": "patches/lane5-consistent-stat-surfaces.patch",
+      "receipt": "receipts/lane5-windows-stat-patch-proof-20261017.json",
+      "evidence": "Observed Windows path stat ctime birth vs descriptor ctime change semantics false-HOLD. Preserves same-API metadata guards plus streaming content confirmation; original positive red; proposed10/10 Windows and10/10 Linux including real same-size restored-mtime mutation. Requires owner independent review/gates."
+    },
+    {
+      "id": "L6-LINUX-MEDIA-AND-SCIENCE-RUNTIME",
+      "status": "RESOLVED_DECLARED_TEST_ENVIRONMENTS",
+      "receipt": "receipts/exhaustive-integration-and-runtime-20261017.json",
+      "evidence": "Fixed /usr/bin FFmpeg and fonts/Pillow available; venv RDKit2025.09.4 provides InChI unlike Ubuntu system build. Selected suites307 distinct methods pass across declared runtimes; not one all-platform execution."
+    },
+    {
+      "id": "L6-ORIGINAL-AUDIO-INPUTS",
+      "status": "RESOLVED_EXACT_SOURCE_PINS",
+      "receipt": "receipts/original-audio-input-recovery-20261017.json",
+      "evidence": "Recovered all five environment inputs, including source-pinned previous term ZIP;130/130 unchanged suite tests PASS, former16 skips exercised",
+      "portableCapsule": {
+        "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-original-audio-guard-recovery\\EvidenceMotion_Lane6_Exact_Original_Audio_Test_Inputs_20261017.zip",
+        "bytes": 1382852,
+        "sha256": "903903f26ef5b22001ae3f95d680473107c54fbcab3898283a89d753b71df030",
+        "zipCrc": "PASS",
+        "copiedInputHashesVerified": 5
+      }
+    },
+    {
+      "id": "L6-CAMERA-SPACING-ARCHIVE-ACCESS",
+      "status": "NOT_RECEIVED_NOT_SUBSTITUTED",
+      "evidence": {
+        "filmSha256": "5849dd45cb51c1b898bf95d3f04eec574cb0d834e7717f71d53f206e56664e19",
+        "archiveName": "EvidenceMotion_Lane3_Camera_Spacing_Fix_Research_20261017.zip",
+        "archiveSha256": "e0e837004174c89f7f01c921e09944100f0ac78bc09fb1ce1a72047a82f12d25",
+        "status": "NOT_RECEIVED_NOT_SUBSTITUTED",
+        "accessEvidence": "Exact Camera_Spacing Library search returned No files found; source conversation currently exposes prior delivery and ongoing work, no camera-spacing bundle link confirmed"
+      },
+      "nextAutomatedRoute": "Exact-name Library download or source-conversation attachment once materialized; comparee0e83700 archive hash and5849 film hash. No user shuttling requested."
+    },
+    {
+      "id": "L6-CROSS-CONTEXT-ACCESS",
+      "status": "LOCAL_SHARED_PAYLOAD_READY_RECIPIENT_ACCESS_UNCONFIRMED",
+      "evidence": "Stable payload07e attachment folder and portable original-audio capsule provided. Recipient must independently hash same bytes; no claim that local path alone grants another context access."
+    }
+  ],
+  "nextSingleDependency": "One Lane3-authored exact selected-candidate bundle with non-null current phone plan, explicit current render-proof/source-revision binding and remaining caption/claim/asset/lineage/review sidecars, with independent owner rechecks; Lane3/Lane5 may separately review and adopt supplied inert compatibility patches.",
+  "retrievalRoute": "Authenticated Chrome -> ChatGPT Library -> exact archive filename -> Download -> verify independently against archive SHA and member pins; do not use historical media as fallback",
+  "mayPublish": false,
+  "machineReviewed": "Archive/member/source hashes, full A/V decode, AAC packet identity, native video PTS and pinned-source tests; no science/voice/craft approval",
+  "externalIndependentReviewed": false,
+  "physicalPhoneReviewed": false,
+  "newAtomicCards": 0,
+  "previousReceivedCandidates": [
+    {
+      "candidateVideoSha256": "fdece1d9bbd021d514c2510c5bf1e787a2555712f0fd48af8807994ed1816725",
+      "archive": {
+        "name": "EvidenceMotion_Lane3_Shot5_Mobile_Safe_Research_20261017.zip",
+        "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-fdece1d9\\EvidenceMotion_Lane3_Shot5_Mobile_Safe_Research_20261017.zip",
+        "bytes": 5239915,
+        "sha256": "404df9ba41ffa3dde87d638d5500d5e7318c50b50681ce2c766ba7830adda196",
+        "zipCrc": "PASS",
+        "manifestMembersVerified": 12
+      },
+      "originalWavSha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+      "storySha256": "3c48c814244d9b3bb6ac1fdbb28e98a68c7cada48031eb0a410801c9ee978ffa",
+      "receipt": "receipts/revised-shot5-physical-receiver-20261017.json",
+      "status": "PREVIOUS_RECEIVED_CANDIDATE_NOT_CURRENT"
+    },
+    {
+      "candidateVideoSha256": "45f86dad98f82dbe0e7e21f831529a8bc4256a8a053bd74a94c5666d03a5e122",
+      "archive": {
+        "name": "EvidenceMotion_Lane3_Scene4_Sequential_Safe_Research_20261017.zip",
+        "path": "C:\\Users\\Will\\.codex\\attachments\\lane6-revised-receiver-45f86dad\\EvidenceMotion_Lane3_Scene4_Sequential_Safe_Research_20261017.zip",
+        "bytes": 5220499,
+        "sha256": "81ac8b662e5f270e0c78370b1992b6e620f12cbc14ad98347459fb64a2bed381",
+        "zipCrc": "PASS",
+        "manifestMembersVerified": 14
+      },
+      "originalWavSha256": "9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435",
+      "storySha256": "e2fff8be001a692749c47617498f6c9654ef8a50666f223a54c49786d5ad44fb",
+      "receipt": "receipts/sequential-scene4-physical-receiver-20261017.json",
+      "status": "PREVIOUS_RECEIVED_CANDIDATE_NOT_CURRENT"
+    }
+  ],
+  "headFreshnessBoundary": "Latest independently received owner-reported legibility candidate at this checkpoint. Separately reported camera-spacing5849 is not received and is not substituted or declared superseded; no rolling latest/accepted master claim.",
+  "sourceReport": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6831#issuecomment-6233894588",
+  "reportedOtherCandidate": {
+    "filmSha256": "5849dd45cb51c1b898bf95d3f04eec574cb0d834e7717f71d53f206e56664e19",
+    "archiveName": "EvidenceMotion_Lane3_Camera_Spacing_Fix_Research_20261017.zip",
+    "archiveSha256": "e0e837004174c89f7f01c921e09944100f0ac78bc09fb1ce1a72047a82f12d25",
+    "status": "NOT_RECEIVED_NOT_SUBSTITUTED",
+    "accessEvidence": "Exact Camera_Spacing Library search returned No files found; source conversation currently exposes prior delivery and ongoing work, no camera-spacing bundle link confirmed"
+  },
+  "firstRenderStatus": "NOT_ACCEPTED"
+}

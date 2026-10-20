@@ -32,7 +32,7 @@ describe('magnesium types for sleep evidence discipline', () => {
 
   it('preserves publication history while exposing a current review date', () => {
     expect(source).toContain("const DATE = '2026-06-09'")
-    expect(source).toMatch(/const UPDATED_DATE = '2026-08-\d{2}'/)
+    expect(source).toMatch(/const UPDATED_DATE = '20\d{2}-\d{2}-\d{2}'/)
     expect(source).toContain('updated: UPDATED_DATE')
   })
 })

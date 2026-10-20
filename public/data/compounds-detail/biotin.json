@@ -15,7 +15,7 @@
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "High doses can interfere with lab tests such as thyroid and troponin assays; deficiency-specific benefit only.",
+  "safetyNotes": "Biotin supplements can interfere with some thyroid and cardiac troponin assays, causing misleading results. Risk and test precautions depend on dose, assay and laboratory; disclose supplement use before testing.",
   "evidenceLevel": "",
   "relatedCompounds": [],
   "governance": {
@@ -88,7 +88,7 @@
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "High doses can interfere with lab tests such as thyroid and troponin assays; deficiency-specific benefit only.",
+  "safety": "Biotin supplements can interfere with some thyroid and cardiac troponin assays, causing misleading results. Risk and test precautions depend on dose, assay and laboratory; disclose supplement use before testing.",
   "sources": [
     {
       "id": "src_dbca2219df1e",
@@ -101,8 +101,8 @@
   "dosage": "softgel or liquid oil",
   "typical_dosage": "softgel or liquid oil",
   "contraindications": [
-    "Upcoming laboratory bloodwork especially troponin thyroid or hormone panels (high-dose biotin causes false immunoassay results and the FDA has issued a safety communication on this interference)",
-    "discontinue at least 48 hours before lab testing when possible",
-    "not a treatment for underlying thyroid or cardiac disease despite lab-interference risk"
+    "Laboratory blood testing using biotin-sensitive immunoassays, including certain cardiac troponin and thyroid tests (results can read falsely low or high depending on assay design)",
+    "Tell the clinician and testing laboratory about biotin supplement use before testing; whether a pause or repeat test is appropriate, and its timing, depend on biotin exposure, the specific assay, and clinical urgency",
+    "Not a treatment for underlying thyroid or cardiac disease despite lab-interference risk"
   ]
 }

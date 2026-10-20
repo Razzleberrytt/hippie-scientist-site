@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import { assessPublicationApproval, loadPublicationApprovalEvidence } from './canonical-publication-approval.mjs'
 import { pathToFileURL } from 'node:url'
 
 const API_ROOT = process.env.GITHUB_API_URL || 'https://api.github.com'
@@ -553,7 +554,7 @@ async function recoverZeroJobActionRequired(repo, pr, failedRuns) {
   return true
 }
 
-export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha, currentBaseSha, controllerRunId, riskTier = 'high', changedFiles = [] }) {
+export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha, currentBaseSha, controllerRunId, riskTier = 'high', changedFiles = [], approvalEvidence = { comments: [], reviews: [] }, baseContainmentVerified = false }) {
   if (pr.state !== 'open') return { action: 'stop', reason: `PR is ${pr.state}` }
   if (pr.draft) return { action: 'stop', reason: 'PR is draft' }
   if (pr.head?.sha !== expectedHeadSha) return { action: 'stop', reason: 'PR head moved; newer controller owns it' }
@@ -562,10 +563,26 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
   const labels = labelNames(pr)
   const hold = [...HOLD_LABELS].find((label) => labels.has(label))
   if (hold) return { action: 'stop', reason: `explicit merge hold label present: ${hold}` }
+
+  // Canonical owner approval is required on exact PR HEAD for public clinical
+  // content; review-only scientific research remains eligible for auto-staging.
+  // This gate is re-evaluated during final serialized merge revalidation.
+  if (changedFiles.length > 0) {
+    const publicationApproval = assessPublicationApproval({
+      pr, changedFiles, comments: approvalEvidence.comments, reviews: approvalEvidence.reviews,
+    })
+    if (!publicationApproval.allowed) {
+      return { action: 'stop', reason: `publication review hold: ${publicationApproval.reason}` }
+    }
+  }
   if (!currentBaseSha) return { action: 'wait', reason: 'current base SHA is not observable yet' }
   if (pr.mergeable === null || pr.mergeable_state === 'unknown') return { action: 'wait', reason: 'GitHub is still calculating mergeability' }
   if (pr.mergeable === false || pr.mergeable_state === 'dirty') return { action: 'blocked', reason: `PR is not cleanly mergeable (${pr.mergeable_state || 'unknown'})` }
-  if (pr.mergeable_state === 'behind' || (pr.base?.sha && pr.base.sha !== currentBaseSha)) return { action: 'sync', reason: 'PR base is behind main; update branch and revalidate exact head' }
+  // GitHub may cache a prior base SHA/behind state after a clean-main merge.
+  // Only an independently verified exact HEAD ancestry check may override
+  // that stale metadata; never infer freshness from PR metadata alone.
+  if (!baseContainmentVerified && (pr.mergeable_state === 'behind' || (pr.base?.sha && pr.base.sha !== currentBaseSha)))
+    return { action: 'sync', reason: 'PR base is behind main; update branch and revalidate exact head' }
 
   const latestWorkflows = newestBy(workflowRuns, (run) => run.name, runScore)
   const workflowsByName = new Map(latestWorkflows.map((run) => [run.name, run]))
@@ -580,7 +597,10 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
   const staleRuns = (riskTier === 'high' ? latestWorkflows : requiredRuns).filter((run) => {
     if (run.event === 'workflow_dispatch') return false
     const association = associatedPr(run, pr.number)
-    return association?.base?.sha && association.base.sha !== currentBaseSha
+    // Same-head workflow associations may retain a stale cached base. Exact
+    // HEAD containment is authoritative, but only after the live compare API
+    // has proved that HEAD includes the current branch-tip SHA.
+    return !baseContainmentVerified && association?.base?.sha && association.base.sha !== currentBaseSha
   })
   if (staleRuns.length) return { action: 'sync', reason: `workflow evidence targets stale base: ${staleRuns.map((run) => run.name).join(', ')}` }
 
@@ -663,10 +683,12 @@ async function evaluateOnce({ repo, number, expectedHeadSha, controllerRunId, al
     getPrFiles(repo, number),
   ])
   const riskTier = classifyRisk({ pr, changedFiles })
+  if (!changedFiles.length) return { action: 'blocked', reason: 'changed file list empty; cannot validate publication scope' }
+  const approvalEvidence = await loadPublicationApprovalEvidence(github, repo, number, changedFiles)
   const containsCurrentBase = currentBaseSha ? await headContainsBase(repo, currentBaseSha, currentHeadSha) : false
   const verdict = currentBaseSha && !containsCurrentBase
     ? { action: 'sync', reason: 'PR head does not contain current base; update branch and revalidate exact head' }
-    : evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha: currentHeadSha, currentBaseSha, controllerRunId, riskTier, changedFiles })
+    : evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha: currentHeadSha, currentBaseSha, controllerRunId, riskTier, changedFiles, approvalEvidence, baseContainmentVerified: containsCurrentBase })
 
   if (verdict.action === 'sync') {
     const refreshed = await refreshPrAndDispatch({ repo, pr, workflowRuns, currentBaseSha })
@@ -724,6 +746,11 @@ async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha, co
   }
 
   const riskTier = classifyRisk({ pr, changedFiles })
+  if (!changedFiles.length) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: changed file list empty`)
+    return false
+  }
+  const approvalEvidence = await loadPublicationApprovalEvidence(github, repo, number, changedFiles)
   const terminalVerdict = evaluateReadiness({
     pr,
     workflowRuns,
@@ -733,6 +760,8 @@ async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha, co
     controllerRunId,
     riskTier,
     changedFiles,
+    approvalEvidence,
+    baseContainmentVerified: true, // guarded by the exact current HEAD/base containment check above
   })
   if (terminalVerdict.action === 'sync') {
     await refreshPrAndDispatch({ repo, pr, workflowRuns, currentBaseSha: latestBaseSha })
