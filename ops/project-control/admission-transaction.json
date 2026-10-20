@@ -1,7 +1,7 @@
 {
   "version": 1,
   "mode": "fresh-admission",
-  "base_revision": "001500cb5db8f5b6ffefbc6937881628f5102be8",
+  "base_revision": "b338e16bfb3bd145ba827a5f77cabfe8fd7ff43f",
   "last_verified": "2026-10-19",
   "ticket": 6932,
   "lane": "D",
@@ -14,5 +14,6 @@
     "confidence": 0.75,
     "effort": 5
   },
-  "score": 75
+  "score": 75,
+  "title": "Repair public herb profile credibility and audit regressions"
 }
