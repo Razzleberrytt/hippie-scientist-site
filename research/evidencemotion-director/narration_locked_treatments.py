@@ -325,7 +325,7 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
             raise ValueError('TREATMENT_HOLD:MOLECULAR_COMPARISON_SOURCE_DRIFT')
         for name,x,label,cid in (
                 ('mitragynine',72,'MITRAGYNINE',3034396),
-                ('7_hydroxymitragynine',558,'7-OH STRUCTURE',44301524)):
+                ('7_hydroxymitragynine',558,'7-OH',44301524)):
             top=pos(x,634)
             bottom=pos(x+450,1098)
             draw.rounded_rectangle((*top,*bottom),radius=round(22*scale),
@@ -341,9 +341,9 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
                                                   round(303*scale)))
             image.alpha_composite(panel,pos(x+21,728))
             draw=ImageDraw.Draw(image)
-            text(pos(x+20,1049),f'PubChem CID {cid}',font=f(30),
+            text(pos(x+20,1049),('PubChem CID ' if x==72 else 'CID ')+str(cid),font=f(30),
                  fill=muted,role='source')
-        text(pos(72,1136),'Orange = verified free hydroxyl on 7-OH',
+        text(pos(72,1136),'Orange = 7-OH hydroxyl',
              font=f(36,True),fill=accent,role='science')
         text(pos(72,1200),'Two structures, not a chemical reaction',
              font=f(34),fill=muted,role='disclosure')
