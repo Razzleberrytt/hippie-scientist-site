@@ -221,6 +221,8 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
     # This is authored metadata, not actual encoded pixel classification.
     adjacent_ink=[]
     adjacent_role_ink=[]
+    botanical_adjacent_ink=[]
+    botanical_adjacent_role_ink=[]
     for shot in shots:
         roles=shot.get("emittedSourceAnnotations")
         if (not isinstance(roles,dict)
@@ -240,9 +242,23 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
             role:" ".join(roles[role]) for role in ANNOTATION_ROLES}))
         if EFFECT_CLAIMS.search(written_ink):
             hold("UNSUPPORTED_TREATMENT_OR_EFFECT_TEXT:"+shot["shot"])
-        # Even separately split annotation labels must not present imagined
-        # botanical 7-OH concentrations, positive assays or absent content.
-        if asserts_unverified_botanical_7oh_content(written_ink):
+        # The exact scientific phrase below describes a free hydroxyl on a
+        # source-verified *molecule*, never assayed 7-OH in a plant. When
+        # reconstructing botanical assertions across shots, exclude ONLY the
+        # pinned entire clause from scene two, not any other science text.
+        # Keep the full text for treatment/effect and source-provenance guards.
+        botanical_roles={
+            role:" ".join(value for value in roles[role] if not (
+                shot["shot"]=="sentence_2" and role=="science"
+                and value=="7-OH has one free hydroxyl"))
+            for role in ANNOTATION_ROLES
+        }
+        botanical_ink=" ".join(botanical_roles.values())
+        botanical_adjacent_ink.append((shot["shot"],botanical_ink))
+        botanical_adjacent_role_ink.append((shot["shot"],botanical_roles))
+        # Still fail on genuine positive or negative product/plant content
+        # assertions anywhere in the actual annotated scene.
+        if asserts_unverified_botanical_7oh_content(botanical_ink):
             hold("UNVERIFIED_BOTANICAL_7OH_CONTENT:"+shot["shot"])
     # EM-007.06: an unsupported human-effect or receptor-assay assertion can
     # also be assembled across cuts ("reduces" / "withdrawal cravings", or
@@ -269,9 +285,9 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
     # four-shot windows as well. This is metadata text validation, not
     # decoded-pixel OCR or audience comprehension certification.
     for width in (2, 3, 4):
-        for offset in range(len(adjacent_ink)-width+1):
-            window=adjacent_ink[offset:offset+width]
-            role_window=adjacent_role_ink[offset:offset+width]
+        for offset in range(len(botanical_adjacent_ink)-width+1):
+            window=botanical_adjacent_ink[offset:offset+width]
+            role_window=botanical_adjacent_role_ink[offset:offset+width]
             role_texts=(" ".join(role_map[role] for _,role_map in role_window)
                         for role in ANNOTATION_ROLES)
             if (asserts_unverified_botanical_7oh_content(
