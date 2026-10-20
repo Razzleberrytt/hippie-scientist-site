@@ -7,7 +7,8 @@ const claims = read('public/data/claims.json')
 const cases = [
   { kind: 'herbs', slug: 'black-seed', pmid: '26875640', authored: 'a', studyCount: 4 },
   { kind: 'compounds', slug: 'plant-sterols', pmid: '24780090', authored: 'high', studyCount: 1 },
-  { kind: 'compounds', slug: 'zinc', pmid: '15496046', authored: 'high', studyCount: 2 },
+  { kind: 'compounds', slug: 'zinc', pmid: '15496046', authored: 'high', studyCount: 1 },
+  { kind: 'compounds', slug: 'selenium', pmid: '14668278', authored: 'a', studyCount: 2 },
 ]
 
 test('duplicated PubMed identities cannot retain inflated Grade A in committed public artifacts', () => {
@@ -32,5 +33,20 @@ test('duplicated PubMed identities cannot retain inflated Grade A in committed p
     assert.equal(entry[field], 'Editorial grade not demonstrated by recorded studies')
    }
   }
+ }
+})
+
+test('capsicum without two identifiable human publications cannot retain settled Grade A', () => {
+ const slug = 'capsicum-annuum'
+ const list = read('public/data/herbs.json').find((row) => row.slug === slug)
+ const detail = read('public/data/herbs-detail/' + slug + '.json')
+ assert.ok(list)
+ for (const entry of [list,detail]) {
+  assert.equal(entry.evidence_grade,null)
+  assert.equal(entry.evidence_grade_backed,false)
+  assert.equal(entry.evidence_grade_backing_gap,'no-identifiable-human-publications-for-grade-a')
+  assert.equal(entry.evidence_human_study_count,2)
+  assert.equal(entry.evidence_recorded_study_count,4)
+  assert.equal(entry.evidence_grade_source,'a')
  }
 })

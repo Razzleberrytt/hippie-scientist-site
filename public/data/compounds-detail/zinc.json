@@ -120,9 +120,9 @@
   "evidence_design_match": "Meta-analysis",
   "evidence_risk_of_bias": "Low",
   "evidence_consistency": null,
-  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 1 in people.",
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 1 recorded study, 1 in people.",
   "evidence_human_study_count": 1,
-  "evidence_recorded_study_count": 2,
+  "evidence_recorded_study_count": 1,
   "evidence_strongest_design": "meta-analysis",
   "evidence_grade_backed": false,
   "evidence_grade_backing_gap": "single-human-study-for-grade-a"

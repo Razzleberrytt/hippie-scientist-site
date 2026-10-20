@@ -25,7 +25,7 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "Strong evidence",
+  "evidenceLevel": "Editorial grade not demonstrated by recorded studies",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -162,15 +162,15 @@
     "summary-depth",
     "summary-quality-missing"
   ],
-  "evidence_grade": "A",
+  "evidence_grade": null,
   "evidence_grade_source": "a",
-  "evidence_tier": "Strong evidence",
+  "evidence_tier": "Editorial grade not demonstrated by recorded studies",
   "evidence_tier_source": "Strong Human Evidence",
-  "evidenceTier": "Strong evidence",
-  "evidence_grade_band": "strong",
+  "evidenceTier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_grade_band": null,
   "evidence_grade_reason": "agree",
-  "evidence_grade_explanation": "Both evidence signals agree on strong evidence.",
-  "evidence_grade_adjusted": false,
+  "evidence_grade_explanation": "The authored grade is preserved for provenance, but the recorded studies do not currently demonstrate that strength, so no settled public evidence grade is shown.",
+  "evidence_grade_adjusted": true,
   "evidence_design_match": "Randomized controlled trial",
   "evidence_risk_of_bias": "Low",
   "evidence_consistency": null,
@@ -178,6 +178,6 @@
   "evidence_human_study_count": 2,
   "evidence_recorded_study_count": 4,
   "evidence_strongest_design": "rct",
-  "evidence_grade_backed": true,
-  "evidence_grade_backing_gap": null
+  "evidence_grade_backed": false,
+  "evidence_grade_backing_gap": "no-identifiable-human-publications-for-grade-a"
 }
