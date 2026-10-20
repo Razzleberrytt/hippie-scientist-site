@@ -67,6 +67,7 @@ class TemporalEmissionTests(unittest.TestCase):
         intended=[
             ['science','MITRAGYNINE'],
             ['science','7-OH'],
+            ['disclosure','Computed model'],
             ['science','7-OH has one free hydroxyl'],
             ['disclosure','Not a chemical reaction'],
         ]
