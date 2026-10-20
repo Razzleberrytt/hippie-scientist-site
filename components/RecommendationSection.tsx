@@ -53,7 +53,7 @@ function configuredProductSetSlug(products: RecommendationProduct[]) {
   return null
 }
 
-async function canRenderRecommendationProducts(
+export async function canRenderRecommendationProducts(
   products: RecommendationProduct[],
   trackingProductSlug?: string,
 ) {

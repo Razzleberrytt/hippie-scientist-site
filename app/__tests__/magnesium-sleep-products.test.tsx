@@ -35,8 +35,10 @@ function assertClearedProductLinks(html: string) {
 }
 
 describe('owner-cleared magnesium sleep sourcing', () => {
-  it('renders both cleared ASINs through the existing best-magnesium module', () => {
-    assertClearedProductLinks(renderToStaticMarkup(<RecommendedProduct slug="magnesium" limit={3} />))
+  it('renders both cleared ASINs through the existing best-magnesium module', async () => {
+    const html = renderToStaticMarkup(await RecommendedProduct({ slug: 'magnesium', limit: 3 }))
+    assertClearedProductLinks(html)
+    expect(html).toContain('Search Amazon')
   })
 
   it('renders the same catalog through the forms guide module with a labeled search fallback', async () => {
@@ -48,24 +50,26 @@ describe('owner-cleared magnesium sleep sourcing', () => {
     expect(products.find((product) => product.brand === 'Thorne')?.asin).toBeUndefined()
   })
 
-  it('still suppresses products when the full canonical record explicitly denies monetization', async () => {
-    vi.mocked(getCompoundBySlug).mockResolvedValueOnce({
-      slug: 'magnesium', monetization_allowed: false,
-    })
+  it('suppresses both modules when the full canonical record explicitly denies monetization', async () => {
+    const denied = { slug: 'magnesium', monetization_allowed: false }
+    vi.mocked(getCompoundBySlug).mockResolvedValueOnce(denied).mockResolvedValueOnce(denied)
     const section = await RecommendationSection({
       products: getRevenueProductSet('magnesium')!.products, trackingProductSlug: 'magnesium',
     })
     const html = renderToStaticMarkup(section)
     expect(html).not.toContain('https://www.amazon.com/')
     expect(html).toContain('Recommendation status')
+    expect(renderToStaticMarkup(await RecommendedProduct({ slug: 'magnesium', limit: 3 }))).not.toContain('https://www.amazon.com/')
   })
 
   it('preserves the summary denial when a hidden full record is unavailable', async () => {
-    vi.mocked(getCompounds).mockResolvedValueOnce([{ slug: 'magnesium', runtime_export_decision: 'hide' }])
-    vi.mocked(getCompoundBySlug).mockResolvedValueOnce(null)
+    const hidden = [{ slug: 'magnesium', runtime_export_decision: 'hide' }]
+    vi.mocked(getCompounds).mockResolvedValueOnce(hidden).mockResolvedValueOnce(hidden)
+    vi.mocked(getCompoundBySlug).mockResolvedValueOnce(null).mockResolvedValueOnce(null)
     const section = await RecommendationSection({
       products: getRevenueProductSet('magnesium')!.products, trackingProductSlug: 'magnesium',
     })
     expect(renderToStaticMarkup(section)).not.toContain('https://www.amazon.com/')
+    expect(renderToStaticMarkup(await RecommendedProduct({ slug: 'magnesium', limit: 3 }))).not.toContain('https://www.amazon.com/')
   })
 })

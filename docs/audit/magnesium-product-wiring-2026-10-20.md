@@ -90,6 +90,12 @@ monetization restrictions, and visible affiliate disclosures.
   Fresh registry cache was necessary to resolve the newly available patch.
 - Exact final-head hosted production/test proof is required after that dependency
   update. No earlier green run is substituted for it.
+- PR review then identified that the older RecommendedProduct module did not
+  apply canonical monetization eligibility and ignored configured CTA labels.
+  It now reuses the same exported eligibility function as RecommendationSection,
+  and honors Thorne's Search Amazon label. Regression tests cover explicit and
+  hidden/null denial paths in both modules. Both callers are server components.
+  Final hosted build/tests must also validate this last review correction.
 
 ## Other live-audit findings: verified, not fixed by this PR
 
