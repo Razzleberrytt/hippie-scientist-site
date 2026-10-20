@@ -307,11 +307,11 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
     comparison_science={value.casefold() for value in comparison["science"]}
     if not {"mitragynine","7-oh","7-oh has one free hydroxyl"}.issubset(comparison_science):
         hold("VISIBLE_SOURCE_COMPARISON_LABELS_REQUIRED")
-    # The source-verified 2D diagrams are not footage of a reaction.
-    # Preserve the exact emitted disclaimer; do not require a 3D-model label
-    # that only belongs to the separate computed-pose scene.
-    if tuple(comparison["disclosure"])!=("Not a chemical reaction",):
-        hold("VISIBLE_NO_REACTION_COMPARISON_DISCLOSURE_REQUIRED")
+    # Exact decoded native phone-plan evidence for this 2D RDKit comparison
+    # emits both labels in this order: computed artwork, not a reaction.
+    # The separate computed 3D scene retains its own "not filmed" gate.
+    if tuple(comparison["disclosure"])!=("Computed model","Not a chemical reaction"):
+        hold("VISIBLE_COMPARISON_DISCLOSURES_REQUIRED")
     # The later 3D scene still requires both its computed and not-filmed caveats,
     # even if all artifact hashes and exact source IDs are re-generated.
     computed_disclosure=" ".join(shots[4]["emittedSourceAnnotations"]["disclosure"]).casefold()
