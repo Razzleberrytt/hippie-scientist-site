@@ -1,6 +1,13 @@
 # Current Sprint
 
 **Status:** Authoritative immediate execution queue
+### AUDIT-CLAIM-001 / #6940 — owner-directed safety-gate repair (2026-10-20)
+
+In review: close a reproduced claim-drift gate bypass caused by treating added
+`++` content as Git patch headers. This is a bounded safety interruption authorized
+by the owner's audit/fix and merge requests; no additional D/R/A slot or content
+admission is granted. Preserve existing thresholds and historical-debt behavior.
+See the [reproduction, acceptance criteria and validation record](audit/claim-drift-parser-2026-10-20.md).
 
 ### EvidenceMotion Lane 3 — same-scene replayed hero-transition negative guard, #6743 / PR #6928 (2026-10-18; IN REVIEW)
 
