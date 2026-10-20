@@ -214,6 +214,10 @@ describe('owner GPG-signed annotated release tags', () => {
       approved: true, at: Date.parse(timestamp),
     });
     expect(assessPublicationApproval({pr: ownerPr, changedFiles:[publicFile],signedTagProof:validProof}).allowed).toBe(true);
+    // Git's signed tag stores the signature after the signed message; some
+    // GitHub responses retain this armor inside tag.message.
+    const withArmor = {...validProof,tag:{...validProof.tag,message:message+'\n'+validProof.tag.verification.signature}};
+    expect(verifyOwnerSignedTag({pr:ownerPr,...withArmor})).toEqual({approved:true,at:Date.parse(timestamp)});
     expect(ownerSignedTagName(999, 'not-a-sha')).toBeNull();
   });
 
