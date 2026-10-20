@@ -81,11 +81,46 @@ describe('buildEvidenceRationale', () => {
 })
 
 describe('gradeIsBackedByEvidence', () => {
-  const human = [claim('RCT'), claim('RCT')]
+  const human = [
+    { ...claim('RCT'), pmid: '12345678' },
+    { ...claim('RCT'), pmid: '23456789' },
+  ]
 
   it('accepts a strong grade backed by human studies', () => {
     expect(gradeIsBackedByEvidence('A', buildEvidenceRationale(human)).backed).toBe(true)
     expect(gradeIsBackedByEvidence('B', buildEvidenceRationale(human)).backed).toBe(true)
+  })
+
+  it('does not count the same PMID twice across claim and detail sources', () => {
+    const rationale = buildEvidenceRationale([
+      { ...claim('meta-analysis'), pmid: '26875640' },
+      { ...claim('meta-analysis'), pubmedId: '26875640' },
+      { ...claim('animal study'), pmid: '34073784' },
+    ])
+    expect(rationale.totalClaimCount).toBe(3)
+    expect(rationale.classifiedStudyCount).toBe(2)
+    expect(rationale.humanStudyCount).toBe(1)
+    expect(rationale.identifiedHumanStudyCount).toBe(1)
+    expect(gradeIsBackedByEvidence('A', rationale)).toMatchObject({
+      backed: false,
+      reason: 'single-human-study-for-grade-a',
+    })
+  })
+
+  it('does not turn two unidentifiable claims into two independent publications', () => {
+    const rationale = buildEvidenceRationale([claim('RCT'), claim('RCT')])
+    expect(rationale.humanStudyCount).toBe(2)
+    expect(rationale.identifiedHumanStudyCount).toBe(0)
+    expect(gradeIsBackedByEvidence('A', rationale).backed).toBe(false)
+  })
+
+  it('deduplicates a PMID found in a PubMed source URL as well', () => {
+    const rationale = buildEvidenceRationale([
+      { ...claim('meta-analysis'), pmid: '24780090' },
+      { ...claim('meta-analysis'), source_url: 'https://pubmed.ncbi.nlm.nih.gov/24780090/' },
+    ])
+    expect(rationale.humanStudyCount).toBe(1)
+    expect(gradeIsBackedByEvidence('A', rationale).backed).toBe(false)
   })
 
   it('flags a strong grade with no human study on the record', () => {
