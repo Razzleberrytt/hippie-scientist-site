@@ -54,3 +54,8 @@ The repair is restaged alone on main base `e26fd6b66` for the owner's explicit
 merge request. The production-build evidence above belongs to the original dirty
 checkout, not this new PR head. Exact-head hosted checks are required before merge.
 No content or generated outputs are included in this repair PR.
+Hosted reconciliation on the initial restaged head found the existing active
+#6932 owner omitted its already-open PR #6934 from both authoritative tables.
+Live GitHub confirmed #6934 is open and closes #6932. Add only that PR reference;
+retain its lane, status, score and WIP count. This is a required merge-gate metadata
+repair, not admission or implementation of #6932.
