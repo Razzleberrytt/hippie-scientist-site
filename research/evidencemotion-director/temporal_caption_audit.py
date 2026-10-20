@@ -20,6 +20,14 @@ ROLES = frozenset({"science","source","hook","disclosure","caption"})
 MAX_WORDS_PER_SECOND = 5.0
 EXTRA_ALLOWED = {
     "sentence_1": {("hook","7-OH")},
+    # Source-bound native scene-2 structural comparison, not new clinical
+    # evidence; only these exact verified IDs/labels may enter the film.
+    "sentence_2": {
+        ("science","MITRAGYNINE"), ("science","7-OH"),
+        ("disclosure","Computed model"),
+        ("science","7-OH has one free hydroxyl"),
+        ("disclosure","Not a chemical reaction"),
+    },
     "sentence_5": {("science","≠"),("science","HUMAN EXPERIENCE")},
 }
 
