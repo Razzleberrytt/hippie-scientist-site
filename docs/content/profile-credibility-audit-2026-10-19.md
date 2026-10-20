@@ -1,6 +1,6 @@
 # Public profile credibility audit — #6932
 
-Status: implementation in review; production build, output, browser, protected merge and deployment evidence pending. Owner instruction: fix the supplied homepage/herb-index/Ashwagandha/Brassica audit and merge. Admission is tracked separately in PR #6933. No clinical signoff or search/business outcome is claimed.
+Status: implementation in review in PR #6934; local production export passed, exact-head hosted build and protected merge/deployment evidence pending. Owner instruction: fix the supplied homepage/herb-index/Ashwagandha/Brassica audit and merge. Admission is tracked separately in PR #6933. No clinical signoff or search/business outcome is claimed.
 
 ## Existing architecture and repair boundary
 
@@ -40,8 +40,10 @@ The final production invariant stage remains authoritative for claim-specific ci
 
 - Authenticated admission validation: PASS, D #6932, score 75.0, WIP 3/3.
 - Original negative regressions reproduced review N=958 and safety badges inferred from efficacy/mechanism prose before fixes; both passed afterward.
-- Focused evidence/safety/UI/localization tests: 86 tests across 10 files passed before the additional Grade A assessment regression; final focused rerun required.
+- Focused evidence/safety/UI/localization tests: 88 tests across 10 files passed, including Grade A assessment regression. Seven credibility regressions passed again after discovery eligibility changes.
 - Native production inventory negative regression: passed.
 - `npm run check:fast`: passed before the final Grade A assessment/publication-report adjustment; final source checks required.
 - Earlier production builds stopped on the old inventory floor and an invalid normalization call during preserve-governed-state refresh. Both were repaired; no earlier build is claimed as successful.
-- Remaining proof: final production/output gates, responsive themes, exact-head hosted checks, protected controller merge and production receipt.
+- Local production export: PASS (1704 HTML pages; structured-data and public-language checks passed). Full postbuild output groups passed after final sitemap generation. The earlier concurrent output invocation observed a transient sitemap before rewrite; it is not a release result. Final small source changes require the exact-head hosted export, including the compact pregnancy/liver warning regression and editorial compound social-card metadata.
+- Browser: four audited routes rendered at desktop/light and mobile/dark; Indian mustard is noindex with no mobile horizontal overflow. Captured screenshots exposed compact contraindication truncation, now removed and guarded by the output validator. Local static server returns a preexisting 404 for /api/analytics-eligibility; this is not field performance or whole-site accessibility proof.
+- Remaining proof: exact-head hosted export and output checks, final visual recheck, protected controller merge and production receipt.
