@@ -333,7 +333,7 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
                                    outline=(64,121,131,255) if name=='mitragynine'
                                            else (252,172,85,255),
                                    width=max(2,round(3*scale)))
-            text(pos(x+20,659),label,font=f(34,True),fill=fg,
+            text(pos(x+20,659),label,font=f(42,True),fill=fg,
                  role='science')
             # Exact RDKit connectivity image: no morph, reaction or fabricated
             # atomic model. Insets preserve the original 4:3 image aspect.
@@ -341,12 +341,12 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
                                                   round(303*scale)))
             image.alpha_composite(panel,pos(x+21,728))
             draw=ImageDraw.Draw(image)
-            text(pos(x+20,1049),('PubChem CID ' if x==72 else 'CID ')+str(cid),font=f(30),
+            text(pos(x+20 if x==72 else x,1049),('PubChem CID ' if x==72 else 'CID ')+str(cid),font=f(42),
                  fill=muted,role='source')
         text(pos(72,1136),'Orange = 7-OH hydroxyl',
-             font=f(36,True),fill=accent,role='science')
-        text(pos(72,1200),'Two structures, not a chemical reaction',
-             font=f(34),fill=muted,role='disclosure')
+             font=f(42,True),fill=accent,role='science')
+        text(pos(72,1200),'Not a chemical reaction',
+             font=f(42),fill=muted,role='disclosure')
     elif idx==4 and not light:
         # The original ending was essentially an empty typographic slide. Put
         # the *actual* source-verified connectivity drawing back on screen,
