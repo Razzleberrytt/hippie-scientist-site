@@ -254,7 +254,12 @@ export function gradeIsBackedByEvidence(
     return { backed: false, reason: 'no-human-study-recorded' }
   }
   if (grade === 'A' && rationale.identifiedHumanStudyCount < 2) {
-    return { backed: false, reason: 'single-human-study-for-grade-a' }
+    return {
+      backed: false,
+      reason: rationale.identifiedHumanStudyCount === 0
+        ? 'no-identifiable-human-publications-for-grade-a'
+        : 'single-human-study-for-grade-a',
+    }
   }
   return { backed: true, reason: null }
 }
