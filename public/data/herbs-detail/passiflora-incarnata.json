@@ -1,7 +1,7 @@
 {
   "name": "Passionflower",
   "slug": "passiflora-incarnata",
-  "summary": "Passionflower is used for mild mental stress and sleep tension; evidence is traditional/emerging rather than strong.",
+  "summary": "Systematic review included 9 clinical trials with study durations from 1 to 30 days; most reported reduced anxiety, with less clear effects in mild anxiety and limited standardization.",
   "description": "Traditional mild-stress and sleep support with cautious evidence framing.",
   "primaryActions": [
     "sleep",
@@ -23,7 +23,7 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Moderate evidence",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -144,5 +144,23 @@
     "safety-context",
     "summary-depth",
     "summary-quality-missing"
-  ]
+  ],
+  "evidence_grade": "B",
+  "evidence_grade_source": "b",
+  "evidence_tier": "Moderate evidence",
+  "evidence_tier_source": "Moderate Human Evidence",
+  "evidenceTier": "Moderate evidence",
+  "evidence_grade_band": "moderate",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on moderate evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Consistent",
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 6 recorded studies, 6 in people. No disagreement is recorded across them.",
+  "evidence_human_study_count": 6,
+  "evidence_recorded_study_count": 6,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }
