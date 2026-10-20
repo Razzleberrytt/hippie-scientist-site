@@ -138,7 +138,7 @@ async function main() {
   ])
   const riskTier = classifyRisk({ pr, changedFiles })
   if (!changedFiles.length) throw new Error('Cannot evaluate publication approval: PR files unavailable')
-  const approvalEvidence = await loadPublicationApprovalEvidence(github, repo, number, changedFiles)
+  const approvalEvidence = await loadPublicationApprovalEvidence(github, repo, number, changedFiles, pr)
 
   if (!currentBaseSha || !(await headContainsBase(repo, currentBaseSha, currentHeadSha))) {
     console.log(`[PR #${number}] [${riskTier}] defer: base drift is owned by the serialized fallback sweep`)
