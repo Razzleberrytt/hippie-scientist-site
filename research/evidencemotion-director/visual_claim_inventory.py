@@ -202,9 +202,25 @@ def inventory(movie, receipt_path, phone_path, science_path, story_path,
         hold("SPOKEN_CAPTIONS_NOT_FULLY_ASSIGNED_TO_SHOTS")
     if not 34.3<=previous_end<=34.5:
         hold("FULL_ORIGINAL_TIMELINE_REQUIRED")
-    if any(len(row["emittedSourceAnnotations"]["source"]) for row in rows
-           if row["shot"]!="source_hold"):
-        hold("SOURCE_IDENTITY_CARD_OFF_SCENE")
+    # Scene 2 may identify the TWO already-verified molecule drawings
+    # directly on its side-by-side comparison. Every other non-source-card
+    # source label remains forbidden, and the full silent source card is
+    # still mandatory, separately source/decoded-pixel verified below.
+    comparison_sources=("CID 3034396", "CID 44301524")
+    for row in rows:
+        declared=tuple(row["emittedSourceAnnotations"]["source"])
+        if row["shot"]=="sentence_2":
+            if declared!=comparison_sources:
+                hold("SOURCE_COMPARISON_CID_PAIR_CHANGED")
+            # Both exact IDs must be independently legible in encoded pixels,
+            # not merely present in caller-generated annotations.
+            raw=next(v["rawPixelOcrText"] for v in pixel_rows
+                     if v["shot"]=="sentence_2")
+            for identifier in comparison_sources:
+                if identifier.casefold() not in re.sub(r"\\s+"," ",raw.casefold()):
+                    hold("SOURCE_COMPARISON_CID_INK_MISSING")
+        elif row["shot"]!="source_hold" and declared:
+            hold("SOURCE_IDENTITY_CARD_OFF_SCENE")
     if tuple(rows[7]["emittedSourceAnnotations"]["source"])!=SOURCE_CARD_LABELS:
         hold("SOURCE_CARD_TEXT_IDENTITY_OR_CID_ASSOCIATION_CHANGED")
     return {"schema":SCHEMA,"task":"EM-007.02","filmSha256":film,
