@@ -326,11 +326,18 @@ async function refreshPrLifecycle(reg){
   }
  }
 }
+/** Reconcile terminal batch reservations in the same serialized registry write. */
+export function reconcileTerminalReservations(reg){
+ const terminalStates=new Map(reg.batches.filter(b=>b.state==='ABANDONED'||b.state==='MERGED').map(b=>[b.id,b.state==='ABANDONED'?'RELEASED':'MERGED']));
+ for(const reservation of reg.reservations){
+  const state=terminalStates.get(reservation.batch_id);
+  if(state)reservation.state=state;
+ }
+ return reg;
+}
 async function commitRegistryMutation(mutator,message){
  return withRecovery(async()=>{const current=await getRegistry(),reg=current.value;await mutator(reg);
-  // Persist terminal batch transitions atomically with their reservations, including legacy stale records.
-  const terminalStates=new Map(reg.batches.filter(b=>b.state==='ABANDONED'||b.state==='MERGED').map(b=>[b.id,b.state==='ABANDONED'?'RELEASED':'MERGED']));
-  for(const reservation of reg.reservations){const state=terminalStates.get(reservation.batch_id);if(state)reservation.state=state;}
+  reconcileTerminalReservations(reg);
   const saved=await putRegistry(current,reg,message);return {reg,saved}},{});
 }
 async function persistObservatory(reg){
