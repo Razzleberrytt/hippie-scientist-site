@@ -81,10 +81,11 @@ class NarrationTreatments(unittest.TestCase):
         self.assertEqual(frame.size,(1080,1920))
         labels={a['text']:a for a in annotations}
         for label in ('MITRAGYNINE','7-OH',
-                      'CID 3034396','CID 44301524',
                       'Not a chemical reaction'):
             self.assertIn(label,labels)
             self.assertLessEqual(labels[label]['boxPx'][2],1020)
+        self.assertFalse(any(a['role']=='source' for a in annotations),
+                         'Full CID references belong on the source card')
         # Two physically distinct RDKit molecule images are visible, not an
         # invented transformation or duplicated hero rendered twice.
         left=frame.convert('RGB').crop((93,736,490,1024))
