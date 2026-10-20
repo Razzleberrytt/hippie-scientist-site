@@ -147,11 +147,12 @@ function trustedApprovalEvents({ comments, reviews, owner, number, headSha }) {
     if (String(review?.user?.type || '').toLowerCase() === 'bot') continue;
     if (review.commit_id !== headSha) continue;
     if (!['APPROVED','CHANGES_REQUESTED','DISMISSED'].includes(review.state)) continue;
-    // GitHub REST PR review objects currently do not reliably report
-    // performed_via_github_app. An owner's account can also act via apps.
-    // Thus only explicit non-app provenance may GRANT; negative review states
-    // continue to invalidate earlier approvals as a safety precaution.
-    if (review.state === 'APPROVED' && review.performed_via_github_app !== null) continue;
+    // A null/absent performed_via_github_app field does NOT authenticate direct
+    // human action: owner-authorized apps can also submit reviews under the
+    // owner's identity. REST reviews are therefore negative-veto evidence only.
+    // No positive review can GRANT until nondelegable origin is independently
+    // proven by a server-authenticated, revocable receipt.
+    if (review.state === 'APPROVED') continue;
     events.push({
       approved: review.state === 'APPROVED',
       at: Date.parse(review.submitted_at || '') || 0,
@@ -198,7 +199,7 @@ export function assessPublicationApproval({ pr, changedFiles, comments = [], rev
     ...classification,
     reason: approved
       ? 'exact-head approval from repository owner verified; existing science and release gates still apply'
-      : `publication review hold for PR #${number} exact head ${head}: positive PR-comment approval tokens and signed-tag approvals are disabled pending a nondelegable, revocable human-origin mechanism; only a server-verifiable non-app exact-head APPROVED review can grant. Do not accept app-generated approvals or editable comments`,
+      : `publication review hold for PR #${number} exact head ${head}: positive PR-comment approval tokens and signed-tag approvals are disabled pending a nondelegable, revocable human-origin mechanism; REST approval reviews without independently proven nondelegable human provenance cannot grant. No positive approval mechanism is currently active; do not accept app-generated approvals or editable comments`,
   };
 }
 
