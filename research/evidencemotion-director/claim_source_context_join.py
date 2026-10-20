@@ -291,8 +291,10 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
     comparison_science={value.casefold() for value in comparison["science"]}
     if not {"mitragynine","7-oh","7-oh has one free hydroxyl"}.issubset(comparison_science):
         hold("VISIBLE_SOURCE_COMPARISON_LABELS_REQUIRED")
-    if tuple(comparison["disclosure"])!=("Not a chemical reaction",):
-        hold("VISIBLE_NO_REACTION_COMPARISON_DISCLOSURE_REQUIRED")
+    # RDKit's two-dimensional structure render is computational artwork; do
+    # not let its source attribution imply filmed chemistry or a reaction.
+    if tuple(comparison["disclosure"])!=("Computed model","Not a chemical reaction"):
+        hold("VISIBLE_COMPARISON_DISCLOSURES_REQUIRED")
     # The later 3D scene still requires both its computed and not-filmed caveats,
     # even if all artifact hashes and exact source IDs are re-generated.
     computed_disclosure=" ".join(shots[4]["emittedSourceAnnotations"]["disclosure"]).casefold()
