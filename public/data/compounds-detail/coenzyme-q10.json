@@ -2,7 +2,7 @@
   "id": "coenzyme-q10",
   "slug": "coenzyme-q10",
   "name": "Coenzyme Q10",
-  "summary": "Coenzyme Q10 has human evidence in specific contexts, but effects are not uniform: Q-SYMBIO reported a chronic-heart-failure event signal, pooled fatigue evidence is modest, depression findings vary by scale, anxiety data are limited and not statistically significant, and exercise-performance effects are small and inconsistent.",
+  "summary": "Coenzyme Q10 is best framed around mitochondrial energy context, statin-associated muscle symptom research, heart-failure support context, and exercise-fatigue studies, with safety screening for warfarin and blood-pressure medication review.",
   "description": "CoQ10 evidence is endpoint- and population-dependent. A disease-specific heart-failure RCT and several randomized-trial syntheses provide human signals, but depression scales disagree, anxiety evidence is limited and not statistically significant, fatigue findings vary by population, and exercise effects are low-certainty. These data do not justify a universal benefit or dosing claim.",
   "compoundClass": "",
   "mechanisms": [
@@ -18,7 +18,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Preserve medication-interaction screening, especially with warfarin or other vitamin-K antagonists and blood-pressure or glucose-lowering therapies. The reviewed efficacy evidence does not establish a universal consumer dose, formulation, or long-term safety profile.",
-  "evidenceLevel": "Moderate Human Evidence",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -69,9 +69,9 @@
     "curated_allowlist"
   ],
   "safety": "Preserve medication-interaction screening, especially with warfarin or other vitamin-K antagonists and blood-pressure or glucose-lowering therapies. The reviewed efficacy evidence does not establish a universal consumer dose, formulation, or long-term safety profile.",
-  "evidence_tier": "Moderate Human Evidence",
-  "evidenceTier": "Moderate Human Evidence",
-  "evidence_grade": "C",
+  "evidence_tier": "Preliminary evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade": "D",
   "evidence_label": "Moderate Human Evidence",
   "evidenceLabel": "Moderate Human Evidence",
   "sources": [
@@ -147,5 +147,20 @@
     "40833470",
     "41294251",
     "41457257"
-  ]
+  ],
+  "evidence_grade_source": "moderate-high",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Randomized controlled trial",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people.",
+  "evidence_human_study_count": 1,
+  "evidence_recorded_study_count": 1,
+  "evidence_strongest_design": "rct",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

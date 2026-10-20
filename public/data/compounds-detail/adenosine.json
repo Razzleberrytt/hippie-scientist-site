@@ -2,7 +2,7 @@
   "id": "adenosine",
   "slug": "adenosine",
   "name": "Adenosine",
-  "summary": "Adenosine receptor agonist used clinically by IV route for cardiac conduction effects; not a general oral supplement intervention.",
+  "summary": "Adenosine is an endogenous purine nucleoside with established IV clinical use for supraventricular tachycardia. Oral supplementation evidence is not established.",
   "description": "Adenosine is a clinically used receptor agonist for IV cardiac conduction effects; it is not comparable to general oral supplement interventions.",
   "compoundClass": "",
   "mechanisms": [
@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "IV use can cause flushing and chest discomfort; clinical setting only for cardiac use; no established oral supplement dosing.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -45,5 +45,23 @@
   "contraindications": [
     "Injectable adenosine used for supraventricular tachycardia is contraindicated in second- or third-degree AV block or sick sinus syndrome without a pacemaker and in bronchoconstrictive lung disease such as asthma due to bronchospasm risk (FDA Adenocard prescribing information)",
     "this describes clinical IV drug use rather than oral dietary supplementation since oral safety data do not exist."
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

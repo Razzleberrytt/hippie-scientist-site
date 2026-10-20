@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Biotin supplements can interfere with some thyroid and cardiac troponin assays, causing misleading results. Risk and test precautions depend on dose, assay and laboratory; disclose supplement use before testing.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Editorial grade not demonstrated by recorded studies",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -84,7 +84,7 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "fully_mapped",
   "unmapped_mechanisms": [],
-  "evidence_tier": "Moderate Human Evidence",
+  "evidence_tier": "Editorial grade not demonstrated by recorded studies",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
@@ -104,5 +104,22 @@
     "Laboratory blood testing using biotin-sensitive immunoassays, including certain cardiac troponin and thyroid tests (results can read falsely low or high depending on assay design)",
     "Tell the clinician and testing laboratory about biotin supplement use before testing; whether a pause or repeat test is appropriate, and its timing, depend on biotin exposure, the specific assay, and clinical urgency",
     "Not a treatment for underlying thyroid or cardiac disease despite lab-interference risk"
-  ]
+  ],
+  "evidence_grade": null,
+  "evidence_grade_source": "b",
+  "evidence_tier_source": "Moderate Human Evidence",
+  "evidenceTier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_grade_band": null,
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "The authored grade is preserved for provenance, but the recorded studies do not currently demonstrate that strength, so no settled public evidence grade is shown.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Regulatory or official guidance",
+  "evidence_risk_of_bias": "High",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a regulatory or official guidance, drawn from 1 recorded study, none of which measured an outcome in people.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 1,
+  "evidence_strongest_design": "regulatory-guidance",
+  "evidence_grade_backed": false,
+  "evidence_grade_backing_gap": "no-human-study-recorded"
 }

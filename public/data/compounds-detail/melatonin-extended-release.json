@@ -2,7 +2,7 @@
   "id": "melatonin-extended-release",
   "slug": "melatonin-extended-release",
   "name": "Extended-release melatonin",
-  "summary": "Extended-release melatonin carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on hormonal signaling context, serotonergic and endocrine, which describes mechanism rather than demonstrated benefit. Safety evidence: extended release may prolong exposure and next-day drowsiness, but formulation-specific comparative safety evidence is limited. Headache and dizziness occur in melatonin trials; driving, concurrent sedatives, pregnancy, breastfeeding, pediatric use, and chronic use require individualized review.",
+  "summary": "Circadian rhythm support; safety screen: pregnancy without clinician guidance; sedatives; next-day drowsiness risk.",
   "description": "Extended-release melatonin supports sleep maintenance by stabilizing circadian timing and nighttime melatonin availability, with clinical confidence stronger for sleep onset/maintenance outcomes.",
   "compoundClass": "",
   "mechanisms": [
@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Extended-release products may increase next-day grogginess; use caution with sedatives.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -50,5 +50,23 @@
     "missing_record_level_sources"
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "evidence_grade": "D",
+  "evidence_grade_source": "moderate",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

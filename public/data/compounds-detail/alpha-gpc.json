@@ -2,7 +2,7 @@
   "id": "alpha-gpc",
   "slug": "alpha-gpc",
   "name": "Alpha-GPC",
-  "summary": "Alpha-GPC carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a uncontrolled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, neurotransmitter modulation and cellular protection, which describes mechanism rather than demonstrated benefit. Noted cautions include known hypersensitivity to alpha-GPC or its excipients.",
+  "summary": "Memory support; power output support; safety screen: low blood pressure; cholinergic sensitivity; anticholinergic medication conflicts.",
   "description": "Alpha-GPC supports memory; focus; performance with moderate-high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -18,7 +18,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Use caution with cholinergic drugs, low blood pressure, or sensitivity to headaches/nausea from choline donors.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -81,5 +81,23 @@
     "cardiovascular conditions or autonomic dysfunction warrant clinician guidance before use",
     "may potentiate cholinesterase inhibitors such as donepezil or rivastigmine",
     "pregnancy or breastfeeding without clinician guidance due to insufficient safety data"
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "moderate",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Uncontrolled trial",
+  "evidence_risk_of_bias": "Medium",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a uncontrolled trial, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "uncontrolled-trial",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

@@ -2,7 +2,7 @@
   "id": "potassium",
   "slug": "potassium",
   "name": "Potassium",
-  "summary": "Potassium carries a Grade A rating — strong evidence. Strongest recorded design is a meta-analysis, drawn from 1 recorded study, 1 in people. Recorded activity centres on cellular protection, vascular function support and cardiovascular, which describes mechanism rather than demonstrated benefit. Noted cautions include caution with ACE inhibitors/renal disease.",
+  "summary": "Blood pressure support; electrolyte balance; safety screen: kidney disease; ACE inhibitors/ARBs; potassium-sparing diuretics.",
   "description": "Potassium supports electrolyte balance for normal blood pressure regulation and neuromuscular function; evidence is strongest for deficiency correction and blood pressure outcomes.",
   "compoundClass": "",
   "mechanisms": [
@@ -17,7 +17,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Do not supplement casually with kidney disease or potassium-retaining medications.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Editorial grade not demonstrated by recorded studies",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -52,5 +52,23 @@
   "sitemap_included": false,
   "indexability_reasons": [
     "noindex-decision:hidden_until_grounded"
-  ]
+  ],
+  "evidence_grade": null,
+  "evidence_grade_source": "high",
+  "evidence_tier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_grade_band": null,
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "The authored grade is preserved for provenance, but the recorded studies do not currently demonstrate that strength, so no settled public evidence grade is shown.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 1 recorded study, 1 in people.",
+  "evidence_human_study_count": 1,
+  "evidence_recorded_study_count": 1,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": false,
+  "evidence_grade_backing_gap": "single-human-study-for-grade-a"
 }

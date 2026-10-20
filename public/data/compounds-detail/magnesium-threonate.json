@@ -17,7 +17,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "GI upset possible; caution renal impairment and high-dose magnesium use.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Insufficient evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -54,5 +54,23 @@
   "typical_dosage": "chelated mineral capsule or powder",
   "contraindications": [
     "kidney"
-  ]
+  ],
+  "evidence_grade": "Avoid/Insufficient",
+  "evidence_grade_source": "insufficient",
+  "evidence_tier": "Insufficient evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Insufficient evidence",
+  "evidence_grade_band": "insufficient",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (insufficient evidence) and evidence tier (limited evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

@@ -2,7 +2,7 @@
   "id": "asiaticoside",
   "slug": "asiaticoside",
   "name": "asiaticoside",
-  "summary": "Centella triterpene glycoside linked to wound and matrix signaling pathways.",
+  "summary": "Triterpenoid saponin glycoside from Centella asiatica that supports collagen synthesis and wound healing. Topical and oral forms studied; modest clinical evidence for skin and vascular support.",
   "description": "Asiaticoside from Centella is linked to wound healing and extracellular matrix remodeling, with pathway activity relevant to repair signaling in preclinical studies.",
   "compoundClass": "",
   "mechanisms": [
@@ -17,7 +17,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Human safety mostly from Centella extracts/topicals. Caution with liver disease, sedatives, pregnancy, and high-dose prolonged supplementation.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -46,5 +46,23 @@
   "contraindications": [
     "pregnancy",
     "liver"
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

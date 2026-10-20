@@ -17,7 +17,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "A 12-week trial of a diosgenin-rich yam extract in healthy adults reported no adverse effects, but that formulation is not equivalent to isolated diosgenin. Isolated-compound endocrine, pregnancy, breastfeeding, bleeding, blood-sugar, liver, kidney, and medication-interaction safety remain insufficient.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -124,7 +124,7 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "fully_mapped",
   "unmapped_mechanisms": [],
-  "evidence_tier": "Strong Human Evidence",
+  "evidence_tier": "Limited evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
@@ -151,5 +151,22 @@
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
     "pregnancy"
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (limited evidence) and evidence tier (strong evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 1 in people.",
+  "evidence_human_study_count": 1,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

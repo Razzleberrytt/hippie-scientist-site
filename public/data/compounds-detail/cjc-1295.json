@@ -22,7 +22,7 @@
   ],
   "bioavailability": "Subcutaneous injection. DAC form has an extended half-life of several days via albumin binding; non-DAC (Mod GRF 1-29) form has a short ~30-minute half-life.",
   "safetyNotes": "DAC form's sustained non-pulsatile GH/IGF-1 elevation carries theoretical long-term risk based on broader GH-axis literature; no CJC-1295-specific long-term human safety data exists.",
-  "evidenceLevel": "preliminary",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [
     "ipamorelin"
   ],
@@ -66,5 +66,23 @@
     "unsupervised RUO product use without physician oversight",
     "May potentiate insulin or other antidiabetic medications (additive blood-glucose effects) and other GH-axis peptides",
     "no controlled long-term human interaction data exists."
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "preliminary",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on preliminary evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

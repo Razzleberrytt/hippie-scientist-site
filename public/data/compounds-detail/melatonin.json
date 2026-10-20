@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Higher-dose review found limited serious adverse-event signal but increased drowsiness, headache, and dizziness; long-term safety reporting is limited. Keep melatonin products, especially flavored tablets and gummies, secured out of children's reach and sight. CDC estimated approximately 11,000 US emergency-department visits for unsupervised melatonin ingestions in children aged 5 or younger during 2019–2022; a separate poison-center dataset recorded a 530% rise in pediatric ingestions over 2012–2021. These are surveillance estimates, not proof that prescribed pediatric use has the same risk. Consult a pediatric clinician before giving melatonin to children; medication and seizure-disorder cautions also apply. Sources: CDC MMWR 2022 (71:725–729) and 2024 (73:215–217). Prior established cautions: Higher-dose review found limited serious adverse-event signal but increased drowsiness, headache, and dizziness; long-term safety reporting is limited.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Strong evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -340,5 +340,23 @@
     "sedative medications or benzodiazepines or alcohol due to additive drowsiness and impaired alertness",
     "epilepsy or seizure disorder medications warrant clinician guidance due to limited safety data on interactions with anticonvulsants",
     "children or adolescents without pediatrician guidance due to limited long-term safety data on hormonal development."
-  ]
+  ],
+  "evidence_grade": "A",
+  "evidence_grade_source": "high",
+  "evidence_tier": "Strong evidence",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Strong evidence",
+  "evidence_grade_band": "strong",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on strong evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Consistent",
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 12 recorded studies, 11 in people. No disagreement is recorded across them.",
+  "evidence_human_study_count": 11,
+  "evidence_recorded_study_count": 12,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "GI upset common; overdose toxic.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Strong evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -112,7 +112,7 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "fully_mapped",
   "unmapped_mechanisms": [],
-  "evidence_tier": "Strong Human Evidence",
+  "evidence_tier": "Strong evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "sitemap_included": true,
@@ -180,5 +180,22 @@
   "typical_dosage": "chelated mineral capsule or powder",
   "contraindications": [
     "Avoid in hemochromatosis."
-  ]
+  ],
+  "evidence_grade": "A",
+  "evidence_grade_source": "a",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Strong evidence",
+  "evidence_grade_band": "strong",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on strong evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Randomized controlled trial",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Consistent",
+  "evidence_rationale": "Strongest recorded design is a randomized controlled trial, drawn from 4 recorded studies, 4 in people. No disagreement is recorded across them.",
+  "evidence_human_study_count": 4,
+  "evidence_recorded_study_count": 4,
+  "evidence_strongest_design": "rct",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

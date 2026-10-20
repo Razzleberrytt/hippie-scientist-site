@@ -2,7 +2,7 @@
   "id": "l-tyrosine",
   "slug": "l-tyrosine",
   "name": "L-Tyrosine",
-  "summary": "L-tyrosine is best framed for acute stress performance, sleep-deprivation focus, and cold or demanding-task resilience, with safety screening for MAOIs, hyperthyroidism, stimulant sensitivity, levodopa, and thyroid medication review.",
+  "summary": "May support cognition in sleep-deprivation or acute demanding stress contexts.",
   "description": "L-tyrosine is best framed for acute stress performance, sleep-deprivation focus, and cold or demanding-task resilience, with safety screening for MAOIs, hyperthyroidism, stimulant sensitivity, levodopa, and thyroid medication review.",
   "compoundClass": "",
   "mechanisms": [
@@ -17,7 +17,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Caution for thyroid/MAOI/stimulant-medication contexts in later safety pass.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -101,5 +101,23 @@
     "summary-present",
     "summary-quality-missing",
     "curated_allowlist"
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "C+",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "minor-disagreement",
+  "evidence_grade_explanation": "The evidence tier records preliminary evidence, one band from the recorded grade.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Systematic review",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a systematic review, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "systematic-review",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

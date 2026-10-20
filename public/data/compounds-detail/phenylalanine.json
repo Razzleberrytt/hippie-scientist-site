@@ -2,7 +2,7 @@
   "id": "phenylalanine",
   "slug": "phenylalanine",
   "name": "Phenylalanine",
-  "summary": "Phenylalanine carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on neurotransmitter modulation and catecholaminergic, which describes mechanism rather than demonstrated benefit. Noted cautions include ssri.",
+  "summary": "Mood/focus context; safety screen: phenylketonuria; MAO inhibitors; pregnancy high-dose caution.",
   "description": "Phenylalanine compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Contraindicated in PKU; avoid with MAOIs.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -44,5 +44,23 @@
   "typical_dosage": "capsule/powder",
   "contraindications": [
     "ssri"
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "low",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on preliminary evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

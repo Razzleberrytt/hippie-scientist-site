@@ -2,7 +2,7 @@
   "id": "cobalamin",
   "slug": "cobalamin",
   "name": "vitamin b12",
-  "summary": "Vitamin B12 is effective for correcting documented deficiency, but the reviewed evidence does not support broad cognitive, antidepressant, fatigue, growth, or developmental enhancement in nondeficient or generally supplemented populations.",
+  "summary": "Corrects deficiency and prevents anemia and neuropathy.",
   "description": "Cobalamin evidence is strongly context-dependent: correcting true deficiency is distinct from using vitamin B12 as a general nootropic or mood enhancer. Across systematic reviews and meta-analyses, biochemical deficiency correction can occur without corresponding cognitive or depressive benefit in nondeficient or broadly supplemented populations.",
   "compoundClass": "",
   "mechanisms": [
@@ -17,7 +17,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Treat deficiency-related neurologic or hematologic concerns as clinical issues rather than supplement-optimization targets. The reviewed evidence does not establish a universal consumer dose, route, or cobalamin form for cognitive or mood enhancement.",
-  "evidenceLevel": "Moderate Human Evidence",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -50,9 +50,9 @@
     "noindex-decision:hidden_until_grounded"
   ],
   "safety": "Treat deficiency-related neurologic or hematologic concerns as clinical issues rather than supplement-optimization targets. The reviewed evidence does not establish a universal consumer dose, route, or cobalamin form for cognitive or mood enhancement.",
-  "evidence_tier": "Moderate Human Evidence",
-  "evidenceTier": "Moderate Human Evidence",
-  "evidence_grade": "C",
+  "evidence_tier": "Preliminary evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade": "D",
   "evidence_label": "Moderate Human Evidence",
   "evidenceLabel": "Moderate Human Evidence",
   "sources": [
@@ -128,5 +128,20 @@
     "37046885",
     "42227307",
     "39655146"
-  ]
+  ],
+  "evidence_grade_source": "strong",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (strong evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

@@ -2,7 +2,7 @@
   "id": "egcg-caffeine",
   "slug": "egcg-caffeine",
   "name": "EGCG + Caffeine",
-  "summary": "EGCG + Caffeine carries a Grade B rating — moderate evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, vascular function support and AMPK signaling, which describes mechanism rather than demonstrated benefit. Noted cautions include previous green-tea-extract-associated liver injury and high-dose EGCG extract use without clinical supervision.",
+  "summary": "COMT; adenosine antagonism with conservative evidence framing.",
   "description": "EGCG + Caffeine compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Moderate evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -78,5 +78,23 @@
     "Previous green-tea-extract-associated liver injury",
     "high-dose EGCG extract use without clinical supervision",
     "especially when fasting."
-  ]
+  ],
+  "evidence_grade": "B",
+  "evidence_grade_source": "b",
+  "evidence_tier": "Moderate evidence",
+  "evidence_tier_source": "Moderate Human Evidence",
+  "evidenceTier": "Moderate evidence",
+  "evidence_grade_band": "moderate",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on moderate evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

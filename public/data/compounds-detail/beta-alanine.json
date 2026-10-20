@@ -2,7 +2,7 @@
   "id": "beta-alanine",
   "slug": "beta-alanine",
   "name": "Beta-Alanine",
-  "summary": "Beta-Alanine carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Recorded activity centres on increases muscle carnosine and buffering intracellular pH., which describes mechanism rather than demonstrated benefit. Noted cautions include generally safe and dose-splitting reduces side effects.",
+  "summary": "Repeated sprint performance; muscular buffering; safety screen: paresthesia sensitivity.",
   "description": "Beta-Alanine supports endurance; high-intensity exercise; buffering with high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Tingling is common and dose-related; divide doses or use sustained-release.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -96,5 +96,23 @@
   "contraindications": [
     "Generally safe",
     "dose-splitting reduces side effects."
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "high",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (strong evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

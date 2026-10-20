@@ -2,7 +2,7 @@
   "id": "garcinia-cambogia-extract",
   "slug": "garcinia-cambogia-extract",
   "name": "Garcinia Cambogia Extract",
-  "summary": "Garcinia Cambogia Extract compound profile with evidence, safety, and practical fit.",
+  "summary": "Garcinia Cambogia Extract carries a Grade C rating — limited evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on mitochondrial support, metabolic regulation and metabolic, which describes mechanism rather than demonstrated benefit. Noted cautions include documented case reports of drug-induced liver injury including acute hepatitis or fulminant liver failure requiring transplant usually after two to seven months of continuous use.",
   "description": "Garcinia Cambogia Extract compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
@@ -15,7 +15,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "GI upset; rare hepatotoxicity reports; caution in liver disease.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -98,7 +98,7 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "fully_mapped",
   "unmapped_mechanisms": [],
-  "evidence_tier": "Limited Human Evidence",
+  "evidence_tier": "Limited evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
@@ -130,5 +130,23 @@
     "discontinue immediately and seek medical care for jaundice or dark urine or abdominal pain or unusual fatigue",
     "caution with concurrent medications such as montelukast due to a documented herb-drug interaction implicated in liver injury case reports",
     "pregnancy or breastfeeding caution due to insufficient safety data."
-  ]
+  ],
+  "summary_source": "composed-from-record",
+  "evidence_grade": "C",
+  "evidence_grade_source": "Low/mixed human evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Randomized controlled trial",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "rct",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

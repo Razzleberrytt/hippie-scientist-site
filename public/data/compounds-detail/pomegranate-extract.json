@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Human pomegranate juice and extract studies were heterogeneous, with inconsistent product characterization and limited safety and interaction reporting. Small blood-pressure effects do not establish a clinically significant antihypertensive interaction; pregnancy, breastfeeding, surgery, and medication-specific safety remain insufficiently characterized.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Insufficient evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -92,5 +92,23 @@
     }
   ],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "evidence_grade": "Avoid/Insufficient",
+  "evidence_grade_source": "insufficient",
+  "evidence_tier": "Insufficient evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Insufficient evidence",
+  "evidence_grade_band": "insufficient",
+  "evidence_grade_reason": "minor-disagreement",
+  "evidence_grade_explanation": "The evidence tier records preliminary evidence, one band from the recorded grade.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }
