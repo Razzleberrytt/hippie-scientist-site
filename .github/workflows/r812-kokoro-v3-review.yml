@@ -1,4 +1,4 @@
-name: R8.12 original Kokoro V3 draft narration
+name: EvidenceMotion natural-length Kokoro radio edit
 on:
   pull_request:
     paths:
@@ -43,11 +43,17 @@ jobs:
           sudo apt-get install -y espeak-ng ffmpeg
           python -m pip install -r scripts/distribution/requirements-local-voice.txt
           python -m pip install 'numpy<3' 'scipy<2' 'soundfile==0.14.0'
-      - name: Synthesize exact V3 review script using authentic am_michael
+          python -m pip check
+          python - <<'PY'
+          import onnxruntime as ort
+          assert ort.__version__ == '1.31.0', f'Unverified narrator CPU backend: {ort.__version__}'
+          print('Original pinned narrator ONNX Runtime backend:', ort.__version__)
+          PY
+      - name: Lock naturally timed V3 radio edit with authentic am_michael
         run: python scripts/distribution/r812-mitragynine-review-voice.py artifacts/r812
       - name: Render native-versus-continuous pronunciation audition clips
         run: python scripts/distribution/r812-pronunciation-probe.py artifacts/r812/mitragynine-probe
-      - name: Check WAV codec, duration and independent pinned model receipts
+      - name: Check actual WAV duration, immutable voice and no fixed-picture timing
         shell: bash
         run: |
           set -euo pipefail
@@ -64,12 +70,21 @@ jobs:
           assert rec['voicebankSha256']=='bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d'
           assert rec['voice']=='am_michael' and rec['wordLevelAlignmentCertified'] is False
           assert rec['humanAuditoryReview']=='pending'
-          print('AUTHENTIC HOUSE VOICE: PASS. NOT FINAL VIDEO APPROVAL.')
+          assert rec['sceneTiming']=='natural-voice-locked-radio-edit; picture must be recut'
+          assert rec['timeStretchApplied'] is False and rec['originalDurationPreserved'] is True
+          assert all(c['timeStretchApplied'] is False for c in rec['clips'])
+          from wave import open as open_wav
+          with open_wav(str(wav),'rb') as f:
+              audio_duration=f.getnframes()/f.getframerate()
+          assert abs(audio_duration-rec['durationSeconds']) < .001
+          assert rec['releaseAuthority']=='draft-only-not-for-publication'
+          print(f'AUDIO FIRST: locked natural {audio_duration:.2f}s WAV. Old 43s picture timing obsolete.')
+          print('NOT phone-, craft-, science-, or final-video approval.')
           PY
       - name: Export human-review-only WAV and its exact provenance
         uses: actions/upload-artifact@v4
         with:
           name: r812-mitragynine-original-kokoro-review-wav
           if-no-files-found: error
-          retention-days: 7
+          retention-days: 30
           path: artifacts/r812/*
