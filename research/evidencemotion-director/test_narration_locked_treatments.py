@@ -536,8 +536,8 @@ class NarrationTreatments(unittest.TestCase):
             if original['id']=='sentence_2':
                 self.assertEqual(before[:2],after[:2])
                 self.assertEqual(after[2:],[
-                    ('science','MITRAGYNINE'),('source','CID 3034396'),
-                    ('science','7-OH'),('source','CID 44301524'),
+                    ('science','MITRAGYNINE'),
+                    ('science','7-OH'),
                     ('science','7-OH has one free hydroxyl'),
                     ('disclosure','Not a chemical reaction')])
             else:
