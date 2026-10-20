@@ -90,6 +90,16 @@ class NarrationTreatments(unittest.TestCase):
         left=frame.convert('RGB').crop((93,736,490,1024))
         right=frame.convert('RGB').crop((579,736,976,1024))
         self.assertIsNotNone(ImageChops.difference(left,right).getbbox())
+        # The WHOLE molecule panels, not only text annotations, must avoid
+        # the right-side platform controls (x > 0.8 * 1080). Compare against
+        # the physical native background in the science-stage panel region.
+        from narration_locked_treatments import background
+        safe_x=round(1080*.80)
+        graphic_region=(safe_x,640,1080,1090)
+        self.assertIsNone(ImageChops.difference(
+            frame.convert('RGB').crop(graphic_region),
+            background((1080,1920)).convert('RGB').crop(graphic_region)
+        ).getbbox())
         false_source=dict(assets)
         false_source['mitragynine']=dict(assets['mitragynine'],oh=[3])
         with self.assertRaisesRegex(ValueError,'MOLECULAR_COMPARISON_SOURCE_DRIFT'):
