@@ -1,6 +1,13 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
+### AUDIT-CLAIM-001 / #6940 — owner-directed safety-gate repair (2026-10-20)
+
+In review: close a reproduced claim-drift gate bypass caused by treating added
+`++` content as Git patch headers. This is a bounded safety interruption authorized
+by the owner's audit/fix and merge requests; no additional D/R/A slot or content
+admission is granted. Preserve existing thresholds and historical-debt behavior.
+See the [reproduction, acceptance criteria and validation record](audit/claim-drift-parser-2026-10-20.md).
 
 ### EvidenceMotion Lane 3 — repeated teaching-object transition guard, #6743 / PR #6928 (2026-10-18; REVIEW HOLD)
 
@@ -114,7 +121,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-| #6932 | Repair public herb profile credibility and audit regressions | D | Active — owner-directed public presentation repair; scientific approvals unchanged | P1 | 5/5/4/5/0.75/5 | 75.0 | 2026-10-19 | Audit regressions, build, protected merge and production receipt |
+| #6932 / PR #6934 | Repair public herb profile credibility and audit regressions | D | Active — owner-directed public presentation repair; scientific approvals unchanged | P1 | 5/5/4/5/0.75/5 | 75.0 | 2026-10-19 | Audit regressions, build, protected merge and production receipt |
 | #6810 | Read-only Publisher-verified published-video → R8.10 Flywheel integration | R | Active — scoped R admission proposed, effective on protected merge | P2 | 3/4/3/5/0.75/3 | 45.0 | 2026-10-15 code/Metricool coverage audit; independent field link Unknown | No publisher duplicate, scientific claims or posting; T0/T1 negative tests and T2 exact-head checks; verified PUBLISHED post and accurate matching media hash |
 
 **2026-10-15 bounded R #6810 admission proposal:** Scope is the exact read-only Publisher PUBLISHED → existing R8.10 flywheel join from [Phase 0](algorithm-observatory-phase0-audit-2026-10-15.md) and [issue #6810](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6810). Score remains **45.0** under the only approved formula; actual revenue and retention results Unknown. No independent EvidenceMotion 46 quality task is completed, no publishing/clinical authority granted. Active D #6685 and A #6769 unchanged. This must merge through the protected controller before implementation starts; future owner retirement must follow proof.
