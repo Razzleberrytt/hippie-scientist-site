@@ -546,6 +546,24 @@ describe('risk-tiered autonomous merge controller', () => {
 
 })
 
+describe('P0 final authorization and base race guard', () => {
+  it('reloads live approval then re-reads base before the sole merge endpoint', () => {
+    const source = fs.readFileSync(path.join(process.cwd(), 'scripts/ci/autonomous-merge-controller.mjs'), 'utf8')
+    const terminalStart = source.indexOf('async function mergeIfStillCurrent')
+    const finalApproval = source.indexOf('const latestApprovalEvidence = await loadPublicationApprovalEvidence', terminalStart)
+    const approvalVerdict = source.indexOf('const finalApproval = assessPublicationApproval', finalApproval)
+    const postApprovalBase = source.indexOf('const baseAfterApproval = await getBranchSha', approvalVerdict)
+    const rejectDrift = source.indexOf('if (baseAfterApproval !== validatedBaseSha)', postApprovalBase)
+    const merge = source.indexOf('await mergePr(repo, number, headSha)', rejectDrift)
+    expect(terminalStart).toBeGreaterThan(-1)
+    expect(finalApproval).toBeGreaterThan(terminalStart)
+    expect(approvalVerdict).toBeGreaterThan(finalApproval)
+    expect(postApprovalBase).toBeGreaterThan(approvalVerdict)
+    expect(rejectDrift).toBeGreaterThan(postApprovalBase)
+    expect(merge).toBeGreaterThan(rejectDrift)
+  })
+})
+
 describe('P0 zero-job bot refresh recovery routing', () => {
   const zeroJob={id:42,name:'CI',event:'pull_request',status:'completed',conclusion:'action_required'}
   const confirmed=new Set([42])
