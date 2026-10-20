@@ -50,6 +50,32 @@ export function ownerSignedTagName(prNumber, headSha) {
   return 'ths-publication-approved-pr-' + prNumber + '-' + headSha;
 }
 
+// A writable tag ref can be deleted and recreated pointing at an old valid
+// signed object. Require server-reported protection of the entire approval
+// tag namespace before such a ref can grant a new publication permission.
+// Repository administrators remain trusted (they can modify all rulesets).
+export function protectedApprovalTagNamespace(rulesets, tagName, repo) {
+  if (!Array.isArray(rulesets) || !tagName || !repo) return false;
+  const exact = 'refs/tags/' + tagName;
+  const namespace = 'refs/tags/ths-publication-approved-pr-*';
+  return rulesets.some(rule => {
+    if (rule?.target !== 'tag' || rule?.enforcement !== 'active' ||
+        rule?.source_type !== 'Repository' || rule?.source !== repo) return false;
+    const includes = rule?.conditions?.ref_name?.include;
+    const excludes = rule?.conditions?.ref_name?.exclude;
+    if (!Array.isArray(includes) || !Array.isArray(excludes) || excludes.length !== 0 ||
+        !includes.some(pattern => pattern === exact || pattern === namespace)) return false;
+    const kinds = new Set((rule.rules || []).map(r => r?.type));
+    if (!['creation', 'deletion', 'update'].every(kind => kinds.has(kind))) return false;
+    // Only repository admins may bypass restrictions. Other bypass actors
+    // would let write-enabled delegated applications resurrect revoked tags.
+    const bypasses = rule.bypass_actors;
+    if (!Array.isArray(bypasses)) return false;
+    return bypasses.every(actor => actor?.actor_type === 'RepositoryRole' &&
+      actor?.actor_id === 5 && actor?.bypass_mode === 'always');
+  });
+}
+
 export function verifyOwnerSignedTag({ pr, tagRef, tag }) {
   const name = ownerSignedTagName(Number(pr?.number), pr?.head?.sha);
   const owner = pr?.base?.repo?.owner;
@@ -212,7 +238,19 @@ export async function loadPublicationApprovalEvidence(request, repo, number, cha
       // to which it points has a valid signature.
       if (tagRef?.object?.type === 'tag' && /^[a-f0-9]{40}$/u.test(tagRef.object.sha || '')) {
         const tag = await request('/repos/' + repo + '/git/tags/' + tagRef.object.sha);
-        signedTagProof = { tagRef, tag };
+        // Ref creation/deletion must be guarded by repository-level tag
+        // rules; a valid signature on a freely recreatable ref is not an
+        // independently revocable owner authorization.
+        const listedRulesets = await request('/repos/' + repo + '/rulesets?targets=tag');
+        if (!Array.isArray(listedRulesets)) throw new Error('Invalid tag protection ruleset listing');
+        const activeTagRules = listedRulesets.filter(rule => rule?.target === 'tag' && rule?.enforcement === 'active');
+        const fullRules = await Promise.all(activeTagRules.map(async rule => {
+          if (!Number.isSafeInteger(rule.id) || rule.id <= 0) throw new Error('Invalid tag ruleset ID');
+          return request('/repos/' + repo + '/rulesets/' + rule.id);
+        }));
+        if (protectedApprovalTagNamespace(fullRules, tagName, repo)) {
+          signedTagProof = { tagRef, tag };
+        }
       }
     } catch (error) {
       // A missing tag is a normal safe hold. Auth, network, rate limit and
