@@ -157,6 +157,8 @@ function getSafetySummary(herb: Herb) {
 
 function getAvoidIf(herb: Herb) {
   return cleanItems([
+    /pregnan/i.test(String(herb.safetyNotes || herb.safety_notes || herb.safety || '')) ? 'Pregnancy / breastfeeding' : '',
+    /liver|hepatic/i.test(String(herb.safetyNotes || herb.safety_notes || herb.safety || '')) ? 'Liver disease or liver-injury symptoms' : '',
     herb.avoid_if,
     herb.avoidIf,
     herb.who_should_skip,
@@ -164,8 +166,6 @@ function getAvoidIf(herb: Herb) {
     herb.contraindications,
     herb.interactions,
     herb.avoid,
-    /pregnan/i.test(String(herb.safetyNotes || herb.safety_notes || herb.safety || '')) ? 'Pregnancy / breastfeeding' : '',
-    /liver|hepatic/i.test(String(herb.safetyNotes || herb.safety_notes || herb.safety || '')) ? 'Liver disease or liver-injury symptoms' : '',
   ], 5)
 }
 
@@ -561,7 +561,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
               {avoidIf.length > 0 && (
                 <div className="hs-defs--caution">
                   <dt>Avoid / review if</dt>
-                  <dd>{avoidIf.slice(0, 3).join(', ')}</dd>
+                  <dd>{avoidIf.join(', ')}</dd>
                 </div>
               )}
             </dl>

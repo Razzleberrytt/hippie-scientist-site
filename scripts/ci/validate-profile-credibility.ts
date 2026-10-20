@@ -18,6 +18,7 @@ for (const [file, route] of [['herbs.json', 'herbs'], ['compounds.json', 'compou
     if (route === 'compounds' && DEPRECATED_COMPOUND_CANONICALS[record.slug]) continue
     const html = readFileSync(htmlPath, 'utf8')
     const visible = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '').replace(/<[^>]+>/g, ' ')
+    if (key === 'herbs/ashwagandha' && !/Pregnancy \/ breastfeeding, Liver disease or liver-injury symptoms/.test(visible)) errors.push(`${key}: compact contraindications omit pregnancy or liver caution`)
     if (/\bEfct\b|\b\w+_modulation\b|Generated profile|Minimum source-backed intake|Last reviewed August 2026|Evidence Engine proof of concept/.test(visible)) errors.push(`${key}: placeholder or unsupported template freshness`)
     if (record.evidence_human_study_count === 0 && !/<meta\s+name="robots"\s+content="[^"]*noindex/i.test(html)) errors.push(`${key}: zero-human profile must be noindex`)
     const imagePath = path.join('out/images/social/profiles', route === 'herbs' ? 'herb' : 'compound', `${record.slug}.png`)
