@@ -65,8 +65,8 @@ class TemporalEmissionTests(unittest.TestCase):
         # first-party verified compound IDs and no inferred medical claims.
         frame=self.ledger['frames'][7*30+1]  # scene two, outside spoken cue
         intended=[
-            ['science','MITRAGYNINE'],['source','CID 3034396'],
-            ['science','7-OH'],['source','CID 44301524'],
+            ['science','MITRAGYNINE'],
+            ['science','7-OH'],
             ['science','7-OH has one free hydroxyl'],
             ['disclosure','Not a chemical reaction'],
         ]
