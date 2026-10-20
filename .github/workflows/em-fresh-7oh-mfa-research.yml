@@ -1,0 +1,197 @@
+name: EM 7-OH fresh original-voice MFA research
+on:
+  push:
+    branches: ['voice/7oh-locant-safe-review-20261013']
+    paths: ['.github/workflows/em-fresh-7oh-mfa-research.yml']
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: em-fresh-7oh-mfa-\${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  fresh-source-mfa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      FRESH_WAV_SHA: '31b349d76abaf29488c96422fb798bc62c6e9aa8428cf84304629159aeacfc28'
+      FRESH_BRIEF_SHA: 'db95adc5dce3eb6e19c81719fec9222e3511856e85dbf862351ce231c8661ea8'
+      SOURCE_RUN_ID: '39318185726'
+      MFA_DIR: \${{ runner.temp }}/em-fresh-7oh-mfa
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-name: ths-fresh-mfa-cpu
+          create-args: >-
+            python=3.11 montreal-forced-aligner=3.3.8
+            kaldi=*=cpu* pytorch=*=cpu*
+          cache-environment: true
+      - name: Restore SHA-pinned fresh Kokoro WAV and official MFA models
+        shell: micromamba-shell {0}
+        env:
+          GH_TOKEN: \${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$MFA_DIR/source" "$MFA_DIR/models" "$MFA_DIR/result"
+          gh run download "$SOURCE_RUN_ID" --repo "$GITHUB_REPOSITORY" \
+            --name ths-kokoro-narration --dir "$MFA_DIR/source"
+          printf '%s  %s\n' "$FRESH_WAV_SHA" "$MFA_DIR/source/narration.wav" | sha256sum -c -
+          printf '%s  %s\n' "$FRESH_BRIEF_SHA" "$MFA_DIR/source/r805-creative-brief.json" | sha256sum -c -
+          curl --fail --location --retry 2 -o "$MFA_DIR/models/english_us_arpa.dict" \
+            https://github.com/MontrealCorpusTools/mfa-models/releases/download/dictionary-english_us_arpa-v3.0.0/english_us_arpa.dict
+          curl --fail --location --retry 2 -o "$MFA_DIR/models/acoustic.zip" \
+            https://github.com/MontrealCorpusTools/mfa-models/releases/download/acoustic-english_us_arpa-v3.0.0/english_us_arpa.zip
+          curl --fail --location --retry 2 -o "$MFA_DIR/models/g2p.zip" \
+            https://github.com/MontrealCorpusTools/mfa-models/releases/download/g2p-english_us_arpa-v2.0.0/english_us_arpa.zip
+          printf '%s  %s\n' \
+            'e8c6c7b036ae2b7c78d2768b8dc6b1f9359175b842956d00b48c53c9c332e6b0' "$MFA_DIR/models/english_us_arpa.dict" \
+            'd35ce271ded357d833d2f4b8d1041dc3748b9538567ba13f2c697f4e4126711b' "$MFA_DIR/models/acoustic.zip" \
+            'f079ae88f792458fa7c123b256e5b86cc55c29ac2ffc457c673e6c60c36cd143' "$MFA_DIR/models/g2p.zip" | sha256sum -c -
+      - name: Validate exactly the fresh 73-word script and prepare source dictionary
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json, os, re, wave
+          from pathlib import Path
+          p=Path(os.environ['MFA_DIR']); fresh=p/'source'; dest=p/'result'
+          brief=(fresh/'r805-creative-brief.json').read_bytes()
+          assert hashlib.sha256(brief).hexdigest()==os.environ['FRESH_BRIEF_SHA']
+          obj=json.loads(brief)
+          lines=[beat.get('narration') for beat in obj['beats'] if beat.get('narration')]
+          assert len(lines)==6 and obj['release']=='R8.05' and obj.get('doNotPublish') is True
+          transcript=re.sub(r'[^a-z0-9\s]',' ',' '.join(lines).lower())
+          words=transcript.split()
+          actual=' '.join(words)+'\n'
+          assert len(words)==73 and hashlib.sha256(actual.encode()).hexdigest()=='835f15869c48a7c77e4b344ab174180ceac492aae8011d127c51226cfa92afa3'
+          (dest/'script.txt').write_text(actual)
+          receipt=json.loads((fresh/'narration.wav.receipt.json').read_text())
+          assert receipt['engine']['voice']=='am_michael' and receipt['engine']['name']=='kokoro-onnx'
+          assert receipt['engine']['modelWeightsSha256']=='ae315a79b623f244700e4afb9246c46a26066782e049ba174bf3ba433970ee9c'
+          assert receipt['engine']['voiceWeightsSha256']=='bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d'
+          assert receipt['output']['sha256']==os.environ['FRESH_WAV_SHA']
+          with wave.open(str(fresh/'narration.wav'),'rb') as w:
+              assert (w.getnchannels(), w.getsampwidth(), w.getframerate(), w.getcomptype())==(1,2,24000,'NONE')
+              duration=w.getnframes()/24000
+          assert 34.34 < duration < 34.39
+          import importlib.metadata
+          assert importlib.metadata.version('Montreal-Forced-Aligner')=='3.3.8'
+          phones=re.compile(r'(?:AA|AE|AH|AO|AW|AY|EH|ER|EY|IH|IY|OW|OY|UH|UW)[012]?|B|CH|D|DH|F|G|HH|JH|K|L|M|N|NG|P|R|S|SH|T|TH|V|W|Y|Z|ZH')
+          dictionary={}
+          for line in (p/'models/english_us_arpa.dict').read_text().splitlines():
+              bits=line.split()
+              if not bits or bits[0].startswith('#'):continue
+              word=bits[0].casefold(); labels=bits[1:]
+              while labels:
+                  try:float(labels[0]); labels=labels[1:]
+                  except ValueError:break
+              if labels and all(phones.fullmatch(label) for label in labels):
+                  dictionary.setdefault(word,set()).add(tuple(labels))
+          chosen={word:sorted(dictionary[word]) for word in set(words) if word in dictionary}
+          missing=sorted(set(words)-set(chosen))
+          (dest/'oovs.txt').write_text(''.join(w+'\n' for w in missing))
+          (dest/'known.dict').write_text(''.join(w+' '+' '.join(seq)+'\n' for w in sorted(chosen) for seq in chosen[w]))
+          (dest/'expected-words.json').write_text(json.dumps(words)+'\n')
+          print('PINNED_FRESH_SOURCE_PASS',len(words),'words; OOV dictionary candidates:',missing)
+          PY
+      - name: Resolve bounded dictionary OOVs using pinned G2P
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          if [ -s "$MFA_DIR/result/oovs.txt" ]; then
+            cd "$MFA_DIR/result"
+            export MFA_ROOT_DIR="$MFA_DIR/mfa-state"
+            mfa g2p oovs.txt "$MFA_DIR/models/g2p.zip" generated.dict \
+              --num_jobs 2 --no_use_mp --clean -t "$MFA_DIR/g2p-temp"
+          else
+            : > "$MFA_DIR/result/generated.dict"
+          fi
+      - name: Assemble exact 73-word pronunciation hypotheses
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,os,re
+          from pathlib import Path
+          p=Path(os.environ['MFA_DIR'])/'result'
+          words=json.loads((p/'expected-words.json').read_text());missing=set((p/'oovs.txt').read_text().split())
+          generated={}
+          phone=re.compile(r'(?:AA|AE|AH|AO|AW|AY|EH|ER|EY|IH|IY|OW|OY|UH|UW)[012]?|B|CH|D|DH|F|G|HH|JH|K|L|M|N|NG|P|R|S|SH|T|TH|V|W|Y|Z|ZH')
+          for line in (p/'generated.dict').read_text().splitlines():
+              bits=line.split()
+              if len(bits)<2 or bits[0] not in missing or any(not phone.fullmatch(x) for x in bits[1:]):
+                  raise RuntimeError('FRESH_MFA_OOV_PHONES_INVALID')
+              generated.setdefault(bits[0],set()).add(tuple(bits[1:]))
+          if set(generated)!=missing:raise RuntimeError('FRESH_MFA_OOVS_NOT_EXACTLY_RESOLVED')
+          lines=(p/'known.dict').read_text().splitlines()
+          lines.extend(f"{w} {' '.join(x)}" for w in sorted(generated) for x in sorted(generated[w]))
+          (p/'alignment.dict').write_text('\n'.join(sorted(lines))+'\n')
+          if {line.split()[0] for line in lines}!=set(words):raise RuntimeError('FRESH_MFA_DICTIONARY_WORD_MISMATCH')
+          PY
+      - name: Execute independent fresh-WAV Montreal Forced Aligner CPU
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          export MFA_ROOT_DIR="$MFA_DIR/mfa-state"
+          export OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 CUDA_VISIBLE_DEVICES=''
+          cd "$MFA_DIR/result"
+          mfa align_one "$MFA_DIR/source/narration.wav" script.txt alignment.dict \
+            "$MFA_DIR/models/acoustic.zip" fresh.TextGrid \
+            --num_jobs 2 --no_use_mp --no_use_postgres --no_tokenization --clean -t "$MFA_DIR/align-temp"
+      - name: Independently check fresh output, word boundaries and publication HOLD
+        shell: micromamba-shell {0}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,os,wave
+          from pathlib import Path
+          from praatio import textgrid
+          root=Path(os.environ['MFA_DIR']); p=root/'result'; wav=root/'source/narration.wav'
+          sha=lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
+          assert sha(wav)==os.environ['FRESH_WAV_SHA']
+          assert sha(root/'source/r805-creative-brief.json')==os.environ['FRESH_BRIEF_SHA']
+          expected=json.loads((p/'expected-words.json').read_text())
+          tg=textgrid.openTextgrid(str(p/'fresh.TextGrid'),includeEmptyIntervals=True)
+          assert set(tg.tierNames)=={'words','phones'}
+          wt=tg.getTier('words'); pt=tg.getTier('phones')
+          intervals=[]
+          for row in wt.entries:
+              label=row.label.strip().casefold()
+              if not label or label=='<eps>':continue
+              assert label not in {'spn','<unk>','unk'}
+              intervals.append({'word':label,'startMs':round(row.start*1000,2),'endMs':round(row.end*1000,2)})
+          assert [x['word'] for x in intervals]==expected and len(intervals)==73
+          with wave.open(str(wav),'rb') as wf: duration=wf.getnframes()/wf.getframerate()
+          assert all(0<=x['startMs']<x['endMs']<=1000*duration+1 for x in intervals)
+          assert all(a['endMs']<=b['startMs']+1 for a,b in zip(intervals,intervals[1:]))
+          assert len(pt.entries)>len(intervals)
+          receipt={'schema':'ths-independent-fresh-7oh-mfa-research-v1',
+            'status':'ACTUAL_FRESH_MFA_WORD_TIMING_CANDIDATE_REVIEW_REQUIRED',
+            'freshWavSha256':sha(wav),'creativeBriefSha256':sha(root/'source/r805-creative-brief.json'),
+            'mfaVersion':'3.3.8', 'modelSha256':{
+              'dictionary':sha(root/'models/english_us_arpa.dict'),
+              'acoustic':sha(root/'models/acoustic.zip'),'g2p':sha(root/'models/g2p.zip')},
+            'textgridSha256':sha(p/'fresh.TextGrid'),
+            'dictionaryHypothesesSha256':sha(p/'alignment.dict'),
+            'transcriptSha256':sha(p/'script.txt'),
+            'sourceGitHubActionsRun':int(os.environ['SOURCE_RUN_ID']),
+            'wordCount':73,'words':intervals,
+            'independentFreshMfaExecuted':True,
+            'timingAccuracyCalibrated':False,'pronunciationVerified':False,
+            'phoneAndScienceApproved':False,'mayPublish':False}
+          (p/'fresh-mfa-word-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          print('ACTUAL_FRESH_MFA_PASS:',len(intervals),'words; fresh TextGrid',receipt['textgridSha256'])
+          PY
+      - name: Preserve source-bound research evidence and any failure materials
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: em-7oh-fresh-original-kokoro-mfa-research
+          retention-days: 14
+          if-no-files-found: warn
+          path: |
+            \${{ runner.temp }}/em-fresh-7oh-mfa/result/script.txt
+            \${{ runner.temp }}/em-fresh-7oh-mfa/result/alignment.dict
+            \${{ runner.temp }}/em-fresh-7oh-mfa/result/fresh.TextGrid
+            \${{ runner.temp }}/em-fresh-7oh-mfa/result/fresh-mfa-word-receipt.json
