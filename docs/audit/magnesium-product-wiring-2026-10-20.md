@@ -74,7 +74,22 @@ monetization restrictions, and visible affiliate disclosures.
 - Independent review: no blocking implementation defects; five independently
   selected product/governance/evidence test files passed, 22 tests. This is a
   different selected suite from the 24-test command above.
-- Final production rebuild and responsive/theme browser verification: pending.
+- Final application production rebuild (before the dev-tool security patch below):
+  PASS, 36 steps in 899.56 seconds. Built HTML has both direct ASINs, Thorne's search
+  link and no obsolete pending/unavailable module. Four Playwright screenshots
+  inspected: 1440px desktop and 390px phone in both themes. Phone document width
+  equals viewport width (390px); the product rail intentionally scrolls locally.
+  Captures are local validation artifacts under `output/playwright/`.
+- Initial hosted validation passed full tests but failed its security audit on
+  Vite's newly updated launch-editor advisory
+  [GHSA-587h-7wmj-h5pm](https://github.com/advisories/GHSA-587h-7wmj-h5pm).
+  Update dev-tool Vite 8.2.0 to patched 8.3.3 and deduplicate Vitest's affected
+  nested copy. `npm ls vite --all` shows only 8.3.3; `npm run audit:high` passes
+  with the existing allowlist unchanged. Previously approved braces exceptions
+  remain under #6212; this is not a zero-vulnerability claim.
+  Fresh registry cache was necessary to resolve the newly available patch.
+- Exact final-head hosted production/test proof is required after that dependency
+  update. No earlier green run is substituted for it.
 
 ## Other live-audit findings: verified, not fixed by this PR
 
