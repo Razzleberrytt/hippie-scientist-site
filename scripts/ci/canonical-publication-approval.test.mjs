@@ -67,10 +67,16 @@ describe('canonical publication approval',()=>{
     // GitHub REST review responses may not include app-origin provenance.
     expect(decide([publicFile],{reviews:[prior]}).allowed).toBe(false)
     expect(decide([publicFile],{reviews:[{...prior,performed_via_github_app:{slug:'chatgpt-codex-connector'}}]}).allowed).toBe(false)
-    expect(decide([publicFile],{reviews:[{...prior,performed_via_github_app:null}]}).allowed).toBe(true)
+    expect(decide([publicFile],{reviews:[{...prior,performed_via_github_app:null}]}).allowed).toBe(false)
     expect(decide([publicFile],{reviews:[{...prior,performed_via_github_app:null},change]}).allowed).toBe(false)
     expect(decide([publicFile],{reviews:[{...prior,commit_id:older}]}).allowed).toBe(false)
     expect(decide([publicFile],{reviews:[{...prior,user:{login:'other',type:'User'}}]}).allowed).toBe(false)
+  })
+  it('treats explicit null, absent, and app-attributed review origin as equally unproven',()=>{
+    const base={id:90,user:{login:'Razzleberrytt',type:'User'},commit_id:sha,state:'APPROVED',submitted_at:'2026-10-12T16:00:00Z'}
+    for(const review of [base,{...base,performed_via_github_app:null},{...base,performed_via_github_app:{id:23,slug:'delegated-owner-app'}}]){
+      expect(decide([publicFile],{reviews:[review]}).allowed).toBe(false)
+    }
   })
   it('blocks app-authored and origin-unknown owner approval comments even when username is Owner',()=>{
     const asApp={...approval(),performed_via_github_app:{slug:'chatgpt-codex-connector',id:1144995}}
@@ -135,13 +141,13 @@ describe('canonical publication approval',()=>{
     const revoked={...a,id:1,state:'CHANGES_REQUESTED'}
     expect(decide([publicFile],{reviews:[a,revoked]}).allowed).toBe(false)
   })
-  it('only an unambiguous later independently verified review can clear an earlier revocation',()=>{
+  it('does not mistake later owner-attributed REST review for verified human reapproval',()=>{
     const a={id:12,user:{login:'Razzleberrytt',type:'User'},commit_id:sha,
       state:'APPROVED',performed_via_github_app:null,
       submitted_at:'2026-10-12T17:00:00Z'}
     const revoked={...a,id:100,state:'CHANGES_REQUESTED',
       submitted_at:'2026-10-12T16:00:00Z'}
-    expect(decide([publicFile],{reviews:[a,revoked]}).allowed).toBe(true)
+    expect(decide([publicFile],{reviews:[a,revoked]}).allowed).toBe(false)
   })
   it('blocks when exact PR or base owner identity is missing',()=>{
     const tampered={...pr,base:{repo:{full_name:'Razzleberrytt/hippie-scientist-site'}}}
@@ -164,7 +170,7 @@ describe('integration into trusted merge readiness',()=>{
     expect(r.action).toBe('stop')
     expect(r.reason).toContain('publication review hold')
   })
-  it('human approval cannot bypass required workflows or their failures',()=>{
+  it('unproven REST approval cannot reach workflow bypass',()=>{
     const r=evaluateReadiness({
       pr:targetPr,workflowRuns:[],checkRuns:[],changedFiles:[publicFile],
       approvalEvidence:{comments:[],reviews:[{
@@ -175,8 +181,8 @@ describe('integration into trusted merge readiness',()=>{
       expectedHeadSha:sha,currentBaseSha:currentBase,
       riskTier:'high',controllerRunId:'test-controller',
     })
-    expect(r.action).toBe('wait')
-    expect(r.reason).toContain('required workflows')
+    expect(r.action).toBe('stop')
+    expect(r.reason).toContain('publication review hold')
   })
 })
 
