@@ -7,7 +7,7 @@ ACTUAL_OCR_SAMPLES={
   "sentence_1_part1":"7-OH\nNo reaction\ndifferent from mitragynine?",
   "sentence_2":("Look at the\nhydroxyl group\n"
                 "-OH group: oxygen + hydrogen\nCID 3034396\n"
-                "Orange = 7-OH hydroxyl\nNot a chemical reaction"),
+                "7-OH has one free hydroxyl\nNot a chemical reaction"),
   "sentence_3":("A record of\nconnected atoms.\n"
                 "Dots mark atoms. Lines mark bonds.\n"
                 "7-HYDROXYMITRAGYNINE"),
