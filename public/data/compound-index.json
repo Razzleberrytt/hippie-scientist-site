@@ -16426,7 +16426,7 @@
   {
     "slug": "tryptophan",
     "name": "Tryptophan",
-    "summary": "Essential amino acid and serotonin/melatonin precursor with moderate evidence for modest sleep latency reduction. Typical supplemental dose 500–2,000 mg before bed; distinct from 5-HTP pathway.",
+    "summary": "L-tryptophan has limited human sleep evidence; a 2022 meta-analysis found its clearest pooled signal for reduced wake after sleep onset rather than a broad sleep-latency benefit.",
     "primary_effects": [
       "serotonin pathway",
       "melatonin pathway"

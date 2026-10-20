@@ -29,6 +29,7 @@ type MagnesiumGuide = {
 type TryptophanDetail = {
   summary: string
   description: string
+  summary_source?: string
 }
 
 describe('served sleep-data calibration', () => {
@@ -67,5 +68,18 @@ describe('served sleep-data calibration', () => {
     expect(detail.summary).toMatch(/reduced wake after sleep onset/i)
     expect(detail.summary).toMatch(/rather than a broad sleep-latency benefit/i)
     expect(detail.description).toMatch(/serotonin and melatonin synthesis/i)
+
+    // A data rebuild must not overwrite source-curated detail text with the
+    // old blanket sleep-latency assertion in flat/index records.
+    const list = readJson<Array<{ slug: string; summary: string; description: string; summary_source?: string }>>('public/data/compounds.json')
+    const index = readJson<Array<{ slug: string; summary: string }>>('public/data/compound-index.json')
+    const listed = list.find((row) => row.slug === 'tryptophan')
+    const indexed = index.find((row) => row.slug === 'tryptophan')
+    expect(detail.summary_source).toBe('curated-detail')
+    expect(listed?.summary_source).toBe('curated-detail')
+    expect(listed?.summary).toBe(detail.summary)
+    expect(listed?.description).toBe(detail.description)
+    expect(indexed?.summary).toBe(detail.summary)
+    expect([detail.summary, listed?.summary, indexed?.summary].join(' ')).not.toMatch(/moderate evidence for modest sleep latency reduction/i)
   })
 })

@@ -40,6 +40,20 @@ function readJson(file: string): Row[] {
 function writeJson(file: string, rows: Row[]): void {
   writeFileAtomic(path.join(DATA_DIR, file), `${JSON.stringify(rows, null, 2)}\n`)
 }
+// A curated profile detail is the canonical authored copy for that profile.
+// Do not overwrite it with a stale list/workbook row during grade normalization.
+// This marker says "edited detail text", NOT independent medical review.
+function curatedDetailCopy(indexFile: string, slug: string): Row | null {
+  if (!slug) return null
+  const detailDir = indexFile === 'herbs.json' ? 'herbs-detail' : indexFile === 'compounds.json' ? 'compounds-detail' : null
+  if (!detailDir) return null
+  const full = path.join(DATA_DIR, detailDir, `${slug}.json`)
+  if (!existsSync(full)) return null
+  const detail = JSON.parse(readFileSync(full, 'utf8')) as Row
+  if (detail.slug !== slug || detail.summary_source !== 'curated-detail' || isPlaceholderSummary(detail.summary)) return null
+  return detail
+}
+
 function syncDetailRecord(indexFile: string, row: Row): void {
   const slug = String(row.slug ?? '').trim()
   if (!slug) return
@@ -102,6 +116,7 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
   let summariesWritten = 0
 
   const next = rows.map((row) => {
+    const curated = curatedDetailCopy(file, String(row.slug ?? ''))
     const authoredGrade = sourceGrade(row)
     const authoredTier = sourceTier(row)
     const result: EvidenceReconciliation = reconcileEvidenceGrade(authoredGrade, authoredTier)
@@ -148,6 +163,12 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
 
     const enriched = {
       ...row,
+      ...(curated ? {
+        summary: curated.summary,
+        summary_source: 'curated-detail',
+        ...(typeof curated.description === 'string' && curated.description.trim()
+          ? { description: curated.description } : {}),
+      } : {}),
       evidence_grade: publicGrade,
       evidence_grade_source: String(authoredGrade ?? ''),
       evidence_tier: publicTier,
@@ -174,7 +195,7 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
       evidence_grade_backing_gap: backing.reason,
     }
 
-    if (isPlaceholderSummary(enriched.summary) || String(row.summary_source ?? '') === 'composed-from-record') {
+    if (!curated && (isPlaceholderSummary(enriched.summary) || String(row.summary_source ?? '') === 'composed-from-record')) {
       const composed = buildProfileSummary(enriched)
       if (composed) {
         summariesWritten += 1
