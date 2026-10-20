@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:
-      ROOT: ${{ runner.temp }}/em-fresh-native
+      ROOT: /tmp/em-fresh-native
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -107,10 +107,10 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
           path: |
-            ${{ runner.temp }}/em-fresh-native/native/*.mp4
-            ${{ runner.temp }}/em-fresh-native/native/*.json
-            ${{ runner.temp }}/em-fresh-native/native/*.png
-            ${{ runner.temp }}/em-fresh-native/native/encoder.log
+            /tmp/em-fresh-native/native/*.mp4
+            /tmp/em-fresh-native/native/*.json
+            /tmp/em-fresh-native/native/*.png
+            /tmp/em-fresh-native/native/encoder.log
       - name: No release authority
         if: always()
         run: |
