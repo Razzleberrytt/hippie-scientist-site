@@ -7,7 +7,7 @@ ACTUAL_OCR_SAMPLES={
   "sentence_1_part1":"7-OH\nNo reaction\ndifferent from mitragynine?",
   "sentence_2":("Look at the\nhydroxyl group\n"
                 "-OH group: oxygen + hydrogen\n"
-                "7-OH has one free hydroxyl\nNot a chemical reaction"),
+                "Computed model\n7-OH has one free hydroxyl\nNot a chemical reaction"),
   "sentence_3":("A record of\nconnected atoms.\n"
                 "Dots mark atoms. Lines mark bonds.\n"
                 "7-HYDROXYMITRAGYNINE"),
@@ -42,7 +42,8 @@ class EncodedSciencePixelsTests(unittest.TestCase):
                 pixel_criterion("source_hold",bad)
 
     def test_missing_qualifier_and_unreadable_science_rejected(self):
-        for scene,phrase in (("sentence_2","Not a chemical reaction"),
+        for scene,phrase in (("sentence_2","Computed model"),
+                             ("sentence_2","Not a chemical reaction"),
                              ("sentence_4","not filmed"),
                              ("sentence_1_part1","No reaction"),
                              ("sentence_5_part1","HUMAN EXPERIENCE"),
