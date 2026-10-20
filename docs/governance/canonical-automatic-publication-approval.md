@@ -31,46 +31,16 @@ The receipt is **owner editorial approval** only. It cannot assert that the owne
 
 GitHub comment `6158687768` was observed as `Razzleberrytt` / `User` **and** `performed_via_github_app.slug="chatgpt-codex-connector"`, demonstrating that owner identity alone does not prove direct human consent. This comment was ordinary audit prose, **not** an approval token. Repair is tracked against [#6672](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6672). Rollback of this stricter rule is unsafe until an alternative immutable, server-authenticated, human-origin proof mechanism is independently verified. GitHub PR review approvals also require explicit non-app provenance, which the available REST review response may not provide. The conservative fallback is to hold public merges rather than treating unverifiable approval as consent.
 
-## Proposed owner-authored PR resolution: cryptographically signed tags (PR #6775)
+## Signed-tag proposal quarantined (security review, October 20, 2026)
 
-**Pending security review and merge of this implementation.** A ChatGPT or editable GitHub comment is owner intent, not an immutable authorization. GitHub rejects approving one's own PR. An additional approval source is a **locally GPG-signed annotated Git tag**, verified by GitHub against the registered owner's unique numeric GitHub no-reply email.
+**Status: FAIL CLOSED. No signed Git tag is an eligible publication-approval receipt.** A genuine signed tag can be replayed by recreating a tag ref to a retained authentic signed object. A GitHub App authorized by the repository owner can inherit a repository-administrator role bypass, so an admin-only tag-ruleset bypass cannot reliably stop this replay after a revocation. Furthermore the normal workflow `GITHUB_TOKEN` cannot inspect ruleset `bypass_actors` without privileged Administration-write access. These are unresolved trust-boundary facts, not cosmetic CI problems.
 
-An eligible tag named `ths-publication-approved-pr-<PR_NUMBER>-<FULL_HEAD_SHA>` must satisfy ALL:
+PR #6938 now **quarantines** the tag-based positive grant: `verifyOwnerSignedTag` may parse samples in security tests, but the canonical publication decision deliberately ignores any supplied `signedTagProof`. `loadPublicationApprovalEvidence` no longer calls the Git tag or privileged tag-ruleset APIs. Owner comments containing a positive token remain untrusted; negative exact-head revocation reviews/comments continue to veto any separately authenticated review evidence. A credential's claim to represent the owner, a GPG signature, or green CI **does not** itself authorize publication. The sole serialized merge controller and all scientific, safety, exact-head and base-freshness checks remain intact.
 
-- Annotated **GPG-signed** tag, not lightweight or unsigned API-created tag.
-- Directly targets the exact 40-character PR HEAD and identifies the same PR number/head in the signed payload.
-- GitHub tag-object verification `verified: true` and `reason: valid`, as reported by the authenticated GitHub API, not a PR file or user comment.
-- Signed tagger email exactly `<OWNER_NUMERIC_ID>+<OWNER_LOGIN>@users.noreply.github.com`, bound by GitHub's verified-signature email checks. Unverifiable owner ID, mismatch, fork or missing signature is a hold.
-- Protected by an ACTIVE GitHub **tag ruleset** targeting `refs/tags/ths-publication-approved-pr-*` (or the exact ref) with creation, update AND deletion restrictions, no excluded refs, and only a repository-admin role bypass (or no bypass). This must be read from GitHub's live ruleset API, not asserted in the PR. The connected repository currently has a **branch** ruleset but no **tag** ruleset; approval therefore remains HOLD until explicitly configured.
-- Present and not revoked both on initial readiness and the final serialized merge revalidation; negative owner revocation comments and changes-requested reviews still veto. The controller must re-fetch tag and negative evidence **immediately before** merge, not reuse a prior snapshot.
+**Do not sign or push approval tags as a publication workflow.** The previously proposed one-time GPG signing procedure is withdrawn. No additional GitHub Administration credential should be provided merely to work around this limitation.
 
-### One-time manual owner signing procedure
+A future positive approval scheme must have an independently verified *human-origin, nondelegable* grant and an immutable revocation tombstone that a delegated owner app cannot modify or resurrect; the controller must be able to verify both with its available least-privileged credentials. Require negative replay, revoked-head, delegated-app, stale-base and permission canaries, independent security review, exact-head CI, and explicit owner setup before enabling that path. Until then public-content PRs such as #6934 and #6937 remain on publication HOLD; this patch does not establish a working positive approval route or independent biomedical review.
 
-After this control-plane patch has been independently reviewed, merged and deployed to the controller, the owner can use their **own local GPG signing key** already registered with GitHub. The private key must never be shared with an agent or connector. First configure and independently verify an active GitHub tag ruleset for the approval namespace (repository Settings → Rules → Rulesets); this step cannot be performed by the existing content-write connector. Test that a non-admin write-enabled actor cannot create, update, delete or resurrect an approval ref. **Do not sign an outdated PR head:** the controller requires the head to contain the latest `main`, and branch synchronization changes the head SHA, invalidating any earlier approval. PR #6934 predates the EvidenceMotion #6936 merge; it must first be synchronized and revalidated. The SHA below is intentionally resolved at execution time rather than hard-coded.
-
-Run from a local clone with Git and GPG installed, after the exact-head CI and controller sync have finished. Verify the diff and commit before signing. Example for PR #6934:
-
-```bash
-git fetch origin main
-git fetch origin pull/6934/head:refs/remotes/origin/pr-6934
-head="$(git rev-parse refs/remotes/origin/pr-6934)"
-base="$(git rev-parse refs/remotes/origin/main)"
-if ! git merge-base --is-ancestor "$base" "$head"; then
-  echo 'HOLD: PR head is behind main; synchronize through the protected controller and revalidate before signing.'
-  exit 1
-fi
-git show --stat --oneline "$head"
-# Independently inspect the exact PR diff and evidence before continuing.
-git config user.email '216745723+Razzleberrytt@users.noreply.github.com'
-git config user.signingkey YOUR_GPG_KEY_FINGERPRINT
-tag="ths-publication-approved-pr-6934-$head"
-git tag -s "$tag" "$head" -m "THS-PUBLICATION-APPROVED PR=#6934 HEAD=$head"
-git push origin "refs/tags/$tag"
-```
-
-A green local `git tag` command is **not** a completed authorization: inspect GitHub's authenticated tag-object verification and require `verified: true`, `reason: valid` before lifting any explicit `hold-merge` label. The owner must inspect the exact head before signing. **Revocation:** file an exact-head `THS-PUBLICATION-REVOKED PR=#<N> HEAD=<40-CHAR-SHA>` owner revocation comment (the existing canonical negative veto) and then remove the tag through the trusted admin path if authorized. **Deleting a tag ref alone is NOT an irreversible revocation**: a writable actor could recreate it pointing at the old authentic signature. The live protected-tag namespace and terminal authorization reload are therefore mandatory. A repository administrator can still change or bypass rulesets; this is not a tamper-proof approval system against a compromised administrator. Every required source-integrity, scientific/safety, CI, release and deployment gate remains in force.
-
-**Security status:** Configuration of actual protected tags, verification of the genuine owner GPG signature and independently verified controller CI are still required. This design is not itself an owner approval, independent scientific review, production authorization or a completed merge. Negative regressions and an independently inspected GitHub-verified actual tag are required before trust in the path can be claimed.
 ## Trusted-controller implementation
 
 - `scripts/ci/canonical-publication-approval.mjs` is the **single risk-classification and approval-decision implementation**, with tests in its adjacent `.test.mjs`.
