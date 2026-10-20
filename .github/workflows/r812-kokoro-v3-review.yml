@@ -88,3 +88,42 @@ jobs:
           if-no-files-found: error
           retention-days: 30
           path: artifacts/r812/*
+
+  # Normal CI intentionally skips draft PRs. Run one exact-head static-export
+  # proof for THIS narrator repair while it remains review-only; when the PR
+  # becomes non-draft, regular CI owns full validation and this job skips.
+  # This job cannot promote a video, lift human review HOLD or merge the PR.
+  draft-exact-head-build-proof:
+    name: Draft exact-head production build and output
+    if: github.event_name == 'pull_request' && github.event.pull_request.draft == true
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out the exact PR head (never a stale merge ref)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Confirm exact source commit
+        env:
+          EXPECTED_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD_SHA"
+      - name: Set up Node using repository version
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Install locked production dependencies
+        run: npm ci --no-audit --fund=false
+      - name: Verify Node engine
+        run: npm run check:node
+      - name: Build the real static production export
+        env:
+          COMMIT_HASH: ${{ github.event.pull_request.head.sha }}
+          AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
+          SKIP_NEXT_BUILD_TYPECHECK: '1'
+        run: npm run build:deploy
+      - name: Validate built production output
+        run: npm run verify:output
+      - name: Explicitly retain publication hold
+        run: |
+          echo "Draft exact-head site build only. Human narration review, independent science/craft and final MP4 publication gates remain HOLD." >> "$GITHUB_STEP_SUMMARY"
