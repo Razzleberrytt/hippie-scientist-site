@@ -313,7 +313,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   ])
 
   const relatedCandidates = (relatedBySlug[sourceRecordSlug] || [])
-    .filter((item: RuntimeRecord) => getRuntimeVisibility(item).canRender)
+    .filter((item: RuntimeRecord) => getRuntimeVisibility(item).canFeature)
 
   const relatedHerbs = relatedCandidates
     .filter((item: RuntimeRecord) => herbSlugs.has(item.slug))
@@ -330,7 +330,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
 
   const comparisonRecords = (comparisonBySlug[sourceRecordSlug] || [])
-    .filter((item: RuntimeRecord) => getRuntimeVisibility(item).canRender)
+    .filter((item: RuntimeRecord) => getRuntimeVisibility(item).canFeature)
     .slice(0, 8)
 
   const summary = cleanSummary(herb.summary || herb.description || '', 'herb')

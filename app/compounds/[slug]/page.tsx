@@ -268,6 +268,7 @@ export async function generateMetadata({ params }: PageProps) {
       title: mdxPage.title,
       description: mdxPage.metaDescription || '',
       path: `/compounds/${mdxPage.slug}`,
+      image: `/images/social/profiles/compound/${mdxPage.slug}.png`,
       openGraphType: 'article',
       keywords: mdxPage.keywords,
     })

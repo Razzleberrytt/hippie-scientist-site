@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs'
 import path from 'node:path'
+import { DEPRECATED_COMPOUND_CANONICALS } from '../../lib/deprecated-compound-canonicals'
 
 if (!existsSync('out/index.html')) throw new Error('Production export is missing; run npm run build before this gate')
 const errors: string[] = []
@@ -13,6 +14,8 @@ for (const [file, route] of [['herbs.json', 'herbs'], ['compounds.json', 'compou
     if (record.evidence_consistency === 'Consistent') errors.push(`${key}: study design cannot establish consistency`)
     const htmlPath = path.join('out', route, record.slug, 'index.html')
     if (!existsSync(htmlPath)) continue
+    // Redirect stubs and canonical aliases describe their target, not another profile.
+    if (route === 'compounds' && DEPRECATED_COMPOUND_CANONICALS[record.slug]) continue
     const html = readFileSync(htmlPath, 'utf8')
     const visible = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '').replace(/<[^>]+>/g, ' ')
     if (/\bEfct\b|\b\w+_modulation\b|Generated profile|Minimum source-backed intake|Last reviewed August 2026|Evidence Engine proof of concept/.test(visible)) errors.push(`${key}: placeholder or unsupported template freshness`)
