@@ -24,7 +24,6 @@ EXTRA_ALLOWED = {
     # evidence; only these exact verified IDs/labels may enter the film.
     "sentence_2": {
         ("science","MITRAGYNINE"), ("science","7-OH"),
-        ("source","CID 3034396"), ("source","CID 44301524"),
         ("science","7-OH has one free hydroxyl"),
         ("disclosure","Not a chemical reaction"),
     },
