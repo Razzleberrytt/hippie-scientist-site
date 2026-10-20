@@ -59,6 +59,44 @@ class NarrationTreatments(unittest.TestCase):
         self.assertEqual(failed,[],'Actual emitted captions must count alongside every overlay')
         self.assertFalse(result['mayPublish'])
 
+    def test_source_verified_side_by_side_is_native_and_safety_locked(self):
+        # Source-grounded actual native-frame proof, not encoded OCR or
+        # scientific/publication authorization.
+        import os
+        from pathlib import Path
+        from PIL import Image, ImageChops
+        from narration_locked_treatments import fonts, render_frame
+        directory=Path(os.environ.get('THS_TEST_FONT_DIR',
+                                      '/usr/share/fonts/truetype/dejavu'))
+        if not directory.is_dir():
+            self.skipTest('Pinned native font directory unavailable')
+        font,_=fonts(directory)
+        scenes=timeline(self.alignment())
+        scene=scenes[1]
+        assets=chemistry_assets()
+        annotations=[]
+        frame=render_frame((scene['startSec']+scene['endSec'])/2,
+                           scenes,assets,'specimen',(1080,1920),font,
+                           annotations=annotations,caption_mode='timed_research')
+        self.assertEqual(frame.size,(1080,1920))
+        labels={a['text']:a for a in annotations}
+        for label in ('MITRAGYNINE','7-OH STRUCTURE',
+                      'PubChem CID 3034396','PubChem CID 44301524',
+                      'Two structures, not a chemical reaction'):
+            self.assertIn(label,labels)
+            self.assertLessEqual(labels[label]['boxPx'][2],1020)
+        # Two physically distinct RDKit molecule images are visible, not an
+        # invented transformation or duplicated hero rendered twice.
+        left=frame.convert('RGB').crop((93,736,490,1024))
+        right=frame.convert('RGB').crop((579,736,976,1024))
+        self.assertIsNotNone(ImageChops.difference(left,right).getbbox())
+        false_source=dict(assets)
+        false_source['mitragynine']=dict(assets['mitragynine'],oh=[3])
+        with self.assertRaisesRegex(ValueError,'MOLECULAR_COMPARISON_SOURCE_DRIFT'):
+            render_frame((scene['startSec']+scene['endSec'])/2,
+                         scenes,false_source,'specimen',(1080,1920),font,
+                         caption_mode='timed_research')
+
     def alignment(self):
         # Scheduling fixture only; this is not acoustic acceptance evidence.
         return {'sampleCount':824336,'wordAlignment':[
