@@ -132,6 +132,10 @@ function trustedApprovalEvents({ comments, reviews, owner, number, headSha, sign
       id: Number(review.id || 0),
     });
   }
+  // Tagger dates are signer-controlled. Never let a future-dated signed tag
+  // out-rank a genuine negative owner review/revocation for this exact head.
+  // A revoked head needs a new, separately reviewed release candidate.
+  if (signedTagEvent && events.some((event) => !event.approved)) return false;
   if (signedTagEvent) events.push(signedTagEvent);
   // REST timestamps have only second resolution and issue-comment IDs are
   // unrelated to PR-review IDs. If a revocation and an approval occur at the
