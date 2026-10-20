@@ -1,6 +1,15 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
+
+### Owner-prioritized #6670 magnesium review handoff (2026-10-20)
+
+Prepare one PR to connect the existing magnesium forms-guide product
+module to the owner-cleared catalog, and add the missing Pure Encapsulations
+direct link. Owner subsequently directed "Finish and merge" after validation;
+no B12, route or evidence-grade changes
+are bundled. [Live audit and validation record](audit/magnesium-product-wiring-2026-10-20.md).
+Existing global roster ownership is not changed by this scoped review handoff.
 ### AUDIT-CLAIM-001 / #6940 — owner-directed safety-gate repair (2026-10-20)
 
 In review: close a reproduced claim-drift gate bypass caused by treating added

@@ -5,7 +5,7 @@ import WhyWeRecommend from './monetization/WhyWeRecommend'
 import HorizontalCardRail from './ui/HorizontalCardRail'
 import { shouldSuppressProductRecommendation } from '../lib/product-lifecycle'
 import { revenueProductSets } from '../config/revenue-products'
-import { getCompounds, getHerbs } from '../lib/runtime-data'
+import { getCompoundBySlug, getCompounds, getHerbBySlug, getHerbs } from '../lib/runtime-data'
 import { canRenderConfiguredRevenueProducts } from '../lib/revenue-product-governance'
 
 export type RecommendationSlot = 'budget' | 'overall' | 'premium'
@@ -65,8 +65,18 @@ async function canRenderRecommendationProducts(
   if (!canRenderConfiguredRevenueProducts(configuredSlug)) return false
 
   const runtimeSlug = REVENUE_RUNTIME_SLUG_ALIASES[configuredSlug] || configuredSlug
+  // Maturity checks need classified citations from the canonical detail record.
+  // Compact list records can omit sources and otherwise misclassify supported
+  // human evidence as mechanism-only after evidence-tier normalization.
   const [herbs, compounds] = await Promise.all([getHerbs(), getCompounds()])
-  const record = [...herbs, ...compounds].find((item) => String(item.slug || '') === runtimeSlug)
+  const herb = herbs.find((item) => String(item.slug || '') === runtimeSlug)
+  const summary = herb || compounds.find((item) => String(item.slug || '') === runtimeSlug)
+  const detail = summary
+    ? await (herb ? getHerbBySlug(runtimeSlug) : getCompoundBySlug(runtimeSlug))
+    : null
+  // A hidden canonical record may return null. Retain the list record's denial
+  // rather than treating a known-but-hidden ingredient as an unknown catalog slug.
+  const record = detail || summary
 
   // When a catalog/guide slug maps to a live record, the same fail-closed
   // monetization policy used by SourcingCta owns the decision here too.
