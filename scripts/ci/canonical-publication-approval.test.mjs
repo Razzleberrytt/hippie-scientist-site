@@ -209,11 +209,11 @@ describe('owner GPG-signed annotated release tags', () => {
     },
   };
 
-  it('accepts only an exact-head owner-key GitHub-verified signed annotated tag', () => {
+  it('parses genuine signed tags but never accepts them as publication authority', () => {
     expect(verifyOwnerSignedTag({ pr: ownerPr, ...validProof })).toEqual({
       approved: true, at: Date.parse(timestamp),
     });
-    expect(assessPublicationApproval({pr: ownerPr, changedFiles:[publicFile],signedTagProof:validProof}).allowed).toBe(true);
+    expect(assessPublicationApproval({pr: ownerPr, changedFiles:[publicFile],signedTagProof:validProof}).allowed).toBe(false);
     // Git's signed tag stores the signature after the signed message; some
     // GitHub responses retain this armor inside tag.message.
     const withArmor = {...validProof,tag:{...validProof.tag,message:message+'\n'+validProof.tag.verification.signature}};
@@ -277,7 +277,7 @@ describe('owner GPG-signed annotated release tags', () => {
       workflowRuns:[],checkRuns:[],changedFiles:[publicFile],
       approvalEvidence:{comments:[],reviews:[],signedTagProof:validProof},
       expectedHeadSha:sha,currentBaseSha:'c'.repeat(40),riskTier:'high',
-    }).action).toBe('wait');
+    }).action).toBe('stop');
   });
 
   it('requires an active, matching, nondelegable tag namespace ruleset', () => {
@@ -290,7 +290,8 @@ describe('owner GPG-signed annotated release tags', () => {
       bypass_actors:[{actor_type:'RepositoryRole',actor_id:5,bypass_mode:'always'}],
     };
     const protectedTag = rules => protectedApprovalTagNamespace(rules,name,'Razzleberrytt/hippie-scientist-site');
-    expect(protectedTag([safe])).toBe(true);
+    expect(protectedTag([safe])).toBe(false); // Administrator role bypass also delegates to owner apps.
+    expect(protectedTag([{...safe,bypass_actors:[]}])).toBe(true); // informational only; never grants.
     expect(protectedTag([ {...safe,conditions:{ref_name:{include:['refs/tags/other-*'],exclude:[]}}} ])).toBe(false);
     expect(protectedTag([ {...safe,conditions:{ref_name:{include:[namePattern],exclude:[namePattern]}}} ])).toBe(false);
     expect(protectedTag([ {...safe,enforcement:'evaluate'} ])).toBe(false);
@@ -302,41 +303,26 @@ describe('owner GPG-signed annotated release tags', () => {
     expect(protectedTag([ {...safe,bypass_actors:null} ])).toBe(false);
   });
 
-  it('reads trusted tag objects from GitHub and holds missing tags safely', async () => {
+  it('quarantines signed-tag evidence and never queries privileged tag/ruleset APIs', async () => {
     const requests=[];
-    const mock = async url => {
+    const mock=async url=>{
       requests.push(url);
-      if (url.includes('/git/ref/tags/')) return validProof.tagRef;
-      if (url.includes('/git/tags/')) return validProof.tag;
-      if (url.endsWith('/rulesets?targets=tag')) return [{id:123,target:'tag',enforcement:'active'}];
-      if (url.endsWith('/rulesets/123')) return {
-        id:123,target:'tag',enforcement:'active',source_type:'Repository',
-        source:'Razzleberrytt/hippie-scientist-site',
-        conditions:{ref_name:{include:['refs/tags/ths-publication-approved-pr-*'],exclude:[]}},
-        rules:[{type:'creation'},{type:'deletion'},{type:'update'}],
-        bypass_actors:[{actor_type:'RepositoryRole',actor_id:5,bypass_mode:'always'}],
-      };
+      if(url.includes('/git/ref/tags/')||url.includes('/git/tags/')||url.includes('/rulesets')) {
+        throw Error('forbidden tag/ruleset access');
+      }
       return [];
     };
-    const evidence = await loadPublicationApprovalEvidence(mock,'Razzleberrytt/hippie-scientist-site',ownerPr.number,[publicFile],ownerPr);
-    expect(evidence.signedTagProof).toEqual(validProof);
-    expect(requests).toContain('/repos/Razzleberrytt/hippie-scientist-site/git/ref/tags/'+name);
-    expect(requests).toContain('/repos/Razzleberrytt/hippie-scientist-site/rulesets?targets=tag');
-    const unprotected = await loadPublicationApprovalEvidence(async url => {
-      if (url.includes('/git/ref/tags/')) return validProof.tagRef;
-      if (url.includes('/git/tags/')) return validProof.tag;
-      return [];
-    }, 'Razzleberrytt/hippie-scientist-site', ownerPr.number, [publicFile], ownerPr);
-    expect(unprotected.signedTagProof).toBeNull();
+    const evidence=await loadPublicationApprovalEvidence(mock,'Razzleberrytt/hippie-scientist-site',ownerPr.number,[publicFile],ownerPr);
+    expect(evidence).toEqual({comments:[],reviews:[],signedTagProof:null});
+    expect(requests).toEqual([
+      '/repos/Razzleberrytt/hippie-scientist-site/issues/6703/comments?per_page=100&page=1',
+      '/repos/Razzleberrytt/hippie-scientist-site/pulls/6703/reviews?per_page=100&page=1',
+    ]);
+    // An authentic, replayable signed tag remains insufficient even with
+    // apparently safe rulesets because delegated owner-app tokens can bypass.
+    expect(assessPublicationApproval({pr:ownerPr,changedFiles:[publicFile],signedTagProof:validProof}).allowed).toBe(false);
+    expect(assessPublicationApproval({pr:ownerPr,changedFiles:[publicFile],signedTagProof:validProof,
+      comments:[approval()]}).allowed).toBe(false);
 
-    const missing = await loadPublicationApprovalEvidence(async url => {
-      if (url.includes('/git/ref/tags/')) throw Object.assign(new Error('not found'),{status:404});
-      return [];
-    },'Razzleberrytt/hippie-scientist-site',ownerPr.number,[publicFile],ownerPr);
-    expect(missing.signedTagProof).toBeNull();
-    await expect(loadPublicationApprovalEvidence(async url=>{
-      if(url.includes('/git/ref/tags/')) throw Object.assign(new Error('unauthorized'),{status:403});
-      return [];
-    },'Razzleberrytt/hippie-scientist-site',ownerPr.number,[publicFile],ownerPr)).rejects.toThrow('unauthorized');
   });
 });
