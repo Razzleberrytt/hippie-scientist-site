@@ -283,15 +283,20 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
                        "UNVERIFIED_BOTANICAL_7OH_THREE_SHOT:" if width==3 else
                        "UNVERIFIED_BOTANICAL_7OH_FOUR_SHOT:")
                 hold(label+":".join(name for name,_ in window))
-    # EM-007.06: this exact nine-shot film must preserve its visible science
-    # limitations. A freshly rehashed visual inventory is not enough if a
-    # later picture edit drops "computed" or "not filmed" while source CIDs
-    # and the spoken source ledger remain superficially intact.
-    structural_disclosure=" ".join(shots[2]["emittedSourceAnnotations"]["disclosure"]).casefold()
+    # EM-007.06: the source-verified 2D comparison in scene two is NOT a
+    # computed 3D model or a chemical reaction. Require BOTH molecule labels,
+    # its free-hydroxyl explanation, and the explicit no-reaction disclosure.
+    # This checks authored text, not encoded-pixel readability or clinical truth.
+    comparison=shots[2]["emittedSourceAnnotations"]
+    comparison_science={value.casefold() for value in comparison["science"]}
+    if not {"mitragynine","7-oh","7-oh has one free hydroxyl"}.issubset(comparison_science):
+        hold("VISIBLE_SOURCE_COMPARISON_LABELS_REQUIRED")
+    if tuple(comparison["disclosure"])!=("Not a chemical reaction",):
+        hold("VISIBLE_NO_REACTION_COMPARISON_DISCLOSURE_REQUIRED")
+    # The later 3D scene still requires both its computed and not-filmed caveats,
+    # even if all artifact hashes and exact source IDs are re-generated.
     computed_disclosure=" ".join(shots[4]["emittedSourceAnnotations"]["disclosure"]).casefold()
     contrast=" ".join(shots[6]["emittedSourceAnnotations"]["science"]).casefold()
-    if "computed model" not in structural_disclosure:
-        hold("VISIBLE_COMPUTED_MODEL_QUALIFIER_REQUIRED")
     if not ("computed" in computed_disclosure and "not filmed" in computed_disclosure):
         hold("VISIBLE_NOT_FILMED_COMPUTED_POSE_QUALIFIER_REQUIRED")
     if "≠" not in contrast or "human experience" not in contrast:
