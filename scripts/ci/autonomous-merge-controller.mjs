@@ -788,6 +788,28 @@ async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha, co
     return false
   }
 
+  // Re-read publication authorization after final head/base verification,
+  // immediately before the merge endpoint. A signed tag or negative review
+  // can change after the earlier readiness/evidence snapshot; never reuse it.
+  const lastFiles = await getPrFiles(repo, number)
+  if (JSON.stringify(lastFiles.slice().sort()) !== JSON.stringify(changedFiles.slice().sort())) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: changed-file scope drifted during final gate`)
+    return false
+  }
+  if (finalPr.draft || (finalPr.labels || []).some(label => HOLD_LABELS.has(label.name))) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: PR is draft or has a release hold`)
+    return false
+  }
+  const latestApprovalEvidence = await loadPublicationApprovalEvidence(github, repo, number, lastFiles, finalPr)
+  const finalApproval = assessPublicationApproval({
+    pr: finalPr, changedFiles: lastFiles,
+    comments: latestApprovalEvidence.comments, reviews: latestApprovalEvidence.reviews,
+    signedTagProof: latestApprovalEvidence.signedTagProof,
+  })
+  if (!finalApproval.allowed) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: approval changed before merge: ${finalApproval.reason}`)
+    return false
+  }
   console.log(`Terminal merge revalidation passed for PR #${number}: head ${headSha} on base ${finalBaseSha}`)
   await mergePr(repo, number, headSha)
   return true
