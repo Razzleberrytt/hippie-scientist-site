@@ -135,7 +135,7 @@ describe('gradeIsBackedByEvidence', () => {
   })
 
   it('flags Grade A resting on a single human study', () => {
-    const rationale = buildEvidenceRationale([claim('RCT')])
+    const rationale = buildEvidenceRationale([{ ...claim('RCT'), pmid: '12345678' }])
     expect(gradeIsBackedByEvidence('A', rationale).reason).toBe('single-human-study-for-grade-a')
     // The same evidence is enough for a B.
     expect(gradeIsBackedByEvidence('B', rationale).backed).toBe(true)
