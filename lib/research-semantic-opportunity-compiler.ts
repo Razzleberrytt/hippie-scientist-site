@@ -97,7 +97,8 @@ function fromCurrentAuthorities(untrustedArgs:SemanticOpportunityCompileArgs){
   const graph=buildResearchSemanticNetwork(register.records)
   // A research-only Studio can still link exact DOI publication identities
   // using the repo-owned distribution register, without approved effect claims.
-  const reviewedStudies=[]
+  // No independent human-reviewed study authority is available here; keep this strictly empty.
+  const reviewedStudies: never[]=[]
   const studio=buildResearchIntelligenceStudio(register.records,graph,reviewedStudies)
   const inspection=inspectResearchStudio(studio,graph,register,semanticSourceSignature)
   const usingDiscovery=typeof args.discoveryQuery==='string'
