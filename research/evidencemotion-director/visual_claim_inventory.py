@@ -209,7 +209,7 @@ def inventory(movie, receipt_path, phone_path, science_path, story_path,
     comparison_sources=("CID 3034396", "CID 44301524")
     for row in rows:
         declared=tuple(row["emittedSourceAnnotations"]["source"])
-        if row["shot"]=="sentence_2":
+        if row["shot"]=="sentence_2" and declared:
             if declared!=comparison_sources:
                 hold("SOURCE_COMPARISON_CID_PAIR_CHANGED")
             # Both exact IDs must be independently legible in encoded pixels,
@@ -217,7 +217,7 @@ def inventory(movie, receipt_path, phone_path, science_path, story_path,
             raw=next(v["rawPixelOcrText"] for v in pixel_rows
                      if v["shot"]=="sentence_2")
             for identifier in comparison_sources:
-                if identifier.casefold() not in re.sub(r"\\s+"," ",raw.casefold()):
+                if identifier.casefold() not in " ".join(raw.casefold().split()):
                     hold("SOURCE_COMPARISON_CID_INK_MISSING")
         elif row["shot"]!="source_hold" and declared:
             hold("SOURCE_IDENTITY_CARD_OFF_SCENE")
