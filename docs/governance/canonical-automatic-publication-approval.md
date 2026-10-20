@@ -31,6 +31,33 @@ The receipt is **owner editorial approval** only. It cannot assert that the owne
 
 GitHub comment `6158687768` was observed as `Razzleberrytt` / `User` **and** `performed_via_github_app.slug="chatgpt-codex-connector"`, demonstrating that owner identity alone does not prove direct human consent. This comment was ordinary audit prose, **not** an approval token. Repair is tracked against [#6672](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6672). Rollback of this stricter rule is unsafe until an alternative immutable, server-authenticated, human-origin proof mechanism is independently verified. GitHub PR review approvals also require explicit non-app provenance, which the available REST review response may not provide. The conservative fallback is to hold public merges rather than treating unverifiable approval as consent.
 
+## Proposed owner-authored PR resolution: cryptographically signed tags (PR #6775)
+
+**Pending security review and merge of this implementation.** A ChatGPT or editable GitHub comment is owner intent, not an immutable authorization. GitHub rejects approving one's own PR. An additional approval source is a **locally GPG-signed annotated Git tag**, verified by GitHub against the registered owner's unique numeric GitHub no-reply email.
+
+An eligible tag named `ths-publication-approved-pr-<PR_NUMBER>-<FULL_HEAD_SHA>` must satisfy ALL:
+
+- Annotated **GPG-signed** tag, not lightweight or unsigned API-created tag.
+- Directly targets the exact 40-character PR HEAD and identifies the same PR number/head in the signed payload.
+- GitHub tag-object verification `verified: true` and `reason: valid`, as reported by the authenticated GitHub API, not a PR file or user comment.
+- Signed tagger email exactly `<OWNER_NUMERIC_ID>+<OWNER_LOGIN>@users.noreply.github.com`, bound by GitHub's verified-signature email checks. Unverifiable owner ID, mismatch, fork or missing signature is a hold.
+- Present and not revoked both on initial readiness and the final serialized merge revalidation; negative owner revocation comments and changes-requested reviews still veto.
+
+### One-time manual owner signing procedure
+
+After this control-plane patch has been reviewed, merged and deployed to the controller, the owner can use their **own local GPG signing key** already registered with GitHub. The private key must never be shared with an agent or connector. Example for PR #6934:
+
+```bash
+git fetch origin main
+git config user.email '216745723+Razzleberrytt@users.noreply.github.com'
+git config user.signingkey YOUR_GPG_KEY_FINGERPRINT
+git tag -s ths-publication-approved-pr-6934-77c593838b0cfacbe70342a6c97e1b4f7c378186 77c593838b0cfacbe70342a6c97e1b4f7c378186 -m 'THS-PUBLICATION-APPROVED PR=#6934 HEAD=77c593838b0cfacbe70342a6c97e1b4f7c378186'
+git push origin refs/tags/ths-publication-approved-pr-6934-77c593838b0cfacbe70342a6c97e1b4f7c378186
+```
+
+The owner must inspect the exact head before signing. To revoke, delete the signed tag ref and optionally add a negative approval signal. A removed tag never authorizes future merges. Every required source-integrity, scientific/safety, CI, release and deployment gate remains in force.
+
+**Security status:** This design is not itself an owner approval, independent scientific review, production authorization or a completed merge. Negative regressions and an independently inspected GitHub-verified actual tag are required before trust in the path can be claimed.
 ## Trusted-controller implementation
 
 - `scripts/ci/canonical-publication-approval.mjs` is the **single risk-classification and approval-decision implementation**, with tests in its adjacent `.test.mjs`.
