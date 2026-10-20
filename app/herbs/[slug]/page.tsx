@@ -1,3 +1,4 @@
+import { profileCommonName, profileEvidence, botanicalName as formatBotanicalName } from '@/lib/profile-credibility'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { CircleCheck } from 'lucide-react'
@@ -47,7 +48,6 @@ import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
 import EvidenceGradeRationale from '@/components/education/EvidenceGradeRationale'
 import TrialDesignInsight from '@/components/education/TrialDesignInsight'
-import { extractCitationsFromRecord } from '@/lib/citations'
 import RecommendationSection from '../../../components/RecommendationSection'
 import StackRecommendationSection from '../../../components/StackRecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
@@ -126,20 +126,6 @@ function firstSentences(value: string, limit = 2) {
   return sentences.slice(0, limit).join(' ')
 }
 
-function getCommonName(herbName: string): string {
-  if (!herbName) return ''
-  return herbName.replace(/\s*\([^)]*\)\s*$/, '').trim()
-}
-
-function getHerbDisplayName(herb: Herb, fallbackSlug: string): string {
-  return (
-    formatDisplayLabel(herb.displayName) ||
-    formatDisplayLabel(getCommonName(herb.name || '')) ||
-    formatDisplayLabel(fallbackSlug) ||
-    'Herb profile'
-  )
-}
-
 function getPlainEnglishSummary(herb: Herb) {
   const summary = cleanSummary(herb.summary || herb.description || '', 'herb')
   return firstSentences(summary, 1) || `${formatDisplayLabel(herb.name || herb.slug)} profile with safety, use, and evidence context.`
@@ -178,6 +164,8 @@ function getAvoidIf(herb: Herb) {
     herb.contraindications,
     herb.interactions,
     herb.avoid,
+    /pregnan/i.test(String(herb.safetyNotes || herb.safety_notes || herb.safety || '')) ? 'Pregnancy / breastfeeding' : '',
+    /liver|hepatic/i.test(String(herb.safetyNotes || herb.safety_notes || herb.safety || '')) ? 'Liver disease or liver-injury symptoms' : '',
   ], 5)
 }
 
@@ -346,8 +334,8 @@ export default async function HerbDetailPage({ params }: PageProps) {
     .slice(0, 8)
 
   const summary = cleanSummary(herb.summary || herb.description || '', 'herb')
-  const displayName = getHerbDisplayName(herb, normalizedSlug)
-  const botanicalName = cleanText(herb.latin_name || herb.botanical_name || herb.scientific_name)
+  const displayName = profileCommonName(herb)
+  const botanicalName = formatBotanicalName(herb.latin_name || herb.botanical_name || herb.scientific_name)
   const briefSummary = getPlainEnglishSummary(herb)
   const evidenceStrength = getEvidenceStrength(herb)
   const safetySummary = getSafetySummary(herb)
@@ -355,14 +343,14 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const safetyGroups = getSafetyDetailGroups(herb)
   const avoidIf = getAvoidIf(herb)
   const timeline = getTimeline(herb)
-  const dosingSummary = getDosingSummary(herb)
+  const dosingSummary = profileEvidence(herb).metrics.humanStudies > 0 ? getDosingSummary(herb) : ''
   // The workbook's dose column doubles as a product-form column, so a raw value
   // may be a regimen, a package description, or an explicit refusal to state
   // one. Present each honestly rather than labelling all three "Dose guidance".
   const dosePresentation = getDosePresentation(dosingSummary)
   const mechanisms = getMechanisms(herb)
   const evidenceLimitations = deriveEvidenceLimitations({ profile: herb })
-  const topUses = getTopUses(herb)
+  const topUses = profileEvidence(herb).metrics.humanStudies > 0 ? getTopUses(herb) : []
   const profileDecision = buildProfileDecision(herbRecord as Record<string, unknown>, 'herb')
   const profileDecisionClaimedHrefs = getProfileDecisionClaimedHrefs(profileDecision)
   const safetyTone = getSafetyTone(safetySummary, avoidIf, safetySensitivity)
@@ -370,7 +358,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const relatedHerbLinks = getRelatedLinks(relatedHerbs, 'herb')
   const revenueProducts = getRevenueProductSet(normalizedSlug)
   const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
-  const citations = extractCitationsFromRecord(herb)
+  const { citations, metrics: publicationMetrics } = profileEvidence(herb)
   const pathwayDiagram = generatePathwayDiagram({ ...herb, name: displayName })
   const expansion = herbProfileExpansions[normalizedSlug]
   const heroImage = getMonographImage('herb', normalizedSlug, herb as Record<string, unknown>)
@@ -441,7 +429,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
     seeAlsoEntries: clusterSeeAlso,
     reviewedAt: freshness.lastReviewed,
     modifiedAt: freshness.lastReviewed,
-    citationCount: freshness.citationCount,
+    citationCount: citations.length,
   })
 
   const faqCandidates = [
@@ -528,7 +516,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
             </div>
             <p className="text-[0.95rem] leading-7 text-muted">{briefSummary}</p>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-              <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
+              <LastUpdatedBadge date={freshness.lastReviewed} citationCount={citations.length} />
               <EvidenceScoreBadge record={herbRecord} />
             </div>
 
@@ -741,11 +729,11 @@ export default async function HerbDetailPage({ params }: PageProps) {
           record={herbRecord}
           evidenceLevel={evidenceStrength}
           safetySummary={safetySummary}
-          citationsCount={freshness.citationCount}
+          citationsCount={citations.length}
           limitations={evidenceLimitations}
         />
 
-        {(herb.evidence_design_match && herb.evidence_risk_of_bias) || herb.trial_design_insight ? (
+        {herb.evidence_design_match || herb.trial_design_insight ? (
           <details className="hs-disclosure">
             <summary>
               <span>Study design details</span>
@@ -755,17 +743,17 @@ export default async function HerbDetailPage({ params }: PageProps) {
         {/* `grade` is passed raw and normalized inside the component. There is
             deliberately no `|| 'C'` fallback: defaulting asserted a
             Limited-Evidence grade the record never carried. */}
-        {herb.evidence_design_match && herb.evidence_risk_of_bias && (
+        {herb.evidence_design_match && (
           <EvidenceGradeRationale
             grade={(herb.evidence_grade as string) || ''}
             designMatch={herb.evidence_design_match as string}
-            riskOfBias={herb.evidence_risk_of_bias as string}
+            riskOfBias="Not assessed"
             /* Consistency is only derivable where enough studies are on record.
                Saying so beats hiding the whole card: 163 profiles can show
                design and bias against the 27 that can also show agreement. */
-            consistency={(herb.evidence_consistency as string) || 'Not assessed'}
+            consistency={publicationMetrics.consistency === 'unclear' ? 'Not assessed' : publicationMetrics.consistency === 'conflicting' || publicationMetrics.consistency === 'mixed' ? 'Mixed' : 'Not assessed'}
           >
-            {(herb.evidence_rationale || herb.evidence_summary || herb.summary || '') as string}
+            {`${citations.length} cited publications; ${publicationMetrics.humanStudies} human evidence publications, including ${publicationMetrics.humanTrials} primary human trials. Publications can report overlapping trials and outcomes. Study design alone does not establish agreement or low risk of bias.`}
           </EvidenceGradeRationale>
         )}
 

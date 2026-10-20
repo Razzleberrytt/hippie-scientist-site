@@ -1,6 +1,6 @@
 {
-  "minimumTotalProfiles": 250,
-  "minimumHerbs": 175,
-  "minimumCompounds": 60,
-  "note": "Production guardrail against accidental indexability collapse. Current governed output is about 350 profiles; these floors deliberately allow substantial editorial demotion while blocking pipeline regressions like the ~91-profile deploy state documented on 2026-08-21."
+  "minimumTotalProfiles": 150,
+  "minimumHerbs": 90,
+  "minimumCompounds": 55,
+  "note": "Owner-directed zero-human noindex policy (#6932, 2026-10-19). The pre-invariant policy cohort has 98 herbs + 64 compounds = 162. Final claim-specific production invariants remain authoritative; chosen release floors 90 herbs / 55 compounds / 150 total allow their independent holds while blocking further unexplained loss. Stable URLs remain renderable; exact policy-denied identities and prior statuses are recorded in evidence-grade-migration publicationPolicy. Final build evidence is required."
 }

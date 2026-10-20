@@ -200,7 +200,7 @@ export default function NewsletterSignup({
       <div className='grid gap-4 lg:grid-cols-[1fr_0.9fr] lg:items-center'>
         <div>
           <p className={`text-[0.7rem] font-bold uppercase tracking-[0.13em] ${accentTextClass}`}>
-            Free safety checklist
+            Research notes and safety resources
           </p>
           <h2 className={`mt-1.5 text-[1.05rem] font-semibold leading-snug ${textColor} sm:text-xl`}>{title}</h2>
           <p className={`mt-2 text-sm leading-6 ${mutedColor}`}>{description}</p>

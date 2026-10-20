@@ -371,7 +371,7 @@ export function summarizeEvidenceStudies(studies: EvidenceStudyRecord[]): Eviden
     if (isHumanTrialClass(study.evidenceClass)) humanTrials += 1
 
     const n = parseSampleSize(study.sampleSize)
-    if (n && isHumanEvidenceClass(study.evidenceClass)) {
+    if (n && isHumanTrialClass(study.evidenceClass)) {
       approximateParticipants += n
       studiesWithParticipantCounts += 1
     }

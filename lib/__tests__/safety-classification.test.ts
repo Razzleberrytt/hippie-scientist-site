@@ -25,7 +25,7 @@ describe('safety-classification', () => {
   })
 
   it('flags stimulant-like language', () => {
-    const record = { summary: 'Contains caffeine and may cause jitters or insomnia.' }
+    const record = { safetyNotes: 'Contains caffeine and may cause jitters or insomnia.' }
     const labels = getSafetyLabels(record)
     expect(labels).toContain('Stimulant-Like Profile')
   })
@@ -77,7 +77,7 @@ describe('safety-classification', () => {
     })
 
     it('returns "high" when explicit avoid/contraindication language is present', () => {
-      const record = { summary: 'Contraindicated in patients with liver disease; avoid use.' }
+      const record = { safetyNotes: 'Contraindicated in patients with liver disease; avoid use.' }
       expect(getSafetySensitivity(record)).toBe('high')
     })
 

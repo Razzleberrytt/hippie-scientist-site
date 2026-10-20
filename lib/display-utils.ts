@@ -239,5 +239,5 @@ export function isSafeInternalHref(value: unknown): value is string {
 
 export function collapseRepeatedNouns(textVal: string): string {
   if (!textVal) return ''
-  return textVal.replace(/\b(\w+)\s+\1\b/gi, '$1')
+  return textVal.replace(/\b(\w+)\s+\1\b/gi, '$1').replace(/\b(.+?)\s+(modulation|signaling)\s+and\s+\1\b/gi, '$1 $2')
 }

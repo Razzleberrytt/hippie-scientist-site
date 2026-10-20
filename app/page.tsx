@@ -9,7 +9,7 @@ import '@/styles/homepage-mobile-cohesion.css'
 export const metadata: Metadata = buildPageMetadata({
   title: 'The Hippie Scientist: Evidence & Safety for Supplements',
   description:
-    'Compare evidence-based plant medicine, herbs, and supplements by goal. Explore human clinical trial evidence, biological mechanisms, and drug interactions for sleep, anxiety, focus, and stress.',
+    'Compare herb and supplement research, human evidence, uncertainties, and safety considerations for sleep, stress, and focus.',
   keywords: [
     'evidence-based herbs',
     'evidence-based supplements',

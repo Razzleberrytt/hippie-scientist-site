@@ -7,7 +7,7 @@
  * at all. The information needed to compute them already exists in
  * `claims.json`, where each claim records the design of the study behind it.
  *
- * Every field here is computed from recorded study designs only. Where the
+ * Every field here is computed from recorded publication designs only. Where the
  * claims cannot support a judgement the value is `null` and the caller renders
  * "Not assessed" — an absent signal must never read as a clean bill of health.
  */
@@ -50,7 +50,7 @@ const HIGH_BIAS_MARKER = /high[_\s-]?bias|\bpoor quality\b/i
  * Consistency needs a real body of work behind it. Below this many human
  * studies, "no disagreement recorded" only means there was little to disagree.
  */
-const MIN_STUDIES_FOR_CONSISTENCY = 3
+// A consistency assessment requires directional outcome evidence, not a count threshold.
 
 export type RationaleClaimInput = {
   /** Canonical class, when the pipeline has already assigned one. */
@@ -79,29 +79,6 @@ function classOf(claim: RationaleClaimInput): StudyClass {
   return normalizeStudyClass(sourceText(claim))
 }
 
-function riskOfBiasFor(strongest: StudyClass, flaggedHighBias: boolean): RiskOfBias | null {
-  if (flaggedHighBias) return 'High'
-  switch (strongest) {
-    case 'meta-analysis':
-    case 'systematic-review':
-    case 'rct':
-      return 'Low'
-    case 'controlled-trial':
-    case 'uncontrolled-trial':
-    case 'observational':
-      return 'Medium'
-    case 'case-report':
-    case 'narrative-review':
-    case 'regulatory-guidance':
-    case 'animal':
-    case 'in-vitro':
-      return 'High'
-    case 'unclassified':
-      // No recorded design is not the same as a badly designed study.
-      return null
-  }
-}
-
 /**
  * Build the rationale for one profile from every claim attached to it.
  *
@@ -109,7 +86,7 @@ function riskOfBiasFor(strongest: StudyClass, flaggedHighBias: boolean): RiskOfB
  * list is the expected case rather than an error; it yields an all-null
  * rationale that the caller can render as "not assessed".
  */
-export function buildEvidenceRationale(claims: readonly RationaleClaimInput[]): EvidenceRationale {
+export function buildEvidenceRationale(claims: readonly RationaleClaimInput[], directions: readonly RationaleClaimInput[] = []): EvidenceRationale {
   const classes = claims.map(classOf)
   const classCounts: Partial<Record<StudyClass, number>> = {}
   for (const studyClass of classes) {
@@ -120,20 +97,18 @@ export function buildEvidenceRationale(claims: readonly RationaleClaimInput[]): 
   const humanStudyCount = classes.filter(isHumanStudyClass).length
   const strongestClass = strongestStudyClass(classes)
 
-  const texts = claims.map(markerText)
+  const texts = [...claims, ...directions].map(markerText)
   const flaggedHighBias = texts.some((text) => HIGH_BIAS_MARKER.test(text))
   const negativeCount = texts.filter((text) => NEGATIVE_MARKER.test(text)).length
   const mixedCount = texts.filter((text) => MIXED_MARKER.test(text)).length
 
   const designMatch = strongestClass === 'unclassified' ? null : STUDY_CLASS_INFO[strongestClass].label
-  const riskOfBias = riskOfBiasFor(strongestClass, flaggedHighBias)
+  // Study design alone is not an assessed risk-of-bias judgment.
+  const riskOfBias: RiskOfBias | null = flaggedHighBias ? 'High' : null
 
   let consistency: EvidenceConsistency | null = null
-  if (mixedCount > 0 || (negativeCount > 0 && negativeCount < classified.length)) {
-    consistency = 'Mixed'
-  } else if (humanStudyCount >= MIN_STUDIES_FOR_CONSISTENCY && negativeCount === 0) {
-    consistency = 'Consistent'
-  }
+  if (mixedCount > 0 || negativeCount > 0) consistency = 'Mixed'
+  // A list of designs cannot establish agreement between outcome-specific results.
 
   return {
     designMatch,
@@ -161,11 +136,11 @@ function summarize({
 }): string {
   if (!designMatch) return 'No study design has been recorded for this profile yet.'
 
-  const studies = `${classified} recorded ${classified === 1 ? 'study' : 'studies'}`
+  const studies = `${classified} design-classified ${classified === 1 ? 'publication' : 'publications'}`
   const human =
     humanStudyCount === 0
-      ? 'none of which measured an outcome in people'
-      : `${humanStudyCount} in people`
+      ? 'none classified as human evidence'
+      : `${humanStudyCount} classified as human evidence`
   const agreement = consistency === 'Mixed'
     ? ' Findings across those studies disagree.'
     : consistency === 'Consistent'
@@ -186,8 +161,15 @@ function summarize({
 export function gradeIsBackedByEvidence(
   grade: string | null | undefined,
   rationale: EvidenceRationale,
+  editorialSummary = '',
 ): { backed: boolean; reason: string | null } {
   if (grade !== 'A' && grade !== 'B') return { backed: true, reason: null }
+
+  // Conflicting authored signals require reconciliation, not an automatic
+  // choice of the more favorable grade. Preserve the authored grade upstream.
+  if (/limited\/modest evidence|evidence (?:is |remains )?(?:mixed|limited|modest|preliminary)|no two [^.]*same significant/i.test(editorialSummary)) {
+    return { backed: false, reason: 'conflicting-editorial-evidence-signals' }
+  }
 
   if (rationale.totalClaimCount === 0) {
     return { backed: false, reason: 'no-claims-recorded' }
@@ -197,6 +179,9 @@ export function gradeIsBackedByEvidence(
   }
   if (grade === 'A' && rationale.humanStudyCount < 2) {
     return { backed: false, reason: 'single-human-study-for-grade-a' }
+  }
+  if (grade === 'A' && (!rationale.riskOfBias || !rationale.consistency)) {
+    return { backed: false, reason: 'grade-a-certainty-not-assessed' }
   }
   return { backed: true, reason: null }
 }

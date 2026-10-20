@@ -28,10 +28,10 @@ describe('buildEvidenceRationale', () => {
     expect(rationale.totalClaimCount).toBe(3)
   })
 
-  it('grades risk of bias from the strongest design', () => {
-    expect(buildEvidenceRationale([claim('RCT')]).riskOfBias).toBe('Low')
-    expect(buildEvidenceRationale([claim('small human intervention trial')]).riskOfBias).toBe('Medium')
-    expect(buildEvidenceRationale([claim('animal study')]).riskOfBias).toBe('High')
+  it('leaves bias unassessed when only study design is known', () => {
+    expect(buildEvidenceRationale([claim('RCT')]).riskOfBias).toBeNull()
+    expect(buildEvidenceRationale([claim('small human intervention trial')]).riskOfBias).toBeNull()
+    expect(buildEvidenceRationale([claim('animal study')]).riskOfBias).toBeNull()
   })
 
   it('honours a study that flags its own bias problem', () => {
@@ -64,7 +64,7 @@ describe('buildEvidenceRationale', () => {
     // Two agreeing trials is not a consistent literature; "nothing disagreed"
     // mostly means there was little to disagree with.
     expect(buildEvidenceRationale([claim('RCT'), claim('RCT')]).consistency).toBeNull()
-    expect(buildEvidenceRationale([claim('RCT'), claim('RCT'), claim('RCT')]).consistency).toBe('Consistent')
+    expect(buildEvidenceRationale([claim('RCT'), claim('RCT'), claim('RCT')]).consistency).toBeNull()
   })
 
   it('returns an all-null rationale for a profile with no claims', () => {
@@ -83,9 +83,18 @@ describe('buildEvidenceRationale', () => {
 describe('gradeIsBackedByEvidence', () => {
   const human = [claim('RCT'), claim('RCT')]
 
+  it('withholds a settled grade when the authored summary explicitly disagrees', () => {
+    expect(gradeIsBackedByEvidence('A', buildEvidenceRationale(human), 'Limited/modest evidence for memory; no two studies showed the same significant changes.')).toMatchObject({ backed: false, reason: 'conflicting-editorial-evidence-signals' })
+    expect(gradeIsBackedByEvidence('A', { ...buildEvidenceRationale(human), riskOfBias: 'Low', consistency: 'Consistent' }, 'Long-term safety data are limited.').backed).toBe(true)
+  })
+
   it('accepts a strong grade backed by human studies', () => {
-    expect(gradeIsBackedByEvidence('A', buildEvidenceRationale(human)).backed).toBe(true)
+    expect(gradeIsBackedByEvidence('A', { ...buildEvidenceRationale(human), riskOfBias: 'Low', consistency: 'Consistent' }).backed).toBe(true)
     expect(gradeIsBackedByEvidence('B', buildEvidenceRationale(human)).backed).toBe(true)
+  })
+
+  it('requires actual bias and consistency assessments for Grade A', () => {
+    expect(gradeIsBackedByEvidence('A', buildEvidenceRationale(human))).toMatchObject({ backed: false, reason: 'grade-a-certainty-not-assessed' })
   })
 
   it('flags a strong grade with no human study on the record', () => {

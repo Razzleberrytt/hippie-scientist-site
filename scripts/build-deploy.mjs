@@ -344,6 +344,13 @@ const steps = [
     cacheable: false,
   },
   {
+    name: 'build-profile-social-images',
+    cmd: 'npx tsx scripts/media/build-profile-social-images.ts',
+    inputs: ['public/data/herbs.json', 'public/data/compounds.json', 'scripts/media/build-profile-social-images.ts', 'lib/profile-credibility.ts'],
+    outputs: ['public/images/social/profiles/**/*.png'],
+    cacheable: false,
+  },
+  {
     name: 'build-production',
     cmd: 'node scripts/build-production.mjs',
     inputs: [
