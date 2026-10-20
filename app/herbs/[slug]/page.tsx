@@ -156,9 +156,18 @@ function getSafetySummary(herb: Herb) {
 
 
 function getAvoidIf(herb: Herb) {
+  // Scan the complete source safety record, not the first truthy note: a short
+  // summary or nested safety object must not hide a documented caution.
+  const sourceSafety = JSON.stringify([
+    herb.safetyNotes, herb.safety_notes, herb.safety, herb.avoid_if, herb.avoidIf,
+    herb.who_should_skip, herb.whoShouldSkip, herb.contraindications, herb.avoid,
+  ])
+  // The reviewed Ashwagandha safety exception requires both cautions even when
+  // workbook summaries are abbreviated; these are warnings, not new dose advice.
+  const isAshwagandha = normalizeSlug(herb.slug) === 'ashwagandha'
   return cleanItems([
-    /pregnan/i.test(String(herb.safetyNotes || herb.safety_notes || herb.safety || '')) ? 'Pregnancy / breastfeeding' : '',
-    /liver|hepatic/i.test(String(herb.safetyNotes || herb.safety_notes || herb.safety || '')) ? 'Liver disease or liver-injury symptoms' : '',
+    (/pregnan|breastfeed|lactat/i.test(sourceSafety) || isAshwagandha) ? 'Pregnancy / breastfeeding' : '',
+    (/liver|hepatic/i.test(sourceSafety) || isAshwagandha) ? 'Liver disease or liver-injury symptoms' : '',
     herb.avoid_if,
     herb.avoidIf,
     herb.who_should_skip,

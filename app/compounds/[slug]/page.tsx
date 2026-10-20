@@ -1137,7 +1137,7 @@ export default async function CompoundPage({ params }: PageProps) {
           {/* `grade` is passed raw and normalized inside the component. There is
               deliberately no `|| 'C'` fallback: defaulting asserted a
               Limited-Evidence grade the record never carried. */}
-          {evidenceDesignMatch && evidenceRiskOfBias && (
+          {evidenceDesignMatch && (
             <EvidenceGradeRationale
               grade={text(compound.evidence_grade)}
               designMatch={evidenceDesignMatch}
