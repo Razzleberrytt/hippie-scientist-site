@@ -76876,6 +76876,158 @@
       "reservation_id": "f9788d19659b96e5fe9d",
       "reserved_at": "2026-10-20T20:34:20.435Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "40965113",
+      "title": "Examining Antidepressant Discontinuation Syndrome (ADS) Among Hospice Patients in the Last Week of Life.",
+      "doi": "10.1177/10499091251381304",
+      "source_title": "Examining Antidepressant Discontinuation Syndrome (ADS) Among Hospice Patients in the Last Week of Life.",
+      "abstract": "BackgroundTerminal symptoms at the end-of-life (EOL) can be distressing to hospice patients and to caregivers who often manage symptoms in a home setting. Identifying potential contributors of these symptoms is key to quality patient- and family-centered care. Disruptions in antidepressants can lead to antidepressant discontinuation syndrome (ADS), a condition characterized by unpleasant symptoms such as agitation, restlessness, nausea, and insomnia.ObjectivesUsing a retrospective review of hospice patients' medication records, this study examined whether patients experiencing disruptions in their antidepressant regimen needed additional comfort medication to manage terminal symptoms consistent with ADS.MethodsAn existing data registry of 356 home hospice patients was queried to identify patients who were administered antidepressants whose regimens were disrupted in the last week of life. Patterns of comfort medication administration in these patients were compared to comfort medication usage in patients whose antidepressant regimens were not disrupted and to patients who were not prescribed antidepressants. Symptoms of ADS were assessed by comparing doses of liquid morphine, lorazepam, and haloperidol pre- and post-discontinuation of an antidepressant.ResultsAnalyses revealed significant increases in liquid morphine and lorazepam administration among patients who experienced disruptions to their antidepressant regimen, and that the increased overall utilization of these comfort medications was higher than that of control patients whose antidepressants were not disrupted or of those who were not prescribed antidepressants at all. These results warrant further exploration to determine whether distressing EOL symptoms may be indicative of ADS.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40965113/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40965113",
+        "doi": "10.1177/10499091251381304",
+        "journal": "The American journal of hospice & palliative care",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-20T22:25:45.136Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "14e555ad20becdefddf4",
+      "reserved_at": "2026-10-20T22:25:54.893Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "41549366",
+      "title": "Upper Limb Wound Profile in Patients Who Inject Heroin and Fentanyl Mixed With Xylazine.",
+      "doi": "10.1177/15589447251397009",
+      "source_title": "Upper Limb Wound Profile in Patients Who Inject Heroin and Fentanyl Mixed With Xylazine.",
+      "abstract": "Over the last few decades, hand surgeons have described a variety of wounds resulting from opioid use disorder (OUD). In the Philadelphia region, fentanyl mixed with xylazine has risen as a substance of choice. Our primary focus is to report and compare the upper limb wound morphology in patients using fentanyl/xylazine with patients using heroin. A retrospective cohort study was performed by reviewing charts of patients seen in consultation in a single plastic surgeon's private practice for upper limb soft tissue infections associated with opioid use from September 1, 2019, to November 30, 2023. Seventy patients were included and stratified based on wound morphology. We identified 70 patients (36% male, 64% female). In the heroin group, the most common wound was abscess (50%). In the fentanyl/xylazine group, it was full-thickness wound (55%). Chi-square analysis revealed a significant relationship between substance used (heroin or fentanyl/xylazine) and wound severity (mild/moderate or severe), χ 2 (1, N = 70) = 42.06, P < .0001. There is a paucity of medical literature about the spectrum of wound manifestations in OUD. Our data suggests that heroin use more commonly causes unilateral soft tissue injuries, which is likely a result of site-specific infection with intravenous administration. Patients using fentanyl/xylazine had a higher rate of bilateral upper limb injury and presented with more severe wounds than patients who used heroin. Hand surgeons must be informed on the spectrum of wound morphology with OUD and nuances between substances to best manage them in their practice.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41549366/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41549366",
+        "doi": "10.1177/15589447251397009",
+        "journal": "Hand (New York, N.Y.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-20T22:25:45.137Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "85bea526517f1db89a3a",
+      "reserved_at": "2026-10-20T22:25:54.893Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -76905,17 +77057,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 483,
+    "total_reservations": 485,
     "by_lane": {
       "1": 76,
       "2": 98,
       "3": 54,
-      "4": 30,
+      "4": 32,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 483
+      "SOURCE_VERIFIED": 485
     },
     "batches": [
       {
@@ -76928,7 +77080,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 483,
+        "count": 485,
         "pr_number": null,
         "blocker": null
       }
