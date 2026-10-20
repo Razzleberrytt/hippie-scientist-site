@@ -263,6 +263,13 @@ describe('owner GPG-signed annotated release tags', () => {
     expect(assessPublicationApproval({
       pr:ownerPr,changedFiles:[publicFile],signedTagProof:validProof,comments:[later],
     }).allowed).toBe(false);
+    // The signer can backdate or future-date a signed tag. Neither should
+    // override any authenticated negative event already present on the head.
+    const futureDate='2099-01-01T00:00:00Z';
+    const futurePayload=payload.replace(String(Date.parse(timestamp)/1000), String(Date.parse(futureDate)/1000));
+    const futureProof={...validProof,tag:{...validProof.tag,tagger:{...validProof.tag.tagger,date:futureDate},verification:{...validProof.tag.verification,payload:futurePayload}}};
+    expect(verifyOwnerSignedTag({pr:ownerPr,...futureProof})).not.toBeNull();
+    expect(assessPublicationApproval({pr:ownerPr,changedFiles:[publicFile],signedTagProof:futureProof,comments:[later]}).allowed).toBe(false);
     // Signed tags do not relieve CI or independently verified source checks.
     expect(evaluateReadiness({
       pr:{...ownerPr,state:'open',draft:false,mergeable:true,mergeable_state:'clean',
