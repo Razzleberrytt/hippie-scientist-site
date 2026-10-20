@@ -134,7 +134,7 @@ class ScienceAdversarialMatrix(unittest.TestCase):
 
     def test_em008_neutral_disclosure_across_shots_remains_hold_not_rejected(self):
         self.visual["rows"][0]["emittedSourceAnnotations"]["disclosure"]=[
-            "Botanical illustration; not proof of 7-OH plant content."]
+            "Botanical illustration: no plant assay was conducted"]
         self.visual["rows"][1]["emittedSourceAnnotations"]["science"]=[
             "7-OH is a chemical diagram label"]
         result=self.source_join()
@@ -150,7 +150,7 @@ class ScienceAdversarialMatrix(unittest.TestCase):
 
     def test_em008_clear_disclosure_and_chemical_id_remain_research_only(self):
         self.visual["rows"][0]["emittedSourceAnnotations"]["disclosure"] = [
-            "Botanical illustration; not proof of 7-OH plant content."]
+            "Botanical illustration: no plant assay was conducted"]
         report = self.source_join()
         self.assertFalse(report["mayPublish"])
         self.assertFalse(report["clinicalSourceClaimsApproved"])
@@ -235,17 +235,17 @@ class ScienceAdversarialMatrix(unittest.TestCase):
         self.visual["rows"][0]["emittedSourceAnnotations"]["disclosure"]=[
             "Botanical illustration"]
         self.visual["rows"][1]["emittedSourceAnnotations"]["disclosure"]=[
-            "not proof of 7-OH"]
+            "not proof of plant chemistry"]
         # Preserve scene 3's mandatory "computed model" disclosure.
-        self.visual["rows"][2]["emittedSourceAnnotations"]["science"]=[
-            "Chemical structure diagram, not a botanical assay"]
+        self.visual["rows"][2]["emittedSourceAnnotations"]["science"].append(
+            "Chemical structure diagram, not a botanical assay")
         result=self.source_join()
         self.assertFalse(result["mayPublish"])
         self.assertFalse(result["clinicalSourceClaimsApproved"])
 
     def test_em008_neutral_illustration_without_assay_claim_stays_unapproved(self):
         self.visual["rows"][0]["emittedSourceAnnotations"]["disclosure"]=[
-            "Botanical illustration; not proof of 7-OH plant content."]
+            "Botanical illustration: no plant assay was conducted"]
         self.visual["rows"][1]["emittedSourceAnnotations"]["science"]=[
             "7-OH is a chemical diagram label"]
         receipt=self.source_join()
@@ -294,8 +294,8 @@ class ScienceAdversarialMatrix(unittest.TestCase):
         self.visual["rows"][1]["emittedSourceAnnotations"]["science"]=[
             "not measured receptor footage"]
         # Do not replace mandatory computed-model qualifier in scene 3.
-        self.visual["rows"][2]["emittedSourceAnnotations"]["science"]=[
-            "Chemical identifier, not a human trial"]
+        self.visual["rows"][2]["emittedSourceAnnotations"]["science"].append(
+            "Chemical identifier, not a human trial")
         report=self.source_join()
         self.assertFalse(report["mayPublish"])
         self.assertFalse(report["clinicalSourceClaimsApproved"])
