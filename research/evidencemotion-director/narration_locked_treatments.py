@@ -341,8 +341,6 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
                                                   round(232*scale)))
             image.alpha_composite(panel,pos(x+21,728))
             draw=ImageDraw.Draw(image)
-        text(pos(72,1070),'Computed model',font=f(42),
-             fill=muted,role='disclosure')
         text(pos(72,1136),'7-OH has one free hydroxyl',
              font=f(42,True),fill=accent,role='science')
         text(pos(72,1200),'Not a chemical reaction',

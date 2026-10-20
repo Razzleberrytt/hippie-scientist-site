@@ -81,7 +81,7 @@ class NarrationTreatments(unittest.TestCase):
         self.assertEqual(frame.size,(1080,1920))
         labels={a['text']:a for a in annotations}
         for label in ('MITRAGYNINE','7-OH',
-                      'Computed model','Not a chemical reaction'):
+                      'Not a chemical reaction'):
             self.assertIn(label,labels)
             self.assertLessEqual(labels[label]['boxPx'][2],1020)
         self.assertFalse(any(a['role']=='source' for a in annotations),
@@ -538,7 +538,6 @@ class NarrationTreatments(unittest.TestCase):
                 self.assertEqual(after[2:],[
                     ('science','MITRAGYNINE'),
                     ('science','7-OH'),
-                    ('disclosure','Computed model'),
                     ('science','7-OH has one free hydroxyl'),
                     ('disclosure','Not a chemical reaction')])
             else:
