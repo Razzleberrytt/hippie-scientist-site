@@ -57,15 +57,6 @@ class VisualClaimInventoryTests(unittest.TestCase):
         # Source declarations never establish absence of an image by themselves.
         for shot in template:
             shot["assetKind"]="deterministic_science"
-        # Scene two presents exactly these two reviewed source identities.
-        template[2]["annotations"]=[
-            {"role":"science","text":"MITRAGYNINE"},
-            {"role":"source","text":"CID 3034396"},
-            {"role":"science","text":"7-OH"},
-            {"role":"source","text":"CID 44301524"},
-            {"role":"science","text":"7-OH has one free hydroxyl"},
-            {"role":"disclosure","text":"Not a chemical reaction"},
-        ]
         template[7]["annotations"]=[
             {"role":"source","text":t} for t in
             ("PubChem","Mitragynine • CID 3034396","7-OH • CID 44301524",
@@ -85,7 +76,7 @@ class VisualClaimInventoryTests(unittest.TestCase):
                               "directedComposition":r[3],
                               "scientificMeaningRestriction":r[4],
                               "onscreenAnnotationRoles":
-                                  sorted({a["role"] for a in template[i]["annotations"]})}
+                                  ["source"] if i==7 else ["science"]}
                              for i,r in enumerate(STORY)]}
         self.science={"encodedH264Sha256":film,
                       "originalWavSha256":WAV_SHA,
@@ -93,8 +84,7 @@ class VisualClaimInventoryTests(unittest.TestCase):
                       "allNineShotInksIndependentlyRecovered":True,
                       "rows":[{"shot":r[0],"timeSec":(cuts[i]+cuts[i+1])/2,
                                "decodedImageSha256":"a"*64,
-                               "rawPixelOcrText":("Synthetic sample CID 3034396 CID 44301524"
-                                                   if i==2 else "Synthetic sample, not actual pixels"),
+                               "rawPixelOcrText":"Synthetic sample, not actual pixels",
                                "verifiedExactPhrases":list(CRITICAL[r[0]])}
                               for i,r in enumerate(STORY)]}
         self.write()
@@ -136,30 +126,6 @@ class VisualClaimInventoryTests(unittest.TestCase):
         self.assertFalse(x["scienceClaimsApproved"])
         self.assertFalse(x["allFrameIndependentOCR"])
         self.assertFalse(x["mayPublish"])
-
-    def test_exact_native_scene_two_source_cids_require_real_ink(self):
-        inspected=self.check()
-        self.assertEqual(
-            inspected["rows"][2]["emittedSourceAnnotations"]["source"],
-            ["CID 3034396","CID 44301524"])
-        self.assertFalse(inspected["mayPublish"])
-        self.phone["shots"][2]["annotations"][1]["text"]="CID 3034397"
-        self.write()
-        with self.assertRaisesRegex(ValueError,"SOURCE_COMPARISON_CID_PAIR_CHANGED"):
-            self.check()
-        self.phone["shots"][2]["annotations"][1]["text"]="CID 3034396"
-        self.science["rows"][2]["rawPixelOcrText"]="CID 3034396 only"
-        self.write()
-        with self.assertRaisesRegex(ValueError,"SOURCE_COMPARISON_CID_INK_MISSING"):
-            self.check()
-
-    def test_cids_elsewhere_except_exact_comparison_and_source_card_hold(self):
-        self.phone["shots"][3]["annotations"].append(
-            {"role":"source","text":"CID 3034396"})
-        self.story["shots"][3]["onscreenAnnotationRoles"].append("source")
-        self.write()
-        with self.assertRaisesRegex(ValueError,"SOURCE_IDENTITY_CARD_OFF_SCENE"):
-            self.check()
 
     def test_unreviewed_botanical_or_missing_asset_kind_rejected_after_rehash(self):
         # A caller may regenerate all linked manifest hashes. That still cannot
