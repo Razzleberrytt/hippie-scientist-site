@@ -336,7 +336,12 @@ export function reconcileTerminalReservations(reg){
  return reg;
 }
 async function commitRegistryMutation(mutator,message){
- return withRecovery(async()=>{const current=await getRegistry(),reg=current.value;await mutator(reg);
+ return withRecovery(async()=>{const current=await getRegistry(),reg=current.value;
+  // Repair stale terminal states BEFORE any reserve validation; otherwise a legacy
+  // abandoned PMID can falsely collide and abort before the repair is committed.
+  reconcileTerminalReservations(reg);
+  await mutator(reg);
+  // Capture batches that became terminal during this mutation as well.
   reconcileTerminalReservations(reg);
   const saved=await putRegistry(current,reg,message);return {reg,saved}},{});
 }
