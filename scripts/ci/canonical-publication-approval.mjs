@@ -207,7 +207,7 @@ export function assessPublicationApproval({ pr, changedFiles, comments = [], rev
  * needed for public-clinical diffs; inert staging and ordinary control changes
  * do not incur API work. Missing/partial pages must fail closed.
  */
-export async function loadPublicationApprovalEvidence(request, repo, number, changedFiles, pr = null) {
+export async function loadPublicationApprovalEvidence(request, repo, number, changedFiles) {
   if (classifyPublicationChange(changedFiles).kind !== 'HUMAN_PUBLICATION') {
     return { comments: [], reviews: [], signedTagProof: null };
   }
