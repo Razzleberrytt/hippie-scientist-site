@@ -80,8 +80,8 @@ class NarrationTreatments(unittest.TestCase):
                            annotations=annotations,caption_mode='timed_research')
         self.assertEqual(frame.size,(1080,1920))
         labels={a['text']:a for a in annotations}
-        for label in ('MITRAGYNINE','7-OH STRUCTURE',
-                      'PubChem CID 3034396','PubChem CID 44301524',
+        for label in ('MITRAGYNINE','7-OH',
+                      'PubChem CID 3034396','CID 44301524',
                       'Two structures, not a chemical reaction'):
             self.assertIn(label,labels)
             self.assertLessEqual(labels[label]['boxPx'][2],1020)
