@@ -111,7 +111,10 @@ describe('gradeIsBackedByEvidence', () => {
     const rationale = buildEvidenceRationale([claim('RCT'), claim('RCT')])
     expect(rationale.humanStudyCount).toBe(2)
     expect(rationale.identifiedHumanStudyCount).toBe(0)
-    expect(gradeIsBackedByEvidence('A', rationale).backed).toBe(false)
+    expect(gradeIsBackedByEvidence('A', rationale)).toMatchObject({
+      backed: false,
+      reason: 'no-identifiable-human-publications-for-grade-a',
+    })
   })
 
   it('deduplicates a PMID found in a PubMed source URL as well', () => {
