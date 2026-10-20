@@ -68,7 +68,10 @@ export function verifyOwnerSignedTag({ pr, tagRef, tag }) {
   const email = owner.id + '+' + owner.login + '@users.noreply.github.com';
   if (String(tag.tagger?.email || '').toLowerCase() !== email.toLowerCase()) return null;
   const message = 'THS-PUBLICATION-APPROVED PR=#' + pr.number + ' HEAD=' + pr.head.sha;
-  if (String(tag.message || '').trim() !== message) return null;
+  // GitHub may return the appended PGP armor inside tag.message; only the
+  // pre-signature message is compared here. The separate signed payload must
+  // still match byte-for-byte below and have GitHub verification: valid.
+  if (String(tag.message || '').split('-----BEGIN PGP SIGNATURE-----')[0].trim() !== message) return null;
 
   const payload = tag.verification.payload;
   if (typeof payload !== 'string' || !payload.endsWith('\n\n' + message + '\n')) return null;
