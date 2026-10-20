@@ -35,7 +35,7 @@ EFFECT_CLAIMS = re.compile(
 INTERPRETATION_RISKS = {
     "sentence_1_part0": "Identity comparison may be mistaken for a reaction",
     "sentence_1_part1": "Oxygen spotlight must not imply observed biology",
-    "sentence_2": "Highlighted hydroxyl and computed model do not establish an effect",
+    "sentence_2": "Two source-verified structures show a difference, not a reaction or clinical effect",
     "sentence_3": "Atom-bond connectivity does not establish efficacy or binding",
     "sentence_4": "Computed three-dimensional pose is not receptor-binding footage",
     "sentence_5_part0": "Structure image alone cannot predict human experience",
