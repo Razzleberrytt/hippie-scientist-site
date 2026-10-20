@@ -312,6 +312,41 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
              font=f(42,True),fill=accent,role='hook')
         text(pos(72,1200),'No reaction',
              font=f(42 if not light else 36),fill=muted,role='disclosure')
+    elif idx==1 and not light and caption_mode=='timed_research':
+        # Source-backed visual contrast, NOT a transformation or inferred
+        # pharmacology. Both diagrams come from chemistry_assets(), which
+        # independently validates each molecule's exact PubChem identity.
+        before=assets['mitragynine']
+        after=assets['7_hydroxymitragynine']
+        if (before['oh'] or len(after['oh']) != 1
+                or before['source'].inchi_key == after['source'].inchi_key
+                or before['source'].pubchem_cid != 3034396
+                or after['source'].pubchem_cid != 44301524):
+            raise ValueError('TREATMENT_HOLD:MOLECULAR_COMPARISON_SOURCE_DRIFT')
+        for name,x,label,cid in (
+                ('mitragynine',72,'MITRAGYNINE',3034396),
+                ('7_hydroxymitragynine',558,'7-OH STRUCTURE',44301524)):
+            top=pos(x,634)
+            bottom=pos(x+450,1098)
+            draw.rounded_rectangle((*top,*bottom),radius=round(22*scale),
+                                   fill=(10,32,44,255),
+                                   outline=(64,121,131,255) if name=='mitragynine'
+                                           else (252,172,85,255),
+                                   width=max(2,round(3*scale)))
+            text(pos(x+20,659),label,font=f(34,True),fill=fg,
+                 role='science')
+            # Exact RDKit connectivity image: no morph, reaction or fabricated
+            # atomic model. Insets preserve the original 4:3 image aspect.
+            panel=assets[name]['diagram'].resize((round(404*scale),
+                                                  round(303*scale)))
+            image.alpha_composite(panel,pos(x+21,728))
+            draw=ImageDraw.Draw(image)
+            text(pos(x+20,1049),f'PubChem CID {cid}',font=f(30),
+                 fill=muted,role='source')
+        text(pos(72,1136),'Orange = verified free hydroxyl on 7-OH',
+             font=f(36,True),fill=accent,role='science')
+        text(pos(72,1200),'Two structures, not a chemical reaction',
+             font=f(34),fill=muted,role='disclosure')
     elif idx==4 and not light:
         # The original ending was essentially an empty typographic slide. Put
         # the *actual* source-verified connectivity drawing back on screen,
