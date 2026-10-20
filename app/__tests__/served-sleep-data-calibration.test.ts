@@ -80,6 +80,14 @@ describe('served sleep-data calibration', () => {
     expect(listed?.summary).toBe(detail.summary)
     expect(listed?.description).toBe(detail.description)
     expect(indexed?.summary).toBe(detail.summary)
+    // The grade/index builder must also expose the same conservative tier
+    // across the three served copies, not an older workbook Grade B label.
+    const grades = [
+      (detail as TryptophanDetail & { evidence_grade?: string }).evidence_grade,
+      (listed as typeof listed & { evidence_grade?: string })?.evidence_grade,
+      (indexed as typeof indexed & { evidence_grade?: string })?.evidence_grade,
+    ]
+    expect(grades).toEqual(['D', 'D', 'D'])
     expect([detail.summary, listed?.summary, indexed?.summary].join(' ')).not.toMatch(/moderate evidence for modest sleep latency reduction/i)
   })
 })
