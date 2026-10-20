@@ -2525,10 +2525,10 @@
     "source_url": "https://consensus.app/papers/spicy-food-and-chili-peppers-and-multiple-health-outcomes-ao-huang/3c578e8dc02759e09f8fe1f74f33f490/?utm_source=chatgpt",
     "evidence_tier": "umbrella review",
     "profile_slug": "capsicum-frutescens",
-    "study_class": "meta-analysis",
+    "study_class": "systematic-review",
     "study_class_source": "umbrella review",
-    "study_class_label": "Meta-analysis",
-    "study_class_rank": 9,
+    "study_class_label": "Systematic review",
+    "study_class_rank": 8,
     "study_class_human": true
   },
   {
