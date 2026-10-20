@@ -50,7 +50,9 @@ async function github(path) {
   })
   if (!response.ok) {
     const text = await response.text()
-    throw new Error(`GET ${path} failed (${response.status}): ${text.slice(0, 1000)}`)
+    const error = new Error(`GET ${path} failed (${response.status}): ${text.slice(0, 1000)}`)
+    error.status = response.status
+    throw error
   }
   return response.json()
 }
