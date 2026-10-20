@@ -58,6 +58,12 @@
 
 ## Sprint objective
 
+### PSY-001 — owner-directed psyllium comparison review candidate (2026-10-18)
+
+Status: In review in an isolated worktree; one scoped Discovery/SEO comparison route, using the free D slot. A #6769 and R #6810 remain unchanged. This is the owner's explicitly requested first page, not permission to start B12 or D3+K2. The owner subsequently instructed “Merge when finished” and “Merge”, superseding the original unmerged-only delivery. Merge remains subject to current exact-head CI, review and canonical publication gates; no fabricated approval receipt.
+
+Acceptance: compare 3–5 forms; 5–10 studies with every PMID checked against PubMed; prominent safety and drug-interaction boundaries; 8–12 FAQ answers of 40–60 words matching schema; verified high-confidence ASINs only, otherwise Amazon searches using the central affiliate tag; visible disclosure before shopping links; stable unique route; responsive light/dark checks; focused regressions, check:fast and production build. Record fresh evidence and limitations in [the execution record](content/psyllium-buyer-comparison-2026-10-18.md). Stop after this PR and await direction.
+
 Finish the smallest trustworthy Evidence → Distribution loop that can produce a governed asset, preserve exact factual provenance through presentation/rendering, move it through an idempotent dry-run publishing lifecycle, and accept attributable outcome observations for deterministic feedback.
 
 At the same time, finish the smallest control-plane hardening needed to keep autonomous execution trustworthy as throughput increases: changed-file-relevant merge gates first (#4410/#4411), then machine reconciliation of GitHub state against the planning docs (#4412). Freshness/unlock-aware prioritization (#4413), durable experiment memory (#4414), and marginal-resource economics (#4415) are merged. Their implementation is not ready work; using them with real observations remains subject to evidence and admission gates.
