@@ -15,6 +15,7 @@ import subprocess
 import time
 
 from autonomous_script_asr_research import LINES, WAV_SHA, tokens, source_check
+from fresh_verified_mfa_guard import FRESH_WAV_SHA, verify_fresh_manifest, verify_fresh_wave
 from exact_wav_alignment import inspect_alignment
 from timed_caption_windows import schedule as caption_schedule, shown_at as timed_caption_shown_at, SCHEMA as CAPTION_WINDOW_SCHEMA
 from editorial_2d_cpu_research import smooth
@@ -567,12 +568,17 @@ def encoder_command(size, wav, count, video):
                '-frames:v',str(count),'-movflags','+faststart',str(video)]
 
 
-def render(root, destination, font_dir, treatment, native=False, *, experimental_timed_captions=False):
+def render(root, destination, font_dir, treatment, native=False, *, experimental_timed_captions=False, fresh_verified_mfa=False):
     import PIL
     import rdkit
+    if fresh_verified_mfa and not (native and experimental_timed_captions):
+        raise ValueError('TREATMENT_HOLD:FRESH_MFA_REQUIRES_NATIVE_TIMED_CAPTIONS')
+    expected_wav_sha = FRESH_WAV_SHA if fresh_verified_mfa else WAV_SHA
+    check_wave = verify_fresh_wave if fresh_verified_mfa else source_check
     source_files = [Path(__file__).with_name(name) for name in (
         'narration_locked_treatments.py','verified_molecular_comparison.py',
         'editorial_2d_cpu_research.py','exact_wav_alignment.py','autonomous_script_asr_research.py',
+        'fresh_verified_mfa_guard.py',
         'phone_ui_audit.py','native_master_audit.py','timed_caption_windows.py',
         'temporal_caption_audit.py','source_locked_visual_direction.py',
         'source_bond_trace_direction.py')]
@@ -583,11 +589,13 @@ def render(root, destination, font_dir, treatment, native=False, *, experimental
     if out.exists():
         raise ValueError('TREATMENT_HOLD:FRESH_OUTPUT_REQUIRED')
     manifest = json.loads((root/'alignment-manifest.json').read_text())
+    if fresh_verified_mfa:
+        verify_fresh_manifest(root,manifest)
     alignment = inspect_alignment(root,manifest)
     wav = root/manifest['wav']['path']
-    duration = source_check(wav)
-    if alignment['inputSha256']['wav']!=WAV_SHA:
-        raise ValueError('TREATMENT_HOLD:ORIGINAL_WAV_REQUIRED')
+    duration = check_wave(wav)
+    if alignment['inputSha256']['wav']!=expected_wav_sha:
+        raise ValueError('TREATMENT_HOLD:EXPECTED_WAV_SOURCE_MISMATCH')
     scenes = timeline(alignment)
     # Candidate only; rendered captions remain unchanged until all independent
     # scientific, muted-answer and native-frame reviewers support the change.
@@ -610,7 +618,7 @@ def render(root, destination, font_dir, treatment, native=False, *, experimental
     proposal_path.write_text(json.dumps({
         'schema':CAPTION_WINDOW_SCHEMA,
         'status':'TIMED_RESEARCH_FILM_REQUIRES_FRAME_REVIEW' if experimental_timed_captions else 'CANDIDATE_ONLY_NOT_RENDERED',
-        'sourceWavSha256':WAV_SHA,
+        'sourceWavSha256':expected_wav_sha,
         'alignmentRevisionSha256':alignment['revisionSha256'],
         'maxWordsPerGroup':3,
         'scenes':caption_proposal,
@@ -653,7 +661,7 @@ def render(root, destination, font_dir, treatment, native=False, *, experimental
     # Identity revalidation after actual render, not merely before it.
     if inspect_alignment(root,manifest)['revisionSha256']!=alignment['revisionSha256']:
         raise ValueError('TREATMENT_HOLD:SOURCE_CHANGED_DURING_RENDER')
-    source_check(wav)
+    check_wave(wav)
     if {p.name:sha(p) for p in source_files}!=renderer_sources or fonts(font_dir)[1]!=font_hashes:
         raise ValueError('TREATMENT_HOLD:RENDERER_OR_FONTS_CHANGED_DURING_RENDER')
     sources = []
@@ -678,7 +686,7 @@ def render(root, destination, font_dir, treatment, native=False, *, experimental
         from temporal_caption_audit import SCHEMA as TEMPORAL_SCHEMA
         temporal_ledger=out/'timed-caption-all-RGB-frames-RESEARCH.json'
         temporal_ledger.write_text(json.dumps({
-            'schema':TEMPORAL_SCHEMA,'sourceWavSha256':WAV_SHA,
+            'schema':TEMPORAL_SCHEMA,'sourceWavSha256':expected_wav_sha,
             'videoSha256':sha(video),'width':1080,'height':1920,
             'fps':FPS,'frames':emitted_frames,
             'encodedFilmOCRIndependentlyChecked':False,
@@ -688,7 +696,7 @@ def render(root, destination, font_dir, treatment, native=False, *, experimental
     receipt = {'status':'NEW_RENDERED_RESEARCH_CANDIDATE_REQUIRES_INDEPENDENT_REVIEW',
                'isOriginalV5':False,'treatment':treatment,'videoSha256':sha(video),
                'resolution':list(size),'nativePixelsDrawnAtOutputResolution':True,
-               'fps':FPS,'frames':count,'sourceWavSha256':WAV_SHA,
+               'fps':FPS,'frames':count,'sourceWavSha256':expected_wav_sha,
                'candidateCaptionWindowManifestSha256':sha(proposal_path),
                'candidateCaptionWindowsAppliedToFilm':experimental_timed_captions,
                'preEncodeFrameLedgerSha256':sha(temporal_ledger) if temporal_ledger else None,
@@ -718,5 +726,6 @@ if __name__=='__main__':
     parser.add_argument('--treatment',choices=sorted(TREATMENTS),required=True)
     parser.add_argument('--native',action='store_true')
     parser.add_argument('--experimental-timed-captions',action='store_true')
+    parser.add_argument('--fresh-verified-mfa',action='store_true')
     args=parser.parse_args()
-    print(json.dumps(render(args.alignment_root,args.out,args.font_dir,args.treatment,args.native,experimental_timed_captions=args.experimental_timed_captions),indent=2))
+    print(json.dumps(render(args.alignment_root,args.out,args.font_dir,args.treatment,args.native,experimental_timed_captions=args.experimental_timed_captions,fresh_verified_mfa=args.fresh_verified_mfa),indent=2))
