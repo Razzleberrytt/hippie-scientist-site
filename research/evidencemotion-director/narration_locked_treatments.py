@@ -343,7 +343,7 @@ def render_frame(t, scenes, assets, treatment, size, font, *, annotations=None, 
             draw=ImageDraw.Draw(image)
             text(pos(x+18,1006),'CID '+str(cid),font=f(42),
                  fill=fg,role='source')
-        text(pos(72,1136),'Orange = 7-OH hydroxyl',
+        text(pos(72,1136),'7-OH has one free hydroxyl',
              font=f(42,True),fill=accent,role='science')
         text(pos(72,1200),'Not a chemical reaction',
              font=f(42),fill=muted,role='disclosure')
