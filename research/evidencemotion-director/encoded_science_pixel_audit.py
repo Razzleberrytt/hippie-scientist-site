@@ -25,7 +25,7 @@ CRITICAL = {
     # teaching, source identity, and the "no reaction" safety boundary. The
     # later source_hold card independently binds both full compound IDs.
     "sentence_2": ("hydroxyl group","oxygen + hydrogen",
-                   "cid 3034396","7-oh hydroxyl",
+                   "cid 3034396","one free hydroxyl",
                    "not a chemical reaction"),
     "sentence_3": ("connected atoms","dots mark atoms",
                    "lines mark bonds","7-hydroxymitragynine"),
