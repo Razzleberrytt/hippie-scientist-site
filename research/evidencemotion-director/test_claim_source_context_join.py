@@ -24,9 +24,13 @@ def visual_fixture():
             "emittedSourceAnnotations":{
                 "source":list(SOURCE_CARD_LABELS) if shot=="source_hold" else [],
                 "hook":[],
-                "science":["≠","HUMAN EXPERIENCE"] if shot=="sentence_5_part1" else [],
+                "science":(
+                    ["MITRAGYNINE","7-OH","7-OH has one free hydroxyl"]
+                    if shot=="sentence_2" else
+                    ["≠","HUMAN EXPERIENCE"] if shot=="sentence_5_part1" else []
+                ),
                 "disclosure":(
-                    ["DETAIL REVEAL • computed model"] if shot=="sentence_2" else
+                    ["Not a chemical reaction"] if shot=="sentence_2" else
                     ["Computed 3D illustration • not filmed"] if shot=="sentence_4" else []
                 ),"caption":[]},
             "actualDecodedFrameSha256":"3"*64,
@@ -149,7 +153,9 @@ class ExactClaimContextTests(unittest.TestCase):
         # Negative controls mimic a real source-locked visual inventory being
         # re-serialized/rehashed after a misleading editing change.
         cases=(
-            ("sentence_2","disclosure",["Look at the group"],"COMPUTED_MODEL"),
+            ("sentence_2","disclosure",["Look at the group"],"NO_REACTION_COMPARISON"),
+            ("sentence_2","science",["MITRAGYNINE","7-OH"],"SOURCE_COMPARISON_LABELS"),
+            ("sentence_2","science",["7-OH has one free hydroxyl"],"SOURCE_COMPARISON_LABELS"),
             ("sentence_4","disclosure",["Computed 3D illustration"],"NOT_FILMED"),
             ("sentence_4","disclosure",["not filmed"],"NOT_FILMED"),
             ("sentence_5_part1","science",["HUMAN EXPERIENCE"],"HUMAN_EXPERIENCE"),
