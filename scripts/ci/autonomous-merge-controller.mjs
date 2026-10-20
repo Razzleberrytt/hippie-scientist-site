@@ -569,7 +569,7 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
   // This gate is re-evaluated during final serialized merge revalidation.
   if (changedFiles.length > 0) {
     const publicationApproval = assessPublicationApproval({
-      pr, changedFiles, comments: approvalEvidence.comments, reviews: approvalEvidence.reviews,
+      pr, changedFiles, comments: approvalEvidence.comments, reviews: approvalEvidence.reviews, signedTagProof: approvalEvidence.signedTagProof,
     })
     if (!publicationApproval.allowed) {
       return { action: 'stop', reason: `publication review hold: ${publicationApproval.reason}` }
@@ -684,7 +684,7 @@ async function evaluateOnce({ repo, number, expectedHeadSha, controllerRunId, al
   ])
   const riskTier = classifyRisk({ pr, changedFiles })
   if (!changedFiles.length) return { action: 'blocked', reason: 'changed file list empty; cannot validate publication scope' }
-  const approvalEvidence = await loadPublicationApprovalEvidence(github, repo, number, changedFiles)
+  const approvalEvidence = await loadPublicationApprovalEvidence(github, repo, number, changedFiles, pr)
   const containsCurrentBase = currentBaseSha ? await headContainsBase(repo, currentBaseSha, currentHeadSha) : false
   const verdict = currentBaseSha && !containsCurrentBase
     ? { action: 'sync', reason: 'PR head does not contain current base; update branch and revalidate exact head' }
@@ -750,7 +750,7 @@ async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha, co
     console.log(`Terminal merge revalidation blocked PR #${number}: changed file list empty`)
     return false
   }
-  const approvalEvidence = await loadPublicationApprovalEvidence(github, repo, number, changedFiles)
+  const approvalEvidence = await loadPublicationApprovalEvidence(github, repo, number, changedFiles, pr)
   const terminalVerdict = evaluateReadiness({
     pr,
     workflowRuns,
