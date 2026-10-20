@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {validateManifest,reconcileBaseline,decodeRegistryBlob,readGithubContent,resolveRegistryContents,reconcileTerminalReservations} from './github-reservation-controller.mjs';
+import {validateManifest,reconcileBaseline,decodeRegistryBlob,readGithubContent,resolveRegistryContents,reconcileTerminalReservations,reserveInto} from './github-reservation-controller.mjs';
 
 const record=(pmid,domain)=>({
  pmid:String(pmid),title:'Study '+pmid,source_title:'Study '+pmid,
@@ -129,4 +129,21 @@ test('legacy terminal reservations repair without altering active batches',()=>{
  };
  reconcileTerminalReservations(registry);
  assert.deepEqual(registry.reservations.map(r=>r.state),['RELEASED','MERGED','SOURCE_VERIFIED']);
+});
+
+test('legacy abandoned PMID cannot block a fresh reservation after preflight reconciliation', () => {
+ const original=record(902101,'sleep-stress-mood');
+ const registry={
+  active_batch_id:'rolling-live',batches:[{id:'rolling-old',state:'ABANDONED'},{id:'rolling-live',state:'ACTIVE'}],
+  reservations:[{...original,batch_id:'rolling-old',state:'SOURCE_VERIFIED'}],
+ };
+ const manifest={lane:1,records:[original]};
+ assert.throws(()=>reserveInto(registry,manifest,[]),/collision/);
+ assert.equal(registry.reservations.length,1,'failed attempt must not reserve anything');
+ reconcileTerminalReservations(registry); // commitRegistryMutation now performs this BEFORE the mutator.
+ assert.equal(registry.reservations[0].state,'RELEASED');
+ const newlyReserved=reserveInto(registry,manifest,[]);
+ assert.equal(newlyReserved.length,1);
+ assert.equal(registry.reservations[1].state,'SOURCE_VERIFIED');
+ assert.equal(registry.reservations[1].batch_id,'rolling-live');
 });
