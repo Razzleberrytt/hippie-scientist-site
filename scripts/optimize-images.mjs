@@ -58,7 +58,7 @@ async function getImageFiles(dir) {
   for (const entry of entries) {
     const full = path.join(dir, entry.name)
     if (entry.isDirectory()) {
-      if (full === OUTPUT_DIR) continue
+      if (full === OUTPUT_DIR || full === path.join(INPUT_DIR, 'social')) continue
       files.push(...(await getImageFiles(full)))
       continue
     }

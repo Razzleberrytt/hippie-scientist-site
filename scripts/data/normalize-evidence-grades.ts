@@ -1,3 +1,5 @@
+import { extractCitationsFromRecord } from '../../lib/citations'
+import { buildWorkbookEvidenceIndex } from '../../lib/runtime-data'
 /**
  * Pipeline step: collapse authored evidence signals into the canonical contract.
  * Authored values remain in *_source; public A/B strength fails closed when the
@@ -10,7 +12,7 @@ import path from 'node:path'
 import { BAND_LABEL, reconcileEvidenceGrade, type EvidenceReconciliation } from '../../lib/evidence-grade'
 import { buildEvidenceRationale, gradeIsBackedByEvidence, type EvidenceRationale } from '../../lib/evidence-rationale'
 import { buildProfileSummary, isPlaceholderSummary } from '../../lib/profile-summary'
-import { normalizeStudyClass, strongestStudyClass, STUDY_CLASS_INFO } from '../../lib/study-class'
+import { normalizeStudyClass, STUDY_CLASS_INFO } from '../../lib/study-class'
 import { writeFileAtomic } from '../lib/atomic-json.mjs'
 
 const ROOT = process.cwd()
@@ -18,9 +20,11 @@ const dataDirArg = process.argv.find((arg) => arg.startsWith('--data-dir='))
 const DATA_DIR = path.resolve(ROOT, dataDirArg ? dataDirArg.split('=')[1] : 'public/data')
 const REPORTS_DIR = path.join(ROOT, 'ops', 'reports')
 const REPORT_PATH = path.join(REPORTS_DIR, 'evidence-grade-migration.json')
+const APPLY_PUBLICATION_CEILING = process.argv.includes('--publication-ceiling')
 const UNBACKED_PUBLIC_TIER = 'Editorial grade not demonstrated by recorded studies'
 
 const PROFILE_SYNC_FIELDS = [
+  'indexability_status', 'robots', 'sitemap_included', 'evidence_publication_hold',
   'summary', 'summary_source', 'evidence_grade', 'evidence_grade_source', 'evidence_tier', 'evidence_tier_source',
   'evidenceLevel', 'evidenceTier',
   'evidence_grade_band', 'evidence_grade_reason', 'evidence_grade_explanation', 'evidence_grade_adjusted',
@@ -58,8 +62,8 @@ function syncDetailRecord(indexFile: string, row: Row): void {
 
 function loadSourceDesignsBySlug(): Map<string, Row[]> {
   const cachePath = path.join(ROOT, 'ops', 'cache', 'pubmed-metadata.json')
-  if (!existsSync(cachePath)) return new Map()
-  const cache = JSON.parse(readFileSync(cachePath, 'utf8'))
+  const cache = existsSync(cachePath) ? JSON.parse(readFileSync(cachePath, 'utf8')) : {}
+  const imported = buildWorkbookEvidenceIndex(readJson('claims.json'))
   const records: Record<string, { publicationTypes?: string[] }> = cache.records ?? {}
   const bySlug = new Map<string, Row[]>()
   for (const dir of ['herbs-detail', 'compounds-detail']) {
@@ -70,18 +74,17 @@ function loadSourceDesignsBySlug(): Map<string, Row[]> {
       const detail = JSON.parse(readFileSync(path.join(full, file), 'utf8'))
       const slug = String(detail.slug ?? file.replace(/\.json$/, ''))
       const designs: Row[] = []
-      for (const source of Array.isArray(detail.sources) ? detail.sources : []) {
-        const pmid = String(source.pmid ?? source.pubmedId ?? '').trim()
-        const meta = records[pmid]
-        if (!meta?.publicationTypes?.length) continue
-        const classes = meta.publicationTypes
-          .filter((type) => !/^journal article$/i.test(type))
-          .map((type) => normalizeStudyClass(type))
-          .filter((studyClass) => studyClass !== 'unclassified')
-        if (!classes.length) continue
-        designs.push({ study_class: strongestStudyClass(classes), study_class_source: meta.publicationTypes.join('; ') })
+      const sourceRows = [...(Array.isArray(detail.sources) ? detail.sources : []), ...(imported.get(slug) || [])]
+      for (const source of sourceRows) {
+        const meta = records[String(source.pmid ?? source.pubmedId ?? '').trim()]
+        if (!source.studyType && !source.studyClass && meta?.publicationTypes?.length) {
+          source.studyType = meta.publicationTypes.join('; ')
+        }
       }
-      if (designs.length) bySlug.set(slug, designs)
+      for (const citation of extractCitationsFromRecord({ ...detail, sources: sourceRows })) {
+        designs.push({ id: citation.id, study_class_source: citation.studyType || citation.evidenceClass })
+      }
+      bySlug.set(`${dir === 'herbs-detail' ? 'herb' : 'compound'}:${slug}`, designs)
     }
   }
   return bySlug
@@ -107,10 +110,10 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
     const result: EvidenceReconciliation = reconcileEvidenceGrade(authoredGrade, authoredTier)
     reasons[result.reason] = (reasons[result.reason] ?? 0) + 1
 
-    const evidenceInputs = [...(claimsBySlug.get(String(row.slug)) ?? []), ...(sourcesBySlug.get(String(row.slug)) ?? [])]
-    const rationale: EvidenceRationale = buildEvidenceRationale(evidenceInputs)
+    const evidenceInputs = sourcesBySlug.get(`${file === 'herbs.json' ? 'herb' : 'compound'}:${row.slug}`) ?? []
+    const rationale: EvidenceRationale = buildEvidenceRationale(evidenceInputs, claimsBySlug.get(String(row.slug)) ?? [])
     if (rationale.designMatch) rationaleCards += 1
-    const backing = gradeIsBackedByEvidence(result.grade, rationale)
+    const backing = gradeIsBackedByEvidence(result.grade, rationale, [row.summary, row.description].filter(Boolean).join(' '))
 
     const publicGrade = backing.backed ? result.grade : null
     const publicBand = backing.backed ? result.band : null
@@ -148,6 +151,8 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
 
     const enriched = {
       ...row,
+      ...(APPLY_PUBLICATION_CEILING && rationale.humanStudyCount > 0 ? { evidence_publication_hold: undefined } : {}),
+      ...(APPLY_PUBLICATION_CEILING && rationale.humanStudyCount === 0 ? { evidence_publication_hold: row.evidence_publication_hold || { priorStatus: row.indexability_status, reason: 'no-recorded-human-evidence' }, indexability_status: /^(BLOCKED|NEEDS_REVIEW)$/.test(String(row.indexability_status)) ? row.indexability_status : 'NOINDEX', robots: 'noindex,follow', sitemap_included: false } : {}),
       evidence_grade: publicGrade,
       evidence_grade_source: String(authoredGrade ?? ''),
       evidence_tier: publicTier,
@@ -168,7 +173,7 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
       evidence_consistency: rationale.consistency,
       evidence_rationale: rationale.summary,
       evidence_human_study_count: rationale.humanStudyCount,
-      evidence_recorded_study_count: rationale.classifiedStudyCount,
+      evidence_recorded_study_count: rationale.totalClaimCount,
       evidence_strongest_design: rationale.strongestClass,
       evidence_grade_backed: backing.backed,
       evidence_grade_backing_gap: backing.reason,
@@ -227,7 +232,9 @@ function main() {
   const unbacked = profiles.flatMap((p) => p.unbacked)
   const reasons: Record<string, number> = {}
   for (const p of profiles) for (const [reason, count] of Object.entries(p.reasons)) reasons[reason] = (reasons[reason] ?? 0) + count
-  const report = { generatedAt: new Date().toISOString(), totals, gradeReasons: reasons, studyClasses: claims.classes, adjustments: profiles.flatMap((p) => p.changes), unbackedStrongGrades: unbacked }
+  const publicationPolicy = ['herbs.json', 'compounds.json'].flatMap(file => readJson(file).filter(row => row.evidence_publication_hold).map(row => ({ kind: file === 'herbs.json' ? 'herb' : 'compound', slug: row.slug, priorStatus: (row.evidence_publication_hold as Row).priorStatus, finalStatus: row.indexability_status, humanPublications: row.evidence_human_study_count, reason: (row.evidence_publication_hold as Row).reason })))
+  if (publicationPolicy.some(row => row.humanPublications !== 0)) throw new Error('Publication ceiling affected a human-positive profile')
+  const report = { publicationPolicy, generatedAt: new Date().toISOString(), totals, gradeReasons: reasons, studyClasses: claims.classes, adjustments: profiles.flatMap((p) => p.changes), unbackedStrongGrades: unbacked }
   mkdirSync(REPORTS_DIR, { recursive: true })
   writeFileAtomic(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`)
 

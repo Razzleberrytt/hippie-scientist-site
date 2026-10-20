@@ -52,11 +52,16 @@ function edgeCertainty(edge: InteractionEdge): SafetyCertainty {
 }
 
 export function InteractionWarnings({ edges, slugTypeMap }: InteractionWarningsProps) {
-  if (!edges || edges.length === 0) return null
+  const theoreticalOnly = edges?.length > 0 && edges.every(edge => !['known', 'probable'].includes(edgeCertainty(edge)))
+  if (theoreticalOnly) return (
+    <p className="text-sm leading-6 text-muted">Interaction research is incomplete. The source record includes medication cautions; shared warning keywords do not establish an interaction between two ingredients. Review the safety notes with a pharmacist before combining products.</p>
+  )
+  const reviewedEdges = (edges || []).filter(edge => ['known', 'probable'].includes(edgeCertainty(edge)))
+  if (reviewedEdges.length === 0) return null
 
   const bySeverity = SEVERITY_ORDER.map((severity) => ({
     severity,
-    items: edges.filter((edge) => edge.severity === severity),
+    items: reviewedEdges.filter((edge) => edge.severity === severity),
   })).filter((group) => group.items.length > 0)
 
   if (bySeverity.length === 0) return null

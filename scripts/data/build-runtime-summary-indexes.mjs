@@ -44,6 +44,10 @@ const SUMMARY_FIELDS = [
   'pathways',
   'evidence_tier',
   'evidence_grade',
+  'evidence_human_study_count',
+  'evidence_recorded_study_count',
+  'evidence_grade_backed',
+  'evidence_grade_source',
   'safety_level',
   'safety_rating',
   'category',
@@ -286,6 +290,9 @@ async function main() {
     const runtimeOverrideReport = await applyEnrichmentRuntimeOverrides({ dataDir: DATA_DIR })
     runtimeOverrideTimer.finish({ corrected: runtimeOverrideReport.touched.length })
   }
+
+  // Reconcile evidence after canonical citations, metadata and overrides have materialized.
+  if (!PRESERVE_GOVERNED_STATE) execFileSync(process.execPath, ['--import', 'tsx', 'scripts/data/normalize-evidence-grades.ts', `--data-dir=${DATA_DIR}`, '--publication-ceiling'], { stdio: 'inherit' })
 
   const herbs = await readJson(path.join(DATA_DIR, 'herbs.json'))
   const compounds = await readJson(path.join(DATA_DIR, 'compounds.json'))

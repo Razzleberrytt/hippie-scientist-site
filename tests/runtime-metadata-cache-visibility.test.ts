@@ -41,7 +41,7 @@ describe('runtime metadata cache visibility', () => {
     const map = buildRenderableMetadataMap(records, 'compound')
 
     expect(map.get('shared')?.name).toBe('Renderable version')
-    expect(map.get('shared')?.meta_title).toBe('Renderable version: Effects, Dose & Safety')
+    expect(map.get('shared')?.meta_title).toBe('Renderable Version: Effects, Dose & Safety')
   })
 
   it('ignores records without a usable slug', () => {

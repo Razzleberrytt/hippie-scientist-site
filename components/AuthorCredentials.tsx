@@ -13,7 +13,7 @@ export default function AuthorCredentials() {
             By <Link href="/info/about/" className="underline decoration-brand-700/40 underline-offset-2 hover:text-brand-700">Willie B. Randolph III</Link>
           </p>
           <p className="mt-0.5 text-xs leading-5 text-muted">
-            Founder &amp; Head Researcher · Oak Ridge, TN · Last reviewed August 2026
+            Founder &amp; Head Researcher · Oak Ridge, TN
           </p>
         </div>
       </section>
@@ -24,12 +24,11 @@ export default function AuthorCredentials() {
               Editorial Review
             </h3>
             <p className="mt-1 text-xs leading-5 text-muted">
-              Checked against primary sources, cited evidence, and contraindication language before publication.
-              Evidence claims, safety language, and affiliate modules are reviewed independently. Not personal medical advice.
+              Source citations and evidence limitations are provided for readers to inspect. A named clinical or pharmacist review is shown only when documented for the specific page. This byline does not certify independent clinical review. Not personal medical advice.
             </p>
           </div>
           <Link
-            href="/info/about/"
+            href="/info/editorial-policy/"
             className="shrink-0 self-start text-xs font-bold text-brand-800 transition hover:text-brand-700 hover:underline sm:self-center"
           >
             Editorial Standards &rarr;

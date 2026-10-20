@@ -268,6 +268,7 @@ export async function generateMetadata({ params }: PageProps) {
       title: mdxPage.title,
       description: mdxPage.metaDescription || '',
       path: `/compounds/${mdxPage.slug}`,
+      image: `/images/social/profiles/compound/${mdxPage.slug}.png`,
       openGraphType: 'article',
       keywords: mdxPage.keywords,
     })
@@ -762,7 +763,7 @@ export default async function CompoundPage({ params }: PageProps) {
     seeAlsoEntries: clusterSeeAlso,
     reviewedAt: freshness.lastReviewed,
     modifiedAt: freshness.lastReviewed,
-    citationCount: freshness.citationCount,
+    citationCount: citations.length,
   })
 
   const faqCandidates = [
@@ -898,7 +899,7 @@ export default async function CompoundPage({ params }: PageProps) {
               </div>
               <p className="text-[0.95rem] leading-7 text-muted">{quickSummary}</p>
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-                <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
+                <LastUpdatedBadge date={freshness.lastReviewed} citationCount={citations.length} />
                 <EvidenceScoreBadge record={compound} />
               </div>
 
@@ -1121,7 +1122,7 @@ export default async function CompoundPage({ params }: PageProps) {
             record={compound}
             evidenceLevel={evidenceLevel || undefined}
             safetySummary={safetySummary}
-            citationsCount={freshness.citationCount}
+            citationsCount={citations.length}
           />
           <EvidenceMeter level={evidenceLevel || 'moderate'} />
           <div className="space-y-3 text-sm leading-6 text-muted">
@@ -1136,7 +1137,7 @@ export default async function CompoundPage({ params }: PageProps) {
           {/* `grade` is passed raw and normalized inside the component. There is
               deliberately no `|| 'C'` fallback: defaulting asserted a
               Limited-Evidence grade the record never carried. */}
-          {evidenceDesignMatch && evidenceRiskOfBias && (
+          {evidenceDesignMatch && (
             <EvidenceGradeRationale
               grade={text(compound.evidence_grade)}
               designMatch={evidenceDesignMatch}
