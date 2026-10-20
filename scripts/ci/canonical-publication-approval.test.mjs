@@ -54,7 +54,7 @@ describe('canonical publication approval',()=>{
     expect(r.allowed).toBe(false)
     expect(r.kind).toBe('HUMAN_PUBLICATION')
     expect(r.reason).toMatch(/publication review hold/)
-    expect(r.reason).toContain('positive PR-comment approval tokens are disabled')
+    expect(r.reason).toContain('positive PR-comment approval tokens and signed-tag approvals are disabled')
     expect(r.reason).not.toContain('owner must post THS-PUBLICATION-APPROVED')
   })
   it('owner revocation after approval must close the publication gate',()=>{
