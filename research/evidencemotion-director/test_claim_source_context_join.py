@@ -30,7 +30,7 @@ def visual_fixture():
                     ["≠","HUMAN EXPERIENCE"] if shot=="sentence_5_part1" else []
                 ),
                 "disclosure":(
-                    ["Not a chemical reaction"] if shot=="sentence_2" else
+                    ["Computed model","Not a chemical reaction"] if shot=="sentence_2" else
                     ["Computed 3D illustration • not filmed"] if shot=="sentence_4" else []
                 ),"caption":[]},
             "actualDecodedFrameSha256":"3"*64,
@@ -153,7 +153,9 @@ class ExactClaimContextTests(unittest.TestCase):
         # Negative controls mimic a real source-locked visual inventory being
         # re-serialized/rehashed after a misleading editing change.
         cases=(
-            ("sentence_2","disclosure",["Look at the group"],"NO_REACTION_COMPARISON"),
+            ("sentence_2","disclosure",["Look at the group"],"COMPARISON_DISCLOSURES"),
+            ("sentence_2","disclosure",["Not a chemical reaction"],"COMPARISON_DISCLOSURES"),
+            ("sentence_2","disclosure",["Computed model"],"COMPARISON_DISCLOSURES"),
             ("sentence_2","science",["MITRAGYNINE","7-OH"],"SOURCE_COMPARISON_LABELS"),
             ("sentence_2","science",["7-OH has one free hydroxyl"],"SOURCE_COMPARISON_LABELS"),
             ("sentence_4","disclosure",["Computed 3D illustration"],"NOT_FILMED"),
