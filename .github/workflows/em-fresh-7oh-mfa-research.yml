@@ -17,7 +17,7 @@ jobs:
       FRESH_WAV_SHA: '31b349d76abaf29488c96422fb798bc62c6e9aa8428cf84304629159aeacfc28'
       FRESH_BRIEF_SHA: 'db95adc5dce3eb6e19c81719fec9222e3511856e85dbf862351ce231c8661ea8'
       SOURCE_RUN_ID: '39318185726'
-      MFA_DIR: ${{ runner.temp }}/em-fresh-7oh-mfa
+      MFA_DIR: /tmp/em-fresh-7oh-mfa
     steps:
       - uses: actions/checkout@v4
       - uses: mamba-org/setup-micromamba@v2
@@ -191,7 +191,7 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
           path: |
-            ${{ runner.temp }}/em-fresh-7oh-mfa/result/script.txt
-            ${{ runner.temp }}/em-fresh-7oh-mfa/result/alignment.dict
-            ${{ runner.temp }}/em-fresh-7oh-mfa/result/fresh.TextGrid
-            ${{ runner.temp }}/em-fresh-7oh-mfa/result/fresh-mfa-word-receipt.json
+            /tmp/em-fresh-7oh-mfa/result/script.txt
+            /tmp/em-fresh-7oh-mfa/result/alignment.dict
+            /tmp/em-fresh-7oh-mfa/result/fresh.TextGrid
+            /tmp/em-fresh-7oh-mfa/result/fresh-mfa-word-receipt.json
