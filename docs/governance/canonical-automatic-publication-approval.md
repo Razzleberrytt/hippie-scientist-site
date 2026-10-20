@@ -45,17 +45,29 @@ An eligible tag named `ths-publication-approved-pr-<PR_NUMBER>-<FULL_HEAD_SHA>` 
 
 ### One-time manual owner signing procedure
 
-After this control-plane patch has been reviewed, merged and deployed to the controller, the owner can use their **own local GPG signing key** already registered with GitHub. The private key must never be shared with an agent or connector. Example for PR #6934:
+After this control-plane patch has been independently reviewed, merged and deployed to the controller, the owner can use their **own local GPG signing key** already registered with GitHub. The private key must never be shared with an agent or connector. **Do not sign an outdated PR head:** the controller requires the head to contain the latest `main`, and branch synchronization changes the head SHA, invalidating any earlier approval. PR #6934 predates the EvidenceMotion #6936 merge; it must first be synchronized and revalidated. The SHA below is intentionally resolved at execution time rather than hard-coded.
+
+Run from a local clone with Git and GPG installed, after the exact-head CI and controller sync have finished. Verify the diff and commit before signing. Example for PR #6934:
 
 ```bash
 git fetch origin main
+git fetch origin pull/6934/head:refs/remotes/origin/pr-6934
+head="$(git rev-parse refs/remotes/origin/pr-6934)"
+base="$(git rev-parse refs/remotes/origin/main)"
+if ! git merge-base --is-ancestor "$base" "$head"; then
+  echo 'HOLD: PR head is behind main; synchronize through the protected controller and revalidate before signing.'
+  exit 1
+fi
+git show --stat --oneline "$head"
+# Independently inspect the exact PR diff and evidence before continuing.
 git config user.email '216745723+Razzleberrytt@users.noreply.github.com'
 git config user.signingkey YOUR_GPG_KEY_FINGERPRINT
-git tag -s ths-publication-approved-pr-6934-77c593838b0cfacbe70342a6c97e1b4f7c378186 77c593838b0cfacbe70342a6c97e1b4f7c378186 -m 'THS-PUBLICATION-APPROVED PR=#6934 HEAD=77c593838b0cfacbe70342a6c97e1b4f7c378186'
-git push origin refs/tags/ths-publication-approved-pr-6934-77c593838b0cfacbe70342a6c97e1b4f7c378186
+tag="ths-publication-approved-pr-6934-$head"
+git tag -s "$tag" "$head" -m "THS-PUBLICATION-APPROVED PR=#6934 HEAD=$head"
+git push origin "refs/tags/$tag"
 ```
 
-The owner must inspect the exact head before signing. To revoke, delete the signed tag ref and optionally add a negative approval signal. A removed tag never authorizes future merges. Every required source-integrity, scientific/safety, CI, release and deployment gate remains in force.
+A green local `git tag` command is **not** a completed authorization: inspect GitHub's authenticated tag-object verification and require `verified: true`, `reason: valid` before lifting any explicit `hold-merge` label. The owner must inspect the exact head before signing. To revoke, delete the signed tag ref and optionally add a negative approval signal. A removed tag never authorizes future merges. Every required source-integrity, scientific/safety, CI, release and deployment gate remains in force.
 
 **Security status:** This design is not itself an owner approval, independent scientific review, production authorization or a completed merge. Negative regressions and an independently inspected GitHub-verified actual tag are required before trust in the path can be claimed.
 ## Trusted-controller implementation
