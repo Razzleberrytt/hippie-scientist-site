@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {validateManifest,reconcileBaseline,decodeRegistryBlob,readGithubContent,resolveRegistryContents} from './github-reservation-controller.mjs';
+import {validateManifest,reconcileBaseline,decodeRegistryBlob,readGithubContent,resolveRegistryContents,reconcileTerminalReservations,reserveInto} from './github-reservation-controller.mjs';
 
 const record=(pmid,domain)=>({
  pmid:String(pmid),title:'Study '+pmid,source_title:'Study '+pmid,
@@ -88,4 +88,62 @@ test('exact registry blob 404 never recreates an empty research ledger',async()=
   assert.equal(fetchedBlob,false);
   const forbidden=Object.assign(Error('GitHub forbidden'),{status:403});
   await assert.rejects(resolveRegistryContents(async()=>{throw forbidden},async()=>{}),/GitHub forbidden/);
+});
+
+
+test('terminal reservation reconciliation releases abandoned and marks merged in one registry mutation',()=>{
+ const registry={
+  batches:[
+   {id:'rolling-0001',state:'ABANDONED'},
+   {id:'rolling-0002',state:'MERGED'},
+   {id:'rolling-0003',state:'ACTIVE'},
+   {id:'rolling-0004',state:'DRAFT_PR'},
+  ],
+  reservations:[
+   {batch_id:'rolling-0001',state:'SOURCE_VERIFIED'},
+   {batch_id:'rolling-0002',state:'SOURCE_VERIFIED'},
+   {batch_id:'rolling-0003',state:'SOURCE_VERIFIED'},
+   {batch_id:'rolling-0004',state:'SOURCE_VERIFIED'},
+   {batch_id:'rolling-unknown',state:'SOURCE_VERIFIED'},
+  ],
+ };
+ assert.equal(reconcileTerminalReservations(registry),registry);
+ assert.deepEqual(registry.reservations.map(r=>r.state),[
+  'RELEASED','MERGED','SOURCE_VERIFIED','SOURCE_VERIFIED','SOURCE_VERIFIED',
+ ]);
+ // Replaying the same serialized mutation never re-reserves terminal records.
+ reconcileTerminalReservations(registry);
+ assert.deepEqual(registry.reservations.map(r=>r.state),[
+  'RELEASED','MERGED','SOURCE_VERIFIED','SOURCE_VERIFIED','SOURCE_VERIFIED',
+ ]);
+});
+
+test('legacy terminal reservations repair without altering active batches',()=>{
+ const registry={
+  batches:[{id:'old-abandoned',state:'ABANDONED'},{id:'old-merged',state:'MERGED'},{id:'current',state:'FREEZE_PENDING'}],
+  reservations:[
+   {batch_id:'old-abandoned',state:'MERGED'},
+   {batch_id:'old-merged',state:'RELEASED'},
+   {batch_id:'current',state:'SOURCE_VERIFIED'},
+  ],
+ };
+ reconcileTerminalReservations(registry);
+ assert.deepEqual(registry.reservations.map(r=>r.state),['RELEASED','MERGED','SOURCE_VERIFIED']);
+});
+
+test('legacy abandoned PMID cannot block a fresh reservation after preflight reconciliation', () => {
+ const original=record(902101,'sleep-stress-mood');
+ const registry={
+  active_batch_id:'rolling-live',batches:[{id:'rolling-old',state:'ABANDONED'},{id:'rolling-live',state:'ACTIVE'}],
+  reservations:[{...original,batch_id:'rolling-old',state:'SOURCE_VERIFIED'}],
+ };
+ const manifest={lane:1,records:[original]};
+ assert.throws(()=>reserveInto(registry,manifest,[]),/collision/);
+ assert.equal(registry.reservations.length,1,'failed attempt must not reserve anything');
+ reconcileTerminalReservations(registry); // commitRegistryMutation now performs this BEFORE the mutator.
+ assert.equal(registry.reservations[0].state,'RELEASED');
+ const newlyReserved=reserveInto(registry,manifest,[]);
+ assert.equal(newlyReserved.length,1);
+ assert.equal(registry.reservations[1].state,'SOURCE_VERIFIED');
+ assert.equal(registry.reservations[1].batch_id,'rolling-live');
 });
