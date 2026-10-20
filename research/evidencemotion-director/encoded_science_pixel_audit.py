@@ -21,8 +21,12 @@ SCHEMA = "ths-encoded-science-overlay-pixel-audit-v1"
 CRITICAL = {
     "sentence_1_part0": ("mitragynine","no reaction"),
     "sentence_1_part1": ("7-oh","no reaction"),
+    # New native structural comparison: require actual encoded hydroxyl
+    # teaching, source identity, and the "no reaction" safety boundary. The
+    # later source_hold card independently binds both full compound IDs.
     "sentence_2": ("hydroxyl group","oxygen + hydrogen",
-                   "computed model","hydrogen atoms omitted"),
+                   "computed model","one free hydroxyl",
+                   "not a chemical reaction"),
     "sentence_3": ("connected atoms","dots mark atoms",
                    "lines mark bonds","7-hydroxymitragynine"),
     "sentence_4": ("3d shape","computed 3d illustration",

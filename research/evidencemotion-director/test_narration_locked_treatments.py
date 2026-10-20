@@ -59,6 +59,55 @@ class NarrationTreatments(unittest.TestCase):
         self.assertEqual(failed,[],'Actual emitted captions must count alongside every overlay')
         self.assertFalse(result['mayPublish'])
 
+    def test_source_verified_side_by_side_is_native_and_safety_locked(self):
+        # Source-grounded actual native-frame proof, not encoded OCR or
+        # scientific/publication authorization.
+        import os
+        from pathlib import Path
+        from PIL import Image, ImageChops
+        from narration_locked_treatments import fonts, render_frame
+        directory=Path(os.environ.get('THS_TEST_FONT_DIR',
+                                      '/usr/share/fonts/truetype/dejavu'))
+        if not directory.is_dir():
+            self.skipTest('Pinned native font directory unavailable')
+        font,_=fonts(directory)
+        scenes=timeline(self.alignment())
+        scene=scenes[1]
+        assets=chemistry_assets()
+        annotations=[]
+        frame=render_frame((scene['startSec']+scene['endSec'])/2,
+                           scenes,assets,'specimen',(1080,1920),font,
+                           annotations=annotations,caption_mode='timed_research')
+        self.assertEqual(frame.size,(1080,1920))
+        labels={a['text']:a for a in annotations}
+        for label in ('MITRAGYNINE','7-OH',
+                      'Computed model','Not a chemical reaction'):
+            self.assertIn(label,labels)
+            self.assertLessEqual(labels[label]['boxPx'][2],1020)
+        self.assertFalse(any(a['role']=='source' for a in annotations),
+                         'Full CID references belong on the source card')
+        # Two physically distinct RDKit molecule images are visible, not an
+        # invented transformation or duplicated hero rendered twice.
+        left=frame.convert('RGB').crop((93,736,490,1024))
+        right=frame.convert('RGB').crop((579,736,976,1024))
+        self.assertIsNotNone(ImageChops.difference(left,right).getbbox())
+        # The WHOLE molecule panels, not only text annotations, must avoid
+        # the right-side platform controls (x > 0.8 * 1080). Compare against
+        # the physical native background in the science-stage panel region.
+        from narration_locked_treatments import background
+        safe_x=round(1080*.80)
+        graphic_region=(safe_x,640,1080,1090)
+        self.assertIsNone(ImageChops.difference(
+            frame.convert('RGB').crop(graphic_region),
+            background((1080,1920)).convert('RGB').crop(graphic_region)
+        ).getbbox())
+        false_source=dict(assets)
+        false_source['mitragynine']=dict(assets['mitragynine'],oh=[3])
+        with self.assertRaisesRegex(ValueError,'MOLECULAR_COMPARISON_SOURCE_DRIFT'):
+            render_frame((scene['startSec']+scene['endSec'])/2,
+                         scenes,false_source,'specimen',(1080,1920),font,
+                         caption_mode='timed_research')
+
     def alignment(self):
         # Scheduling fixture only; this is not acoustic acceptance evidence.
         return {'sampleCount':824336,'wordAlignment':[
@@ -477,12 +526,23 @@ class NarrationTreatments(unittest.TestCase):
         self.assertEqual(candidate['status'],'RESEARCH_ONLY')
         self.assertFalse(candidate['releaseApproved'])
         self.assertEqual(candidate['captionMode'],'TIMED_RESEARCH_NOT_FULL_FRAME_VERIFIED')
-        # Text and source labels must not silently change in the experiment.
+        # Only the deliberately reviewed source-locked scene-2 comparison
+        # may change overlays. All remaining scenes retain exact source text.
         for original,updated in zip(legacy['shots'],candidate['shots']):
-            self.assertEqual([(a['role'],a['text']) for a in original['annotations']
-                              if a['role']!='caption'],
-                             [(a['role'],a['text']) for a in updated['annotations']
-                              if a['role']!='caption'])
+            before=[(a['role'],a['text']) for a in original['annotations']
+                    if a['role']!='caption']
+            after=[(a['role'],a['text']) for a in updated['annotations']
+                   if a['role']!='caption']
+            if original['id']=='sentence_2':
+                self.assertEqual(before[:2],after[:2])
+                self.assertEqual(after[2:],[
+                    ('science','MITRAGYNINE'),
+                    ('science','7-OH'),
+                    ('disclosure','Computed model'),
+                    ('science','7-OH has one free hydroxyl'),
+                    ('disclosure','Not a chemical reaction')])
+            else:
+                self.assertEqual(before,after)
             self.assertLessEqual(len([a for a in updated['annotations']
                                       if a['role']=='caption']),3)
         self.assertFalse(any(a['role']=='caption' for a in

@@ -60,6 +60,31 @@ class TemporalEmissionTests(unittest.TestCase):
         self.assertNotIn('not',displayed_at(parts,.26))
         self.assertIn('not',displayed_at(parts,.51))
 
+    def test_source_locked_comparison_labels_are_exact_and_never_publish(self):
+        # A single actual-shaped RGB-frame annotation can use ONLY the
+        # first-party verified compound IDs and no inferred medical claims.
+        frame=self.ledger['frames'][7*30+1]  # scene two, outside spoken cue
+        intended=[
+            ['science','MITRAGYNINE'],
+            ['science','7-OH'],
+            ['disclosure','Computed model'],
+            ['science','7-OH has one free hydroxyl'],
+            ['disclosure','Not a chemical reaction'],
+        ]
+        self.assertEqual(frame['scene'],'sentence_2')
+        frame['annotations']=copy.deepcopy(intended)
+        approved=audit(self.ledger,self.receipt)
+        self.assertFalse(approved['mayPublish'])
+        self.assertTrue(approved['notActualEncodedFrameOCR'])
+        for changed in (['source','CID 00000000'],
+                        ['science','Opioid withdrawal cured'],
+                        ['disclosure','Chemical conversion is proven']):
+            with self.subTest(changed=changed):
+                frame['annotations']=copy.deepcopy(intended)+[changed]
+                with self.assertRaisesRegex(ValueError,
+                                            'NEW_OR_UNSOURCED_SCIENCE_TEXT'):
+                    audit(self.ledger,self.receipt)
+
     def test_missing_or_reordered_frame_never_passes(self):
         del self.ledger['frames'][42]
         with self.assertRaisesRegex(ValueError,'ALL_FRAMES_REQUIRED'):

@@ -221,6 +221,8 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
     # This is authored metadata, not actual encoded pixel classification.
     adjacent_ink=[]
     adjacent_role_ink=[]
+    botanical_adjacent_ink=[]
+    botanical_adjacent_role_ink=[]
     for shot in shots:
         roles=shot.get("emittedSourceAnnotations")
         if (not isinstance(roles,dict)
@@ -240,9 +242,23 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
             role:" ".join(roles[role]) for role in ANNOTATION_ROLES}))
         if EFFECT_CLAIMS.search(written_ink):
             hold("UNSUPPORTED_TREATMENT_OR_EFFECT_TEXT:"+shot["shot"])
-        # Even separately split annotation labels must not present imagined
-        # botanical 7-OH concentrations, positive assays or absent content.
-        if asserts_unverified_botanical_7oh_content(written_ink):
+        # The exact scientific phrase below describes a free hydroxyl on a
+        # source-verified *molecule*, never assayed 7-OH in a plant. When
+        # reconstructing botanical assertions across shots, exclude ONLY the
+        # pinned entire clause from scene two, not any other science text.
+        # Keep the full text for treatment/effect and source-provenance guards.
+        botanical_roles={
+            role:" ".join(value for value in roles[role] if not (
+                shot["shot"]=="sentence_2" and role=="science"
+                and value=="7-OH has one free hydroxyl"))
+            for role in ANNOTATION_ROLES
+        }
+        botanical_ink=" ".join(botanical_roles.values())
+        botanical_adjacent_ink.append((shot["shot"],botanical_ink))
+        botanical_adjacent_role_ink.append((shot["shot"],botanical_roles))
+        # Still fail on genuine positive or negative product/plant content
+        # assertions anywhere in the actual annotated scene.
+        if asserts_unverified_botanical_7oh_content(botanical_ink):
             hold("UNVERIFIED_BOTANICAL_7OH_CONTENT:"+shot["shot"])
     # EM-007.06: an unsupported human-effect or receptor-assay assertion can
     # also be assembled across cuts ("reduces" / "withdrawal cravings", or
@@ -269,9 +285,9 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
     # four-shot windows as well. This is metadata text validation, not
     # decoded-pixel OCR or audience comprehension certification.
     for width in (2, 3, 4):
-        for offset in range(len(adjacent_ink)-width+1):
-            window=adjacent_ink[offset:offset+width]
-            role_window=adjacent_role_ink[offset:offset+width]
+        for offset in range(len(botanical_adjacent_ink)-width+1):
+            window=botanical_adjacent_ink[offset:offset+width]
+            role_window=botanical_adjacent_role_ink[offset:offset+width]
             role_texts=(" ".join(role_map[role] for _,role_map in role_window)
                         for role in ANNOTATION_ROLES)
             if (asserts_unverified_botanical_7oh_content(
@@ -283,15 +299,23 @@ def join(spoken,visual,*,spoken_sha,visual_sha):
                        "UNVERIFIED_BOTANICAL_7OH_THREE_SHOT:" if width==3 else
                        "UNVERIFIED_BOTANICAL_7OH_FOUR_SHOT:")
                 hold(label+":".join(name for name,_ in window))
-    # EM-007.06: this exact nine-shot film must preserve its visible science
-    # limitations. A freshly rehashed visual inventory is not enough if a
-    # later picture edit drops "computed" or "not filmed" while source CIDs
-    # and the spoken source ledger remain superficially intact.
-    structural_disclosure=" ".join(shots[2]["emittedSourceAnnotations"]["disclosure"]).casefold()
+    # EM-007.06: the source-verified 2D comparison in scene two is NOT a
+    # computed 3D model or a chemical reaction. Require BOTH molecule labels,
+    # its free-hydroxyl explanation, and the explicit no-reaction disclosure.
+    # This checks authored text, not encoded-pixel readability or clinical truth.
+    comparison=shots[2]["emittedSourceAnnotations"]
+    comparison_science={value.casefold() for value in comparison["science"]}
+    if not {"mitragynine","7-oh","7-oh has one free hydroxyl"}.issubset(comparison_science):
+        hold("VISIBLE_SOURCE_COMPARISON_LABELS_REQUIRED")
+    # Exact decoded native phone-plan evidence for this 2D RDKit comparison
+    # emits both labels in this order: computed artwork, not a reaction.
+    # The separate computed 3D scene retains its own "not filmed" gate.
+    if tuple(comparison["disclosure"])!=("Computed model","Not a chemical reaction"):
+        hold("VISIBLE_COMPARISON_DISCLOSURES_REQUIRED")
+    # The later 3D scene still requires both its computed and not-filmed caveats,
+    # even if all artifact hashes and exact source IDs are re-generated.
     computed_disclosure=" ".join(shots[4]["emittedSourceAnnotations"]["disclosure"]).casefold()
     contrast=" ".join(shots[6]["emittedSourceAnnotations"]["science"]).casefold()
-    if "computed model" not in structural_disclosure:
-        hold("VISIBLE_COMPUTED_MODEL_QUALIFIER_REQUIRED")
     if not ("computed" in computed_disclosure and "not filmed" in computed_disclosure):
         hold("VISIBLE_NOT_FILMED_COMPUTED_POSE_QUALIFIER_REQUIRED")
     if "≠" not in contrast or "human experience" not in contrast:
