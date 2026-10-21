@@ -40,11 +40,12 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 
 tree = ast.parse(Path(sys.argv[1]).read_text(encoding="utf-8"))
-functions = [node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name == "reserve_review_master_paths"]
-assert len(functions) == 1, "exactly one review destination guard required"
+functions = [node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name in {"reserve_review_master_paths", "publish_review_pair"}]
+assert len(functions) == 2, "destination guard and publisher both required"
 namespace = {"Path": Path}
 exec(compile(ast.Module(body=functions, type_ignores=[]), "<master-guard>", "exec"), namespace)
 guard = namespace["reserve_review_master_paths"]
+publish = namespace["publish_review_pair"]
 
 with TemporaryDirectory() as directory:
     root = Path(directory)
@@ -65,6 +66,19 @@ with TemporaryDirectory() as directory:
     except RuntimeError as exc:
         assert "refuse overwrite" in str(exc)
     assert receipt.read_text() == '{"narrationWavSha256":"frozen"}'
+    # Simulate a receipt-path race after we claim the new WAV.
+    wav.unlink(missing_ok=True)
+    try:
+        publish(wav, receipt, b"new-audio", '{"new":"receipt"}')
+        raise AssertionError("pre-existing receipt race did not block publish")
+    except FileExistsError:
+        pass
+    assert not wav.exists(), "our WAV must be cleaned after receipt conflict"
+    assert receipt.read_text() == '{"narrationWavSha256":"frozen"}'
+    receipt.unlink()
+    publish(wav, receipt, b"new-audio", '{"new":"receipt"}')
+    assert wav.read_bytes() == b"new-audio"
+    assert receipt.read_text() == '{"new":"receipt"}'
 `;
   const script = fileURLToPath(new URL('../r812-mitragynine-review-voice.py', import.meta.url))
   const result = spawnSync('python3', ['-c', guardTest, script], { encoding: 'utf8' })
@@ -80,6 +94,8 @@ test('audio timing receipt exposes exact integer frames without implying final a
   expect(source).toContain('"voiceEndFrame": end_samples')
   expect(source).toContain('"naturalSpeechFrames": len(clip)')
   expect(source).toContain('"durationFrames": len(speech)')
+  expect(source).toContain('wav_bytes = encoded_wav.getvalue()')
+  expect(source).toContain('publish_review_pair(audio_path, receipt_path, wav_bytes, receipt_text)')
   expect(source).toContain('"wordLevelAlignmentCertified": False')
   expect(source).toContain('"humanAuditoryReview": "pending"')
   expect(source).toContain('"releaseAuthority": "draft-only-not-for-publication"')
