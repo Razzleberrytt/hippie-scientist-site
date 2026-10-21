@@ -6,7 +6,7 @@
   "repository": "Razzleberrytt/hippie-scientist-site",
   "production": "https://thehippiescientist.net",
   "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
-  "scope": "Initial category-level intake plus existing P0 root causes. Not a URL-level inventory or complete audit. Split each category into stable root-cause records when original rows become available; retain parent IDs.",
+  "scope": "Initial category-level intake plus existing P0 root causes. Not a URL-level inventory or complete audit. Split each category into stable root-cause records when original rows become available; retain parent IDs. Follow-up AH-P0-005 records an independently reproduced terminal-state race; original baseline/sample remains historical.",
   "baseline": {
     "source": "Owner-supplied Ahrefs Site Audit October 20, 2026; original export unavailable",
     "metrics": {
@@ -36,7 +36,14 @@
     "scopeBoundary": "Counts may overlap; URL, HTML and link-reference populations differ. Proprietary scores have unavailable formula/denominators."
   },
   "postRepairAhrefs": null,
-  "repairChanges": [],
+  "repairChanges": [
+    {
+      "finding": "AH-P0-005",
+      "status": "In progress",
+      "record": "terminal-release-state.md",
+      "positivePublicationGrantEnabled": false
+    }
+  ],
   "defects": [
     {
       "id": "AH-P0-001",
@@ -848,6 +855,60 @@
         "verifyProduction": true,
         "close": true
       }
+    },
+    {
+      "id": "AH-P0-005",
+      "priority": "P0",
+      "source": "Runtime reproduction during owner-directed blocker removal; existing PR #6938",
+      "affected": [
+        "scripts/ci/autonomous-merge-controller.mjs: mergeIfStillCurrent",
+        "scripts/ci/autonomous-merge-controller.test.mjs"
+      ],
+      "inputsExamined": [
+        "Reproduction parent 0e19370e6619c674fefc8071d5a464f4f4008fb4",
+        "Actual terminal function through mocked HTTP",
+        "Independent Lane 2 reproduction and review"
+      ],
+      "confirmedRootCause": "Terminal draft/hold checks reused a PR snapshot obtained before final file-scope and approval requests. A hold added during a late awaited operation could be ignored by the merge request.",
+      "proposedRepair": "Reload release state after final scope/approval work and reject held/draft/closed/head/base-ref changes. Retain the trusted branch-SHA query as the final awaited guard.",
+      "outputProduced": "Same-PR local repair with nine runtime cases. Focused four-suite run: 97/97 PASS; scoped ESLint and 399-file documentation links PASS. No merge/deployment yet.",
+      "verificationSteps": [
+        "Pre-repair four hold/draft cases failed because merge PUT occurred",
+        "Four focused approval/controller/deployment suites",
+        "Scoped lint, documentation links and diff checks",
+        "Independent exact-head review",
+        "Required exact-head/current-base CI and production build",
+        "Protected-controller merge and main/production receipt"
+      ],
+      "completionCriteria": [
+        "All late-state negatives send zero merge PUTs; unchanged control merges once",
+        "Trusted branch-base movement remains blocked",
+        "Required review disposition and checks satisfied",
+        "Verified on main and production; no atomicity guarantee claimed"
+      ],
+      "status": "In progress",
+      "owner": "Existing PR #6938 repair owner; Lane 2 independent verification",
+      "evidence": [
+        "terminal-release-state.md",
+        "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6938"
+      ],
+      "commitReferences": {
+        "reproductionParent": "0e19370e6619c674fefc8071d5a464f4f4008fb4",
+        "integration": null
+      },
+      "nextAction": "Complete independent final review, publish to existing PR, resolve its review disposition and let the sole controller evaluate exact-head eligibility.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": true,
+        "implement": true,
+        "test": true,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": false,
+        "close": false
+      }
     }
   ],
   "remainingBoundaries": [
@@ -864,5 +925,12 @@
     "main-ruleset.json",
     "security-pr-checks.json",
     "deployment-run.json"
-  ]
+  ],
+  "intakeIntegration": {
+    "pr": 6946,
+    "mergeCommit": "046ea7f2e0e6027b803142b55f3285a620dea92e",
+    "deploymentRun": 39600629529,
+    "productionReceiptCommit": "046ea7f2e0e6027b803142b55f3285a620dea92e",
+    "boundary": "Intake documentation only; no Ahrefs repair or score improvement implied."
+  }
 }
