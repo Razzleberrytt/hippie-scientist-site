@@ -14,6 +14,7 @@ import sys
 import wave
 
 MASTER_SHA = "82e94ea07dd28cd16ab86e0bd6b14c57dade0391583d31f03f36578813c7f6a1"
+SOURCE_RECEIPT_SHA = "bf02082cccc62aead6381367887e13e727c01508ef4f0df6f58e40f134b62eea"
 MASTER_FRAMES = 938368
 RATE = 24000
 MFA_VERSION = "3.3.8"
@@ -48,6 +49,8 @@ def source_files(source_dir):
     receipt = regular(root / "r812-mitragynine-authentic-voice-REVIEW.receipt.json")
     if sha_file(wav) != MASTER_SHA:
         hold("UNAPPROVED_MASTER_SHA")
+    if sha_file(receipt) != SOURCE_RECEIPT_SHA:
+        hold("UNAPPROVED_SOURCE_RECEIPT_SHA")
     source = json.loads(receipt.read_text("utf-8"))
     if source.get("narrationWavSha256") != MASTER_SHA or source.get("durationFrames") != MASTER_FRAMES:
         hold("SOURCE_RECEIPT_MISMATCH")
