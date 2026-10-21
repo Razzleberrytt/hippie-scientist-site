@@ -4,9 +4,11 @@ on:
   pull_request:
     paths:
       - 'scripts/distribution/r819-*'
+      - 'scripts/distribution/r812-mitragynine-review-voice.py'
       - 'scripts/distribution/author-r819-layers-cli.mjs'
       - 'scripts/distribution/render-vertical-video-mp4.mjs'
       - 'scripts/distribution/__tests__/r819-*'
+      - 'scripts/distribution/__tests__/r812-radio-edit-no-stretch.test.mjs'
       - 'scripts/distribution/assets/r819/**'
       - 'styles/ths-cellular-brand.css'
       - 'docs/evidencemotion-r819-*'
@@ -34,5 +36,5 @@ jobs:
           node --check scripts/distribution/r819-layer-inventory-writer.mjs
           node --check scripts/distribution/author-r819-layers-cli.mjs
           node --check scripts/distribution/render-vertical-video-mp4.mjs
-      - name: Preserve R8.18 scientific object telemetry and test R8.19 visual vetoes
-        run: npx vitest run scripts/distribution/__tests__/r819-brutal-bar.test.mjs scripts/distribution/__tests__/r819-art-verifier.test.mjs scripts/distribution/__tests__/r819-acoustic-cue-binding.test.mjs scripts/distribution/__tests__/r819-native-layer-compositor.test.mjs scripts/distribution/__tests__/r818-telemetry-qa.test.mjs
+      - name: Preserve existing visual checks and prevent voice-to-picture tempo fitting
+        run: npx vitest run scripts/distribution/__tests__/r812-radio-edit-no-stretch.test.mjs scripts/distribution/__tests__/r819-brutal-bar.test.mjs scripts/distribution/__tests__/r819-art-verifier.test.mjs scripts/distribution/__tests__/r819-acoustic-cue-binding.test.mjs scripts/distribution/__tests__/r819-native-layer-compositor.test.mjs scripts/distribution/__tests__/r818-telemetry-qa.test.mjs
