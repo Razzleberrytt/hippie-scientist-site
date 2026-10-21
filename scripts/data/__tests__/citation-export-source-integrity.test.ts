@@ -88,6 +88,24 @@ describe('magnesium source relevance and researcher citation exports', () => {
     expect(actual).toEqual(expected)
   })
 
+  it('excludes melatonin-misattributed citations from profiles, claims and every exported format', () => {
+    const disallowed = ['20091037', '25128263', '12467979']
+    const detail = parsed('public/data/compounds-detail/melatonin.json')
+    const claims = parsed('public/data/claims.json')
+    const exported = [JSON.stringify(json), bib, csv, ris]
+    for (const pmid of disallowed) {
+      expect(detail.sources.some((s: { pmid?: string }) => s.pmid === pmid)).toBe(false)
+      expect(claims.some((c: { profile_slug?: string; pmid?: string }) =>
+        c.profile_slug === 'melatonin' && c.pmid === pmid)).toBe(false)
+      for (const text of exported) expect(text).not.toContain(pmid)
+    }
+    const generator = read('scripts/data/build-citation-exports.ts')
+    expect(generator).toContain('isMisattributedMelatoninCitation(source, slug)')
+    expect(detail.sources.some((s: { pmid?: string }) => s.pmid === '23691095')).toBe(true)
+    expect(detail.evidence_grade).toBeNull()
+    expect(detail.evidence_consistency).toBeNull()
+  })
+
   it('preserves exact-title PubMed-verified systematic-review and RCT classifications', () => {
     const designs = new Map(json.studies.map((s: { pmid: string; design: string }) => [s.pmid, s.design]))
     expect(designs.get('38817505')).toBe('systematic-review')

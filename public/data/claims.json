@@ -5167,19 +5167,6 @@
     "study_class_human": true
   },
   {
-    "id": "study-row-6",
-    "title": "sleep_quality",
-    "pmid": "20091037",
-    "source_url": "https://pubmed.ncbi.nlm.nih.gov/20091037/",
-    "evidence_tier": "RCT",
-    "profile_slug": "melatonin",
-    "study_class": "rct",
-    "study_class_source": "RCT",
-    "study_class_label": "Randomized controlled trial",
-    "study_class_rank": 7,
-    "study_class_human": true
-  },
-  {
     "id": "study-row-60",
     "title": "fatigue",
     "pmid": "19147492",
@@ -5310,38 +5297,12 @@
     "study_class_human": true
   },
   {
-    "id": "study-row-7",
-    "title": "sleep_latency",
-    "pmid": "25128263",
-    "source_url": "https://pubmed.ncbi.nlm.nih.gov/25128263/",
-    "evidence_tier": "systematic_review",
-    "profile_slug": "melatonin",
-    "study_class": "systematic-review",
-    "study_class_source": "systematic_review",
-    "study_class_label": "Systematic review",
-    "study_class_rank": 8,
-    "study_class_human": true
-  },
-  {
     "id": "study-row-70",
     "title": "cognitive_performance",
     "pmid": "22592091",
     "source_url": "https://pubmed.ncbi.nlm.nih.gov/22592091/",
     "evidence_tier": "RCT",
     "profile_slug": "glycine",
-    "study_class": "rct",
-    "study_class_source": "RCT",
-    "study_class_label": "Randomized controlled trial",
-    "study_class_rank": 7,
-    "study_class_human": true
-  },
-  {
-    "id": "study-row-71",
-    "title": "circadian_rhythm",
-    "pmid": "12467979",
-    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12467979/",
-    "evidence_tier": "RCT",
-    "profile_slug": "melatonin",
     "study_class": "rct",
     "study_class_source": "RCT",
     "study_class_label": "Randomized controlled trial",
@@ -5541,32 +5502,6 @@
     "study_class_source": "meta_analysis",
     "study_class_label": "Meta-analysis",
     "study_class_rank": 9,
-    "study_class_human": true
-  },
-  {
-    "id": "study-row-87",
-    "title": "circadian_rhythm",
-    "pmid": "12467979",
-    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12467979/",
-    "evidence_tier": "meta_analysis",
-    "profile_slug": "melatonin",
-    "study_class": "meta-analysis",
-    "study_class_source": "meta_analysis",
-    "study_class_label": "Meta-analysis",
-    "study_class_rank": 9,
-    "study_class_human": true
-  },
-  {
-    "id": "study-row-88",
-    "title": "sleep_quality",
-    "pmid": "25128263",
-    "source_url": "https://pubmed.ncbi.nlm.nih.gov/25128263/",
-    "evidence_tier": "systematic_review",
-    "profile_slug": "melatonin",
-    "study_class": "systematic-review",
-    "study_class_source": "systematic_review",
-    "study_class_label": "Systematic review",
-    "study_class_rank": 8,
     "study_class_human": true
   },
   {
