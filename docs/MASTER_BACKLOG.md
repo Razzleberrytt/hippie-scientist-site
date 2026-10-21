@@ -1,5 +1,28 @@
 # Master Backlog
 
+### AH-P0-005 / existing PR #6938 — terminal release-state repair (2026-10-21)
+
+In progress: owner-directed safety interruption. Reproduced late hold/draft
+changes reaching the merge request because terminal checks reused stale PR state.
+Repair the existing controller and runtime regressions in the same PR; no new
+normal workstream or positive publication grant. The trusted branch-SHA guard,
+review disposition and protected-controller release remain required. See the
+[reproduction and acceptance record](audits/2026-10-21-ahrefs/terminal-release-state.md).
+
+### AHREFS-INTAKE-001 — owner-directed P0 reconciliation (2026-10-21)
+
+Status: **Blocked** — existing publication-security PR #6938 requires qualified
+independent human security review; preserve its hold and reuse the existing PR.
+This access-only intake creates no implementation slot, changes no repository
+behavior and exempts this documentation-only record from a new production build.
+The owner-directed two-lane operation uses one repair lane and one verification
+lane; normal D/R/A admission remains unchanged. Actual Ahrefs URL/error exports
+are unavailable; aggregate findings are not unique bugs. Existing P0 credibility,
+safety and source-review owners are retained. See the [machine-readable register
+and evidence](audits/2026-10-21-ahrefs/README.md). Next: qualified human security
+review of #6938 final head and original issue exports before any overlapping repair.
+No repair merged or production behavior changed by this intake.
+
 **Status:** Authoritative ranked backlog
 
 ### Owner-prioritized #6670 magnesium review handoff (2026-10-20)

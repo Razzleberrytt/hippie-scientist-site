@@ -76,3 +76,19 @@ When an event-driven monitor reports stale-base or incomplete readiness, do **no
 ## Rollback
 
 Revert the single-shot monitor workflow/script, backpressure regressions, and this runbook together to avoid ownership drift. If reverting all the way to the historical long-poll design, restore its workflow permissions/tests in the same transaction; do not leave documentation claiming read-only ownership while code is write-capable, or vice versa. Existing manual PR merge and direct-main Cloudflare deploy behavior remains the emergency fallback; no scientific/content data source is changed by this control layer.
+
+
+## 2026-10-21 — duplicate deployment lookup repair (scoped controller handoff)
+
+The controller has two deploy-lifecycle handoff paths. Previously, both used the newest
+100 *mixed-workflow* runs for the current main SHA. With high workflow fan-out, an
+older successful Cloudflare deployment could fall outside that page, triggering a
+redundant full deployment. Both paths now ask the existing GitHub API for the
+`deploy.yml` and `ci.yml` workflow-specific `total_count` on the exact current
+main SHA, with `per_page=1`. This is a **read-only detection fix**: workflow
+concurrency, protected controller serialization, deployment authorization,
+exact SHA receipt, required CI and human/publication gates remain unchanged.
+The existing state machine still treats *any* registered deploy run as ownership
+of the handoff (including a failed run); recovery of a genuinely failed deployment
+is not changed or asserted by this patch. No new deployment is dispatched to
+validate this fix; terminal exact-head CI and protected integration are still required.

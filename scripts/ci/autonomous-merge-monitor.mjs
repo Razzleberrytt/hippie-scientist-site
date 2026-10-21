@@ -50,7 +50,9 @@ async function github(path) {
   })
   if (!response.ok) {
     const text = await response.text()
-    throw new Error(`GET ${path} failed (${response.status}): ${text.slice(0, 1000)}`)
+    const error = new Error(`GET ${path} failed (${response.status}): ${text.slice(0, 1000)}`)
+    error.status = response.status
+    throw error
   }
   return response.json()
 }
@@ -138,7 +140,7 @@ async function main() {
   ])
   const riskTier = classifyRisk({ pr, changedFiles })
   if (!changedFiles.length) throw new Error('Cannot evaluate publication approval: PR files unavailable')
-  const approvalEvidence = await loadPublicationApprovalEvidence(github, repo, number, changedFiles)
+  const approvalEvidence = await loadPublicationApprovalEvidence(github, repo, number, changedFiles, pr)
 
   if (!currentBaseSha || !(await headContainsBase(repo, currentBaseSha, currentHeadSha))) {
     console.log(`[PR #${number}] [${riskTier}] defer: base drift is owned by the serialized fallback sweep`)

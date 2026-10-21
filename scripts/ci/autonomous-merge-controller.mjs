@@ -569,7 +569,7 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
   // This gate is re-evaluated during final serialized merge revalidation.
   if (changedFiles.length > 0) {
     const publicationApproval = assessPublicationApproval({
-      pr, changedFiles, comments: approvalEvidence.comments, reviews: approvalEvidence.reviews,
+      pr, changedFiles, comments: approvalEvidence.comments, reviews: approvalEvidence.reviews, signedTagProof: approvalEvidence.signedTagProof,
     })
     if (!publicationApproval.allowed) {
       return { action: 'stop', reason: `publication review hold: ${publicationApproval.reason}` }
@@ -684,7 +684,7 @@ async function evaluateOnce({ repo, number, expectedHeadSha, controllerRunId, al
   ])
   const riskTier = classifyRisk({ pr, changedFiles })
   if (!changedFiles.length) return { action: 'blocked', reason: 'changed file list empty; cannot validate publication scope' }
-  const approvalEvidence = await loadPublicationApprovalEvidence(github, repo, number, changedFiles)
+  const approvalEvidence = await loadPublicationApprovalEvidence(github, repo, number, changedFiles, pr)
   const containsCurrentBase = currentBaseSha ? await headContainsBase(repo, currentBaseSha, currentHeadSha) : false
   const verdict = currentBaseSha && !containsCurrentBase
     ? { action: 'sync', reason: 'PR head does not contain current base; update branch and revalidate exact head' }
@@ -719,7 +719,7 @@ async function exactValidatedMergeObserved(repo, number, headSha, validatedBaseS
     Boolean(mergeTree && headTree && mergeTree === headTree)
 }
 
-async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha, controllerRunId = '' }) {
+export async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha, controllerRunId = '' }) {
   const pr = await getPr(repo, number)
   if (pr.head?.sha !== headSha) {
     console.log(`Terminal merge revalidation blocked PR #${number}: head moved from ${headSha} to ${pr.head?.sha || 'unknown'}`)
@@ -750,7 +750,7 @@ async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha, co
     console.log(`Terminal merge revalidation blocked PR #${number}: changed file list empty`)
     return false
   }
-  const approvalEvidence = await loadPublicationApprovalEvidence(github, repo, number, changedFiles)
+  const approvalEvidence = await loadPublicationApprovalEvidence(github, repo, number, changedFiles, pr)
   const terminalVerdict = evaluateReadiness({
     pr,
     workflowRuns,
@@ -788,7 +788,48 @@ async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha, co
     return false
   }
 
-  console.log(`Terminal merge revalidation passed for PR #${number}: head ${headSha} on base ${finalBaseSha}`)
+  // Re-read publication authorization after final head/base verification,
+  // immediately before the merge endpoint. A signed tag or negative review
+  // can change after the earlier readiness/evidence snapshot; never reuse it.
+  const lastFiles = await getPrFiles(repo, number)
+  if (JSON.stringify(lastFiles.slice().sort()) !== JSON.stringify(changedFiles.slice().sort())) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: changed-file scope drifted during final gate`)
+    return false
+  }
+  if (finalPr.draft || (finalPr.labels || []).some(label => HOLD_LABELS.has(label.name))) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: PR is draft or has a release hold`)
+    return false
+  }
+  const latestApprovalEvidence = await loadPublicationApprovalEvidence(github, repo, number, lastFiles, finalPr)
+  const finalApproval = assessPublicationApproval({
+    pr: finalPr, changedFiles: lastFiles,
+    comments: latestApprovalEvidence.comments, reviews: latestApprovalEvidence.reviews,
+    signedTagProof: latestApprovalEvidence.signedTagProof,
+  })
+  if (!finalApproval.allowed) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: approval changed before merge: ${finalApproval.reason}`)
+    return false
+  }
+  // File/evidence requests above yield to other actors. Re-read release
+  // state rather than using finalPr's older labels or draft flag. GitHub's
+  // merge SHA condition protects HEAD, but does not enforce our hold labels.
+  const releasePr = await getPr(repo, number)
+  if (releasePr.state !== 'open' || releasePr.draft ||
+      releasePr.head?.sha !== headSha || releasePr.base?.ref !== finalPr.base.ref ||
+      (releasePr.labels || []).some(label => HOLD_LABELS.has(label.name))) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: release state changed during final gate`)
+    return false
+  }
+  // Publication authorization reload above may involve paginated requests.
+  // A separate main-branch writer can land during those requests despite the
+  // controller's own serialization. Merge API's expected SHA pins only HEAD,
+  // never the base; fail closed if the trusted base moved meanwhile.
+  const baseAfterApproval = await getBranchSha(repo, finalPr.base.ref)
+  if (baseAfterApproval !== validatedBaseSha) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: base changed during final publication approval reload`)
+    return false
+  }
+  console.log(`Terminal merge revalidation passed for PR #${number}: head ${headSha} on base ${baseAfterApproval}`)
   await mergePr(repo, number, headSha)
   return true
 }
