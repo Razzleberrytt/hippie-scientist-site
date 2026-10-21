@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-21-enrichment-waves-8501-9000-final",
+  "rolling_batch_id": "rolling-0002",
+  "range": "8501-9000",
+  "state": "source_verified_independent_semantic_review_pending",
+  "research_only": true,
+  "fail_closed": true,
+  "previous_unique_pmids": 7435,
+  "accepted_new_unique_pmids": 500,
+  "cumulative_unique_pmids": 7935,
+  "exact_title_verified": 500,
+  "abstract_verified": 500,
+  "admission_policy": {
+    "published_entities": false,
+    "recommendations": false,
+    "dosing_claims": false,
+    "runtime_admission": false,
+    "clinical_claims_require_separate_review": true
+  },
+  "artifact_parts": [
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-21-enrichment-waves-8501-9000-efetch-verified-part-01.json",
+      "blob_sha": "c8bcc2990fe95f20dfeb94ee8d5076b22fbdb8b4",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-21-enrichment-waves-8501-9000-efetch-verified-part-02.json",
+      "blob_sha": "dc712158df13a5425ebe3040760e09c1e9aabfd2",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-21-enrichment-waves-8501-9000-efetch-verified-part-03.json",
+      "blob_sha": "01643e185ba9b6331dd5715035a7ac25f5ecee40",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-21-enrichment-waves-8501-9000-efetch-verified-part-04.json",
+      "blob_sha": "cd7e5e89b123b112bd8f209842078b1357d07a5b",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-21-enrichment-waves-8501-9000-efetch-verified-part-05.json",
+      "blob_sha": "023b4117aea8915847ba72d16e4cb0867a76a363",
+      "rows": 100
+    }
+  ],
+  "cumulative_index": "ops/enrichment-submissions/reconciliation/2026-10-21-enrichment-waves-8501-9000-pmid-index.json",
+  "independent_semantic_review": false,
+  "batch_content_sha256": "401474e440b8d977fdebce33e09481f60350694950d1c1b0d6e4fbbfd0726fa2",
+  "predecessor_snapshots": []
+}
