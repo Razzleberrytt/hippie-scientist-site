@@ -715,3 +715,20 @@ describe('P0 stale metadata versus verified exact-head ancestry', () => {
   })
 })
 
+
+describe('controller deploy handoff detects older workflow runs without first-100 truncation', () => {
+  const workflow = fs.readFileSync(
+    new URL('../../.github/workflows/autonomous-merge-controller.yml', import.meta.url),
+    'utf8',
+  )
+
+  it('queries exact-main, workflow-specific totals in both serialized handoff paths', () => {
+    for (const workflowFile of ['deploy.yml', 'ci.yml']) {
+      const endpoint = `actions/workflows/${workflowFile}/runs?head_sha=$main_sha&per_page=1`
+      expect(workflow.split(endpoint).length - 1).toBe(2)
+    }
+    expect(workflow).not.toContain('actions/runs?head_sha=$main_sha&per_page=100')
+    expect(workflow.split("--jq '.total_count'").length - 1).toBe(4)
+    expect(workflow.split('gh api --method POST "repos/$GITHUB_REPOSITORY/actions/workflows/deploy.yml/dispatches"').length - 1).toBe(2)
+  })
+})
