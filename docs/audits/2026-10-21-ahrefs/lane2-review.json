@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "lane": "Lane 2 Verify & Ship",
+  "observedAt": "2026-10-21T12:28:48.557Z",
+  "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+  "scope": "Independent read-only code/API review, direct native canaries, register shape review; only this evidence report written by Lane 2.",
+  "existingSuite": {
+    "command": "node --test scripts/ci/canonical-publication-approval.test.mjs",
+    "exitCode": 1,
+    "result": "FAILED BEFORE TEST ASSERTIONS",
+    "reason": "ERR_MODULE_NOT_FOUND: vitest; clean worktree has no dependency installation. Existing file imports Vitest rather than node:test.",
+    "suitePassed": false
+  },
+  "directCanaries": {
+    "command": "node --input-type=module via stdin; import node:assert/strict and assessPublicationApproval/classifyPublicationChange from exact-main module",
+    "passed": 6,
+    "failed": 0,
+    "assertions": [
+      {
+        "case": "No review",
+        "expectedAllowed": false
+      },
+      {
+        "case": "Owner exact-head APPROVED with absent performed_via_github_app",
+        "expectedAllowed": false
+      },
+      {
+        "case": "Owner exact-head APPROVED with app object",
+        "expectedAllowed": false
+      },
+      {
+        "case": "Owner exact-head APPROVED with explicit null app metadata",
+        "expectedAllowed": true
+      },
+      {
+        "case": "Same-second CHANGES_REQUESTED vetoes positive null-metadata review",
+        "expectedAllowed": false
+      },
+      {
+        "case": "docs/audits/2026-10-21-ahrefs/defect-register.json classification",
+        "expectedKind": "EXISTING_GATES"
+      }
+    ],
+    "limitation": "Supplemental direct assertions are not the existing Vitest suite and do not close P0 security review."
+  },
+  "trustBoundary": {
+    "mainFinding": "Main permits positive owner review on explicitly null app metadata; this does not prove nondelegable human provenance.",
+    "existingRepairPr": 6938,
+    "examinedRepairHead": "b27ed31282b3b9a1cc5075726700849bed42795c",
+    "repairSourceObserved": "GitHub contents API shows unconditional rejection of APPROVED reviews and signedTagProof=null.",
+    "disposition": "Blocked for qualified independent human security review; preserve hold-merge."
+  },
+  "registerReview": {
+    "result": "PASS WITH NONBLOCKING EDITORIAL CORRECTION",
+    "recordCount": 16,
+    "uniqueIds": 16,
+    "statusCounts": {
+      "Blocked": 14,
+      "Open": 1,
+      "Not a defect": 1
+    },
+    "requiredFieldsPresent": true,
+    "prioritiesValid": true,
+    "statusesValid": true,
+    "nextActionsPresent": true,
+    "correction": "Move misplaced performance-sample disclaimer from AH-DUPLICATE inputsExamined to AH-PERFORMANCE or global measurement limits.",
+    "boundaries": [
+      "Category grouping records are not original URL-level Ahrefs findings.",
+      "P0 scientific root causes outside approval canary remain attributed to existing PR evidence, not independently adjudicated here.",
+      "Noindex output observed on melatonin/rhodiola is not independently established accidental; preserve holds.",
+      "No repair or score improvement is claimed."
+    ]
+  },
+  "productionEvidenceReview": {
+    "sampleCount": 12,
+    "sitemapLocElements": 1094,
+    "scope": "Twelve endpoint samples, including receipt/robots/sitemap and synthetic absent route; not twelve audited content pages or a full crawl.",
+    "measurementBoundary": "Decoded body bytes are not compressed transfer size; header timing includes connection/TLS/redirect effects, not isolated TTFB; no before/after performance comparison.",
+    "intentionalMissingProbe": "404/noindex classification supported by captured sample; synthetic probe is not among Ahrefs four reported broken-link references."
+  },
+  "unverified": [
+    "Full Vitest/controller suite",
+    "Fresh production build",
+    "Qualified human security or scientific approval",
+    "Exact URL/property Ahrefs defect rows",
+    "Controlled performance measurements",
+    "Repair merge/main/production acceptance"
+  ]
+}
