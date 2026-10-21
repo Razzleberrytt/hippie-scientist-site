@@ -62,6 +62,16 @@ class LockedSourceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "NEW_EMPTY_OUTPUT_DIR_REQUIRED"):
             candidate.stage_source(self.source, self.root/"occupied")
 
+    def test_phone_times_use_the_same_full_master_clock_as_parent_words(self):
+        phones = [{"phone": "K", "startMs": 100.0, "endMs": 200.0},
+                  {"phone": "R", "startMs": 200.0, "endMs": 350.0}]
+        start = 125888
+        shifted = candidate.absolute_phone_hypotheses(phones, start)
+        self.assertAlmostEqual(shifted[0]["startMs"], 100.0+start*1000/24000)
+        self.assertAlmostEqual(shifted[-1]["endMs"], 350.0+start*1000/24000)
+        self.assertEqual(phones[0]["startMs"], 100.0)
+        self.assertTrue(all(x["startMs"] < x["endMs"] for x in shifted))
+
     def test_model_hashes_are_fully_pinned(self):
         self.assertTrue(all(len(x)==64 and set(x)<=set("0123456789abcdef")
                             for x in candidate.MODEL_PINS.values()))
