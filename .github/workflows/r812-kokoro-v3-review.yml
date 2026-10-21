@@ -219,11 +219,11 @@ jobs:
         with:
           name: r812-owner-locked-acoustic-word-candidates-REVIEW-ONLY
           retention-days: 14
-          if-no-files-found: warn
+          if-no-files-found: error
           path: |
-            ${{ runner.temp }}/em-r812-owner/candidate/owner-locked-word-candidate.json
-            ${{ runner.temp }}/em-r812-owner/candidate/*-candidate.json
-            ${{ runner.temp }}/em-r812-owner/candidate/stage/*.TextGrid
+            /tmp/em-r812-owner/candidate/owner-locked-word-candidate.json
+            /tmp/em-r812-owner/candidate/*-candidate.json
+            /tmp/em-r812-owner/candidate/stage/*.TextGrid
       - name: Explicitly prohibit promotion from MFA candidate to video approval
         if: always()
         run: |
