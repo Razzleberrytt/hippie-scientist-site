@@ -1,4 +1,8 @@
 # Pinned THS original portable house narrator (Voice Engine 0.44+)
 # Python 3.10-3.12 recommended; requires espeak-ng / FFmpeg on the host.
 kokoro-onnx==0.6.1
+# Known-good CPU backend: the pinned INT8 narrator's ConvInteger node was
+# synthesized in GitHub Actions with ONNX Runtime 1.31.0 (run 38332241568).
+# Earlier ONNX Runtime 1.21 could not initialize that model in the recovery env.
+onnxruntime==1.31.0
 numpy>=1.26,<3
