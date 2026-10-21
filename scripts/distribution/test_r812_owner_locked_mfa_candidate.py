@@ -41,6 +41,14 @@ class LockedSourceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "UNAPPROVED_MASTER_SHA"):
             candidate.source_files(self.source)
 
+    def test_transcript_change_in_original_receipt_is_rejected(self):
+        path = self.source/"r812-mitragynine-authentic-voice-REVIEW.receipt.json"
+        receipt = json.loads(path.read_text())
+        receipt["clips"][1]["voiceInput"] = "a changed transcript from unchanged WAV"
+        path.write_text(json.dumps(receipt))
+        with self.assertRaisesRegex(ValueError, "UNAPPROVED_SOURCE_RECEIPT_SHA"):
+            candidate.source_files(self.source)
+
     def test_forged_scene_offsets_are_rejected(self):
         path = self.source/"r812-mitragynine-authentic-voice-REVIEW.receipt.json"
         receipt = json.loads(path.read_text())
