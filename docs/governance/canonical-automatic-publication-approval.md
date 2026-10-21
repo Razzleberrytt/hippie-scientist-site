@@ -47,6 +47,7 @@ A future positive approval scheme must have an independently verified *human-ori
 - `scripts/ci/autonomous-merge-monitor.mjs` obtains actual trusted GitHub approval evidence and uses the same function before emitting exact-head readiness.
 - `scripts/ci/autonomous-merge-controller.mjs` re-evaluates approval both during initial readiness and during **terminal revalidation just before merge**, together with original base freshness and CI checks. The merge controller remains the only automated writer.
 - The existing controller's draft/hold-label/review-conversation blocks remain intact. **Draft research publication PRs are not automatically merged**. Nonpublic research-only changes can move normally when the draft is deliberately made ready and other required checks pass.
+- The terminal controller reloads PR open/draft/hold/head/base-branch state after final scope and approval requests, then rechecks the trusted branch SHA before its merge request. This rejects observed late release-state changes; it does not make separate GitHub reads and merge atomic. See [the runtime regression and bounded acceptance record](../audits/2026-10-21-ahrefs/terminal-release-state.md).
 - **No workflow names renamed, no security or scientific validations skipped, no historic source promotions, no forced merge or published page change.**
 
 ## Operating priorities

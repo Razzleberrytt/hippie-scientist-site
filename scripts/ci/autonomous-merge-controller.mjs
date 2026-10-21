@@ -719,7 +719,7 @@ async function exactValidatedMergeObserved(repo, number, headSha, validatedBaseS
     Boolean(mergeTree && headTree && mergeTree === headTree)
 }
 
-async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha, controllerRunId = '' }) {
+export async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha, controllerRunId = '' }) {
   const pr = await getPr(repo, number)
   if (pr.head?.sha !== headSha) {
     console.log(`Terminal merge revalidation blocked PR #${number}: head moved from ${headSha} to ${pr.head?.sha || 'unknown'}`)
@@ -808,6 +808,16 @@ async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha, co
   })
   if (!finalApproval.allowed) {
     console.log(`Terminal merge revalidation blocked PR #${number}: approval changed before merge: ${finalApproval.reason}`)
+    return false
+  }
+  // File/evidence requests above yield to other actors. Re-read release
+  // state rather than using finalPr's older labels or draft flag. GitHub's
+  // merge SHA condition protects HEAD, but does not enforce our hold labels.
+  const releasePr = await getPr(repo, number)
+  if (releasePr.state !== 'open' || releasePr.draft ||
+      releasePr.head?.sha !== headSha || releasePr.base?.ref !== finalPr.base.ref ||
+      (releasePr.labels || []).some(label => HOLD_LABELS.has(label.name))) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: release state changed during final gate`)
     return false
   }
   // Publication authorization reload above may involve paginated requests.
