@@ -24,6 +24,16 @@ review of #6938 final head and original issue exports before any overlapping rep
 No repair merged or production behavior changed by this intake.
 
 **Status:** Authoritative immediate execution queue
+
+### Owner-prioritized #6670 magnesium review handoff (2026-10-20)
+
+Will's live audit prioritizes the remaining magnesium product wiring. Prepare one
+PR using the October 19 two-ASIN decision, preserving Thorne search-only,
+safety and disclosure. The owner's subsequent direct "Finish and merge" instruction
+authorizes merge after validation. B12 remains the next
+buyer-comparison page; it is not bundled into this repair. See the [live findings,
+acceptance criteria and validation record](audit/magnesium-product-wiring-2026-10-20.md).
+This handoff does not silently retire another owner or reconcile global WIP.
 ### AUDIT-CLAIM-001 / #6940 — owner-directed safety-gate repair (2026-10-20)
 
 In review: close a reproduced claim-drift gate bypass caused by treating added
