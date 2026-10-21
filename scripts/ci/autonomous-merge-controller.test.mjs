@@ -1,8 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import { classifyRisk, evaluateReadiness, requiredChecksFor, requiredWorkflowsFor, shouldDispatchRegisteredWorkflow, recoveryInputsFor } from './autonomous-merge-controller.mjs'
+import { classifyRisk, evaluateReadiness, mergeIfStillCurrent, requiredChecksFor, requiredWorkflowsFor, shouldDispatchRegisteredWorkflow, recoveryInputsFor } from './autonomous-merge-controller.mjs'
 
 const baseSha = 'base'
 const headSha = 'head'
@@ -546,6 +546,80 @@ describe('risk-tiered autonomous merge controller', () => {
 
 })
 
+describe('P0 final authorization and base race guard', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals()
+    vi.unstubAllEnvs()
+  })
+
+  it.each(['hold-merge', 'do-not-merge', 'manual-merge', 'draft', 'closed', 'head-moved', 'base-retargeted', 'branch-base-moved', 'unchanged'])(
+    'honors %s state added while final scope is being fetched', async (state) => {
+      let fileReads = 0
+      let branchReads = 0
+      let changedState = false
+      const mergeRequests = []
+      const currentPr = { ...pr, base: { ...pr.base, ref: 'main' } }
+      vi.stubEnv('GITHUB_TOKEN', 'test-only-no-network')
+      vi.stubGlobal('fetch', vi.fn(async (input, options) => {
+        const url = new URL(input)
+        let payload
+        if (url.pathname.endsWith('/pulls/1') && options.method === 'GET') {
+          payload = {
+            ...currentPr,
+            state: changedState && state === 'closed' ? 'closed' : 'open',
+            draft: changedState && state === 'draft',
+            labels: changedState && ['hold-merge', 'do-not-merge', 'manual-merge'].includes(state) ? [{ name: state }] : [],
+            head: { ...currentPr.head, sha: changedState && state === 'head-moved' ? 'new-head' : headSha },
+            base: { ...currentPr.base, ref: changedState && state === 'base-retargeted' ? 'other-base' : 'main' },
+          }
+        } else if (url.pathname.endsWith('/pulls/1/files')) {
+          fileReads += 1
+          if (fileReads === 2) changedState = true
+          payload = [{ filename: 'scripts/ci/canonical-publication-approval.mjs' }]
+        } else if (url.pathname.endsWith('/actions/runs')) {
+          payload = { workflow_runs: highRequired }
+        } else if (url.pathname.endsWith('/check-runs')) {
+          payload = { check_runs: [check('Validation, tests, and data')] }
+        } else if (url.pathname.endsWith('/branches/main')) {
+          branchReads += 1
+          payload = { commit: { sha: state === 'branch-base-moved' && branchReads === 3 ? 'new-base' : baseSha } }
+        } else if (url.pathname.includes('/compare/')) {
+          payload = { status: 'ahead' }
+        } else if (url.pathname.endsWith('/pulls/1/merge') && options.method === 'PUT') {
+          mergeRequests.push(JSON.parse(options.body))
+          payload = { merged: true, sha: 'merged-head' }
+        } else {
+          throw new Error(`Unexpected test request: ${options.method} ${url.pathname}`)
+        }
+        return { ok: true, status: 200, text: async () => JSON.stringify(payload) }
+      }))
+
+      const merged = await mergeIfStillCurrent({
+        repo: 'owner/repo', number: 1, headSha, validatedBaseSha: baseSha,
+      })
+      expect(fileReads).toBe(2)
+      expect(merged).toBe(state === 'unchanged')
+      expect(mergeRequests).toHaveLength(state === 'unchanged' ? 1 : 0)
+    },
+  )
+
+  it('reloads live approval then re-reads base before the sole merge endpoint', () => {
+    const source = fs.readFileSync(path.join(process.cwd(), 'scripts/ci/autonomous-merge-controller.mjs'), 'utf8')
+    const terminalStart = source.indexOf('async function mergeIfStillCurrent')
+    const finalApproval = source.indexOf('const latestApprovalEvidence = await loadPublicationApprovalEvidence', terminalStart)
+    const approvalVerdict = source.indexOf('const finalApproval = assessPublicationApproval', finalApproval)
+    const postApprovalBase = source.indexOf('const baseAfterApproval = await getBranchSha', approvalVerdict)
+    const rejectDrift = source.indexOf('if (baseAfterApproval !== validatedBaseSha)', postApprovalBase)
+    const merge = source.indexOf('await mergePr(repo, number, headSha)', rejectDrift)
+    expect(terminalStart).toBeGreaterThan(-1)
+    expect(finalApproval).toBeGreaterThan(terminalStart)
+    expect(approvalVerdict).toBeGreaterThan(finalApproval)
+    expect(postApprovalBase).toBeGreaterThan(approvalVerdict)
+    expect(rejectDrift).toBeGreaterThan(postApprovalBase)
+    expect(merge).toBeGreaterThan(rejectDrift)
+  })
+})
+
 describe('P0 zero-job bot refresh recovery routing', () => {
   const zeroJob={id:42,name:'CI',event:'pull_request',status:'completed',conclusion:'action_required'}
   const confirmed=new Set([42])
@@ -641,3 +715,20 @@ describe('P0 stale metadata versus verified exact-head ancestry', () => {
   })
 })
 
+
+describe('controller deploy handoff detects older workflow runs without first-100 truncation', () => {
+  const workflow = fs.readFileSync(
+    new URL('../../.github/workflows/autonomous-merge-controller.yml', import.meta.url),
+    'utf8',
+  )
+
+  it('queries exact-main, workflow-specific totals in both serialized handoff paths', () => {
+    for (const workflowFile of ['deploy.yml', 'ci.yml']) {
+      const endpoint = `actions/workflows/${workflowFile}/runs?head_sha=$main_sha&per_page=1`
+      expect(workflow.split(endpoint).length - 1).toBe(2)
+    }
+    expect(workflow).not.toContain('actions/runs?head_sha=$main_sha&per_page=100')
+    expect(workflow.split("--jq '.total_count'").length - 1).toBe(4)
+    expect(workflow.split('gh api --method POST "repos/$GITHUB_REPOSITORY/actions/workflows/deploy.yml/dispatches"').length - 1).toBe(2)
+  })
+})
