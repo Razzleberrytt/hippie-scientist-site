@@ -78261,6 +78261,82 @@
       "reservation_id": "d2a02772f33446ee63a5",
       "reserved_at": "2026-10-21T10:05:36.385Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42175852",
+      "title": "\"The incredible adventures of Apollo and Rosetta in space\": Training executive functions in children with attention-deficit/hyperactivity disorder.",
+      "doi": "10.1080/21622965.2026.2672445",
+      "source_title": "\"The incredible adventures of Apollo and Rosetta in space\": Training executive functions in children with attention-deficit/hyperactivity disorder.",
+      "abstract": "Children with Attention-Deficit/Hyperactivity Disorder (ADHD) frequently show deficits in Executive Functions (EFs), including inhibition, working memory, and cognitive flexibility. Digital games have recently been proposed as innovative tools to support EF development in this population. This randomized controlled trial investigated the effectiveness of The Incredible Adventures of Apollo and Rosetta in Space , a digital game designed to enhance executive functioning, in children aged 8-11 years with ADHD. Thirty-four participants were randomly assigned to an experimental group (n = 17), which played the game three times per week for three months, or to a control group (n = 17) that received no intervention. Neuropsychological tasks assessing inhibition, working memory, and cognitive flexibility, along with parent-reported questionnaires on ADHD symptoms and EF-related difficulties, were administered before and after the intervention. No significant group × time interactions emerged. However, exploratory effect size analyses revealed small-to-moderate directional improvements in the experimental group, particularly in cognitive flexibility, with modest gains in working memory and stable inhibition performance. Parent reports were consistent with these patterns, showing small improvements in attention in the experimental group and worsening EF-related behaviors in the control group. Although preliminary, these findings suggest that the game may be associated with meaningful patterns of change in abstract cognitive flexibility and working memory in children with ADHD, warranting further investigation into their generalization to daily functioning in larger samples. Trial registration: ClinicalTrials.gov ID NCT06881719.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42175852/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42175852",
+        "doi": "10.1080/21622965.2026.2672445",
+        "journal": "Applied neuropsychology. Child",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-21T15:12:57.337Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "bf46e4aba6b4bb36cc3e",
+      "reserved_at": "2026-10-21T15:13:07.598Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -78305,17 +78381,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 501,
+    "total_reservations": 502,
     "by_lane": {
       "1": 76,
-      "2": 114,
+      "2": 115,
       "3": 54,
       "4": 32,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 501
+      "SOURCE_VERIFIED": 502
     },
     "batches": [
       {
@@ -78335,7 +78411,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 1,
+        "count": 2,
         "pr_number": null,
         "blocker": null
       }
