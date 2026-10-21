@@ -138,6 +138,12 @@ def run_mfa(args, work, timeout=300):
             (process.stderr + "\n" + process.stdout)[-5000:], encoding="utf-8")
         hold("MFA_EXIT_NONZERO:" + args[0])
 
+def absolute_phone_hypotheses(phones, scene_start_frame):
+    """Convert strict MFA scene-relative phone milliseconds into full-master time."""
+    offset_ms = scene_start_frame * 1000 / RATE
+    return [{**phone, "startMs": float(phone["startMs"])+offset_ms,
+             "endMs": float(phone["endMs"])+offset_ms} for phone in phones]
+
 def execute(source_dir, dictionary, acoustic_model, g2p_model, out):
     models = {key: regular(path) for key, path in (
         ("dictionary", dictionary), ("acousticModel", acoustic_model), ("g2pModel", g2p_model))}
@@ -194,7 +200,7 @@ def execute(source_dir, dictionary, acoustic_model, g2p_model, out):
             aligned.append({"word": word["word"], "scene": stem,
                             "startFrame": a, "endFrameExclusive": b,
                             "startMs": a*1000/RATE, "endMs": b*1000/RATE,
-                            "phoneHypotheses": word["phones"]})
+                            "phoneHypotheses": absolute_phone_hypotheses(word["phones"], row["masterStartFrame"])})
         (root/(stem+"-candidate.json")).write_text(
             json.dumps(candidate, indent=2)+"\n", encoding="utf-8")
         row["textgridSha256"] = manifest["textgrid"]["sha256"]
@@ -212,6 +218,7 @@ def execute(source_dir, dictionary, acoustic_model, g2p_model, out):
       "mfaVersion": MFA_VERSION, "modelPins": MODEL_PINS, "sceneCount": len(rows),
       "alignedWordCount": len(aligned), "scenes": rows, "wordCandidates": aligned,
       "g2pCandidateWords": missing, "g2pPronunciationIndependentlyApproved": False,
+      "phoneTimingCoordinateSystem": "full-master-absolute-ms",
       "wordTimingCalibrated": False, "humanWordTimingReviewed": False,
       "independentScienceApproved": False, "independentCraftApproved": False,
       "nativeMp4Created": False, "mayPublish": False}
