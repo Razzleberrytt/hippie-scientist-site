@@ -74,6 +74,8 @@ with TemporaryDirectory() as directory:
 
 test('audio timing receipt exposes exact integer frames without implying final approval', () => {
   expect(source).toContain('audio_path, receipt_path = reserve_review_master_paths(output_dir)')
+  expect(source).toContain('with audio_path.open("xb") as new_master:')
+  expect(source).toContain('with receipt_path.open("x", encoding="utf-8") as new_receipt:')
   expect(source).toContain('"voiceStartFrame": start_samples')
   expect(source).toContain('"voiceEndFrame": end_samples')
   expect(source).toContain('"naturalSpeechFrames": len(clip)')
