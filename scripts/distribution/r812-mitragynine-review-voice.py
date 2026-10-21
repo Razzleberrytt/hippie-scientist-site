@@ -128,7 +128,9 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
     if rms <= 0.001 or peak <= 0.01:
         raise RuntimeError("Authentic Kokoro output silent, fail closed")
     speech *= min(1.25, 0.78 / peak)
-    sf.write(audio_path, np.clip(speech, -0.98, 0.98), RATE, subtype="PCM_16")
+    # Exclusive creation protects against a concurrent writer after the initial check.
+    with audio_path.open("xb") as new_master:
+        sf.write(new_master, np.clip(speech, -0.98, 0.98), RATE, format="WAV", subtype="PCM_16")
     duration_seconds = round(len(speech) / RATE, 4)
 
     receipt = {
@@ -154,9 +156,9 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
         "scienceReview": "pending",
         "clips": receipts,
     }
-    receipt_path.write_text(
-        json.dumps(receipt, indent=2) + "\n", encoding="utf-8"
-    )
+    # A receipt must never be replaced if another process claimed its path.
+    with receipt_path.open("x", encoding="utf-8") as new_receipt:
+        new_receipt.write(json.dumps(receipt, indent=2) + "\n")
     print(
         f"KOKORO NATURAL RADIO EDIT: {audio_path} ({duration_seconds:.2f}s); "
         "picture must be cut to the locked voice timeline",
