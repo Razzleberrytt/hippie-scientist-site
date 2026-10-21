@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   render-original-house-voice:
@@ -136,10 +137,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:
-      SOURCE_ROOT: ${{ runner.temp }}/em-r812-owner/source
-      MODEL_ROOT: ${{ runner.temp }}/em-r812-owner/models
-      OUT_ROOT: ${{ runner.temp }}/em-r812-owner/candidate
-      THS_R812_SOURCE_DIR: ${{ runner.temp }}/em-r812-owner/source
+      SOURCE_ROOT: /tmp/em-r812-owner/source
+      MODEL_ROOT: /tmp/em-r812-owner/models
+      OUT_ROOT: /tmp/em-r812-owner/candidate
+      THS_R812_SOURCE_DIR: /tmp/em-r812-owner/source
     steps:
       - name: Checkout exact PR head, never a stale generated merge ref
         uses: actions/checkout@v4
