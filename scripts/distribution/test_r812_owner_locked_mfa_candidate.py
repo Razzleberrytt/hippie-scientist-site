@@ -5,6 +5,7 @@ import os
 import shutil
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 SCRIPT = Path(__file__).with_name("r812-owner-locked-mfa-candidate.py")
@@ -54,16 +55,26 @@ class LockedSourceTests(unittest.TestCase):
         receipt = json.loads(path.read_text())
         receipt["clips"][1]["voiceStartFrame"] += 1
         path.write_text(json.dumps(receipt))
-        with self.assertRaisesRegex(ValueError, "SCENE_FRAME_OR_SCRIPT_DRIFT"):
+        # Authentic receipt tampering is rejected at the outer digest boundary.
+        with self.assertRaisesRegex(ValueError, "UNAPPROVED_SOURCE_RECEIPT_SHA"):
             candidate.source_files(self.source)
+        # Independently prove the semantic frame guard if a digest were repinned.
+        with patch.object(candidate, "SOURCE_RECEIPT_SHA", candidate.sha_file(path)):
+            with self.assertRaisesRegex(ValueError, "SCENE_FRAME_OR_SCRIPT_DRIFT"):
+                candidate.source_files(self.source)
 
     def test_original_synthesis_receipt_must_stay_review_only(self):
         path = self.source/"r812-mitragynine-authentic-voice-REVIEW.receipt.json"
         receipt = json.loads(path.read_text())
         receipt["humanAuditoryReview"] = "pass"
         path.write_text(json.dumps(receipt))
-        with self.assertRaisesRegex(ValueError, "ORIGINAL_SOURCE_GATES_CHANGED"):
+        # A forged signoff cannot evade the immutable original receipt digest.
+        with self.assertRaisesRegex(ValueError, "UNAPPROVED_SOURCE_RECEIPT_SHA"):
             candidate.source_files(self.source)
+        # The deeper publication hold must also reject a repinned forged receipt.
+        with patch.object(candidate, "SOURCE_RECEIPT_SHA", candidate.sha_file(path)):
+            with self.assertRaisesRegex(ValueError, "ORIGINAL_SOURCE_GATES_CHANGED"):
+                candidate.source_files(self.source)
 
     def test_no_clobber_of_previous_candidate(self):
         (self.root/"occupied").mkdir()
