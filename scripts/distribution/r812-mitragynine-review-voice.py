@@ -8,6 +8,7 @@ to the actual resulting audio. Review-only; no MFA or release pass.
 from __future__ import annotations
 
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
@@ -51,9 +52,43 @@ def check_vault(vault: Path) -> tuple[Path, Path]:
         raise RuntimeError("voice model checksum mismatch; re-fetch original THS release; no substitute")
     return model, voices
 
+def reserve_review_master_paths(output_dir: Path) -> tuple[Path, Path]:
+    """Never silently replace audio bytes or provenance under the same review path."""
+    audio_path = output_dir / "r812-mitragynine-authentic-voice-REVIEW.wav"
+    receipt_path = output_dir / "r812-mitragynine-authentic-voice-REVIEW.receipt.json"
+    if audio_path.exists() or receipt_path.exists():
+        raise RuntimeError(
+            "R8.12 review WAV/receipt already exists; refuse overwrite. "
+            "Use the existing verified master or a new empty output directory."
+        )
+    return audio_path, receipt_path
+
+
+def publish_review_pair(audio_path: Path, receipt_path: Path, wav_bytes: bytes, receipt_text: str) -> None:
+    """Commit pre-encoded review assets exclusively; roll back only our writes."""
+    created_audio = False
+    created_receipt = False
+    try:
+        with audio_path.open("xb") as new_master:
+            created_audio = True
+            new_master.write(wav_bytes)
+        with receipt_path.open("x", encoding="utf-8") as new_receipt:
+            created_receipt = True
+            new_receipt.write(receipt_text)
+    except BaseException:
+        # A receipt-path race or transient filesystem error must not strand our WAV.
+        # Do not delete an occupied path claimed by another writer.
+        if created_receipt:
+            receipt_path.unlink(missing_ok=True)
+        if created_audio:
+            audio_path.unlink(missing_ok=True)
+        raise
+
+
 def create_review_audio(vault: Path, output_dir: Path) -> dict:
     model, voices = check_vault(vault)
     output_dir.mkdir(parents=True, exist_ok=True)
+    audio_path, receipt_path = reserve_review_master_paths(output_dir)
     engine = Kokoro(str(model), str(voices))
     clips = []
     receipts = []
@@ -96,6 +131,10 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
             "voiceEndSeconds": round(end_samples / RATE, 4),
             "naturalSpeechSeconds": round(len(clip) / RATE, 4),
             "pauseAfterSeconds": 0.18 if idx < len(SCENES) - 1 else 0.0,
+            "voiceStartFrame": start_samples,
+            "voiceEndFrame": end_samples,
+            "naturalSpeechFrames": len(clip),
+            "pauseAfterFrames": pause_samples if idx < len(SCENES) - 1 else 0,
             "rawRms": round(raw_rms, 6),
             "timeStretchApplied": False,
         })
@@ -111,8 +150,10 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
     if rms <= 0.001 or peak <= 0.01:
         raise RuntimeError("Authentic Kokoro output silent, fail closed")
     speech *= min(1.25, 0.78 / peak)
-    audio_path = output_dir / "r812-mitragynine-authentic-voice-REVIEW.wav"
-    sf.write(audio_path, np.clip(speech, -0.98, 0.98), RATE, subtype="PCM_16")
+    # Encode the complete WAV before publishing either protected output path.
+    encoded_wav = io.BytesIO()
+    sf.write(encoded_wav, np.clip(speech, -0.98, 0.98), RATE, format="WAV", subtype="PCM_16")
+    wav_bytes = encoded_wav.getvalue()
     duration_seconds = round(len(speech) / RATE, 4)
 
     receipt = {
@@ -126,8 +167,9 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
         "voiceModelAsset": model.name,
         "voicebankAsset": voices.name,
         "voiceVaultRelease": "ths-kokoro-onnx-am-michael-int8-v1",
-        "narrationWavSha256": sha_file(audio_path),
+        "narrationWavSha256": hashlib.sha256(wav_bytes).hexdigest(),
         "durationSeconds": duration_seconds,
+        "durationFrames": len(speech),
         "sampleRate": RATE,
         "sceneTiming": "natural-voice-locked-radio-edit; picture must be recut",
         "originalDurationPreserved": True,
@@ -137,9 +179,9 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
         "scienceReview": "pending",
         "clips": receipts,
     }
-    (output_dir / "r812-mitragynine-authentic-voice-REVIEW.receipt.json").write_text(
-        json.dumps(receipt, indent=2) + "\n", encoding="utf-8"
-    )
+    # Prepare both final byte payloads before claiming any output path.
+    receipt_text = json.dumps(receipt, indent=2) + "\n"
+    publish_review_pair(audio_path, receipt_path, wav_bytes, receipt_text)
     print(
         f"KOKORO NATURAL RADIO EDIT: {audio_path} ({duration_seconds:.2f}s); "
         "picture must be cut to the locked voice timeline",
