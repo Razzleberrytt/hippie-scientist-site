@@ -39,6 +39,7 @@ const GOVERNED_SCRIPTS = [
   'scripts/data/apply-pubmed-metadata.ts',
   'scripts/data/sync-detail-indexability.mjs',
   'scripts/data/generate-freshness-metadata.mjs',
+  'scripts/data/refresh-profile-indexes.mjs',
 ]
 
 const HELPER = 'scripts/lib/atomic-json.mjs'

@@ -15,7 +15,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Rare liver injury has been reported with some preparations; caution liver disease and hepatotoxic drugs.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -97,7 +97,7 @@
     "smooth-muscle tone",
     "and visceral sensitivity."
   ],
-  "evidence_tier": "Mechanistic Evidence",
+  "evidence_tier": "Preliminary evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
@@ -127,5 +127,22 @@
     "signs of liver injury such as jaundice or dark urine or unusual fatigue (discontinue immediately and seek care)",
     "pregnancy or breastfeeding (insufficient safety data)",
     "chamomile or other Asteraceae-family plant allergy (possible cross-reactivity)"
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "Moderate human evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Systematic review",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a systematic review, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "systematic-review",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

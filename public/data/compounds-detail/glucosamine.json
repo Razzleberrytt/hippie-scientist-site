@@ -2,7 +2,7 @@
   "id": "glucosamine",
   "slug": "glucosamine",
   "name": "Glucosamine",
-  "summary": "Glucosamine carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people. Findings across those studies disagree. Recorded activity centres on inflammatory signaling modulation, AMPK and glucose metabolism, which describes mechanism rather than demonstrated benefit. Noted cautions include shellfish allergy unless a vegetarian or corn-fermented source is confirmed.",
+  "summary": "Long-term joint comfort; safety screen: shellfish allergy; warfarin; diabetes medication review.",
   "description": "Glucosamine is used for joint support with moderate overall confidence for osteoarthritis outcomes; mechanism plausibility includes cartilage matrix influences.",
   "compoundClass": "",
   "mechanisms": [
@@ -15,7 +15,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Use caution with shellfish allergy, anticoagulants, or glucose-control medication plans.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -75,5 +75,23 @@
     "shellfish allergy unless a vegetarian or corn-fermented source is confirmed",
     "anticoagulant medications such as warfarin due to case reports of potentiated bleeding",
     "diabetes due to possible blood-glucose elevation in some users"
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "moderate",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Randomized controlled trial",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Mixed",
+  "evidence_rationale": "Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people. Findings across those studies disagree.",
+  "evidence_human_study_count": 1,
+  "evidence_recorded_study_count": 1,
+  "evidence_strongest_design": "rct",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

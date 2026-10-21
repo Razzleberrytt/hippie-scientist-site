@@ -20,6 +20,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 
 import path from 'node:path'
 
 import { normalizeStudyClass, strongestStudyClass, STUDY_CLASS_INFO, type StudyClass } from '../../lib/study-class'
+import { isMisattributedMelatoninCitation } from './melatonin-citation-quarantine'
 
 const ROOT = process.cwd()
 const DATA_DIR = path.join(ROOT, 'public', 'data')
@@ -180,6 +181,9 @@ function buildReferencedBy(): Map<string, string[]> {
       const record = JSON.parse(readFileSync(path.join(full, file), 'utf8'))
       const slug = record.slug ?? file.replace(/\.json$/, '')
       for (const source of Array.isArray(record.sources) ? record.sources : []) {
+        // Rebuild-safe negative source-identity hold; never export a known wrong
+        // melatonin citation even if a stale workbook row restores it.
+        if (isMisattributedMelatoninCitation(source, slug)) continue
         const pmid = text(source.pmid ?? source.pubmedId)
         if (!pmid) continue
         if (!map.has(pmid)) map.set(pmid, new Set())

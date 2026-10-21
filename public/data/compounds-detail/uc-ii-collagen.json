@@ -17,7 +17,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "A 180-day osteoarthritis trial of a specific undenatured type II collagen product found no safety-outcome difference from placebo or glucosamine-chondroitin. Product-source allergy, pregnancy, breastfeeding, autoimmune disease, long-term use, liver, kidney, and medication-interaction safety were not adequately established.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Moderate evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -107,5 +107,24 @@
     }
   ],
   "dosage": "long",
-  "typical_dosage": "long"
+  "typical_dosage": "long",
+  "summary_source": "composed-from-record",
+  "evidence_grade": "B",
+  "evidence_grade_source": "Moderate human evidence",
+  "evidence_tier": "Moderate evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Moderate evidence",
+  "evidence_grade_band": "moderate",
+  "evidence_grade_reason": "minor-disagreement",
+  "evidence_grade_explanation": "The evidence tier records limited evidence, one band from the recorded grade.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Randomized controlled trial",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "rct",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

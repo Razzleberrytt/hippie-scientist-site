@@ -1,7 +1,7 @@
 {
   "slug": "withania-somnifera",
   "name": "Ashwagandha",
-  "summary": "No summary available yet.",
+  "summary": "May support stress resilience and sleep quality in adults when using studied extract-specific forms; use safety box before recommendation language.",
   "description": "",
   "effects": [
     "Stress Response",
@@ -54,12 +54,12 @@
     "Neurotransmitter Modulation",
     "Neurotransmitter Signaling"
   ],
-  "evidence_grade": "",
-  "evidence_tier": "Strong Human Evidence",
-  "evidence_design_match": "",
-  "evidence_risk_of_bias": "",
-  "evidence_consistency": "",
-  "evidence_rationale": "",
+  "evidence_grade": "B",
+  "evidence_tier": "Moderate evidence",
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Consistent",
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 11 recorded studies, 9 in people. No disagreement is recorded across them.",
   "trial_design_insight": "",
   "contraindications": [
     "Avoid pregnancy/breastfeeding without clinician supervision",
@@ -440,5 +440,18 @@
         "src_1b3544f3df14"
       ]
     }
-  ]
+  ],
+  "evidence_grade_source": "B",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceLevel": "Moderate evidence",
+  "evidenceTier": "Moderate evidence",
+  "evidence_grade_band": "moderate",
+  "evidence_grade_reason": "minor-disagreement",
+  "evidence_grade_explanation": "The evidence tier records strong evidence, one band from the recorded grade.",
+  "evidence_grade_adjusted": false,
+  "evidence_human_study_count": 9,
+  "evidence_recorded_study_count": 11,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

@@ -2,7 +2,7 @@
   "id": "astaxanthin",
   "slug": "astaxanthin",
   "name": "Astaxanthin",
-  "summary": "Astaxanthin carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people. Recorded activity centres on inflammatory signaling modulation, oxidative stress modulation and mitochondrial support, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy or breastfeeding due to insufficient safety data.",
+  "summary": "Oxidative stress; exercise recovery context; safety screen: pregnancy; hormone-sensitive medication review.",
   "description": "Astaxanthin supports skin; oxidative stress; exercise recovery with moderate confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -18,7 +18,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Generally tolerated; keep high-dose and pregnancy guidance conservative.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -80,5 +80,23 @@
     "concurrent 5-alpha-reductase inhibitor medication such as finasteride due to a shared effect on testosterone-to-DHT conversion",
     "pregnancy or breastfeeding due to insufficient safety data",
     "known allergy or hypersensitivity to astaxanthin-containing carotenoid supplements."
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "moderate",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Randomized controlled trial",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a randomized controlled trial, drawn from 1 recorded study, 1 in people.",
+  "evidence_human_study_count": 1,
+  "evidence_recorded_study_count": 1,
+  "evidence_strongest_design": "rct",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

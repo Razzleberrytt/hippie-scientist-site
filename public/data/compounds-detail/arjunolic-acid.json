@@ -2,7 +2,7 @@
   "id": "arjunolic-acid",
   "slug": "arjunolic-acid",
   "name": "arjunolic acid",
-  "summary": "Triterpenoid from Terminalia arjuna associated with cardioprotective effects.",
+  "summary": "Pentacyclic triterpenoid from Terminalia arjuna bark with cardioprotective and antioxidant properties. Used in Ayurvedic cardiology; limited but emerging human clinical data.",
   "description": "Arjunolic acid (from Terminalia arjuna) is associated with cardioprotective effects in preclinical work, aligning with anti-oxidant and anti-inflammatory pathways.",
   "compoundClass": "",
   "mechanisms": [
@@ -23,7 +23,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Mostly preclinical or extract-derived; concentrated doses may affect glucose, lipids, liver enzymes, or bleeding risk depending matrix.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -51,5 +51,23 @@
   "typical_dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
   "contraindications": [
     "liver"
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

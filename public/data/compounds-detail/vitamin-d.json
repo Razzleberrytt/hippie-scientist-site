@@ -2,7 +2,7 @@
   "id": "vitamin-d",
   "slug": "vitamin-d",
   "name": "Vitamin D",
-  "summary": "Vitamin D carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 5 recorded studies, 5 in people. No disagreement is recorded across them. Recorded activity centres on metabolic regulation, immune signaling modulation and metabolic, which describes mechanism rather than demonstrated benefit. Noted cautions include hypercalcemia or vitamin D toxicity.",
+  "summary": "Bone health; immune support when deficient; safety screen: hypercalcemia; sarcoidosis; high-dose use without labs.",
   "description": "Vitamin D supports bone mineralization and helps prevent deficiency-related effects, with additional roles in immune regulation supported by higher-confidence observational/interventional data.",
   "compoundClass": "",
   "mechanisms": [
@@ -17,7 +17,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Avoid high-dose unsupervised use with hypercalcemia, granulomatous disease, or kidney-stone risk.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -185,5 +185,23 @@
   "contraindications": [
     "Hypercalcemia or vitamin D toxicity",
     "high-dose use in conditions that increase calcium without clinician monitoring."
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "high",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (strong evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Consistent",
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 5 recorded studies, 5 in people. No disagreement is recorded across them.",
+  "evidence_human_study_count": 5,
+  "evidence_recorded_study_count": 5,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

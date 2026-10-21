@@ -23,7 +23,7 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Moderate evidence",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -137,7 +137,7 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "fully_mapped",
   "unmapped_mechanisms": [],
-  "evidence_tier": "Moderate Human Evidence",
+  "evidence_tier": "Moderate evidence",
   "profile_status": "partial",
   "indexability_reasons": [
     "effect-present",
@@ -150,5 +150,22 @@
     "summary-depth",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated; mild GI upset, headache"
+  "safety": "Generally well tolerated; mild GI upset, headache",
+  "evidence_grade": "B",
+  "evidence_grade_source": "b",
+  "evidence_tier_source": "Moderate Human Evidence",
+  "evidenceTier": "Moderate evidence",
+  "evidence_grade_band": "moderate",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on moderate evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Systematic review",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Mixed",
+  "evidence_rationale": "Strongest recorded design is a systematic review, drawn from 4 recorded studies, 2 in people. Findings across those studies disagree.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 4,
+  "evidence_strongest_design": "systematic-review",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

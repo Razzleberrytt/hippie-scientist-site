@@ -1,7 +1,7 @@
 {
   "name": "Nigella Sativa",
   "slug": "nigella-sativa",
-  "summary": "Lean bulk ingestion row for Nigella sativa.",
+  "summary": "Nigella sativa (Black Seed) is a traditional seed extract containing thymoquinone, studied for antioxidant and immune support.",
   "description": "Lean bulk ingestion row for Nigella sativa. Key active compounds include Thymoquinone.",
   "primaryActions": [
     "metabolic"
@@ -29,7 +29,7 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Editorial grade not demonstrated by recorded studies",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -105,5 +105,23 @@
     "safety-context",
     "summary-depth",
     "summary-quality-missing"
-  ]
+  ],
+  "evidence_grade": null,
+  "evidence_grade_source": "a",
+  "evidence_tier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_grade_band": null,
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "The authored grade is preserved for provenance, but the recorded studies do not currently demonstrate that strength, so no settled public evidence grade is shown.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Narrative review",
+  "evidence_risk_of_bias": "High",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a narrative review, drawn from 3 recorded studies, none of which measured an outcome in people.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 3,
+  "evidence_strongest_design": "narrative-review",
+  "evidence_grade_backed": false,
+  "evidence_grade_backing_gap": "no-human-study-recorded"
 }

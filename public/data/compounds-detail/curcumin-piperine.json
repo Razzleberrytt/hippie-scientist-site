@@ -2,7 +2,7 @@
   "id": "curcumin-piperine",
   "slug": "curcumin-piperine",
   "name": "Curcumin + piperine",
-  "summary": "Curcumin + piperine carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation and inflammatory, which describes mechanism rather than demonstrated benefit. Noted cautions include previous turmeric- or curcumin-associated liver injury.",
+  "summary": "Inflammation markers; bioavailability-enhanced curcumin use; safety screen: drug-interaction sensitive medications; anticoagulants; gallbladder disease.",
   "description": "Curcumin + piperine is used to support joint and inflammation-linked signaling, with piperine primarily improving curcumin systemic availability.",
   "compoundClass": "",
   "mechanisms": [
@@ -15,7 +15,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Piperine can alter drug metabolism; avoid casual stacking with narrow-therapeutic-index medications.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -109,5 +109,23 @@
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
     "Previous turmeric- or curcumin-associated liver injury because recurrence after re-exposure has been reported."
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "moderate",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

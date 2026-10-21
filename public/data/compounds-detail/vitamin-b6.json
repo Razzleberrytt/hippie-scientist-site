@@ -2,7 +2,7 @@
   "id": "vitamin-b6",
   "slug": "vitamin-b6",
   "name": "Vitamin B6",
-  "summary": "Vitamin B6 has limited, context-specific human evidence for PMS symptoms and a short high-dose anxiety signal, with important trial-quality and comparator limitations. Excess supplemental exposure can cause peripheral neuropathy; dose and duration matter.",
+  "summary": "PMS symptom support; homocysteine metabolism; safety screen: neuropathy risk with high-dose chronic use.",
   "description": "Vitamin B6 evidence is mixed and context-specific rather than high-confidence: PMS signals coexist with substantial risk-of-bias and comparator limitations, while high supplemental exposure carries a source-backed peripheral-neuropathy risk.",
   "compoundClass": "",
   "mechanisms": [
@@ -15,7 +15,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Avoid high or prolonged supplemental exposure without appropriate clinical context; peripheral neuropathy is the key dose- and duration-related safety limiter.",
-  "evidenceLevel": "Limited Human Evidence",
+  "evidenceLevel": "Editorial grade not demonstrated by recorded studies",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -47,9 +47,9 @@
   "indexability_reasons": [
     "noindex-decision:hidden_until_grounded"
   ],
-  "evidence_tier": "Limited Human Evidence",
-  "evidenceTier": "Limited Human Evidence",
-  "evidence_grade": "c",
+  "evidence_tier": "Editorial grade not demonstrated by recorded studies",
+  "evidenceTier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_grade": null,
   "evidence_label": "Limited Human Evidence",
   "evidenceLabel": "Limited Human Evidence",
   "sources": [
@@ -125,5 +125,20 @@
     "31928364",
     "35851507",
     "37447150"
-  ]
+  ],
+  "evidence_grade_source": "high",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidence_grade_band": null,
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "The authored grade is preserved for provenance, but the recorded studies do not currently demonstrate that strength, so no settled public evidence grade is shown.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": false,
+  "evidence_grade_backing_gap": "no-claims-recorded"
 }

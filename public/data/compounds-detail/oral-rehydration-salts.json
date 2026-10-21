@@ -2,7 +2,7 @@
   "id": "oral-rehydration-salts",
   "slug": "oral-rehydration-salts",
   "name": "Oral rehydration salts",
-  "summary": "Oral rehydration salts carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on oxidative stress modulation, metabolic regulation and glucose metabolism support, which describes mechanism rather than demonstrated benefit. Use medical care for severe dehydration, infants, confusion, or persistent vomiting.",
+  "summary": "Electrolyte replacement; heat illness support; safety screen: severe kidney disease; fluid restriction; hypernatremia risk.",
   "description": "Oral rehydration salts supports hydration; electrolytes; diarrhea with high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -15,7 +15,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Use medical care for severe dehydration, infants, confusion, or persistent vomiting.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -40,5 +40,23 @@
   "sitemap_included": false,
   "indexability_reasons": [
     "noindex-decision:hidden_until_grounded"
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "high",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (strong evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

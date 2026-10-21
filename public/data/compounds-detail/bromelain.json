@@ -2,7 +2,7 @@
   "id": "bromelain",
   "slug": "bromelain",
   "name": "Bromelain",
-  "summary": "Bromelain carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation and inflammatory, which describes mechanism rather than demonstrated benefit. Bleeding/allergy considerations matter; avoid around surgery unless clinician-directed.",
+  "summary": "Post-exercise soreness context; protein digestion support; safety screen: pineapple allergy; anticoagulants; planned surgery.",
   "description": "Bromelain is a proteolytic mixture with mechanistic interest in inflammatory mediators and digestion support; evidence strength varies by outcome.",
   "compoundClass": "",
   "mechanisms": [
@@ -15,7 +15,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Bleeding/allergy considerations matter; avoid around surgery unless clinician-directed.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -65,5 +65,23 @@
     }
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "evidence_grade": "D",
+  "evidence_grade_source": "low-moderate",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Randomized controlled trial",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "rct",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

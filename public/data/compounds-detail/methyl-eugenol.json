@@ -2,7 +2,7 @@
   "id": "methyl-eugenol",
   "slug": "methyl-eugenol",
   "name": "methyl eugenol",
-  "summary": "Phenylpropanoid found in aromatic plants that IARC classifies as probably carcinogenic to humans (Group 2A).",
+  "summary": "Phenylpropanoid found in many aromatic herbs classified as a possible carcinogen (IARC Group 2B) at high exposures. Present in trace amounts in foods; not appropriate as a supplement ingredient.",
   "description": "Methyl eugenol is a naturally occurring flavour and fragrance compound. IARC classifies it as probably carcinogenic to humans (Group 2A) from sufficient experimental-animal and strong mechanistic evidence, while evidence regarding cancer in humans remains inadequate. That hazard classification does not quantify risk for every dose, route, or exposure matrix.",
   "compoundClass": "",
   "mechanisms": [
@@ -18,7 +18,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "IARC classifies methyleugenol as probably carcinogenic to humans (Group 2A). Direct human cancer evidence is inadequate, and the classification does not provide one risk estimate for every exposure. Natural background, food, consumer-product, essential-oil, and concentrated isolated exposures are not interchangeable; avoid presenting concentrated methyleugenol as a wellness ingredient.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -43,5 +43,23 @@
     "noindex-decision:hidden_until_grounded"
   ],
   "dosage": "",
-  "typical_dosage": ""
+  "typical_dosage": "",
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

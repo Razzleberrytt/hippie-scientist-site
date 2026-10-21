@@ -2,7 +2,7 @@
   "id": "green-tea-extract-egcg",
   "slug": "green-tea-extract-egcg",
   "name": "Green tea extract / EGCG",
-  "summary": "Green tea extract / EGCG carries a Grade B rating — moderate evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 1 in people. Recorded activity centres on oxidative stress modulation, metabolic regulation and oxidative stress, which describes mechanism rather than demonstrated benefit. Noted cautions include verify caffeine content if stimulant-sensitive.",
+  "summary": "Cardiometabolic markers; antioxidant polyphenol intake; safety screen: liver disease; high-dose fasting use; stimulant sensitivity.",
   "description": "EGCG-rich green tea extracts are linked to metabolic improvements through polyphenol-mediated effects on fat oxidation and inflammatory/redox signaling, with moderate confidence.",
   "compoundClass": "",
   "mechanisms": [
@@ -15,7 +15,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Concentrated extracts have liver-injury concerns, especially high-dose or fasting use.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Moderate evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -110,5 +110,23 @@
   "contraindications": [
     "Avoid high-dose or fasting use and seek clinician review with pre-existing liver disease or unexplained liver-test abnormalities",
     "verify caffeine content if stimulant-sensitive."
-  ]
+  ],
+  "evidence_grade": "B",
+  "evidence_grade_source": "moderate",
+  "evidence_tier": "Moderate evidence",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Moderate evidence",
+  "evidence_grade_band": "moderate",
+  "evidence_grade_reason": "minor-disagreement",
+  "evidence_grade_explanation": "The evidence tier records strong evidence, one band from the recorded grade.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 1 in people.",
+  "evidence_human_study_count": 1,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

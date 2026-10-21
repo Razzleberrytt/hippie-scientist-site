@@ -1,7 +1,7 @@
 {
   "name": "Bupleurum Falcatum",
   "slug": "bupleurum-falcatum",
-  "summary": "Lean bulk ingestion row for Bupleurum falcatum.",
+  "summary": "Bupleurum falcatum is an herb historically used in traditional East Asian medicine, containing active compounds like Saikosaponin A.",
   "description": "Lean bulk ingestion row for Bupleurum falcatum. Key active compounds include Saikosaponin A.",
   "primaryActions": [
     "liver-protective",
@@ -24,7 +24,7 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -94,5 +94,23 @@
     "safety-context",
     "summary-depth",
     "summary-quality-missing"
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

@@ -2,7 +2,7 @@
   "id": "willow-bark-extract",
   "slug": "willow-bark-extract",
   "name": "Willow Bark Extract",
-  "summary": "Willow Bark Extract compound profile with evidence, safety, and practical fit.",
+  "summary": "Willow Bark Extract carries a Grade B rating — moderate evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include active GI ulcer or reflux disease and asthma with known aspirin or NSAID sensitivity.",
   "description": "Willow Bark Extract compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
@@ -13,7 +13,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Avoid with aspirin allergy, anticoagulants, peptic ulcer disease, children/teens with viral illness, and late pregnancy.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Moderate evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -76,7 +76,7 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "fully_mapped",
   "unmapped_mechanisms": [],
-  "evidence_tier": "Limited Human Evidence",
+  "evidence_tier": "Moderate evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 95,
@@ -113,5 +113,23 @@
     "may reduce the effectiveness of ACE inhibitors or diuretics",
     "may increase methotrexate toxicity at high doses",
     "pregnancy or breastfeeding without clinician guidance."
-  ]
+  ],
+  "summary_source": "composed-from-record",
+  "evidence_grade": "B",
+  "evidence_grade_source": "moderate",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Moderate evidence",
+  "evidence_grade_band": "moderate",
+  "evidence_grade_reason": "minor-disagreement",
+  "evidence_grade_explanation": "The evidence tier records limited evidence, one band from the recorded grade.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Randomized controlled trial",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "rct",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

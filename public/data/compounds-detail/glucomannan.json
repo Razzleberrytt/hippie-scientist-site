@@ -2,7 +2,7 @@
   "id": "glucomannan",
   "slug": "glucomannan",
   "name": "Glucomannan",
-  "summary": "Glucomannan carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 4 recorded studies, 4 in people. Findings across those studies disagree. Recorded activity centres on metabolic regulation, vascular function support and glucose metabolism support, which describes mechanism rather than demonstrated benefit. Must be taken with adequate water; separate from medications if absorption timing matters.",
+  "summary": "LDL cholesterol support; constipation support; safety screen: swallowing difficulty; bowel obstruction; medication timing conflicts.",
   "description": "Glucomannan supports satiety; fiber; cholesterol with moderate-high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Must be taken with adequate water; separate from medications if absorption timing matters.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -116,5 +116,23 @@
     }
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "evidence_grade": "D",
+  "evidence_grade_source": "moderate",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Mixed",
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 4 recorded studies, 4 in people. Findings across those studies disagree.",
+  "evidence_human_study_count": 4,
+  "evidence_recorded_study_count": 4,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

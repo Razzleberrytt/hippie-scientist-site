@@ -2,7 +2,7 @@
   "id": "bacoside-b",
   "slug": "bacoside-b",
   "name": "bacoside b",
-  "summary": "Bacopa saponin fraction linked to cognition-related signaling.",
+  "summary": "Secondary saponin fraction from Bacopa with complementary neuroprotective activity. Works synergistically with bacoside A. Studied as whole-extract fraction; isolated compound data is limited.",
   "description": "Bacoside B from Bacopa is linked to cognition-relevant signaling; mechanistic studies emphasize neuroplasticity and stress-resilience rather than guaranteed clinical benefit.",
   "compoundClass": "",
   "mechanisms": [
@@ -23,7 +23,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "May cause GI irritation or hemolysis risk in isolated/high-dose contexts; herb-specific safety and pregnancy cautions apply.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -51,5 +51,23 @@
   "typical_dosage": "standardized botanical extract capsule",
   "contraindications": [
     "pregnancy"
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

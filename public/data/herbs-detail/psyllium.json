@@ -1,7 +1,7 @@
 {
   "name": "Psyllium",
   "slug": "psyllium",
-  "summary": "Psyllium is not a classic phytochemical-heavy herb; its value comes from gel-forming husk fiber.",
+  "summary": "Psyllium is the soluble fiber from the husks of Plantago ovata seeds, best known as a bulk-forming laxative. Because it forms a viscous gel that binds bile acids, it also affects blood lipids: a systematic review and meta-analysis of randomized trials found that psyllium supplementation lowered LDL cholesterol, non-HDL cholesterol, and apolipoprotein B versus control, with roughly 10 grams per day a commonly studied dose. Psyllium should be taken with ample water and separated in time from other medications, whose absorption its gel can slow.",
   "description": "Psyllium is not a classic phytochemical-heavy herb; its value comes from gel-forming husk fiber. That makes it more of a functional-fiber tool than a general botanical tonic.",
   "primaryActions": [
     "digestive",
@@ -25,7 +25,7 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -102,5 +102,23 @@
     "safety-context",
     "summary-depth",
     "summary-quality-missing"
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (limited evidence) and evidence tier (strong evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 3 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 3,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

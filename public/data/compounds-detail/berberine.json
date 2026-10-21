@@ -2,7 +2,7 @@
   "id": "berberine",
   "slug": "berberine",
   "name": "Berberine",
-  "summary": "Berberine carries a Grade A rating — strong evidence. Strongest recorded design is a meta-analysis, drawn from 6 recorded studies, 6 in people. No disagreement is recorded across them. Recorded activity centres on inflammatory signaling modulation, metabolic regulation and AMPK signaling, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy and breastfeeding.",
+  "summary": "Insulin resistance context; triglyceride/LDL support; safety screen: pregnancy; breastfeeding; diabetes medications; CYP/P-gp medication review.",
   "description": "Berberine supports blood sugar; lipids; metabolic with high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -17,7 +17,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Medication interaction potential is high; avoid in pregnancy/breastfeeding and review glucose meds.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Strong evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -202,5 +202,23 @@
   "contraindications": [
     "Interacts with CYP enzymes",
     "caution with antidiabetics."
-  ]
+  ],
+  "evidence_grade": "A",
+  "evidence_grade_source": "high",
+  "evidence_tier": "Strong evidence",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Strong evidence",
+  "evidence_grade_band": "strong",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on strong evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Consistent",
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 6 recorded studies, 6 in people. No disagreement is recorded across them.",
+  "evidence_human_study_count": 6,
+  "evidence_recorded_study_count": 6,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

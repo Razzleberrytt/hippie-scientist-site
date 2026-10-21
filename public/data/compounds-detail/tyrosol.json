@@ -2,7 +2,7 @@
   "id": "tyrosol",
   "slug": "tyrosol",
   "name": "tyrosol",
-  "summary": "Simple phenolic alcohol linked to antioxidant-response and survival signaling.",
+  "summary": "Simple phenolic alcohol from olive oil that provides antioxidant defense and contributes to olive oil's cardiovascular benefits. Works alongside hydroxytyrosol in olive polyphenol health effects.",
   "description": "Tyrosol is a circulating olive-derived phenolic alcohol that supports antioxidant-response programs (Nrf2-related) and promotes stress-adaptive survival signaling.",
   "compoundClass": "",
   "mechanisms": [
@@ -22,7 +22,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Food-associated in olive/olive oil matrices; concentrated extracts may affect blood pressure, glucose, or bleeding risk.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -47,5 +47,23 @@
     "noindex-decision:hidden_until_grounded"
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

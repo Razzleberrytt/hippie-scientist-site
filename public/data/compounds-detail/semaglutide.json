@@ -23,7 +23,7 @@
   ],
   "bioavailability": "Subcutaneous injection (Ozempic/Wegovy) or oral tablet (Rybelsus); long elimination half-life (~1 week) supports once-weekly injectable dosing.",
   "safetyNotes": "Boxed warning for thyroid C-cell tumor risk (contraindicated with personal/family MTC or MEN2 history); common GI side effects during titration; not for use in pregnancy.",
-  "evidenceLevel": "strong",
+  "evidenceLevel": "Editorial grade not demonstrated by recorded studies",
   "relatedCompounds": [
     "tirzepatide"
   ],
@@ -68,5 +68,23 @@
     "May cause additive hypoglycemia with insulin or sulfonylureas (dose reduction is often needed)",
     "delayed gastric emptying can alter absorption of oral medications",
     "may increase levothyroxine exposure when co-administered."
-  ]
+  ],
+  "evidence_grade": null,
+  "evidence_grade_source": "a",
+  "evidence_tier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_grade_band": null,
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "The authored grade is preserved for provenance, but the recorded studies do not currently demonstrate that strength, so no settled public evidence grade is shown.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": false,
+  "evidence_grade_backing_gap": "no-claims-recorded"
 }

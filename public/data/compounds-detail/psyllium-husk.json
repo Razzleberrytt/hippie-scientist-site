@@ -2,7 +2,7 @@
   "id": "psyllium-husk",
   "slug": "psyllium-husk",
   "name": "Psyllium husk",
-  "summary": "Psyllium husk carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, vascular function support and glucose metabolism support, which describes mechanism rather than demonstrated benefit. Noted cautions include difficulty swallowing or known esophageal narrowing or dysfunction.",
+  "summary": "Constipation; glycemic response smoothing; safety screen: bowel obstruction; swallowing difficulty; medication timing conflicts.",
   "description": "Psyllium husk supports fiber; cholesterol; digestion with high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Take with adequate fluid; separate from medications if absorption timing matters.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -95,5 +95,23 @@
   "typical_dosage": "powder or capsule",
   "contraindications": [
     "Difficulty swallowing or known esophageal narrowing or dysfunction because psyllium can swell and obstruct without adequate fluid."
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "high",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (strong evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

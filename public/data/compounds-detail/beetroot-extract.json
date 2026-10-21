@@ -2,7 +2,7 @@
   "id": "beetroot-extract",
   "slug": "beetroot-extract",
   "name": "Beetroot extract",
-  "summary": "Beetroot extract carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on oxidative stress modulation, vascular function support and endothelial function support, which describes mechanism rather than demonstrated benefit. Noted cautions include caution with hypotension or blood pressure medication use due to additive blood-pressure-lowering effects that can cause dizziness or fainting.",
+  "summary": "Endurance performance; nitric oxide support; safety screen: hypotension; nitrate medications; kidney-stone susceptibility.",
   "description": "Beetroot extract supports blood flow; endurance; blood pressure with moderate-high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -15,7 +15,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Use caution with hypotension or nitrate/PDE-5 medication contexts.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -55,5 +55,23 @@
     "caution combining with PDE5 inhibitors such as sildenafil or tadalafil due to overlapping nitric-oxide pathways and risk of pronounced blood pressure drops",
     "caution with nitrate medications due to the same nitric-oxide mechanism",
     "high-nitrate intake caution for individuals with methemoglobinemia risk or on nitrate-restricted diets."
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "moderate-high",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

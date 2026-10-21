@@ -2,7 +2,7 @@
   "id": "eleutheroside-b",
   "slug": "eleutheroside-b",
   "name": "eleutheroside b",
-  "summary": "Phenylpropanoid glycoside from Eleuthero associated with adaptogenic effects.",
+  "summary": "Phenylpropanoid glycoside (syringin) from Siberian ginseng root bark. Associated with adaptogenic and immune-supporting activity. Key marker compound for Eleutherococcus senticosus standardization.",
   "description": "Eleutheroside B from Eleuthero is associated with adaptogenic effects, with preclinical links to oxidative stress buffering and neuroendocrine resilience.",
   "compoundClass": "",
   "mechanisms": [
@@ -23,7 +23,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Schisandra-type lignans can affect drug-metabolizing enzymes/transporters; caution with complex medication regimens.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -48,5 +48,23 @@
     "noindex-decision:hidden_until_grounded"
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

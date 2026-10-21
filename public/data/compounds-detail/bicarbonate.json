@@ -14,7 +14,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "GI distress common.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -68,7 +68,7 @@
   "unmapped_mechanisms": [
     "Buffers lactic acid and delays fatigue."
   ],
-  "evidence_tier": "Mechanistic Evidence",
+  "evidence_tier": "Preliminary evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "sitemap_included": true,
@@ -110,5 +110,22 @@
     "impaired kidney function or metabolic alkalosis (contraindicated due to altered acid-base and electrolyte handling)",
     "ergogenic loading doses (dose-dependent GI upset such as bloating or cramping or diarrhea or vomiting)",
     "drugs cleared by the kidney based on urine pH such as amphetamines or salicylate medications like aspirin (alters excretion and warrants dosing separation)"
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "moderate",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Regulatory or official guidance",
+  "evidence_risk_of_bias": "High",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a regulatory or official guidance, drawn from 2 recorded studies, none of which measured an outcome in people.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "regulatory-guidance",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

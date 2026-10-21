@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Human studies summarized in a review generally reported good short-term tolerance with rare adverse effects, but maca chemistry varies by ecotype, processing, and formulation. Pregnancy, breastfeeding, hormone-sensitive conditions, liver or kidney impairment, long-term use, and medication-interaction safety remain insufficient.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Insufficient evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -50,5 +50,23 @@
     "missing_record_level_sources"
   ],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "evidence_grade": "Avoid/Insufficient",
+  "evidence_grade_source": "insufficient",
+  "evidence_tier": "Insufficient evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Insufficient evidence",
+  "evidence_grade_band": "insufficient",
+  "evidence_grade_reason": "minor-disagreement",
+  "evidence_grade_explanation": "The evidence tier records preliminary evidence, one band from the recorded grade.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

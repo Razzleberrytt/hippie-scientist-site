@@ -2,7 +2,7 @@
   "id": "bacopa-extract-bacoside-standardized",
   "slug": "bacopa-extract-bacoside-standardized",
   "name": "Bacopa extract standardized",
-  "summary": "Bacopa extract standardized carries a Grade B rating — moderate evidence. Recorded activity centres on oxidative stress modulation, neurotransmitter modulation and hormonal signaling context, which describes mechanism rather than demonstrated benefit. Safety evidence: short-term human trials of Bacopa extracts most often report gastrointestinal adverse effects, but preparations and reporting vary. Pregnancy, breastfeeding, surgery, long-term use, organ impairment, and clinically significant medication interactions remain insufficiently characterized.",
+  "summary": "Cognitive performance over time; attention support; safety screen: pregnancy; thyroid medication monitoring; GI intolerance.",
   "description": "Bacopa extract standardized supports memory; cognition; attention with moderate-high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Short-term trials of Bacopa extracts most often report gastrointestinal adverse effects; preparations and safety reporting vary.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Editorial grade not demonstrated by recorded studies",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -50,5 +50,23 @@
     "missing_record_level_sources"
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "evidence_grade": null,
+  "evidence_grade_source": "moderate",
+  "evidence_tier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_tier_source": "Moderate Human Evidence",
+  "evidenceTier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_grade_band": null,
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "The authored grade is preserved for provenance, but the recorded studies do not currently demonstrate that strength, so no settled public evidence grade is shown.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": false,
+  "evidence_grade_backing_gap": "no-claims-recorded"
 }

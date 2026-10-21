@@ -2,7 +2,7 @@
   "id": "glycine",
   "slug": "glycine",
   "name": "Glycine",
-  "summary": "Glycine may support subjective sleep quality and bedtime relaxation without being a strong sedative.",
+  "summary": "Systematic review suggests sleep improvements in healthy populations with longer-term glycine administration, but sleep studies were small and high risk of bias.",
   "description": "Glycine, a simple inhibitory amino acid, is used in sleep-oriented contexts; mechanistic relevance includes neuromodulation and membrane-stabilizing signaling in CNS.",
   "compoundClass": "",
   "mechanisms": [
@@ -18,7 +18,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Generally considered low risk in common dietary-supplement contexts, but high-dose use should be cautious; evidence base for long-term sleep use is limited.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Moderate evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -189,5 +189,23 @@
     "severe liver or kidney disease due to reduced amino-acid clearance",
     "pregnancy or breastfeeding or use in children due to insufficient high-dose safety data",
     "sedatives or alcohol or other CNS depressants due to additive sedation or drowsiness."
-  ]
+  ],
+  "evidence_grade": "B",
+  "evidence_grade_source": "moderate",
+  "evidence_tier": "Moderate evidence",
+  "evidence_tier_source": "Moderate Human Evidence",
+  "evidenceTier": "Moderate evidence",
+  "evidence_grade_band": "moderate",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on moderate evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Systematic review",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Consistent",
+  "evidence_rationale": "Strongest recorded design is a systematic review, drawn from 3 recorded studies, 3 in people. No disagreement is recorded across them.",
+  "evidence_human_study_count": 3,
+  "evidence_recorded_study_count": 3,
+  "evidence_strongest_design": "systematic-review",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

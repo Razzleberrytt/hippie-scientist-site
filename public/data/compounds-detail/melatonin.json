@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Higher-dose review found limited serious adverse-event signal but increased drowsiness, headache, and dizziness; long-term safety reporting is limited. Keep melatonin products, especially flavored tablets and gummies, secured out of children's reach and sight. CDC estimated approximately 11,000 US emergency-department visits for unsupervised melatonin ingestions in children aged 5 or younger during 2019–2022; a separate poison-center dataset recorded a 530% rise in pediatric ingestions over 2012–2021. These are surveillance estimates, not proof that prescribed pediatric use has the same risk. Consult a pediatric clinician before giving melatonin to children; medication and seizure-disorder cautions also apply. Sources: CDC MMWR 2022 (71:725–729) and 2024 (73:215–217). Prior established cautions: Higher-dose review found limited serious adverse-event signal but increased drowsiness, headache, and dizziness; long-term safety reporting is limited.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Evidence strength awaiting source-identity review",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -30,25 +30,17 @@
   },
   "evidence": {
     "reviewStatus": "sourced_pending_review",
-    "sourceCount": 6,
+    "sourceCount": 3,
     "sourceIds": [
       "src_070f1c3027c3",
-      "src_0e38d20729ea",
       "src_4fd666ecb3cf",
-      "src_529bc3e73238",
-      "src_6fa7f731b20d",
-      "src_ac1716c7775d"
+      "src_6fa7f731b20d"
     ],
-    "claimCount": 8,
+    "claimCount": 3,
     "claimIds": [
       "clm_12eca6881a27",
-      "clm_269b06c1acf7",
       "clm_369d4cc2b858",
-      "clm_5ec81c93a200",
-      "clm_68bac5a0a49b",
-      "clm_7a79644f2add",
-      "clm_a691d7069adc",
-      "clm_cea108ad58c9"
+      "clm_a691d7069adc"
     ]
   },
   "claimMap": [
@@ -71,24 +63,6 @@
       ]
     },
     {
-      "id": "clm_269b06c1acf7",
-      "claim": "consistent sleep improvement",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "consistent sleep improvement",
-      "qualifiers": {
-        "direction": "+",
-        "dose_or_duration": "varies; varies",
-        "population": "adults",
-        "study_id": "ent_study_36002dfdca66"
-      },
-      "sourceRefIds": [
-        "src_529bc3e73238"
-      ]
-    },
-    {
       "id": "clm_369d4cc2b858",
       "claim": "Melatonin may help sleep timing/onset when dose and timing are matched to the sleep problem.",
       "predicate": "supports_outcome",
@@ -104,60 +78,6 @@
       },
       "sourceRefIds": [
         "src_070f1c3027c3"
-      ]
-    },
-    {
-      "id": "clm_5ec81c93a200",
-      "claim": "improved circadian alignment",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "improved circadian alignment",
-      "qualifiers": {
-        "direction": "+",
-        "dose_or_duration": "2–5 mg; varies",
-        "population": "shift workers",
-        "study_id": "ent_study_c39c0ace4e9b"
-      },
-      "sourceRefIds": [
-        "src_ac1716c7775d"
-      ]
-    },
-    {
-      "id": "clm_68bac5a0a49b",
-      "claim": "consistent reduction in sleep onset latency",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "consistent reduction in sleep onset latency",
-      "qualifiers": {
-        "direction": "+",
-        "dose_or_duration": "0.5–5 mg; varies",
-        "population": "adults with insomnia",
-        "study_id": "ent_study_6080fe9064c7"
-      },
-      "sourceRefIds": [
-        "src_529bc3e73238"
-      ]
-    },
-    {
-      "id": "clm_7a79644f2add",
-      "claim": "improved subjective sleep quality",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "improved subjective sleep quality",
-      "qualifiers": {
-        "direction": "+",
-        "dose_or_duration": "2 mg; 3 weeks",
-        "population": "older adults",
-        "study_id": "ent_study_7164648c5805"
-      },
-      "sourceRefIds": [
-        "src_0e38d20729ea"
       ]
     },
     {
@@ -177,24 +97,6 @@
       "sourceRefIds": [
         "src_6fa7f731b20d"
       ]
-    },
-    {
-      "id": "clm_cea108ad58c9",
-      "claim": "improved rhythm",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "human_rct",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "improved rhythm",
-      "qualifiers": {
-        "direction": "+",
-        "dose_or_duration": "3 mg; 4 weeks",
-        "population": "shift workers",
-        "study_id": "ent_study_47cedc9085ef"
-      },
-      "sourceRefIds": [
-        "src_ac1716c7775d"
-      ]
     }
   ],
   "indexability_status": "PUBLISH",
@@ -213,20 +115,6 @@
   ],
   "sources": [
     {
-      "id": "src_0e38d20729ea",
-      "title": "Biopsychosocial determinants of physical and mental fatigue in patients with spondyloarthropathy",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/20091037/",
-      "pmid": "20091037",
-      "authors": "PubMed",
-      "citation": "PubMed PMID 20091037. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved",
-      "journal": "Rheumatol Int",
-      "year": 2011,
-      "doi": "10.1007/s00296-009-1250-7",
-      "metadataSource": "pubmed"
-    },
-    {
       "id": "src_4fd666ecb3cf",
       "title": "Meta-analysis: melatonin for the treatment of primary sleep disorders",
       "url": "https://pubmed.ncbi.nlm.nih.gov/23691095/",
@@ -242,36 +130,6 @@
       "studyClass": "meta-analysis",
       "metadataSource": "pubmed",
       "sampleSize": 1683
-    },
-    {
-      "id": "src_529bc3e73238",
-      "title": "Wound ballistics of firearm-related injuries--part 2: mechanisms of skeletal injury and characteristics of maxillofacial ballistic trauma",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/25128263/",
-      "pmid": "25128263",
-      "authors": "PubMed",
-      "citation": "PubMed PMID 25128263. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved",
-      "journal": "Int J Oral Maxillofac Surg",
-      "year": 2015,
-      "doi": "10.1016/j.ijom.2014.07.012",
-      "studyType": "Narrative review",
-      "studyClass": "narrative-review",
-      "metadataSource": "pubmed"
-    },
-    {
-      "id": "src_ac1716c7775d",
-      "title": "A putative novel nuclear-encoded subunit of the cytochrome c oxidase complex in trypanosomatids",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/12467979/",
-      "pmid": "12467979",
-      "authors": "PubMed",
-      "citation": "PubMed PMID 12467979. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved",
-      "journal": "Mol Biochem Parasitol",
-      "year": 2002,
-      "doi": "10.1016/s0166-6851(02)00235-9",
-      "metadataSource": "pubmed"
     },
     {
       "id": "src_070f1c3027c3",
@@ -340,5 +198,23 @@
     "sedative medications or benzodiazepines or alcohol due to additive drowsiness and impaired alertness",
     "epilepsy or seizure disorder medications warrant clinician guidance due to limited safety data on interactions with anticonvulsants",
     "children or adolescents without pediatrician guidance due to limited long-term safety data on hormonal development."
-  ]
+  ],
+  "evidence_grade": null,
+  "evidence_grade_source": "high",
+  "evidence_tier": "Evidence strength awaiting source-identity review",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Evidence strength awaiting source-identity review",
+  "evidence_grade_band": null,
+  "evidence_grade_reason": "melatonin-source-identity-quarantine",
+  "evidence_grade_explanation": "Source relevance and study independence are under review. Automated publication counts do not establish an overall clinical grade or consistency across different sleep outcomes.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "Source relevance and study independence are under review. Automated publication counts do not establish an overall clinical grade or consistency across different sleep outcomes.",
+  "evidence_human_study_count": null,
+  "evidence_recorded_study_count": null,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": false,
+  "evidence_grade_backing_gap": "melatonin-source-identity-quarantine"
 }

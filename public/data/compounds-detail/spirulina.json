@@ -15,7 +15,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Contamination risk if poor-quality source; caution autoimmune disease.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Insufficient evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -77,5 +77,24 @@
     "unregulated or contaminated sources due to microcystin or heavy-metal contamination risk",
     "warfarin (a vitamin K antagonist) due to vitamin K content potentially reducing its blood-thinning effectiveness and requiring closer INR monitoring",
     "immunosuppressant medications due to immune-stimulating effects that may counteract them."
-  ]
+  ],
+  "summary_source": "composed-from-record",
+  "evidence_grade": "Avoid/Insufficient",
+  "evidence_grade_source": "insufficient",
+  "evidence_tier": "Insufficient evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Insufficient evidence",
+  "evidence_grade_band": "insufficient",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (insufficient evidence) and evidence tier (limited evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Uncontrolled trial",
+  "evidence_risk_of_bias": "Medium",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a uncontrolled trial, drawn from 2 recorded studies, 1 in people.",
+  "evidence_human_study_count": 1,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "uncontrolled-trial",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

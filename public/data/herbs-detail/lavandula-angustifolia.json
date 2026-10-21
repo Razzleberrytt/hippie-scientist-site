@@ -1,7 +1,7 @@
 {
   "name": "Lavender",
   "slug": "lavandula-angustifolia",
-  "summary": "Lean bulk ingestion row for Lavandula angustifolia.",
+  "summary": "Oral lavender oil preparation Silexan has stronger anxiety evidence than generic lavender/aromatherapy claims; meta-analysis of 5 placebo-controlled trials used 80 mg/day for 10 weeks and showed anxiolytic effects with favorable tolerability.",
   "description": "Lean bulk ingestion row for Lavandula angustifolia. Key active compounds include Linalool.",
   "primaryActions": [
     "sleep",
@@ -22,7 +22,7 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Strong evidence",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -135,5 +135,23 @@
     "safety-context",
     "summary-depth",
     "summary-quality-missing"
-  ]
+  ],
+  "evidence_grade": "A",
+  "evidence_grade_source": "a",
+  "evidence_tier": "Strong evidence",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Strong evidence",
+  "evidence_grade_band": "strong",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on strong evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Consistent",
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 5 recorded studies, 4 in people. No disagreement is recorded across them.",
+  "evidence_human_study_count": 4,
+  "evidence_recorded_study_count": 5,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

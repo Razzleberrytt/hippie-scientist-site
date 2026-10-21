@@ -2,7 +2,7 @@
   "id": "fucoxanthin",
   "slug": "fucoxanthin",
   "name": "Fucoxanthin",
-  "summary": "Fucoxanthin compound profile with evidence, safety, and practical fit.",
+  "summary": "Fucoxanthin carries a Grade C rating — limited evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, glucose metabolism support and glucose metabolism, which describes mechanism rather than demonstrated benefit. Noted cautions include seaweed-derived extracts can carry meaningful iodine content so people with hyperthyroidism or hypothyroidism or Hashimoto thyroiditis should consult a clinician before use.",
   "description": "Fucoxanthin compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
@@ -15,7 +15,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Generally well tolerated; limited long-term safety data.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -88,7 +88,7 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "fully_mapped",
   "unmapped_mechanisms": [],
-  "evidence_tier": "Strong Human Evidence",
+  "evidence_tier": "Limited evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "sitemap_included": true,
@@ -131,5 +131,23 @@
     "theoretical antiplatelet or blood-thinning activity means caution with anticoagulant or antiplatelet drugs and discontinuation roughly two weeks before surgery",
     "insufficient safety data in pregnancy and breastfeeding so avoid unless advised otherwise",
     "may interact with diabetes medication and potentiate hypoglycemia."
-  ]
+  ],
+  "summary_source": "composed-from-record",
+  "evidence_grade": "C",
+  "evidence_grade_source": "Limited human evidence",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (limited evidence) and evidence tier (strong evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Randomized controlled trial",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "rct",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

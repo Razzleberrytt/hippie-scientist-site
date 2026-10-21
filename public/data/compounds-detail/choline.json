@@ -17,7 +17,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "High doses may cause fishy odor, hypotension.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -76,7 +76,7 @@
   "unmapped_mechanisms": [
     "Neurotransmitter Modulation"
   ],
-  "evidence_tier": "Mechanistic Evidence",
+  "evidence_tier": "Preliminary evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "sitemap_included": true,
@@ -106,5 +106,22 @@
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
     "Caution in TMAO-related CVD risk contexts."
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "strong",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (strong evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Regulatory or official guidance",
+  "evidence_risk_of_bias": "High",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a regulatory or official guidance, drawn from 1 recorded study, none of which measured an outcome in people.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 1,
+  "evidence_strongest_design": "regulatory-guidance",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

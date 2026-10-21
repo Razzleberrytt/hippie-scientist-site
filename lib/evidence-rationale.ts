@@ -30,6 +30,8 @@ export type EvidenceRationale = {
   consistency: EvidenceConsistency | null
   /** Claims backed by a design that measured an outcome in people. */
   humanStudyCount: number
+  /** Human-design records with distinct stable PMID/DOI source identities. */
+  identifiedHumanStudyCount: number
   /** Claims carrying any recorded design at all. */
   classifiedStudyCount: number
   totalClaimCount: number
@@ -58,6 +60,59 @@ export type RationaleClaimInput = {
   /** Raw recorded design, used both as fallback and for finding markers. */
   study_class_source?: unknown
   evidence_tier?: unknown
+  pmid?: unknown
+  pubmedId?: unknown
+  doi?: unknown
+  url?: unknown
+  source_url?: unknown
+}
+
+/** Publication identity is evidence of one record, never trial independence. */
+function publicationIdentity(claim: RationaleClaimInput): string | null {
+  for (const value of [claim.pmid, claim.pubmedId]) {
+    const id = String(value ?? '').trim()
+    if (/^\d{5,10}$/.test(id)) return `pmid:${id}`
+  }
+  for (const value of [claim.url, claim.source_url]) {
+    const text = String(value ?? '')
+    const match = text.match(/(?:pubmed\.ncbi\.nlm\.nih\.gov\/|ncbi\.nlm\.nih\.gov\/pubmed\/)(\d{5,10})(?:\b|\/)/i)
+    if (match) return `pmid:${match[1]}`
+  }
+  const doi = String(claim.doi ?? '').trim().replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, '').toLowerCase()
+  return /^10\.\d{4,9}\/\S+$/.test(doi) ? `doi:${doi}` : null
+}
+
+function uniqueRecordedPublications(claims: readonly RationaleClaimInput[]): {
+  records: RationaleClaimInput[]
+  identifiedHumanStudyCount: number
+} {
+  const withIdentity = new Map<string, RationaleClaimInput>()
+  const unknownIdentity: RationaleClaimInput[] = []
+  for (const claim of claims) {
+    const id = publicationIdentity(claim)
+    if (!id) {
+      // Unresolved source identity cannot satisfy the Grade A independence floor.
+      unknownIdentity.push(claim)
+      continue
+    }
+    const previous = withIdentity.get(id)
+    if (!previous) {
+      withIdentity.set(id, claim)
+      continue
+    }
+    // A publication appearing in claims and profile sources is still ONE item.
+    // Preserve the strongest recorded design and all negative/bias markers.
+    const strongest = strongestStudyClass([classOf(previous), classOf(claim)])
+    withIdentity.set(id, {
+      ...previous,
+      study_class: strongest,
+      study_class_source: `${sourceText(previous)}; ${sourceText(claim)}`,
+    })
+  }
+  return {
+    records: [...withIdentity.values(), ...unknownIdentity],
+    identifiedHumanStudyCount: [...withIdentity.values()].filter((claim) => isHumanStudyClass(classOf(claim))).length,
+  }
 }
 
 function sourceText(claim: RationaleClaimInput): string {
@@ -110,7 +165,9 @@ function riskOfBiasFor(strongest: StudyClass, flaggedHighBias: boolean): RiskOfB
  * rationale that the caller can render as "not assessed".
  */
 export function buildEvidenceRationale(claims: readonly RationaleClaimInput[]): EvidenceRationale {
-  const classes = claims.map(classOf)
+  const unique = uniqueRecordedPublications(claims)
+  const records = unique.records
+  const classes = records.map(classOf)
   const classCounts: Partial<Record<StudyClass, number>> = {}
   for (const studyClass of classes) {
     classCounts[studyClass] = (classCounts[studyClass] ?? 0) + 1
@@ -120,7 +177,7 @@ export function buildEvidenceRationale(claims: readonly RationaleClaimInput[]): 
   const humanStudyCount = classes.filter(isHumanStudyClass).length
   const strongestClass = strongestStudyClass(classes)
 
-  const texts = claims.map(markerText)
+  const texts = records.map(markerText)
   const flaggedHighBias = texts.some((text) => HIGH_BIAS_MARKER.test(text))
   const negativeCount = texts.filter((text) => NEGATIVE_MARKER.test(text)).length
   const mixedCount = texts.filter((text) => MIXED_MARKER.test(text)).length
@@ -140,6 +197,7 @@ export function buildEvidenceRationale(claims: readonly RationaleClaimInput[]): 
     riskOfBias,
     consistency,
     humanStudyCount,
+    identifiedHumanStudyCount: unique.identifiedHumanStudyCount,
     classifiedStudyCount: classified.length,
     totalClaimCount: claims.length,
     strongestClass,
@@ -195,8 +253,13 @@ export function gradeIsBackedByEvidence(
   if (rationale.humanStudyCount === 0) {
     return { backed: false, reason: 'no-human-study-recorded' }
   }
-  if (grade === 'A' && rationale.humanStudyCount < 2) {
-    return { backed: false, reason: 'single-human-study-for-grade-a' }
+  if (grade === 'A' && rationale.identifiedHumanStudyCount < 2) {
+    return {
+      backed: false,
+      reason: rationale.identifiedHumanStudyCount === 0
+        ? 'no-identifiable-human-publications-for-grade-a'
+        : 'single-human-study-for-grade-a',
+    }
   }
   return { backed: true, reason: null }
 }
