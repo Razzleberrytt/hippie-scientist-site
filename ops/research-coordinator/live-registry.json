@@ -78284,7 +78284,12 @@
       "id": "rolling-0002",
       "state": "FREEZE_PENDING",
       "created_at": "2026-10-09T19:43:35.611Z",
-      "frozen_at": "2026-10-21T10:05:36.385Z"
+      "frozen_at": "2026-10-21T10:05:36.385Z",
+      "wave_start": 8501,
+      "wave_end": 9000,
+      "branch": "research/enrichment-waves-8501-9000-rolling",
+      "artifact_prefix": "2026-10-21-enrichment-waves-8501-9000",
+      "allocated_at": "2026-10-21T10:05:49.189Z"
     },
     {
       "id": "rolling-0003",
