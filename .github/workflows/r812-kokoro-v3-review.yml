@@ -4,8 +4,6 @@ on:
     paths:
       - '.github/workflows/r812-kokoro-v3-review.yml'
       - 'scripts/distribution/r812-mitragynine-review-voice.py'
-      - 'scripts/distribution/r812-owner-locked-mfa-candidate.py'
-      - 'scripts/distribution/test_r812_owner_locked_mfa_candidate.py'
       - 'scripts/distribution/r812-pronunciation-probe.py'
       - 'scripts/distribution/voice-pronunciations.json'
       - 'scripts/distribution/voice_pronunciation.py'
@@ -15,7 +13,6 @@ on:
 
 permissions:
   contents: read
-  actions: read
 
 jobs:
   render-original-house-voice:
@@ -130,101 +127,3 @@ jobs:
       - name: Explicitly retain publication hold
         run: |
           echo "Draft exact-head site build only. Human narration review, independent science/craft and final MP4 publication gates remain HOLD." >> "$GITHUB_STEP_SUMMARY"
-
-  owner-locked-original-wav-mfa-research:
-    name: Owner-approved original WAV offline MFA candidate (REVIEW ONLY)
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
-    env:
-      SOURCE_ROOT: /tmp/em-r812-owner/source
-      MODEL_ROOT: /tmp/em-r812-owner/models
-      OUT_ROOT: /tmp/em-r812-owner/candidate
-      THS_R812_SOURCE_DIR: /tmp/em-r812-owner/source
-    steps:
-      - name: Checkout exact PR head, never a stale generated merge ref
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-      - name: Assert exact head identity
-        env:
-          EXPECTED_HEAD: ${{ github.event.pull_request.head.sha }}
-        run: test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD"
-      - uses: mamba-org/setup-micromamba@v2
-        with:
-          environment-name: ths-r812-owner-mfa-cpu
-          create-args: >-
-            python=3.11 montreal-forced-aligner=3.3.8
-            kaldi=*=cpu* pytorch=*=cpu*
-          cache-environment: true
-      - name: Restore ONLY owner-approved exact existing GitHub original WAV
-        shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          mkdir -p "$SOURCE_ROOT" "$MODEL_ROOT"
-          if ! gh run download 39525077773 --repo "$GITHUB_REPOSITORY" \
-             --name r812-mitragynine-original-kokoro-review-wav --dir "$SOURCE_ROOT" \
-             >"$RUNNER_TEMP/r812-source-download.log" 2>&1; then
-            echo "::error::Pinned original source artifact unavailable. Remain REVIEW HOLD; no substitute narration."
-            rm -f "$RUNNER_TEMP/r812-source-download.log"
-            exit 2
-          fi
-          rm -f "$RUNNER_TEMP/r812-source-download.log"
-          test "$(sha256sum "$SOURCE_ROOT/r812-mitragynine-authentic-voice-REVIEW.wav" | cut -d' ' -f1)" = \
-            '82e94ea07dd28cd16ab86e0bd6b14c57dade0391583d31f03f36578813c7f6a1'
-      - name: Fetch and verify official pinned MFA CPU model files
-        shell: bash
-        run: |
-          set -euo pipefail
-          curl -fsSL --retry 2 -o "$MODEL_ROOT/english_us_arpa.dict" \
-            https://github.com/MontrealCorpusTools/mfa-models/releases/download/dictionary-english_us_arpa-v3.0.0/english_us_arpa.dict
-          curl -fsSL --retry 2 -o "$MODEL_ROOT/acoustic.zip" \
-            https://github.com/MontrealCorpusTools/mfa-models/releases/download/acoustic-english_us_arpa-v3.0.0/english_us_arpa.zip
-          curl -fsSL --retry 2 -o "$MODEL_ROOT/g2p.zip" \
-            https://github.com/MontrealCorpusTools/mfa-models/releases/download/g2p-english_us_arpa-v2.0.0/english_us_arpa.zip
-          echo 'e8c6c7b036ae2b7c78d2768b8dc6b1f9359175b842956d00b48c53c9c332e6b0  '"$MODEL_ROOT/english_us_arpa.dict" | sha256sum --check --status
-          echo 'd35ce271ded357d833d2f4b8d1041dc3748b9538567ba13f2c697f4e4126711b  '"$MODEL_ROOT/acoustic.zip" | sha256sum --check --status
-          echo 'f079ae88f792458fa7c123b256e5b86cc55c29ac2ffc457c673e6c60c36cd143  '"$MODEL_ROOT/g2p.zip" | sha256sum --check --status
-      - name: Run exact-WAV negative tests against the authentic source
-        shell: micromamba-shell {0}
-        run: |
-          set -euo pipefail
-          python -m unittest discover -s scripts/distribution -p 'test_r812_owner_locked_mfa_candidate.py' -v
-          python -m unittest discover -s research/evidencemotion-director -p 'test_exact_wav_alignment.py' -v
-      - name: Execute actual pinned CPU MFA, preserve owner-selected SHA
-        shell: micromamba-shell {0}
-        run: |
-          set -euo pipefail
-          python scripts/distribution/r812-owner-locked-mfa-candidate.py \
-            --source-dir "$SOURCE_ROOT" \
-            --dictionary "$MODEL_ROOT/english_us_arpa.dict" \
-            --acoustic-model "$MODEL_ROOT/acoustic.zip" \
-            --g2p-model "$MODEL_ROOT/g2p.zip" \
-            --out "$OUT_ROOT"
-          python - <<'PY'
-          import json, os
-          from pathlib import Path
-          r=json.loads((Path(os.environ['OUT_ROOT'])/'owner-locked-word-candidate.json').read_text())
-          assert r['originalWavSha256']=='82e94ea07dd28cd16ab86e0bd6b14c57dade0391583d31f03f36578813c7f6a1'
-          assert r['originalWavFrames']==938368 and r['sceneCount']==10 and r['alignedWordCount']>30
-          assert r['mfaActuallyExecuted'] is True and r['mayPublish'] is False
-          assert r['wordTimingCalibrated'] is False and r['humanWordTimingReviewed'] is False
-          print('ACTUAL_PINNED_OWNER_WAV_MFA_CANDIDATE_REVIEW_HOLD',r['alignedWordCount'])
-          PY
-      - name: Preserve word-review evidence only, not source WAV or release authority
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: r812-owner-locked-acoustic-word-candidates-REVIEW-ONLY
-          retention-days: 14
-          if-no-files-found: error
-          path: |
-            /tmp/em-r812-owner/candidate/owner-locked-word-candidate.json
-            /tmp/em-r812-owner/candidate/*-candidate.json
-            /tmp/em-r812-owner/candidate/stage/*.TextGrid
-      - name: Explicitly prohibit promotion from MFA candidate to video approval
-        if: always()
-        run: |
-          echo 'Owner approved original WAV only. MFA word hypotheses are still uncalibrated; independent science/craft/phone, video and publication remain HOLD.' >> "$GITHUB_STEP_SUMMARY"
