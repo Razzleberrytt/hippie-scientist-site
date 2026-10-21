@@ -1,0 +1,868 @@
+{
+  "version": 1,
+  "operation": "AHREFS-INTAKE-001",
+  "observedAt": "2026-10-21T12:27:56.768203+00:00",
+  "auditDate": "2026-10-20",
+  "repository": "Razzleberrytt/hippie-scientist-site",
+  "production": "https://thehippiescientist.net",
+  "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+  "scope": "Initial category-level intake plus existing P0 root causes. Not a URL-level inventory or complete audit. Split each category into stable root-cause records when original rows become available; retain parent IDs.",
+  "baseline": {
+    "source": "Owner-supplied Ahrefs Site Audit October 20, 2026; original export unavailable",
+    "metrics": {
+      "siteHealth": 91,
+      "aiDiscoverability": 79,
+      "aiMachineReadability": 31,
+      "errors": 324,
+      "warnings": 859,
+      "notices": 1123,
+      "productSchemaIssues": 160,
+      "articleSchemaIssues": 298,
+      "categoryItemListIssues": 5,
+      "slowPages": 44,
+      "nearDuplicatePages": 28,
+      "internalUrls": 2240,
+      "successfulHtmlPages": 1625,
+      "linkReferences": 144152,
+      "linksToNoindexUrls": 13608,
+      "uncrawledLinkReferences": 10142,
+      "linksTo4xxUrls": 4,
+      "nofollowReferences": 265,
+      "missingImageAltReferences": 0,
+      "redirectChains": 0,
+      "canonicalsToNon200Urls": 0,
+      "canonicalsToNoindexUrls": 0
+    },
+    "scopeBoundary": "Counts may overlap; URL, HTML and link-reference populations differ. Proprietary scores have unavailable formula/denominators."
+  },
+  "postRepairAhrefs": null,
+  "repairChanges": [],
+  "defects": [
+    {
+      "id": "AH-P0-001",
+      "priority": "P0",
+      "source": "Independent startup reconciliation; existing #6775 / PR #6938",
+      "affected": [
+        "scripts/ci/canonical-publication-approval.mjs",
+        "scripts/ci/autonomous-merge-controller.mjs",
+        "scripts/ci/autonomous-merge-monitor.mjs"
+      ],
+      "inputsExamined": [
+        "Exact main classifier",
+        "Existing PR diff/body/labels",
+        "Current-head check runs",
+        "Protect main ruleset"
+      ],
+      "confirmedRootCause": "Main accepts an exact-head owner APPROVED review when performed_via_github_app is explicitly null. Null metadata does not establish nondelegable human provenance; existing security PR withdraws that grant.",
+      "proposedRepair": "Reuse PR #6938 conservative rejection of positive REST reviews and signed-tag grants; preserve revocations and all release gates.",
+      "outputProduced": "Existing patch identified; main positive-null provenance gap reproduced independently with direct assertion canaries. Existing exact-head hosted checks captured; no duplicate repair.",
+      "verificationSteps": [
+        "Run publication-approval and controller regressions",
+        "Qualified independent human security review on final exact head",
+        "Protected controller current-base eligibility",
+        "Main merge ancestry and production exact receipt"
+      ],
+      "completionCriteria": [
+        "Human security signoff recorded",
+        "All relevant current-head/current-base gates pass",
+        "Controller merge verified on main",
+        "Matching production receipt and fail-closed approval canaries"
+      ],
+      "status": "Blocked",
+      "owner": "Existing #6775 / PR #6938 owner; qualified independent human security reviewer",
+      "evidence": [
+        "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6938",
+        "security-pr-checks.json",
+        "main-ruleset.json"
+      ],
+      "commitReferences": {
+        "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+        "repairHead": "b27ed31282b3b9a1cc5075726700849bed42795c"
+      },
+      "nextAction": "Receive qualified independent human security review of final head; keep hold-merge. No alternate positive-approval path.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": true,
+        "implement": false,
+        "test": false,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": false,
+        "close": false
+      }
+    },
+    {
+      "id": "AH-P0-002",
+      "priority": "P0",
+      "source": "Existing profile credibility audit #6932 / PR #6937",
+      "affected": [
+        "scripts/data/normalize-evidence-grades.ts",
+        "lib/evidence-rationale.ts",
+        "public/data/* profile grade and index generators"
+      ],
+      "inputsExamined": [
+        "PR #6937 body/files/head",
+        "PR #6934 overlapping ownership",
+        "Production melatonin/rhodiola robots"
+      ],
+      "confirmedRootCause": "Existing PR documents compound evidence normalization omission and stale indexes; scientific correctness of all grades not independently established in this intake.",
+      "proposedRepair": "Reuse #6937 and coordinate #6934; withhold unsupported grades without inventing studies or promoting indexability.",
+      "outputProduced": "Classification and verification plan recorded; no public source/runtime mutation.",
+      "verificationSteps": [
+        "Source-bound evidence/grade tests",
+        "Regenerate final indexes",
+        "Human scientific/publication review",
+        "Exact-head build and final HTML/publication parity",
+        "Controller merge and live verification"
+      ],
+      "completionCriteria": [
+        "No unbacked public grade",
+        "Existing citation/index holds intact",
+        "Required reviews, main and production proof recorded"
+      ],
+      "status": "Blocked",
+      "owner": "Existing #6932 / PR #6937 and #6934 owners",
+      "evidence": [
+        "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6937",
+        "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6934",
+        "open-prs.json"
+      ],
+      "commitReferences": {
+        "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+        "repairHead": "29517ba513b1025fc783e756de95d74e9e9e2e79"
+      },
+      "nextAction": "Resolve existing PR holds and #6934 conflict with source-bound review; no duplicate normalization repair.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": false,
+        "implement": false,
+        "test": false,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": false,
+        "close": false
+      }
+    },
+    {
+      "id": "AH-P0-003",
+      "priority": "P0",
+      "source": "Existing safety and publication incidents",
+      "affected": [
+        "Governed safety data",
+        "Public evidence getters",
+        "Regenerated runtime safety warnings"
+      ],
+      "inputsExamined": [
+        "Open PR #6669 inventory",
+        "Issue #6600 source-admission requirements"
+      ],
+      "confirmedRootCause": "Existing incidents identify source review-status loss and safety persistence problems; current full runtime extent not revalidated here.",
+      "proposedRepair": "Reuse #6669 and source-admission owner #6600; preserve safety holds and missing-approval abstention.",
+      "outputProduced": "Classification and verification plan recorded; no public source/runtime mutation.",
+      "verificationSteps": [
+        "Independent source/safety review",
+        "Negative missing-approval tests",
+        "Regeneration persistence tests",
+        "Exact-head build and final public output",
+        "Protected merge/main/live proof"
+      ],
+      "completionCriteria": [
+        "Required safety and source approvals authentic",
+        "No unpublished research enters public surfaces",
+        "Main and production prove intended restrictions"
+      ],
+      "status": "Blocked",
+      "owner": "Existing #6600 and PR #6669 owners",
+      "evidence": [
+        "https://github.com/Razzleberrytt/hippie-scientist-site/issues/6600",
+        "https://github.com/Razzleberrytt/hippie-scientist-site/pull/6669",
+        "open-prs.json"
+      ],
+      "commitReferences": {
+        "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+        "repairHead": "eed72c3b079e383510a75abb392c7a4e9b2394bc"
+      },
+      "nextAction": "Obtain missing source/safety review evidence, resolve draft/hold and current-head checks through existing owners.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": false,
+        "implement": false,
+        "test": false,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": false,
+        "close": false
+      }
+    },
+    {
+      "id": "AH-P0-004",
+      "priority": "P0",
+      "source": "Owner-required melatonin/rhodiola/stress integrity investigation; existing #6935",
+      "affected": [
+        "/compounds/melatonin/",
+        "/herbs/rhodiola/",
+        "/guides/stress/",
+        "Shared citation/author/review-date templates"
+      ],
+      "inputsExamined": [
+        "production-sample.json",
+        "Issue #6935 source-link follow-up",
+        "Existing #6932 credibility scope"
+      ],
+      "confirmedRootCause": "Unknown: a consensus.app link is visible in melatonin source links, but exact source identity, visible labeling and claim relevance are not yet adjudicated. A non-PubMed URL alone proves no false citation.",
+      "proposedRepair": "Trace visible labels and exact claim-source joins; quarantine unverifiable references through existing pipeline; never guess replacement PMID.",
+      "outputProduced": "Classification and verification plan recorded; no public source/runtime mutation.",
+      "verificationSteps": [
+        "Read evidence-first decision-page standard before copy changes",
+        "Verify primary source PMID/DOI identity and population/outcome relevance",
+        "Audit authorship/review dates and funding",
+        "Check final held/indexed status and scientific review"
+      ],
+      "completionCriteria": [
+        "Every confirmed citation defect mapped to authentic source or quarantined",
+        "No invented dates, credentials or claims",
+        "Existing holds preserved until qualified review"
+      ],
+      "status": "Blocked",
+      "owner": "Existing #6935 source-integrity follow-up / #6932 owner",
+      "evidence": [
+        "https://github.com/Razzleberrytt/hippie-scientist-site/issues/6935",
+        "production-sample.json"
+      ],
+      "commitReferences": {
+        "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+        "repairHead": null
+      },
+      "nextAction": "Source-bound scientific review required; map verified source discrepancies to existing owner before changing content.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": false,
+        "implement": false,
+        "test": false,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": false,
+        "close": false
+      }
+    },
+    {
+      "id": "AH-SCHEMA-ARTICLE",
+      "priority": "P1",
+      "source": "Owner-supplied Ahrefs October 20, 2026 baseline: articleSchemaIssues=298",
+      "affected": [
+        "Article/BlogPosting shared builders",
+        "lib/structured-data.ts",
+        "lib/schema-graph.ts"
+      ],
+      "inputsExamined": [
+        "User aggregate baseline",
+        "Representative production sample",
+        "Repository builders and existing CI inventory"
+      ],
+      "confirmedRootCause": "Unknown: URL/property-level Ahrefs findings and crawler configuration were not supplied or found in the inspected repository.",
+      "proposedRepair": "Classify actual property errors by template and qualification; repair existing builders only.",
+      "outputProduced": "Classification and verification plan recorded; no public source/runtime mutation.",
+      "verificationSteps": [
+        "Ingest Ahrefs URL/property errors",
+        "Compare visible content and initial JSON-LD",
+        "Test normal/missing/localized/edge pages",
+        "Exact-head build schema audit",
+        "Main and production output"
+      ],
+      "completionCriteria": [
+        "Actual finding rows classified and deduplicated",
+        "Confirmed root cause reproduced",
+        "Relevant tests/review/controller merge/main/live proof recorded; otherwise explicit blocked next action"
+      ],
+      "status": "Blocked",
+      "owner": "Ahrefs audit data owner; existing template owner after reproduction",
+      "evidence": [
+        "production-sample.json",
+        "open-prs.json"
+      ],
+      "commitReferences": {
+        "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+        "repairHead": null
+      },
+      "nextAction": "Supply/locate detailed Ahrefs URL/error export; preserve existing P0 holds and verify non-overlap before admitting any repair.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": false,
+        "implement": false,
+        "test": false,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": false,
+        "close": false
+      }
+    },
+    {
+      "id": "AH-SCHEMA-PRODUCT",
+      "priority": "P1",
+      "source": "Owner-supplied Ahrefs October 20, 2026 baseline: productSchemaIssues=160",
+      "affected": [
+        "Product/Offer schema and commerce templates"
+      ],
+      "inputsExamined": [
+        "User aggregate baseline",
+        "Representative production sample",
+        "Repository builders and existing CI inventory"
+      ],
+      "confirmedRootCause": "Unknown: URL/property-level Ahrefs findings and crawler configuration were not supplied or found in the inspected repository.",
+      "proposedRepair": "Only emit genuinely qualified product schema with verified visible data; do not invent ratings/offers.",
+      "outputProduced": "Classification and verification plan recorded; no public source/runtime mutation.",
+      "verificationSteps": [
+        "Ingest actual Ahrefs Product errors",
+        "Map to emitters",
+        "Test missing/nonapplicable/product cases",
+        "Build and live JSON-LD/visible commerce parity"
+      ],
+      "completionCriteria": [
+        "Actual finding rows classified and deduplicated",
+        "Confirmed root cause reproduced",
+        "Relevant tests/review/controller merge/main/live proof recorded; otherwise explicit blocked next action"
+      ],
+      "status": "Blocked",
+      "owner": "Ahrefs audit data owner; existing template owner after reproduction",
+      "evidence": [
+        "production-sample.json",
+        "open-prs.json"
+      ],
+      "commitReferences": {
+        "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+        "repairHead": null
+      },
+      "nextAction": "Supply/locate detailed Ahrefs URL/error export; preserve existing P0 holds and verify non-overlap before admitting any repair.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": false,
+        "implement": false,
+        "test": false,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": false,
+        "close": false
+      }
+    },
+    {
+      "id": "AH-SCHEMA-ITEMLIST",
+      "priority": "P1",
+      "source": "Owner-supplied Ahrefs October 20, 2026 baseline: categoryItemListIssues=5",
+      "affected": [
+        "lib/schema.ts buildClusterItemListNode",
+        "Category/guide hubs"
+      ],
+      "inputsExamined": [
+        "User aggregate baseline",
+        "Representative production sample",
+        "Repository builders and existing CI inventory"
+      ],
+      "confirmedRootCause": "Unknown: URL/property-level Ahrefs findings and crawler configuration were not supplied or found in the inspected repository.",
+      "proposedRepair": "Correct confirmed list shape, position or identity errors in existing builder.",
+      "outputProduced": "Classification and verification plan recorded; no public source/runtime mutation.",
+      "verificationSteps": [
+        "Ingest five finding URLs/property messages",
+        "Check reordered/localized/missing items",
+        "Validate initial HTML and exact exported ItemList"
+      ],
+      "completionCriteria": [
+        "Actual finding rows classified and deduplicated",
+        "Confirmed root cause reproduced",
+        "Relevant tests/review/controller merge/main/live proof recorded; otherwise explicit blocked next action"
+      ],
+      "status": "Blocked",
+      "owner": "Ahrefs audit data owner; existing template owner after reproduction",
+      "evidence": [
+        "production-sample.json",
+        "open-prs.json"
+      ],
+      "commitReferences": {
+        "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+        "repairHead": null
+      },
+      "nextAction": "Supply/locate detailed Ahrefs URL/error export; preserve existing P0 holds and verify non-overlap before admitting any repair.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": false,
+        "implement": false,
+        "test": false,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": false,
+        "close": false
+      }
+    },
+    {
+      "id": "AH-INDEXATION",
+      "priority": "P1",
+      "source": "Owner-supplied Ahrefs October 20, 2026 baseline: linksToNoindexUrls=13608",
+      "affected": [
+        "Profile publication manifest",
+        "robots/canonical/sitemap generators",
+        "Internal linking templates"
+      ],
+      "inputsExamined": [
+        "User aggregate baseline",
+        "Representative production sample",
+        "Repository builders and existing CI inventory"
+      ],
+      "confirmedRootCause": "Unknown: URL/property-level Ahrefs findings and crawler configuration were not supplied or found in the inspected repository.",
+      "proposedRepair": "Classify intentional, research/quarantine, accidental and obsolete destinations; restore only independently approved content.",
+      "outputProduced": "Classification and verification plan recorded; no public source/runtime mutation.",
+      "verificationSteps": [
+        "Ingest actual referring-source/destination rows",
+        "Compare final governed data with HTML and sitemap",
+        "Check canonical/hreflang/redirect parity",
+        "Maintain quarantine negative tests"
+      ],
+      "completionCriteria": [
+        "Actual finding rows classified and deduplicated",
+        "Confirmed root cause reproduced",
+        "Relevant tests/review/controller merge/main/live proof recorded; otherwise explicit blocked next action"
+      ],
+      "status": "Blocked",
+      "owner": "Ahrefs audit data owner; existing template owner after reproduction",
+      "evidence": [
+        "production-sample.json",
+        "open-prs.json"
+      ],
+      "commitReferences": {
+        "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+        "repairHead": null
+      },
+      "nextAction": "Supply/locate detailed Ahrefs URL/error export; preserve existing P0 holds and verify non-overlap before admitting any repair.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": false,
+        "implement": false,
+        "test": false,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": false,
+        "close": false
+      }
+    },
+    {
+      "id": "AH-LINK-4XX",
+      "priority": "P2",
+      "source": "Owner-supplied Ahrefs October 20, 2026 baseline: linksTo4xxUrls=4",
+      "affected": [
+        "Reported source/destination link pairs",
+        "Existing CI internal-link validators"
+      ],
+      "inputsExamined": [
+        "User aggregate baseline",
+        "Representative production sample",
+        "Repository builders and existing CI inventory"
+      ],
+      "confirmedRootCause": "Unknown: URL/property-level Ahrefs findings and crawler configuration were not supplied or found in the inspected repository.",
+      "proposedRepair": "Reproduce genuine broken links and fix shared source; retain scholarly traceability.",
+      "outputProduced": "Classification and verification plan recorded; no public source/runtime mutation.",
+      "verificationSteps": [
+        "Ingest four source/destination pairs",
+        "GET actual destination",
+        "Verify relevant replacement",
+        "Run retained internal-link CI and production checks"
+      ],
+      "completionCriteria": [
+        "Actual finding rows classified and deduplicated",
+        "Confirmed root cause reproduced",
+        "Relevant tests/review/controller merge/main/live proof recorded; otherwise explicit blocked next action"
+      ],
+      "status": "Blocked",
+      "owner": "Ahrefs audit data owner; existing template owner after reproduction",
+      "evidence": [
+        "production-sample.json",
+        "open-prs.json"
+      ],
+      "commitReferences": {
+        "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+        "repairHead": null
+      },
+      "nextAction": "Supply/locate detailed Ahrefs URL/error export; preserve existing P0 holds and verify non-overlap before admitting any repair.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": false,
+        "implement": false,
+        "test": false,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": false,
+        "close": false
+      }
+    },
+    {
+      "id": "AH-DUPLICATE",
+      "priority": "P2",
+      "source": "Owner-supplied Ahrefs October 20, 2026 baseline: nearDuplicatePages=28",
+      "affected": [
+        "Reported near-duplicate route pairs"
+      ],
+      "inputsExamined": [
+        "User aggregate baseline",
+        "Representative production sample",
+        "Repository builders and existing CI inventory"
+      ],
+      "confirmedRootCause": "Unknown: URL/property-level Ahrefs findings and crawler configuration were not supplied or found in the inspected repository.",
+      "proposedRepair": "Retain legitimate distinct/localized content; consolidate only confirmed same intent with route decision and redirects.",
+      "outputProduced": "Classification and verification plan recorded; no public source/runtime mutation.",
+      "verificationSteps": [
+        "Ingest actual 28 page/pair rows and similarity definition",
+        "Inspect body/metadata/locales/canonicals/hreflang",
+        "Use route/query evidence",
+        "Test redirect/internal-link/sitemap behavior"
+      ],
+      "completionCriteria": [
+        "Actual finding rows classified and deduplicated",
+        "Confirmed root cause reproduced",
+        "Relevant tests/review/controller merge/main/live proof recorded; otherwise explicit blocked next action"
+      ],
+      "status": "Blocked",
+      "owner": "Ahrefs audit data owner; existing template owner after reproduction",
+      "evidence": [
+        "production-sample.json",
+        "open-prs.json"
+      ],
+      "commitReferences": {
+        "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+        "repairHead": null
+      },
+      "nextAction": "Supply/locate detailed Ahrefs URL/error export; preserve existing P0 holds and verify non-overlap before admitting any repair.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": false,
+        "implement": false,
+        "test": false,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": false,
+        "close": false
+      }
+    },
+    {
+      "id": "AH-PERFORMANCE",
+      "priority": "P2",
+      "source": "Owner-supplied Ahrefs October 20, 2026 baseline: slowPages=44",
+      "affected": [
+        "44 reported slow URLs",
+        "Shared app layout, inline CSS, JS, assets, fonts and third parties"
+      ],
+      "inputsExamined": [
+        "User aggregate baseline",
+        "Representative production sample",
+        "Repository builders and existing CI inventory",
+        "No performance before/after claim from sampled decoded HTML sizes."
+      ],
+      "confirmedRootCause": "Unknown: URL/property-level Ahrefs findings and crawler configuration were not supplied or found in the inspected repository.",
+      "proposedRepair": "Measure comparable baseline then one targeted bottleneck repair; preserve consent, safety and accessibility.",
+      "outputProduced": "Classification and verification plan recorded; no public source/runtime mutation.",
+      "verificationSteps": [
+        "Ingest slow-page URLs and crawl timing definition",
+        "Comparable TTFB/HTML/asset/cache/waterfall/JS/hydration measurements",
+        "One intervention and comparable rerun",
+        "Full build and functional/consent regression"
+      ],
+      "completionCriteria": [
+        "Actual finding rows classified and deduplicated",
+        "Confirmed root cause reproduced",
+        "Relevant tests/review/controller merge/main/live proof recorded; otherwise explicit blocked next action"
+      ],
+      "status": "Blocked",
+      "owner": "Ahrefs audit data owner; existing template owner after reproduction",
+      "evidence": [
+        "production-sample.json",
+        "open-prs.json"
+      ],
+      "commitReferences": {
+        "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+        "repairHead": null
+      },
+      "nextAction": "Supply/locate detailed Ahrefs URL/error export; preserve existing P0 holds and verify non-overlap before admitting any repair.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": false,
+        "implement": false,
+        "test": false,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": false,
+        "close": false
+      }
+    },
+    {
+      "id": "AH-UNCRAWLED",
+      "priority": "P2",
+      "source": "Owner-supplied Ahrefs October 20, 2026 baseline: uncrawledLinkReferences=10142",
+      "affected": [
+        "Uncrawled source/destination references"
+      ],
+      "inputsExamined": [
+        "User aggregate baseline",
+        "Representative production sample",
+        "Repository builders and existing CI inventory"
+      ],
+      "confirmedRootCause": "Unknown: URL/property-level Ahrefs findings and crawler configuration were not supplied or found in the inspected repository.",
+      "proposedRepair": "Separate crawl-budget, robots, access restrictions and discovery behavior from genuine defects.",
+      "outputProduced": "Classification and verification plan recorded; no public source/runtime mutation.",
+      "verificationSteps": [
+        "Ingest link-reference export and crawler configuration",
+        "Reproduce representative HTTP/robots responses",
+        "Classify unique targets vs occurrences"
+      ],
+      "completionCriteria": [
+        "Actual finding rows classified and deduplicated",
+        "Confirmed root cause reproduced",
+        "Relevant tests/review/controller merge/main/live proof recorded; otherwise explicit blocked next action"
+      ],
+      "status": "Blocked",
+      "owner": "Ahrefs audit data owner; existing template owner after reproduction",
+      "evidence": [
+        "production-sample.json",
+        "open-prs.json"
+      ],
+      "commitReferences": {
+        "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+        "repairHead": null
+      },
+      "nextAction": "Supply/locate detailed Ahrefs URL/error export; preserve existing P0 holds and verify non-overlap before admitting any repair.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": false,
+        "implement": false,
+        "test": false,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": false,
+        "close": false
+      }
+    },
+    {
+      "id": "AH-NOFOLLOW",
+      "priority": "P2",
+      "source": "Owner-supplied Ahrefs October 20, 2026 baseline: nofollowReferences=265",
+      "affected": [
+        "Reported nofollow references",
+        "Affiliate rel/disclosure generators"
+      ],
+      "inputsExamined": [
+        "User aggregate baseline",
+        "Representative production sample",
+        "Repository builders and existing CI inventory"
+      ],
+      "confirmedRootCause": "Unknown: URL/property-level Ahrefs findings and crawler configuration were not supplied or found in the inspected repository.",
+      "proposedRepair": "Retain appropriate sponsored/nofollow affiliate links; investigate unintended internal nofollow only.",
+      "outputProduced": "Classification and verification plan recorded; no public source/runtime mutation.",
+      "verificationSteps": [
+        "Ingest exact source/href/rel rows",
+        "Compare intent, disclosure and target",
+        "Do not mass-remove rel controls"
+      ],
+      "completionCriteria": [
+        "Actual finding rows classified and deduplicated",
+        "Confirmed root cause reproduced",
+        "Relevant tests/review/controller merge/main/live proof recorded; otherwise explicit blocked next action"
+      ],
+      "status": "Blocked",
+      "owner": "Ahrefs audit data owner; existing template owner after reproduction",
+      "evidence": [
+        "production-sample.json",
+        "open-prs.json"
+      ],
+      "commitReferences": {
+        "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+        "repairHead": null
+      },
+      "nextAction": "Supply/locate detailed Ahrefs URL/error export; preserve existing P0 holds and verify non-overlap before admitting any repair.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": false,
+        "implement": false,
+        "test": false,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": false,
+        "close": false
+      }
+    },
+    {
+      "id": "AH-AI-READABILITY",
+      "priority": "P3",
+      "source": "Owner-supplied Ahrefs October 20, 2026 baseline: aiMachineReadability=31",
+      "affected": [
+        "Semantic HTML, initial content and citation clarity"
+      ],
+      "inputsExamined": [
+        "User aggregate baseline",
+        "Representative production sample",
+        "Repository builders and existing CI inventory"
+      ],
+      "confirmedRootCause": "Unknown: URL/property-level Ahrefs findings and crawler configuration were not supplied or found in the inspected repository.",
+      "proposedRepair": "Repair demonstrable semantic or initial-content defects using existing templates; do not optimize speculative proprietary factors.",
+      "outputProduced": "Classification and verification plan recorded; no public source/runtime mutation.",
+      "verificationSteps": [
+        "Get score diagnostics/definitions if available",
+        "Inspect landmarks/headings/initial HTML and references",
+        "Theme/responsive accessibility verification",
+        "Report proprietary score limits"
+      ],
+      "completionCriteria": [
+        "Actual finding rows classified and deduplicated",
+        "Confirmed root cause reproduced",
+        "Relevant tests/review/controller merge/main/live proof recorded; otherwise explicit blocked next action"
+      ],
+      "status": "Blocked",
+      "owner": "Ahrefs audit data owner; existing template owner after reproduction",
+      "evidence": [
+        "production-sample.json",
+        "open-prs.json"
+      ],
+      "commitReferences": {
+        "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+        "repairHead": null
+      },
+      "nextAction": "Supply/locate detailed Ahrefs URL/error export; preserve existing P0 holds and verify non-overlap before admitting any repair.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": false,
+        "implement": false,
+        "test": false,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": false,
+        "close": false
+      }
+    },
+    {
+      "id": "AH-METRIC-SCOPE",
+      "priority": "P3",
+      "source": "Owner baseline scope reconciliation",
+      "affected": [
+        "All baseline metric populations"
+      ],
+      "inputsExamined": [
+        "User baseline metrics",
+        "Live sitemap XML with 1094 loc elements"
+      ],
+      "confirmedRootCause": "No contradiction established: 324 errors, 298 Article findings, 160 Product findings and 5 ItemList findings may overlap and use different populations; references are not unique URLs.",
+      "proposedRepair": "Keep raw metrics separate and attach actual Ahrefs definitions/exports before comparing.",
+      "outputProduced": "Classification and verification plan recorded; no public source/runtime mutation.",
+      "verificationSteps": [
+        "Reconcile category memberships and denominators",
+        "Deduplicate only with stable URL/error identity",
+        "Compare fresh crawl using same scope"
+      ],
+      "completionCriteria": [
+        "Metric scopes documented",
+        "No invented post-repair Ahrefs scores"
+      ],
+      "status": "Open",
+      "owner": "Audit operator",
+      "evidence": [
+        "production-sample.json"
+      ],
+      "commitReferences": {
+        "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+        "repairHead": null
+      },
+      "nextAction": "Obtain audit definitions and detailed exports; 1094 current sitemap loc elements cannot substitute for 1625 historical successful HTML pages.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": false,
+        "implement": false,
+        "test": false,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": false,
+        "close": false
+      }
+    },
+    {
+      "id": "AH-PROBE-MISSING",
+      "priority": "P3",
+      "source": "Controlled intake missing-route probe",
+      "affected": [
+        "/__ahrefs_intake_missing_20261021__/"
+      ],
+      "inputsExamined": [
+        "Live GET status, robots, sitemap membership"
+      ],
+      "confirmedRootCause": "Intentional nonexistent probe returns HTTP 404 with noindex and is absent from sitemap; no actual internal source links were established.",
+      "proposedRepair": "No repair justified by this probe.",
+      "outputProduced": "Classification and verification plan recorded; no public source/runtime mutation.",
+      "verificationSteps": [
+        "GET controlled absent route",
+        "Check status/noindex/sitemap absence"
+      ],
+      "completionCriteria": [
+        "HTTP 404/410 and noindex for controlled nonexistent route"
+      ],
+      "status": "Not a defect",
+      "owner": "Audit operator",
+      "evidence": [
+        "production-sample.json"
+      ],
+      "commitReferences": {
+        "examinedMain": "e70738463541cce66156ac7eac9f7d725e3f29e6",
+        "repairHead": null
+      },
+      "nextAction": "None; never count this synthetic probe among Ahrefs four reported broken links.",
+      "lifecycle": {
+        "intake": true,
+        "classify": true,
+        "reproduce": true,
+        "implement": false,
+        "test": false,
+        "review": false,
+        "merge": false,
+        "verifyMain": false,
+        "verifyProduction": true,
+        "close": true
+      }
+    }
+  ],
+  "remainingBoundaries": [
+    "Original Ahrefs detailed exports unavailable",
+    "No new source or runtime repair implemented",
+    "P0 human security/scientific approval and existing PR holds unresolved",
+    "No eligible repair merged by this operation",
+    "No new production build; access-only intake changes no repository behavior",
+    "No controlled performance baseline, full site crawl or scientific approval"
+  ],
+  "evidenceFiles": [
+    "production-sample.json",
+    "open-prs.json",
+    "main-ruleset.json",
+    "security-pr-checks.json",
+    "deployment-run.json"
+  ]
+}
