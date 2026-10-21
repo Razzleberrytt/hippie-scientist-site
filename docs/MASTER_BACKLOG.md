@@ -1,5 +1,14 @@
 # Master Backlog
 
+### AH-P0-005 / existing PR #6938 — terminal release-state repair (2026-10-21)
+
+In progress: owner-directed safety interruption. Reproduced late hold/draft
+changes reaching the merge request because terminal checks reused stale PR state.
+Repair the existing controller and runtime regressions in the same PR; no new
+normal workstream or positive publication grant. The trusted branch-SHA guard,
+review disposition and protected-controller release remain required. See the
+[reproduction and acceptance record](audits/2026-10-21-ahrefs/terminal-release-state.md).
+
 ### AHREFS-INTAKE-001 — owner-directed P0 reconciliation (2026-10-21)
 
 Status: **Blocked** — existing publication-security PR #6938 requires qualified
