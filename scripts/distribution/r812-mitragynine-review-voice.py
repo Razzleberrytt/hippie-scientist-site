@@ -51,9 +51,22 @@ def check_vault(vault: Path) -> tuple[Path, Path]:
         raise RuntimeError("voice model checksum mismatch; re-fetch original THS release; no substitute")
     return model, voices
 
+def reserve_review_master_paths(output_dir: Path) -> tuple[Path, Path]:
+    """Never silently replace audio bytes or provenance under the same review path."""
+    audio_path = output_dir / "r812-mitragynine-authentic-voice-REVIEW.wav"
+    receipt_path = output_dir / "r812-mitragynine-authentic-voice-REVIEW.receipt.json"
+    if audio_path.exists() or receipt_path.exists():
+        raise RuntimeError(
+            "R8.12 review WAV/receipt already exists; refuse overwrite. "
+            "Use the existing verified master or a new empty output directory."
+        )
+    return audio_path, receipt_path
+
+
 def create_review_audio(vault: Path, output_dir: Path) -> dict:
     model, voices = check_vault(vault)
     output_dir.mkdir(parents=True, exist_ok=True)
+    audio_path, receipt_path = reserve_review_master_paths(output_dir)
     engine = Kokoro(str(model), str(voices))
     clips = []
     receipts = []
@@ -96,6 +109,10 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
             "voiceEndSeconds": round(end_samples / RATE, 4),
             "naturalSpeechSeconds": round(len(clip) / RATE, 4),
             "pauseAfterSeconds": 0.18 if idx < len(SCENES) - 1 else 0.0,
+            "voiceStartFrame": start_samples,
+            "voiceEndFrame": end_samples,
+            "naturalSpeechFrames": len(clip),
+            "pauseAfterFrames": pause_samples if idx < len(SCENES) - 1 else 0,
             "rawRms": round(raw_rms, 6),
             "timeStretchApplied": False,
         })
@@ -111,7 +128,6 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
     if rms <= 0.001 or peak <= 0.01:
         raise RuntimeError("Authentic Kokoro output silent, fail closed")
     speech *= min(1.25, 0.78 / peak)
-    audio_path = output_dir / "r812-mitragynine-authentic-voice-REVIEW.wav"
     sf.write(audio_path, np.clip(speech, -0.98, 0.98), RATE, subtype="PCM_16")
     duration_seconds = round(len(speech) / RATE, 4)
 
@@ -128,6 +144,7 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
         "voiceVaultRelease": "ths-kokoro-onnx-am-michael-int8-v1",
         "narrationWavSha256": sha_file(audio_path),
         "durationSeconds": duration_seconds,
+        "durationFrames": len(speech),
         "sampleRate": RATE,
         "sceneTiming": "natural-voice-locked-radio-edit; picture must be recut",
         "originalDurationPreserved": True,
@@ -137,7 +154,7 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
         "scienceReview": "pending",
         "clips": receipts,
     }
-    (output_dir / "r812-mitragynine-authentic-voice-REVIEW.receipt.json").write_text(
+    receipt_path.write_text(
         json.dumps(receipt, indent=2) + "\n", encoding="utf-8"
     )
     print(
