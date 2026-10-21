@@ -33,11 +33,6 @@ const HIGH_REQUIRED_WORKFLOWS = [
   'Production Content Lint',
 ]
 
-// Auxiliary browser diagnostics can take longer than the controller poll window.
-// They are optional only while pending and only when not independently required.
-// Any completed failure still vetoes merge; unknown/security checks still block.
-const NONBLOCKING_PENDING_WORKFLOWS = new Set(['Lighthouse CI'])
-
 const P0_VISUAL_PROOF_PATTERNS = [
   /^app\//,
   /^components\//,
@@ -178,21 +173,6 @@ function isControllerCheck(check, controllerRunId) {
 
 function isOptionalCloudflarePreviewCheck(check) {
   return check?.app?.slug === 'cloudflare-workers-and-pages' && check?.name === 'Cloudflare Pages'
-}
-
-function isNonblockingPendingWorkflow(run, requiredNames) {
-  return NONBLOCKING_PENDING_WORKFLOWS.has(run?.name) && !requiredNames.includes(run.name)
-}
-
-// A GitHub Actions check is optional only if its immutable run-id ties it to
-// one of the explicitly known auxiliary workflow runs on this exact head.
-// Never exempt unknown integrations, required jobs or completed failures.
-function isNonblockingPendingWorkflowCheck(check, workflowRuns, requiredNames) {
-  if (check?.app?.slug !== 'github-actions') return false
-  const match = /^https:\/\/github\.com\/[^/]+\/[^/]+\/actions\/runs\/(\d+)\/job\/\d+(?:\/|$)/u.exec(String(check.details_url || ''))
-  if (!match) return false
-  const parent = workflowRuns.find(run => String(run.id || '') === match[1])
-  return Boolean(parent && isNonblockingPendingWorkflow(parent, requiredNames))
 }
 
 function labelNames(pr) {
@@ -614,9 +594,7 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
   if (unverifiableRequired.length) return { action: 'wait', reason: `required workflow base proof missing: ${unverifiableRequired.join(', ')}` }
 
   const requiredRuns = requiredNames.map((name) => workflowsByName.get(name)).filter(Boolean)
-  const staleRuns = (riskTier === 'high'
-    ? latestWorkflows.filter(run => !isNonblockingPendingWorkflow(run, requiredNames))
-    : requiredRuns).filter((run) => {
+  const staleRuns = (riskTier === 'high' ? latestWorkflows : requiredRuns).filter((run) => {
     if (run.event === 'workflow_dispatch') return false
     const association = associatedPr(run, pr.number)
     // Same-head workflow associations may retain a stale cached base. Exact
@@ -637,8 +615,7 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
   if (failedCompletedWorkflows.length) return { action: 'failed', reason: `known workflow failure: ${failedCompletedWorkflows.map(summarizeRun).join('; ')}`, failedWorkflows: failedCompletedWorkflows }
 
   if (riskTier === 'high') {
-    const pendingWorkflows = latestWorkflows.filter((run) =>
-      run.status !== 'completed' && !isNonblockingPendingWorkflow(run, requiredNames))
+    const pendingWorkflows = latestWorkflows.filter((run) => run.status !== 'completed')
     if (pendingWorkflows.length) return { action: 'wait', reason: `high-risk workflows pending: ${pendingWorkflows.map(summarizeRun).join('; ')}` }
   }
 
@@ -664,9 +641,7 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
   if (failedCompletedChecks.length) return { action: 'failed', reason: `known check failure: ${failedCompletedChecks.map(summarizeCheck).join('; ')}`, failedChecks: failedCompletedChecks }
 
   if (riskTier === 'high') {
-    const pendingChecks = relevantChecks.filter((check) =>
-      check.status !== 'completed' &&
-      !isNonblockingPendingWorkflowCheck(check, latestWorkflows, requiredNames))
+    const pendingChecks = relevantChecks.filter((check) => check.status !== 'completed')
     if (pendingChecks.length) return { action: 'wait', reason: `high-risk checks pending: ${pendingChecks.map(summarizeCheck).join('; ')}` }
   }
 

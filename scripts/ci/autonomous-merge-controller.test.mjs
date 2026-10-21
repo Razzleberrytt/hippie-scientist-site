@@ -473,10 +473,10 @@ describe('risk-tiered autonomous merge controller', () => {
     expect(verdict.action).toBe('failed')
   })
 
-  it('keeps unknown or newly introduced high-risk workflows blocking', () => {
+  it('makes high risk wait for every triggered workflow', () => {
     const verdict = evaluateReadiness({
       pr,
-      workflowRuns: [...highRequired, run('Independent Security Workflow', 'in_progress', null)],
+      workflowRuns: [...highRequired, run('Lighthouse CI', 'in_progress', null)],
       checkRuns: [],
       expectedHeadSha: headSha,
       currentBaseSha: baseSha,
@@ -485,53 +485,6 @@ describe('risk-tiered autonomous merge controller', () => {
       changedFiles: ['scripts/ci/autonomous-merge-controller.mjs'],
     })
     expect(verdict.action).toBe('wait')
-  })
-
-  it('does not wait on pending known-optional Lighthouse workflow or its linked check', () => {
-    const lighthouse = { ...run('Lighthouse CI', 'in_progress', null), id: 987654 }
-    const audit = {
-      ...check('Lighthouse audit', 'in_progress', null, 21),
-      details_url: 'https://github.com/owner/repo/actions/runs/987654/job/987655',
-    }
-    const verdict = evaluateReadiness({
-      pr,
-      workflowRuns: [...highRequired, lighthouse],
-      checkRuns: [audit],
-      expectedHeadSha: headSha,
-      currentBaseSha: baseSha,
-      controllerRunId: 'controller',
-      riskTier: 'high',
-      changedFiles: ['scripts/ci/autonomous-merge-controller.mjs'],
-    })
-    expect(verdict.action).toBe('merge')
-  })
-
-  it('continues to veto optional Lighthouse failures and unknown pending checks', () => {
-    const failure = evaluateReadiness({
-      pr,
-      workflowRuns: [...highRequired, run('Lighthouse CI', 'completed', 'failure')],
-      checkRuns: [],
-      expectedHeadSha: headSha,
-      currentBaseSha: baseSha,
-      controllerRunId: 'controller',
-      riskTier: 'high',
-      changedFiles: ['scripts/ci/autonomous-merge-controller.mjs'],
-    })
-    expect(failure.action).toBe('failed')
-    const unknownCheck = evaluateReadiness({
-      pr,
-      workflowRuns: highRequired,
-      checkRuns: [{
-        ...check('Unknown extra CI check', 'in_progress', null, 22),
-        details_url: 'https://github.com/owner/repo/actions/runs/123456/job/123457',
-      }],
-      expectedHeadSha: headSha,
-      currentBaseSha: baseSha,
-      controllerRunId: 'controller',
-      riskTier: 'high',
-      changedFiles: ['scripts/ci/autonomous-merge-controller.mjs'],
-    })
-    expect(unknownCheck.action).toBe('wait')
   })
 
   it('does not let the optional Cloudflare Pages PR preview hold a high-risk merge hostage', () => {
