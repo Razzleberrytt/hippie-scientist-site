@@ -78282,14 +78282,18 @@
     },
     {
       "id": "rolling-0002",
-      "state": "FREEZE_PENDING",
+      "state": "DRAFT_PR",
       "created_at": "2026-10-09T19:43:35.611Z",
       "frozen_at": "2026-10-21T10:05:36.385Z",
       "wave_start": 8501,
       "wave_end": 9000,
       "branch": "research/enrichment-waves-8501-9000-rolling",
       "artifact_prefix": "2026-10-21-enrichment-waves-8501-9000",
-      "allocated_at": "2026-10-21T10:05:49.189Z"
+      "allocated_at": "2026-10-21T10:05:49.189Z",
+      "pr_number": 6945,
+      "review_queue": "ops/research-coordinator/review-queues/2026-10-21-enrichment-waves-8501-9000-review-queue.json",
+      "blocker": "independent semantic review or research gate pending",
+      "head_sha": "e1e0b079fc04a066d76a341c9e5b796c5c01a503"
     },
     {
       "id": "rolling-0003",
@@ -78323,10 +78327,10 @@
       },
       {
         "id": "rolling-0002",
-        "state": "FREEZE_PENDING",
+        "state": "DRAFT_PR",
         "count": 500,
-        "pr_number": null,
-        "blocker": null
+        "pr_number": 6945,
+        "blocker": "Independent scientific review pending"
       },
       {
         "id": "rolling-0003",
