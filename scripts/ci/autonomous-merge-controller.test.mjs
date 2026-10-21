@@ -715,3 +715,29 @@ describe('P0 stale metadata versus verified exact-head ancestry', () => {
   })
 })
 
+
+
+describe('controller deploy handoff detects older workflow runs without first-100 truncation', () => {
+  const workflow = fs.readFileSync(
+    new URL('../../.github/workflows/autonomous-merge-controller.yml', import.meta.url),
+    'utf8',
+  )
+
+  it('checks workflow-specific total counts in both the targeted and fallback merge paths', () => {
+    for (const workflowFile of ['deploy.yml', 'ci.yml']) {
+      const exactQuery = `actions/workflows/${workflowFile}/runs?head_sha=$main_sha&per_page=1`
+      expect(workflow.split(exactQuery).length - 1).toBe(2)
+    }
+    expect(workflow).not.toContain('actions/runs?head_sha=$main_sha&per_page=100')
+    expect(workflow.split("--jq '.total_count'").length - 1).toBe(4)
+  })
+
+  it('never treats only the first page of mixed-workflow runs as a deploy receipt', () => {
+    // A prior successful deployment can be absent from the newest 100 mixed runs.
+    const newestMixedRuns = Array.from({ length: 100 }, (_, i) => ({ name: 'Other workflow', id: i + 1 }))
+    expect(newestMixedRuns.some(run => run.name === 'Deploy to Cloudflare Pages')).toBe(false)
+    // Workflow-specific /runs?head_sha=...&per_page=1 returns total_count
+    // independently of the mixed-workflow window; the controller uses that count.
+    expect(workflow).toContain('deploy_count="$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/deploy.yml/runs?head_sha=$main_sha&per_page=1" --jq \' .total_count\')'.replace("' .total_count'", "'.total_count'"))
+  })
+})
