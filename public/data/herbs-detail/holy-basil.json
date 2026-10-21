@@ -21,10 +21,12 @@
     "Glucose Metabolism"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated; may lower blood sugar or blood pressure; caution with glucose-lowering, antihypertensive, and anticoagulant medications; avoid pregnancy/breastfeeding unless clinician-supervised.",
+  "safetyNotes": "FERTILITY/PREGNANCY CAUTION: Animal studies of holy basil (tulsi) have reported reduced implantation/pregnancy success with high doses. Human fertility and pregnancy effects have not been established; this is not proof of a human abortifacient effect. Avoid medicinal holy basil when pregnant or trying to conceive; breastfeeding safety has not been established. Holy basil may affect glucose, thyroid function and clotting; people using related medicines should consult a clinician.",
   "contraindications": [
     "pregnancy (insufficient data)",
-    "diabetes (monitor glucose)"
+    "diabetes (monitor glucose)",
+    "Pregnancy or attempting conception: avoid medicinal holy basil (animal reproductive signals; human effects unknown)",
+    "Breastfeeding: insufficient human safety data"
   ],
   "interactions": [
     "antidiabetic drugs",
@@ -51,17 +53,22 @@
       "studyType": "Narrative review",
       "studyClass": "narrative-review",
       "metadataSource": "pubmed"
+    },
+    {
+      "title": "Merck Manual: Holy Basil",
+      "url": "https://www.merckmanuals.com/professional/special-subjects/dietary-supplements/holy-basil",
+      "note": "Animal reproductive-safety signals; human relevance unknown."
     }
   ],
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
     "indexingAllowed": true,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "Batch 8 risk-specific safety review: purchase and recommendation hold pending independent editorial and product/formulation verification."
   },
   "evidence": {
     "reviewStatus": "sourced_pending_review",
@@ -145,7 +152,7 @@
   "profile_status": "partial",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 93,
-  "safety": "Generally well tolerated; may lower blood sugar or blood pressure; caution with glucose-lowering, antihypertensive, and anticoagulant medications; avoid pregnancy/breastfeeding unless clinician-supervised.",
+  "safety": "FERTILITY/PREGNANCY CAUTION: Animal studies of holy basil (tulsi) have reported reduced implantation/pregnancy success with high doses. Human fertility and pregnancy effects have not been established; this is not proof of a human abortifacient effect. Avoid medicinal holy basil when pregnant or trying to conceive; breastfeeding safety has not been established. Holy basil may affect glucose, thyroid function and clotting; people using related medicines should consult a clinician.",
   "dosage": "300-1,000 mg/day standardized extract; common trial range 500-600 mg twice daily",
   "typical_dosage": "300-1,000 mg/day standardized extract; common trial range 500-600 mg twice daily"
 }

@@ -19,12 +19,18 @@ function cleanItems(value: unknown): string[] {
 
 function splitSafetyEvidence(value: unknown) {
   const safety = typeof value === 'string' ? value.trim() : text(value).trim()
-  const match = safety.match(/^Safety evidence:\s*([^.!?]+)[.!?]?\s*(.*)$/i)
+  // Urgent risk-specific warnings can now precede the legacy evidence line.
+  // Keep them FIRST while extracting the original bounded evidence qualifier.
+  const marker = /\bSafety evidence:\s*/i.exec(safety)
+  if (!marker || marker.index === undefined) return { evidenceLabel: '', safetyDetail: safety }
+  const before = safety.slice(0, marker.index).trim()
+  const after = safety.slice(marker.index + marker[0].length)
+  const match = after.match(/^([^.!?]+)[.!?]?\s*(.*)$/)
   if (!match) return { evidenceLabel: '', safetyDetail: safety }
 
   return {
     evidenceLabel: match[1].trim().replace(/[.;:]+$/, ''),
-    safetyDetail: match[2].trim(),
+    safetyDetail: [before, match[2].trim()].filter(Boolean).join(' '),
   }
 }
 

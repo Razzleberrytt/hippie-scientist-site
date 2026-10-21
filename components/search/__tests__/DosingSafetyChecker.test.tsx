@@ -48,4 +48,19 @@ describe('DosingSafetyChecker', () => {
     expect(screen.getByText(/missing-data state, not evidence that the substance is low risk/i)).toBeInTheDocument()
     expect(screen.queryByText(/standard dietary supplement cautions apply/i)).not.toBeInTheDocument()
   })
+  it('retains held botanical safety references without admitting controlled substances', () => {
+    render(<DosingSafetyChecker items={[
+      ...items,
+      { slug: 'black-cohosh', name: 'Black Cohosh', type: 'Herb', effects: [], evidence: 'limited', safety: 'Liver injury warning' },
+      { slug: 'green-tea-extract', name: 'Green Tea Extract', type: 'Herb', effects: [], evidence: 'limited', safety: 'Concentrated extract warning' },
+      { slug: 'kratom', name: 'Kratom', type: 'Herb', effects: [], evidence: 'limited' },
+    ]} />)
+    const choices = screen.getByLabelText(/Choose substance/i)
+    expect(screen.getByRole('option', { name: /Black Cohosh/ })).toBeInTheDocument()
+    expect(screen.getByRole('option', { name: /Green Tea Extract/ })).toBeInTheDocument()
+    expect(screen.queryByRole('option', { name: /Kratom/ })).not.toBeInTheDocument()
+    fireEvent.change(choices, { target: { value: 'black-cohosh' } })
+    expect(screen.getByText(/Liver injury warning/)).toBeInTheDocument()
+  })
+
 })

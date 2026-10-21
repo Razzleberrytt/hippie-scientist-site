@@ -11,10 +11,12 @@
     "Vascular Function Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Hepatotoxicity risk at high doses",
+  "safetyNotes": "CONCENTRATED GREEN TEA EXTRACT LIVER WARNING: NIH LiverTox reviews more than 100 published cases of clinically apparent liver injury attributed to green tea extract; rare severe outcomes, including acute liver failure, have been reported. This is about supplements/concentrated extracts, not typical brewed tea. USP recommends its powdered decaffeinated green tea extract be taken with food, not on an empty stomach; stop use and seek medical attention if abdominal pain, dark urine or yellowing of the eyes/skin occurs. People with liver disease should avoid supplement use without clinician review.",
   "contraindications": [
     "Liver disease",
-    "stimulants"
+    "stimulants",
+    "Liver disease or past suspected green-tea-extract-related injury: avoid without clinician review",
+    "Avoid taking concentrated green tea extract on an empty stomach (USP product-specific caution)"
   ],
   "interactions": [
     "Liver disease",
@@ -73,17 +75,27 @@
       "year": 2005,
       "doi": "10.1074/jbc.M410908200",
       "metadataSource": "pubmed"
+    },
+    {
+      "title": "NIH LiverTox: Green Tea",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK547925/",
+      "note": "Concentrated extract linked to >100 reported liver-injury cases; ordinary brewed-tea risk must not be conflated."
+    },
+    {
+      "title": "USP comprehensive review of green tea extract hepatotoxicity (2020)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32140423/",
+      "note": "USP Powdered Decaffeinated Green Tea Extract monograph cautions against empty-stomach use."
     }
   ],
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "high",
+    "monetizationAllowed": false,
     "indexingAllowed": true,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "Batch 8 risk-specific safety review: purchase and recommendation hold pending independent editorial and product/formulation verification."
   },
   "evidence": {
     "reviewStatus": "sourced_pending_review",

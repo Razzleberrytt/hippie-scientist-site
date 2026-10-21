@@ -36,6 +36,7 @@ const startTime = performance.now()
 const DATA_INPUT_GLOBS = [
   'data-sources/herb_monograph_master.xlsx',
   'data-sources/workbook-patches/**/*.json',
+  'ops/safety/batch8-reviewed-overrides.json',
   'data-sources/runtime-enrichment/**/*',
   'data/**/*.xlsx',
   'data/canonical/**/*.json',

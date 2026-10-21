@@ -13,10 +13,12 @@
     "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "High doses may cause GI/CNS effects and uterine stimulation; avoid pregnancy-level medicinal dosing; monitor with serotonergic drugs.",
+  "safetyNotes": "PREGNANCY WARNING: Medicinal/high-dose saffron is not equivalent to culinary use. High doses can stimulate the uterus and have been associated with miscarriage risk; do not use saffron supplements during pregnancy without specialist obstetric advice. The evidence is dose- and preparation-dependent, and this does not mean ordinary food seasoning has the same risk. Breastfeeding supplement safety is unestablished.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "known allergy to the plant/family",
+    "Pregnancy: avoid high-dose or medicinal saffron supplements due to uterine-stimulation/miscarriage concerns",
+    "Breastfeeding: medicinal safety unestablished"
   ],
   "interactions": [
     "Use caution with serotonergic medications and anticoagulants."
@@ -63,17 +65,22 @@
       "studyType": "Uncontrolled trial",
       "studyClass": "uncontrolled-trial",
       "metadataSource": "pubmed"
+    },
+    {
+      "title": "Saffron and Pregnancy: Cultural Practices, Beliefs, and Safety Evidence (2026)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42186868/",
+      "note": "Review distinguishes lower doses from high-dose/occupational risks; clinical study limitations remain."
     }
   ],
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
     "indexingAllowed": true,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": "curated_allowlist"
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "Batch 8 risk-specific safety review: purchase and recommendation hold pending independent editorial and product/formulation verification."
   },
   "evidence": {
     "reviewStatus": "sourced",

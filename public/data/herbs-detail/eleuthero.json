@@ -13,11 +13,13 @@
     "AMPK Signaling"
   ],
   "activeCompounds": [],
-  "safetyNotes": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
+  "safetyNotes": "PREGNANCY/BREASTFEEDING CAUTION: Safety of eleuthero in pregnancy has not been established; avoid supplements during pregnancy unless specifically advised by a qualified clinician. LactMed reports no adequate safety evidence for nursing people or infants and recommends against use while breastfeeding. Potential drug interactions (including digoxin reports) require verification at the medication and formulation level.",
   "contraindications": [
     "Uncontrolled hypertension",
     "pregnancy/breastfeeding without guidance",
-    "acute fever caution in some traditions"
+    "acute fever caution in some traditions",
+    "Pregnancy: avoid medicinal eleuthero because of absent adequate safety data",
+    "Breastfeeding: avoid due to lack of safety evidence for infants"
   ],
   "interactions": [
     "Use caution with stimulants or blood pressure-active agents."
@@ -59,17 +61,22 @@
       "journal": "Ecotoxicol Environ Saf",
       "doi": "10.1016/j.ecoenv.2020.110321",
       "metadataSource": "pubmed"
+    },
+    {
+      "title": "NIH LactMed: Eleuthero",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK501806/",
+      "note": "No good data on safety during breastfeeding; clinical benefit unproven."
     }
   ],
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
     "indexingAllowed": true,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "Batch 8 risk-specific safety review: purchase and recommendation hold pending independent editorial and product/formulation verification."
   },
   "evidence": {
     "reviewStatus": "sourced",

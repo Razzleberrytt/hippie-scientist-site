@@ -374,13 +374,6 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
     title: 'Chamomile product picks',
     products: [
       {
-        slot: 'budget',
-        brand: 'NOW Foods',
-        title: 'NOW Chamomile 400 mg',
-        rationale: 'Budget capsule pick for evening use; no flavorings or additives.',
-        affiliateUrl: amazonProductUrl({ query: 'NOW Foods Chamomile 400 mg capsules' }),
-      },
-      {
         slot: 'overall',
         brand: 'Traditional Medicinals',
         title: 'Traditional Medicinals Organic Chamomile Tea',
@@ -1098,13 +1091,6 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         rationale: 'Best overall for methylcobalamin lozenge — the bioactive form that bypasses conversion.',
         affiliateUrl: amazonProductUrl({ query: 'Jarrow Formulas Methyl B-12 500 mcg lozenge methylcobalamin' }),
       },
-      {
-        slot: 'premium',
-        brand: 'Pure Encapsulations',
-        title: 'Pure Encapsulations Adenosyl/Methyl B12',
-        rationale: 'Premium for the combination of adenosylcobalamin + methylcobalamin covering both metabolic pathways.',
-        affiliateUrl: amazonProductUrl({ query: 'Pure Encapsulations Adenosyl Methyl B12 capsules' }),
-      },
     ],
   },
   iron: {
@@ -1441,13 +1427,6 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
     slug: 'lemon-balm',
     title: 'Lemon Balm product picks',
     products: [
-      {
-        slot: 'budget',
-        brand: 'NOW Foods',
-        title: 'NOW Lemon Balm 500 mg',
-        rationale: 'Budget capsule pick for evening relaxation and cognitive support.',
-        affiliateUrl: amazonProductUrl({ query: 'NOW Foods Lemon Balm 500 mg capsules' }),
-      },
       {
         slot: 'overall',
         brand: 'Gaia Herbs',

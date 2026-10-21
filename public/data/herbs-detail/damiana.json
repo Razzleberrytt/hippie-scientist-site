@@ -10,11 +10,13 @@
     "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Human evidence is limited. Use conservative dosing; avoid stacking with sedatives, stimulants, or sexual-performance products without review.",
+  "safetyNotes": "BLOOD-GLUCOSE INTERACTION CAUTION: Damiana (Turnera diffusa) showed glucose-lowering effects in animal studies; clinically important hypoglycemia in humans has not been established. People using insulin or other diabetes medications should discuss damiana supplements with a clinician and monitor for low blood glucose. Human safety and efficacy data are limited, and pregnancy/breastfeeding use should be avoided.",
   "contraindications": [
     "Pregnancy/breastfeeding",
     "seizure disorder without clinician review",
-    "planned surgery or complex psychiatric medication regimens."
+    "planned surgery or complex psychiatric medication regimens.",
+    "Diabetes medicines: possible additive glucose-lowering effects (animal evidence; clinical magnitude unknown)",
+    "Avoid in pregnancy and breastfeeding due to insufficient safety data"
   ],
   "interactions": [
     "Potential additive CNS effects with sedatives",
@@ -58,17 +60,22 @@
       "journal": "Molecules",
       "doi": "10.3390/molecules24050855",
       "metadataSource": "pubmed"
+    },
+    {
+      "title": "Memorial Sloan Kettering: Damiana",
+      "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/damiana",
+      "note": "Preclinical hypoglycemic effects only; no established clinical hypoglycemia risk."
     }
   ],
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
     "indexingAllowed": false,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "Batch 8 risk-specific safety review: purchase and recommendation hold pending independent editorial and product/formulation verification."
   },
   "evidence": {
     "reviewStatus": "sourced",
