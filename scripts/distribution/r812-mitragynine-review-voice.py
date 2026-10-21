@@ -8,6 +8,7 @@ to the actual resulting audio. Review-only; no MFA or release pass.
 from __future__ import annotations
 
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
@@ -61,6 +62,27 @@ def reserve_review_master_paths(output_dir: Path) -> tuple[Path, Path]:
             "Use the existing verified master or a new empty output directory."
         )
     return audio_path, receipt_path
+
+
+def publish_review_pair(audio_path: Path, receipt_path: Path, wav_bytes: bytes, receipt_text: str) -> None:
+    """Commit pre-encoded review assets exclusively; roll back only our writes."""
+    created_audio = False
+    created_receipt = False
+    try:
+        with audio_path.open("xb") as new_master:
+            created_audio = True
+            new_master.write(wav_bytes)
+        with receipt_path.open("x", encoding="utf-8") as new_receipt:
+            created_receipt = True
+            new_receipt.write(receipt_text)
+    except BaseException:
+        # A receipt-path race or transient filesystem error must not strand our WAV.
+        # Do not delete an occupied path claimed by another writer.
+        if created_receipt:
+            receipt_path.unlink(missing_ok=True)
+        if created_audio:
+            audio_path.unlink(missing_ok=True)
+        raise
 
 
 def create_review_audio(vault: Path, output_dir: Path) -> dict:
@@ -128,9 +150,10 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
     if rms <= 0.001 or peak <= 0.01:
         raise RuntimeError("Authentic Kokoro output silent, fail closed")
     speech *= min(1.25, 0.78 / peak)
-    # Exclusive creation protects against a concurrent writer after the initial check.
-    with audio_path.open("xb") as new_master:
-        sf.write(new_master, np.clip(speech, -0.98, 0.98), RATE, format="WAV", subtype="PCM_16")
+    # Encode the complete WAV before publishing either protected output path.
+    encoded_wav = io.BytesIO()
+    sf.write(encoded_wav, np.clip(speech, -0.98, 0.98), RATE, format="WAV", subtype="PCM_16")
+    wav_bytes = encoded_wav.getvalue()
     duration_seconds = round(len(speech) / RATE, 4)
 
     receipt = {
@@ -144,7 +167,7 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
         "voiceModelAsset": model.name,
         "voicebankAsset": voices.name,
         "voiceVaultRelease": "ths-kokoro-onnx-am-michael-int8-v1",
-        "narrationWavSha256": sha_file(audio_path),
+        "narrationWavSha256": hashlib.sha256(wav_bytes).hexdigest(),
         "durationSeconds": duration_seconds,
         "durationFrames": len(speech),
         "sampleRate": RATE,
@@ -156,9 +179,9 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
         "scienceReview": "pending",
         "clips": receipts,
     }
-    # A receipt must never be replaced if another process claimed its path.
-    with receipt_path.open("x", encoding="utf-8") as new_receipt:
-        new_receipt.write(json.dumps(receipt, indent=2) + "\n")
+    # Prepare both final byte payloads before claiming any output path.
+    receipt_text = json.dumps(receipt, indent=2) + "\n"
+    publish_review_pair(audio_path, receipt_path, wav_bytes, receipt_text)
     print(
         f"KOKORO NATURAL RADIO EDIT: {audio_path} ({duration_seconds:.2f}s); "
         "picture must be cut to the locked voice timeline",
