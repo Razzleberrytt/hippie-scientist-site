@@ -124,7 +124,7 @@ function checkGroundedIllustrationAction(beat,frames,canvas){
     !ascending(xs,tol)||!ascending(ws,tol)||!ascending(hs,ht)||
     steps(xs,tol)<3||steps(ws,tol)<3||
     !steady(xs,tol)||!steady(ws,tol)||!steady(hs,ht)||
-    center(lb)[0]>=center(rb)[0]||lb[0]+lb[2]>=rb[0])
+    center(left.at(-1))[0]>=center(right.at(-1))[0]||lb[0]+lb[2]>=rb[0])
   throw Error('R8.18 comparison requires two distinct settled physical art reveals')
  return {botanicalTravelPixels:dx,productWidthGrowthPixels:dw,productHeightGrowthPixels:dh,
   settledSamples:5,sourceClaimId:p.sourceClaimId,
