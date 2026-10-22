@@ -28,7 +28,7 @@
 
 ## Validation
 
-Run `python3 .agents/skills/validate_skills.py`. This requires installed project Node dependencies (the pinned `yaml` package), validates strict YAML syntax and duplicate keys, names, relative references, explicit `## Fail-closed action` Trigger/Action paths, and the exact ten-file inventory. Run `node --test tests/agent-skills-validator.test.mjs` for negative regression fixtures (malformed YAML, duplicate keys, incidental `Unknown`). It cannot attest to CI, human review, production deployment, running voice assets, business metrics or installed ChatGPT capabilities.
+Run `python3 .agents/skills/validate_skills.py`. This requires installed project Node dependencies (the pinned `yaml` package), validates strict YAML syntax and duplicate keys, names, relative references, explicit `## Fail-closed action` Trigger/Action paths, and the exact ten-file inventory. Run `node --test .agents/skills/validate-skills-regression.mjs` for negative regression fixtures (malformed YAML, duplicate keys, incidental `Unknown`). It cannot attest to CI, human review, production deployment, running voice assets, business metrics or installed ChatGPT capabilities.
 
 ## Change protocol
 
