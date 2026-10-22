@@ -24,3 +24,7 @@ Report `BLOCKED` with the exact gate and one attempted safe repair/read-only ver
 
 ## Output
 `PR + exact head | checks by name | human review | controller merge id | main SHA | deployed SHA/time | smoke evidence | remaining Unknowns`.
+
+## Fail-closed action
+- **Trigger:** The exact PR head, independent review, required checks, current base, controller authorization or deployment receipt is absent or failing.
+- **Action:** HOLD the PR; do not direct-merge or declare shipped, capture the failed check and repair on the same scoped PR before requesting a fresh protected-controller assessment.

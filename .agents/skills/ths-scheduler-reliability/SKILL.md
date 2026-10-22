@@ -18,3 +18,7 @@ Use on scheduled enrichment, reporting, research or audit tasks, but **do not cr
 ## Checklist / receipt
 `run_id, time window, objective, prerequisites, unique target, attempts, changed artifacts, test receipts, PR/head, controller result, merged main, deploy SHA, outcome, next action`.
 For 1,590-card EvidenceMotion work, report verified total only; never substitute 0/5 or invent count advances.
+
+## Fail-closed action
+- **Trigger:** The scheduled run lacks a valid lease, authoritative inputs, provider access, validation results or successful controller receipt, or a retry remains failing.
+- **Action:** STOP mutation and label the run FAIL/BLOCKED; preserve idempotent state and a bounded repair receipt, and do not claim enrichment, merge or deployment succeeded.

@@ -28,3 +28,7 @@ This supersedes the Library v2 instruction file; it does not upgrade the Kokoro 
 ## Fail-closed checkpoints
 Status enum: `RESEARCHING`, `SCRIPT_READY`, `RUNTIME_RECOVERY`, `VOICE_READY`, `ALIGNMENT_READY`, `RENDERED_REVIEW_ONLY`, `READY_FOR_OWNER_REVIEW`, `READY_TO_UPLOAD`, `BLOCKED_PREPRODUCTION`.
 If unavailable tools, network, pinned assets, correct provenance or review prevent final master, preserve checkpoint/job JSON with source URLs, stage, working files, hashes, attempted recovery and next executable command. Deliver explicitly labeled `PREPRODUCTION_ONLY` ZIP, **not** a fake finished video. The existence of any MP4 proves nothing about voice authenticity or readiness.
+
+## Fail-closed action
+- **Trigger:** The pinned original voice/voicebank, claim provenance, real EM renderer, acoustic alignment, exact-master QA or owner approval is unavailable.
+- **Action:** HOLD release and publishing; preserve checkpoint and labeled PREPRODUCTION_ONLY or REVIEW_ONLY artifacts with exact missing prerequisites and no READY_TO_UPLOAD claim.

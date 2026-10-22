@@ -23,3 +23,7 @@ Start by reading repo `AGENTS.md`, evidence-first decision-page standard, curren
 ## Receipt
 `claim_id | source_id | checked_on | design/population | result | evidence tier | contradictions | allowed wording | prohibited inference | reviewer | publish state`.
 **Fail-closed rule:** if a source cannot be verified or is conflicting, quarantine the affected claim and block promotion until explicit source and reviewer evidence resolves it.
+
+## Fail-closed action
+- **Trigger:** The cited source identity, study design or directly supported claim cannot be verified, or evidence is contradictory.
+- **Action:** HOLD claim promotion, quarantine the affected source/claim, record prohibited inferences and require source-specific reviewer resolution before publication.

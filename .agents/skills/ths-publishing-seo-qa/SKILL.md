@@ -17,3 +17,7 @@ First read `../ths-operating-system/SKILL.md` and evidence standard. Only use ad
 
 ## Output
 `URL | reader job | defect | severity | source of truth | intended change | test/build evidence | main commit | live result | follow-up`. Avoid vanity “pages shipped” counts. When external analytics are missing, say Unknown instead of 0.
+
+## Fail-closed action
+- **Trigger:** The authoritative study, source workbook, final build, canonical/indexing checks, safety review, or exact Cloudflare deployment verification fails or is missing.
+- **Action:** STOP the release or page-promotion claim; retain the existing noindex/quarantine state when applicable, log the precise failed gate and ticket, repair the same scoped change, and recheck output/deployed SHA before calling the defect fixed.

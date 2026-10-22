@@ -21,3 +21,7 @@ owner: FirstCert / Tennessee Same-Day Server Training
 
 ## Report
 `Question / regulatory authority / official written answer / status / remaining blocker / demand evidence / economic gate / proceed or HOLD`.
+
+## Fail-closed action
+- **Trigger:** The regulator has not supplied an authoritative written answer, approval or reporting permission, or economics/demand proof is missing.
+- **Action:** HOLD curriculum, platform build, public promises and certification claims; continue only Phase 0/1 evidence gathering without resending prior inquiries.

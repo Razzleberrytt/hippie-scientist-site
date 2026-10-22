@@ -22,3 +22,7 @@ This is an analysis skill, not permission to change monetization, analytics cons
 
 ## Output
 `Observed change | why likely | attribution limits | effort+cost | contribution/hour | go/hold/pivot | next validated experiment`. If denominator missing, `Unknown`, never fictional percentage growth.
+
+## Fail-closed action
+- **Trigger:** A source metric, period-matched comparison, monetization receipt, or denominator required for an ROI conclusion is missing or unreliable.
+- **Action:** HOLD the conclusion and any go/pivot decision; report the result Unknown with source/date gaps and request verifiable evidence before presenting an outcome as measured.

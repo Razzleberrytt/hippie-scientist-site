@@ -27,3 +27,7 @@ Read `../ths-operating-system/SKILL.md` first. This is **engineering**, not dail
 
 ## Completion
 Lane 1 finishes only when a scoped patch + evidence packet is ready for independent integration. **Only Lane 2 and the protected controller can establish actual merge/release proof.**
+
+## Fail-closed action
+- **Trigger:** A ticket is unadmitted, its existing PR is still blocked, a source/voice/QA proof is missing, or a targeted test fails.
+- **Action:** STOP implementation and new PR creation; record the failing check on the same ticket/PR, isolate the reproducible defect, and hand off to Lane 2 only when validated.

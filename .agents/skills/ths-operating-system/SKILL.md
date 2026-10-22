@@ -29,3 +29,7 @@ owner: The Hippie Scientist
 
 ## Security
 Do not disclose keys, private health information, email or customer personal data in public PRs. Do not modify FirstCert regulatory/curriculum work without consulting its own skill and gates.
+
+## Fail-closed action
+- **Trigger:** The current authoritative sprint, access, source, CI gate or protected merge status cannot be verified.
+- **Action:** STOP the proposed mutation; report the exact missing authority as BLOCKED, keep existing changes untouched, and request an admitted scoped ticket or fresh evidence.

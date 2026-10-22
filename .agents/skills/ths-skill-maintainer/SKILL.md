@@ -18,3 +18,7 @@ If the skill is part of a GitHub-controlled runtime, changes require the relevan
 
 ## Gap priority
 Rank by saved wasted effort, safety impact, repeated incidents, and cost, not by number of installed tools. Favor existing tools over duplicating connectors. Suggest only integrations directly needed and available to this account.
+
+## Fail-closed action
+- **Trigger:** An instruction is malformed, conflicts with governing policy, lacks explicit failure-handling, references missing files, or has untested behavior.
+- **Action:** STOP install/release claims, document the failing field or scenario, repair the same versioned skill change and rerun the regression check before submitting it for review.
