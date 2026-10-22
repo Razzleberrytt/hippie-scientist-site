@@ -1,5 +1,17 @@
 # Master Backlog
 
+### B12-COMPARE-001 / #6670 — owner-directed vitamin B12 guide (2026-10-22)
+
+Status: **In progress** — Will directly prioritizes this Revenue/Conversion ticket
+from the October 19 instruction (#6670, comment 6280536899), ahead of the stalled
+research intake. Scope: one new `/guides/compare/vitamin-b12/` guide following the
+merged psyllium template, PubMed-verified evidence, safety before shopping,
+10–12 shared visible/schema FAQ answers, and catalog-verified ASINs or labeled
+Amazon searches. Deliver one green **unmerged** PR; Will's human review is required.
+No pipeline repair, additional comparison page, merge, or publication is authorized.
+Acceptance and validation: [B12 implementation record](content/vitamin-b12-comparison-2026-10-22.md).
+
+
 ### AH-P0-005 / existing PR #6938 — terminal release-state repair (2026-10-21)
 
 In progress: owner-directed safety interruption. Reproduced late hold/draft

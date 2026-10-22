@@ -339,6 +339,7 @@ export default async function ComparePage() {
         <p className="eyebrow-label">Good places to start</p>
         <h2 className="mt-2 text-xl font-semibold text-ink">Featured decision pages</h2>
         <Link href="/guides/compare/psyllium-husk/" className="mt-3 inline-flex min-h-11 items-center font-semibold text-ink underline">Psyllium husk vs powder vs capsules: evidence and buying tradeoffs</Link>
+        <Link href="/guides/compare/vitamin-b12/" className="mt-3 inline-flex min-h-11 items-center font-semibold text-ink underline">Vitamin B12 forms and routes: evidence, safety and buying tradeoffs</Link>
         <p className="mt-2 text-sm leading-6 text-muted">A small set of useful entry points across energy, mood, stress, sleep, and botanical chemistry.</p>
         <ul className="mt-4 grid gap-2 text-sm leading-6 text-muted sm:grid-cols-2 lg:grid-cols-3">
           {popularComparisonPairs.map(pair => (
