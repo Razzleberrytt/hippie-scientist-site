@@ -24,6 +24,11 @@ Before beginning work, agents must:
 
 **Strict WIP limit:** Maximum three concurrent workstreams—Discovery/SEO, Revenue/Conversion, and Authority/Content. Within a workstream, activate one ticket at a time. Safety incidents may interrupt work but must be recorded explicitly.
 
+## Optional project-local agent skills
+
+- For scoped work with a matching specialty, consult [`.agents/skills/README.md`](.agents/skills/README.md) and its relevant `SKILL.md` after reading the required authoritative docs. These are instruction references, not new agents, admission slots, release permissions, installed ChatGPT plugins, or independently tested capabilities.
+- These skills are subordinate to this file, `docs/CURRENT_SPRINT.md`, source/claim and safety policy, protected merge-controller checks, and current GitHub/production evidence. Do not load them to bypass existing controls.
+
 ## Project guidance for coding agents
 
 - Keep routes like `/herbs/:slug`, `/compounds/:slug`, `/guides/:cluster/:slug`, `/learn/:slug`, `/info/:slug`, and `/evidence/:slug` stable; if you must rename or remove one, add a redirect in `public/_redirects` so links and SEO don't break.
