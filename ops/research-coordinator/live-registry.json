@@ -78950,6 +78950,83 @@
       "reservation_id": "120e02ffb2fc2cf7906b",
       "reserved_at": "2026-10-22T15:14:41.946Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42798250",
+      "title": "Protodesnitazene: The identification and tissue distribution of a new nitazene.",
+      "doi": "10.1111/1556-4029.70478",
+      "source_title": "Protodesnitazene: The identification and tissue distribution of a new nitazene.",
+      "abstract": "Multiple new analogues from the 2-benzyl benzimidazole or \"nitazene\" class of drugs have emerged on the drug market in recent years. Nitazenes are highly potent μ-opioid receptor agonists that present a substantial public health concern due to their elevated risk of severe toxicity in overdose and their significant potential for misuse. We report on a case involving an overdose with another new analogue from this class, protodesnitazene. The drug has a similar potency to fentanyl and has not been previously reported in toxicology specimens or drug seizures. Protodesnitazene was initially identified by LC-QTOF-HRMS (High Resolution Mass Spectrometry) and distinguished from relevant isomers by chromatographic separation, with spectral and retention time matching against reference standards. A quantitation method employing solid phase extraction using mixed mode cartridges and utilizing LC-MS/MS operating in MRM mode was developed and partially validated for non-routine analyses. Concentrations for the parent drug were determined in a range of postmortem matrices and femoral blood levels (77-222 ng/mL) were found to be comparable to previously identified desnitazene compounds. Protodesnitazene was observed to metabolize extensively by N-dealkylation, O-dealkylation, and hydroxylation. Glucuronides were not present at high levels in the blood but were prominent in the urine. Protodesnitazene was also identified in an associated seized powder.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42798250/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42798250",
+        "doi": "10.1111/1556-4029.70478",
+        "journal": "Journal of forensic sciences",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-22T20:04:50.864Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "55db23e160c85efc8e1b",
+      "reserved_at": "2026-10-22T20:04:58.833Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -78994,17 +79071,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 510,
+    "total_reservations": 511,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 35,
+      "4": 36,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 510
+      "SOURCE_VERIFIED": 511
     },
     "batches": [
       {
@@ -79024,7 +79101,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 10,
+        "count": 11,
         "pr_number": null,
         "blocker": null
       }
