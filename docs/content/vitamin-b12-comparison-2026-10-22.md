@@ -58,11 +58,15 @@ This is a selected review, not an exhaustive systematic review.
   results are recorded in the PR verification section after this commit. Final-head
   hosted checks must be green before handoff; no clinical/publication approval follows
   from a passing build. The PR is the current receipt for these post-commit results.
-- Build regeneration is excluded from the change; only the eight scoped source,
+- Build regeneration is excluded from the change; only the nine scoped source,
   test and documentation files are committed.
+- Hosted full-suite run on the prior head found one integration omission: the
+  route was not in `BUILT_COMPARE_SLUGS`. Added it to the existing pure registry;
+  the existing filesystem/registry equality test remains unchanged. Final-head
+  comparison-registry tests and a fresh hosted production build are required.
 - No verified B12 ASIN: four labeled searches (cyanocobalamin, methylcobalamin,
   oral hydroxocobalamin, adenosylcobalamin), central `AFFILIATE_TAGS.amazon`.
-- Scope: new page/content, route-specific tests, comparison-hub discovery link,
+- Scope: new page/content, route-specific tests, comparison-hub discovery link, existing built-route registry,
   this verification record and authoritative ticket status. No unrelated pages.
 - Unverified: actual seller/stock/price/batch purity, clinical or human approval,
   deployment, indexing, traffic, AI citations and revenue. Opportunity range in
