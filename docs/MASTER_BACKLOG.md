@@ -2,7 +2,7 @@
 
 ### B12-COMPARE-001 / #6670 — owner-directed vitamin B12 guide (2026-10-22)
 
-Status: **In progress** — Will directly prioritizes this Revenue/Conversion ticket
+Status: **In review — [PR #6951](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6951), unmerged** — Will directly prioritizes this Revenue/Conversion ticket
 from the October 19 instruction (#6670, comment 6280536899), ahead of the stalled
 research intake. Scope: one new `/guides/compare/vitamin-b12/` guide following the
 merged psyllium template, PubMed-verified evidence, safety before shopping,

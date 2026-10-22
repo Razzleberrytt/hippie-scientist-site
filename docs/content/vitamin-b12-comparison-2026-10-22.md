@@ -1,7 +1,7 @@
 # Vitamin B12 comparison — B12-COMPARE-001
 
 Owner-directed scope: #6670 comment 6280536899, reconfirmed directly October 22.
-Starting main: a115b205e. Status: in progress; one unmerged PR for human review.
+Starting main: a115b205e. Status: in review; [PR #6951](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6951) remains unmerged with `hold-merge` for Will’s human review.
 
 Reuse: psyllium page/content layout, ResponsiveTable, AuthorityJsonLd,
 AuthorityBreadcrumbs, AffiliateDisclosure and LegacyGuideFAQ. No schema/database,
@@ -52,8 +52,14 @@ This is a selected review, not an exhaustive systematic review.
 - Focused Vitest: 2 files / 6 tests passed (B12 + psyllium). Twelve FAQ answers
   are each 40–60 words and exactly match FAQPage structured data.
 - `node scripts/ci/validate-doc-links.mjs`: PASS, 402 Markdown files.
-- `npm run check:fast`, production build, output verification and responsive/theme
-  browser proof: in progress; no completion claimed yet.
+- `npm run check:fast`: PASS (including TypeScript, lint, data/citation audits
+  and theme contrast). Focused ESLint and static-export guard also PASS.
+- Production build, output verification and desktop/mobile light/dark browser
+  results are recorded in the PR verification section after this commit. Final-head
+  hosted checks must be green before handoff; no clinical/publication approval follows
+  from a passing build. The PR is the current receipt for these post-commit results.
+- Build regeneration is excluded from the change; only the eight scoped source,
+  test and documentation files are committed.
 - No verified B12 ASIN: four labeled searches (cyanocobalamin, methylcobalamin,
   oral hydroxocobalamin, adenosylcobalamin), central `AFFILIATE_TAGS.amazon`.
 - Scope: new page/content, route-specific tests, comparison-hub discovery link,
@@ -61,4 +67,3 @@ This is a selected review, not an exhaustive systematic review.
 - Unverified: actual seller/stock/price/batch purity, clinical or human approval,
   deployment, indexing, traffic, AI citations and revenue. Opportunity range in
   the owner request is not measured capture or a forecast.
-
