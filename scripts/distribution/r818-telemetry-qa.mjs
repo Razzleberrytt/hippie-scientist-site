@@ -71,6 +71,66 @@ function checkLongBeatComposition(beat,frames,canvas){
    assessment:'renderer-object-motion-not-caption-pixel-difference'}
 }
 
+
+/* Bounded, source-linked illustration motion. This is a geometric negative
+ * screen, NOT review of claim meaning, art craft, or publication. The existing
+ * R8.17 source-ledger, R8.10 human alignment, and release gates stay separate.
+ */
+function checkGroundedIllustrationAction(beat,frames,canvas){
+ const p=beat.telemetryProof||{},action=beat.semanticAction
+ if(!txt(p.sourceClaimId)||!Array.isArray(beat.claimIds)||
+    !beat.claimIds.includes(p.sourceClaimId)||
+    !Array.isArray(beat.onScreenSourceIds)||!beat.onScreenSourceIds.length)
+  throw Error('R8.18 grounded motion must bind an upstream sourced scene claim')
+ const center=o=>[o.bbox[0]+o.bbox[2]/2,o.bbox[1]+o.bbox[3]/2]
+ const distance=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1])
+ const steady=(numbers,tolerance)=>numbers.length>=5&&
+   numbers.slice(-5).every(n=>Math.abs(n-numbers.at(-1))<=tolerance)
+ const ascending=(a,t)=>a.every((v,i)=>!i||v>=a[i-1]-t)
+ const descending=(a,t)=>a.every((v,i)=>!i||v<=a[i-1]+t)
+ const steps=(a,t)=>a.slice(1).filter((v,i)=>Math.abs(v-a[i])>t).length
+ const series=(id,kind,label)=>{
+   if(!txt(id)||!txt(kind)||!txt(label)||CAPTION_ONLY_KINDS.has(kind))
+    throw Error('R8.18 grounded motion needs named noncaption physical art')
+   return frames.map(f=>{
+     const hits=f.objects.filter(o=>o.objectId===id&&o.visible!==false&&o.opacity!==0)
+     if(hits.length!==1||hits[0].kind!==kind||hits[0].label!==label)
+      throw Error('R8.18 grounded motion object changed identity, kind or sourced label')
+     return hits[0]
+   })
+ }
+ if(action==='evidence-boundary-panel-settles'){
+   if(p.primaryObjectId!==p.subjectObjectId)
+    throw Error('R8.18 caution panel must be actual primary art object')
+   const cards=series(p.primaryObjectId,beat.visualObject?.kind,p.beforeLabel)
+   const xy=cards.map(o=>center(o)),last=xy.at(-1)
+   const ds=xy.map(c=>distance(c,last)),tol=.007*canvas.width
+   if(ds[0]<.07*canvas.width||!descending(ds,tol)||steps(ds,tol)<3||!steady(ds,tol))
+    throw Error('R8.18 evidence boundary panel did not genuinely move and settle')
+   return {movementPixels:ds[0],settledSamples:5,sourceClaimId:p.sourceClaimId,
+    proofClass:'geometry-only-not-science-or-publication-approval'}
+ }
+ if(action!=='botanical-versus-concentrate-reveal')
+  throw Error('R8.18 unsupported grounded illustration action')
+ if(p.primaryObjectId===p.targetObjectId)
+  throw Error('R8.18 comparison must have two distinct art objects')
+ const left=series(p.primaryObjectId,beat.visualObject?.kind,p.beforeLabel)
+ const right=series(p.targetObjectId,p.targetKind,p.afterLabel)
+ const xs=left.map(o=>center(o)[0]),ws=right.map(o=>o.bbox[2]),hs=right.map(o=>o.bbox[3])
+ const tol=.003*canvas.width,ht=.003*canvas.height
+ const dx=xs.at(-1)-xs[0],dw=ws.at(-1)-ws[0],dh=hs.at(-1)-hs[0]
+ const lb=left.at(-1).bbox,rb=right.at(-1).bbox
+ if(dx<.05*canvas.width||dw<.035*canvas.width||dh<.025*canvas.height||
+    !ascending(xs,tol)||!ascending(ws,tol)||!ascending(hs,ht)||
+    steps(xs,tol)<3||steps(ws,tol)<3||
+    !steady(xs,tol)||!steady(ws,tol)||!steady(hs,ht)||
+    center(lb)[0]>=center(rb)[0]||lb[0]+lb[2]>=rb[0])
+  throw Error('R8.18 comparison requires two distinct settled physical art reveals')
+ return {botanicalTravelPixels:dx,productWidthGrowthPixels:dw,productHeightGrowthPixels:dh,
+  settledSamples:5,sourceClaimId:p.sourceClaimId,
+  proofClass:'geometry-only-not-science-or-publication-approval'}
+}
+
 function checkBeat(beat,frames,ctx,record){
  const action=txt(beat.semanticAction),proof=beat.telemetryProof||{}
  if(!txt(proof.primaryObjectId)||!frames.some(f=>find(f,proof.primaryObjectId)))
@@ -132,6 +192,8 @@ function checkBeat(beat,frames,ctx,record){
      !final||final.visible===false||!(final.opacity>.5))
     throw Error('R8.18 hidden target did not actually become visible')
   }
+ }else if(['evidence-boundary-panel-settles','botanical-versus-concentrate-reveal'].includes(action)){
+  Object.assign(report,checkGroundedIllustrationAction(beat,frames,ctx.canvas))
  }else if(action==='activates'){
   const targetId=txt(proof.targetObjectId)
   if(!targetId)throw Error('R8.18 activation target missing')
