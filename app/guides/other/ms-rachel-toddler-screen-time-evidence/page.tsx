@@ -187,6 +187,7 @@ export default function MsRachelScreenTimeEvidencePage() {
           <p className="text-sm leading-7 text-muted">Guidelines are consensus positions, not measurements — but they are the reference point every argument starts from, so they are stated here exactly. The AAP (<em>Media and Young Minds</em>, Pediatrics, 2016):<Cite n={1} /></p>
           <ResponsiveTable label="AAP screen media recommendations by age">
             <table className="min-w-[700px] w-full text-sm">
+              <caption className="sr-only">AAP screen media recommendations by age</caption>
               <thead className="border-b border-brand-900/10 bg-brand-50/50"><tr>
                 <th scope="col" className="p-3 text-left">Age</th>
                 <th scope="col" className="p-3 text-left">AAP recommendation</th>
@@ -208,6 +209,7 @@ export default function MsRachelScreenTimeEvidencePage() {
           <p className="text-sm leading-7 text-muted">Every figure below is quoted from the named published meta-analysis, with its confidence interval, number of studies (k), and pooled sample size where reported. A correlation of 0.10-0.20 is small by conventional standards — roughly 1-4% of variance.</p>
           <ResponsiveTable label="Pooled associations between early screen exposure and child outcomes">
             <table className="min-w-[860px] w-full text-sm">
+              <caption className="sr-only">Pooled associations between early screen exposure and child outcomes, from published meta-analyses</caption>
               <thead className="border-b border-brand-900/10 bg-brand-50/50"><tr>
                 <th scope="col" className="p-3 text-left">Association</th>
                 <th scope="col" className="p-3 text-left">Pooled effect</th>
@@ -232,6 +234,7 @@ export default function MsRachelScreenTimeEvidencePage() {
           <p className="text-sm leading-7 text-muted">Takahashi et al. (JAMA Pediatrics, 2023) followed 7,097 children whose screen time at age 1 was related to developmental screening at ages 2 and 4. Communication-delay odds at age 2, relative to the under-1-hour reference group:<Cite n={7} /></p>
           <ResponsiveTable label="Takahashi 2023 dose-response: screen time at age 1 and communication delay at age 2">
             <table className="min-w-[700px] w-full text-sm">
+              <caption className="sr-only">Takahashi 2023 dose-response: screen time at age 1 and communication-delay odds at age 2</caption>
               <thead className="border-b border-brand-900/10 bg-brand-50/50"><tr>
                 <th scope="col" className="p-3 text-left">Screen time at age 1</th>
                 <th scope="col" className="p-3 text-left">Odds ratio, communication delay at age 2</th>
@@ -305,6 +308,7 @@ export default function MsRachelScreenTimeEvidencePage() {
           <p className="text-sm leading-7 text-muted">This article is a synthesis of published syntheses, not a new statistical pooling: it computes no new effect sizes. Its safeguards: pooled numbers were taken from the original meta-analyses&rsquo; full texts rather than secondary summaries, and where independent syntheses conflict, both numbers are shown and the discrepancy explained. Confidence by conclusion:</p>
           <ResponsiveTable label="Confidence grading for this synthesis, conclusion by conclusion">
             <table className="min-w-[760px] w-full text-sm">
+              <caption className="sr-only">Confidence grading for this synthesis, conclusion by conclusion</caption>
               <thead className="border-b border-brand-900/10 bg-brand-50/50"><tr>
                 <th scope="col" className="p-3 text-left">Conclusion</th>
                 <th scope="col" className="p-3 text-left">Confidence</th>
