@@ -35,6 +35,7 @@ jobs:
           node --check scripts/distribution/r819-native-layer-compositor.mjs
           node --check scripts/distribution/r819-layer-inventory-writer.mjs
           node --check scripts/distribution/r819-original-artist-pixel-proof.mjs
+          node --check scripts/distribution/r819-original-artist-cli.mjs
           node --check scripts/distribution/author-r819-layers-cli.mjs
           node --check scripts/distribution/render-vertical-video-mp4.mjs
       - name: Preserve existing visual checks and prevent voice-to-picture tempo fitting
