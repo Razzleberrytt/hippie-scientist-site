@@ -33,6 +33,7 @@ export function stageR818PhysicalArt({artRoot,outputDir,beats}){
    fail('beat identity or upstream source-claim binding missing')
   used.add(beat.id)
   const roles=['botanical-versus-concentrate-reveal','source-bound-scaffold-assembles'].includes(beat.semanticAction)?['primary','target']:['primary']
+  if(beat.semanticAction==='source-bound-scaffold-assembles'&&beat.physicalArt?.plate)roles.push('plate')
   if(beat.artMethod!=='cinematic-2.5d'||Object.keys(beat.physicalArt??{}).sort().join(',')!==roles.sort().join(',')||
       proof.primaryObjectId===proof.targetObjectId||
       beat.visualObject?.kind===undefined)
@@ -42,9 +43,13 @@ export function stageR818PhysicalArt({artRoot,outputDir,beats}){
   staged[beat.id]={}
   for(const role of roles){
    const ref=beat.physicalArt[role]
-   const objectId=role==='primary'?proof.primaryObjectId:proof.targetObjectId
-   const kind=role==='primary'?beat.visualObject.kind:proof.targetKind
-   const label=role==='primary'?proof.beforeLabel:proof.afterLabel
+   const plate=role==='plate'
+   const objectId=plate?'source-plate':role==='primary'?proof.primaryObjectId:proof.targetObjectId
+   const kind=plate?'factual-source-plate':role==='primary'?beat.visualObject.kind:proof.targetKind
+   const label=plate?'Source-authored factual plate':role==='primary'?proof.beforeLabel:proof.afterLabel
+   if(plate&&(!String(ref?.factualAuthority??'').trim()||
+      ref.sourceClaimId!==proof.sourceClaimId||ref.r819BackgroundEligible!==false))
+    fail('factual plate cannot masquerade as R8.19 nonfactual art')
    if(!safe(objectId)||!String(kind??'').trim()||!String(label??'').trim()||
        !name(ref?.file)||!sha(ref?.sha256))fail('source-pinned named physical art object missing')
    const f=path.resolve(source,ref.file)
@@ -55,8 +60,9 @@ export function stageR818PhysicalArt({artRoot,outputDir,beats}){
    // PNG RGBA only; transparency is required so the art is an isolated
    // animation object rather than an opaque full-screen poster/caption card.
    if(bytes.length<100||bytes.length>16_000_000||!bytes.subarray(0,8).equals(png)||
-      bytes.readUInt32BE(16)<64||bytes.readUInt32BE(16)>1200||
-      bytes.readUInt32BE(20)<64||bytes.readUInt32BE(20)>1200||
+      (plate?(bytes.readUInt32BE(16)!==1080||bytes.readUInt32BE(20)!==1920):
+       (bytes.readUInt32BE(16)<64||bytes.readUInt32BE(16)>1200||
+        bytes.readUInt32BE(20)<64||bytes.readUInt32BE(20)>1200))||
       bytes[25]!==6||digest(bytes)!==ref.sha256)
     fail('physical PNG is not bounded RGBA source with matching SHA')
    const stageName=beat.id+'-'+role+'.png'
@@ -64,13 +70,14 @@ export function stageR818PhysicalArt({artRoot,outputDir,beats}){
    fs.writeFileSync(absolute,bytes,{flag:'wx'})
    if(digest(fs.readFileSync(absolute))!==ref.sha256)fail('staged physical art was altered')
    const targetBox=ref.targetBox
-   if(beat.semanticAction==='source-bound-scaffold-assembles'&&
-     (!Array.isArray(targetBox)||targetBox.length!==4||targetBox.some(v=>!Number.isInteger(v))||
+   if(beat.semanticAction==='source-bound-scaffold-assembles'&&!plate&&
+      (!Array.isArray(targetBox)||targetBox.length!==4||targetBox.some(v=>!Number.isInteger(v))||
       targetBox[0]<0||targetBox[1]<0||targetBox[2]<64||targetBox[3]<64||
       targetBox[0]+targetBox[2]>1080||targetBox[1]+targetBox[3]>1920))
      fail('source-bound scaffold requires two bounded authored resting boxes')
    staged[beat.id][role]={file:rel,sha256:ref.sha256,objectId,kind,label,
-     ...(beat.semanticAction==='source-bound-scaffold-assembles'?{targetBox}:{})}
+      ...(plate?{factualAuthority:ref.factualAuthority,sourceClaimId:ref.sourceClaimId,r819BackgroundEligible:false}:{}),
+      ...(beat.semanticAction==='source-bound-scaffold-assembles'&&!plate?{targetBox}:{})}
   }
  }
  return staged
