@@ -674,7 +674,7 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
  */
 export function verifyLiveAdmissionForMerge(repo, number, runner = spawnSync) {
   if (!Number.isSafeInteger(number) || number <= 0 ||
-      typeof repo !== 'string' || !/^[\\w.-]+\\/[\\w.-]+$/.test(repo)) return false
+      typeof repo !== 'string' || !/^[\w.-]+\/[\w.-]+$/.test(repo)) return false
   if (number <= 6956) return true // Existing research/review backlog remains grandfathered.
   try {
     const result = runner(process.execPath, [
