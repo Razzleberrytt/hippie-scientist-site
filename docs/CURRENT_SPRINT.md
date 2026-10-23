@@ -7,8 +7,8 @@ from the October 19 instruction (#6670, comment 6280536899), ahead of the stalle
 research intake. Scope: one new `/guides/compare/vitamin-b12/` guide following the
 merged psyllium template, PubMed-verified evidence, safety before shopping,
 10–12 shared visible/schema FAQ answers, and catalog-verified ASINs or labeled
-Amazon searches. Deliver one green **unmerged** PR; Will's human review is required.
-No pipeline repair, additional comparison page, merge, or publication is authorized.
+Amazon searches. Keep PR #6951 explicitly held until its current exact-head CI, evidence/source provenance, safety and independent-review checks have passed.
+The owner's October 23 directive supersedes mandatory human approval: once those checks are verified, clear `hold-merge` and integrate through the protected serialized controller. No pipeline repair or unrelated comparison page is authorized.
 Acceptance and validation: [B12 implementation record](content/vitamin-b12-comparison-2026-10-22.md).
 
 

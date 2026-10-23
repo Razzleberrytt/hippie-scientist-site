@@ -1,7 +1,7 @@
 # Vitamin B12 comparison — B12-COMPARE-001
 
 Owner-directed scope: #6670 comment 6280536899, reconfirmed directly October 22.
-Starting main: a115b205e. Status: in review; [PR #6951](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6951) remains unmerged with `hold-merge` for Will’s human review.
+Starting main: a115b205e. Status: in review; [PR #6951](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6951) remains unmerged with `hold-merge` pending exact-head CI, evidence/source provenance, safety and independent technical review. The owner's October 23 directive removed mandatory human signoff; if verified green, the protected serialized controller may merge after the explicit hold is cleared.
 
 Reuse: psyllium page/content layout, ResponsiveTable, AuthorityJsonLd,
 AuthorityBreadcrumbs, AffiliateDisclosure and LegacyGuideFAQ. No schema/database,
@@ -68,6 +68,6 @@ This is a selected review, not an exhaustive systematic review.
   oral hydroxocobalamin, adenosylcobalamin), central `AFFILIATE_TAGS.amazon`.
 - Scope: new page/content, route-specific tests, comparison-hub discovery link, existing built-route registry,
   this verification record and authoritative ticket status. No unrelated pages.
-- Unverified: actual seller/stock/price/batch purity, clinical or human approval,
+- Unverified: actual seller/stock/price/batch purity and clinical endorsement (not a prerequisite for evidence-based editorial release),
   deployment, indexing, traffic, AI citations and revenue. Opportunity range in
   the owner request is not measured capture or a forecast.
