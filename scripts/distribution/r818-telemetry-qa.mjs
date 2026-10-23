@@ -87,10 +87,16 @@ function checkGroundedIllustrationAction(beat,frames,canvas){
  // This is mechanical provenance, not a scientific/artistic approval.
  if(beat.physicalArt){
   const expected=[['primary',p.primaryObjectId]]
+  if(action==='source-bound-scaffold-assembles'&&beat.physicalArt.plate)
+   expected.push(['plate','source-plate'])
   if(['botanical-versus-concentrate-reveal','source-bound-scaffold-assembles'].includes(action))expected.push(['target',p.targetObjectId])
   if(Object.keys(beat.physicalArt).sort().join(',')!==expected.map(x=>x[0]).sort().join(','))
     throw Error('R8.18 physical art role inventory mismatch')
   for(const [role,id] of expected){
+   if(role==='plate'&&(!txt(beat.physicalArt.plate.factualAuthority)||
+      beat.physicalArt.plate.r819BackgroundEligible!==false||
+      beat.physicalArt.plate.sourceClaimId!==p.sourceClaimId))
+    throw Error('R8.18 source-authored factual plate is not R8.19 nonfactual art')
    const art=beat.physicalArt[role]
    if(!hex(art?.sha256)||!txt(art?.file)||!txt(id))
     throw Error('R8.18 physical art source identity missing')
