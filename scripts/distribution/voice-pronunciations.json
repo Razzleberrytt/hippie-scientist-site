@@ -16,6 +16,14 @@
       "authority": "owner-feedback-native-fallback",
       "source": "https://www.merriam-webster.com/dictionary/mitragynine",
       "note": "Restore continuous native articulation; hyphenated respelling rejected by owner for choppy syllables. Alternative single-token spellings require audition."
+    },
+    {
+      "term": "creatine",
+      "spokenAs": "creea teen",
+      "reading": "KREE-uh-teen",
+      "authority": "Cambridge dictionary IPA and local phonemizer probe",
+      "source": "https://dictionary.cambridge.org/us/pronunciation/english/creatine",
+      "note": "Audio only. Spoken respelling uses two natural tokens; IPA target /ˈkriː.ə.tiːn/. Must be audited against the generated WAV. Do not use in captions."
     }
   ]
 }
