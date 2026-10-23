@@ -10,7 +10,7 @@ const safe=s=>/^[a-zA-Z0-9_-]{1,70}$/.test(String(s??''))
 const name=s=>/^[a-zA-Z0-9_.-]{1,100}\.png$/.test(String(s??''))
 const sha=s=>/^[a-f0-9]{64}$/.test(String(s??''))
 const png=Buffer.from('89504e470d0a1a0a','hex')
-const actions=new Set(['evidence-boundary-panel-settles','botanical-versus-concentrate-reveal'])
+const actions=new Set(['evidence-boundary-panel-settles','botanical-versus-concentrate-reveal','source-bound-scaffold-assembles'])
 const fail=why=>{throw Error('R8.18 pinned physical art HOLD: '+why)}
 
 /** Return a SHA-pinned, package-relative manifest of actual art bytes.
@@ -32,7 +32,7 @@ export function stageR818PhysicalArt({artRoot,outputDir,beats}){
       !Array.isArray(beat.onScreenSourceIds)||!beat.onScreenSourceIds.length)
    fail('beat identity or upstream source-claim binding missing')
   used.add(beat.id)
-  const roles=beat.semanticAction==='botanical-versus-concentrate-reveal'?['primary','target']:['primary']
+  const roles=['botanical-versus-concentrate-reveal','source-bound-scaffold-assembles'].includes(beat.semanticAction)?['primary','target']:['primary']
   if(beat.artMethod!=='cinematic-2.5d'||Object.keys(beat.physicalArt??{}).sort().join(',')!==roles.sort().join(',')||
       proof.primaryObjectId===proof.targetObjectId||
       beat.visualObject?.kind===undefined)
@@ -63,7 +63,14 @@ export function stageR818PhysicalArt({artRoot,outputDir,beats}){
    const rel='r818-physical-assets/'+stageName,absolute=path.join(destDir,stageName)
    fs.writeFileSync(absolute,bytes,{flag:'wx'})
    if(digest(fs.readFileSync(absolute))!==ref.sha256)fail('staged physical art was altered')
-   staged[beat.id][role]={file:rel,sha256:ref.sha256,objectId,kind,label}
+   const targetBox=ref.targetBox
+   if(beat.semanticAction==='source-bound-scaffold-assembles'&&
+     (!Array.isArray(targetBox)||targetBox.length!==4||targetBox.some(v=>!Number.isInteger(v))||
+      targetBox[0]<0||targetBox[1]<0||targetBox[2]<64||targetBox[3]<64||
+      targetBox[0]+targetBox[2]>1080||targetBox[1]+targetBox[3]>1920))
+     fail('source-bound scaffold requires two bounded authored resting boxes')
+   staged[beat.id][role]={file:rel,sha256:ref.sha256,objectId,kind,label,
+     ...(beat.semanticAction==='source-bound-scaffold-assembles'?{targetBox}:{})}
   }
  }
  return staged

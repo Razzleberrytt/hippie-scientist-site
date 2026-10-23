@@ -87,7 +87,7 @@ function checkGroundedIllustrationAction(beat,frames,canvas){
  // This is mechanical provenance, not a scientific/artistic approval.
  if(beat.physicalArt){
   const expected=[['primary',p.primaryObjectId]]
-  if(action==='botanical-versus-concentrate-reveal')expected.push(['target',p.targetObjectId])
+  if(['botanical-versus-concentrate-reveal','source-bound-scaffold-assembles'].includes(action))expected.push(['target',p.targetObjectId])
   if(Object.keys(beat.physicalArt).sort().join(',')!==expected.map(x=>x[0]).sort().join(','))
     throw Error('R8.18 physical art role inventory mismatch')
   for(const [role,id] of expected){
@@ -128,6 +128,23 @@ function checkGroundedIllustrationAction(beat,frames,canvas){
     throw Error('R8.18 evidence boundary panel did not genuinely move and settle')
    return {movementPixels:ds[0],settledSamples:5,sourceClaimId:p.sourceClaimId,
     proofClass:'geometry-only-not-science-or-publication-approval'}
+ }
+ if(action==='source-bound-scaffold-assembles'){
+   if(p.primaryObjectId===p.targetObjectId)throw Error('R8.18 source assembly needs distinct physical art objects')
+   const strands=series(p.primaryObjectId,beat.visualObject?.kind,p.beforeLabel)
+   const links=series(p.targetObjectId,p.targetKind,p.afterLabel)
+   const pts=strands.map(o=>center(o)),last=pts.at(-1)
+   const distances=pts.map(pt=>distance(pt,last)),tol=.007*canvas.width
+   const levels=links.map(o=>Number(o.activationLevel))
+   if(distances[0]<.07*canvas.width||!descending(distances,tol)||
+      steps(distances,tol)<3||!steady(distances,tol)||
+      levels.some(v=>!Number.isFinite(v))||!ascending(levels,.015)||
+      levels.at(-1)-levels[0]<.75||!steady(levels,.03)||
+      links.at(-1).opacity<.98)
+    throw Error('R8.18 original-art physical scaffold did not genuinely assemble and settle')
+   return {movementPixels:distances[0],connectorActivationDelta:levels.at(-1)-levels[0],
+     sourceClaimId:p.sourceClaimId,settledSamples:5,
+     proofClass:'geometry-only-not-science-or-publication-approval'}
  }
  if(action!=='botanical-versus-concentrate-reveal')
   throw Error('R8.18 unsupported grounded illustration action')
@@ -211,7 +228,7 @@ function checkBeat(beat,frames,ctx,record){
      !final||final.visible===false||!(final.opacity>.5))
     throw Error('R8.18 hidden target did not actually become visible')
   }
- }else if(['evidence-boundary-panel-settles','botanical-versus-concentrate-reveal'].includes(action)){
+ }else if(['evidence-boundary-panel-settles','botanical-versus-concentrate-reveal','source-bound-scaffold-assembles'].includes(action)){
   Object.assign(report,checkGroundedIllustrationAction(beat,frames,ctx.canvas))
  }else if(action==='activates'){
   const targetId=txt(proof.targetObjectId)

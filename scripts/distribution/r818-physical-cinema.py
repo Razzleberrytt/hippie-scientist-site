@@ -11,7 +11,8 @@ W,H,FPS=1080,1920,30
 PALETTE={'reveals-hidden-action':(28,101,163),'ligand-enters-pocket':(38,133,208),'count-up-then-settle':(196,142,69),
  'bottle-rotates-to-reveal-label':(179,98,70),'reveal-emergency-guidance':(218,72,90),
  'evidence-boundary-panel-settles':(39,102,108),
- 'botanical-versus-concentrate-reveal':(38,97,112)}
+ 'botanical-versus-concentrate-reveal':(38,97,112),
+ 'source-bound-scaffold-assembles':(37,94,109)}
 FONT='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
 def digest(b):return hashlib.sha256(b).hexdigest()
 def ease(v):v=max(0,min(1,v));return v*v*(3-2*v)
@@ -114,10 +115,10 @@ def produce(job):
   directory=out/'r818-frames'/bid;directory.mkdir(parents=True,exist_ok=True)
   frames=[];samples=[];pocketStreak=0;maxPocketStreak=0
   approved_art=art_map.get(bid)
-  if action in ('evidence-boundary-panel-settles','botanical-versus-concentrate-reveal'):
+  if action in ('evidence-boundary-panel-settles','botanical-versus-concentrate-reveal','source-bound-scaffold-assembles'):
    if not approved_art:raise ValueError('R8.18 grounded physical action missing pinned art')
    primary_art=pinned_art(art_root,approved_art['primary'])
-   target_art=pinned_art(art_root,approved_art['target']) if action=='botanical-versus-concentrate-reveal' else None
+   target_art=pinned_art(art_root,approved_art['target']) if action in ('botanical-versus-concentrate-reveal','source-bound-scaffold-assembles') else None
   elif approved_art:raise ValueError('R8.18 art must bind a supported physical semantic action')
   proof=beat['telemetryProof'];primary=proof['primaryObjectId'];subject=proof['subjectObjectId']
   for fi in range(count):
@@ -167,6 +168,19 @@ def produce(job):
     rect=draw_original(img,primary_art,[170,565+125*progress,740,530])
     ob(primary,beat['visualObject']['kind'],proof['beforeLabel'],rect,
        visibilityProgress=progress,artSourceSha256=approved_art['primary']['sha256'])
+   elif action=='source-bound-scaffold-assembles':
+    # Actual source-authored artist layers assemble and settle independently.
+    a=ease(min(1,t/.42));b=ease(max(0,min(1,(t-.16)/.46)))
+    x,y,w,h=approved_art['primary']['targetBox']
+    sx,sy,sw,sh=approved_art['target']['targetBox']
+    subject=draw_original(img,primary_art,[x-90*(1-a),y+42*(1-a),w,h])
+    alpha=max(.04,b);connector=target_art.copy()
+    connector.putalpha(connector.getchannel('A').point(lambda v:int(v*alpha)))
+    bridge=draw_original(img,connector,[sx+37*(1-b),sy-28*(1-b),sw*(.9+.1*b),sh*(.9+.1*b)])
+    ob(primary,beat['visualObject']['kind'],proof['beforeLabel'],subject,
+       artSourceSha256=approved_art['primary']['sha256'])
+    ob(proof['targetObjectId'],proof['targetKind'],proof['afterLabel'],bridge,
+       opacity=alpha,activationLevel=b,artSourceSha256=approved_art['target']['sha256'])
    elif action=='botanical-versus-concentrate-reveal':
     # Two truly independent layered objects with different motion/scale curves.
     progress=ease(min(1,t/.42))
