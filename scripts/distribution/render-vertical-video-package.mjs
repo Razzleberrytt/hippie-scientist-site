@@ -670,6 +670,9 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
   if (!sourceUrl || !contentHash || !disclosure) throw new Error('sourceUrl, contentHash, and disclosure are required for video scene provenance')
 
   const sourceScene = scene.role === 'source'
+  if (scene.scienceIllustration && (!r809 || sourceScene || scene.r812Mechanism || scene.r812CtaUrl)) {
+    throw new Error('Science plate scene incompatible with source beat, R8.12 mechanism, CTA override, or renderer; refusing silent visual discard')
+  }
   const sourceLegibility = scene.sourceLegibility ?? options.sourceLegibility
   const fontSize = sourceScene
     ? Math.max(32, Number(sourceLegibility?.typography?.minimumPxAt1080 ?? 0))
@@ -916,6 +919,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir,
       teachingObject: scene.teachingObject || null,
       compositionFamily: scene.compositionFamily || null,
       visualScene: scene.visualScene || null,
+      scienceIllustration: scene.scienceIllustration || null,
       rhythmAction: scene.rhythmAction || null,
       motifId: scene.motifId || null,
       patternInterrupt: scene.patternInterrupt === true,
@@ -939,9 +943,9 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir,
     fps: 30,
     durationSeconds,
     semanticBeatMapSha256: bindings?.semanticBeatMapSha256 ?? null,
-    scenes: assets.map(({ id, beatId, beatReceiptSha256, cutReason, spoken, motion, file, sha256: hash, start, end, duration, role, factualAuthority, visualMode, teachingObject, compositionFamily, visualScene, rhythmAction, motifId, patternInterrupt, patternInterruptReason }) => ({
+    scenes: assets.map(({ id, beatId, beatReceiptSha256, cutReason, spoken, motion, file, sha256: hash, start, end, duration, role, factualAuthority, visualMode, teachingObject, compositionFamily, visualScene, scienceIllustration, rhythmAction, motifId, patternInterrupt, patternInterruptReason }) => ({
       id, beatId, beatReceiptSha256, cutReason, spoken, motion, file, sha256: hash, start, end, duration, role, factualAuthority,
-      visualMode, teachingObject, compositionFamily, visualScene, rhythmAction, motifId, patternInterrupt, patternInterruptReason,
+      visualMode, teachingObject, compositionFamily, visualScene, scienceIllustration, rhythmAction, motifId, patternInterrupt, patternInterruptReason,
     })),
   }
   const timelineBytes = `${JSON.stringify(timeline, null, 2)}\n`
@@ -1072,6 +1076,13 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir,
     r817FirstPass: r817Sidecar,
     r818Telemetry: r818TelemetrySidecar,
     r818NativeFrames: r818NativeFrameSidecar,
+    sciencePlateReview: scenes.some(scene => scene.scienceIllustration)
+      ? { status: 'REVIEW_ONLY_NOT_PUBLICATION_APPROVED',
+          beats: scenes.filter(scene => scene.scienceIllustration).map(scene => ({
+            beatId: scene.beatId, motif: scene.scienceIllustration.motif,
+            sourceId: scene.scienceIllustration.sourceId,
+          })) }
+      : null,
     r812: creativeSpec.r812?.enabled === true ? { enabled: true, ctaUrl:clean(creativeSpec.r812.ctaUrl) } : null,
     r811Experiment: r811Bundle?.receipt ?? null,
     r811Plan: r811PlanSidecar,
