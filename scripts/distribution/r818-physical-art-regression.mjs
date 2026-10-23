@@ -41,6 +41,27 @@ function beats(primary,target){
     afterLabel:'Product container (illustration)'},physicalArt:{primary,target}}
  ]
 }
+test('source-authored resting boxes fail closed on altered layout',async()=>{
+ const root=makeRoot()
+ try{
+  const src=path.join(root,'source');fs.mkdirSync(src)
+  const a=await png(src,'strands.png','#45a87d'),b=await png(src,'rungs.png','#b88265')
+  const beat={id:'assembly',artMethod:'cinematic-2.5d',semanticAction:'source-bound-scaffold-assembles',
+   claimIds:['CLAIM-1'],onScreenSourceIds:['NIH ODS'],visualObject:{kind:'fibers'},
+   telemetryProof:{sourceClaimId:'CLAIM-1',subjectObjectId:'strands',primaryObjectId:'strands',
+    targetObjectId:'rungs',targetKind:'crosslinks',beforeLabel:'Illustrative fibres',
+    afterLabel:'Illustrative rungs'},
+   physicalArt:{primary:{...a,targetBox:[371,614,339,725]},
+    target:{...b,targetBox:[415,702,250,564]}}}
+  const staged=stageR818PhysicalArt({artRoot:src,outputDir:path.join(root,'pass'),beats:[beat]})
+  assert.deepEqual(staged.assembly.primary.targetBox,[371,614,339,725])
+  assert.deepEqual(staged.assembly.target.targetBox,[415,702,250,564])
+  const shifted=clone(beat);shifted.physicalArt.target.targetBox=[1000,702,250,564]
+  assert.throws(()=>stageR818PhysicalArt({artRoot:src,outputDir:path.join(root,'bad'),beats:[shifted]}),/bounded authored resting boxes/)
+  const missing=clone(beat);delete missing.physicalArt.primary.targetBox
+  assert.throws(()=>stageR818PhysicalArt({artRoot:src,outputDir:path.join(root,'bad2'),beats:[missing]}),/bounded authored resting boxes/)
+ }finally{fs.rmSync(root,{force:true,recursive:true})}
+})
 test('pinned isolated original artwork rejects source tampering and wrong authority',async()=>{
  const root=makeRoot()
  try{
@@ -71,6 +92,14 @@ test('true renderer produces two independently moving source-bound art beats and
   const source=path.join(root,'source'),out=path.join(root,'video');fs.mkdirSync(source);fs.mkdirSync(out)
   const a=await png(source,'plant.png','#45a87d'),b=await png(source,'container.png','#b88265')
   const plan=beats(a,b)
+  plan.push({id:'assembly',artMethod:'cinematic-2.5d',semanticAction:'source-bound-scaffold-assembles',
+   start:4.4,end:7.4,role:'mechanism',claimIds:['CLAIM-1'],onScreenSourceIds:['PMID:25026323'],
+   visualObject:{kind:'fibers',name:'Source-drawn biological fibres'},
+   telemetryProof:{sourceClaimId:'CLAIM-1',subjectObjectId:'strands',primaryObjectId:'strands',
+    targetObjectId:'rungs',targetKind:'crosslinks',beforeLabel:'Illustrative fibres',
+    afterLabel:'Illustrative rungs'},
+   physicalArt:{primary:{...a,targetBox:[371,614,339,725]},
+    target:{...b,targetBox:[415,702,250,564]}}})
   const scenes=plan.map(({id,start,end,role})=>({beatId:id,start,end,role}))
   const assets=plan.map(x=>({id:x.id,sha256:hash('approved-scene:'+x.id)}))
   const provider=createR818PhysicalCinemaProvider({artRoot:source,timeoutMs:240_000})
@@ -89,14 +118,16 @@ test('true renderer produces two independently moving source-bound art beats and
   assert.equal(trace.physicalArtManifestSha256,
    JSON.parse(fs.readFileSync(path.join(out,'r818-physical-job.json'))).physicalArtManifestSha256)
   const native=verifyR818NativeFrames(out,sequence,scenes)
-  assert.equal(native.frameCount,132)
+  assert.equal(native.frameCount,222)
   const geometry=assertR818TelemetryBinding({beats:plan},trace,{rendererCodeSha256,
    renderedSceneAssetsSha256:trace.renderedSceneAssetsSha256})
-  assert.equal(geometry.actionReports.length,2)
+  assert.equal(geometry.actionReports.length,3)
   assert.ok(geometry.actionReports[0].movementPixels>=76)
   assert.ok(geometry.actionReports[1].botanicalTravelPixels>=54)
   assert.ok(geometry.actionReports[1].productWidthGrowthPixels>=37)
   assert.ok(geometry.actionReports[1].productHeightGrowthPixels>=48)
+  assert.ok(geometry.actionReports[2].movementPixels>=76)
+  assert.ok(geometry.actionReports[2].connectorActivationDelta>=.75)
   // Optional CI-only decoded visual receipt: reviewers must see the actual new
   // art-motion pixels, not infer visual quality from a telemetry assertion.
   // Synthetic fixture art and silent movie remain REVIEW ONLY.
@@ -128,12 +159,12 @@ test('true renderer produces two independently moving source-bound art beats and
    assert.equal(probed.width,1080)
    assert.equal(probed.height,1920)
    assert.equal(probed.avg_frame_rate,'30/1')
-   assert.equal(Number(probed.nb_read_frames),132)
+   assert.equal(Number(probed.nb_read_frames),222)
    const sheet=await renderR818ContactSheet({masterMp4:mp4,beats:scenes,outputDir:proofDir})
    const media=fs.readFileSync(mp4)
    const receipt={schemaVersion:'ths-r818-original-object-motion-visual-review-v1',
-    status:'ACTUAL_132_NATIVE_FRAMES_ENCODED_TECHNICAL_TEST_ONLY',
-    mp4File:path.basename(mp4),mp4Sha256:hash(media),frameCount:132,
+    status:'ACTUAL_222_NATIVE_FRAMES_ENCODED_TECHNICAL_TEST_ONLY',
+    mp4File:path.basename(mp4),mp4Sha256:hash(media),frameCount:222,
     width:1080,height:1920,fps:30,audio:false,
     contactSheetFile:path.basename(sheet.sheetFile),
     contactSheetSha256:sheet.proof.contactSheetSha256,
