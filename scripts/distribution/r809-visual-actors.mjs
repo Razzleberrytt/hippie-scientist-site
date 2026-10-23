@@ -1,4 +1,5 @@
 import { directR814Shot } from './r814-cinematic-director.mjs'
+import { renderSciencePlateActor } from './science-plate-actors.mjs'
 // EvidenceMotion cinematic 2.5D science actors (R8.14 craft candidate).
 // No photoreal fake molecules, fake numeric plots, stock slides or generative credits.
 // Depth is explicit: distant atmosphere, lit middle-stage objects, foreground detail.
@@ -24,6 +25,11 @@ export function renderR809VisualActor(scene, { x, y, width, height, foreground, 
   if (!/^#[a-f0-9]{3,8}$/i.test(String(foreground || ''))) throw Error('Cinematic 2.5D requires hex foreground color')
   const color = escape(foreground)
   const shot = directR814Shot(scene)
+  // Opt-in biological teaching objects reuse this cinematic director and the
+  // canonical narration/source checks; they are not a parallel video generator.
+  if (scene.scienceIllustration) {
+    return renderSciencePlateActor(scene, {x:px, y:py, width:w, height:h, motionPhase, shot})
+  }
   const cx = px + w/2, cy = py + h/2
   const id = 'ths-cine-' + stage
   const final = motionPhase === 'post'
