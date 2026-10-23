@@ -4,6 +4,7 @@ import crypto from 'node:crypto'
 import {fileURLToPath} from 'node:url'
 import {verifyR818NativeFrames} from './r818-native-frame-sequence.mjs'
 import {assertR818TelemetryBinding} from './r818-telemetry-qa.mjs'
+import {fileURLToPath} from 'node:url'
 
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex')
 const codePath=fileURLToPath(new URL('./r818-physical-cinema.py',import.meta.url))
@@ -57,6 +58,17 @@ export function verifyR819RealR818ProductionHandoff(packageDir,{plan,scenes,nati
       sha(read(root,asset.file))!==asset.sha256)
     hold('staged artwork bytes no longer match real native renderer')
   }
+ }
+ const separated=Object.values(job.physicalArt||{}).some(r=>r.art||r.trust)
+ if(separated){
+  const proof=JSON.parse(read(root,'r818-r819-native-separation-receipt.json'))
+  const sourceFile=fileURLToPath(new URL('./r818-r819-separated-assembly.mjs',import.meta.url))
+  if(proof?.samePassMechanicalIntegrity!==true||
+     proof.rendererAssemblyCodeSha256!==sha(fs.readFileSync(sourceFile))||
+     proof.physicalRenderJobSha256!==sha(jobBytes)||
+     proof.physicalNativeSequenceSha256!==sha(read(root,'r818-native-frames.json'))||
+     proof.publicationApproved!==false)
+   hold('same-pass R8.19 original-art assembly identity or fail-closed receipt differs')
  }
  const native=verifyR818NativeFrames(root,doc,scenes)
  if(nativeSequence.frameCount!==undefined&&nativeSequence.frameCount!==native.frameCount)

@@ -3,6 +3,7 @@ import path from 'node:path'
 import crypto from 'node:crypto'
 import {spawnSync} from 'node:child_process'
 import {stageR818PhysicalArt} from './r818-physical-art-loader.mjs'
+import {fileURLToPath} from 'node:url'
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex')
 const MODULE=new URL('./r818-physical-cinema.py',import.meta.url)
 // Use a single native renderer to create both actual pixels and true projected
@@ -43,6 +44,15 @@ export function createR818PhysicalCinemaProvider({
    })
    if(result.status!==0)throw Error('R8.18 native physical renderer failed; no SVG substitution allowed: '+
       String(result.stderr||result.error||'').slice(-2000))
+   if(Object.values(physicalArt).some(r=>r.art||r.trust)){
+    const module=fileURLToPath(new URL('./r818-r819-separated-assembly.mjs',import.meta.url))
+    const join=spawnSync(process.execPath,[module,outputDir],{
+     encoding:'utf8',timeout:timeoutMs,maxBuffer:3000000})
+    if(join.status!==0)throw Error('R8.18/R8.19 same-pass original-artist composition failed: '+
+     String(join.stderr||join.error||'').slice(-2400))
+    if(!fs.existsSync(path.join(outputDir,'r818-r819-native-separation-receipt.json')))
+     throw Error('R8.19 same-pass independent pixel receipt missing')
+   }
    for(const file of ['r818-native-frames.json','r818-telemetry.json'])
      if(!fs.existsSync(path.join(outputDir,file)))
        throw Error('R8.18 physical producer omitted required '+file)

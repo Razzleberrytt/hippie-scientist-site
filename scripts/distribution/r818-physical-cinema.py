@@ -93,9 +93,13 @@ def pinned_art(root,ref,source_plate=False):
    source.size!=(W,H) if source_plate else (max(source.size)>1200 or min(source.size)<64)):
    raise ValueError('R8.18 physical layer is not bounded source RGBA')
   return source.copy()
-def draw_original(canvas,art,box):
+def draw_original(canvas,art,box,crop_original=False):
  """Blend a REAL independent art object and record its actual nontransparent bbox."""
  x,y,w,h=map(int,box)
+ if crop_original:
+  shape=art.getchannel('A').getbbox()
+  if not shape:raise ValueError('R8.18 source art is entirely invisible')
+  art=art.crop(shape)
  layer=art.resize((w,h),Image.Resampling.LANCZOS)
  bbox=layer.getchannel('A').getbbox()
  if not bbox:raise ValueError('R8.18 invisible art cannot count as semantic motion')
@@ -118,18 +122,29 @@ def produce(job):
   approved_art=art_map.get(bid)
   if action in ('evidence-boundary-panel-settles','botanical-versus-concentrate-reveal','source-bound-scaffold-assembles'):
    if not approved_art:raise ValueError('R8.18 grounded physical action missing pinned art')
-   primary_art=pinned_art(art_root,approved_art['primary'])
-   target_art=pinned_art(art_root,approved_art['target']) if action in ('botanical-versus-concentrate-reveal','source-bound-scaffold-assembles') else None
+   primary_art=pinned_art(art_root,approved_art['primary'],source_plate=('art' in approved_art))
+   target_art=pinned_art(art_root,approved_art['target'],source_plate=('art' in approved_art)) if action in ('botanical-versus-concentrate-reveal','source-bound-scaffold-assembles') else None
   elif approved_art:raise ValueError('R8.18 art must bind a supported physical semantic action')
   if action=='source-bound-scaffold-assembles' and approved_art.get('plate'):
    if approved_art['plate'].get('r819BackgroundEligible') is not False:
     raise ValueError('R8.18 factual source plate is not nonfactual R8.19 art')
    source_plate=pinned_art(art_root,approved_art['plate'],source_plate=True)
   else:source_plate=None
+  separated=action=='source-bound-scaffold-assembles' and ('art' in approved_art or 'trust' in approved_art)
+  if separated:
+   if 'art' not in approved_art or 'trust' not in approved_art or source_plate is not None:
+    raise ValueError('R8.19 separate artist layers must have ART + TRUST without flat source card')
+   for role in ('art','trust'):
+    expected='nonfactual-art' if role=='art' else 'factual-trust'
+    if approved_art[role].get('r819Role')!=expected:
+     raise ValueError('R8.19 original source-art roles changed')
+    pinned_art(art_root,approved_art[role],source_plate=True)
+   (out/'r819-layers'/bid).mkdir(parents=True,exist_ok=True)
   proof=beat['telemetryProof'];primary=proof['primaryObjectId'];subject=proof['subjectObjectId']
   for fi in range(count):
    t=fi/max(1,count-1);p=ease(t)
-   img=back(PALETTE[action]);d=ImageDraw.Draw(img,'RGBA');objects=[]
+   img=Image.new('RGBA',(W,H),(0,0,0,0)) if separated else back(PALETTE[action])
+   d=ImageDraw.Draw(img,'RGBA');objects=[]
    def ob(oid,kind,label,rect,value=None,**other):
     x,y,w,h=rect;objects.append({'objectId':oid,'kind':kind,'label':str(label),
       'bbox':[float(x),float(y),float(w),float(h)],'zIndex':2,'visible':True,
@@ -185,10 +200,10 @@ def produce(job):
     a=ease(min(1,t/.42));b=ease(max(0,min(1,(t-.16)/.46)))
     x,y,w,h=approved_art['primary']['targetBox']
     sx,sy,sw,sh=approved_art['target']['targetBox']
-    subject=draw_original(img,primary_art,[x-90*(1-a),y+42*(1-a),w,h])
+    subject=draw_original(img,primary_art,[x-90*(1-a),y+42*(1-a),w,h],crop_original=separated)
     alpha=max(.04,b);connector=target_art.copy()
     connector.putalpha(connector.getchannel('A').point(lambda v:int(v*alpha)))
-    bridge=draw_original(img,connector,[sx+37*(1-b),sy-28*(1-b),sw*(.9+.1*b),sh*(.9+.1*b)])
+    bridge=draw_original(img,connector,[sx+37*(1-b),sy-28*(1-b),sw*(.9+.1*b),sh*(.9+.1*b)],crop_original=separated)
     ob(primary,beat['visualObject']['kind'],proof['beforeLabel'],subject,
        artSourceSha256=approved_art['primary']['sha256'])
     ob(proof['targetObjectId'],proof['targetKind'],proof['afterLabel'],bridge,
@@ -221,11 +236,17 @@ def produce(job):
    if action=='ligand-enters-pocket':
     d.text((540,1518),'SYMBOLIC 3D MODEL',font=font(34),fill=(222,238,251),anchor='mm')
     d.text((540,1560),'NOT ATOMISTIC DOCKING',font=font(25),fill=(176,201,222),anchor='mm')
-   if beat.get('onScreenSourceIds'):
+   if not separated and beat.get('onScreenSourceIds'):
     d.text((540,1645),' · '.join(beat['onScreenSourceIds']),font=font(24),fill=(178,198,212),anchor='mm')
    file=directory/('f'+str(fi).zfill(5)+'.png')
-   img.convert('RGB').save(file)
-   frames.append({'frameIndex':fi,'file':str(file.relative_to(out)),'sha256':digest(file.read_bytes())})
+   if separated:
+    # R8.18 physical object pixels, not inferred image differences.
+    mechanism=out/'r819-layers'/bid/('f'+str(fi).zfill(5)+'-mechanism.png')
+    img.save(mechanism)
+    frames.append({'frameIndex':fi,'file':str(file.relative_to(out)),'sha256':None})
+   else:
+    img.convert('RGB').save(file)
+    frames.append({'frameIndex':fi,'file':str(file.relative_to(out)),'sha256':digest(file.read_bytes())})
    if fi%6==0:samples.append({'time':round(scene['start']+fi/30,6),'objects':objects})
   telemetry_beats.append({'beatId':bid,'producer':{'instrumentation':'native-vtk-projection' if action in ('ligand-enters-pocket','reveals-hidden-action') else 'native-2d-canvas-geometry'},
     'frames':samples,'metrics':{'longestNativePocketDwellFrames':maxPocketStreak}})
