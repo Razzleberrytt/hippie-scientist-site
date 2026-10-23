@@ -6,13 +6,18 @@ import {fileURLToPath} from 'node:url'
 import {authorR819OriginalArtistPixelProof} from './r819-original-artist-pixel-proof.mjs'
 function args(argv){
  const found={}
- for(let i=0;i<argv.length;i+=2){
+ for(let i=0;i<argv.length;){
   const key=argv[i]
-  if(!['--package-dir','--source-ledger','--native-frames','--plan'].includes(key)||
-     !argv[i+1]||argv[i+1].startsWith('--'))throw Error('R8.19 CLI unknown/incomplete argument: '+key)
   if(found[key])throw Error('R8.19 CLI repeated argument '+key)
-  found[key]=argv[i+1]
+  if(key==='--require-same-pass-r818'){
+   found[key]=true;i++;continue
+  }
+  if(!['--package-dir','--source-ledger','--native-frames','--plan','--timed-scenes'].includes(key)||
+     !argv[i+1]||argv[i+1].startsWith('--'))throw Error('R8.19 CLI unknown/incomplete argument: '+key)
+  found[key]=argv[i+1];i+=2
  }
+ if(found['--require-same-pass-r818']&&!found['--timed-scenes'])
+  throw Error('R8.19 strict R8.18 handoff requires actual --timed-scenes')
  for(const key of ['--package-dir','--source-ledger','--native-frames','--plan'])
   if(!found[key])throw Error('R8.19 CLI missing '+key)
  return found
@@ -27,7 +32,9 @@ export async function runR819OriginalArtistCli(argv){
   return JSON.parse(fs.readFileSync(file,'utf8'))
  }
  return authorR819OriginalArtistPixelProof(root,{
-  source:pick('--source-ledger'),nativeSequence:pick('--native-frames'),plan:pick('--plan')
+  source:pick('--source-ledger'),nativeSequence:pick('--native-frames'),plan:pick('--plan'),
+  requireSamePassR818:a['--require-same-pass-r818']===true,
+  scenes:a['--require-same-pass-r818']===true?pick('--timed-scenes'):undefined
  })
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
