@@ -179,9 +179,17 @@ test('true renderer produces two independently moving source-bound art beats and
   assert.equal(attested.frameCount,222)
   assert.equal(attested.beatCount,3)
   assert.equal(attested.publicationApproved,false)
-  assert.ok(attested.actualOriginalArtStagedCount>=7)
+  assert.equal(attested.actualOriginalArtStagedCount,6)
   assert.throws(()=>verifyR819RealR818ProductionHandoff(out,{nativeSequence:sequence,
    plan:{beats:plan},scenes:[...scenes].reverse()}),/differs from real producer job/)
+  const jobFile=path.join(out,'r818-physical-job.json')
+  const originalJob=fs.readFileSync(jobFile)
+  const tamperedJob=JSON.parse(originalJob)
+  tamperedJob.physicalRendererSha256='0'.repeat(64)
+  fs.writeFileSync(jobFile,JSON.stringify(tamperedJob))
+  assert.throws(()=>verifyR819RealR818ProductionHandoff(out,{nativeSequence:sequence,
+   plan:{beats:plan},scenes}),/physical renderer source, scene, or original-art identity mismatch/)
+  fs.writeFileSync(jobFile,originalJob)
   assert.ok(trace.beats[2].frames.every(f=>f.objects.some(o=>
    o.objectId==='source-plate'&&o.artSourceSha256===plate.sha256)))
   // Optional CI-only decoded visual receipt: reviewers must see the actual new
