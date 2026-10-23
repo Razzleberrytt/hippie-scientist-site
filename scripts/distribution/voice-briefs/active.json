@@ -1,0 +1,190 @@
+{
+  "release": "R8.05",
+  "sourceIdentity": {
+    "id": "pubmed:40265319",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/40265319/"
+  },
+  "premise": {
+    "interestScore": 4.6,
+    "coldViewerWhyCare": "People hesitate to use creatine because they worry about baldness.",
+    "viewerQuestion": "Does creatine actually cause hair loss?",
+    "earlyPayoff": "A 2025 trial measured actual hair and found no significant between-group difference.",
+    "methodologyBeforePayoff": false,
+    "hookMode": "question",
+    "paperSummaryOpening": false
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "beats": [
+    {
+      "id": "c01-hook",
+      "role": "hook",
+      "narration": "Does creatine actually make you go bald?",
+      "onScreenText": "CREATINE = HAIR LOSS?",
+      "visualPurpose": "Open at the scalp and transform the claim into a question.",
+      "spokenAnchor": "go bald",
+      "visualAction": "Macro dolly through hair follicles as a false alarm icon appears.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "creative-framing",
+      "primaryEntities": [
+        "Creatine"
+      ],
+      "pauseAfterSeconds": 0.2
+    },
+    {
+      "id": "c02-payoff",
+      "role": "finding",
+      "narration": "A newer trial actually checked hair and found no significant difference.",
+      "onScreenText": "2025: actual hair measured",
+      "visualPurpose": "Reveal the evidence payoff before discussing methodology.",
+      "spokenAnchor": "checked hair",
+      "visualAction": "Split-screen of labeled scalp outcomes comparing creatine and placebo, no invented numerical bars.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "pubmed:40265319",
+      "primaryEntities": [
+        "Hair outcomes"
+      ],
+      "pauseAfterSeconds": 0.15
+    },
+    {
+      "id": "c03-context",
+      "role": "context",
+      "narration": "The rumor began with a two thousand nine study of a hormone called D H T.",
+      "onScreenText": "2009: a hormone, not hair",
+      "visualPurpose": "Establish that the older result was a hormone surrogate.",
+      "spokenAnchor": "hormone",
+      "visualAction": "Time-slider sweeps to 2009 and a DHT badge appears beside an empty hair-measurement column.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "pubmed:19741313",
+      "primaryEntities": [
+        "DHT"
+      ],
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "c04-evidence",
+      "role": "evidence",
+      "narration": "D H T went up after loading, but that study never measured hair loss.",
+      "onScreenText": "DHT +56% after loading | HAIR NOT TESTED",
+      "visualPurpose": "Attribute the original hormone number and distinguish it from hair.",
+      "spokenAnchor": "never measured",
+      "visualAction": "DHT indicator rises and separates from a crossed-out hair measure.",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "pubmed:19741313",
+      "primaryEntities": [
+        "DHT"
+      ],
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "c05-study",
+      "role": "finding",
+      "narration": "In twenty twenty five, men took five grams of creatine or placebo daily for twelve weeks.",
+      "onScreenText": "5 g/day · 12 weeks",
+      "visualPurpose": "Explain tested treatment, population, and duration without implying a longer follow-up.",
+      "spokenAnchor": "twelve weeks",
+      "visualAction": "Calendar fills twelve weeks and capsules split into matched labeled arms.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "pubmed:40265319",
+      "primaryEntities": [
+        "Creatine",
+        "Placebo"
+      ],
+      "comparisonRequired": true,
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "c06-result",
+      "role": "finding",
+      "narration": "They measured hair density, thickness, and follicle counts, without significant differences between groups.",
+      "onScreenText": "HAIR MEASUREMENTS: no significant difference",
+      "visualPurpose": "Present the measured outcomes without fake numerical values.",
+      "spokenAnchor": "hair density",
+      "visualAction": "A photographic scalp-style follicle illustration maps three labeled measures, then resolves to an evidence-neutral equals sign.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "pubmed:40265319",
+      "primaryEntities": [
+        "Hair measurements"
+      ],
+      "pauseAfterSeconds": 0.17
+    },
+    {
+      "id": "c07-limit",
+      "role": "limitation",
+      "narration": "Only thirty seven men had usable hair data. Twelve weeks cannot settle long term risk.",
+      "onScreenText": "37 with hair data · 12 weeks",
+      "visualPurpose": "Preserve sample-size and time-horizon limitations on screen.",
+      "spokenAnchor": "thirty seven",
+      "visualAction": "Participants compress to thirty seven silhouettes and an unfinished timeline appears.",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "pause",
+      "factualAuthority": "pubmed:40265319",
+      "primaryEntities": [
+        "Study limitations"
+      ],
+      "pauseAfterSeconds": 0.17
+    },
+    {
+      "id": "c08-source",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/40265319/",
+      "visualPurpose": "Offer a readable primary-study link as an independent evidence hold.",
+      "visualAction": "Display PubMed source on neutral high-contrast scientific card.",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "pause",
+      "factualAuthority": "pubmed:40265319",
+      "primaryEntities": [
+        "Source"
+      ],
+      "holdSeconds": 3.2,
+      "pauseAfterSeconds": 0
+    },
+    {
+      "id": "c09-cta",
+      "role": "cta",
+      "narration": "The evidence doesn't currently show that creatine causes baldness. Save this for your gym friend.",
+      "onScreenText": "SCIENCE, NOT MYTHS · SAVE THIS",
+      "visualPurpose": "End with appropriately bounded synthesis and loop into the first claim.",
+      "spokenAnchor": "Save this",
+      "visualAction": "Return through the same follicle tunnel into the original opening question.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "end",
+      "factualAuthority": "pubmed:40265319",
+      "primaryEntities": [
+        "Creatine"
+      ],
+      "pauseAfterSeconds": 0
+    }
+  ]
+}
