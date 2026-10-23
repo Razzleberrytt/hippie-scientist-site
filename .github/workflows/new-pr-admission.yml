@@ -8,6 +8,7 @@ on:
 permissions:
   contents: read
   pull-requests: read
+  checks: write
 
 jobs:
   pre-pr-admission:
@@ -23,15 +24,38 @@ jobs:
           ref: ${{ github.event.repository.default_branch }}
           persist-credentials: false
 
-      - name: Reject duplicate or competing implementation PRs
+      - name: Record exact-head PR admission decision
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          EXPECTED_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           set -euo pipefail
+          # Check-runs, unlike pull_request_target workflow jobs, are attached to
+          # the proposed PR head, so the protected controller can read failures.
+          check_id="$(gh api --method POST "repos/$GITHUB_REPOSITORY/check-runs" \
+            -f name='pre-pr-admission' \
+            -f head_sha="$EXPECTED_HEAD_SHA" \
+            -f status='in_progress' \
+            -f details_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+            --jq '.id')"
+          set +e
           node .agents/skills/pr-admission-preflight.mjs --repo "$GITHUB_REPOSITORY" --from-pr "$PR_NUMBER"
+          decision="$?"
+          set -e
+          current_sha="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" --jq '.head.sha')"
+          if [ "$current_sha" != "$EXPECTED_HEAD_SHA" ]; then
+            echo "PR head changed while admission was checked. Refusing stale validation."
+            decision=1
+          fi
+          if [ "$decision" -eq 0 ]; then conclusion=success; else conclusion=failure; fi
+          gh api --method PATCH "repos/$GITHUB_REPOSITORY/check-runs/$check_id" \
+            -f status=completed -f conclusion="$conclusion" \
+            -f output[title]='New PR admission' \
+            -f output[summary]="Decision: $conclusion for exact head $EXPECTED_HEAD_SHA"
+          exit "$decision"
 
-      - name: Admission check is not publication approval
+      - name: Admission is not publication approval
         if: always()
-        run: echo "Admission governs PR concurrency only; normal source, security, CI, independent review, serialized merge and production proof remain mandatory."
+        run: echo "Admission only governs new PR concurrency; full CI, scientific review and serialized protected merge remain mandatory."
