@@ -298,7 +298,7 @@
     "jszip": "3.10.2",
     "lint-staged": "^15.2.10",
     "npm-run-all2": "8.0.4",
-    "openai": "^4.104.0",
+    "openai": "6.46.0",
     "pagefind": "^1.5.2",
     "postcss": "^8.5.18",
     "remark-gfm": "4.0.1",
@@ -312,7 +312,7 @@
     "vitest": "^4.1.11",
     "wrangler": "4.151.0",
     "yaml": "2.9.0",
-    "zod": "^3.23.8",
+    "zod": "4.6.7",
     "vite": "8.3.3"
   },
   "overrides": {
