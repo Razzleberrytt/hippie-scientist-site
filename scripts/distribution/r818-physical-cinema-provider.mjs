@@ -2,12 +2,13 @@ import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
 import {spawnSync} from 'node:child_process'
+import {stageR818PhysicalArt} from './r818-physical-art-loader.mjs'
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex')
 const MODULE=new URL('./r818-physical-cinema.py',import.meta.url)
 // Use a single native renderer to create both actual pixels and true projected
 // object telemetry; neither receipt is reconstructed from a storyboard.
 export function createR818PhysicalCinemaProvider({
- pythonExecutable='python3',scriptFile=null,timeoutMs=20*60*1000
+ pythonExecutable='python3',scriptFile=null,artRoot=null,timeoutMs=20*60*1000
 }={}){
  const script=path.resolve(scriptFile||MODULE.pathname)
  if(!fs.existsSync(script))throw Error('R8.18 VTK/Pillow physical producer missing')
@@ -24,8 +25,13 @@ export function createR818PhysicalCinemaProvider({
     if(b.artMethod==='rendered-3d'&&b.visualObject?.assetSha256!==sourceCodeSha256)
       throw Error('R8.18 approved 3D geometry asset SHA differs from executing Python source')
    }
+   // Source-verified, locally staged original cutouts go to the SAME physical producer
+   // as VTK/Pillow scenes. No invented motion receipts or SVG substitutions.
+   const physicalArt=stageR818PhysicalArt({artRoot,outputDir,beats:canonicalFirstPassPlan.beats})
+   const physicalArtManifestSha256=sha(JSON.stringify(physicalArt))
    const job={
     outputDir,scenes,plan:canonicalFirstPassPlan,rendererCodeSha256,
+    physicalArt,physicalArtManifestSha256,
     renderedSceneAssetsSha256:sha(assets.map(x=>x.sha256).join('|')),
     sourceManifestSha256:sha(JSON.stringify({sourceUrl,sourceContentHash})),
     physicalRendererSha256:sourceCodeSha256
