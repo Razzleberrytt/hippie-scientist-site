@@ -81239,6 +81239,82 @@
       "reservation_id": "6c947c997e6f915a031e",
       "reserved_at": "2026-10-23T19:10:35.709Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "41520950",
+      "title": "Evidence of heterogeneity in the opioid withdrawal syndrome: Spontaneous and precipitated withdrawal.",
+      "doi": "10.1016/j.pbb.2026.174153",
+      "source_title": "Evidence of heterogeneity in the opioid withdrawal syndrome: Spontaneous and precipitated withdrawal.",
+      "abstract": "This study characterized the heterogeneity of opioid withdrawal by comparing naturally occurring withdrawal during opioid abstinence (spontaneous withdrawal) with abrupt, pharmacologically induced naloxone-precipitated withdrawal in adults with Opioid Use Disorder (OUD). A secondary analysis was conducted on de-identified data from 86 adults meeting DSM-5 criteria for moderate-to-severe OUD. Participants either presented in spontaneous withdrawal (n = 28) or underwent naloxone challenge to precipitate withdrawal (n = 58). Withdrawal symptoms were rated using the Wang procedure. Principal Component Analysis (PCA) of binary symptom data was performed to identify dominant patterns of symptom co-occurrence. Separate PCAs were then conducted for the withdrawal syndrome types to delineate group-specific symptom clusters. In the combined sample, four principal components together accounted for 55.6% of the variance in withdrawal symptoms, with the highest loadings observed on autonomic (e.g., temperature change, sweating) and somatic (e.g., restlessness, yawning) domains. Subgroup analyses revealed distinct symptom-loading patterns: the spontaneous withdrawal group displayed a more pronounced autonomic profile dominated by temperature dysregulation and muscle aching, whereas the precipitated withdrawal group exhibited greater variability, with notable gastrointestinal (vomiting, stomach pain) and somatic features. Across analyses, inter-individual variability was substantial, underscoring the multidimensional nature of opioid withdrawal. These findings suggest spontaneous and precipitated withdrawal are distinct clinical phenomena: the former emerges gradually, the latter produces diverse, acute symptoms, though both display heterogeneity. Moreover, relying solely on naloxone-challenge paradigms for treatment development may overlook key aspects of \"real-world\" spontaneous withdrawal, reinforcing the importance of broader experimental models and individualized care.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41520950/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41520950",
+        "doi": "10.1016/j.pbb.2026.174153",
+        "journal": "Pharmacology, biochemistry, and behavior",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-23T22:07:54.309Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f3e3da46cc6f76f833dd",
+      "reserved_at": "2026-10-23T22:08:00.152Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -81283,17 +81359,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 540,
+    "total_reservations": 541,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 65,
+      "4": 66,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 540
+      "SOURCE_VERIFIED": 541
     },
     "batches": [
       {
@@ -81313,7 +81389,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 40,
+        "count": 41,
         "pr_number": null,
         "blocker": null
       }
