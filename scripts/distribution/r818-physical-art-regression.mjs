@@ -306,7 +306,7 @@ test('native physical collagen movement and separately composed R8.19 artist pix
   fs.writeFileSync(path.join(source,'art.png'),art)
   const beat={id:'nativeart',artMethod:'cinematic-2.5d',
    semanticAction:'source-bound-scaffold-assembles',
-   start:0,end:2.2,role:'mechanism',claimIds:['vitc-claim'],
+   start:0,end:3.0,role:'mechanism',claimIds:['vitc-claim'],
    onScreenSourceIds:['NIH-ODS'],visualObject:{kind:'collagen-strands',
     name:'Source-authored collagen fibers'},
    telemetryProof:{sourceClaimId:'vitc-claim',subjectObjectId:'strands',
@@ -317,7 +317,7 @@ test('native physical collagen movement and separately composed R8.19 artist pix
     art:{file:'art.png',sha256:hash(art),r819Role:'nonfactual-art',containsFactualText:false},
     trust:{...trust,r819Role:'factual-trust',factualAuthority:'NIH ODS',
      sourceClaimId:'vitc-claim'}}}
-  const scenes=[{beatId:beat.id,start:0,end:2.2,role:'mechanism'}]
+  const scenes=[{beatId:beat.id,start:0,end:3.0,role:'mechanism'}]
   const assets=[{id:beat.id,sha256:hash('pinned physical artwork assets')}]
   const rendererCodeSha256=hash('canonical original art rendering')
   const sourceUrl='https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/'
@@ -327,20 +327,20 @@ test('native physical collagen movement and separately composed R8.19 artist pix
    canonicalFirstPassPlan:{beats:[beat]},rendererCodeSha256,sourceUrl,sourceContentHash})
   const seq=JSON.parse(fs.readFileSync(path.join(out,'r818-native-frames.json'),'utf8'))
   const trace=JSON.parse(fs.readFileSync(path.join(out,'r818-telemetry.json'),'utf8'))
-  assert.equal(verifyR818NativeFrames(out,seq,scenes).frameCount,66)
+  assert.equal(verifyR818NativeFrames(out,seq,scenes).frameCount,90)
   assert.equal(assertR818TelemetryBinding({beats:[beat]},trace,{
     rendererCodeSha256,renderedSceneAssetsSha256:hash(assets.map(a=>a.sha256).join('|'))
    }).beatCount,1)
   const receipt=JSON.parse(fs.readFileSync(
     path.join(out,'r818-r819-native-separation-receipt.json'),'utf8'))
   assert.equal(receipt.status,'REAL_PHYSICAL_OBJECT_PIXELS_SOURCE_SEPARATED_PIXEL_MATCH_REVIEW_ONLY')
-  assert.equal(receipt.frameCount,66)
+  assert.equal(receipt.frameCount,90)
   assert.equal(receipt.publicationApproved,false)
   const layerDoc=JSON.parse(fs.readFileSync(path.join(out,'r819-layer-sequence.json'),'utf8'))
-  assert.equal(layerDoc.beats[0].frames.length,66)
+  assert.equal(layerDoc.beats[0].frames.length,90)
   const origin=verifyR819RealR818ProductionHandoff(out,{plan:{beats:[beat]},scenes,
    nativeSequence:seq})
-  assert.equal(origin.frameCount,66)
+  assert.equal(origin.frameCount,90)
   fs.appendFileSync(path.join(out,layerDoc.beats[0].frames[0].layers.trust.file),
     Buffer.from('tampered'))
   assert.throws(()=>verifyR819LayerInventory(out,{
