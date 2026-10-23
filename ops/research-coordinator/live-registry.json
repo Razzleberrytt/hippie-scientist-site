@@ -80016,6 +80016,159 @@
       "reservation_id": "5f395e2b8b6a359f2f48",
       "reserved_at": "2026-10-23T04:43:17.295Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42907078",
+      "title": "Ketamine in Modern Medicine: Current Evidence in Acute Pain, Opioid Use Disorder, and Depression.",
+      "doi": "10.1016/j.aan.2026.06.007",
+      "source_title": "Ketamine in Modern Medicine: Current Evidence in Acute Pain, Opioid Use Disorder, and Depression.",
+      "abstract": "Ketamine has continued to be a valuable adjunct in perioperative care, supported by recent meta-analyses demonstrating opioid-sparing effects and improved analgesia, particularly in opioid-tolerant patients and painful surgeries. Its use should be targeted to patients most likely to benefit from its unique properties. Beyond acute pain, ketamine shows promise in patients with opioid use disorder by mitigating tolerance and withdrawal through N-methyl-d-aspartate receptor modulation and downstream neuroadaptive effects. Additionally, its established antidepressant properties position ketamine as a potentially advantageous agent for patients with coexisting pain and mood disorders, a population frequently encountered in perioperative practice.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42907078/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42907078",
+        "doi": "10.1016/j.aan.2026.06.007",
+        "journal": "Advances in anesthesia",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-23T07:42:22.292Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2996153d41bf31f0e224",
+      "reserved_at": "2026-10-23T07:42:30.960Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42899488",
+      "title": "Takotsubo Cardiomyopathy Associated With Severe Medetomidine Withdrawal: A Case Report.",
+      "doi": "10.1177/29767342261493888",
+      "source_title": "Takotsubo Cardiomyopathy Associated With Severe Medetomidine Withdrawal: A Case Report.",
+      "abstract": "Takotsubo cardiomyopathy (TCM) is a transient syndrome of cardiac dysfunction with no occlusive coronary arterial disease, which may mimic an ischemic cardiac event. The pathogenesis of TCM is thought to be primarily driven by the effects of a temporary catecholamine surge on cardiac and vascular tissue. Medetomidine (an a2 agonist commonly found in the Philadelphia fentanyl supply) withdrawal is characterized by agitation and sympathetic hyperactivity that can precipitate a catecholamine surge. Though withdrawal from other Central Nervous System (CNS)-depressing substances such as opioids and clonidine have been found to be associated with TCM, there is little documentation of this phenomenon occurring from medetomidine withdrawal. A 51-year-old woman with no reported medical history other than opioid use disorder presented to the emergency department due to concern for withdrawal from fentanyl and medetomidine. Her opioid withdrawal was well controlled with methadone and oxycodone. Shortly after coming off her dexmedetomidine infusion (started for medetomidine withdrawal), she developed acute ST-segment changes on electrocardiogram, elevated troponin levels on bloodwork, and regional wall-motion abnormalities on transthoracic echocardiogram. Her coronary angiography showed no occlusion and repeat cardiac laboratory workup days later had normalized with improvement in ejection fraction on cardiac echocardiography and magnetic resonance imaging. This signifies a temporary stress cardiomyopathy, likely from a2 agonist withdrawal. This case describes TCM in a patient experiencing medetomidine withdrawal. This patient's cardiac dysfunction was transient, temporally correlating with the cessation of her dexmedetomidine infusion. This suggests an a2 agonist mediated withdrawal leading to sympathetic hyperactivity which can precipitate TCM.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42899488/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42899488",
+        "doi": "10.1177/29767342261493888",
+        "journal": "Substance use & addiction journal",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-23T07:42:22.292Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d2cf239ce5c69cd78be7",
+      "reserved_at": "2026-10-23T07:42:30.960Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -80060,17 +80213,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 524,
+    "total_reservations": 526,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 49,
+      "4": 51,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 524
+      "SOURCE_VERIFIED": 526
     },
     "batches": [
       {
@@ -80090,7 +80243,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 24,
+        "count": 26,
         "pr_number": null,
         "blocker": null
       }
