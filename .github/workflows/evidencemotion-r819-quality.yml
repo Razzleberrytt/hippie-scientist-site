@@ -34,7 +34,9 @@ jobs:
           node --check scripts/distribution/r819-canonical-handoff.mjs
           node --check scripts/distribution/r819-native-layer-compositor.mjs
           node --check scripts/distribution/r819-layer-inventory-writer.mjs
+          node --check scripts/distribution/r819-original-artist-pixel-proof.mjs
+          node --check scripts/distribution/r819-original-artist-cli.mjs
           node --check scripts/distribution/author-r819-layers-cli.mjs
           node --check scripts/distribution/render-vertical-video-mp4.mjs
       - name: Preserve existing visual checks and prevent voice-to-picture tempo fitting
-        run: npx vitest run scripts/distribution/__tests__/r812-radio-edit-no-stretch.test.mjs scripts/distribution/__tests__/r819-brutal-bar.test.mjs scripts/distribution/__tests__/r819-art-verifier.test.mjs scripts/distribution/__tests__/r819-acoustic-cue-binding.test.mjs scripts/distribution/__tests__/r819-native-layer-compositor.test.mjs scripts/distribution/__tests__/r818-telemetry-qa.test.mjs
+        run: npx vitest run scripts/distribution/__tests__/r812-radio-edit-no-stretch.test.mjs scripts/distribution/__tests__/r819-brutal-bar.test.mjs scripts/distribution/__tests__/r819-art-verifier.test.mjs scripts/distribution/__tests__/r819-acoustic-cue-binding.test.mjs scripts/distribution/__tests__/r819-native-layer-compositor.test.mjs scripts/distribution/__tests__/r819-original-artist-pixel-proof.test.mjs scripts/distribution/__tests__/r818-telemetry-qa.test.mjs

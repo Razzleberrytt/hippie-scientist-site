@@ -4,6 +4,7 @@ import crypto from 'node:crypto'
 import fs from 'node:fs'
 import { validateR808HudReview } from './r808-hud-inspection.mjs'
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
+import { assertNoUnreviewedR818PhysicalArt } from './r818-physical-art-loader.mjs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { renderVerticalVideoMp4 } from './render-vertical-video-mp4.mjs'
@@ -92,6 +93,7 @@ function stageCarousel({ pilot, sourceDirectory, bundleDir, publicOrigin, object
 }
 
 function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, objectId, bundleId }) {
+  assertNoUnreviewedR818PhysicalArt(sourceDirectory)
   const packageRelease = clean(pilot?.assets?.release || pilot?.assets?.systemRelease) || 'R8.04'
   const packageDuration = Number(pilot?.assets?.durationSeconds)
   if (pilot?.assets?.renderer !== 'vertical-video-package-v1') {

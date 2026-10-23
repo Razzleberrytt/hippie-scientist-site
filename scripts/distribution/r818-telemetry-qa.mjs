@@ -82,6 +82,43 @@ function checkGroundedIllustrationAction(beat,frames,canvas){
     !beat.claimIds.includes(p.sourceClaimId)||
     !Array.isArray(beat.onScreenSourceIds)||!beat.onScreenSourceIds.length)
   throw Error('R8.18 grounded motion must bind an upstream sourced scene claim')
+ // If this action draws imported original art, bind every sampled physical
+ // object to the SHA-pinned *source image*, not a similarly named overlay.
+ // This is mechanical provenance, not a scientific/artistic approval.
+ if(beat.physicalArt){
+  const expected=[['primary',p.primaryObjectId]]
+  if(action==='source-bound-scaffold-assembles'&&beat.physicalArt.plate)
+   expected.push(['plate','source-plate'])
+  if(action==='source-bound-scaffold-assembles'&&(beat.physicalArt.art||beat.physicalArt.trust))
+   expected.push(['art',null],['trust',null])
+  if(['botanical-versus-concentrate-reveal','source-bound-scaffold-assembles'].includes(action))expected.push(['target',p.targetObjectId])
+  if(Object.keys(beat.physicalArt).sort().join(',')!==expected.map(x=>x[0]).sort().join(','))
+    throw Error('R8.18 physical art role inventory mismatch')
+  for(const [role,id] of expected){
+   if(role==='art'||role==='trust'){
+    const source=beat.physicalArt[role]
+    if(!hex(source?.sha256)||!txt(source?.file)||
+       role==='art'&&(source.r819Role!=='nonfactual-art'||source.containsFactualText!==false)||
+       role==='trust'&&(source.r819Role!=='factual-trust'||
+         !txt(source.factualAuthority)||source.sourceClaimId!==p.sourceClaimId))
+     throw Error('R8.18 source-separated original-art static role invalid')
+    // Static ART/TRUST hashes are checked against actual pixels by R8.19.
+    continue
+   }
+   if(role==='plate'&&(!txt(beat.physicalArt.plate.factualAuthority)||
+      beat.physicalArt.plate.r819BackgroundEligible!==false||
+      beat.physicalArt.plate.sourceClaimId!==p.sourceClaimId))
+    throw Error('R8.18 source-authored factual plate is not R8.19 nonfactual art')
+   const art=beat.physicalArt[role]
+   if(!hex(art?.sha256)||!txt(art?.file)||!txt(id))
+    throw Error('R8.18 physical art source identity missing')
+   for(const f of frames){
+    const object=f.objects.find(o=>o.objectId===id)
+    if(object?.artSourceSha256!==art.sha256)
+     throw Error('R8.18 physical art telemetry source SHA differs from original image')
+   }
+  }
+ }
  const center=o=>[o.bbox[0]+o.bbox[2]/2,o.bbox[1]+o.bbox[3]/2]
  const distance=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1])
  const steady=(numbers,tolerance)=>numbers.length>=5&&
@@ -109,6 +146,23 @@ function checkGroundedIllustrationAction(beat,frames,canvas){
     throw Error('R8.18 evidence boundary panel did not genuinely move and settle')
    return {movementPixels:ds[0],settledSamples:5,sourceClaimId:p.sourceClaimId,
     proofClass:'geometry-only-not-science-or-publication-approval'}
+ }
+ if(action==='source-bound-scaffold-assembles'){
+   if(p.primaryObjectId===p.targetObjectId)throw Error('R8.18 source assembly needs distinct physical art objects')
+   const strands=series(p.primaryObjectId,beat.visualObject?.kind,p.beforeLabel)
+   const links=series(p.targetObjectId,p.targetKind,p.afterLabel)
+   const pts=strands.map(o=>center(o)),last=pts.at(-1)
+   const distances=pts.map(pt=>distance(pt,last)),tol=.007*canvas.width
+   const levels=links.map(o=>Number(o.activationLevel))
+   if(distances[0]<.07*canvas.width||!descending(distances,tol)||
+      steps(distances,tol)<3||!steady(distances,tol)||
+      levels.some(v=>!Number.isFinite(v))||!ascending(levels,.015)||
+      levels.at(-1)-levels[0]<.75||!steady(levels,.03)||
+      links.at(-1).opacity<.98)
+    throw Error('R8.18 original-art physical scaffold did not genuinely assemble and settle')
+   return {movementPixels:distances[0],connectorActivationDelta:levels.at(-1)-levels[0],
+     sourceClaimId:p.sourceClaimId,settledSamples:5,
+     proofClass:'geometry-only-not-science-or-publication-approval'}
  }
  if(action!=='botanical-versus-concentrate-reveal')
   throw Error('R8.18 unsupported grounded illustration action')
@@ -192,7 +246,7 @@ function checkBeat(beat,frames,ctx,record){
      !final||final.visible===false||!(final.opacity>.5))
     throw Error('R8.18 hidden target did not actually become visible')
   }
- }else if(['evidence-boundary-panel-settles','botanical-versus-concentrate-reveal'].includes(action)){
+ }else if(['evidence-boundary-panel-settles','botanical-versus-concentrate-reveal','source-bound-scaffold-assembles'].includes(action)){
   Object.assign(report,checkGroundedIllustrationAction(beat,frames,ctx.canvas))
  }else if(action==='activates'){
   const targetId=txt(proof.targetObjectId)

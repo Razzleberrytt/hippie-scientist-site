@@ -4,6 +4,10 @@ on:
   pull_request:
     paths:
       - 'scripts/distribution/r818-physical-cinema.py'
+      - 'scripts/distribution/r818-physical-art-regression.mjs'
+      - 'scripts/distribution/r818-physical-art-loader.mjs'
+      - 'scripts/distribution/r818-r819-separated-assembly.mjs'
+      - 'scripts/distribution/r819-r818-physical-origin.mjs'
       - 'scripts/distribution/r818-physical-cinema-provider.mjs'
       - 'scripts/distribution/r818-physical-smoke.mjs'
       - 'scripts/distribution/r818-native-frame-sequence.mjs'
@@ -24,7 +28,21 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Fast source syntax preflight before heavyweight renderer installation
+        run: |
+          python -m py_compile scripts/distribution/r818-physical-cinema.py
+          for source in \
+            scripts/distribution/r818-physical-art-loader.mjs \
+            scripts/distribution/r818-r819-separated-assembly.mjs \
+            scripts/distribution/r818-physical-cinema-provider.mjs \
+            scripts/distribution/r818-physical-art-regression.mjs \
+            scripts/distribution/r818-telemetry-qa.mjs \
+            scripts/distribution/r819-r818-physical-origin.mjs; do
+            node --check "$source"
+          done
       - run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Fast original artist source-intake and negative regressions before VTK
+        run: node --test scripts/distribution/r818-physical-art-regression.mjs
       - name: Install headless open-source physical renderer
         run: |
           python -m pip install --disable-pip-version-check numpy==2.3.5 pillow==12.3.0 vtk==9.6.2
@@ -61,5 +79,9 @@ jobs:
             artifacts/evidencemotion-r818/r818-physical-smoke-receipt.json
             artifacts/evidencemotion-r818/r818-telemetry.json
             artifacts/evidencemotion-r818/r818-native-frames.json
+            artifacts/evidencemotion-r818/original-art-proof/original-art-object-motion_TECHNICAL_REVIEW_ONLY_SILENT.mp4
+            artifacts/evidencemotion-r818/original-art-proof/r818-exact-master-contact-sheet.png
+            artifacts/evidencemotion-r818/original-art-proof/r818-contact-sheet-receipt.json
+            artifacts/evidencemotion-r818/original-art-proof/original-art-object-motion-review-receipt.json
           retention-days: 7
           if-no-files-found: warn

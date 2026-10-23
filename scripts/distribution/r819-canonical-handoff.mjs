@@ -13,6 +13,18 @@ function boundJson(dir, meta, name){
  if(sha(bytes)!==meta.sha256)throw Error('R8.19 '+name+' bytes differ from manifest SHA')
  return JSON.parse(bytes.toString('utf8'))
 }
+// Flat original artist cards containing factual words, dates or citations
+// cannot become the R8.19 nonfactual art base simply because their PNG SHA
+// and final recomposed pixels match. The artist must export separate
+// factual TRUST and nonfactual ART source layers and rebuild the plan.
+export function assertR819NoBakedFactualPlate(plan){
+ if(!Array.isArray(plan?.beats))throw Error('R8.19 canonical source-beat inventory missing')
+ for(const beat of plan.beats){
+  if(beat?.physicalArt?.plate)
+   throw Error('R8.19 HOLD: original teaching plate contains source/factual text; rebuild independent ART and TRUST before canonical handoff: '+beat.id)
+ }
+ return true
+}
 export function verifyR819CanonicalHandoff(packageDir){
  const dir=path.resolve(packageDir)
  const manifest=JSON.parse(fs.readFileSync(path.join(dir,'video-asset-manifest.json'),'utf8'))
@@ -27,6 +39,7 @@ export function verifyR819CanonicalHandoff(packageDir){
  const board=boundJson(dir,manifest.r819.storyboard,'r819-storyboard.json')
  const geometry=boundJson(dir,manifest.r819.telemetry,'r819-object-telemetry.json')
  const plan=boundJson(dir,manifest.r817FirstPass,'r817-first-pass.json')
+ assertR819NoBakedFactualPlate(plan)
  const r818=boundJson(dir,manifest.r818Telemetry,'r818-telemetry.json')
  const verifiedR818=assertR818TelemetryBinding(plan,r818,{
    rendererCodeSha256:manifest.r818Telemetry.rendererCodeSha256,
