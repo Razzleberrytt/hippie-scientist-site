@@ -870,7 +870,25 @@ export async function mergeIfStillCurrent({ repo, number, headSha, validatedBase
     console.log(`Terminal merge revalidation blocked PR #${number}: current admission inventory is incomplete, stale or conflicting`)
     return false
   }
-  console.log(`Terminal merge revalidation passed for PR #${number}: head ${headSha} on base ${baseAfterApproval}`)
+  // The live admission CLI can paginate other PRs for up to 60 seconds.
+  // It must not make the previously checked main SHA stale just before PUT.
+  const baseAfterAdmission = await getBranchSha(repo, finalPr.base.ref)
+  if (baseAfterAdmission !== validatedBaseSha ||
+      !(await headContainsBase(repo, baseAfterAdmission, headSha))) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: base changed during live admission recheck`)
+    return false
+  }
+  // Scope checks may also race a PR edit/label change. Recheck the current
+  // head and explicit holds after the admission subprocess before release.
+  const postAdmissionPr = await getPr(repo, number)
+  if (postAdmissionPr.state !== 'open' || postAdmissionPr.draft ||
+      postAdmissionPr.head?.sha !== headSha ||
+      postAdmissionPr.base?.ref !== finalPr.base.ref ||
+      (postAdmissionPr.labels || []).some(label => HOLD_LABELS.has(label.name))) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: PR state changed during live admission recheck`)
+    return false
+  }
+  console.log(`Terminal merge revalidation passed for PR #${number}: head ${headSha} on base ${baseAfterAdmission}`)
   await mergePr(repo, number, headSha)
   return true
 }
