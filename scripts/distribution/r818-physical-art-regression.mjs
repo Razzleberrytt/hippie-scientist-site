@@ -60,7 +60,10 @@ test('pinned isolated original artwork rejects source tampering and wrong author
   assert.throws(()=>stageR818PhysicalArt({artRoot:null,outputDir:path.join(root,'bad5'),beats:plans}),/explicit trusted/)
  }finally{fs.rmSync(root,{recursive:true,force:true})}
 })
-test('true renderer produces two independently moving source-bound art beats and R8.18 proof',async()=>{
+// The full physical render requires VTK/Pillow and belongs to the dedicated
+// R8.18 hosted smoke, not generic Node-only CI. Contract negatives run everywhere.
+test('true renderer produces two independently moving source-bound art beats and R8.18 proof',
+ {skip:process.env.R818_PHYSICAL_TEST!=='1'},async()=>{
  const root=makeRoot()
  try{
   const source=path.join(root,'source'),out=path.join(root,'video');fs.mkdirSync(source);fs.mkdirSync(out)
