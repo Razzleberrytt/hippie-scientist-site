@@ -82,6 +82,25 @@ function checkGroundedIllustrationAction(beat,frames,canvas){
     !beat.claimIds.includes(p.sourceClaimId)||
     !Array.isArray(beat.onScreenSourceIds)||!beat.onScreenSourceIds.length)
   throw Error('R8.18 grounded motion must bind an upstream sourced scene claim')
+ // If this action draws imported original art, bind every sampled physical
+ // object to the SHA-pinned *source image*, not a similarly named overlay.
+ // This is mechanical provenance, not a scientific/artistic approval.
+ if(beat.physicalArt){
+  const expected=[['primary',p.primaryObjectId]]
+  if(action==='botanical-versus-concentrate-reveal')expected.push(['target',p.targetObjectId])
+  if(Object.keys(beat.physicalArt).sort().join(',')!==expected.map(x=>x[0]).sort().join(','))
+    throw Error('R8.18 physical art role inventory mismatch')
+  for(const [role,id] of expected){
+   const art=beat.physicalArt[role]
+   if(!hex(art?.sha256)||!txt(art?.file)||!txt(id))
+    throw Error('R8.18 physical art source identity missing')
+   for(const f of frames){
+    const object=f.objects.find(o=>o.objectId===id)
+    if(object?.artSourceSha256!==art.sha256)
+     throw Error('R8.18 physical art telemetry source SHA differs from original image')
+   }
+  }
+ }
  const center=o=>[o.bbox[0]+o.bbox[2]/2,o.bbox[1]+o.bbox[3]/2]
  const distance=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1])
  const steady=(numbers,tolerance)=>numbers.length>=5&&
