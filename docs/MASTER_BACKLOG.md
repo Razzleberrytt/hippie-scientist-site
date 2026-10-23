@@ -1,5 +1,17 @@
 # Master Backlog
 
+### B12-COMPARE-001 / #6670 — owner-directed vitamin B12 guide (2026-10-22)
+
+Status: **In review — [PR #6951](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6951), unmerged** — Will directly prioritizes this Revenue/Conversion ticket
+from the October 19 instruction (#6670, comment 6280536899), ahead of the stalled
+research intake. Scope: one new `/guides/compare/vitamin-b12/` guide following the
+merged psyllium template, PubMed-verified evidence, safety before shopping,
+10–12 shared visible/schema FAQ answers, and catalog-verified ASINs or labeled
+Amazon searches. Keep PR #6951 explicitly held until its current exact-head CI, evidence/source provenance, safety and independent-review checks have passed.
+The owner's October 23 directive supersedes mandatory human approval: once those checks are verified, clear `hold-merge` and integrate through the protected serialized controller. No pipeline repair or unrelated comparison page is authorized.
+Acceptance and validation: [B12 implementation record](content/vitamin-b12-comparison-2026-10-22.md).
+
+
 ### AH-P0-005 / existing PR #6938 — terminal release-state repair (2026-10-21)
 
 In progress: owner-directed safety interruption. Reproduced late hold/draft
