@@ -9,7 +9,9 @@ from PIL import Image,ImageDraw,ImageFont
 import numpy as np
 W,H,FPS=1080,1920,30
 PALETTE={'reveals-hidden-action':(28,101,163),'ligand-enters-pocket':(38,133,208),'count-up-then-settle':(196,142,69),
- 'bottle-rotates-to-reveal-label':(179,98,70),'reveal-emergency-guidance':(218,72,90)}
+ 'bottle-rotates-to-reveal-label':(179,98,70),'reveal-emergency-guidance':(218,72,90),
+ 'evidence-boundary-panel-settles':(39,102,108),
+ 'botanical-versus-concentrate-reveal':(38,97,112)}
 FONT='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
 def digest(b):return hashlib.sha256(b).hexdigest()
 def ease(v):v=max(0,min(1,v));return v*v*(3-2*v)
@@ -75,18 +77,48 @@ def bottle(img,p,label):
  d.text((int(x),906),label,font=font(34),fill=(19,34,51),anchor='mm')
  d.text((int(x),960),'ILLUSTRATIVE',font=font(20),fill=(45,64,77),anchor='mm')
  return [a,532,b-a,708]
+
+def pinned_art(root,ref):
+ """Use actual RGBA pixels exported by an original artist or offline 3D tool."""
+ p=(root/ref['file']).resolve()
+ if not p.is_relative_to(root.resolve()) or not p.is_file():
+  raise ValueError('R8.18 physical art path escapes package or is missing')
+ data=p.read_bytes()
+ if digest(data)!=ref['sha256']:
+  raise ValueError('R8.18 art identity differs from staged source SHA')
+ with Image.open(p) as source:
+  source.load()
+  if source.format!='PNG' or source.mode!='RGBA' or max(source.size)>1200 or min(source.size)<64:
+   raise ValueError('R8.18 physical layer is not bounded source RGBA')
+  return source.copy()
+def draw_original(canvas,art,box):
+ """Blend a REAL independent art object and record its actual nontransparent bbox."""
+ x,y,w,h=map(int,box)
+ layer=art.resize((w,h),Image.Resampling.LANCZOS)
+ bbox=layer.getchannel('A').getbbox()
+ if not bbox:raise ValueError('R8.18 invisible art cannot count as semantic motion')
+ canvas.alpha_composite(layer,(x,y))
+ return [x+bbox[0],y+bbox[1],bbox[2]-bbox[0],bbox[3]-bbox[1]]
+
 def produce(job):
  out=Path(job['outputDir']);out.mkdir(parents=True,exist_ok=True)
  plan=job['plan'];scenes=job['scenes']
  if len(plan['beats'])!=len(scenes):raise ValueError('R8.18 missing beat inventory')
  vt=make_vtk() if any(b['semanticAction'] in ('ligand-enters-pocket','reveals-hidden-action') for b in plan['beats']) else None
  telemetry_beats=[];native_beats=[];total=0
+ art_root=out.resolve();art_map=job.get('physicalArt',{})
  for beat,scene in zip(plan['beats'],scenes):
   action=beat['semanticAction'];bid=beat['id']
   if action not in PALETTE:raise ValueError('R8.18 unsupported actual drawing action '+action)
   count=round((scene['end']-scene['start'])*FPS)
   directory=out/'r818-frames'/bid;directory.mkdir(parents=True,exist_ok=True)
   frames=[];samples=[];pocketStreak=0;maxPocketStreak=0
+  approved_art=art_map.get(bid)
+  if action in ('evidence-boundary-panel-settles','botanical-versus-concentrate-reveal'):
+   if not approved_art:raise ValueError('R8.18 grounded physical action missing pinned art')
+   primary_art=pinned_art(art_root,approved_art['primary'])
+   target_art=pinned_art(art_root,approved_art['target']) if action=='botanical-versus-concentrate-reveal' else None
+  elif approved_art:raise ValueError('R8.18 art must bind a supported physical semantic action')
   proof=beat['telemetryProof'];primary=proof['primaryObjectId'];subject=proof['subjectObjectId']
   for fi in range(count):
    t=fi/max(1,count-1);p=ease(t)
@@ -128,6 +160,22 @@ def produce(job):
     ob(proof['targetObjectId'],'binding-pocket','Illustrative pocket',pocket_bbox)
     inside=pocket_bbox[0]<=center[0]<=pocket_bbox[0]+pocket_bbox[2] and pocket_bbox[1]<=center[1]<=pocket_bbox[1]+pocket_bbox[3]
     pocketStreak=pocketStreak+1 if inside else 0;maxPocketStreak=max(maxPocketStreak,pocketStreak)
+   elif action=='evidence-boundary-panel-settles':
+    # Motion Canvas-style eased timeline, Manim-style source-bound explanation:
+    # animate the INDEPENDENT foreground art, not an opaque screenshot.
+    progress=ease(min(1,t/.42))
+    rect=draw_original(img,primary_art,[170,565+125*progress,740,530])
+    ob(primary,beat['visualObject']['kind'],proof['beforeLabel'],rect,
+       visibilityProgress=progress,artSourceSha256=approved_art['primary']['sha256'])
+   elif action=='botanical-versus-concentrate-reveal':
+    # Two truly independent layered objects with different motion/scale curves.
+    progress=ease(min(1,t/.42))
+    leaf=draw_original(img,primary_art,[140+100*progress,780,235,285])
+    product=draw_original(img,target_art,[635,760,270+75*progress,360+110*progress])
+    ob(primary,beat['visualObject']['kind'],proof['beforeLabel'],leaf,
+       artSourceSha256=approved_art['primary']['sha256'])
+    ob(proof['targetObjectId'],proof['targetKind'],proof['afterLabel'],product,
+       artSourceSha256=approved_art['target']['sha256'])
    elif action=='count-up-then-settle':
     target=beat['numericVisual']['finalDisplay'];num=float(str(target).replace(',','').replace('+','').replace('%',''))
     value=num if t>=.6 else math.floor(num*ease(t/.6))
@@ -159,7 +207,8 @@ def produce(job):
  frame_doc={'schemaVersion':'ths-r818-native-frames-v1','fps':30,'width':W,'height':H,'beats':native_beats}
  trace_doc={'schemaVersion':'ths-r818-renderer-telemetry-v1','origin':'render-instrumentation',
    'rendererCodeSha256':job['rendererCodeSha256'],'renderedSceneAssetsSha256':job['renderedSceneAssetsSha256'],
-   'sourceManifestSha256':job['sourceManifestSha256'],'canvas':{'width':W,'height':H},
+   'sourceManifestSha256':job['sourceManifestSha256'],
+   'physicalArtManifestSha256':job.get('physicalArtManifestSha256'),'canvas':{'width':W,'height':H},
    'sampleFps':5,'nativeFps':30,'beats':telemetry_beats}
  (out/'r818-native-frames.json').write_text(json.dumps(frame_doc,indent=2)+'\n')
  (out/'r818-telemetry.json').write_text(json.dumps(trace_doc,indent=2)+'\n')
