@@ -20,7 +20,7 @@ owner: The Hippie Scientist
 
 ## Admission before PR creation
 
-- Only **one non-draft implementation PR** may be active globally; research/editorial drafts stay preserved for their qualified review, not rushed or auto-merged. Repair or reconcile existing PRs first, even across old workstream names.
+- Only **one non-draft, non-held implementation PR** may be active globally; explicitly held and research/editorial draft PRs stay preserved for their qualified review and retain issue/path reservations, not rushed or auto-merged. Repair or reconcile existing PRs first, even across old workstream names.
 - Run `node .agents/skills/pr-admission-preflight.mjs --repo Razzleberrytt/hippie-scientist-site --issue <ISSUE> --files path/a,path/b` before any **new** implementation PR. `BLOCK` means do not create it; `REUSE` via `--existing <PR>` means continue that same PR. Also validate admitted sprint ownership; the preflight is not approval.
 - Prefer `node .agents/skills/pre-pr-fast-check.mjs` plus targeted feature tests before requesting full CI. A successful fast preflight is necessary but never sufficient for merge.
 - Log full CI attempts per accepted merge, duplicated/abandoned work and finished deployments. Don't count PR creation as output.

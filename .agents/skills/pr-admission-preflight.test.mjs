@@ -63,3 +63,36 @@ test('PR-triggered checks must derive issue, files and approved interruption fro
   })
   assert.match(requestFromOpenPr([pr(18, { body: 'No ticket' })], 18).error, /scoped issue/)
 })
+
+test('explicitly held non-draft review work does not indefinitely occupy the integration slot', () => {
+  const held = pr(6951, {
+    labels: [{ name: 'hold-merge' }],
+    body: 'Refs #6670',
+    files: [{ path: 'app/guides/b12/page.tsx' }],
+  })
+  assert.equal(assessAdmission([held], {
+    issue: 7022, files: ['src/independent.ts'],
+  }).decision, 'READY')
+  const sameFile = assessAdmission([held], {
+    issue: 7022, files: ['app/guides/b12/page.tsx'],
+  })
+  assert.equal(sameFile.decision, 'BLOCK')
+  assert.deepEqual(sameFile.prs, [6951])
+  assert.equal(assessAdmission([held], {
+    issue: 6670, files: ['src/other.ts'],
+  }).decision, 'BLOCK')
+  assert.equal(assessAdmission([pr(50), held], {
+    issue: 7022, files: ['src/independent.ts'],
+  }).decision, 'BLOCK')
+})
+
+test('all explicit review holds are excluded; an unknown/missing hold label is not', () => {
+  for (const name of ['hold-merge', 'do-not-merge', 'manual-merge']) {
+    assert.equal(assessAdmission([pr(50, { labels: [{ name }] })], {
+      issue: 7022, files: ['src/independent.ts'],
+    }).decision, 'READY')
+  }
+  assert.equal(assessAdmission([pr(50, { labels: [{ name: 'needs-review' }] })], {
+    issue: 7022, files: ['src/independent.ts'],
+  }).decision, 'BLOCK')
+})

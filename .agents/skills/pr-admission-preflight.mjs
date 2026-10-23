@@ -33,7 +33,13 @@ export function assessAdmission(prs, { issue = null, files = [], existing = null
   if (duplicates.length) {
     return { decision: 'BLOCK', reason: 'Open PR already owns the issue or planned files; review and reuse it', prs: duplicates.map((p) => p.number) }
   }
-  const active = prs.filter((p) => !p.isDraft)
+  // Explicitly held PRs are preserved as review-only inventory. They still
+  // reserve their scoped issue and files above, but cannot block unrelated
+  // engineering indefinitely while awaiting science/human approval.
+  const holds = new Set(['hold-merge', 'do-not-merge', 'manual-merge'])
+  const active = prs.filter((p) => !p.isDraft &&
+    !(Array.isArray(p.labels) && p.labels.some((label) =>
+      holds.has(typeof label === 'string' ? label : label?.name))))
   if (active.length && !reviewOnly && !securityApproved) {
     return { decision: 'BLOCK', reason: 'One active implementation PR maximum; finish/reconcile current PR first', prs: active.map((p) => p.number) }
   }

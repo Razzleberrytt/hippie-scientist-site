@@ -28,7 +28,7 @@
 
 ## One-PR preflight (October 23, 2026)
 
-Before creating a new implementation PR, run `node .agents/skills/pr-admission-preflight.mjs --repo Razzleberrytt/hippie-scientist-site --issue <ISSUE> --files path/a,path/b`. A live GitHub inventory is mandatory; same issue, overlapping files, or any existing non-draft implementation PR returns BLOCK. Use `--existing <PR>` to repair a current PR. Research and editorial drafts are preserved, not discarded.
+Before creating a new implementation PR, run `node .agents/skills/pr-admission-preflight.mjs --repo Razzleberrytt/hippie-scientist-site --issue <ISSUE> --files path/a,path/b`. A live GitHub inventory is mandatory; same issue, overlapping files, or any existing non-draft and non-held implementation PR returns BLOCK. Use `--existing <PR>` to repair a current PR. Research and editorial drafts are preserved, not discarded.
 
 Run `node --test .agents/skills/pr-admission-preflight.test.mjs` to validate the admission rules, then `node .agents/skills/pre-pr-fast-check.mjs` (focused route/TOML/security checks) before spending a full CI cycle where a local checkout is available. These checks do not create PRs, grant publication approval, or replace the protected controller.
 
