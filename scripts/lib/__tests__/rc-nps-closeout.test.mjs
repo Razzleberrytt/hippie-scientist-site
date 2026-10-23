@@ -29,7 +29,13 @@ test('every inventoried RC/NPS article retains a real referral path and canonica
   const all = names.map(name => matter(fs.readFileSync(`content/articles/${name}`, 'utf8')))
   const slugs = new Set(all.map(x => x.data.slug))
   const scoped = all.filter(x => ['Substance Use & Harm Reduction', 'Novel Psychoactive Substances'].includes(x.data.category))
-  assert.equal(scoped.length, 92)
+  // An expanding RC/NPS and harm-reduction catalog must retain at least the
+  // previously audited baseline; every current and newly added scoped page
+  // must still satisfy the individual support/referral assertions below.
+  assert.ok(scoped.length >= 92, `Safety inventory contracted: ${scoped.length} < 92`)
+  for (const slug of ['dmt-types-explained', 'long-term-cannabis-brain-effects', 'yopo-bufotenine-science-history']) {
+    assert.ok(scoped.some(x => x.data.slug === slug), `New harm-reduction article not audited: ${slug}`)
+  }
   for (const {data,content} of scoped) {
     assert.match(content, /1-800-662-HELP \(4357\)/, data.slug)
     assert.match(content, /https:\/\/www.samhsa.gov\/find-help\/helplines\/national-helpline/, data.slug)
