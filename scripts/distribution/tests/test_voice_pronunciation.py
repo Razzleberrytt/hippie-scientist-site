@@ -16,6 +16,10 @@ class VoicePronunciationTests(unittest.TestCase):
             "craytum leaf contains mitragynine."
         )
 
+    def test_creatine_spoken_only_mapping(self):
+        self.assertEqual(apply_pronunciations("Creatine can affect training."), "creea teen can affect training.")
+        self.assertEqual(apply_pronunciations("creatinine and phosphocreatine"), "creatinine and phosphocreatine")
+
     def test_owner_rejected_split_syllables(self):
         output = apply_pronunciations("Mitragynine is found in kratom.")
         self.assertEqual(output, "mitragynine is found in craytum.")
@@ -32,7 +36,7 @@ class VoicePronunciationTests(unittest.TestCase):
 
     def test_receipt_binds_versioned_dictionary_and_requires_audio_review(self):
         entries, digest = load_lexicon()
-        self.assertEqual({x["term"] for x in entries}, {"kratom", "mitragynine"})
+        self.assertEqual({x["term"] for x in entries}, {"kratom", "mitragynine", "creatine"})
         receipt = lexicon_receipt()
         self.assertEqual(receipt["sha256"], digest)
         self.assertEqual(receipt["application"], "narration-audio-only")
