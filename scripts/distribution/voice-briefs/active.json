@@ -1,0 +1,245 @@
+{
+  "release": "R8.05",
+  "sourceIdentity": {
+    "id": "NIH-ODS-Vitamins-20261023",
+    "sourceUrl": "https://ods.od.nih.gov/factsheets/list-VitaminsMinerals/"
+  },
+  "premise": {
+    "interestScore": 4.8,
+    "coldViewerWhyCare": "A colorful quick reference to distinct essential vitamin functions without exaggerated supplement benefit claims",
+    "viewerQuestion": "Which vitamins do what?",
+    "earlyPayoff": "Six vitamins have distinct essential jobs in the body",
+    "methodologyBeforePayoff": false,
+    "hookMode": "contrast",
+    "paperSummaryOpening": false
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "beats": [
+    {
+      "id": "m01-hook",
+      "role": "hook",
+      "narration": "Six vitamins. Six essential jobs. Here's what they actually do.",
+      "onScreenText": "6 VITAMINS / 6 JOBS",
+      "visualPurpose": "Reveal a six-spoke vitamin mechanism.",
+      "visualAction": "Rapid orbit of six scientifically labeled capsules into single rotating hub.",
+      "spokenAnchor": "Six vitamins",
+      "primaryEntities": [
+        "Vitamins"
+      ],
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "NIH-ODS",
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "m02-a",
+      "role": "finding",
+      "narration": "Vitamin A helps your eyes detect light and supports your immune system.",
+      "onScreenText": "A · VISION + IMMUNITY",
+      "visualPurpose": "Show retinal light absorption turning into signal.",
+      "visualAction": "Photon arcs hit iris and become bright flowing optic nerve signals.",
+      "spokenAnchor": "Vitamin A",
+      "primaryEntities": [
+        "Vitamin A"
+      ],
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "NIH-ODS",
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "m03-b12",
+      "role": "finding",
+      "narration": "B twelve helps keep nerves healthy and supports red blood cell formation.",
+      "onScreenText": "B12 · NERVES + RED BLOOD CELLS",
+      "visualPurpose": "Show insulated neural communication then blood cells.",
+      "visualAction": "Nerve fiber sheath illuminates; circular red blood cells enter and orbit.",
+      "spokenAnchor": "B twelve",
+      "primaryEntities": [
+        "Vitamin B12"
+      ],
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "NIH-ODS",
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "m04-c",
+      "role": "finding",
+      "narration": "Vitamin C is essential for making collagen, a key part of connective tissue.",
+      "onScreenText": "C · COLLAGEN",
+      "visualPurpose": "Illustrate collagen strand assembly.",
+      "visualAction": "Braided collagen triple helix materializes from growing fibers.",
+      "spokenAnchor": "Vitamin C",
+      "primaryEntities": [
+        "Vitamin C"
+      ],
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "NIH-ODS",
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "m05-d",
+      "role": "finding",
+      "narration": "Vitamin D helps your gut absorb calcium, supporting healthy bones.",
+      "onScreenText": "D · CALCIUM ABSORPTION",
+      "visualPurpose": "Show calcium transported across gut lining to bone.",
+      "visualAction": "Calcium ions travel through a membrane channel into a trabecular bone structure.",
+      "spokenAnchor": "Vitamin D",
+      "primaryEntities": [
+        "Vitamin D"
+      ],
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "NIH-ODS",
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "m06-e",
+      "role": "finding",
+      "narration": "Vitamin E works as an antioxidant, helping protect cell membranes.",
+      "onScreenText": "E · ANTIOXIDANT",
+      "visualPurpose": "Illustrate lipids inside cell membrane and antioxidant reaction.",
+      "visualAction": "Microscopic lipid bilayer surrounds living cell; unstable radical is neutralized.",
+      "spokenAnchor": "Vitamin E",
+      "primaryEntities": [
+        "Vitamin E"
+      ],
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "NIH-ODS",
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "m07-k",
+      "role": "finding",
+      "narration": "Vitamin K helps activate proteins involved in blood clotting.",
+      "onScreenText": "K · BLOOD CLOTTING",
+      "visualPurpose": "Show activation of clotting proteins and protective seal.",
+      "visualAction": "Molecular clotting factors lock in and generate a symbolic seal at a micro-wound.",
+      "spokenAnchor": "Vitamin K",
+      "primaryEntities": [
+        "Vitamin K"
+      ],
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "NIH-ODS",
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "m08-context",
+      "role": "context",
+      "narration": "That's what these vitamins do inside your body. It does not mean extra pills give extra benefits.",
+      "onScreenText": "NORMAL FUNCTION ≠ MORE PILLS",
+      "visualPurpose": "Contrast normal physiological roles and unproven extra benefits.",
+      "visualAction": "Completed six-vitamin network contrasts with unnecessary supplement pile graphic.",
+      "spokenAnchor": "extra pills",
+      "primaryEntities": [
+        "Body roles",
+        "Extra supplements"
+      ],
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "NIH-ODS",
+      "pauseAfterSeconds": 0.1,
+      "comparisonRequired": true
+    },
+    {
+      "id": "m09-limit",
+      "role": "limitation",
+      "narration": "Too much of some vitamins can be harmful. And vitamin K can interact with warfarin.",
+      "onScreenText": "DOSE + INTERACTIONS MATTER",
+      "visualPurpose": "Convey high-dose caution without alarmist imagery.",
+      "visualAction": "Dose meter exceeds a safe zone; warfarin / vitamin K warning appears.",
+      "spokenAnchor": "vitamin K",
+      "primaryEntities": [
+        "Safety"
+      ],
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "NIH-ODS",
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "m10-evidence",
+      "role": "evidence",
+      "narration": "These essential roles are documented in the N I H vitamin fact sheets.",
+      "onScreenText": "SOURCE: NIH ODS",
+      "visualPurpose": "Reveal factual source identity.",
+      "visualAction": "NIH ODS document tiles fan around the network, six individual sources highlighted.",
+      "spokenAnchor": "N I H",
+      "primaryEntities": [
+        "Evidence"
+      ],
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "NIH-ODS",
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "m11-source",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://ods.od.nih.gov/factsheets/list-VitaminsMinerals/",
+      "visualPurpose": "Hold scannable umbrella source.",
+      "visualAction": "NIH ODS citations displayed in high-contrast neutral clean panel.",
+      "spokenAnchor": "",
+      "primaryEntities": [
+        "NIH ODS"
+      ],
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "pause",
+      "factualAuthority": "NIH-ODS",
+      "pauseAfterSeconds": 0,
+      "holdSeconds": 3.1
+    },
+    {
+      "id": "m12-cta",
+      "role": "cta",
+      "narration": "Which vitamin should we explore next? Comment a letter.",
+      "onScreenText": "PICK THE NEXT VITAMIN",
+      "visualPurpose": "Prompt interaction and loop the rotating six-vitamin wheel into first frame.",
+      "visualAction": "Selected vitamin zooms outward and the six spokes rotate to the opening configuration.",
+      "spokenAnchor": "Which vitamin",
+      "primaryEntities": [
+        "Vitamin"
+      ],
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "end",
+      "factualAuthority": "NIH-ODS",
+      "pauseAfterSeconds": 0
+    }
+  ]
+}
