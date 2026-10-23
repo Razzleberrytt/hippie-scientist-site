@@ -24,7 +24,7 @@
   "interactions": [],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -132,7 +132,7 @@
   "unmapped_mechanisms": [
     "neuroprotective"
   ],
-  "evidence_tier": "Mechanistic Evidence",
+  "evidence_tier": "Preliminary evidence",
   "profile_status": "partial",
   "runtime_export_decision": "full_public_runtime",
   "robots": "noindex,follow",
@@ -144,5 +144,22 @@
   ],
   "safety": "Generally well tolerated for most users.",
   "dosage": "Preparation-specific; use standardized product label and require source-backed dosage review before therapeutic claims.",
-  "typical_dosage": "Preparation-specific; use standardized product label and require source-backed dosage review before therapeutic claims."
+  "typical_dosage": "Preparation-specific; use standardized product label and require source-backed dosage review before therapeutic claims.",
+  "evidence_grade": "D",
+  "evidence_grade_source": "b",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Randomized controlled trial",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a randomized controlled trial, drawn from 5 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 5,
+  "evidence_strongest_design": "rct",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

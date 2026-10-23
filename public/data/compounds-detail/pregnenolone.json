@@ -2,7 +2,7 @@
   "id": "pregnenolone",
   "slug": "pregnenolone",
   "name": "Pregnenolone",
-  "summary": "Pregnenolone carries a Grade C rating — limited evidence. Recorded activity centres on neurotransmitter modulation, hormonal signaling context and neurotransmitter signaling, which describes mechanism rather than demonstrated benefit. small trials report tolerability, but evidence is limited and endocrine, mood, and drug-interaction risks require clinician review.",
+  "summary": "Pregnenolone is a neurosteroid precursor with limited human trial evidence in mood, substance-use, and psychiatric contexts.",
   "description": "Pregnenolone compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "small trials report tolerability, but evidence is limited and endocrine, mood, and drug-interaction risks require clinician review",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -41,5 +41,23 @@
   "sitemap_included": false,
   "indexability_reasons": [
     "noindex-decision:hidden_until_grounded"
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

@@ -2,7 +2,7 @@
   "id": "columbamine",
   "slug": "columbamine",
   "name": "columbamine",
-  "summary": "Berberine-family alkaloid linked to metabolic regulation pathways.",
+  "summary": "Protoberberine alkaloid related to berberine found in Berberis and Coptis species. Shares metabolic and anti-inflammatory signaling with berberine; less studied than parent compound.",
   "description": "Columbamine, a berberine-family alkaloid, is linked to metabolic regulation pathways that may influence glucose and lipid handling through signaling modulation.",
   "compoundClass": "",
   "mechanisms": [
@@ -19,7 +19,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Human safety is not well established. Avoid pregnancy/breastfeeding; caution with CYP/P-gp substrates, antidiabetic drugs, and complex medication regimens.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -47,5 +47,23 @@
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
     "pregnancy"
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (limited evidence) and evidence tier (strong evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 1 recorded study, 1 in people.",
+  "evidence_human_study_count": 1,
+  "evidence_recorded_study_count": 1,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

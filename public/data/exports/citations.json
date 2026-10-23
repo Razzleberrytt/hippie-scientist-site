@@ -1,9 +1,9 @@
 {
   "name": "The Hippie Scientist citation library",
-  "description": "Citation library for https://thehippiescientist.net — 841 studies. Metadata retrieved from PubMed.",
+  "description": "Citation library for https://thehippiescientist.net — 838 studies. Metadata retrieved from PubMed.",
   "license": "Bibliographic metadata is factual and sourced from PubMed. Attribution appreciated.",
   "source": "https://pubmed.ncbi.nlm.nih.gov/",
-  "studyCount": 841,
+  "studyCount": 838,
   "studies": [
     {
       "pmid": "30000830",
@@ -8440,19 +8440,6 @@
       ]
     },
     {
-      "pmid": "25128263",
-      "doi": "10.1016/j.ijom.2014.07.012",
-      "title": "Wound ballistics of firearm-related injuries--part 2: mechanisms of skeletal injury and characteristics of maxillofacial ballistic trauma",
-      "authors": "Stefanopoulos PK et al.",
-      "journal": "Int J Oral Maxillofac Surg",
-      "year": 2015,
-      "design": "narrative-review",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/25128263/",
-      "referencedBy": [
-        "/compounds/melatonin/"
-      ]
-    },
-    {
       "pmid": "25240931",
       "doi": "10.1007/s00216-014-8109-9",
       "title": "GC-MS, LC-MS(n), LC-high resolution-MS(n), and NMR studies on the metabolism and toxicological detection of mesembrine and mesembrenone, the main alkaloids of the legal high \"Kanna\" isolated from Sceletium tortuosum",
@@ -9430,19 +9417,6 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/24575672/",
       "referencedBy": [
         "/herbs/roselle-seed/"
-      ]
-    },
-    {
-      "pmid": "20091037",
-      "doi": "10.1007/s00296-009-1250-7",
-      "title": "Biopsychosocial determinants of physical and mental fatigue in patients with spondyloarthropathy",
-      "authors": "Da Costa D et al.",
-      "journal": "Rheumatol Int",
-      "year": 2011,
-      "design": "unclassified",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/20091037/",
-      "referencedBy": [
-        "/compounds/melatonin/"
       ]
     },
     {
@@ -10761,19 +10735,6 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/12140984/",
       "referencedBy": [
         "/herbs/phosphatidylserine/"
-      ]
-    },
-    {
-      "pmid": "12467979",
-      "doi": "10.1016/s0166-6851(02)00235-9",
-      "title": "A putative novel nuclear-encoded subunit of the cytochrome c oxidase complex in trypanosomatids",
-      "authors": "Maslov DA et al.",
-      "journal": "Mol Biochem Parasitol",
-      "year": 2002,
-      "design": "unclassified",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/12467979/",
-      "referencedBy": [
-        "/compounds/melatonin/"
       ]
     },
     {

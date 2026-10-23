@@ -2,7 +2,7 @@
   "id": "magnesium",
   "slug": "magnesium",
   "name": "Magnesium",
-  "summary": "Magnesium is most useful when low intake, deficiency risk, muscle tension, or sleep-quality issues overlap.",
+  "summary": "Systematic review of 15 interventional trials found most sleep/anxiety studies improved at least one parameter, but evidence is limited by heterogeneity, small samples, formulation differences, and combination products. Strongest wording: may support sleep quality or mild anxiety especially where magnesium status is low.",
   "description": "Mineral repletion support for sleep quality, muscle relaxation, and deficiency contexts.",
   "compoundClass": "",
   "mechanisms": [
@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Generally well tolerated in typical supplemental ranges, but may cause GI upset/diarrhea and should be gated for kidney disease and medication interactions.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Moderate evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -245,5 +245,23 @@
     "may reduce absorption of bisphosphonate osteoporosis medication",
     "can add to the effect of muscle relaxants or other CNS depressants",
     "loop or thiazide diuretics can alter magnesium levels in either direction."
-  ]
+  ],
+  "evidence_grade": "B",
+  "evidence_grade_source": "high",
+  "evidence_tier": "Moderate evidence",
+  "evidence_tier_source": "Moderate Human Evidence",
+  "evidenceTier": "Moderate evidence",
+  "evidence_grade_band": "moderate",
+  "evidence_grade_reason": "capped-by-weaker-tier",
+  "evidence_grade_explanation": "Grade A requires strong human evidence; the evidence tier records moderate evidence, so the grade is capped.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Consistent",
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 8 recorded studies, 6 in people. No disagreement is recorded across them.",
+  "evidence_human_study_count": 6,
+  "evidence_recorded_study_count": 8,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

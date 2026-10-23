@@ -23,7 +23,7 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -101,5 +101,23 @@
     "summary-depth",
     "summary-quality-missing",
     "curated_allowlist"
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (limited evidence) and evidence tier (strong evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Systematic review",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Consistent",
+  "evidence_rationale": "Strongest recorded design is a systematic review, drawn from 3 recorded studies, 3 in people. No disagreement is recorded across them.",
+  "evidence_human_study_count": 3,
+  "evidence_recorded_study_count": 3,
+  "evidence_strongest_design": "systematic-review",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

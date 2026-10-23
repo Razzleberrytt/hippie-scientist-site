@@ -2,7 +2,7 @@
   "id": "daphnetin",
   "slug": "daphnetin",
   "name": "daphnetin",
-  "summary": "Coumarin derivative reported with JAK/STAT and NF-κB inhibitory activity.",
+  "summary": "Coumarin derivative from Daphne odora with JAK/STAT and NF-κB inhibitory activity. Used in Chinese medicine for pain and inflammation; limited modern clinical evidence for isolated compound.",
   "description": "Daphnetin, a coumarin derivative, is reported to inhibit NF-κB and JAK/STAT signaling in lab models, aligning with anti-inflammatory and survival-modulatory hypotheses.",
   "compoundClass": "",
   "mechanisms": [
@@ -20,7 +20,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -45,5 +45,23 @@
     "noindex-decision:hidden_until_grounded"
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

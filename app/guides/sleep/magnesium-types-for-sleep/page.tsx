@@ -7,6 +7,9 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import RecommendationSection from '@/components/RecommendationSection'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
+import { getRevenueProductSet } from '@/config/revenue-products'
+
+const magnesiumProducts = getRevenueProductSet('magnesium')?.products ?? []
 
 const SLUG = 'magnesium-types-for-sleep'
 const TITLE = 'Magnesium Types for Sleep: Glycinate vs Threonate vs Citrate'
@@ -292,11 +295,11 @@ export default function MagnesiumTypesForSleepPage() {
           <h2 className="mt-5 text-xl font-semibold text-ink">Which form fits your shopping constraint?</h2>
           <p className="mt-2 text-sm leading-7 text-muted">For GI sensitivity, compare glycinate; for lower cost or constipation, consider citrate's stool-softening tradeoff; for L-threonate, weigh a premium against mixed, commercially funded studies. Malate and taurate lack verified form-only sleep RCTs; oxide is inexpensive but can be laxative and less efficiently absorbed. This is a shopping framework, not a prescription.</p>
           <AffiliateDisclosure />
-          <p className="mt-4 text-sm leading-7 text-muted">No product-specific Amazon ASIN currently meets this guide's HIGH-confidence verification gate. Direct product offers and affiliate search shortcuts are withheld until a curated set passes source and product-quality checks.</p>
+          <p className="mt-4 text-sm leading-7 text-muted">Compare the identified Pure Encapsulations and Doctor&apos;s Best products below. Thorne remains a search-only option because its exact product ASIN is not confirmed. Product identity and availability do not establish sleep efficacy; check current labels, testing, and medication safety before buying.</p>
           <RecommendationSection
-            title="Magnesium sourcing — verification pending"
-            description="We are not endorsing a specific brand or product. Use the ingredient and label checklist above; verified examples will appear only after independent product-level review."
-            products={[]}
+            title="Magnesium product examples"
+            description="Compare label details and formats using the checklist above. These are product examples, not evidence that one brand improves sleep more than another."
+            products={magnesiumProducts}
             trackingProductSlug="magnesium"
           />
         </section>

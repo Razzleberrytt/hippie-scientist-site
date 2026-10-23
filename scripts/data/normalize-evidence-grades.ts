@@ -12,6 +12,7 @@ import { buildEvidenceRationale, gradeIsBackedByEvidence, type EvidenceRationale
 import { buildProfileSummary, isPlaceholderSummary } from '../../lib/profile-summary'
 import { normalizeStudyClass, strongestStudyClass, STUDY_CLASS_INFO } from '../../lib/study-class'
 import { writeFileAtomic } from '../lib/atomic-json.mjs'
+import { isMelatoninCitationHold, isMisattributedMelatoninCitation, quarantineMelatoninDetail, MELATONIN_IDENTITY_HOLD, MELATONIN_UNASSESSED_TIER, MELATONIN_UNASSESSED_RATIONALE } from './melatonin-citation-quarantine'
 
 const ROOT = process.cwd()
 const dataDirArg = process.argv.find((arg) => arg.startsWith('--data-dir='))
@@ -40,6 +41,20 @@ function readJson(file: string): Row[] {
 function writeJson(file: string, rows: Row[]): void {
   writeFileAtomic(path.join(DATA_DIR, file), `${JSON.stringify(rows, null, 2)}\n`)
 }
+// A curated profile detail is the canonical authored copy for that profile.
+// Do not overwrite it with a stale list/workbook row during grade normalization.
+// This marker says "edited detail text", NOT independent medical review.
+function curatedDetailCopy(indexFile: string, slug: string): Row | null {
+  if (!slug) return null
+  const detailDir = indexFile === 'herbs.json' ? 'herbs-detail' : indexFile === 'compounds.json' ? 'compounds-detail' : null
+  if (!detailDir) return null
+  const full = path.join(DATA_DIR, detailDir, `${slug}.json`)
+  if (!existsSync(full)) return null
+  const detail = JSON.parse(readFileSync(full, 'utf8')) as Row
+  if (detail.slug !== slug || detail.summary_source !== 'curated-detail' || isPlaceholderSummary(detail.summary)) return null
+  return detail
+}
+
 function syncDetailRecord(indexFile: string, row: Row): void {
   const slug = String(row.slug ?? '').trim()
   if (!slug) return
@@ -53,7 +68,7 @@ function syncDetailRecord(indexFile: string, row: Row): void {
     if (field in row) nextDetail[field] = row[field]
     else delete nextDetail[field]
   }
-  writeFileAtomic(detailPath, `${JSON.stringify(nextDetail, null, 2)}\n`)
+  writeFileAtomic(detailPath, `${JSON.stringify(quarantineMelatoninDetail(nextDetail), null, 2)}\n`)
 }
 
 function loadSourceDesignsBySlug(): Map<string, Row[]> {
@@ -71,6 +86,7 @@ function loadSourceDesignsBySlug(): Map<string, Row[]> {
       const slug = String(detail.slug ?? file.replace(/\.json$/, ''))
       const designs: Row[] = []
       for (const source of Array.isArray(detail.sources) ? detail.sources : []) {
+        if (isMisattributedMelatoninCitation(source, slug)) continue
         const pmid = String(source.pmid ?? source.pubmedId ?? '').trim()
         const meta = records[pmid]
         if (!meta?.publicationTypes?.length) continue
@@ -79,7 +95,7 @@ function loadSourceDesignsBySlug(): Map<string, Row[]> {
           .map((type) => normalizeStudyClass(type))
           .filter((studyClass) => studyClass !== 'unclassified')
         if (!classes.length) continue
-        designs.push({ study_class: strongestStudyClass(classes), study_class_source: meta.publicationTypes.join('; ') })
+        designs.push({ pmid, study_class: strongestStudyClass(classes), study_class_source: meta.publicationTypes.join('; ') })
       }
       if (designs.length) bySlug.set(slug, designs)
     }
@@ -102,22 +118,26 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
   let summariesWritten = 0
 
   const next = rows.map((row) => {
+    const curated = curatedDetailCopy(file, String(row.slug ?? ''))
     const authoredGrade = sourceGrade(row)
     const authoredTier = sourceTier(row)
     const result: EvidenceReconciliation = reconcileEvidenceGrade(authoredGrade, authoredTier)
     reasons[result.reason] = (reasons[result.reason] ?? 0) + 1
 
     const evidenceInputs = [...(claimsBySlug.get(String(row.slug)) ?? []), ...(sourcesBySlug.get(String(row.slug)) ?? [])]
+    const citationHold = isMelatoninCitationHold(String(row.slug ?? ''))
     const rationale: EvidenceRationale = buildEvidenceRationale(evidenceInputs)
     if (rationale.designMatch) rationaleCards += 1
     const backing = gradeIsBackedByEvidence(result.grade, rationale)
+    const backed = backing.backed && !citationHold
+    const backingReason = citationHold ? MELATONIN_IDENTITY_HOLD : backing.reason
 
-    const publicGrade = backing.backed ? result.grade : null
-    const publicBand = backing.backed ? result.band : null
-    const publicTier = backing.backed
+    const publicGrade = backed ? result.grade : null
+    const publicBand = backed ? result.band : null
+    const publicTier = backed
       ? (publicBand ? BAND_LABEL[publicBand] : '')
-      : UNBACKED_PUBLIC_TIER
-    const publicAdjusted = result.adjusted || !backing.backed
+      : (citationHold ? MELATONIN_UNASSESSED_TIER : UNBACKED_PUBLIC_TIER)
+    const publicAdjusted = result.adjusted || !backed
 
     if (publicAdjusted) {
       adjusted += 1
@@ -128,11 +148,11 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
         authoredTier: String(authoredTier ?? ''),
         publishedGrade: publicGrade,
         publishedTier: publicTier || null,
-        reason: backing.backed ? result.reason : backing.reason,
+        reason: backed ? result.reason : backingReason,
       })
     }
 
-    if (!backing.backed) {
+    if (!backed) {
       unbacked.push({
         slug: row.slug,
         indexable: String(row.indexability_status ?? '').toUpperCase() === 'PUBLISH',
@@ -140,14 +160,20 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
         publicGrade: null,
         publicBand: null,
         publicTier,
-        reason: backing.reason,
+        reason: backingReason,
         humanStudyCount: rationale.humanStudyCount,
         claimCount: rationale.totalClaimCount,
       })
     }
 
     const enriched = {
-      ...row,
+      ...quarantineMelatoninDetail(row),
+      ...(curated ? {
+        summary: curated.summary,
+        summary_source: 'curated-detail',
+        ...(typeof curated.description === 'string' && curated.description.trim()
+          ? { description: curated.description } : {}),
+      } : {}),
       evidence_grade: publicGrade,
       evidence_grade_source: String(authoredGrade ?? ''),
       evidence_tier: publicTier,
@@ -158,23 +184,23 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
       evidenceLevel: publicTier,
       evidenceTier: publicTier,
       evidence_grade_band: publicBand,
-      evidence_grade_reason: result.reason,
-      evidence_grade_explanation: backing.backed
-        ? result.explanation
-        : 'The authored grade is preserved for provenance, but the recorded studies do not currently demonstrate that strength, so no settled public evidence grade is shown.',
+      evidence_grade_reason: citationHold ? MELATONIN_IDENTITY_HOLD : result.reason,
+      evidence_grade_explanation: citationHold
+        ? MELATONIN_UNASSESSED_RATIONALE
+        : (backed ? result.explanation : 'The authored grade is preserved for provenance, but the recorded studies do not currently demonstrate that strength, so no settled public evidence grade is shown.'),
       evidence_grade_adjusted: publicAdjusted,
-      evidence_design_match: rationale.designMatch,
-      evidence_risk_of_bias: rationale.riskOfBias,
-      evidence_consistency: rationale.consistency,
-      evidence_rationale: rationale.summary,
-      evidence_human_study_count: rationale.humanStudyCount,
-      evidence_recorded_study_count: rationale.classifiedStudyCount,
-      evidence_strongest_design: rationale.strongestClass,
-      evidence_grade_backed: backing.backed,
-      evidence_grade_backing_gap: backing.reason,
+      evidence_design_match: citationHold ? null : rationale.designMatch,
+      evidence_risk_of_bias: citationHold ? null : rationale.riskOfBias,
+      evidence_consistency: citationHold ? null : rationale.consistency,
+      evidence_rationale: citationHold ? MELATONIN_UNASSESSED_RATIONALE : rationale.summary,
+      evidence_human_study_count: citationHold ? null : rationale.humanStudyCount,
+      evidence_recorded_study_count: citationHold ? null : rationale.classifiedStudyCount,
+      evidence_strongest_design: citationHold ? 'unclassified' : rationale.strongestClass,
+      evidence_grade_backed: backed,
+      evidence_grade_backing_gap: backingReason,
     }
 
-    if (isPlaceholderSummary(enriched.summary) || String(row.summary_source ?? '') === 'composed-from-record') {
+    if (!curated && (isPlaceholderSummary(enriched.summary) || String(row.summary_source ?? '') === 'composed-from-record')) {
       const composed = buildProfileSummary(enriched)
       if (composed) {
         summariesWritten += 1
@@ -193,7 +219,7 @@ function normalizeClaims() {
   const rows = readJson('claims.json')
   if (!rows.length) return { total: 0, classes: {} as Record<string, number>, bySlug: new Map<string, Row[]>() }
   const classes: Record<string, number> = {}
-  const next = rows.map((row) => {
+  const next = rows.filter((row) => !isMisattributedMelatoninCitation(row, String(row.profile_slug ?? ''))).map((row) => {
     const studyClass = normalizeStudyClass(row.study_class_source ?? row.evidence_tier)
     classes[studyClass] = (classes[studyClass] ?? 0) + 1
     const info = STUDY_CLASS_INFO[studyClass]

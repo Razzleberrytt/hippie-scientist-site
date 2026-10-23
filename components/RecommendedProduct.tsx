@@ -1,5 +1,6 @@
 import AffiliateDisclosure from './AffiliateDisclosure'
 import { getRevenueProductSet } from '@/config/revenue-products'
+import { canRenderRecommendationProducts } from './RecommendationSection'
 
 type RecommendedProductProps = {
   slug: string
@@ -14,7 +15,7 @@ const slotLabels: Record<string, string> = {
   premium: 'Premium option',
 }
 
-export default function RecommendedProduct({
+export default async function RecommendedProduct({
   slug,
   title = 'Recommended product',
   limit = 1,
@@ -22,6 +23,7 @@ export default function RecommendedProduct({
 }: RecommendedProductProps) {
   const productSet = getRevenueProductSet(slug)
   if (!productSet) return null
+  if (!(await canRenderRecommendationProducts(productSet.products, slug))) return null
 
   const ordered = [
     ...productSet.products.filter((product) => product.slot === 'overall'),
@@ -68,7 +70,7 @@ export default function RecommendedProduct({
                   data-tracking-location='recommended-product'
                   className='inline-flex min-h-11 shrink-0 items-center justify-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-brand-900'
                 >
-                  Check price
+                  {product.ctaLabel || 'Check price'}
                 </a>
               ) : null}
             </div>

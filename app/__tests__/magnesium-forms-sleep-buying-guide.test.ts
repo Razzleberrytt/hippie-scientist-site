@@ -57,16 +57,18 @@ describe('magnesium forms for sleep — single canonical decision owner', () => 
     expect(text).toContain('10.3389/fnut.2026.2010644')
   })
 
-  it('keeps all direct named-product picks withheld without explicit HIGH-confidence verification', () => {
+  it('uses the owner-cleared catalog without retaining the obsolete empty product gate', () => {
     const text = read(OWNER)
     expect(text).toContain('<AffiliateDisclosure />')
     expect(text).toContain('<RecommendationSection')
-    expect(text).toContain('products={[]}')
-    expect(text).toContain('No product-specific Amazon ASIN')
+    expect(text).toContain("getRevenueProductSet('magnesium')")
+    expect(text).toContain('products={magnesiumProducts}')
+    expect(text).not.toContain('products={[]}')
+    expect(text).not.toContain('verification pending')
+    expect(text).toContain('search-only')
     expect(text).not.toContain('AFFILIATE_TAGS.amazon')
     expect(text).not.toContain('data-product-slot="search-only"')
     expect(text).not.toContain('amazon.com/s?k=')
-    expect(text).not.toContain('getRevenueProductSet')
     expect(text).not.toMatch(/amazon\.com\/dp\//i)
   })
 

@@ -15,7 +15,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Insufficient human safety data; caution liver function and unknown drug interactions.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Insufficient evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -43,5 +43,23 @@
   "sitemap_included": false,
   "indexability_reasons": [
     "noindex-decision:research_archive_runtime"
-  ]
+  ],
+  "evidence_grade": "Avoid/Insufficient",
+  "evidence_grade_source": "insufficient",
+  "evidence_tier": "Insufficient evidence",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Insufficient evidence",
+  "evidence_grade_band": "insufficient",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (insufficient evidence) and evidence tier (strong evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

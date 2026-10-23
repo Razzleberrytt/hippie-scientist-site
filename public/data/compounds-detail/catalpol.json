@@ -18,7 +18,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Mostly extract-derived/preclinical. GI effects and herb-specific contraindications matter more than isolated-compound evidence.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -43,5 +43,23 @@
     "noindex-decision:hidden_until_grounded"
   ],
   "dosage": "softgel or liquid oil",
-  "typical_dosage": "softgel or liquid oil"
+  "typical_dosage": "softgel or liquid oil",
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (limited evidence) and evidence tier (strong evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 1 recorded study, 1 in people.",
+  "evidence_human_study_count": 1,
+  "evidence_recorded_study_count": 1,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

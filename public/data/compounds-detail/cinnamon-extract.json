@@ -2,7 +2,7 @@
   "id": "cinnamon-extract",
   "slug": "cinnamon-extract",
   "name": "Cinnamon extract",
-  "summary": "Cinnamon extract carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people. Recorded activity centres on metabolic regulation, glucose metabolism support and glucose metabolism, which describes mechanism rather than demonstrated benefit. Noted cautions include existing liver disease or elevated liver enzymes due to cassia-type cinnamon's coumarin content which can exceed established safety intake limits with regular use and has been linked to liver-enzyme elevation or liver injury case reports.",
+  "summary": "Insulin sensitivity support; safety screen: liver disease; anticoagulant medication caution; pregnancy high-dose caution.",
   "description": "Cinnamon extract supports glucose metabolism, plausibly via insulin sensitivity and carbohydrate handling; evidence is mixed but mechanistic signals are relevant.",
   "compoundClass": "",
   "mechanisms": [
@@ -18,7 +18,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Cassia cinnamon can contain coumarin; avoid aggressive high-dose chronic use with liver concerns.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -81,5 +81,23 @@
     "concurrent diabetes medication or insulin due to additive blood-sugar-lowering effect and hypoglycemia risk",
     "concurrent acetaminophen or other liver-metabolized medication due to combined hepatic burden",
     "true Ceylon cinnamon contains only trace coumarin and carries a substantially lower version of this risk."
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "moderate",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

@@ -2,7 +2,7 @@
   "id": "l-theanine",
   "slug": "l-theanine",
   "name": "L-theanine",
-  "summary": "L-theanine carries a Grade B rating — moderate evidence. Strongest recorded design is a randomized controlled trial, drawn from 4 recorded studies, 4 in people. No disagreement is recorded across them. Recorded activity centres on neurotransmitter modulation, vascular function support and stress response modulation, which describes mechanism rather than demonstrated benefit. Safety evidence: a systematic review of short-term trials reported no serious adverse events, but study populations and dosing varied. Long-term use, pregnancy, breastfeeding, surgery, organ impairment, and clinically significant medication interactions remain insufficiently characterized.",
+  "summary": "Calm focus; caffeine smoothing; safety screen: low blood pressure; sedative stacking caution.",
   "description": "L-theanine supports calm; focus; stress with high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Short-term trials reported no serious adverse events, but long-term, pregnancy, breastfeeding, and medication-interaction safety remain insufficient.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Moderate evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -224,5 +224,23 @@
     "Hypotension or antihypertensive medication use given a mild blood-pressure-lowering effect",
     "May add to sedation with benzodiazepines or alcohol or other CNS depressants",
     "limited safety data in pregnancy or breastfeeding."
-  ]
+  ],
+  "evidence_grade": "B",
+  "evidence_grade_source": "moderate-high",
+  "evidence_tier": "Moderate evidence",
+  "evidence_tier_source": "Moderate Human Evidence",
+  "evidenceTier": "Moderate evidence",
+  "evidence_grade_band": "moderate",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on moderate evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Randomized controlled trial",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Consistent",
+  "evidence_rationale": "Strongest recorded design is a randomized controlled trial, drawn from 4 recorded studies, 4 in people. No disagreement is recorded across them.",
+  "evidence_human_study_count": 4,
+  "evidence_recorded_study_count": 4,
+  "evidence_strongest_design": "rct",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

@@ -17,7 +17,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "In a six-week trial, 1,500 mg/day inositol hexanicotinate was well tolerated but showed no lipid benefit over placebo and no measurable bioavailability in a small pharmacokinetic subset. Long-term, pregnancy, breastfeeding, liver-disease, kidney-disease, and medication-interaction safety remain insufficient; safety claims for other niacin forms should not be transferred to this form.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -54,5 +54,23 @@
   "typical_dosage": "capsule or softgel",
   "contraindications": [
     "liver"
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

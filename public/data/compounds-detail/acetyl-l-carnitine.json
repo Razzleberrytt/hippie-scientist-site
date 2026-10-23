@@ -2,7 +2,7 @@
   "id": "acetyl-l-carnitine",
   "slug": "acetyl-l-carnitine",
   "name": "Acetyl-L-Carnitine",
-  "summary": "Acetyl-L-Carnitine carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on inflammatory signaling modulation, mitochondrial support and metabolic regulation, which describes mechanism rather than demonstrated benefit. Noted cautions include caution in seizure disorders.",
+  "summary": "Mental fatigue; mitochondrial energy context; safety screen: seizure disorder; warfarin; hypothyroid medication review.",
   "description": "Acetyl-L-Carnitine supports neuropathy; fatigue; cognition with high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -18,7 +18,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Review with seizure history, warfarin, or thyroid-medication plans.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -56,5 +56,23 @@
     "summary-present",
     "summary-quality-missing",
     "curated_allowlist"
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "moderate-high",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

@@ -2,7 +2,7 @@
   "id": "kava",
   "slug": "kava",
   "name": "Kava",
-  "summary": "Kava carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Findings across those studies disagree. Recorded activity centres on oxidative stress modulation, neurotransmitter modulation and stress response modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include liver.",
+  "summary": "Relaxation without classic stimulation; safety screen: liver disease; alcohol; hepatotoxic medications; pregnancy.",
   "description": "Kava supports anxiety; relaxation with moderate confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Liver injury risk is the central safety flag; avoid with liver disease, alcohol, or hepatotoxic meds.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -68,5 +68,23 @@
   "sitemap_included": false,
   "indexability_reasons": [
     "noindex-decision:hidden_until_grounded"
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "moderate-high",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Randomized controlled trial",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Mixed",
+  "evidence_rationale": "Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Findings across those studies disagree.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "rct",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

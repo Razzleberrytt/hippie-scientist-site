@@ -2,7 +2,7 @@
   "id": "electrolytes-potassium",
   "slug": "electrolytes-potassium",
   "name": "Potassium electrolytes",
-  "summary": "Potassium electrolytes carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on cellular protection, vascular function support and cardiovascular, which describes mechanism rather than demonstrated benefit. Noted cautions include baseline serum potassium above the normal range.",
+  "summary": "Blood pressure support; muscle function; safety screen: kidney disease; ACE inhibitors/ARBs; potassium-sparing diuretics.",
   "description": "Potassium electrolytes support physiologic electrical gradients and can contribute to blood pressure regulation and muscle function in deficiency states.",
   "compoundClass": "",
   "mechanisms": [
@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Potassium supplementation can be dangerous with kidney disease or potassium-retaining medications.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -57,5 +57,23 @@
     "baseline serum potassium above the normal range",
     "Addison's disease or other hypoaldosteronism conditions due to impaired aldosterone-mediated potassium excretion",
     "concurrent NSAID use due to reduced renal potassium clearance"
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "high",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (strong evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

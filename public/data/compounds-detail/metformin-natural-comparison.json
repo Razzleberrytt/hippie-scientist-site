@@ -15,7 +15,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Metformin has well-established safety vs variable supplement safety.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Editorial grade not demonstrated by recorded studies",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -43,5 +43,23 @@
   "typical_dosage": "—",
   "contraindications": [
     "Depends on compound."
-  ]
+  ],
+  "evidence_grade": null,
+  "evidence_grade_source": "a",
+  "evidence_tier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_grade_band": null,
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "The authored grade is preserved for provenance, but the recorded studies do not currently demonstrate that strength, so no settled public evidence grade is shown.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": false,
+  "evidence_grade_backing_gap": "no-claims-recorded"
 }

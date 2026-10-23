@@ -2,7 +2,7 @@
   "id": "stigmasterol",
   "slug": "stigmasterol",
   "name": "stigmasterol",
-  "summary": "Phytosterol linked to receptor-level lipid signaling and pathway modulation.",
+  "summary": "Plant sterol from soybeans, canola, and wheat germ that inhibits intestinal cholesterol absorption. Structurally similar to cholesterol; contributes to phytosterol blend cholesterol-lowering effects.",
   "description": "Stigmasterol (phytosterol) is framed around sterol-level receptor interactions that can influence lipid signaling and downstream pathway activation.",
   "compoundClass": "",
   "mechanisms": [
@@ -19,7 +19,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Generally food-associated, but supplements can affect lipid markers and may be unsuitable in sitosterolemia.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -44,5 +44,23 @@
     "noindex-decision:hidden_until_grounded"
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

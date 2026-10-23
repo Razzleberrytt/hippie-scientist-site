@@ -1,7 +1,13 @@
+## Scoped issue (required for new implementation PRs)
+
+Refs #REPLACE_WITH_ACTUAL_ISSUE_NUMBER
+
+Replace the placeholder with the existing approved issue number (for example, `Refs #7000`). Do not create a duplicate PR for work already covered by an open PR. Drafts awaiting qualified research/editorial review and owner-approved security interruptions retain their separate admission rules.
+
 ## Summary
 
-Describe what changed and why. A short explanation is fine; no linked issue or prescribed sections are required.
+Describe the one scoped change, existing-PR/issue search, and why it is needed.
 
-## Verification (optional)
+## Verification
 
-Add useful test commands, screenshots, or notes when relevant. GitHub Actions still enforces the actual build, test, scientific, and safety checks.
+Provide focused test and CI results, risk/safety review, and exact-head receipts. A passing admission check is not approval to merge or publish: full security, scientific, protected merge and deployment gates remain required.

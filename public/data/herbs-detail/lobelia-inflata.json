@@ -1,7 +1,7 @@
 {
   "slug": "lobelia-inflata",
   "name": "Lobelia Inflata",
-  "summary": "Botanical profile with evidence, safety, and practical fit.",
+  "summary": "Lobelia Inflata carries a Grade C rating — limited evidence. Recorded activity centres on neurotransmitter modulation and neurotransmitter signaling, which describes mechanism rather than demonstrated benefit. Noted cautions include pregnancy/breastfeeding without clinician supervision and known allergy to the plant/family.",
   "description": "Botanical profile with evidence, safety, and practical fit.",
   "effects": [
     "respiratory",
@@ -28,12 +28,12 @@
     "Neurotransmitter Modulation",
     "Neurotransmitter Signaling"
   ],
-  "evidence_grade": "c",
-  "evidence_tier": "Limited Human Evidence",
-  "evidence_design_match": "",
-  "evidence_risk_of_bias": "",
-  "evidence_consistency": "",
-  "evidence_rationale": "",
+  "evidence_grade": "C",
+  "evidence_tier": "Limited evidence",
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
   "trial_design_insight": "",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
@@ -111,5 +111,19 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "summary_source": "composed-from-record",
+  "evidence_grade_source": "c",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceLevel": "Limited evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

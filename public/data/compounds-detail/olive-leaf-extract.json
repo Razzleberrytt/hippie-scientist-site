@@ -21,7 +21,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -86,5 +86,23 @@
     "safety-context",
     "summary-present",
     "summary-quality-missing"
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "limited",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "minor-disagreement",
+  "evidence_grade_explanation": "The evidence tier records preliminary evidence, one band from the recorded grade.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Randomized controlled trial",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 1 in people.",
+  "evidence_human_study_count": 1,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "rct",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

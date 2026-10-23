@@ -2,7 +2,7 @@
   "id": "beta-glucans",
   "slug": "beta-glucans",
   "name": "Beta-glucans",
-  "summary": "Beta-glucans carries a Grade D rating — preliminary / theoretical evidence. Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people. Recorded activity centres on inflammatory signaling modulation, metabolic regulation and vascular function support, which describes mechanism rather than demonstrated benefit. May cause GI symptoms; immune-modulation claims need cautious framing with immunosuppressant use.",
+  "summary": "Immune support; glycemic response; safety screen: immunosuppressants caution; GI bloating.",
   "description": "Beta-glucans supports cholesterol; immune; fiber with high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -18,7 +18,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "May cause GI symptoms; immune-modulation claims need cautious framing with immunosuppressant use.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -67,5 +67,23 @@
   "sitemap_included": false,
   "indexability_reasons": [
     "noindex-decision:hidden_until_grounded"
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "high",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (strong evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Randomized controlled trial",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "rct",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

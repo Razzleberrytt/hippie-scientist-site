@@ -21,7 +21,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Human evidence is limited and often saffron-derived. Caution with pregnancy, serotonergic drugs, anticoagulants, and blood-pressure-lowering regimens.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -143,7 +143,7 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "fully_mapped",
   "unmapped_mechanisms": [],
-  "evidence_tier": "Limited Human Evidence",
+  "evidence_tier": "Limited evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
@@ -174,5 +174,22 @@
     "caution with blood pressure medications due to saffron's antihypertensive activity",
     "caution with unbalanced bipolar disorder due to serotonergic activity",
     "crocetin is typically consumed as part of standardized saffron extract rather than an isolated supplement so follow the extract's dosing guidance."
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Narrative review",
+  "evidence_risk_of_bias": "High",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a narrative review, drawn from 1 recorded study, none of which measured an outcome in people.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 1,
+  "evidence_strongest_design": "narrative-review",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

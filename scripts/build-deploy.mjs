@@ -332,6 +332,16 @@ const steps = [
     cacheable: false,
   },
   {
+    // build-runtime-from-workbook writes *-index.json from pre-normalization
+    // rows. Refresh them from the final sanitized records so the shipped
+    // indexes mirror what profile pages render (evidence grades included).
+    name: 'refresh-profile-indexes',
+    cmd: 'node scripts/data/refresh-profile-indexes.mjs --data-dir=public/data',
+    inputs: ['public/data/herbs.json', 'public/data/compounds.json', 'scripts/data/refresh-profile-indexes.mjs'],
+    outputs: ['public/data/herb-index.json', 'public/data/compound-index.json'],
+    cacheable: false,
+  },
+  {
     name: 'build-search-index',
     cmd: 'node scripts/data/build-search-index.mjs --data-dir=public/data',
     cacheable: false,

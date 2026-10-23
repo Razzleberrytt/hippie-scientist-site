@@ -15,7 +15,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Generally well tolerated for most users.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -73,7 +73,7 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "fully_mapped",
   "unmapped_mechanisms": [],
-  "evidence_tier": "Mechanistic Evidence",
+  "evidence_tier": "Limited evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "sitemap_included": true,
@@ -115,5 +115,22 @@
     "poorly controlled or type 1 diabetes (ketogenic effect may exacerbate ketoacidosis risk)",
     "rapid introduction or high doses (dose-dependent GI upset such as cramping or diarrhea or nausea)",
     "cardiovascular disease (saturated-fat content warrants monitoring)"
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "limited",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "minor-disagreement",
+  "evidence_grade_explanation": "The evidence tier records preliminary evidence, one band from the recorded grade.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Randomized controlled trial",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a randomized controlled trial, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "rct",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

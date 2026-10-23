@@ -2,7 +2,7 @@
   "id": "probiotic-multistrain",
   "slug": "probiotic-multistrain",
   "name": "Probiotic Multistrain",
-  "summary": "Probiotic Multistrain carries a Grade A rating — strong evidence. Recorded activity centres on immune signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include severely immunocompromised and recently postoperative.",
+  "summary": "Probiotic Multistrain carries an editorial Grade A rating, but the studies recorded on this profile do not demonstrate that grade. Recorded activity centres on immune signaling modulation, which describes mechanism rather than demonstrated benefit. Noted cautions include severely immunocompromised and recently postoperative.",
   "description": "Probiotic Multistrain compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
@@ -15,7 +15,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Gas and bloating may occur. Rare invasive infections are a concern in critically ill, severely immunocompromised, postoperative, hospitalized, and medically fragile patients; evaluate every included strain rather than treating a multistrain blend as one uniform exposure.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Editorial grade not demonstrated by recorded studies",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -56,5 +56,24 @@
     "recently postoperative",
     "or otherwise medically fragile",
     "multistrain products cannot be assumed to share one safety profile."
-  ]
+  ],
+  "summary_source": "composed-from-record",
+  "evidence_grade": null,
+  "evidence_grade_source": "strong",
+  "evidence_tier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_grade_band": null,
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "The authored grade is preserved for provenance, but the recorded studies do not currently demonstrate that strength, so no settled public evidence grade is shown.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": false,
+  "evidence_grade_backing_gap": "no-claims-recorded"
 }

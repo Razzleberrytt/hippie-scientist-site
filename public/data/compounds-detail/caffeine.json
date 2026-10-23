@@ -2,7 +2,7 @@
   "id": "caffeine",
   "slug": "caffeine",
   "name": "Caffeine",
-  "summary": "Caffeine carries a Grade B rating — moderate evidence. Strongest recorded design is a meta-analysis, drawn from 3 recorded studies, 2 in people. Recorded activity centres on neurotransmitter modulation, vascular function support and hormonal signaling context, which describes mechanism rather than demonstrated benefit. Noted cautions include cardiac arrhythmia or a recent heart attack warrants clinician guidance due to increased risk of palpitations and abnormal heart rhythm.",
+  "summary": "Reaction time; fatigue reduction; safety screen: anxiety disorder; uncontrolled hypertension; arrhythmia.",
   "description": "Caffeine supports energy; focus; performance with high confidence in this merged decision layer.",
   "compoundClass": "",
   "mechanisms": [
@@ -17,7 +17,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Avoid high doses with anxiety, hypertension, arrhythmia, pregnancy caffeine limits, or stimulant sensitivity.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Moderate evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -121,5 +121,23 @@
     "MAOI antidepressants due to a risk of rapid heart rate and elevated blood pressure",
     "stimulant medications such as amphetamines or ADHD medications due to additive effects on heart rate and blood pressure",
     "children without pediatrician guidance due to a lack of established safe dosing."
-  ]
+  ],
+  "evidence_grade": "B",
+  "evidence_grade_source": "high",
+  "evidence_tier": "Moderate evidence",
+  "evidence_tier_source": "Moderate Human Evidence",
+  "evidenceTier": "Moderate evidence",
+  "evidence_grade_band": "moderate",
+  "evidence_grade_reason": "capped-by-weaker-tier",
+  "evidence_grade_explanation": "Grade A requires strong human evidence; the evidence tier records moderate evidence, so the grade is capped.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 3 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 3,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

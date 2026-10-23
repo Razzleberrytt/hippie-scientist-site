@@ -24,7 +24,7 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -101,5 +101,23 @@
     "summary-quality-missing"
   ],
   "dosage": "Ginseng preparations varied; species/preparation split needed. Dose/form ambiguous; schedule dose pass.",
-  "typical_dosage": "Ginseng preparations varied; species/preparation split needed. Dose/form ambiguous; schedule dose pass."
+  "typical_dosage": "Ginseng preparations varied; species/preparation split needed. Dose/form ambiguous; schedule dose pass.",
+  "evidence_grade": "C",
+  "evidence_grade_source": "C+",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Moderate Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "minor-disagreement",
+  "evidence_grade_explanation": "The evidence tier records moderate evidence, one band from the recorded grade.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

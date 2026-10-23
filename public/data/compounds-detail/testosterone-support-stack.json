@@ -2,7 +2,7 @@
   "id": "testosterone-support-stack",
   "slug": "testosterone-support-stack",
   "name": "Testosterone Support Stack",
-  "summary": "Testosterone Support Stack is best framed as a conservative research profile with mechanistic evidence and a focus on Exercise Performance; Hormonal Health. Current workbook signal",
+  "summary": "Testosterone Support Stack is a low-evidence compound profile in the workbook. Keep it in research-hold until PMID/source, safety, and dosage fields are reviewed.",
   "description": "Testosterone Support Stack is best framed as a conservative research profile with mechanistic evidence and a focus on Exercise Performance; Hormonal Health. Current workbook signals support mechanistic context around Hormonal Signaling Context, not treatment claims.",
   "compoundClass": "",
   "mechanisms": [
@@ -40,5 +40,23 @@
   "sitemap_included": false,
   "indexability_reasons": [
     "noindex-decision:hidden_until_grounded"
-  ]
+  ],
+  "evidence_grade": null,
+  "evidence_grade_source": "not_applicable_stack",
+  "evidence_tier": "",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "",
+  "evidence_grade_band": null,
+  "evidence_grade_reason": "not-applicable",
+  "evidence_grade_explanation": "This record is a stack or blend, so a single evidence grade does not apply.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

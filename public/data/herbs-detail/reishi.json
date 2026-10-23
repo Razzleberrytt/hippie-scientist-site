@@ -1,7 +1,7 @@
 {
   "name": "Reishi Ganoderma lucidum",
   "slug": "reishi",
-  "summary": "Immune modulation.",
+  "summary": "Educational page may discuss mechanistic interest only.",
   "description": "Immune modulation.",
   "primaryActions": [
     "sleep",
@@ -25,7 +25,7 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -102,5 +102,23 @@
     "summary-quality-missing"
   ],
   "dosage": "Ganoderma lucidum; preclinical/mechanistic cognitive literature. No human dose/form claim from this source.",
-  "typical_dosage": "Ganoderma lucidum; preclinical/mechanistic cognitive literature. No human dose/form claim from this source."
+  "typical_dosage": "Ganoderma lucidum; preclinical/mechanistic cognitive literature. No human dose/form claim from this source.",
+  "evidence_grade": "D",
+  "evidence_grade_source": "D+",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Moderate Human Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (preliminary evidence) and evidence tier (moderate evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Systematic review",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a systematic review, drawn from 2 recorded studies, 1 in people.",
+  "evidence_human_study_count": 1,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "systematic-review",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

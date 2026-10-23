@@ -1,7 +1,7 @@
 {
   "name": "Lion's Mane",
   "slug": "hericium-erinaceus",
-  "summary": "NGF stimulation.",
+  "summary": "May support certain cognitive-task outcomes in small human studies; evidence is early, mixed, and preparation-specific.",
   "description": "NGF stimulation.",
   "primaryActions": [
     "cognitive"
@@ -19,7 +19,7 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -336,5 +336,23 @@
     "safety-context",
     "summary-depth",
     "summary-quality-missing"
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "C+",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Early Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Systematic review",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Consistent",
+  "evidence_rationale": "Strongest recorded design is a systematic review, drawn from 12 recorded studies, 8 in people. No disagreement is recorded across them.",
+  "evidence_human_study_count": 8,
+  "evidence_recorded_study_count": 12,
+  "evidence_strongest_design": "systematic-review",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

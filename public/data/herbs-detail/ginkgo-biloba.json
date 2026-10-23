@@ -1,7 +1,7 @@
 {
   "name": "Ginkgo",
   "slug": "ginkgo-biloba",
-  "summary": "Ginkgo Biloba centers on the leaf.",
+  "summary": "Ginkgo biloba is one of the oldest surviving tree species; standardized leaf extracts such as EGb 761 supply flavonoid glycosides and terpene lactones and are marketed for memory and circulation. The evidence for cognition is weak: a large Cochrane systematic review of trials in dementia and cognitive impairment found the benefits inconsistent and unconvincing, while noting that ginkgo appears to be as well tolerated as placebo. Ginkgo has blood-thinning potential and may increase bleeding risk when combined with anticoagulant or antiplatelet drugs.",
   "description": "Ginkgo Biloba centers on the leaf. Key reported compounds include ginkgolides A, B, C, J; bilobalide; ginkgetin; bilobetin; sciadopitysin.",
   "primaryActions": [
     "cognitive",
@@ -24,7 +24,7 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Moderate evidence",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -101,5 +101,23 @@
     "summary-depth",
     "summary-quality-missing",
     "curated_allowlist"
-  ]
+  ],
+  "evidence_grade": "B",
+  "evidence_grade_source": "B",
+  "evidence_tier": "Moderate evidence",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Moderate evidence",
+  "evidence_grade_band": "moderate",
+  "evidence_grade_reason": "minor-disagreement",
+  "evidence_grade_explanation": "The evidence tier records strong evidence, one band from the recorded grade.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Systematic review",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a systematic review, drawn from 3 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 3,
+  "evidence_strongest_design": "systematic-review",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

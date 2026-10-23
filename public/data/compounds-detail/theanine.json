@@ -2,7 +2,7 @@
   "id": "theanine",
   "slug": "theanine",
   "name": "theanine",
-  "summary": "Non-protein amino acid from tea associated with calming and attention-related effects.",
+  "summary": "May support relaxation, subjective sleep quality, and some attention outcomes; standalone and caffeine-combination evidence must be separated.",
   "description": "Non-protein amino acid from tea associated with calming and attention-related effects.",
   "compoundClass": "",
   "mechanisms": [
@@ -15,7 +15,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Short-term L-theanine appears generally well tolerated in limited human trials, but broad safety certainty is limited by small samples and mixed populations.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Moderate evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -281,5 +281,23 @@
   "sitemap_included": false,
   "indexability_reasons": [
     "noindex-decision:hidden_until_grounded"
-  ]
+  ],
+  "evidence_grade": "B",
+  "evidence_grade_source": "B",
+  "evidence_tier": "Moderate evidence",
+  "evidence_tier_source": "Moderate Human Evidence",
+  "evidenceTier": "Moderate evidence",
+  "evidence_grade_band": "moderate",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on moderate evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": "Consistent",
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 8 recorded studies, 8 in people. No disagreement is recorded across them.",
+  "evidence_human_study_count": 8,
+  "evidence_recorded_study_count": 8,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

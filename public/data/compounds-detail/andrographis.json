@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "SAFETY ALERT: Medicines containing Andrographis have been associated with unpredictable anaphylaxis, including a fatal case reported in Australia in 2024. The TGA received 287 anaphylaxis reports through 31 December 2025 and removed Andrographis from eligibility for NEW Australian listed medicines on 17 September 2026; existing listed products were not automatically banned. Throat swelling, breathing difficulty or collapse after exposure require emergency care. Pregnancy, immunosuppressant and other medication cautions also apply.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Moderate evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -73,7 +73,7 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "fully_mapped",
   "unmapped_mechanisms": [],
-  "evidence_tier": "Moderate Human Evidence",
+  "evidence_tier": "Moderate evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "sitemap_included": true,
@@ -129,5 +129,22 @@
     "caution with anticoagulants/antiplatelets and immunosuppressants",
     "rare reports of anaphylaxis and elevated liver enzymes at high doses.",
     "Prior allergy or anaphylaxis to Andrographis"
-  ]
+  ],
+  "evidence_grade": "B",
+  "evidence_grade_source": "b",
+  "evidence_tier_source": "Moderate Human Evidence",
+  "evidenceTier": "Moderate evidence",
+  "evidence_grade_band": "moderate",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on moderate evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Systematic review",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a systematic review, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "systematic-review",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

@@ -190,9 +190,10 @@ jobs:
 
           sleep 10
           main_sha="$(gh api "repos/$GITHUB_REPOSITORY/branches/main" --jq '.commit.sha')"
-          runs_json="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$main_sha&per_page=100")"
-          deploy_count="$(jq '[.workflow_runs[] | select(.name == "Deploy to Cloudflare Pages")] | length' <<<"$runs_json")"
-          ci_count="$(jq '[.workflow_runs[] | select(.name == "CI")] | length' <<<"$runs_json")"
+          # Workflow-specific totals cannot lose the older deploy run behind 100 unrelated runs.
+          # Read-only checks; existing controller ownership and deploy authorization stay unchanged.
+          deploy_count="$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/deploy.yml/runs?head_sha=$main_sha&per_page=1" --jq '.total_count')"
+          ci_count="$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/ci.yml/runs?head_sha=$main_sha&per_page=1" --jq '.total_count')"
           if [ "$deploy_count" -gt 0 ]; then
             echo "Deploy lifecycle already registered for latest main $main_sha."
           elif [ "$ci_count" -gt 0 ]; then
@@ -280,9 +281,10 @@ jobs:
           set -euo pipefail
           sleep 10
           main_sha="$(gh api "repos/$GITHUB_REPOSITORY/branches/main" --jq '.commit.sha')"
-          runs_json="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$main_sha&per_page=100")"
-          deploy_count="$(jq '[.workflow_runs[] | select(.name == "Deploy to Cloudflare Pages")] | length' <<<"$runs_json")"
-          ci_count="$(jq '[.workflow_runs[] | select(.name == "CI")] | length' <<<"$runs_json")"
+          # Workflow-specific totals cannot lose the older deploy run behind 100 unrelated runs.
+          # Read-only checks; existing controller ownership and deploy authorization stay unchanged.
+          deploy_count="$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/deploy.yml/runs?head_sha=$main_sha&per_page=1" --jq '.total_count')"
+          ci_count="$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/ci.yml/runs?head_sha=$main_sha&per_page=1" --jq '.total_count')"
           if [ "$deploy_count" -gt 0 ]; then
             echo "Deploy lifecycle already registered for latest main $main_sha."
           elif [ "$ci_count" -gt 0 ]; then

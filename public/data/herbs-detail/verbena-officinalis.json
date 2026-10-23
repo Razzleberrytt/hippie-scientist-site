@@ -23,7 +23,7 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedHerbs": [],
   "region": "",
   "sources": [
@@ -97,5 +97,24 @@
     "safety-context",
     "summary-present",
     "summary-quality-missing"
-  ]
+  ],
+  "summary_source": "composed-from-record",
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Limited Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "agree",
+  "evidence_grade_explanation": "Both evidence signals agree on limited evidence.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": "Narrative review",
+  "evidence_risk_of_bias": "High",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a narrative review, drawn from 3 recorded studies, none of which measured an outcome in people.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 3,
+  "evidence_strongest_design": "narrative-review",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

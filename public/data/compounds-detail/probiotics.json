@@ -2,7 +2,7 @@
   "id": "probiotics",
   "slug": "probiotics",
   "name": "Probiotics",
-  "summary": "Certain strains reduce antibiotic-associated diarrhea and IBS symptoms.",
+  "summary": "Live microorganism supplementation with strong human trial evidence for antibiotic-associated diarrhea, IBS symptom reduction, and immune modulation. Strain-specific effects vary considerably.",
   "description": "Probiotics can reduce antibiotic-associated diarrhea and may improve IBS symptoms through gut microbial balance and epithelial immune regulation, depending on strains.",
   "compoundClass": "",
   "mechanisms": [
@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Most studied probiotics are well tolerated in generally healthy people. Rare invasive infections have been reported, with the greatest concern in critically ill, severely immunocompromised, postoperative, hospitalized, and medically fragile patients; safety is strain- and host-specific. Probiotics are generally well tolerated by healthy adults, but live-organism supplements can rarely cause invasive infection, including bloodstream infections, in critically ill or severely immunocompromised people. FDA warned in 2023 that hospitalized preterm infants given certain probiotic products face a risk of potentially fatal invasive disease; this is a warning for a particularly vulnerable population, not evidence of equivalent risk in healthy adults. Clinician oversight is necessary in vulnerable patients. Source: FDA, Risk of Invasive Disease in Preterm Infants Given Probiotics (2023). Prior established cautions: Most studied probiotics are well tolerated in generally healthy people. Rare invasive infections have been reported, with the greatest concern in critically ill, severely immunocompromised, postoperative, hospitalized, and medically fragile patients; safety is strain- and host-specific.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
@@ -143,5 +143,23 @@
     "or otherwise medically fragile",
     "rare invasive infections have been reported",
     "and risk varies by host and strain."
-  ]
+  ],
+  "evidence_grade": "D",
+  "evidence_grade_source": "moderate",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": "Meta-analysis",
+  "evidence_risk_of_bias": "Low",
+  "evidence_consistency": null,
+  "evidence_rationale": "Strongest recorded design is a meta-analysis, drawn from 2 recorded studies, 2 in people.",
+  "evidence_human_study_count": 2,
+  "evidence_recorded_study_count": 2,
+  "evidence_strongest_design": "meta-analysis",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

@@ -2,7 +2,7 @@
   "id": "boswellia-akba-standardized",
   "slug": "boswellia-akba-standardized",
   "name": "Boswellia AKBA standardized",
-  "summary": "Boswellia AKBA standardized carries a Grade D rating — preliminary / theoretical evidence. Recorded activity centres on inflammatory signaling modulation and inflammatory, which describes mechanism rather than demonstrated benefit. Safety evidence: limited short-term human evidence for specific Boswellia extracts. Osteoarthritis trials did not show a clear excess of adverse events, but formulations and reporting varied; pregnancy, breastfeeding, surgery, bleeding, liver, kidney, long-term use, and medication-specific interaction safety remain insufficient.",
+  "summary": "Joint function; inflammatory discomfort; safety screen: pregnancy caution; anticoagulants; GI irritation.",
   "description": "Boswellia AKBA standardized extracts are used for joint pain; evidence supports COX/5-LOX and inflammatory mediator downregulation.",
   "compoundClass": "",
   "mechanisms": [
@@ -17,7 +17,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Short osteoarthritis trials of specific Boswellia extracts, including an AKBA-enriched product, did not show a clear excess of adverse events, but reporting and formulations varied. Pregnancy, breastfeeding, surgery, bleeding, liver, kidney, long-term use, and medication-specific interaction safety remain insufficient.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Preliminary evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -51,5 +51,23 @@
     "missing_record_level_sources"
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "evidence_grade": "D",
+  "evidence_grade_source": "moderate-high",
+  "evidence_tier": "Preliminary evidence",
+  "evidence_tier_source": "Mechanistic Evidence",
+  "evidenceTier": "Preliminary evidence",
+  "evidence_grade_band": "preliminary",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (moderate evidence) and evidence tier (preliminary evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": true,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }

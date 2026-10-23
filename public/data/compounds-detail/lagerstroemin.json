@@ -2,7 +2,7 @@
   "id": "lagerstroemin",
   "slug": "lagerstroemin",
   "name": "lagerstroemin",
-  "summary": "Ellagitannin linked to glucose transport and metabolic regulation.",
+  "summary": "Ellagitannin from Banaba (Lagerstroemia speciosa) leaf that activates GLUT4 glucose transporter via insulin signaling pathways. Key active compound alongside corosolic acid in Banaba extracts.",
   "description": "Lagerstroemin (ellagitannin class) is associated with glucose transport and metabolic signaling, framing potential relevance to post-prandial glycemic regulation.",
   "compoundClass": "",
   "mechanisms": [
@@ -16,7 +16,7 @@
   "foundIn": [],
   "bioavailability": "",
   "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
-  "evidenceLevel": "",
+  "evidenceLevel": "Limited evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
@@ -46,5 +46,23 @@
     "pregnancy",
     "liver",
     "kidney"
-  ]
+  ],
+  "evidence_grade": "C",
+  "evidence_grade_source": "c",
+  "evidence_tier": "Limited evidence",
+  "evidence_tier_source": "Strong Human Evidence",
+  "evidenceTier": "Limited evidence",
+  "evidence_grade_band": "limited",
+  "evidence_grade_reason": "contradiction-resolved-conservatively",
+  "evidence_grade_explanation": "The recorded grade (limited evidence) and evidence tier (strong evidence) conflict, so the weaker signal is published pending review.",
+  "evidence_grade_adjusted": false,
+  "evidence_design_match": null,
+  "evidence_risk_of_bias": null,
+  "evidence_consistency": null,
+  "evidence_rationale": "No study design has been recorded for this profile yet.",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_grade_backed": true,
+  "evidence_grade_backing_gap": null
 }
