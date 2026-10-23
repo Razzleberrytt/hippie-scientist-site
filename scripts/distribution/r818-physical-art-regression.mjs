@@ -12,6 +12,7 @@ import {stageR818PhysicalArt} from './r818-physical-art-loader.mjs'
 import {verifyR818NativeFrames} from './r818-native-frame-sequence.mjs'
 import {assertR818TelemetryBinding} from './r818-telemetry-qa.mjs'
 import {verifyR819RealR818ProductionHandoff} from './r819-r818-physical-origin.mjs'
+import {verifyR819LayerInventory} from './r819-native-layer-compositor.mjs'
 import {assertR819NoBakedFactualPlate} from './r819-canonical-handoff.mjs'
 
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex')
@@ -249,5 +250,72 @@ test('true renderer produces two independently moving source-bound art beats and
   const frame=sequence.beats[1].frames[20]
   fs.appendFileSync(path.join(out,frame.file),Buffer.from('tamper'))
   assert.throws(()=>verifyR818NativeFrames(out,sequence,scenes),/mutated frame pixels/)
+ }finally{fs.rmSync(root,{recursive:true,force:true})}
+})
+
+test('native physical collagen movement and separately composed R8.19 artist pixels match in the SAME production pass',
+ {skip:process.env.R818_PHYSICAL_TEST!=='1'},async()=>{
+ const root=makeRoot()
+ try {
+  const source=path.join(root,'source'),out=path.join(root,'output')
+  fs.mkdirSync(source);fs.mkdirSync(out)
+  const draw=async(name,svg)=>{
+   const b=await sharp({create:{width:1080,height:1920,channels:4,
+    background:'#00000000'}}).composite([{input:Buffer.from(svg)}]).png().toBuffer()
+   fs.writeFileSync(path.join(source,name),b)
+   return {file:name,sha256:hash(b)}
+  }
+  const strands=await draw('strands.png',
+   '<svg width="1080" height="1920"><ellipse cx="540" cy="920" rx="140" ry="290" fill="#2cae9d"/></svg>')
+  const crosslinks=await draw('links.png',
+   '<svg width="1080" height="1920"><rect x="460" y="820" width="175" height="200" fill="#ef9d51"/></svg>')
+  const trust=await draw('trust.png',
+   '<svg width="1080" height="1920"><rect x="90" y="1650" width="640" height="48" fill="#e5f8ff"/></svg>')
+  const art=await sharp({create:{width:1080,height:1920,channels:4,
+    background:{r:10,g:26,b:42,alpha:1}}}).png().toBuffer()
+  fs.writeFileSync(path.join(source,'art.png'),art)
+  const beat={id:'nativeart',artMethod:'cinematic-2.5d',
+   semanticAction:'source-bound-scaffold-assembles',
+   start:0,end:2.2,role:'mechanism',claimIds:['vitc-claim'],
+   onScreenSourceIds:['NIH-ODS'],visualObject:{kind:'collagen-strands',
+    name:'Source-authored collagen fibers'},
+   telemetryProof:{sourceClaimId:'vitc-claim',subjectObjectId:'strands',
+    primaryObjectId:'strands',targetObjectId:'links',targetKind:'collagen-crosslinks',
+    beforeLabel:'Collagen strands',afterLabel:'Cross-links'},
+   physicalArt:{primary:{...strands,targetBox:[371,614,339,725]},
+    target:{...crosslinks,targetBox:[415,702,250,564]},
+    art:{file:'art.png',sha256:hash(art),r819Role:'nonfactual-art',containsFactualText:false},
+    trust:{...trust,r819Role:'factual-trust',factualAuthority:'NIH ODS',
+     sourceClaimId:'vitc-claim'}}}
+  const scenes=[{beatId:beat.id,start:0,end:2.2,role:'mechanism'}]
+  const assets=[{id:beat.id,sha256:hash('pinned physical artwork assets')}]
+  const rendererCodeSha256=hash('canonical original art rendering')
+  const sourceUrl='https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/'
+  const sourceContentHash=hash('upstream claim source snapshot')
+  const producer=createR818PhysicalCinemaProvider({artRoot:source,timeoutMs:450000})
+  producer.nativeFrameRenderer({outputDir:out,scenes,assets,
+   canonicalFirstPassPlan:{beats:[beat]},rendererCodeSha256,sourceUrl,sourceContentHash})
+  const seq=JSON.parse(fs.readFileSync(path.join(out,'r818-native-frames.json'),'utf8'))
+  const trace=JSON.parse(fs.readFileSync(path.join(out,'r818-telemetry.json'),'utf8'))
+  assert.equal(verifyR818NativeFrames(out,seq,scenes).frameCount,66)
+  assert.equal(assertR818TelemetryBinding({beats:[beat]},trace,{
+    rendererCodeSha256,renderedSceneAssetsSha256:hash(assets.map(a=>a.sha256).join('|'))
+   }).beatCount,1)
+  const receipt=JSON.parse(fs.readFileSync(
+    path.join(out,'r818-r819-native-separation-receipt.json'),'utf8'))
+  assert.equal(receipt.status,'REAL_PHYSICAL_OBJECT_PIXELS_SOURCE_SEPARATED_PIXEL_MATCH_REVIEW_ONLY')
+  assert.equal(receipt.frameCount,66)
+  assert.equal(receipt.publicationApproved,false)
+  const layerDoc=JSON.parse(fs.readFileSync(path.join(out,'r819-layer-sequence.json'),'utf8'))
+  assert.equal(layerDoc.beats[0].frames.length,66)
+  const origin=verifyR819RealR818ProductionHandoff(out,{plan:{beats:[beat]},scenes,
+   nativeSequence:seq})
+  assert.equal(origin.frameCount,66)
+  fs.appendFileSync(path.join(out,layerDoc.beats[0].frames[0].layers.trust.file),
+    Buffer.from('tampered'))
+  assert.throws(()=>verifyR819LayerInventory(out,{
+   file:'r819-layer-sequence.json',
+   sha256:hash(fs.readFileSync(path.join(out,'r819-layer-sequence.json')))
+  },seq),/mutated\/incorrect/)
  }finally{fs.rmSync(root,{recursive:true,force:true})}
 })
