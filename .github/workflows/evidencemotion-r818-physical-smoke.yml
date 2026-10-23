@@ -4,6 +4,10 @@ on:
   pull_request:
     paths:
       - 'scripts/distribution/r818-physical-cinema.py'
+      - 'scripts/distribution/r818-physical-art-regression.mjs'
+      - 'scripts/distribution/r818-physical-art-loader.mjs'
+      - 'scripts/distribution/r818-r819-separated-assembly.mjs'
+      - 'scripts/distribution/r819-r818-physical-origin.mjs'
       - 'scripts/distribution/r818-physical-cinema-provider.mjs'
       - 'scripts/distribution/r818-physical-smoke.mjs'
       - 'scripts/distribution/r818-native-frame-sequence.mjs'
