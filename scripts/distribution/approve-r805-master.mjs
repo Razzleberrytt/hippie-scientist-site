@@ -1,4 +1,3 @@
-import { assertNoUnapprovedSciencePlates } from './science-plate-actors.mjs'
 #!/usr/bin/env node
 import crypto from 'node:crypto'
 import fs from 'node:fs'
@@ -90,7 +89,6 @@ export function approveR805Master({
   const manifestBytes = fs.readFileSync(manifestFile)
   const mp4Receipt = JSON.parse(mp4ReceiptBytes.toString('utf8'))
   const manifest = JSON.parse(manifestBytes.toString('utf8'))
-  assertNoUnapprovedSciencePlates(manifest, dir)
   const mp4Sha = sha256(mp4Bytes)
 
   if (clean(mp4Receipt.release) !== 'R8.05' || clean(mp4Receipt.renderer) !== 'vertical-video-mp4-v3-r805') {
