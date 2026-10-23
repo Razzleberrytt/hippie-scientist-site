@@ -28,6 +28,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Fast source syntax preflight before heavyweight renderer installation
+        run: |
+          python -m py_compile scripts/distribution/r818-physical-cinema.py
+          for source in \
+            scripts/distribution/r818-physical-art-loader.mjs \
+            scripts/distribution/r818-r819-separated-assembly.mjs \
+            scripts/distribution/r818-physical-cinema-provider.mjs \
+            scripts/distribution/r818-physical-art-regression.mjs \
+            scripts/distribution/r818-telemetry-qa.mjs \
+            scripts/distribution/r819-r818-physical-origin.mjs; do
+            node --check "$source"
+          done
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Install headless open-source physical renderer
         run: |
