@@ -11,6 +11,7 @@ import {createR818PhysicalCinemaProvider} from './r818-physical-cinema-provider.
 import {stageR818PhysicalArt} from './r818-physical-art-loader.mjs'
 import {verifyR818NativeFrames} from './r818-native-frame-sequence.mjs'
 import {assertR818TelemetryBinding} from './r818-telemetry-qa.mjs'
+import {assertR819NoBakedFactualPlate} from './r819-canonical-handoff.mjs'
 
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex')
 const clone=x=>structuredClone(x)
@@ -61,6 +62,13 @@ test('source-authored resting boxes fail closed on altered layout',async()=>{
   const missing=clone(beat);delete missing.physicalArt.primary.targetBox
   assert.throws(()=>stageR818PhysicalArt({artRoot:src,outputDir:path.join(root,'bad2'),beats:[missing]}),/bounded authored resting boxes/)
  }finally{fs.rmSync(root,{force:true,recursive:true})}
+})
+test('baked factual plates always fail R8.19 independent art/trust claim',()=>{
+ assert.equal(assertR819NoBakedFactualPlate({beats:[{id:'clean',physicalArt:{primary:{}}}]}),true)
+ assert.throws(()=>assertR819NoBakedFactualPlate({beats:[{id:'C',physicalArt:{
+   primary:{},target:{},plate:{factualAuthority:'NIH ODS',r819BackgroundEligible:false}}}]}),
+   /original teaching plate contains source\/factual text/)
+ assert.throws(()=>assertR819NoBakedFactualPlate({beats:null}),/source-beat inventory missing/)
 })
 test('full original factual plate is SHA-pinned and explicitly excluded from R8.19 art',async()=>{
  const root=makeRoot()
