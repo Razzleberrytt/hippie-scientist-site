@@ -538,6 +538,7 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       r812CtaUrl: creativeSpec.r812?.enabled === true && clean(beat.role)==='cta' ? clean(creativeSpec.r812.ctaUrl) : null,
       compositionFamily: clean(beat?.r807?.compositionFamily),
       visualScene: clean(beat?.r809?.visualScene),
+      scienceIllustration: beat?.r809?.scienceIllustration ?? null,
       rhythmAction: clean(beat?.r807?.rhythmAction),
       motifId: clean(beat?.r807?.motifId),
       patternInterrupt: beat?.r807?.patternInterrupt === true,
@@ -661,6 +662,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
   const motionPhase = clean(options.motionPhase) || 'post'
   const r809 = ['R8.09', 'R8.10'].includes(clean(options.creativeMethodRelease))
   const r810 = clean(options.creativeMethodRelease) === 'R8.10'
+  if (scene.scienceIllustration && !r809) throw Error('Science plate requires governed R8.09/R8.10 cinematic authoring')
   const { foreground, background } = treatment(scene.colorTreatment)
   const sourceUrl = clean(options.sourceUrl)
   const contentHash = clean(options.contentHash)
@@ -731,7 +733,9 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
           }),
           renderR809VisualActor(scene, {
             x, y: compositionTop + 30, width: safeWidth,
-            height: Math.max(240, Math.min(450, canvas.height - safe.bottom - 490 - compositionTop)),
+            height: scene.scienceIllustration
+              ? Math.min(570, disclosureY - compositionTop - 110)
+              : Math.max(240, Math.min(450, canvas.height - safe.bottom - 490 - compositionTop)),
             foreground, background, motionPhase,
           }),
         ].join('')
@@ -776,6 +780,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     r812CtaUrl: scene.r812CtaUrl || null,
     compositionFamily: scene.compositionFamily || null,
     visualScene: scene.visualScene || null,
+    scienceIllustration: scene.scienceIllustration || null,
     rhythmAction: scene.rhythmAction || null,
     motifId: scene.motifId || null,
     patternInterrupt: scene.patternInterrupt === true,
