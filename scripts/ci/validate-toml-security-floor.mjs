@@ -46,7 +46,7 @@ function atLeast(actual, minimum) {
 }
 
 const failures = []
-const minimumPatchedVersion = '4.2.0'
+const minimumPatchedVersion = '5.0.1'
 const overrideVersion = packageJson?.overrides?.toml
 const lockedToml = packageLock?.packages?.['node_modules/toml']
 
