@@ -44,6 +44,36 @@ function beats(primary,target){
     afterLabel:'Product container (illustration)'},physicalArt:{primary,target}}
  ]
 }
+test('native 1080x1920 isolated original-art pixels admit only exact pinned separated source roles',async()=>{
+ const root=makeRoot()
+ try{
+  const artRoot=path.join(root,'artist')
+  fs.mkdirSync(artRoot)
+  const b=await sharp({create:{width:1080,height:1920,channels:4,
+   background:{r:30,g:70,b:90,alpha:1}}}).png().toBuffer()
+  for(const n of ['strands.png','links.png','art.png','trust.png'])
+   fs.writeFileSync(path.join(artRoot,n),b)
+  const r=n=>({file:n+'.png',sha256:hash(b)})
+  const beat={id:'nativefull',artMethod:'cinematic-2.5d',
+   semanticAction:'source-bound-scaffold-assembles',
+   claimIds:['claim-1'],onScreenSourceIds:['NIH-ODS'],
+   visualObject:{kind:'collagen',name:'Original artist pixels'},
+   telemetryProof:{sourceClaimId:'claim-1',primaryObjectId:'strands',
+    subjectObjectId:'strands',targetObjectId:'links',targetKind:'crosslinks',
+    beforeLabel:'Strands',afterLabel:'Crosslinks'},
+   physicalArt:{primary:{...r('strands'),targetBox:[371,614,339,725]},
+    target:{...r('links'),targetBox:[415,702,250,564]},
+    art:{...r('art'),r819Role:'nonfactual-art',containsFactualText:false},
+    trust:{...r('trust'),r819Role:'factual-trust',
+     factualAuthority:'NIH-ODS',sourceClaimId:'claim-1'}}}
+  const staged=stageR818PhysicalArt({artRoot,outputDir:path.join(root,'pass'),beats:[beat]})
+  assert.equal(Object.keys(staged.nativefull).length,4)
+  assert.equal(staged.nativefull.primary.sha256,hash(b))
+  const wrong=clone(beat);wrong.physicalArt.trust.sourceClaimId='unregistered'
+  assert.throws(()=>stageR818PhysicalArt({
+   artRoot,outputDir:path.join(root,'reject'),beats:[wrong]}),/source authority/)
+ }finally{fs.rmSync(root,{recursive:true,force:true})}
+})
 test('source-authored resting boxes fail closed on altered layout',async()=>{
  const root=makeRoot()
  try{

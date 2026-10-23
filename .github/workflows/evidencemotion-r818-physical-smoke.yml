@@ -41,6 +41,8 @@ jobs:
             node --check "$source"
           done
       - run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Fast original artist source-intake and negative regressions before VTK
+        run: node --test scripts/distribution/r818-physical-art-regression.mjs
       - name: Install headless open-source physical renderer
         run: |
           python -m pip install --disable-pip-version-check numpy==2.3.5 pillow==12.3.0 vtk==9.6.2

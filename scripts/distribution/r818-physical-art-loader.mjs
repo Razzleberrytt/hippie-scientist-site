@@ -71,7 +71,8 @@ export function stageR818PhysicalArt({artRoot,outputDir,beats}){
    // PNG RGBA only; transparency is required so the art is an isolated
    // animation object rather than an opaque full-screen poster/caption card.
    if(bytes.length<100||bytes.length>16_000_000||!bytes.subarray(0,8).equals(png)||
-      ((plate||art||trust)?(bytes.readUInt32BE(16)!==1080||bytes.readUInt32BE(20)!==1920):
+      ((plate||art||trust||(separate&&(role==='primary'||role==='target')))?
+        (bytes.readUInt32BE(16)!==1080||bytes.readUInt32BE(20)!==1920):
        (bytes.readUInt32BE(16)<64||bytes.readUInt32BE(16)>1200||
         bytes.readUInt32BE(20)<64||bytes.readUInt32BE(20)>1200))||
       bytes[25]!==6||digest(bytes)!==ref.sha256)
