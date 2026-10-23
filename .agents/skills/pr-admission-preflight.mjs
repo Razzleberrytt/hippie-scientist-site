@@ -7,6 +7,16 @@ import { spawnSync } from 'node:child_process'
 import process from 'node:process'
 import console from 'node:console'
 
+/**
+ * Only an explicitly scoped/closing issue is reserved. General #issue
+ * references (e.g. "Depends on #7022") are not ownership declarations.
+ */
+export function scopedIssueFromBody(body) {
+  if (typeof body !== 'string') return null
+  const match = body.match(/(?:^|\r?\n)\s*(?:Closes|Fixes|Resolves|Refs|References|Tracks|Tracking|Issue)\s*:?\s*#(\d+)\b/i)
+  return match ? Number(match[1]) : null
+}
+
 export function assessAdmission(prs, { issue = null, files = [], existing = null, reviewOnly = false, securityApproved = false } = {}) {
   if (!Array.isArray(prs) || !prs.every((p) =>
     Number.isInteger(p.number) && Array.isArray(p.files) &&
@@ -31,8 +41,7 @@ export function assessAdmission(prs, { issue = null, files = [], existing = null
   }
   const fileSet = new Set(files.map((f) => f.trim()).filter(Boolean))
   if (!fileSet.size) return { decision: 'BLOCK', reason: 'Provide --files with the planned changed paths', prs: [] }
-  const issuePattern = new RegExp('(^|[^0-9])#' + issue + '(?![0-9])')
-  const duplicates = prs.filter((p) => issuePattern.test(p.body) ||
+  const duplicates = prs.filter((p) => scopedIssueFromBody(p.body) === issue ||
     p.files.some((f) => fileSet.has(typeof f === 'string' ? f : f.path)))
   if (duplicates.length) {
     return { decision: 'BLOCK', reason: 'Open PR already owns the issue or planned files; review and reuse it', prs: duplicates.map((p) => p.number) }
@@ -87,10 +96,10 @@ export function requestFromOpenPr(prs, number) {
   if (!current || !Array.isArray(current.files) || typeof current.body !== 'string') {
     return { error: 'Current PR unavailable or its changed-file inventory is incomplete' }
   }
-  const scoped = current.body.match(/(?:Closes|Fixes|Resolves|Refs|References|Tracks|Tracking|Issue)\s*:?\s*#(\d+)/i)
-  if (!scoped) return { error: 'PR body must name its scoped issue (for example Refs #1234)' }
+  const scoped = scopedIssueFromBody(current.body)
+  if (!Number.isSafeInteger(scoped) || scoped <= 0) return { error: 'PR body must name its scoped issue (for example Refs #1234)' }
   return {
-    issue: Number(scoped[1]),
+    issue: scoped,
     files: current.files.map((f) => typeof f === 'string' ? f : f.path).filter(Boolean),
     reviewOnly: current.isDraft,
     securityApproved: Array.isArray(current.labels) &&

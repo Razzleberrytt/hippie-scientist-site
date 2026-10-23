@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { assessAdmission, requestFromOpenPr, completeOpenInventory } from './pr-admission-preflight.mjs'
+import { assessAdmission, requestFromOpenPr, completeOpenInventory, scopedIssueFromBody } from './pr-admission-preflight.mjs'
 
 const pr = (number, options = {}) => {
   const record = { number, body: '', files: [], isDraft: false, ...options }
@@ -140,4 +140,20 @@ test('fail closed if CLI count missing, paginated data incomplete, duplicated or
   assert.throws(() => completeOpenInventory([partial()], 'a/b', () => ({
     status: 1, stderr: 'API temporarily unavailable',
   })), /Unable to obtain complete/)
+})
+
+// Issue references in prose are dependencies, not reservations of that issue.
+test('owner issue extraction ignores incidental dependency references', () => {
+  const owned = pr(25, {
+    body: 'Refs #6670\n\n## Context\nDepends on #7022',
+    files: [{ path: 'docs/b12.md' }],
+    labels: [{ name: 'hold-merge' }],
+  })
+  assert.equal(scopedIssueFromBody(owned.body), 6670)
+  assert.equal(assessAdmission([owned], { issue: 7022, files: ['src/unrelated.ts'] }).decision, 'READY')
+  assert.equal(assessAdmission([owned], { issue: 6670, files: ['src/unrelated.ts'] }).decision, 'BLOCK')
+  assert.equal(assessAdmission([owned], { issue: 7022, files: ['docs/b12.md'] }).decision, 'BLOCK')
+  assert.equal(scopedIssueFromBody('Depends on #7022'), null)
+  assert.equal(scopedIssueFromBody('Closes #7022'), 7022)
+  assert.equal(requestFromOpenPr([owned], 25).issue, 6670)
 })

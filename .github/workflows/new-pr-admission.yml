@@ -3,7 +3,7 @@ name: New PR admission
 # Trusted main-branch controller code only. Never checkout or execute PR head.
 on:
   pull_request_target:
-    types: [opened, reopened, synchronize, ready_for_review, labeled, unlabeled]
+    types: [opened, reopened, synchronize, ready_for_review, labeled, unlabeled, edited]
 
 permissions:
   contents: read
