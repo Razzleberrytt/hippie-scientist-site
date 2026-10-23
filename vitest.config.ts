@@ -13,6 +13,9 @@ const TEST_EXCLUDES = [
   '**/.claude/**',
   '**/out/**',
   'agent/lib/runtime-resilience.test.js',
+  // This is a native node:test suite owned by npm run test:node; bundling it
+  // under app-dom Vitest fails on the node:test builtin.
+  '.agents/skills/pr-admission-preflight.test.mjs',
   'scripts/enrichment-governor/__tests__/**',
   'scripts/content/__tests__/**',
   'scripts/ci/swarm-operational-ledger.test.mjs',
