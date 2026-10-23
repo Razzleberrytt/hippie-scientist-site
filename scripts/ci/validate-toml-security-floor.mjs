@@ -46,8 +46,6 @@ function atLeast(actual, minimum) {
 }
 
 const failures = []
-// GHSA-4qx8-w7c3-pj3p, GHSA-9j65-hcg3-gc64 and GHSA-9qmh-m7c6-f92p
-// were patched upstream in toml 5.0.1; reject older vulnerable overrides/locks.
 const minimumPatchedVersion = '5.0.1'
 const overrideVersion = packageJson?.overrides?.toml
 const lockedToml = packageLock?.packages?.['node_modules/toml']
