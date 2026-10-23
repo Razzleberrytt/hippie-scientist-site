@@ -111,7 +111,9 @@ export async function authorR819OriginalArtistPixelProof(packageDir,{nativeSeque
   sourceLedgerSha256:sha(Buffer.from(JSON.stringify(source))),
   completeDecodedFrameLedgerSha256:sha(Buffer.from(JSON.stringify(frameHashes))),
   claims:previews,
-  originalR818RendererTelemetryIndependentlyVerified:Boolean(realOrigin),
+  // Local code-to-render linkage is NOT an independent visual/science review.
+  originalR818RendererTelemetryIndependentlyVerified:false,
+  r818SamePassMechanicalLinkVerified:Boolean(realOrigin),
   r818SamePassMechanicalReceipt:realOrigin,
   authenticR810WordAlignmentVerified:false,independentScienceReview:false,
   humanArtCraftReview:false,publicationApproved:false,canonicalFirstRender:false}
