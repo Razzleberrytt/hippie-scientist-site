@@ -1,3 +1,4 @@
+import { assertNoUnapprovedSciencePlates } from './science-plate-actors.mjs'
 #!/usr/bin/env node
 import { assertMobilePlaybackReceipt } from './evidencemotion-delivery-guardrails.mjs'
 import crypto from 'node:crypto'
@@ -112,6 +113,7 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
   }
 
   const manifestBytes = fs.readFileSync(manifestFile)
+  assertNoUnapprovedSciencePlates(JSON.parse(manifestBytes.toString('utf8')), sourceDirectory)
   const mp4Bytes = fs.readFileSync(mp4File)
   const receipt = readJson(receiptFile)
   const expectedRenderer = packageRelease === 'R8.05' ? 'vertical-video-mp4-v3-r805' : 'vertical-video-mp4-v2-r804'
