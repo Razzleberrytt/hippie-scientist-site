@@ -68,3 +68,24 @@ export function stageR818PhysicalArt({artRoot,outputDir,beats}){
  }
  return staged
 }
+
+/** Reject new art from auto-publication until the exact native art pixels and
+ * actual human science/craft review have an independently verifiable receipt.
+ * This is deliberately a HOLD, not a fake approval token or publication path.
+ */
+export function assertNoUnreviewedR818PhysicalArt(packageDir) {
+ const root=path.resolve(packageDir)
+ for(const name of ['r818-original-art-review-receipt.json','r818-physical-job.json','r817-first-pass.json']){
+  const file=path.join(root,name)
+  if(!fs.existsSync(file))continue
+  const content=JSON.parse(fs.readFileSync(file,'utf8'))
+  if(name==='r818-original-art-review-receipt.json' ||
+     name==='r818-physical-job.json' && content.physicalArt && Object.keys(content.physicalArt).length>0 ||
+     name==='r817-first-pass.json' && content.beats?.some(b=>b?.physicalArt))
+   fail('source-bound original art needs separate exact-master science/craft approval before publication')
+ }
+ const dir=path.join(root,'r818-physical-assets')
+ if(fs.existsSync(dir)&&fs.readdirSync(dir).some(file=>file.endsWith('.png')))
+  fail('staged physical artwork cannot be auto-approved for publication')
+ return true
+}
