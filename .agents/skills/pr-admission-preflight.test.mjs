@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { assessAdmission } from './pr-admission-preflight.mjs'
+import { assessAdmission, requestFromOpenPr } from './pr-admission-preflight.mjs'
 
 const pr = (number, options = {}) => ({
   number, body: '', files: [], isDraft: false, ...options,
@@ -39,4 +39,27 @@ test('GitHub inventory with unknown files/draft state fails closed', () => {
 test('missing issue or file scope cannot grant new admission', () => {
   assert.equal(assessAdmission([], { files: ['a'] }).decision, 'BLOCK')
   assert.equal(assessAdmission([], { issue: 7000 }).decision, 'BLOCK')
+})
+
+test('legacy research drafts may be created without adding another implementation lane', () => {
+  const outcome = assessAdmission([pr(15)], { issue: 7001, files: ['draft.md'], reviewOnly: true })
+  assert.equal(outcome.decision, 'READY')
+})
+test('approved incident may interrupt active work but cannot duplicate an existing issue', () => {
+  assert.equal(assessAdmission([pr(15)], {
+    issue: 7001, files: ['secure.ts'], securityApproved: true,
+  }).decision, 'READY')
+  assert.equal(assessAdmission([pr(15, { body: 'Refs #7001' })], {
+    issue: 7001, files: ['secure.ts'], securityApproved: true,
+  }).decision, 'BLOCK')
+})
+test('PR-triggered checks must derive issue, files and approved interruption from the submitted PR', () => {
+  const request = requestFromOpenPr([pr(18, {
+    isDraft: false, body: 'Fixes #7022', files: [{ path: 'src/repair.ts' }],
+    labels: [{ name: 'security-interrupt-approved' }],
+  })], 18)
+  assert.deepEqual(request, {
+    issue: 7022, files: ['src/repair.ts'], reviewOnly: false, securityApproved: true,
+  })
+  assert.match(requestFromOpenPr([pr(18, { body: 'No ticket' })], 18).error, /scoped issue/)
 })
