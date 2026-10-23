@@ -59,6 +59,40 @@ const highRequired = [
 ]
 
 describe('risk-tiered autonomous merge controller', () => {
+  it('fails closed for missing/failed exact-head admission checks on new PRs only', () => {
+    const future = { ...pr, number: 6957 }
+    const inputs = {
+      pr: future,
+      workflowRuns: [],
+      checkRuns: [check('Validation, tests, and data')],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'low',
+      changedFiles: ['docs/admission-example.md'],
+    }
+    const missing = evaluateReadiness(inputs)
+    expect(missing.action).toBe('wait')
+    expect(missing.reason).toContain('pre-pr-admission')
+    const failed = evaluateReadiness({
+      ...inputs,
+      checkRuns: [...inputs.checkRuns, check('pre-pr-admission', 'completed', 'failure', 70)],
+    })
+    expect(failed.action).toBe('failed')
+    const green = evaluateReadiness({
+      ...inputs,
+      checkRuns: [...inputs.checkRuns, check('pre-pr-admission', 'completed', 'success', 71)],
+    })
+    expect(green.action).toBe('merge')
+
+    const grandfathered = evaluateReadiness({
+      ...inputs,
+      pr,
+    })
+    expect(grandfathered.action).toBe('merge')
+  })
+
+
   it('classifies scientific and governance paths as high risk', () => {
     for (const changedFile of [
       'public/data/herbs/foo.json',

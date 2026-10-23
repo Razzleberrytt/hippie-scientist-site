@@ -628,7 +628,13 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
     checkScore,
   )
   const checksByName = new Map(relevantChecks.map((check) => [check.name, check]))
-  const requiredCheckNames = requiredChecksFor(riskTier)
+  // Enforce the new trusted-main exact-head PR admission check only for PRs
+  // created after the October 23 backlog snapshot (#6956). Existing held
+  // research and content PRs retain their original review/release gates.
+  const requiredCheckNames = [
+    ...requiredChecksFor(riskTier),
+    ...(pr.number > 6956 ? ['pre-pr-admission'] : []),
+  ]
   const missingRequiredChecks = requiredCheckNames.filter((name) => !checksByName.has(name))
   if (missingRequiredChecks.length) return { action: 'wait', reason: `${riskTier}-risk required checks not registered yet: ${missingRequiredChecks.join(', ')}` }
 
