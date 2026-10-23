@@ -4,7 +4,8 @@
  * protection or a substitute for repository admission and human approval.
  */
 import { spawnSync } from 'node:child_process'
-import { fileURLToPath } from 'node:url'
+import process from 'node:process'
+import console from 'node:console'
 
 export function assessAdmission(prs, { issue = null, files = [], existing = null } = {}) {
   if (!Array.isArray(prs) || !prs.every((p) =>

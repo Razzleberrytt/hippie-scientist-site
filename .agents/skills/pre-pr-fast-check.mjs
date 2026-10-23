@@ -4,6 +4,8 @@
  * Stop after the first failure; never skip security, safety or publishing review.
  */
 import { spawnSync } from 'node:child_process'
+import process from 'node:process'
+import console from 'node:console'
 const steps = [
   ['conflict markers', 'node', ['scripts/ci/validate-no-conflict-markers.mjs']],
   ['TOML security-floor contract', 'node', ['scripts/ci/validate-toml-security-floor.mjs']],
