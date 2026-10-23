@@ -1,11 +1,12 @@
 /**
- * Publication admission policy — automated validation, no mandatory human sign-off.
+ * Publication release classification for the protected merge controller.
  *
- * The serialized protected merge controller is authoritative for exact-head CI,
- * dependency/security audits, scientific/content checks, branch freshness,
- * merge conflicts, explicit hold labels, and final deployment handoff.
- * This classifier does not itself authorize a merge or scientific claim.
+ * Owner decision (2026-10-23): there is no separate mandatory human-positive
+ * approval gate. Public content still goes through the existing exact-head
+ * CI, evidence, science, security, safety and controller checks. No source,
+ * testimonial, comment, review, bot or signed Git tag can waive those checks.
  */
+
 const STAGING_ONLY = [
   /^docs\/research\//u,
   /^ops\/editorial-runtime\/publication-pilots\//u,
@@ -21,37 +22,39 @@ const PUBLICATION_SURFACES = [
 
 export function classifyPublicationChange(changedFiles) {
   if (!Array.isArray(changedFiles) || changedFiles.length === 0 ||
-    changedFiles.some(file => typeof file !== 'string' || file.length === 0)) {
-    return { kind: 'HOLD', reason: 'changed file list unavailable/invalid' };
+      changedFiles.some(file => typeof file !== 'string' || file.length === 0)) {
+    return {kind: 'HOLD', reason: 'changed file list unavailable/invalid'};
   }
-  const publicFiles = changedFiles.filter(path => PUBLICATION_SURFACES.some(re => re.test(path)));
+  const publicFiles = changedFiles.filter(file => PUBLICATION_SURFACES.some(re => re.test(file)));
   if (publicFiles.length) {
     return {
       kind: 'AUTOMATED_PUBLICATION',
-      reason: 'public evidence/content change: must pass existing exact-head scientific, security and release gates',
+      reason: 'public-content release requires existing exact-head CI, evidence, safety and controller validation, not a separate human signoff',
       publicFiles,
     };
   }
-  if (changedFiles.every(path => STAGING_ONLY.some(re => re.test(path)))) {
-    return { kind: 'AUTO_STAGING', reason: 'only inert research/editorial staging files changed' };
+  if (changedFiles.every(file => STAGING_ONLY.some(re => re.test(file)))) {
+    return {kind: 'AUTO_STAGING', reason: 'research/editorial staging; no public publication credited'};
   }
-  return { kind: 'EXISTING_GATES', reason: 'existing controller and workflow checks apply' };
+  return {kind: 'EXISTING_GATES', reason: 'existing release governance applies'};
 }
 
 /**
- * No mandatory owner/human positive approval exists. No comment, REST review,
- * signed tag, label, or bot-generated message can substitute for green CI or
- * waive the existing controller's scientific and security safeguards.
- *
- * Explicit hold-merge/do-not-merge/manual-merge labels, drafts, current-base
- * checks, branch protection and failed workflows are handled by the controller.
+ * Admission to the EXISTING release gates is not approval of any claim.
+ * The controller independently rejects held/draft/fork/stale/conflicted PRs
+ * and requires all applicable exact-head checks to succeed before merging.
  */
-export function assessPublicationApproval({ changedFiles }) {
+export function assessPublicationApproval({changedFiles}) {
   const classification = classifyPublicationChange(changedFiles);
-  return { allowed: classification.kind !== 'HOLD', ...classification };
+  if (classification.kind === 'HOLD') return {allowed: false, ...classification};
+  return {allowed: true, ...classification};
 }
 
-/** Human-approval evidence is no longer read; avoids extra API calls per PR. */
+/**
+ * No human-positive approval evidence is required or accepted. Do not page
+ * through comments/reviews/tags to infer authorization, and do not create an
+ * unreviewable mandatory dependency on API provenance.
+ */
 export async function loadPublicationApprovalEvidence() {
-  return { comments: [], reviews: [], signedTagProof: null };
+  return {comments: [], reviews: [], signedTagProof: null};
 }
