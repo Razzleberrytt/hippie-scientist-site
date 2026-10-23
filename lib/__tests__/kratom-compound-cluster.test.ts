@@ -48,7 +48,15 @@ describe('kratom compound citation cluster', () => {
     expect(mp.content).toContain('effective August 26, 2026 through August 26, 2028')
     expect(mp.content).not.toMatch(/does \*\*not\*\* state that MP is already|no later effective temporary order was located/)
     expect(mp.data.references.some((ref: { url: string }) => ref.url.includes('2026-17429'))).toBe(true)
-    expect(read('7-hydroxymitragynine').content).toContain('does not establish 7-OH\'s own final scheduling status')
+    const sevenOh = read('7-hydroxymitragynine')
+    expect(sevenOh.content).toContain('7-OH had not yet been placed in temporary federal Schedule I')
+    expect(sevenOh.content).toContain('**1 milligram per gram**')
+    expect(sevenOh.content).toContain('**1 milligram per milliliter**')
+    expect(sevenOh.content).toContain('**below 100:1**')
+    expect(sevenOh.content).toContain('These are alternative **OR** triggers')
+    expect(sevenOh.content).toContain('August 26, 2026')
+    expect(sevenOh.data.references.some((ref: { url: string }) => ref.url.includes('hhs-recommends-thresholds-enhanced-kratom-products'))).toBe(true)
+    expect(sevenOh.data.references.some((ref: { url: string }) => ref.url.includes('department-justice-announces-updates-emergency-scheduling-actions'))).toBe(true)
   })
 
   it('preserves mixture, species, and assay boundaries instead of declaring isolated human efficacy', () => {
