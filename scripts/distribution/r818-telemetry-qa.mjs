@@ -89,10 +89,22 @@ function checkGroundedIllustrationAction(beat,frames,canvas){
   const expected=[['primary',p.primaryObjectId]]
   if(action==='source-bound-scaffold-assembles'&&beat.physicalArt.plate)
    expected.push(['plate','source-plate'])
+  if(action==='source-bound-scaffold-assembles'&&(beat.physicalArt.art||beat.physicalArt.trust))
+   expected.push(['art',null],['trust',null])
   if(['botanical-versus-concentrate-reveal','source-bound-scaffold-assembles'].includes(action))expected.push(['target',p.targetObjectId])
   if(Object.keys(beat.physicalArt).sort().join(',')!==expected.map(x=>x[0]).sort().join(','))
     throw Error('R8.18 physical art role inventory mismatch')
   for(const [role,id] of expected){
+   if(role==='art'||role==='trust'){
+    const source=beat.physicalArt[role]
+    if(!hex(source?.sha256)||!txt(source?.file)||
+       role==='art'&&(source.r819Role!=='nonfactual-art'||source.containsFactualText!==false)||
+       role==='trust'&&(source.r819Role!=='factual-trust'||
+         !txt(source.factualAuthority)||source.sourceClaimId!==p.sourceClaimId))
+     throw Error('R8.18 source-separated original-art static role invalid')
+    // Static ART/TRUST hashes are checked against actual pixels by R8.19.
+    continue
+   }
    if(role==='plate'&&(!txt(beat.physicalArt.plate.factualAuthority)||
       beat.physicalArt.plate.r819BackgroundEligible!==false||
       beat.physicalArt.plate.sourceClaimId!==p.sourceClaimId))
