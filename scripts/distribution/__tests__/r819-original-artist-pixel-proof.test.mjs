@@ -52,6 +52,16 @@ test('original-artist 3-source review handoff produces exact pinned pixel proof 
     {nativeSequence:f.nativeSequence,plan,source:f.source})).rejects.toThrow(/create-only/)
  }finally{fs.rmSync(f.root,{recursive:true,force:true})}
 })
+test('self-authored matching PNG references cannot be promoted to a genuine R8.18 native render',async()=>{
+ const f=await fixture()
+ try{
+  await expect(authorR819OriginalArtistPixelProof(f.root,{
+   nativeSequence:f.nativeSequence,plan,source:f.source,requireSamePassR818:true,
+   scenes:[{beatId:'hero',start:0,end:1/30}]
+  })).rejects.toThrow(/missing\/escaping same-pass producer file/)
+  expect(fs.existsSync(path.join(f.root,'r819-original-artist-pixel-proof.json'))).toBe(false)
+ }finally{fs.rmSync(f.root,{recursive:true,force:true})}
+})
 test('a text-bearing flattened artist plate is not allowed to impersonate R8.19 art',async()=>{
  const f=await fixture()
  try{

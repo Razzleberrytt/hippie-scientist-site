@@ -11,6 +11,7 @@ import {createR818PhysicalCinemaProvider} from './r818-physical-cinema-provider.
 import {stageR818PhysicalArt} from './r818-physical-art-loader.mjs'
 import {verifyR818NativeFrames} from './r818-native-frame-sequence.mjs'
 import {assertR818TelemetryBinding} from './r818-telemetry-qa.mjs'
+import {verifyR819RealR818ProductionHandoff} from './r819-r818-physical-origin.mjs'
 import {assertR819NoBakedFactualPlate} from './r819-canonical-handoff.mjs'
 
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex')
@@ -173,6 +174,14 @@ test('true renderer produces two independently moving source-bound art beats and
   assert.ok(geometry.actionReports[1].productHeightGrowthPixels>=48)
   assert.ok(geometry.actionReports[2].movementPixels>=76)
   assert.ok(geometry.actionReports[2].connectorActivationDelta>=.75)
+  const attested=verifyR819RealR818ProductionHandoff(out,{nativeSequence:sequence,
+   plan:{beats:plan},scenes})
+  assert.equal(attested.frameCount,222)
+  assert.equal(attested.beatCount,3)
+  assert.equal(attested.publicationApproved,false)
+  assert.ok(attested.actualOriginalArtStagedCount>=7)
+  assert.throws(()=>verifyR819RealR818ProductionHandoff(out,{nativeSequence:sequence,
+   plan:{beats:plan},scenes:[...scenes].reverse()}),/differs from real producer job/)
   assert.ok(trace.beats[2].frames.every(f=>f.objects.some(o=>
    o.objectId==='source-plate'&&o.artSourceSha256===plate.sha256)))
   // Optional CI-only decoded visual receipt: reviewers must see the actual new

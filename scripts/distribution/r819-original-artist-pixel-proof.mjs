@@ -5,6 +5,7 @@ import sharp from 'sharp'
 import {authorR819LayerInventory} from './r819-layer-inventory-writer.mjs'
 import {compositeR819Frame} from './r819-native-layer-compositor.mjs'
 import {assertR819NoBakedFactualPlate} from './r819-canonical-handoff.mjs'
+import {verifyR819RealR818ProductionHandoff} from './r819-r818-physical-origin.mjs'
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex')
 const hex=s=>/^[a-f0-9]{64}$/.test(String(s??''))
 const safe=s=>/^[a-zA-Z0-9_-]{1,70}$/.test(String(s??''))
@@ -33,13 +34,15 @@ async function checkPng(bytes,kind){
 // This stage PROVES only pixel-level separation of SOURCE assets from a caller
 // supplied native-frame sequence. It never forges R8.18 render instrumentation,
 // R8.10 word timing, scientific/creative review, or a publication approval.
-export async function authorR819OriginalArtistPixelProof(packageDir,{nativeSequence,plan,source}={}){
+export async function authorR819OriginalArtistPixelProof(packageDir,{nativeSequence,plan,source,scenes,requireSamePassR818=false}={}){
  const root=path.resolve(packageDir||'')
  if(!Array.isArray(nativeSequence?.beats)||!nativeSequence.beats.length||
     !Number.isInteger(nativeSequence.frameCount)||
     nativeSequence.frameCount!==nativeSequence.beats.reduce((n,b)=>n+(b.frames?.length||0),0))
   hold('caller must supply contiguous native 30fps frame inventory')
  assertR819NoBakedFactualPlate(plan)
+ const realOrigin=requireSamePassR818?
+  verifyR819RealR818ProductionHandoff(root,{nativeSequence,plan,scenes}):null
  if(source?.schemaVersion!=='ths-r819-original-artist-role-ledger-v1'||
     !hex(source.artistGeneratorSha256)||!hex(source.sourceContentSha256)||
     !/^https:\/\//.test(source.sourceUrl||'')||
@@ -90,7 +93,9 @@ export async function authorR819OriginalArtistPixelProof(packageDir,{nativeSeque
   sourceArtistGeneratorSha256:source.artistGeneratorSha256,
   sourceLedgerSha256:sha(Buffer.from(JSON.stringify(source))),
   completeDecodedFrameLedgerSha256:sha(Buffer.from(JSON.stringify(frameHashes))),
-  claims:previews,originalR818RendererTelemetryIndependentlyVerified:false,
+  claims:previews,
+  originalR818RendererTelemetryIndependentlyVerified:Boolean(realOrigin),
+  r818SamePassMechanicalReceipt:realOrigin,
   authenticR810WordAlignmentVerified:false,independentScienceReview:false,
   humanArtCraftReview:false,publicationApproved:false,canonicalFirstRender:false}
  fs.writeFileSync(path.join(root,'r819-original-artist-pixel-proof.json'),
