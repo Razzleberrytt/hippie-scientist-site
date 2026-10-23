@@ -87,6 +87,23 @@ const COMPARISON_ROWS = [
   },
 ]
 
+function InlineReferences({ numbers }: { numbers: number[] }) {
+  return (
+    <sup className="ml-0.5 whitespace-nowrap">
+      {numbers.map((number) => (
+        <a
+          key={number}
+          href={`#ref-${number}`}
+          aria-label={`Jump to reference ${number}`}
+          className="underline underline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        >
+          [{number}]
+        </a>
+      ))}
+    </sup>
+  )
+}
+
 export default function BerberineVsInositolPage() {
   return (
     <div className="container-page space-y-10 py-10">
@@ -167,16 +184,16 @@ export default function BerberineVsInositolPage() {
           <p>
             <span className="font-semibold text-ink">Berberine</span> has the more direct glycaemic
             evidence. Randomised trials and a meta-analysis in type 2 diabetes report reductions in
-            fasting glucose and HbA1c.<sup>[1][2]</sup> The catch is duration and interaction load:
+            fasting glucose and HbA1c.<InlineReferences numbers={[1, 2]} /> The catch is duration and interaction load:
             most trials run under three months, so there is no evidence about long-term outcomes,
             and repeated dosing inhibits several cytochrome P450 enzymes, which matters for anyone
-            on regular medication.<sup>[3]</sup>
+            on regular medication.<InlineReferences numbers={[3]} />
           </p>
           <p>
             <span className="font-semibold text-ink">Inositol</span> has been evaluated in PCOS trials,
             but a 2024 systematic review found the evidence limited and inconclusive. The 2023
             international guideline notes possible improvements in selected metabolic measures,
-            without established clinical benefits or a recommended formulation and dose.<sup>[4][5]</sup>
+            without established clinical benefits or a recommended formulation and dose.<InlineReferences numbers={[4, 5]} />
             This does not prove that it treats insulin resistance, restores ovulation, or improves
             fertility for an individual patient.
           </p>
