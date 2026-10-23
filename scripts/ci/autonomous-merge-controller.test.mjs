@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import { classifyRisk, evaluateReadiness, mergeIfStillCurrent, requiredChecksFor, requiredWorkflowsFor, shouldDispatchRegisteredWorkflow, recoveryInputsFor } from './autonomous-merge-controller.mjs'
+import { classifyRisk, evaluateReadiness, mergeIfStillCurrent, verifyLiveAdmissionForMerge, requiredChecksFor, requiredWorkflowsFor, shouldDispatchRegisteredWorkflow, recoveryInputsFor } from './autonomous-merge-controller.mjs'
 
 const baseSha = 'base'
 const headSha = 'head'
@@ -764,5 +764,48 @@ describe('controller deploy handoff detects older workflow runs without first-10
     expect(workflow).not.toContain('actions/runs?head_sha=$main_sha&per_page=100')
     expect(workflow.split("--jq '.total_count'").length - 1).toBe(4)
     expect(workflow.split('gh api --method POST "repos/$GITHUB_REPOSITORY/actions/workflows/deploy.yml/dispatches"').length - 1).toBe(2)
+  })
+})
+
+describe('last-moment live admission recheck on new PRs', () => {
+  const ready = { status: 0, stdout: JSON.stringify({ decision: 'READY', prs: [] }) }
+  it('re-evaluates current issue/file scope even if a stale same-head check-run was green', () => {
+    let invoked = 0
+    const runner = (command, args, options) => {
+      invoked += 1
+      expect(command).toBe(process.execPath)
+      expect(args).toEqual([
+        '.agents/skills/pr-admission-preflight.mjs', '--repo', 'owner/repo', '--from-pr', '6957',
+      ])
+      expect(options.timeout).toBe(60000)
+      return ready
+    }
+    expect(verifyLiveAdmissionForMerge('owner/repo', 6957, runner)).toBe(true)
+    expect(invoked).toBe(1)
+  })
+  it('fails closed on updated scope conflicts, incomplete API lists, stale output and CLI errors', () => {
+    const results = [
+      { status: 2, stdout: JSON.stringify({ decision: 'BLOCK', prs: [6900] }) },
+      { status: 0, stdout: JSON.stringify({ decision: 'BLOCK', prs: [6900] }) },
+      { status: 0, stdout: JSON.stringify({ decision: 'READY', prs: [6900] }) },
+      { status: 1, stdout: '' },
+      { status: 0, stdout: 'bad json' },
+      { error: Error('GitHub API unavailable'), status: null },
+    ]
+    for (const result of results) {
+      expect(verifyLiveAdmissionForMerge('owner/repo', 6957, () => result)).toBe(false)
+    }
+    expect(verifyLiveAdmissionForMerge('owner/repo', 6957, () => { throw Error('CLI missing') })).toBe(false)
+    expect(verifyLiveAdmissionForMerge('bad repo', 6957, () => ready)).toBe(false)
+  })
+  it('preserves original old-PR gates without requiring the new helper', () => {
+    expect(verifyLiveAdmissionForMerge('owner/repo', 6956, () => { throw Error('unexpected') })).toBe(true)
+    expect(verifyLiveAdmissionForMerge('owner/repo', 1, () => { throw Error('unexpected') })).toBe(true)
+  })
+  it('terminal merge code actually invokes the live check after last release verification', () => {
+    const source = fs.readFileSync(new URL('./autonomous-merge-controller.mjs', import.meta.url), 'utf8')
+    const finalGate = source.lastIndexOf('if (!verifyLiveAdmissionForMerge(repo, number))')
+    expect(finalGate).toBeGreaterThan(source.lastIndexOf('const baseAfterApproval = await getBranchSha'))
+    expect(finalGate).toBeLessThan(source.lastIndexOf('await mergePr(repo, number, headSha)'))
   })
 })

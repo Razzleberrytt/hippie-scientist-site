@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import { spawnSync } from 'node:child_process'
 import { assessPublicationApproval, loadPublicationApprovalEvidence } from './canonical-publication-approval.mjs'
 import { pathToFileURL } from 'node:url'
 
@@ -661,6 +662,34 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
   }
 }
 
+/**
+ * Last-moment, trusted-main admission recheck. A PR body can change without
+ * changing its head SHA. Earlier completed check-runs then describe stale
+ * metadata; do not let a pre-admission success alone authorize a merge.
+ *
+ * This runs only after ordinary exact-head build, science, security and release
+ * checks pass. It uses the same complete paginated GitHub file inventory as
+ * the new-PR gate. Missing auth, CLI errors, incomplete API data, or a
+ * different claimed issue fail closed rather than merging.
+ */
+export function verifyLiveAdmissionForMerge(repo, number, runner = spawnSync) {
+  if (!Number.isSafeInteger(number) || number <= 0 ||
+      typeof repo !== 'string' || !/^[\\w.-]+\\/[\\w.-]+$/.test(repo)) return false
+  if (number <= 6956) return true // Existing research/review backlog remains grandfathered.
+  try {
+    const result = runner(process.execPath, [
+      '.agents/skills/pr-admission-preflight.mjs',
+      '--repo', repo, '--from-pr', String(number),
+    ], { encoding: 'utf8', timeout: 60000, maxBuffer: 32 * 1024 * 1024 })
+    if (result.error || result.status !== 0) return false
+    const verdict = JSON.parse(result.stdout)
+    return verdict.decision === 'READY' &&
+      Array.isArray(verdict.prs) && verdict.prs.length === 0
+  } catch {
+    return false
+  }
+}
+
 export async function mergePr(repo, number, expectedHeadSha, request = github) {
   let result
   try {
@@ -833,6 +862,12 @@ export async function mergeIfStillCurrent({ repo, number, headSha, validatedBase
   const baseAfterApproval = await getBranchSha(repo, finalPr.base.ref)
   if (baseAfterApproval !== validatedBaseSha) {
     console.log(`Terminal merge revalidation blocked PR #${number}: base changed during final publication approval reload`)
+    return false
+  }
+  // Independent live check immediately before the merge API: changed PR
+  // descriptions or issue scope must not reuse a stale exact-head check-run.
+  if (!verifyLiveAdmissionForMerge(repo, number)) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: current admission inventory is incomplete, stale or conflicting`)
     return false
   }
   console.log(`Terminal merge revalidation passed for PR #${number}: head ${headSha} on base ${baseAfterApproval}`)
