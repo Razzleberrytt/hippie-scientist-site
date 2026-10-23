@@ -79,7 +79,7 @@ def bottle(img,p,label):
  d.text((int(x),960),'ILLUSTRATIVE',font=font(20),fill=(45,64,77),anchor='mm')
  return [a,532,b-a,708]
 
-def pinned_art(root,ref):
+def pinned_art(root,ref,source_plate=False):
  """Use actual RGBA pixels exported by an original artist or offline 3D tool."""
  p=(root/ref['file']).resolve()
  if not p.is_relative_to(root.resolve()) or not p.is_file():
@@ -89,7 +89,8 @@ def pinned_art(root,ref):
   raise ValueError('R8.18 art identity differs from staged source SHA')
  with Image.open(p) as source:
   source.load()
-  if source.format!='PNG' or source.mode!='RGBA' or max(source.size)>1200 or min(source.size)<64:
+  if source.format!='PNG' or source.mode!='RGBA' or (
+   source.size!=(W,H) if source_plate else (max(source.size)>1200 or min(source.size)<64)):
    raise ValueError('R8.18 physical layer is not bounded source RGBA')
   return source.copy()
 def draw_original(canvas,art,box):
@@ -120,6 +121,11 @@ def produce(job):
    primary_art=pinned_art(art_root,approved_art['primary'])
    target_art=pinned_art(art_root,approved_art['target']) if action in ('botanical-versus-concentrate-reveal','source-bound-scaffold-assembles') else None
   elif approved_art:raise ValueError('R8.18 art must bind a supported physical semantic action')
+  if action=='source-bound-scaffold-assembles' and approved_art.get('plate'):
+   if approved_art['plate'].get('r819BackgroundEligible') is not False:
+    raise ValueError('R8.18 factual source plate is not nonfactual R8.19 art')
+   source_plate=pinned_art(art_root,approved_art['plate'],source_plate=True)
+  else:source_plate=None
   proof=beat['telemetryProof'];primary=proof['primaryObjectId'];subject=proof['subjectObjectId']
   for fi in range(count):
    t=fi/max(1,count-1);p=ease(t)
@@ -169,6 +175,12 @@ def produce(job):
     ob(primary,beat['visualObject']['kind'],proof['beforeLabel'],rect,
        visibilityProgress=progress,artSourceSha256=approved_art['primary']['sha256'])
    elif action=='source-bound-scaffold-assembles':
+    if source_plate is not None:
+     # Retain original authored typography/claims behind the moving layers.
+     # Source plate is a FACTUAL review image, never an R8.19 art background.
+     img=source_plate.copy()
+     ob('source-plate','factual-source-plate','Source-authored factual plate',
+        [0,0,W,H],artSourceSha256=approved_art['plate']['sha256'])
     # Actual source-authored artist layers assemble and settle independently.
     a=ease(min(1,t/.42));b=ease(max(0,min(1,(t-.16)/.46)))
     x,y,w,h=approved_art['primary']['targetBox']
