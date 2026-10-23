@@ -50,7 +50,7 @@ test('pinned isolated original artwork rejects source tampering and wrong author
   assert.equal(staged.comparison.target.sha256,b.sha256)
   assert.match(staged.comparison.target.file,/r818-physical-assets/)
   let bad=clone(plans);bad[0].physicalArt.primary.sha256='0'.repeat(64)
-  assert.throws(()=>stageR818PhysicalArt({artRoot:source,outputDir:path.join(root,'bad'),beats:bad}),/source RGBA.*SHA/)
+  assert.throws(()=>stageR818PhysicalArt({artRoot:source,outputDir:path.join(root,'bad'),beats:bad}),/physical PNG is not bounded RGBA source with matching SHA/)
   bad=clone(plans);bad[0].claimIds=[]
   assert.throws(()=>stageR818PhysicalArt({artRoot:source,outputDir:path.join(root,'bad2'),beats:bad}),/source-claim/)
   bad=clone(plans);bad[0].physicalArt.primary.file='../plant.png'
