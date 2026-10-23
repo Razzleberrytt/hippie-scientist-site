@@ -10,6 +10,10 @@ import console from 'node:console'
 export function assessAdmission(prs, { issue = null, files = [], existing = null, reviewOnly = false, securityApproved = false } = {}) {
   if (!Array.isArray(prs) || !prs.every((p) =>
     Number.isInteger(p.number) && Array.isArray(p.files) &&
+    Number.isSafeInteger(p.changedFiles) && p.changedFiles >= 0 &&
+    p.files.length === p.changedFiles &&
+    p.files.every((file) => typeof file === 'string' && file.length > 0 ||
+      typeof file?.path === 'string' && file.path.length > 0) &&
     typeof p.isDraft === 'boolean' && typeof p.body === 'string')) {
     return { decision: 'BLOCK', reason: 'Incomplete open-PR inventory; fail closed', prs: [] }
   }
@@ -46,6 +50,38 @@ export function assessAdmission(prs, { issue = null, files = [], existing = null
   return { decision: 'READY', reason: 'No open issue/path duplicate or active implementation PR detected; normal sprint admission and review still required', prs: [] }
 }
 
+/**
+ * GitHub CLI's `pr list --json files` returns only the first 100 paths.
+ * Require the independent `changedFiles` count, and paginate whenever the
+ * GraphQL file list is incomplete. Never reserve only a truncated subset.
+ */
+export function completeOpenInventory(prs, repo, run = spawnSync) {
+  if (!Array.isArray(prs)) throw Error('Open PR inventory must be an array')
+  for (const p of prs) {
+    if (!Number.isSafeInteger(p.number) || p.number <= 0 ||
+        !Number.isSafeInteger(p.changedFiles) || p.changedFiles < 0 ||
+        !Array.isArray(p.files) || p.files.length > p.changedFiles) {
+      throw Error('Open PR file count unavailable or inconsistent')
+    }
+    if (p.files.length === p.changedFiles) continue
+    const response = run('gh', [
+      'api', `repos/${repo}/pulls/${p.number}/files?per_page=100`,
+      '--paginate', '--slurp', '--jq', '[.[][] | .filename]',
+    ], { encoding: 'utf8', timeout: 30000, maxBuffer: 32 * 1024 * 1024 })
+    if (response.error || response.status !== 0) {
+      throw Error(`Unable to obtain complete changed-file inventory for PR #${p.number}`)
+    }
+    const paths = JSON.parse(response.stdout)
+    if (!Array.isArray(paths) || paths.length !== p.changedFiles ||
+        paths.some(path => typeof path !== 'string' || !path.length) ||
+        new Set(paths).size !== paths.length) {
+      throw Error(`Paginated changed-file count mismatch for PR #${p.number}`)
+    }
+    p.files = paths.map(path => ({ path }))
+  }
+  return prs
+}
+
 export function requestFromOpenPr(prs, number) {
   const current = prs.find((p) => p.number === number)
   if (!current || !Array.isArray(current.files) || typeof current.body !== 'string') {
@@ -79,15 +115,16 @@ function cli() {
   }
   const run = spawnSync('gh', [
     'pr', 'list', '--repo', repo, '--state', 'open', '--limit', '250',
-    '--json', 'number,title,body,isDraft,files,url,labels',
+    '--json', 'number,title,body,isDraft,files,changedFiles,url,labels',
   ], { encoding: 'utf8', timeout: 30000, maxBuffer: 32 * 1024 * 1024 })
   if (run.error || run.status !== 0) {
     console.error('BLOCK: live GitHub PR inventory unavailable:', String(run.error || run.stderr).slice(0,400))
     process.exitCode = 2; return
   }
   try {
-    const prs = JSON.parse(run.stdout)
-    if (!Array.isArray(prs) || prs.length >= 250) throw new Error('open PR inventory not known complete')
+    const listed = JSON.parse(run.stdout)
+    if (!Array.isArray(listed) || listed.length >= 250) throw new Error('open PR inventory not known complete')
+    const prs = completeOpenInventory(listed, repo)
     const request = fromPr
       ? requestFromOpenPr(prs, fromPr)
       : { issue, existing, files: (fileArg || '').split(',') }
