@@ -61,5 +61,9 @@ jobs:
             artifacts/evidencemotion-r818/r818-physical-smoke-receipt.json
             artifacts/evidencemotion-r818/r818-telemetry.json
             artifacts/evidencemotion-r818/r818-native-frames.json
+            artifacts/evidencemotion-r818/original-art-proof/original-art-object-motion_TECHNICAL_REVIEW_ONLY_SILENT.mp4
+            artifacts/evidencemotion-r818/original-art-proof/r818-exact-master-contact-sheet.png
+            artifacts/evidencemotion-r818/original-art-proof/r818-contact-sheet-receipt.json
+            artifacts/evidencemotion-r818/original-art-proof/original-art-object-motion-review-receipt.json
           retention-days: 7
           if-no-files-found: warn

@@ -87,7 +87,8 @@ const contact=await renderR818ContactSheet({masterMp4:mp4,beats:scenes.map(s=>({
 // workflow; no additional job, pipeline or new PR is required.
 const artRun=spawnSync(process.execPath,['--test','scripts/distribution/r818-physical-art-regression.mjs'],{
  encoding:'utf8',timeout:6*60*1000,maxBuffer:6000000,
- env:{...process.env,R818_PHYSICAL_TEST:'1'}
+ env:{...process.env,R818_PHYSICAL_TEST:'1',
+   R818_ART_PROOF_OUTPUT:path.join(destination,'original-art-proof')}
 })
 if(artRun.status!==0)throw Error('R8.18 original-art physical smoke failed: '+
  String(artRun.stderr||artRun.stdout||artRun.error||'').slice(-2500))

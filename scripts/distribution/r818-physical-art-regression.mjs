@@ -5,6 +5,8 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import sharp from 'sharp'
+import {spawnSync} from 'node:child_process'
+import {renderR818ContactSheet} from './r818-render-contact-sheet.mjs'
 import {createR818PhysicalCinemaProvider} from './r818-physical-cinema-provider.mjs'
 import {stageR818PhysicalArt} from './r818-physical-art-loader.mjs'
 import {verifyR818NativeFrames} from './r818-native-frame-sequence.mjs'
@@ -95,6 +97,59 @@ test('true renderer produces two independently moving source-bound art beats and
   assert.ok(geometry.actionReports[1].botanicalTravelPixels>=54)
   assert.ok(geometry.actionReports[1].productWidthGrowthPixels>=37)
   assert.ok(geometry.actionReports[1].productHeightGrowthPixels>=48)
+  // Optional CI-only decoded visual receipt: reviewers must see the actual new
+  // art-motion pixels, not infer visual quality from a telemetry assertion.
+  // Synthetic fixture art and silent movie remain REVIEW ONLY.
+  if(process.env.R818_ART_PROOF_OUTPUT){
+   const proofDir=path.resolve(process.env.R818_ART_PROOF_OUTPUT)
+   if(fs.existsSync(proofDir)&&fs.readdirSync(proofDir).length)
+    throw Error('R8.18 original-art visual proof output must be empty')
+   fs.mkdirSync(proofDir,{recursive:true})
+   const framesDir=path.join(proofDir,'numbered')
+   fs.mkdirSync(framesDir)
+   let counter=0
+   for(const scene of native.beats)for(const frame of scene.frames){
+    fs.copyFileSync(path.join(out,frame.file),
+     path.join(framesDir,'f'+String(counter++).padStart(5,'0')+'.png'))
+   }
+   const mp4=path.join(proofDir,'original-art-object-motion_TECHNICAL_REVIEW_ONLY_SILENT.mp4')
+   const encode=spawnSync('ffmpeg',['-hide_banner','-loglevel','error','-y',
+     '-framerate','30','-start_number','0','-i',path.join(framesDir,'f%05d.png'),
+     '-frames:v',String(native.frameCount),'-c:v','libx264','-preset','fast',
+     '-crf','19','-profile:v','high','-pix_fmt','yuv420p','-movflags','+faststart',
+     '-an',mp4],{encoding:'utf8',timeout:150000,maxBuffer:1000000})
+   assert.equal(encode.status,0,'FFmpeg original-art video encoding failed: '+String(encode.stderr||encode.error))
+   const ffprobe=spawnSync('ffprobe',['-v','error','-select_streams','v:0',
+     '-count_frames','-show_entries','stream=codec_name,width,height,avg_frame_rate,nb_read_frames',
+     '-of','json',mp4],{encoding:'utf8',timeout:30000,maxBuffer:100000})
+   assert.equal(ffprobe.status,0,String(ffprobe.stderr||ffprobe.error))
+   const probed=JSON.parse(ffprobe.stdout).streams?.[0]
+   assert.equal(probed.codec_name,'h264')
+   assert.equal(probed.width,1080)
+   assert.equal(probed.height,1920)
+   assert.equal(probed.avg_frame_rate,'30/1')
+   assert.equal(Number(probed.nb_read_frames),132)
+   const sheet=await renderR818ContactSheet({masterMp4:mp4,beats:scenes,outputDir:proofDir})
+   const media=fs.readFileSync(mp4)
+   const receipt={schemaVersion:'ths-r818-original-object-motion-visual-review-v1',
+    status:'ACTUAL_132_NATIVE_FRAMES_ENCODED_TECHNICAL_TEST_ONLY',
+    mp4File:path.basename(mp4),mp4Sha256:hash(media),frameCount:132,
+    width:1080,height:1920,fps:30,audio:false,
+    contactSheetFile:path.basename(sheet.sheetFile),
+    contactSheetSha256:sheet.proof.contactSheetSha256,
+    sourceArtSha256:[a.sha256,b.sha256],
+    rendererCodeSha256:provider.sourceCodeSha256,
+    telemetrySha256:hash(fs.readFileSync(path.join(out,'r818-telemetry.json'))),
+    testFixtureArtwork:true,notPremiumProductionArtwork:true,
+    actualVideoScienceReviewed:false,actualVoiceWordAligned:false,
+    independentVisualCraftReviewed:false,mayPublish:false,
+    canonicalMilestone:false}
+   fs.writeFileSync(path.join(proofDir,'original-art-object-motion-review-receipt.json'),
+     JSON.stringify(receipt,null,2)+'\n',{flag:'wx'})
+   console.log('R8.18 original-art source-pinned visual evidence:',JSON.stringify({
+     path:proofDir,mp4Sha256:receipt.mp4Sha256,contactSheetSha256:receipt.contactSheetSha256,
+     status:receipt.status}))
+  }
   // Negative control: a source-pinned but now-tampered actual frame is rejected.
   const frame=sequence.beats[1].frames[20]
   fs.appendFileSync(path.join(out,frame.file),Buffer.from('tamper'))
