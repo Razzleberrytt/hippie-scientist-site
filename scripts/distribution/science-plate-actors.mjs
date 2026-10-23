@@ -1,3 +1,5 @@
+import fs from 'node:fs'
+import path from 'node:path'
 // Reusable native SVG biology plates for the existing EvidenceMotion cinematic renderer.
 // Symbolic educational drawings, not measured anatomy or inferred clinical benefit.
 // Evidence, voice, caption, phone, art and publication gates remain independent.
@@ -79,4 +81,35 @@ export function renderSciencePlateActor(scene,{x,y,width,height,motionPhase='pos
   '<g data-depth-plane="mid" transform="translate('+offset('mid','x')+' '+offset('mid','y')+')">'+teachingArt(motif,c,final)+'</g>'+
   '<g data-depth-plane="near" transform="translate('+offset('near','x')+' '+offset('near','y')+')">'+line(-270,230,270,230,c,4)+
   '<text x="0" y="261" fill="#f4f8fc" font-family="sans-serif" font-size="29" font-weight="700" text-anchor="middle">'+esc(subject)+'</text></g></g>'
+}
+
+
+/**
+ * Until an artifact-bound, human science/art approval receipt is implemented,
+ * every science plate remains REVIEW ONLY. Run this at both final-master
+ * approval and Publisher staging, not merely from optional SVG metadata.
+ * Detect the pinned manifest, timeline, and rendered-scene layers so that
+ * omitting one metadata field cannot erase the hold.
+ */
+export function assertNoUnapprovedSciencePlates(manifest, packageDir) {
+ const entries=Array.isArray(manifest?.assets)?manifest.assets:[]
+ if(manifest?.sciencePlateReview != null ||
+    entries.some(asset=>asset?.scienceIllustration != null))
+  throw Error('Science plate publication HOLD: exact-artifact human science/art approval is not implemented')
+ const root=path.resolve(packageDir)
+ const timelinePath=path.join(root,'video-timeline.json')
+ if(fs.existsSync(timelinePath)) {
+  const timeline=JSON.parse(fs.readFileSync(timelinePath,'utf8'))
+  if(Array.isArray(timeline?.scenes)&&timeline.scenes.some(scene=>scene?.scienceIllustration != null))
+   throw Error('Science plate publication HOLD: timeline declares an unapproved plate')
+ }
+ for(const asset of entries) {
+  if(!/^video-scene-\d+(?:-pre)?\.svg$/.test(String(asset?.file??'')))continue
+  const filename=path.resolve(root,asset.file)
+  if(!filename.startsWith(root+path.sep))throw Error('Science plate source path escapes governed package')
+  if(fs.existsSync(filename)&&
+     fs.readFileSync(filename,'utf8').includes('data-ths-science-plate='))
+   throw Error('Science plate publication HOLD: rendered biological art requires an exact-artifact review')
+ }
+ return true
 }
