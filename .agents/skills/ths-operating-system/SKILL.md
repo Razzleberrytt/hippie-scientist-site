@@ -18,6 +18,13 @@ owner: The Hippie Scientist
 - Shared protected merge path must be **serialized**. Sequence is **Complete → Validate → Merge → Confirm on main → Continue**. When a PR is blocked, repair that SAME scoped PR, not an expanding stack. No direct branch-protection bypass.
 - Daily EM videos and marketing production are explicitly outside development-lane/card counts; do not consume or increment the 1,590-card EM work ledger for them. Current reported numbers require proof from ledger, not recycled estimates.
 
+## Admission before PR creation
+
+- Only **one non-draft implementation PR** may be active globally; research/editorial drafts stay preserved for their qualified review, not rushed or auto-merged. Repair or reconcile existing PRs first, even across old workstream names.
+- Run `node .agents/skills/pr-admission-preflight.mjs --repo Razzleberrytt/hippie-scientist-site --issue <ISSUE> --files path/a,path/b` before any **new** implementation PR. `BLOCK` means do not create it; `REUSE` via `--existing <PR>` means continue that same PR. Also validate admitted sprint ownership; the preflight is not approval.
+- Prefer `node .agents/skills/pre-pr-fast-check.mjs` plus targeted feature tests before requesting full CI. A successful fast preflight is necessary but never sufficient for merge.
+- Log full CI attempts per accepted merge, duplicated/abandoned work and finished deployments. Don't count PR creation as output.
+
 ## Common runtime branches
 - THS repository is a Next.js static export on Cloudflare Pages. Do NOT introduce dynamic API routes, server actions, middleware, or nonstatic runtime into that deployment without a separately approved migration.
 - Generated `public/data` can be overwritten by the authoritative workbook pipeline; verify source-of-truth and run appropriate data build before trusting persistent content corrections.

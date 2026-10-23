@@ -12,6 +12,10 @@ Read `../ths-operating-system/SKILL.md` first. Verify only one current PR/head a
 - Inspect changed code/patch and tests, including negative cases, untrusted-input controls, evidence provenance, quarantine, voice/visual source authority, artifact identifiers, rollback and privacy boundaries as relevant.
 - Never accept source claims of successful merge/deployment as proof without GitHub and production receipts.
 
+## Cost control
+
+One terminal-green integration focus at a time. Inspect shared fast preflight receipts (route parity, patched TOML floor, security audit) **before** scheduling a costly full rerun where possible; a pending previous full run is not a pass. Avoid rerunning unchanged failing suites. After integration, record exact main and production receipts plus number of full CI cycles, then admit next implementation.
+
 ## Required sequence
 1. **Review:** record any bug with file, scenario, severity, reproducer, and blocking status. Return same PR to Lane 1 for repairs; no parallel duplicate PR.
 2. **Validate exact HEAD:** run or inspect required CI + scope-specific tests and production build on exact new SHA, not earlier green head. No green-only theater: canceled, skipped, pending, or inaccessible required checks are not passed.

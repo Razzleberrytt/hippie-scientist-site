@@ -24,6 +24,14 @@ Before beginning work, agents must:
 
 **Strict WIP limit:** Maximum three concurrent workstreams—Discovery/SEO, Revenue/Conversion, and Authority/Content. Within a workstream, activate one ticket at a time. Safety incidents may interrupt work but must be recorded explicitly.
 
+## One-active-PR admission and fast-failure rule (owner directive, 2026-10-23)
+
+- **One active implementation PR across the repository** at a time; EvidenceMotion Lane 1 authors and Lane 2 verifies the **same** PR. Existing drafts for independent scientific/human approval are preserved as review-only, never counted as merged or eligible. The maximum three admitted project tickets remains a ceiling, not three parallel implementation PRs.
+- Before creating a new implementation PR, check **all** open PRs for the same scoped issue and overlapping files; reuse a draft, held, or failing PR rather than authoring a duplicate. Use `node .agents/skills/pr-admission-preflight.mjs --repo Razzleberrytt/hippie-scientist-site --issue <ISSUE> --files path/a,path/b`; it refuses to grant new admission when the inventory is inaccessible, overlapping, or another non-draft PR is active. Existing PR repair uses `--existing <PR_NUMBER>`.
+- Before expensive full CI on a change that can be checked locally, run `node .agents/skills/pre-pr-fast-check.mjs` and relevant **changed-scope** tests. Repair a failing shared security, lock, or guide parity test before scheduling full runs. This is an early negative screen, **not** a complete validation, deployment receipt, or approval. If tooling is unavailable, report NOT RUN and HOLD, not PASS.
+- Urgent security interruptions require explicit issue/owner scope and may replace the active integration priority, **not** silently open another PR or relax audit. CI/governance, human science, publication and serialized protected-merge controls remain fully binding. No mass close/merge/rebase simply to meet a PR-count target.
+- Track verified **merged-and-deployed changes**, elapsed development effort per accepted change, full CI reruns per merge, and work abandoned/reused. Opening PRs is not a completion metric.
+
 ## Optional project-local agent skills
 
 - For scoped work with a matching specialty, consult [`.agents/skills/README.md`](.agents/skills/README.md) and its relevant `SKILL.md` after reading the required authoritative docs. These are instruction references, not new agents, admission slots, release permissions, installed ChatGPT plugins, or independently tested capabilities.

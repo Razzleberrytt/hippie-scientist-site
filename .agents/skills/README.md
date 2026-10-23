@@ -26,6 +26,12 @@
 | `firstcert-regulatory-gate` | Private-project feasibility hold |
 | `ths-skill-maintainer` | Versioning, gaps and skill QA |
 
+## One-PR preflight (October 23, 2026)
+
+Before creating a new implementation PR, run `node .agents/skills/pr-admission-preflight.mjs --repo Razzleberrytt/hippie-scientist-site --issue <ISSUE> --files path/a,path/b`. A live GitHub inventory is mandatory; same issue, overlapping files, or any existing non-draft implementation PR returns BLOCK. Use `--existing <PR>` to repair a current PR. Research and editorial drafts are preserved, not discarded.
+
+Run `node --test .agents/skills/pr-admission-preflight.test.mjs` to validate the admission rules, then `node .agents/skills/pre-pr-fast-check.mjs` (focused route/TOML/security checks) before spending a full CI cycle where a local checkout is available. These checks do not create PRs, grant publication approval, or replace the protected controller.
+
 ## Validation
 
 Run `python3 .agents/skills/validate_skills.py`. This requires installed project Node dependencies (the pinned `yaml` package), validates strict YAML syntax and duplicate keys, names, relative references, explicit `## Fail-closed action` Trigger/Action paths, and the exact ten-file inventory. Run `node --test .agents/skills/validate-skills-regression.mjs` for negative regression fixtures (malformed YAML, duplicate keys, incidental `Unknown`). It cannot attest to CI, human review, production deployment, running voice assets, business metrics or installed ChatGPT capabilities.

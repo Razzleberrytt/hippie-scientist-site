@@ -12,6 +12,10 @@ Read `../ths-operating-system/SKILL.md` first. This is **engineering**, not dail
 - Record baseline `main` SHA, affected paths, existing failing command/fixture and expected output. Verify the failure locally or mark unverified.
 - If the same task already has a branch/PR, **reuse it**. Don't spawn another because a review/check/deployment is slow.
 
+## Admission gate
+
+Before opening a new PR, use the shared live GitHub issue/path reservation check in `../pr-admission-preflight.mjs`. If it reports another open implementation PR, HOLD new authoring and finish/reconcile that PR with Lane 2. Continue existing work with `--existing`; never use a missing CI receipt as justification for opening a replacement PR. Run the shared `../pre-pr-fast-check.mjs` and topic-specific regressions before full validation when tooling is available. Blocked/failed checks mean repair in place.
+
 ## Execution
 1. Constrain change to one observable failure or independently verifiable capability; do not edit the merge controller or unrelated CI to force progress.
 2. Locate real EvidenceMotion entrypoints, test scripts, voice vault references and output contract before using a command. Don't guess undocumented flags.
