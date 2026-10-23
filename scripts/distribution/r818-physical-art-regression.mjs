@@ -91,6 +91,11 @@ test('true renderer produces two independently moving source-bound art beats and
  try{
   const source=path.join(root,'source'),out=path.join(root,'video');fs.mkdirSync(source);fs.mkdirSync(out)
   const a=await png(source,'plant.png','#45a87d'),b=await png(source,'container.png','#b88265')
+  const plateBytes=await sharp({create:{width:1080,height:1920,channels:4,
+    background:{r:11,g:22,b:35,alpha:1}}}).png().toBuffer()
+  fs.writeFileSync(path.join(source,'plate.png'),plateBytes)
+  const plate={file:'plate.png',sha256:hash(plateBytes),factualAuthority:'Source fixture',
+    sourceClaimId:'CLAIM-1',r819BackgroundEligible:false}
   const plan=beats(a,b)
   plan.push({id:'assembly',artMethod:'cinematic-2.5d',semanticAction:'source-bound-scaffold-assembles',
    start:4.4,end:7.4,role:'mechanism',claimIds:['CLAIM-1'],onScreenSourceIds:['PMID:25026323'],
@@ -99,7 +104,7 @@ test('true renderer produces two independently moving source-bound art beats and
     targetObjectId:'rungs',targetKind:'crosslinks',beforeLabel:'Illustrative fibres',
     afterLabel:'Illustrative rungs'},
    physicalArt:{primary:{...a,targetBox:[371,614,339,725]},
-    target:{...b,targetBox:[415,702,250,564]}}})
+    target:{...b,targetBox:[415,702,250,564]},plate}})
   const scenes=plan.map(({id,start,end,role})=>({beatId:id,start,end,role}))
   const assets=plan.map(x=>({id:x.id,sha256:hash('approved-scene:'+x.id)}))
   const provider=createR818PhysicalCinemaProvider({artRoot:source,timeoutMs:240_000})
@@ -128,6 +133,8 @@ test('true renderer produces two independently moving source-bound art beats and
   assert.ok(geometry.actionReports[1].productHeightGrowthPixels>=48)
   assert.ok(geometry.actionReports[2].movementPixels>=76)
   assert.ok(geometry.actionReports[2].connectorActivationDelta>=.75)
+  assert.ok(trace.beats[2].frames.every(f=>f.objects.some(o=>
+   o.objectId==='source-plate'&&o.artSourceSha256===plate.sha256)))
   // Optional CI-only decoded visual receipt: reviewers must see the actual new
   // art-motion pixels, not infer visual quality from a telemetry assertion.
   // Synthetic fixture art and silent movie remain REVIEW ONLY.
