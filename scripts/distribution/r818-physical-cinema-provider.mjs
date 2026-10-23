@@ -54,6 +54,10 @@ export function createR818PhysicalCinemaProvider({
    if(!completedPackageDir||completedPackageDir!==outputDir)
      throw Error('R8.18 geometry recorder cannot be called without same-pass physical PNG frames')
    const file=path.join(outputDir,'r818-telemetry.json'),t=JSON.parse(fs.readFileSync(file,'utf8'))
+   const job=JSON.parse(fs.readFileSync(path.join(outputDir,'r818-physical-job.json'),'utf8'))
+   if(t.physicalArtManifestSha256!==job.physicalArtManifestSha256||
+      sha(JSON.stringify(job.physicalArt))!==job.physicalArtManifestSha256)
+     throw Error('R8.18 physical source-art provenance differs from same-pass rendering job')
    if(t.rendererCodeSha256!==rendererCodeSha256||
       t.renderedSceneAssetsSha256!==renderedSceneAssetsSha256||
       t.sourceManifestSha256!==sourceManifestSha256)
