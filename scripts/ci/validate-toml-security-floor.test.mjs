@@ -7,18 +7,18 @@ import { afterEach, describe, expect, it } from 'vitest'
 const scriptPath = path.join(process.cwd(), 'scripts/ci/validate-toml-security-floor.mjs')
 const tempDirs = []
 
-function makeFixture({ fragmentRules = [] } = {}) {
+function makeFixture({ fragmentRules = [], overrideToml = '5.0.1', lockedToml = '5.0.1' } = {}) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'toml-security-floor-'))
   tempDirs.push(root)
   fs.mkdirSync(path.join(root, 'security', 'audit-allowlist.d'), { recursive: true })
 
   fs.writeFileSync(path.join(root, 'package.json'), JSON.stringify({
-    overrides: { toml: '4.2.0' },
+    overrides: { toml: overrideToml },
   }), 'utf8')
   fs.writeFileSync(path.join(root, 'package-lock.json'), JSON.stringify({
     packages: {
       'node_modules/toml': {
-        version: '4.2.0',
+        version: lockedToml,
       },
     },
   }), 'utf8')
@@ -53,6 +53,30 @@ describe('TOML security floor guard', () => {
     const result = run(makeFixture())
     expect(result.status).toBe(0)
     expect(result.stdout).toContain('[validate-toml-security-floor] PASS')
+  })
+
+  it('rejects the previously accepted vulnerable TOML 4.2.0 floor', () => {
+    const result = run(makeFixture({ overrideToml: '4.2.0', lockedToml: '4.2.0' }))
+    expect(result.status).toBe(1)
+    expect(result.stderr).toContain('toml >= 5.0.1')
+  })
+
+  it('rejects TOML 5.0.0, which is still affected', () => {
+    const result = run(makeFixture({ overrideToml: '5.0.0', lockedToml: '5.0.0' }))
+    expect(result.status).toBe(1)
+    expect(result.stderr).toContain('toml >= 5.0.1')
+  })
+
+  it('rejects a vulnerable locked TOML despite a patched override', () => {
+    const result = run(makeFixture({ overrideToml: '5.0.1', lockedToml: '4.2.0' }))
+    expect(result.status).toBe(1)
+    expect(result.stderr).toContain('package-lock.json must resolve toml >= 5.0.1')
+  })
+
+  it('rejects a vulnerable TOML override despite a patched lockfile', () => {
+    const result = run(makeFixture({ overrideToml: '4.2.0', lockedToml: '5.0.1' }))
+    expect(result.status).toBe(1)
+    expect(result.stderr).toContain('package.json must force toml >= 5.0.1')
   })
 
   it('fails when a #5456 waiver is restored through an allowlist fragment', () => {
