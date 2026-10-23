@@ -62,6 +62,38 @@ test('source-authored resting boxes fail closed on altered layout',async()=>{
   assert.throws(()=>stageR818PhysicalArt({artRoot:src,outputDir:path.join(root,'bad2'),beats:[missing]}),/bounded authored resting boxes/)
  }finally{fs.rmSync(root,{force:true,recursive:true})}
 })
+test('full original factual plate is SHA-pinned and explicitly excluded from R8.19 art',async()=>{
+ const root=makeRoot()
+ try {
+  const source=path.join(root,'source');fs.mkdirSync(source)
+  const strand=await png(source,'strand.png','#44a88f'),link=await png(source,'link.png','#b88455')
+  const bytes=await sharp({create:{width:1080,height:1920,channels:4,
+   background:{r:10,g:17,b:32,alpha:1}}}).png().toBuffer()
+  fs.writeFileSync(path.join(source,'plate.png'),bytes)
+  const beat={id:'assembly',semanticAction:'source-bound-scaffold-assembles',
+   artMethod:'cinematic-2.5d',claimIds:['claim-1'],onScreenSourceIds:['NIH-ODS'],
+   visualObject:{kind:'fibers',name:'Original collagen drawing'},
+   telemetryProof:{sourceClaimId:'claim-1',primaryObjectId:'fibers',subjectObjectId:'fibers',
+    targetObjectId:'rungs',targetKind:'crosslinks',
+    beforeLabel:'Fibers',afterLabel:'Rungs'},
+   physicalArt:{primary:{...strand,targetBox:[371,614,339,725]},
+    target:{...link,targetBox:[415,702,250,564]},plate:{
+     file:'plate.png',sha256:hash(bytes),factualAuthority:'Source-bound label',
+     sourceClaimId:'claim-1',r819BackgroundEligible:false}}}
+  const staged=stageR818PhysicalArt({artRoot:source,outputDir:path.join(root,'good'),beats:[beat]})
+  assert.equal(staged.assembly.plate.sha256,hash(bytes))
+  assert.equal(staged.assembly.plate.r819BackgroundEligible,false)
+  const mislabeled=clone(beat);mislabeled.physicalArt.plate.r819BackgroundEligible=true
+  assert.throws(()=>stageR818PhysicalArt({artRoot:source,outputDir:path.join(root,'mislabel'),beats:[mislabeled]}),
+   /factual plate cannot masquerade/)
+  const stale=clone(beat);stale.physicalArt.plate.sha256='0'.repeat(64)
+  assert.throws(()=>stageR818PhysicalArt({artRoot:source,outputDir:path.join(root,'stale'),beats:[stale]}),
+   /matching SHA/)
+  const unsourced=clone(beat);unsourced.physicalArt.plate.sourceClaimId='unknown-claim'
+  assert.throws(()=>stageR818PhysicalArt({artRoot:source,outputDir:path.join(root,'unknown'),beats:[unsourced]}),
+   /factual plate cannot masquerade/)
+ }finally{fs.rmSync(root,{recursive:true,force:true})}
+})
 test('pinned isolated original artwork rejects source tampering and wrong authority',async()=>{
  const root=makeRoot()
  try{
