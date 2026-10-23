@@ -49,6 +49,23 @@ export async function authorR819OriginalArtistPixelProof(packageDir,{nativeSeque
     source.status!=='REVIEW_ONLY'||
     !Array.isArray(source.beats)||source.beats.length!==nativeSequence.beats.length)
   hold('original artist source/evidence lineage missing')
+ if(realOrigin){
+  // The same-pass physical job is only meaningful for THIS source snapshot
+  // and THESE claim IDs, not an unrelated video with visually matching pixels.
+  const job=JSON.parse(fs.readFileSync(path.join(root,'r818-physical-job.json'),'utf8'))
+  const expectedSource=sha(JSON.stringify({
+   sourceUrl:source.sourceUrl,sourceContentHash:source.sourceContentSha256
+  }))
+  if(job.sourceManifestSha256!==expectedSource)
+   hold('source-ledger snapshot is not the actual physical rendering source')
+  for(let i=0;i<source.beats.length;i++){
+   const b=source.beats[i],p=plan.beats[i]
+   if(b.beatId!==p.id||!p.claimIds?.includes(b.claimId)||
+      !Array.isArray(p.onScreenSourceIds)||!p.onScreenSourceIds.length)
+    hold('source-layer claim is not authenticated in original physical storyboard')
+  }
+ }
+
  if(fs.existsSync(path.join(root,'r819-original-artist-pixel-proof.json'))||
     fs.existsSync(path.join(root,'r819-layer-sequence.json')))
   hold('create-only proof/inventory already exists; never silently re-sign')
