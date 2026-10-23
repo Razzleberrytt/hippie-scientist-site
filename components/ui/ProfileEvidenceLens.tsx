@@ -82,7 +82,8 @@ function firstReadable(value: unknown): string {
   const source = text(value)
   if (!source) return ''
   const sentences = source.match(/[^.!?]+[.!?]+|[^.!?]+$/g)?.map((item) => item.trim()).filter(Boolean) || []
-  return (sentences[0] || source).slice(0, 220)
+  // Never slice safety copy mid-word; a full first sentence can wrap naturally.
+  return sentences[0] || source
 }
 
 function SignalRow({

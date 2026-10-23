@@ -22,7 +22,10 @@
   transition: none;
 }
 
-.article-card-flow > .article-section-card:not(.article-intro-card) {
+.article-card-flow > .article-section-card:not(.article-intro-card),
+.article-card-flow [data-article-body] > .article-section-card:not(.article-intro-card) {
+  /* ArticleMdx wraps headings in [data-article-body]; without this selector
+     the decorative chapter counter stays at 00 for every section. */
   counter-increment: article-chapter;
 }
 

@@ -20,6 +20,7 @@ export default function ScrollEngagementPrompt({
 }: ScrollEngagementPromptProps) {
   const [visible, setVisible] = useState(false)
   const [dismissed, setDismissed] = useState(false)
+  const [footerInView, setFooterInView] = useState(false)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -49,6 +50,35 @@ export default function ScrollEngagementPrompt({
     }
   }, [storageKey])
 
+  // Never cover footer links (especially the visitor's Privacy settings).
+  // The footer sits outside this component, so observe it rather than
+  // assuming a particular page length or viewport size.
+  useEffect(() => {
+    const footer = document.querySelector('footer.editorial-footer')
+    if (!footer) return
+
+    const updateVisibility = () => {
+      const bounds = footer.getBoundingClientRect()
+      setFooterInView(bounds.top < window.innerHeight && bounds.bottom > 0)
+    }
+
+    updateVisibility()
+    if (typeof IntersectionObserver === 'undefined') {
+      window.addEventListener('scroll', updateVisibility, { passive: true })
+      window.addEventListener('resize', updateVisibility)
+      return () => {
+        window.removeEventListener('scroll', updateVisibility)
+        window.removeEventListener('resize', updateVisibility)
+      }
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      setFooterInView(entry.isIntersecting)
+    })
+    observer.observe(footer)
+    return () => observer.disconnect()
+  }, [])
+
   function dismiss() {
     setDismissed(true)
     setVisible(false)
@@ -59,7 +89,7 @@ export default function ScrollEngagementPrompt({
     }
   }
 
-  if (dismissed || !visible) return null
+  if (dismissed || !visible || footerInView) return null
 
   return (
     <div
