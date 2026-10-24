@@ -82001,6 +82001,158 @@
       "reservation_id": "834fe207c45f62eb7bbe",
       "reserved_at": "2026-10-24T10:53:25.366Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42920383",
+      "title": "Opioid Prescribing Changes in Advanced Cancer Before and After Withdrawal of Hydromorphone Slow-Release Tablets.",
+      "doi": "10.1111/ajco.70216",
+      "source_title": "Opioid Prescribing Changes in Advanced Cancer Before and After Withdrawal of Hydromorphone Slow-Release Tablets.",
+      "abstract": "Ongoing disruptions to opioid supply in Australia have raised ongoing concerns about their impact on cancer pain management. The withdrawal of hydromorphone slow-release (SR) tablets from the Australian market has presented challenges to advanced cancer pain management. This study aimed to determine how this affected the utilisation of alternative slow-release opioids in patients with advanced cancer. A retrospective cohort study was conducted at a quaternary cancer centre, comparing opioid prescribing patterns across two 12-month periods: before hydromorphone SR tablet discontinuation was announced and after its discontinuation. Inpatient and outpatient prescribing data were analysed for adult patients with incurable advanced or metastatic cancer who first presented to the centre during each study period. A total of 2856 patients were included (n = 1475 pre and n = 1381 post hydromorphone SR discontinuation). Following hydromorphone SR withdrawal, opioid prescribing patterns shifted. Methadone use rose modestly (adjusted odds ratio [aOR] 1.42, p = 0.07), accompanied by a doubling of median dose (45 mg vs. 22.5 mg; p = 0.005). Morphine use declined (aOR 0.69, p < 0.001), yet daily OMEDD increased by ∼20% (95% confidence interval 1.01-1.37). Tapentadol (aOR 1.40, p = 0.01) and buprenorphine (aOR 1.37, p < 0.001) were prescribed more frequently, without corresponding dose escalation. Following hydromorphone SR withdrawal, the frequency of methadone use increased and median doses doubled. Research incorporating national datasets is needed to clarify the broader impact of opioid supply interruptions. These findings indicate a potential need to reframe the place of methadone in practice, and potentially upscale the focus of clinician training on its safe and effective use.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42920383/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42920383",
+        "doi": "10.1111/ajco.70216",
+        "journal": "Asia-Pacific journal of clinical oncology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-24T11:17:21.270Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "16a59323b2504bcec9c4",
+      "reserved_at": "2026-10-24T11:17:27.413Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42920258",
+      "title": "Development and Validation of an Oral Fluid LC-MS/MS Method for Screening Emerging Synthetic Opioids Including Fentanyl Analogues, Nitazenes, and Xylazine.",
+      "doi": "10.1093/jat/bkag091",
+      "source_title": "Development and Validation of an Oral Fluid LC-MS/MS Method for Screening Emerging Synthetic Opioids Including Fentanyl Analogues, Nitazenes, and Xylazine.",
+      "abstract": "The emergence of highly potent synthetic opioids, including fentanyl analogues, nitazenes, and xylazine-associated drug mixtures, has created significant analytical challenges for forensic and toxicological laboratories. The aim of this study was to develop and validate a qualitative liquid chromatography-tandem mass spectrometry (LC-MS/MS) method for the screening of emerging synthetic opioids in oral fluid. Sample preparation was based on direct extraction of paper swabs with 500 μL of methanol containing 1% formic acid, followed by vortex mixing, ultrasonication, centrifugation, and direct LC-MS/MS analysis without evaporation or reconstitution. Method validation included selectivity and specificity, detection capability, matrix effects, inter-individual matrix variability, processed-sample stability, carryover, and intra-day precision. All target analytes fulfilled the established identification criteria at 1 ng/mL, the lowest concentration evaluated. Intra-day precision was acceptable, with RSD values ranging from 0.6% to 14.8%. Matrix effects were within 80-120% for the majority of analytes at both evaluated concentration levels, although compound-dependent ion suppression or enhancement was observed. Processed samples met the predefined stability criterion for 48 h at 4 °C and 72 h at - 20 °C, and carryover remained below the predefined acceptance criterion. Limited inter-individual variability was observed among the five donor matrices for the subset of analytes evaluated. The developed method provides a simple qualitative screening approach for an expanded panel of emerging synthetic opioids in oral fluid. Evaluation using authentic positive specimens is required to further establish its performance in forensic and DUID applications.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42920258/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42920258",
+        "doi": "10.1093/jat/bkag091",
+        "journal": "Journal of analytical toxicology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-24T11:17:21.270Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0f6601fab845a9ad05fd",
+      "reserved_at": "2026-10-24T11:17:27.413Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -82045,17 +82197,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 550,
+    "total_reservations": 552,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 75,
+      "4": 77,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 550
+      "SOURCE_VERIFIED": 552
     },
     "batches": [
       {
@@ -82075,7 +82227,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 50,
+        "count": 52,
         "pr_number": null,
         "blocker": null
       }
