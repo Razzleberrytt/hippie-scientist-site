@@ -203,6 +203,42 @@ We lack a representative population prevalence estimate, standardized longitudin
 
 The apparently precise numbers in recent surveys are **sample descriptions**, not universal probabilities. A mature evidence synthesis must preserve that distinction even when a headline percentage is attractive.
 
+## Risk-of-bias appraisal: how much can we trust each result?
+
+The field now has several kinds of evidence, but they answer different questions. Consider four threats before treating a compelling statistic as a personal forecast.
+
+| Research design | Main bias risk | What would improve confidence |
+|---|---|---|
+| Limerence-specific online survey [1] | Self-selection: severe experiences may be especially likely to attract participants | Probability-based recruitment and comparison groups not selected by limerence status |
+| Seven-day experience sampling [1] | Reactivity to repeated prompts, small sample and short observation window | Longer repeated assessments in a larger cohort with preregistered analyses |
+| LQ-11 development and validation [2] | Samples comprised people reporting current or previous limerence, not a diagnostic clinical comparison | Test-retest studies, population norms, cross-cultural replication and blinded clinical comparison |
+| Limerence scoping review [3] | Highly heterogeneous definitions and mainly conceptual rather than controlled causal studies | Agreed case definition, reproducible selection process and prospectively collected behavior |
+| Single-person treatment report [4] | No counterfactual: treatment, regression to the mean, natural change and expectation are inseparable | Pre-registered randomized, assessor-blinded controlled trials with meaningful functional outcomes |
+
+A questionnaire can be **reliable**—different questions cohere statistically—without being **diagnostic**. A study can be large yet be systematically unrepresentative. And a treatment can coincide with improvement without proving it caused the improvement. These distinctions are especially important when online anecdotes about painful relationships begin to resemble a clinical explanation.
+
+## Can we estimate prevalence, duration or odds of recovery?
+
+Not responsibly from the available limerence studies. The first large 2026 survey [1] recruited individuals who experienced limerence and measured how they described it; it did not sample the adult population and establish what fraction met uniform impairment criteria. Thus, its approximate two-year episode history cannot establish "limerence always lasts two years," and its comorbidity figure cannot estimate risk in a randomly selected adult.
+
+For duration or recovery, a prospective cohort would enroll people near onset, apply the same validated measures at multiple follow-ups and distinguish **symptom intensity**, **complete remission**, **relationship status** and **functioning**. Attrition and new romantic experiences would need to be handled explicitly. Without a study like that, claims such as "90% recover after no contact" or "the average person takes six months" have no defensible denominator.
+
+A **personal tracking window** may still be useful without pretending to create a clinical score. Over two weeks, someone could simply note whether checking urges, sleep disruption, missed responsibilities and distress are becoming more or less intrusive. The goal would be to communicate the pattern to a professional or to notice harm to daily life—not to assign a diagnosis from a home-made questionnaire.
+
+## Disentangling the five questions often collapsed into one
+
+**"Do I love them?"** is about felt affection, intentions and values. **"Are we in a relationship?"** is about mutual agreement. **"Do they love me?"** cannot be established by the intensity of one's own feelings. **"Is this limerence?"** is about preoccupation, craving for reassurance and functional consequences. **"Is the situation safe and workable?"** depends on concrete behavior, consent and responsibility.
+
+These questions can produce different answers at the same time. One may experience genuine love *and* intrusive obsession; a couple may care about each other without wanting the same kind of commitment; or an intense yearning may persist after a clear refusal. The practical importance of the distinction is that **more analysis of another person's signals does not necessarily answer a question about mutual consent or emotional safety**.
+
+No diagnosis, scientific paper or therapist can compel romantic reciprocity. Support can focus on clearer decisions and better functioning even while grief, affection or longing remains.
+
+## What a future high-quality treatment trial should measure
+
+A useful randomized study would recruit participants experiencing **impairing**, prospectively assessed limerence; test a clearly described intervention against a credible active comparison; and measure prespecified outcomes such as compulsive checking, intrusive-thought frequency, depressive symptoms, sleep and social/occupational functioning. Independent blinded evaluators would help reduce expectancy bias, and harms—including effects on relationships and personal autonomy—would need monitoring.
+
+The design should not make the romantic target's diagnosis, attentiveness or willingness to reconcile the primary measure of success. **Improved autonomy and reduced impairment** are meaningful outcomes even when the relationship does not resume. This principle protects both people and keeps a treatment trial scientifically interpretable. [1–4]
+
 ## Related reading
 
 For situations where a partner has a confirmed BPD diagnosis—or where BPD is only being considered—read [Limerence and a Partner With BPD: What We Know and What We Don't](/articles/limerence-borderline-partner-evidence-review/). For guidance centered on the *actual relationship* rather than obsession, see [Loving Someone With BPD: Relationships, Treatment and Boundaries](/articles/loving-a-partner-with-bpd-evidence-review/). The site's [mental-health guide hub](/guides/mental-health/) explains related diagnostic concepts.
