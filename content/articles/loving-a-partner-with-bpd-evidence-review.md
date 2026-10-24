@@ -253,6 +253,42 @@ This does not mean "DBT and schema therapy are proven identical"—lack of detec
 
 An earlier **JAMA Psychiatry** meta-analysis pooled **33 trials and 2,256 participants**. For combined BPD-relevant outcomes, psychotherapy outperformed controls in stand-alone designs by **Hedges g=0.32** (95% CI **0.14–0.51**), with **g=0.40** (95% CI **0.15–0.65**) in add-on designs. Effects are standardized mean differences, **not remission probabilities**. Risk of bias moderated results and publication bias was a concern, especially at follow-up. The evidence is meaningful, not magical. [4]
 
+## Reading the psychotherapy meta-analyses numerically
+
+It is worth separating three different questions: **Does specialized therapy outperform a control? Does one specialized therapy outperform another? Do clinical gains last?** The same publication does not necessarily answer all three.
+
+Cristea and colleagues' 2017 systematic review pooled **33 randomized trials involving 2,256 participants**. For combined borderline-relevant outcomes at posttest, the pooled standardized difference favored psychotherapy in both **stand-alone designs (Hedges g = 0.32, 95% CI 0.14–0.51)** and **add-on designs (g = 0.40, 95% CI 0.15–0.65)**. These are *small-to-moderate standardized average differences*, not proportions cured, not improvements in romance specifically, and not a 32% or 40% success rate. [4]
+
+Within the stand-alone trials, the review reported **g = 0.32 (95% CI 0.09–0.54)** for self-harm and **g = 0.44 (95% CI 0.15–0.74)** for suicide-related outcomes. Such pooled measures depend on how individual studies operationalized outcomes; they must not be interpreted as a literal reduction in deaths, nor as a forecast for an individual. The authors noted that overall estimated benefits became less convincing when trial risk of bias was considered and that publication bias was present, especially at follow-up. [4]
+
+| Published comparison | Reported effect | Why the statistic cannot be overread |
+|---|---|---|
+| 2017 stand-alone psychotherapy versus control [4] | g = 0.32 (95% CI 0.14–0.51) | Average across heterogeneous borderline-relevant outcomes |
+| 2017 add-on psychotherapy versus control [4] | g = 0.40 (95% CI 0.15–0.65) | Treatment-as-usual differs across settings |
+| 2026 DBT versus schema therapy [3] | BPDSI-5 between-arm d = 0.15 (95% CI -0.17 to 0.47) at 36 months | Confidence interval includes no difference; **not** a test proving equivalence |
+| 2026 DBT versus schema therapy [3] | Primary between-group P = .27 | Lack of statistical superiority does not mean both approaches are interchangeable for everyone |
+
+The BOOTS trial's dropout rates are also central to applicability. At two years, dropout was **52% in DBT** and **46% in schema therapy**; the trial found no statistically significant group difference in dropout. Attrition complicates interpretation even when intention-to-treat methods are used. The sample was predominantly female (172 of 204 participants), limiting certainty for groups less well represented in the trial. [3]
+
+**The inference for partners:** there is genuine evidence for treating BPD symptoms, but no trial shows that a particular psychotherapy will turn a specific relationship into a safe, consistent or enduring one. A person's clinical improvement and the relationship's future are related *possibilities*, not identical outcomes.
+
+## How common is BPD? A separate population question
+
+A 2026 community-sample systematic review pooled **12 epidemiological studies** and reported **2.41% prevalence (95% CI 1.70%–3.40%)**, with individual-study estimates ranging from **0.7% to 7.35%**. [13] This is a heterogeneous pooled *population prevalence estimate*, not the probability that someone whose messages or emotions are unpredictable has BPD.
+
+The review described substantial variation by sampling and demographic context. It does not make a clinical diagnosis unnecessary, and the 2.41% estimate must not be used to calculate how often people with BPD have satisfying relationships, because it measures **diagnostic prevalence**, not romantic outcomes. When general-population rates and clinic-selected relationship studies are combined without accounting for selection, apparent patterns can be severely distorted. [13]
+
+## An evidence framework for evaluating a relationship
+
+A practical review should distinguish four types of information. Each answers a different question:
+
+1. **Diagnostic evidence:** Has a qualified clinician assessed the person and ruled out plausible alternatives? A label alone predicts little about the safety of a particular interaction.
+2. **Observed behavior:** Are commitments kept? Are conflicts repaired? Do requests for privacy and space get respected? This is the most directly relevant evidence for a relationship decision.
+3. **Treatment participation:** Has a person freely chosen a credible intervention, and do behavioral changes persist outside the clinic? Attendance is not a substitute for follow-through.
+4. **Mutual life conditions:** Are work, sleep, money, parenting and friendships sustainable? A strong romantic connection is insufficient if daily functioning repeatedly collapses.
+
+These are **decision prompts rather than a validated four-item scale**. Someone can care deeply and still be unable or unwilling to participate in a specific relationship. Likewise, a difficult week does not negate an entire history of repair. Where coercion, threats or violence occur, a person does not need a quantitative relationship score before taking protective action.
+
 ## What a supportive partner can do—and cannot do
 
 A romantic partner can offer warmth, validation and predictable communication. That is different from taking over a professional's role. Broadly useful relational practices include:
