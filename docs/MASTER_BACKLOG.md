@@ -1,5 +1,10 @@
 # Master Backlog
 
+### MH-LIMERENCE-SERIES / #6960 — three limerence/BPD evidence reviews (2026-10-24)
+
+**Status: BLOCKED on repository PR admission, staged on branch but NOT MERGED or deployed.** Three source-graded mental-health review articles, primary Guides menu entries, mental-health hub cards and regression tests are committed to `content/limerence-bpd-evidence-series-20261024`. [Issue and evidence record](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6960). Active non-draft PRs #6959 and #6948 reserve implementation admission; do not bypass the sole serialized protected merge controller. Static content/link/reference inspection passed; changed-scope tests, hosted CI, production build, independent review and deployed receipt remain **NOT RUN / UNVERIFIED**. These are published-study meta-analytic *evidence reviews*, not new statistical meta-analyses. Once admission is free, open exactly one PR and verify all required gates before publication.
+
+
 ### B12-COMPARE-001 / #6670 — owner-directed vitamin B12 guide (2026-10-22)
 
 Status: **In review — [PR #6951](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6951), unmerged** — Will directly prioritizes this Revenue/Conversion ticket
