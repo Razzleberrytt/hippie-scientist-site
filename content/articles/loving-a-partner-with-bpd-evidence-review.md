@@ -70,7 +70,7 @@ references:
     sourceType: "Meta-analysis of randomized psychotherapy studies"
     evidenceLevel: "Treatment synthesis with control-design sensitivity"
   - title: "Romantic attachment style and borderline personality pathology: A meta-analysis"
-    authors: "O'Meara MS, South SC"
+    authors: "Smith M, South SC"
     journal: "Clinical Psychology Review"
     year: "2020"
     pmid: "31918217"
