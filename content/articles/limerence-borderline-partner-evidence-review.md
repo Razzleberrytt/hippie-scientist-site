@@ -236,6 +236,45 @@ Better symptom control may help a relationship, yet each partner's rumination, a
 
 We still need prospective studies that independently measure both partners' BPD symptoms, attachment styles and validated limerence scores; determine the direction of any association; avoid recruitment solely through distressed-relationship communities; and assess functioning over time. We need controlled evaluation of interventions *for limerence in partners*, not merely extrapolation from BPD psychotherapy. Until then, causal labels and treatment success percentages would be inventions.
 
+## A formal appraisal of the causal claim
+
+The proposed claim **"Having a partner with BPD causes limerence"** can be separated into four requirements. Each currently has a different evidence status.
+
+| Required link | Available research | Verdict |
+|---|---|---|
+| BPD symptoms correlate with insecure romantic attachment | The 2020 romantic-attachment meta-analysis reports r=0.48 for anxiety and r=0.30 for avoidance [1] | **Supported association**, measured largely in individuals with BPD traits |
+| BPD symptoms correlate with interpersonal difficulty | The 2026 meta-analysis reports r=0.39, 95% CI 0.31–0.46 [2] | **Supported association**, but heterogeneous relationship outcomes |
+| Limerence correlates with attachment insecurity and obsessive cognition | The 2026 direct limerence study and 2025 questionnaire validation support those constructs [3,4] | **Supported association**, without measured BPD status of a romantic partner |
+| A partner's BPD predicts later limerence above baseline attachment, prior symptoms and relationship context | No relevant controlled prospective estimate established in the reviewed sources | **Unanswered**; no defensible risk ratio, odds ratio or pooled effect |
+
+The conceptual error is **transitive inference**: because BPD correlates with attachment insecurity and limerence also correlates with attachment insecurity, one cannot conclude BPD causes limerence. Shared predictors, reverse causation, selection bias and different respondents could explain the apparent overlap. Statistically, correlations are not additive or chainable into a missing effect size.
+
+Even a direct cross-sectional correlation between a partner's BPD and someone's limerence would not prove causation. A stronger design would measure both partners at baseline and follow them repeatedly, controlling for pre-existing anxiety, trauma, relationship stability, treatment status, time together and major stressors. It would also need to distinguish **confirmed diagnoses** from online labels and **ordinary relationship distress** from validated limerence symptoms.
+
+## Subgroup questions: whose experiences are we missing?
+
+The apparent uniformity of an internet narrative can conceal major clinical and sampling variation. Much BPD research is drawn from treatment-seeking populations, and a 2026 randomized psychotherapy trial was predominantly female. The six-couple positive-relationship interviews purposely selected couples who had maintained their relationships. None of those sampling frames is representative of every adult in a partnership with BPD. [5–9]
+
+Outcome differences could plausibly depend on whether one or both people seek treatment, the severity and course of current symptoms, pre-existing attachment patterns, previous conflict, substance use, parenting demands, financial stress, disability or social support. **Plausible moderators are not demonstrated moderators**: without adequately powered comparative data, we cannot state which factor has the largest causal influence on limerence or reconciliation.
+
+In particular, the absence of data about partners should not be filled with diagnoses invented from screenshots, social-media activity or accounts given by only one participant. Those observations can be meaningful for the person living through them, but not valid substitutes for a blinded clinical assessment or dyadic research protocol.
+
+## Study certainty and the false precision problem
+
+The 2020 attachment meta-analysis aggregated **27 effect sizes**, not 27 independent randomized interventions. The 2026 interpersonal meta-analysis synthesized several kinds of relationship measures and included **72 studies of BPD**. These are large enough to establish that group-level associations merit serious study; they are **not directly combinable** into a single summary of risk to the romantic partner. [1,2]
+
+A printed correlation has apparent precision, but its meaning depends on the samples, measurement instruments and comparators. Treating r=0.48 as "48% chance of limerence" confuses a standardized association with a probability. Similarly, multiplying r=0.48 by r=0.39 would create a meaningless number because the correlations refer to different variables and samples.
+
+The proper synthesis here is therefore **narrative with existing meta-analytic results displayed separately**, not a newly calculated forest plot or prediction score. The unsolved question—prospective partner-level limerence risk—is explicitly left unsolved.
+
+## A better way to test relationship hypotheses in everyday life
+
+Without conducting an experiment on another person, someone can still distinguish **observable agreements** from **interpretations**. Instead of asking, "Is this a BPD cycle?" identify a specific behavior: "We agreed to discuss childcare arrangements on Thursday but did not complete the conversation." Ask what agreement is realistic, whether both people willingly accept it, and what actually happens over time.
+
+Where a partner wants less contact, that request must be respected. Where practical co-parenting responsibilities remain, communication can focus narrowly on the child. Where someone feels drawn to compulsively check or decode digital signals, individual support can address those urges regardless of any relationship diagnosis. None of these steps requires labeling either person as the cause of the other's psychological state.
+
+The guiding principle is simple: **the existence of an explanation does not establish its correctness, and understanding a pattern does not mean consenting to live with it forever**.
+
 ## Continue the series
 
 Begin with [Limerence and Obsessive Love: What the Research Actually Shows](/articles/limerence-obsessive-love-evidence-review/) for the direct limerence studies, or go to [Loving Someone With BPD: Relationships, Treatment and Boundaries](/articles/loving-a-partner-with-bpd-evidence-review/) for a practical, partner-centered evidence review. Our [BPD and personality-disorder guide hub](/guides/mental-health/) adds differential-diagnosis context.
