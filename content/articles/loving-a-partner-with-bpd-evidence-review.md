@@ -33,6 +33,15 @@ canonicalConcepts:
   - "schema therapy"
   - "family psychoeducation"
 references:
+  - title: "Epidemiology of borderline personality disorder in the general population: Prevalence, sociodemographic factors, and comorbidities - A systematic review and meta-analysis"
+    authors: "Ramos-Suárez I, Guerrero-Jiménez M, Cervilla JA, Gutiérrez B"
+    journal: "Journal of Affective Disorders"
+    year: "2026"
+    pmid: "41115635"
+    doi: "10.1016/j.jad.2025.120482"
+    url: "https://pubmed.ncbi.nlm.nih.gov/41115635/"
+    sourceType: "Systematic review and meta-analysis of 12 community prevalence studies"
+    evidenceLevel: "Population epidemiology; not partner or treatment outcome"
   - title: "The American Psychiatric Association Practice Guideline for the Treatment of Patients With Borderline Personality Disorder"
     authors: "Keepers GA, Fochtmann LJ, et al."
     journal: "American Journal of Psychiatry"
@@ -187,6 +196,12 @@ We use "partner with BPD" only when a diagnosis is known; these pages cannot dia
 BPD is a psychiatric diagnosis involving an enduring pattern that can include emotional dysregulation, unstable sense of self, heightened interpersonal sensitivity and impulsivity. Presentation is heterogeneous. It is not interchangeable with being selfish, difficult, manipulative, "crazy" or abusive. Trauma, depression, ADHD, autism, substance effects and other disorders can overlap with or complicate assessment, so a trained evaluator considers the full history rather than isolated episodes. [1]
 
 People with BPD are **not identical in symptoms, insight, treatment response or values**. Some are in stable, supportive relationships; some are single, prefer not to be partnered, or experience serious relational distress. A person can display harmful behavior without BPD; a person with BPD can act with care and accountability. Understanding a diagnosis may help explain a pattern; it does not excuse unsafe actions.
+
+## How common is BPD? Prevalence is not relationship destiny
+
+A **2026 general-population systematic review and meta-analysis** included **12 community studies** and estimated BPD prevalence at **2.41%** (95% CI **1.70–3.40%**). Estimates varied substantially across studies (**0.7–7.35%**), illustrating how population, diagnostic assessment and sampling influence the result. These estimates describe **people meeting diagnostic criteria in community surveys**, not the proportion of relationships that are unhealthy or a probability of abuse. [13]
+
+The analysis also found a more balanced sex distribution than stereotypes drawn from treatment-seeking clinical samples might imply. This matters when reading online anecdotes that portray BPD as an exclusively female condition. An individual diagnosis still requires clinical assessment; population estimates do not identify anyone's partner. [13]
 
 ## Meta-analytic finding 1: romantic attachment insecurity
 
