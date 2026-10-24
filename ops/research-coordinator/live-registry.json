@@ -81696,6 +81696,159 @@
       "reservation_id": "d16d5c3c8ed1a44f81f4",
       "reserved_at": "2026-10-24T05:48:35.954Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42914786",
+      "title": "Translational evidence for habenula's role in human addiction: A scoping review.",
+      "doi": "10.1016/j.neubiorev.2026.107021",
+      "source_title": "Translational evidence for habenula's role in human addiction: A scoping review.",
+      "abstract": "Addiction is characterized by persistent substance use or engagement in behaviors despite adverse consequences and impaired control, but its expression varies substantially across individuals, substances, and severity. Within one influential neurocircuitry framework, addiction processes are organized into binge, withdrawal, and preoccupation stages. Preclinical research implicates the habenula across these processes but indicates that its contribution varies across drugs, subdivisions, and experimental models. Research on the human habenula in addiction remains fragmented, and the extent to which it converges with preclinical mechanisms is unclear. This scoping review synthesized evidence on the human habenula in addiction and examined its convergence with preclinical findings. Following PRISMA-ScR guidelines, databases and grey literature were searched in November 2025, with literature surveillance continued through April 2026. Human studies reported reduced fronto-habenula white-matter integrity, elevated habenula-striatal resting-state functional connectivity, withdrawal-related habenula-frontal connectivity, increased habenula blood flow during opioid withdrawal, altered task-evoked responses to reward and feedback, and nicotine-related genetic signals. By contrast, morphological studies found no consistent differences in habenula structure across addiction samples. Most human neuroimaging studies could not distinguish the medial and lateral habenula, limiting direct comparison with subdivision-specific preclinical mechanisms. Overall, across human and preclinical studies, the evidence does not support a unitary habenular alteration across addiction. Cross-species convergence was strongest for withdrawal-related activity, particularly for opioids, and for nicotine-related molecular mechanisms, but remained limited by differences in substances, circuits, measures, and paradigms. Future studies using subdivision-sensitive imaging and more comparable cross-species designs are needed.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42914786/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42914786",
+        "doi": "10.1016/j.neubiorev.2026.107021",
+        "journal": "Neuroscience and biobehavioral reviews",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-24T06:00:34.481Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "1f13e590bc1e3a11e056",
+      "reserved_at": "2026-10-24T06:00:40.738Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42910400",
+      "title": "Long-Acting Injectable Buprenorphine in Pregnancy.",
+      "doi": "10.1097/og9.0000000000000214",
+      "source_title": "Long-Acting Injectable Buprenorphine in Pregnancy.",
+      "abstract": "To describe real-world use of long-acting injectable buprenorphine among pregnant individuals with opioid use disorder (OUD), including monthly formulations and initiation among those not previously stable on sublingual buprenorphine. We conducted a retrospective chart review of inpatient and outpatient medical records of pregnant individuals with OUD who received at least one dose of long-acting injectable buprenorphine during pregnancy while admitted at a large academic medical center. Dosing patterns, supplemental sublingual buprenorphine use, treatment retention, and maternal outcomes were described. Between January 1, 2024, and February 1, 2026, 12 pregnant individuals received long-acting injectable buprenorphine. Most received monthly formulations (11 of 12). Ten patients (83.3%) initiated treatment with long-acting injectable buprenorphine during pregnancy through low-dose buprenorphine initiation; two continued long-acting injectable buprenorphine that was started before pregnancy. Median gestational age for those who initiated long-acting injectable buprenorphine during pregnancy was 30 weeks (range 11-33 weeks). All patients newly initiated on long-acting injectable buprenorphine reported nonprescribed fentanyl use before treatment. Supplemental sublingual buprenorphine was prescribed for all participants initiating long-acting injectable buprenorphine (median 20 mg/d, range 12-32 mg/d). Four who initiated long-acting injectable buprenorphine transitioned to methadone during pregnancy because of persistent cravings or withdrawal. At delivery, retention on long-acting injectable buprenorphine was 66.7%, and 91.7% remained on any medication for OUD (MOUD). Among pregnant individuals who received long-acting injectable buprenorphine, including those with nonprescribed fentanyl use initiating treatment during pregnancy, retention on MOUD through delivery was high, and supplemental buprenorphine was commonly prescribed. Some patients transitioned to methadone, underscoring the importance of individualized treatment and counseling regarding formulation-specific considerations.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42910400/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42910400",
+        "doi": "10.1097/og9.0000000000000214",
+        "journal": "O&G open",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-24T06:00:34.482Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "10004f55b8128521e0b8",
+      "reserved_at": "2026-10-24T06:00:40.738Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -81740,17 +81893,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 546,
+    "total_reservations": 548,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 71,
+      "4": 73,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 546
+      "SOURCE_VERIFIED": 548
     },
     "batches": [
       {
@@ -81770,7 +81923,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 46,
+        "count": 48,
         "pr_number": null,
         "blocker": null
       }
