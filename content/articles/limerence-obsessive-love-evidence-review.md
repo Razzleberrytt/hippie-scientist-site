@@ -67,7 +67,7 @@ references:
     sourceType: "Single-person clinical case report"
     evidenceLevel: "Uncontrolled; cannot infer treatment efficacy"
   - title: "Romantic attachment style and borderline personality pathology: A meta-analysis"
-    authors: "O'Meara MS, South SC"
+    authors: "Smith M, South SC"
     journal: "Clinical Psychology Review"
     year: "2020"
     pmid: "31918217"
