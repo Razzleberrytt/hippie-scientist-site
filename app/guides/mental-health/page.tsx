@@ -240,6 +240,44 @@ export default function MentalHealthGuidesHub() {
         </div>
       </section>
 
+      <section className="mt-12" aria-labelledby="relationship-research">
+        <div className="max-w-4xl">
+          <span className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">New evidence series · October 24, 2026</span>
+          <h2 id="relationship-research" className="mt-2 text-2xl font-bold text-ink">Limerence and relationships: research reviews</h2>
+          <p className="mt-3 leading-7 text-muted">
+            Three linked, source-graded reviews separate direct limerence studies, indirect BPD attachment
+            meta-analyses, and evidence about living with a partner who has BPD. None substitutes for
+            individual clinical assessment or claims that a partner's diagnosis determines the relationship.
+            These are reviews of published studies, not new statistical meta-analyses.
+          </p>
+        </div>
+        <div className="mt-5 grid gap-4 md:grid-cols-3">
+          {[
+            {
+              title: 'Limerence and obsessive love',
+              description: 'The 2025–2026 limerence studies, validated measurement, uncertainty, compulsive checking and treatment limitations.',
+              href: '/articles/limerence-obsessive-love-evidence-review/',
+            },
+            {
+              title: 'Limerence and a BPD partner',
+              description: 'What attachment correlations and couple studies show, and why they cannot prove BPD causes limerence.',
+              href: '/articles/limerence-borderline-partner-evidence-review/',
+            },
+            {
+              title: 'Loving someone with BPD',
+              description: 'Published therapy meta-analyses, long-term prognosis, couple evidence, boundaries and partner support.',
+              href: '/articles/loving-a-partner-with-bpd-evidence-review/',
+            },
+          ].map((review) => (
+            <Link key={review.href} href={review.href} className="rounded-2xl border border-brand-900/10 bg-white p-5 transition hover:-translate-y-0.5 hover:border-brand-700/30 hover:shadow-sm">
+              <h3 className="text-lg font-bold text-ink">{review.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-muted">{review.description}</p>
+              <span className="mt-4 inline-flex text-sm font-bold text-brand-700">Read evidence review →</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section className="mt-10 rounded-2xl border border-amber-700/20 bg-amber-50/70 p-5 sm:p-6" aria-labelledby="ocd-note">
         <h2 id="ocd-note" className="text-lg font-bold text-ink">Why OCD appears in this library</h2>
         <p className="mt-2 leading-7 text-muted">
