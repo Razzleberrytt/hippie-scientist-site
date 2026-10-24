@@ -31,7 +31,7 @@ canonicalConcepts:
   - "interpersonal uncertainty"
 references:
   - title: "Romantic attachment style and borderline personality pathology: A meta-analysis"
-    authors: "O'Meara MS, South SC"
+    authors: "Smith M, South SC"
     journal: "Clinical Psychology Review"
     year: "2020"
     pmid: "31918217"
@@ -155,7 +155,7 @@ This is **not** a registered PRISMA review. No independent dual-screening, exhau
 
 ## Attachment anxiety: the strongest relevant pooled link
 
-O'Meara and South combined **27 effect sizes** spanning romantic attachment anxiety and avoidance in relation to borderline personality pathology. The pooled correlation was approximately **0.48** for anxiety and **0.30** for avoidance; the paper also examined their interaction. [1]
+Smith and South combined **27 effect sizes** spanning romantic attachment anxiety and avoidance in relation to borderline personality pathology. The pooled correlation was approximately **0.48** for anxiety and **0.30** for avoidance; the paper also examined their interaction. [1]
 
 An r of 0.48 denotes a moderate-to-large *association in the studied data*. It does **not** mean 48% of people with BPD are anxiously attached, that 48% of partners become dependent, or that attachment anxiety causes BPD. Moreover, studies often assess *traits* rather than a verified categorical diagnosis; samples and measurement choices affect generalizability. [1]
 
