@@ -81392,6 +81392,158 @@
       "reservation_id": "cff0667147bb92cf7d5e",
       "reserved_at": "2026-10-24T00:38:42.364Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42911834",
+      "title": "Community Paramedics Addressing the Evolving Opioid Crisis: A Case Series Addressing the Kratom Derivatives 7-Hydroxymitragynine and MGM-15.",
+      "doi": "10.1080/10903127.2026.2753000",
+      "source_title": "Community Paramedics Addressing the Evolving Opioid Crisis: A Case Series Addressing the Kratom Derivatives 7-Hydroxymitragynine and MGM-15.",
+      "abstract": "Concentrated 7-hydroxymitragynine (7-OH) and dihydro-7-hydroxymitragynine (MGM-15) are derived from the primary psychoactive alkaloid in kratom, and until recently were sold over the counter with kratom products. These highly potent kratom derivatives can produce opioid-like dependence, but evidence around prehospital treatment of 7-OH and MGM-15 withdrawal symptoms remains limited. This case series assesses two cases of community paramedics (CPs) providing treatment and linkage to care for individuals in acute opioid withdrawal from 7-OH and MGM-15. In our first case a 74-year-old individual called 9-1-1 experiencing acute opioid-like withdrawal symptoms after abruptly discontinuing over the counter 7-OH following six months of progressively escalating use. Connection was made with a prehospital buprenorphine program (PBAP) and the CP administered 24mg of buprenorphine and expedited connection to outpatient treatment with medication for opioid use disorder (MOUD). Our second case involved a 38-year-old individual who called a CP requesting expedited linkage to MOUD following a period of escalating use of 7-OH and MGM-15. This patient was linked to MOUD treatment within 48 hours of contacting the CP and required 32mg/8mg of buprenorphine/naloxone to treat severe opioid withdrawal symptoms after discontinued use of MGM-15 tablets. Both patients were retained in MOUD treatment at 30 days. These cases describe use of CP-based PBAPs addressing severe 7-OH withdrawal and expediting treatment to outpatient MOUD, highlighting that concentrated over the counter 7-OH products can produce physical opioid dependence leading to opioid use disorder, and requiring full-dose buprenorphine induction which may be considered within existing prehospital opioid withdrawal treatment protocols. Additional research is necessary to characterize withdrawal from concentrated 7-OH products and to determine implications for PBAP protocols and 7-OH dosing in the United States.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42911834/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42911834",
+        "doi": "10.1080/10903127.2026.2753000",
+        "journal": "Prehospital emergency care",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-24T00:49:16.365Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "1c57def703e07c1dd3d1",
+      "reserved_at": "2026-10-24T00:49:23.548Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42908475",
+      "title": "On-site rapid screening of ethylene etonitazene via a versatile conjugated-polymer fluorescence platform.",
+      "doi": "10.1039/d6an00886k",
+      "source_title": "On-site rapid screening of ethylene etonitazene via a versatile conjugated-polymer fluorescence platform.",
+      "abstract": "We report a versatile conjugated-polymer fluorescence platform for rapid on-site screening of ethylene etonitazene (EE), an emerging nitazene opioid that remains inadequately covered by existing rapid screening tools. EE induced pronounced fluorescence quenching of the donor-acceptor conjugated polymer PFBT-MI through an inner-filter-effect-dominated response, with photoinduced electron transfer as a possible secondary pathway. The resulting response was translated into complementary fluorometric, smartphone-assisted and paper-based formats, affording limits of detection of 1.78, 12.41 and 14.83 μM, respectively. This sensor exhibited a preferential response toward nitazene-type structures over representative non-nitazene psychoactive substances and common interferents, enabled reliable analysis across different aqueous matrices, and demonstrated a versatile analytical strategy that combines quantitative analysis with portable and visually accessible readouts for the rapid screening of emerging nitazene opioids.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42908475/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42908475",
+        "doi": "10.1039/d6an00886k",
+        "journal": "The Analyst",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-24T00:49:16.365Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5b1cb4c1ea481c19724b",
+      "reserved_at": "2026-10-24T00:49:23.548Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -81436,17 +81588,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 542,
+    "total_reservations": 544,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 67,
+      "4": 69,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 542
+      "SOURCE_VERIFIED": 544
     },
     "batches": [
       {
@@ -81466,7 +81618,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 42,
+        "count": 44,
         "pr_number": null,
         "blocker": null
       }
