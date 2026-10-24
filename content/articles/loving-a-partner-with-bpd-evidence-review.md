@@ -64,7 +64,7 @@ references:
     authors: "Cristea IA, Gentili C, Cotet CD, Palomba D, Barbui C, Cuijpers P"
     journal: "JAMA Psychiatry"
     year: "2017"
-    pmid: "28249076"
+    pmid: "28249086"
     doi: "10.1001/jamapsychiatry.2016.4287"
     url: "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2605200"
     sourceType: "Meta-analysis of randomized psychotherapy studies"
@@ -79,7 +79,7 @@ references:
     sourceType: "Meta-analysis of 27 attachment effect sizes"
     evidenceLevel: "Romantic attachment correlational evidence"
   - title: "Interpersonal Outcomes of Complex Post-Traumatic Stress Disorder and Borderline Personality Disorder: A Systematic Review and Meta-Analysis"
-    authors: "Review authors as indexed in PubMed"
+    authors: "Yu W, Pan J, Liang X, Shen Y, Xi J, Liang Y"
     year: "2026"
     pmid: "41618843"
     doi: "10.1177/15248380251409825"
@@ -87,9 +87,11 @@ references:
     sourceType: "Three-level meta-analysis"
     evidenceLevel: "Associations with interpersonal functioning"
   - title: "The Emotional Bank Account and the Four Horsemen of the Apocalypse in Romantic Relationships of People with Borderline Personality Disorder: A Dyadic Observational Study"
-    authors: "Study authors as indexed in PubMed"
-    year: "2020"
+    authors: "Beeney JE, Hallquist MN, Scott LN, et al."
+    journal: "Clinical Psychological Science"
+    year: "2019"
     pmid: "32670673"
+    doi: "10.1177/2167702619830647"
     url: "https://pubmed.ncbi.nlm.nih.gov/32670673/"
     sourceType: "130-couple dyadic longitudinal observation"
     evidenceLevel: "Observational relationship evidence"
@@ -103,7 +105,7 @@ references:
     sourceType: "Qualitative study of six couples"
     evidenceLevel: "Direct lived-experience research; small selected sample"
   - title: "Long-term clinical and functional course of borderline personality disorder: A meta-analysis of prospective studies"
-    authors: "Review authors as indexed in PubMed"
+    authors: "Álvarez-Tomás I, Ruiz J, Guilera G, Bados A"
     journal: "European Psychiatry"
     year: "2019"
     pmid: "30599336"
@@ -121,7 +123,7 @@ references:
     sourceType: "Ten-year observational cohort of 290 inpatients"
     evidenceLevel: "Longitudinal prognosis"
   - title: "Family Connections, a program for relatives of people with borderline personality disorder: A randomized controlled trial"
-    authors: "Family Connections trial authors as indexed in PubMed"
+    authors: "Guillén V, Fernández-Felipe I, Marco JH, Grau A, Botella C, García-Palacios A"
     journal: "Family Process"
     year: "2024"
     pmid: "39624006"
@@ -171,7 +173,7 @@ We use "partner with BPD" only when a diagnosis is known; these pages cannot dia
 | APA clinical practice guideline, 2024 [1] | Recommend structured evidence-supported psychotherapy; medications, when used for BPD symptoms, should be targeted, time-limited and adjunctive | Professional guidance, not a guarantee for individuals |
 | Crotty et al. systematic review, 2024 [2] | **25 studies / 2,545 participants**; several psychotherapies showed benefits over treatment as usual; no clear single winner | Direct treatment research, heterogeneous studies and comparison quality |
 | BOOTS randomized trial, 2026 [3] | **204 adults**, DBT versus schema therapy, over a three-year observation window; improvement in both arms without statistically significant between-group superiority | Strong head-to-head design, does not show equivalence or universal remission |
-| Cristea et al. meta-analysis, 2017 [4] | Specific psychotherapies had modest average advantages; better-controlled comparisons attenuated some differences | Risk of bias and comparator design critically influence results |
+| Cristea et al. meta-analysis, 2017 [4] | **33 trials / 2,256 participants**; stand-alone therapy versus controls **Hedges g=0.32** (95% CI **0.14–0.51**) on combined BPD-relevant outcomes | Treatment benefit is modest and sensitive to trial bias and comparator design |
 | Romantic attachment meta-analysis [5] | **27** effect sizes: BPD traits with attachment anxiety **r=0.48**, avoidance **r=0.30** | Correlations, not diagnoses or causal pathways |
 | Interpersonal meta-analysis, 2026 [6] | BPD symptoms with interpersonal problems **r=0.39**, 95% CI **0.31–0.46** | Many settings, outcomes and informants |
 | Dyadic couple study [7] | **130 couples**, conflict-task patterns associated with both partners' satisfaction | Observational; no assigned treatment |
@@ -234,7 +236,7 @@ Crucially, the **BOOTS 2026 multicenter randomized trial** compared **DBT** and 
 
 This does not mean "DBT and schema therapy are proven identical"—lack of detected superiority is **not** an equivalence trial—and it does not make treatment unnecessary. It supports the practical view that a credible, accessible, sustained therapy relationship may matter more than internet arguments about the single perfect brand of psychotherapy.
 
-An earlier **JAMA Psychiatry** meta-analysis also cautioned that advantages over comparison treatment were sensitive to trial design and quality. The evidence is meaningful, not magical. [4]
+An earlier **JAMA Psychiatry** meta-analysis pooled **33 trials and 2,256 participants**. For combined BPD-relevant outcomes, psychotherapy outperformed controls in stand-alone designs by **Hedges g=0.32** (95% CI **0.14–0.51**), with **g=0.40** (95% CI **0.15–0.65**) in add-on designs. Effects are standardized mean differences, **not remission probabilities**. Risk of bias moderated results and publication bias was a concern, especially at follow-up. The evidence is meaningful, not magical. [4]
 
 ## What a supportive partner can do—and cannot do
 
