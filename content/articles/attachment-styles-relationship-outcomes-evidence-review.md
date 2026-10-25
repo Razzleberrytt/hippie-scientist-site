@@ -29,7 +29,7 @@ canonicalConcepts:
   - "social support"
 references:
   - title: "The relationship between adult attachment and mental health: A meta-analysis"
-    authors: "Meta-analysis authors"
+    authors: "Zhang X, Li J, Xie F, Chen X, Xu W, Hudson NW"
     year: "2022"
     pmid: "36201836"
     doi: "10.1037/pspp0000437"
