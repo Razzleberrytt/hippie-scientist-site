@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { applyLicoriceSafetyFloor, LICORICE_SAFETY_REASON } from './licorice-safety-floor.mjs'
+import { getRevenueProductSet } from '../../config/revenue-products.ts'
 
 const original = {
   reviewStatus: 'approved',
@@ -51,6 +52,12 @@ describe('source-backed licorice recommendation safety floor', () => {
     expect(applyLicoriceSafetyFloor('herbs', 'deglycyrrhizinated-licorice', original)).toBe(original)
     expect(applyLicoriceSafetyFloor('compounds', 'licorice', original)).toBe(original)
     expect(applyLicoriceSafetyFloor('compounds', 'glycyrrhiza-glabra', original)).toBe(original)
+  })
+  it('suppresses product picks via all whole-licorice aliases and the shared DGL product set', () => {
+    for (const slug of ['licorice', 'licorice-root', 'glycyrrhiza-glabra', 'dgl']) {
+      expect(getRevenueProductSet(slug)).toBeNull()
+    }
+    expect(getRevenueProductSet('magnesium')).not.toBeNull()
   })
   it('fails closed instead of approving missing licorice governance', () => {
     expect(() => applyLicoriceSafetyFloor('herbs', 'licorice', null)).toThrow(/unavailable/)
