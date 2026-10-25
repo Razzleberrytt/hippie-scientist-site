@@ -59,6 +59,61 @@ export const metadata: Metadata = {
   },
 }
 
+// Editorially sourced research articles use the existing /articles/* markdown system.
+// Keep hub cards and structured-data discovery generated from this one registry.
+const P0_RESEARCH_REVIEWS = [
+            {
+              title: 'Limerence and obsessive love',
+              description: 'The 2025–2026 limerence studies, validated measurement, uncertainty, compulsive checking and treatment limitations.',
+              href: '/articles/limerence-obsessive-love-evidence-review/',
+            },
+            {
+              title: 'Limerence and a BPD partner',
+              description: 'What attachment correlations and couple studies show, and why they cannot prove BPD causes limerence.',
+              href: '/articles/limerence-borderline-partner-evidence-review/',
+            },
+            {
+              title: 'Loving someone with BPD',
+              description: 'Published therapy meta-analyses, long-term prognosis, couple evidence, boundaries and partner support.',
+              href: '/articles/loving-a-partner-with-bpd-evidence-review/',
+            },
+            {
+              title: 'Borderline personality disorder vs complex PTSD',
+              description: 'Diagnostic overlap, official ICD-11 criteria, recent systematic reviews and interpersonal meta-analysis limits.',
+              href: '/articles/bpd-vs-complex-ptsd-evidence-review/',
+            },
+            {
+              title: 'Avoidant personality disorder vs social anxiety',
+              description: 'Overlapping diagnoses, core differences and the randomized schema therapy versus CBT comparison.',
+              href: '/articles/avoidant-personality-vs-social-anxiety-evidence-review/',
+            },
+            {
+              title: 'Long-term personality-disorder recovery',
+              description: 'What remission means, long-term cohort outcomes and why functioning may improve differently than symptoms.',
+              href: '/articles/personality-disorder-recovery-long-term-evidence-review/',
+            },
+            {
+              title: 'Emotional dysregulation across disorders',
+              description: 'ADHD, BPD, trauma and a 188-study meta-analysis, with careful limits on causal claims.',
+              href: '/articles/emotional-dysregulation-across-disorders-evidence-review/',
+            },
+            {
+              title: 'Attachment to people who hurt us',
+              description: 'Relationship persistence, insecurity, housing barriers, material realities and survivor-centered safety.',
+              href: '/articles/why-we-stay-attached-to-people-who-hurt-us-evidence-review/',
+            },
+            {
+              title: 'The anxious–avoidant relationship cycle',
+              description: 'A 263-couple longitudinal study, demand–withdraw dynamics and what partner support can and cannot fix.',
+              href: '/articles/anxious-avoidant-relationship-cycle-evidence-review/',
+            },
+            {
+              title: 'Rejection-sensitive dysphoria and ADHD',
+              description: 'Direct positive and negative studies, rejected assumptions and why RSD is not a separate DSM diagnosis.',
+              href: '/articles/rejection-sensitive-dysphoria-adhd-evidence-review/',
+            },
+          ]
+
 const FEATURED_SLUGS = [
   'personality-disorders-overview',
   'obsessive-compulsive-disorder',
@@ -118,10 +173,16 @@ export default function MentalHealthGuidesHub() {
     id: itemListId,
     name: 'Evidence-Based Mental Health Guides',
     path: HUB_PATH,
-    items: mentalHealthArticles.map((article) => ({
-      name: article.title,
-      url: `${HUB_PATH}/${article.slug}/`,
-    })),
+    items: [
+      ...mentalHealthArticles.map((article) => ({
+        name: article.title,
+        url: `${HUB_PATH}/${article.slug}/`,
+      })),
+      ...P0_RESEARCH_REVIEWS.map((review) => ({
+        name: review.title,
+        url: review.href,
+      })),
+    ],
   })
   const collectionLd = {
     ...collectionPageJsonLd({
@@ -252,58 +313,7 @@ export default function MentalHealthGuidesHub() {
           </p>
         </div>
         <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {[
-            {
-              title: 'Limerence and obsessive love',
-              description: 'The 2025–2026 limerence studies, validated measurement, uncertainty, compulsive checking and treatment limitations.',
-              href: '/articles/limerence-obsessive-love-evidence-review/',
-            },
-            {
-              title: 'Limerence and a BPD partner',
-              description: 'What attachment correlations and couple studies show, and why they cannot prove BPD causes limerence.',
-              href: '/articles/limerence-borderline-partner-evidence-review/',
-            },
-            {
-              title: 'Loving someone with BPD',
-              description: 'Published therapy meta-analyses, long-term prognosis, couple evidence, boundaries and partner support.',
-              href: '/articles/loving-a-partner-with-bpd-evidence-review/',
-            },
-            {
-              title: 'Borderline personality disorder vs complex PTSD',
-              description: 'Diagnostic overlap, official ICD-11 criteria, recent systematic reviews and interpersonal meta-analysis limits.',
-              href: '/articles/bpd-vs-complex-ptsd-evidence-review/',
-            },
-            {
-              title: 'Avoidant personality disorder vs social anxiety',
-              description: 'Overlapping diagnoses, core differences and the randomized schema therapy versus CBT comparison.',
-              href: '/articles/avoidant-personality-vs-social-anxiety-evidence-review/',
-            },
-            {
-              title: 'Long-term personality-disorder recovery',
-              description: 'What remission means, long-term cohort outcomes and why functioning may improve differently than symptoms.',
-              href: '/articles/personality-disorder-recovery-long-term-evidence-review/',
-            },
-            {
-              title: 'Emotional dysregulation across disorders',
-              description: 'ADHD, BPD, trauma and a 188-study meta-analysis, with careful limits on causal claims.',
-              href: '/articles/emotional-dysregulation-across-disorders-evidence-review/',
-            },
-            {
-              title: 'Attachment to people who hurt us',
-              description: 'Relationship persistence, insecurity, housing barriers, material realities and survivor-centered safety.',
-              href: '/articles/why-we-stay-attached-to-people-who-hurt-us-evidence-review/',
-            },
-            {
-              title: 'The anxious–avoidant relationship cycle',
-              description: 'A 263-couple longitudinal study, demand–withdraw dynamics and what partner support can and cannot fix.',
-              href: '/articles/anxious-avoidant-relationship-cycle-evidence-review/',
-            },
-            {
-              title: 'Rejection-sensitive dysphoria and ADHD',
-              description: 'Direct positive and negative studies, rejected assumptions and why RSD is not a separate DSM diagnosis.',
-              href: '/articles/rejection-sensitive-dysphoria-adhd-evidence-review/',
-            },
-          ].map((review) => (
+          {P0_RESEARCH_REVIEWS.map((review) => (
             <Link key={review.href} href={review.href} className="rounded-2xl border border-brand-900/10 bg-white p-5 transition hover:-translate-y-0.5 hover:border-brand-700/30 hover:shadow-sm">
               <h3 className="text-lg font-bold text-ink">{review.title}</h3>
               <p className="mt-2 text-sm leading-6 text-muted">{review.description}</p>
