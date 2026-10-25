@@ -31,6 +31,7 @@ export type ArticleCitationMetadata = {
   keyTakeaways?: string[]
   citationQuestions?: string[]
   canonicalConcepts?: string[]
+  faqs?: ArticleFaqAnswer[]
 }
 
 export type CitationReadySummaryInput = {
@@ -311,6 +312,6 @@ export function normalizeCitationMetadata(metadata: ArticleCitationMetadata) {
         ? metadata.canonicalConcepts
         : override?.canonicalConcepts ?? [],
     decisionRows: override?.decisionRows ?? [],
-    faqAnswers: override?.faqAnswers ?? [],
+    faqAnswers: metadata.faqs?.length ? metadata.faqs : override?.faqAnswers ?? [],
   }
 }
