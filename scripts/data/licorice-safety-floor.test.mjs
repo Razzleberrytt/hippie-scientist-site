@@ -35,9 +35,22 @@ describe('source-backed licorice recommendation safety floor', () => {
     expect(once.indexingAllowed).toBe(false)
     expect(once.reviewStatus).toBe('needs_review')
   })
-  it('never affects other herbs or similarly named compounds', () => {
+  it('holds each whole-licorice alias without changing indexing', () => {
+    for (const slug of ['licorice', 'licorice-root', 'glycyrrhiza-glabra']) {
+      const result = applyLicoriceSafetyFloor('herbs', slug, original)
+      expect(result.medicalRisk).toBe('high')
+      expect(result.recommendationAllowed).toBe(false)
+      expect(result.monetizationAllowed).toBe(false)
+      expect(result.requiresHumanReview).toBe(true)
+      expect(result.indexingAllowed).toBe(original.indexingAllowed)
+    }
+  })
+  it('never affects other herbs, DGL-specific records, or compounds', () => {
     expect(applyLicoriceSafetyFloor('herbs', 'ashwagandha', original)).toBe(original)
+    expect(applyLicoriceSafetyFloor('herbs', 'dgl', original)).toBe(original)
+    expect(applyLicoriceSafetyFloor('herbs', 'deglycyrrhizinated-licorice', original)).toBe(original)
     expect(applyLicoriceSafetyFloor('compounds', 'licorice', original)).toBe(original)
+    expect(applyLicoriceSafetyFloor('compounds', 'glycyrrhiza-glabra', original)).toBe(original)
   })
   it('fails closed instead of approving missing licorice governance', () => {
     expect(() => applyLicoriceSafetyFloor('herbs', 'licorice', null)).toThrow(/unavailable/)
