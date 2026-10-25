@@ -52,7 +52,7 @@ references:
     sourceType: "Integrative review, 12 qualitative, quantitative and mixed-methods publications"
     evidenceLevel: "Survivor needs and barriers; not an experimental estimate"
   - title: "Comparing Battered and Nonbattered Women's Reasons for Staying in Intimate Relationships"
-    authors: "Study authors in Violence and Victims"
+    authors: "Mehlhausen-Hassoen D, Winstok Z"
     journal: "Violence and Victims"
     year: "2026"
     pmid: "41942285"
