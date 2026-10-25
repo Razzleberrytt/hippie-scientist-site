@@ -109,7 +109,7 @@ faqs:
     answer: "No. Scales such as DERS measure components of emotion regulation; a high score does not distinguish PTSD, ADHD, depression, BPD or environmental stress reliably on its own. [1,2]"
 ---
 
-> **Bottom line:** Emotional dysregulation is not one disorder or a personality flaw. It describes a family of problems with noticing, interpreting, modulating or responding to feelings in ways that support important goals. A major **2026 meta-analysis of 188 studies** found impaired emotion-regulation scores across many psychiatric diagnoses. That finding should reduce diagnostic stereotyping—not encourage readers to self-diagnose BPD, ADHD or bipolar disorder from a single emotional episode. Some psychotherapies can improve emotion-regulation outcomes, but the exact intervention and underlying condition matter. **This article reviews the researchers' evidence; it does not calculate a new meta-analysis.** [1–7]
+> **Bottom line:** Emotional dysregulation is not one disorder or a personality flaw. It describes a family of problems with noticing, interpreting, modulating or responding to feelings in ways that support important goals. A major **2026 meta-analysis of 188 studies** found impaired emotion-regulation scores across many psychiatric diagnoses. That finding should reduce diagnostic stereotyping—not encourage readers to self-diagnose BPD, ADHD or bipolar disorder from a single emotional episode. Some psychotherapies can improve emotion-regulation outcomes, but the exact intervention and underlying condition matter. **This article reviews the researchers' evidence; it is not a new meta-analysis.** [1–7]
 
 ## Review question and approach
 
