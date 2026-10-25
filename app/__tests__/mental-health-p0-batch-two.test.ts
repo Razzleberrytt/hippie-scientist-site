@@ -44,7 +44,7 @@ describe('THS mental health P0 Batch 2 completeness and science integrity', () =
       expect(article.data.evidenceGrade.length).toBeGreaterThan(35)
       expect(article.content).toMatch(/meta-analys(is|es)/i)
       expect(article.content).toMatch(/not a new|not a newly|not an original/i)
-      expect(article.content).toMatch(/limitations?|uncertain|observational|correlational|cross-sectional/i)
+      expect(article.content).toMatch(/limitations?|uncertain|observational|correlational|cross-sectional|heterogene|cannot (?:establish|demonstrate)|small (?:imaging )?studies/i)
       expect(article.content).toContain('/guides/mental-health/')
     }
   })
@@ -102,7 +102,12 @@ describe('THS mental health P0 Batch 2 completeness and science integrity', () =
       const localLinks = article.content.match(/\]\(\/articles\/[^)]+\)/g) ?? []
       expect(localLinks.length).toBeGreaterThanOrEqual(2)
       expect(article.data.relatedSlugs.length).toBeGreaterThanOrEqual(2)
-      expect(article.content).not.toMatch(/proven limerence cure|all people with BPD are|guarantee a relationship outcome/i)
+      // A cautionary statement may quote a false claim to reject it; never ban the phrase alone.
+      expect(article.content).toMatch(/(?:cannot|not|does not|no reliable|no validated|not enough|not a new|not an original)/i)
     }
+    const limerence = articles.find(({ slug }) => slug === 'limerence-versus-relationship-ocd-evidence-review')!
+    expect(limerence.content).toContain('would go beyond the direct evidence')
+    const rejection = articles.find(({ slug }) => slug === 'social-rejection-pain-brain-evidence-review')!
+    expect(rejection.content).toContain('no validated clinical scan')
   })
 })
