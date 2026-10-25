@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import JsonLd from '@/components/seo/JsonLd'
+import { MentalHealthResearchDirectory } from '@/components/guides/MentalHealthResearchDirectory'
+import { P0_RESEARCH_REVIEWS } from '@/lib/mental-health-research-directory'
 import {
   getMentalHealthArticlesByCluster,
   mentalHealthArticles,
@@ -61,109 +63,6 @@ export const metadata: Metadata = {
 
 // Editorially sourced research articles use the existing /articles/* markdown system.
 // Keep hub cards and structured-data discovery generated from this one registry.
-const P0_RESEARCH_REVIEWS = [
-            {
-              title: 'Limerence and obsessive love',
-              description: 'The 2025–2026 limerence studies, validated measurement, uncertainty, compulsive checking and treatment limitations.',
-              href: '/articles/limerence-obsessive-love-evidence-review/',
-            },
-            {
-              title: 'Limerence and a BPD partner',
-              description: 'What attachment correlations and couple studies show, and why they cannot prove BPD causes limerence.',
-              href: '/articles/limerence-borderline-partner-evidence-review/',
-            },
-            {
-              title: 'Loving someone with BPD',
-              description: 'Published therapy meta-analyses, long-term prognosis, couple evidence, boundaries and partner support.',
-              href: '/articles/loving-a-partner-with-bpd-evidence-review/',
-            },
-            {
-              title: 'Borderline personality disorder vs complex PTSD',
-              description: 'Diagnostic overlap, official ICD-11 criteria, recent systematic reviews and interpersonal meta-analysis limits.',
-              href: '/articles/bpd-vs-complex-ptsd-evidence-review/',
-            },
-            {
-              title: 'Avoidant personality disorder vs social anxiety',
-              description: 'Overlapping diagnoses, core differences and the randomized schema therapy versus CBT comparison.',
-              href: '/articles/avoidant-personality-vs-social-anxiety-evidence-review/',
-            },
-            {
-              title: 'Long-term personality-disorder recovery',
-              description: 'What remission means, long-term cohort outcomes and why functioning may improve differently than symptoms.',
-              href: '/articles/personality-disorder-recovery-long-term-evidence-review/',
-            },
-            {
-              title: 'Emotional dysregulation across disorders',
-              description: 'ADHD, BPD, trauma and a 188-study meta-analysis, with careful limits on causal claims.',
-              href: '/articles/emotional-dysregulation-across-disorders-evidence-review/',
-            },
-            {
-              title: 'Attachment to people who hurt us',
-              description: 'Relationship persistence, insecurity, housing barriers, material realities and survivor-centered safety.',
-              href: '/articles/attachment-to-people-who-hurt-us-evidence-review/',
-            },
-            {
-              title: 'The anxious–avoidant relationship cycle',
-              description: 'A 263-couple longitudinal study, demand–withdraw dynamics and what partner support can and cannot fix.',
-              href: '/articles/anxious-avoidant-relationship-cycle-evidence-review/',
-            },
-            {
-              title: 'Rejection-sensitive dysphoria and ADHD',
-              description: 'Direct positive and negative studies, rejected assumptions and why RSD is not a separate DSM diagnosis.',
-              href: '/articles/rejection-sensitive-dysphoria-adhd-evidence-review/',
-            },
-            {
-              title: "Limerence vs relationship OCD",
-              description: "How relationship-themed compulsions differ from persistent romantic longing, with explicit treatment-evidence limits.",
-              href: '/articles/limerence-versus-relationship-ocd-evidence-review/',
-            },
-            {
-              title: "Excessive reassurance seeking",
-              description: "What two meta-analyses actually reveal about reassurance, depression and interpersonal rejection.",
-              href: '/articles/excessive-reassurance-seeking-relationships-evidence-review/',
-            },
-            {
-              title: "Social rejection and the brain",
-              description: "Physical-pain overlap, conflicting fMRI interpretations and why social pain has no brain-scan diagnosis.",
-              href: '/articles/social-rejection-pain-brain-evidence-review/',
-            },
-            {
-              title: "Grandiose vs vulnerable narcissism",
-              description: "An individual-data meta-analysis, a 229-study synthesis and why traits do not diagnose partners.",
-              href: '/articles/grandiose-vulnerable-narcissism-evidence-review/',
-            },
-            {
-              title: "Breakup grief and recovery",
-              description: "Longitudinal mood trajectories, romantic rejection imaging and the limits of social-media surveillance findings.",
-              href: '/articles/romantic-breakup-recovery-grief-evidence-review/',
-            },
-            {
-              title: "Emotional unavailability and attachment",
-              description: "Attachment avoidance, emotion-regulation flexibility and distinctions between labels and observable conduct.",
-              href: '/articles/emotional-unavailability-attachment-avoidance-evidence-review/',
-            },
-            {
-              title: "Leaving unhealthy relationships",
-              description: "Traumatic-bonding evidence, practical constraints and specialist safety-planning resources.",
-              href: '/articles/leaving-unhealthy-relationships-safety-evidence-review/',
-            },
-            {
-              title: "Attachment styles and outcomes",
-              description: "Large-scale attachment associations, dyadic coping and limits of predicting a particular couple's future.",
-              href: '/articles/attachment-styles-relationship-outcomes-evidence-review/',
-            },
-            {
-              title: "Dependent personality vs attachment anxiety",
-              description: "Classification, reassurance, practical dependence and the limits of personality-disorder treatment trials.",
-              href: '/articles/dependent-personality-vs-attachment-anxiety-evidence-review/',
-            },
-            {
-              title: "Rumination and negative thinking",
-              description: "A 223-study meta-analysis, intervention trials, clinical overlap and careful interpretation of causal models.",
-              href: '/articles/rumination-repetitive-negative-thinking-evidence-review/',
-            },
-          ]
-
 const FEATURED_SLUGS = [
   'personality-disorders-overview',
   'obsessive-compulsive-disorder',
@@ -281,6 +180,20 @@ export default function MentalHealthGuidesHub() {
         </div>
       </header>
 
+      <nav aria-label="Explore mental health topics" className="mt-6 flex flex-wrap gap-2">
+        <Link href="#research-directory" className="inline-flex min-h-11 items-center rounded-full bg-brand-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700">
+          Browse {P0_RESEARCH_REVIEWS.length} research reviews
+        </Link>
+        <Link href="#start-here" className="inline-flex min-h-11 items-center rounded-full border border-brand-900/20 bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:border-brand-700/40">
+          Start with the basics
+        </Link>
+        <Link href="#personality-guides" className="inline-flex min-h-11 items-center rounded-full border border-brand-900/20 bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:border-brand-700/40">
+          Personality disorder guides
+        </Link>
+      </nav>
+
+      <MentalHealthResearchDirectory reviews={P0_RESEARCH_REVIEWS} />
+
       <section className="mt-7 rounded-2xl border border-brand-700/20 bg-brand-50/60 p-5 sm:p-6" aria-labelledby="quick-answer">
         <h2 id="quick-answer" className="text-xl font-bold text-ink">Quick answer: choose the guide that matches the question</h2>
         <p className="mt-3 max-w-4xl leading-7 text-muted">
@@ -351,27 +264,7 @@ export default function MentalHealthGuidesHub() {
         </div>
       </section>
 
-      <section className="mt-12" aria-labelledby="relationship-research">
-        <div className="max-w-4xl">
-          <span className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">New evidence series · October 25, 2026</span>
-          <h2 id="relationship-research" className="mt-2 text-2xl font-bold text-ink">Attachment, emotion and personality: deep research reviews</h2>
-          <p className="mt-3 leading-7 text-muted">
-            Twenty source-graded reviews examine limerence, attachment, emotional dysregulation, rejection
-            sensitivity, personality-disorder recovery and diagnostic overlap. Each distinguishes direct
-            studies from indirect evidence, and none diagnoses an absent partner or claims to be a new
-            statistical meta-analysis.
-          </p>
-        </div>
-        <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {P0_RESEARCH_REVIEWS.map((review) => (
-            <Link key={review.href} href={review.href} className="rounded-2xl border border-brand-900/10 bg-white p-5 transition hover:-translate-y-0.5 hover:border-brand-700/30 hover:shadow-sm">
-              <h3 className="text-lg font-bold text-ink">{review.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-muted">{review.description}</p>
-              <span className="mt-4 inline-flex text-sm font-bold text-brand-700">Read evidence review →</span>
-            </Link>
-          ))}
-        </div>
-      </section>
+
 
       <section className="mt-10 rounded-2xl border border-amber-700/20 bg-amber-50/70 p-5 sm:p-6" aria-labelledby="ocd-note">
         <h2 id="ocd-note" className="text-lg font-bold text-ink">Why OCD appears in this library</h2>
@@ -380,6 +273,7 @@ export default function MentalHealthGuidesHub() {
         </p>
       </section>
 
+      <div id="personality-guides" className="scroll-mt-24" />
       <ClusterSection
         title="Cluster A"
         description="Paranoid, schizoid, and schizotypal personality disorders. Research is comparatively sparse, so these pages make uncertainty and classification differences explicit."
