@@ -3,6 +3,7 @@ import { join } from 'node:path'
 import matter from 'gray-matter'
 import { describe, expect, it } from 'vitest'
 
+import { P0_RESEARCH_REVIEWS } from '@/lib/mental-health-research-directory'
 import { primaryNavigation } from '@/lib/primary-navigation'
 
 const slugs = [
@@ -63,9 +64,10 @@ describe('limerence and BPD evidence review series', () => {
     const guides = primaryNavigation.find((item) => item.label === 'Guides')
     const destinations = new Set((guides?.children ?? []).map((child) => child.href))
     const hub = readFileSync(join(process.cwd(), 'app', 'guides', 'mental-health', 'page.tsx'), 'utf8')
+    expect(hub).toContain('<MentalHealthResearchDirectory reviews={P0_RESEARCH_REVIEWS} />')
     for (const slug of slugs) {
       expect(destinations.has('/articles/' + slug)).toBe(true)
-      expect(hub).toContain('/articles/' + slug + '/')
+      expect(P0_RESEARCH_REVIEWS.some((review) => review.href === '/articles/' + slug + '/')).toBe(true)
     }
   })
 
