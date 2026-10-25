@@ -31,6 +31,9 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     children: [
       { section: 'Browse guides', label: 'All guides', href: '/guides', description: 'Browse practical guides by topic or decision' },
       { section: 'Browse guides', label: 'Mental Health', href: '/guides/mental-health', description: 'Conditions, relationships, treatment evidence, and stigma-aware research' },
+      { section: 'Relationship research', label: 'Limerence: evidence review', href: '/articles/limerence-obsessive-love-evidence-review', description: 'The direct studies, intrusive thoughts and recovery evidence' },
+      { section: 'Relationship research', label: 'Limerence and BPD partners', href: '/articles/limerence-borderline-partner-evidence-review', description: 'What attachment meta-analyses can and cannot establish' },
+      { section: 'Relationship research', label: 'Loving a partner with BPD', href: '/articles/loving-a-partner-with-bpd-evidence-review', description: 'Treatment, boundaries and relationship outcomes' },
       { section: 'Browse guides', label: 'ADHD', href: '/guides/adhd', description: 'Attention, executive function, nutrients, and treatment context' },
       { section: 'Browse guides', label: 'Sleep', href: '/guides/sleep' },
       { section: 'Browse guides', label: 'Anxiety', href: '/guides/anxiety' },
