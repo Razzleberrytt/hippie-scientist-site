@@ -11,7 +11,7 @@ const batch1Slugs = [
   'avoidant-personality-vs-social-anxiety-evidence-review',
   'personality-disorder-recovery-long-term-evidence-review',
   'emotional-dysregulation-across-disorders-evidence-review',
-  'why-we-stay-attached-to-people-who-hurt-us-evidence-review',
+  'attachment-to-people-who-hurt-us-evidence-review',
   'anxious-avoidant-relationship-cycle-evidence-review',
   'rejection-sensitive-dysphoria-adhd-evidence-review',
 ] as const
@@ -90,7 +90,7 @@ describe('THS mental health P0 ten-article batch 1', () => {
     const longTerm = articles.find((item) => item.slug === 'personality-disorder-recovery-long-term-evidence-review')!
     expect(longTerm.content).toContain('11 studies')
     expect(longTerm.content).toContain('functional')
-    const attachment = articles.find((item) => item.slug === 'why-we-stay-attached-to-people-who-hurt-us-evidence-review')!
+    const attachment = articles.find((item) => item.slug === 'attachment-to-people-who-hurt-us-evidence-review')!
     expect(attachment.content).toContain('safe housing')
     expect(attachment.content).toContain('coercive')
   })
