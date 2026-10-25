@@ -155,6 +155,14 @@ Instead of asking only whether a partner loves you or fits an attachment label, 
 
 If safety is uncertain, specialist resources can discuss options even when a person is not yet ready to make a decision. In the United States, the National Domestic Violence Hotline is available at **1-800-799-SAFE (7233)** and through its website; availability and digital safety details appear on its official pages. [2,3]
 
+## Access to help can change the available choices
+
+Support is not only emotional. A safe place to stay, transportation, access to identification documents, healthcare, income, childcare and a private communication channel can affect which options are feasible. People sometimes receive advice to “just leave” from observers who do not face the same constraints. Specialist safety resources account for practical needs as part of risk-sensitive planning rather than presuming that a single emotional decision resolves the circumstances. [2,3]
+
+Different support networks may be relevant for different people: trusted friends, public services, legal aid, community organizations and specialized advocates. Their availability varies by location, disability access, immigration circumstances and family arrangements. Nothing in the classic attachment study shows that the lack of such resources is caused by a person's attachment style. [1–3]
+
+The question of whether to reconcile or separate is also distinct from the question of immediate safety. A person can be unsure about the long-term relationship and still have a clear need for protection from threats or stalking today. Conversely, someone can decide a relationship is over while continuing to grieve and seek help for that grief. [1,2,5]
+
 ## Research scope and related evidence
 
 We assessed a small prospective bonding study, a couple support review, an unrelated but often misused breakup trajectory study, clinical classification guidance and official US support resources. We did not conduct a new meta-analysis, certify a safety plan or make a diagnosis of anyone not assessed.
