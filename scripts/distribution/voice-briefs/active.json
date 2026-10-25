@@ -1,0 +1,156 @@
+{
+  "release": "R8.05",
+  "sourceIdentity": {
+    "id": "ths-original-kokoro-runner-regression-20261024",
+    "sourceUrl": "https://thehippiescientist.net/"
+  },
+  "premise": {
+    "interestScore": 4,
+    "coldViewerWhyCare": "Shows whether original narrator survives a fresh runtime",
+    "viewerQuestion": "Can this original narrator run reproducibly?",
+    "earlyPayoff": "A real original voice file on an isolated runner",
+    "methodologyBeforePayoff": false
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "beats": [
+    {
+      "id": "voice-test-01",
+      "role": "hook",
+      "narration": "Can the original Hippie Scientist narrator work on a brand-new machine?",
+      "onScreenText": "original narrator",
+      "visualPurpose": "A real voice waveform emerges from a blank timeline",
+      "spokenAnchor": "original narrator",
+      "visualAction": "A narration wave builds from left to right",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "creative-framing",
+      "primaryEntities": [
+        "voice"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "voice-test-02",
+      "role": "finding",
+      "narration": "The answer depends on matching the approved model and software exactly.",
+      "onScreenText": "model and software",
+      "visualPurpose": "A verified identity card locks onto the waveform",
+      "spokenAnchor": "model and software",
+      "visualAction": "The model and software indicators join",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "creative-framing",
+      "primaryEntities": [
+        "voice"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "voice-test-03",
+      "role": "evidence",
+      "narration": "Our runner checks both original voice files before creating speech.",
+      "onScreenText": "voice files",
+      "visualPurpose": "Two cryptographic model file seals turn green",
+      "spokenAnchor": "voice files",
+      "visualAction": "Model and voicebank file checks reveal a match",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "creative-framing",
+      "primaryEntities": [
+        "voice"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "voice-test-04",
+      "role": "limitation",
+      "narration": "One audible result does not mean a video is finished or approved.",
+      "onScreenText": "audible result",
+      "visualPurpose": "The green audio pass is separated from video approval",
+      "spokenAnchor": "audible result",
+      "visualAction": "A separate publication lock remains closed",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "creative-framing",
+      "primaryEntities": [
+        "voice"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "voice-test-05",
+      "role": "context",
+      "narration": "Every new video should use the same tested voice environment.",
+      "onScreenText": "voice environment",
+      "visualPurpose": "A fresh computer connects to the same saved runtime",
+      "spokenAnchor": "voice environment",
+      "visualAction": "A repeatable voice worker replaces the temporary environment",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "creative-framing",
+      "primaryEntities": [
+        "voice"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "voice-test-06",
+      "role": "cta",
+      "narration": "Listen to this voice and verify the receipt before making visuals.",
+      "onScreenText": "verify the receipt",
+      "visualPurpose": "Actual waveform and receipt meet before rendering",
+      "spokenAnchor": "verify the receipt",
+      "visualAction": "A model fingerprint lights up beside its voice waveform",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "creative-framing",
+      "primaryEntities": [
+        "voice"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "voice-test-07",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://thehippiescientist.net/",
+      "visualPurpose": "Show the publisher source identity",
+      "spokenAnchor": "",
+      "visualAction": "Hold the source citation long enough to read",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "end",
+      "factualAuthority": "creative-framing",
+      "primaryEntities": [],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0,
+      "holdSeconds": 3.3
+    }
+  ],
+  "recovery": {
+    "macroRebuildCount": 0
+  }
+}
