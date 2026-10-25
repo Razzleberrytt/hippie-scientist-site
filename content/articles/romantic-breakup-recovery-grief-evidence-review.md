@@ -71,7 +71,7 @@ references:
     sourceType: "Experimental within-participant neuroimaging"
     evidenceLevel: "Selected task overlap with physical pain, not identical experience"
   - title: "Coping with a breakup: negative mood regulation expectancies and depression following the end of a romantic relationship"
-    authors: "Researchers of three coping and breakup studies"
+    authors: "Mearns J"
     year: "1991"
     pmid: "2016673"
     doi: "10.1037//0022-3514.60.2.327"

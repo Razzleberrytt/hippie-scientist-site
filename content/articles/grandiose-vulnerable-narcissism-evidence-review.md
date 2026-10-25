@@ -70,7 +70,7 @@ references:
     sourceType: "Peer-reviewed systematic review"
     evidenceLevel: "Synthesis of mostly noninterventional emotion-regulation research"
   - title: "Pathological narcissism and psychosocial functioning"
-    authors: "Researchers studying psychiatric outpatients"
+    authors: "Dashineau SC, Edershile EA, Simms LJ, Wright AGC"
     year: "2019"
     pmid: "31259606"
     url: "https://pubmed.ncbi.nlm.nih.gov/31259606/"
