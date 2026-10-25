@@ -78,7 +78,7 @@ references:
     sourceType: "Individual participant data synthesis from randomized trials"
     evidenceLevel: "BPD severity outcomes; missing data and bias concerns"
   - title: "Dialectical Behavior Therapy vs Schema Therapy for Patients With Borderline Personality Disorder: The BOOTS Multicenter Randomized Clinical Trial"
-    authors: "BOOTS trial investigators"
+    authors: "Wibbelink CJM, Kamphuis JH, Sinnaeve R, Grasman RPPP, Alberts J, Alkema M, Dek ECP, Hupkes M, James C, Koppeschaar AM, Ploegmakers M, Schuur RJ, van Vliet M, Arntz A"
     journal: "JAMA Psychiatry"
     year: "2026"
     pmid: "42018336"

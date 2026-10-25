@@ -60,7 +60,7 @@ references:
     sourceType: "Meta-analysis of 81 studies and 115 effects"
     evidenceLevel: "Predominantly observational correlations with moderators"
   - title: "Emotion Regulation and Aggression: A Systematic Review and Meta-Analysis"
-    authors: "Emotion regulation and aggression review authors"
+    authors: "Smith K, Jones A, Daly N, Widdrington H, Garofalo C, Gillespie SM"
     journal: "Aggressive Behavior"
     year: "2026"
     pmid: "41424362"

@@ -89,7 +89,7 @@ references:
     sourceType: "Network meta-analysis including different disorders and comparators"
     evidenceLevel: "Indirect comparisons; precision and certainty vary by treatment and population"
   - title: "Turkish Validation of the Oxford Depression Questionnaire: Psychometric and Clinical Evidence Across Healthy, Drug-Naïve, and Remitted Medicated Depression Groups"
-    authors: "Mavi CÜ, Yalım E, Alpay EH, Gündoğmuş İ"
+    authors: "Ünsal Mavi C, Yalım E, Alpay EH, Gündoğmuş İ"
     year: "2026"
     pmid: "42541644"
     url: "https://pubmed.ncbi.nlm.nih.gov/42541644/"
