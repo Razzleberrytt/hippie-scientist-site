@@ -3,6 +3,8 @@ import { join } from 'node:path'
 import matter from 'gray-matter'
 import { describe, expect, it } from 'vitest'
 
+import { P0_RESEARCH_REVIEWS } from '@/lib/mental-health-research-directory'
+
 import { normalizeCitationMetadata } from '@/lib/article-citation-metadata'
 
 const batch1Slugs = [
@@ -84,10 +86,10 @@ describe('THS mental health P0 ten-article batch 1', () => {
   })
 
   it('surfaces all ten routes via one hub registry used by cards and structured data', () => {
-    expect(hubSource).toContain('const P0_RESEARCH_REVIEWS')
-    expect(hubSource).toContain('P0_RESEARCH_REVIEWS.map((review) => (')
+    expect(hubSource).toContain("from '@/lib/mental-health-research-directory'")
+    expect(hubSource).toContain('<MentalHealthResearchDirectory reviews={P0_RESEARCH_REVIEWS} />')
     expect(hubSource).toContain('...P0_RESEARCH_REVIEWS.map((review) => ({')
-    for (const slug of batch1Slugs) expect(hubSource).toContain('/articles/' + slug + '/')
+    for (const slug of batch1Slugs) expect(P0_RESEARCH_REVIEWS.some((review) => review.href === '/articles/' + slug + '/')).toBe(true)
   })
 
   it('ensures all new reviews link to related science and disclose methodological limits', () => {

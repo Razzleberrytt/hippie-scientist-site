@@ -5,8 +5,8 @@ import { P0_RESEARCH_REVIEWS } from '@/lib/mental-health-research-directory'
 import { primaryNavigation } from '@/lib/primary-navigation'
 
 describe('mental health evidence navigation', () => {
-  it('exposes all 20 published batch 1 and batch 2 reviews from the searchable directory', () => {
-    expect(P0_RESEARCH_REVIEWS.length).toBe(20)
+  it('exposes all 30 batch 1–3 release reviews from the searchable directory', () => {
+    expect(P0_RESEARCH_REVIEWS.length).toBe(30)
     const paths = P0_RESEARCH_REVIEWS.map((article) => article.href)
     expect(new Set(paths).size).toBe(paths.length)
     for (const review of P0_RESEARCH_REVIEWS) {
@@ -31,8 +31,8 @@ describe('mental health evidence navigation', () => {
     expect(mobile).toContain("href: '/guides/mental-health'")
   })
 
-  it('keeps draft-only batch-three reviews outside public navigation', () => {
-    expect(P0_RESEARCH_REVIEWS.every((review) => !review.href.includes('alexithymia-emotional-awareness-evidence-review'))).toBe(true)
-    expect(P0_RESEARCH_REVIEWS.every((review) => !review.href.includes('chronic-emptiness-bpd-depression-evidence-review'))).toBe(true)
+  it('includes every completed Batch 3 manuscript exactly once', () => {
+    const slugs = ["alexithymia-emotional-awareness-evidence-review","anger-dysregulation-regulation-evidence-review","chronic-emptiness-bpd-depression-evidence-review","dissociation-depersonalization-derealization-evidence-review","emotional-numbness-anhedonia-blunting-evidence-review","shame-versus-guilt-evidence-review","splitting-dichotomous-thinking-evidence-review","bipolar-ii-versus-bpd-evidence-review","adhd-versus-trauma-ptsd-evidence-review","persistent-depressive-disorder-dysthymia-evidence-review"]
+    for (const slug of slugs) expect(P0_RESEARCH_REVIEWS.filter((review) => review.href === '/articles/' + slug + '/')).toHaveLength(1)
   })
 })

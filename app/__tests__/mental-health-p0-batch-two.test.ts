@@ -3,6 +3,8 @@ import { join } from 'node:path'
 import matter from 'gray-matter'
 import { describe, expect, it } from 'vitest'
 
+import { P0_RESEARCH_REVIEWS } from '@/lib/mental-health-research-directory'
+
 import { normalizeCitationMetadata } from '@/lib/article-citation-metadata'
 
 const batch2Slugs = [
@@ -87,13 +89,12 @@ describe('THS mental health P0 Batch 2 completeness and science integrity', () =
   })
 
   it('adds every Batch 2 article to the existing public-hub registry without duplicate routes', () => {
-    expect(hub).toContain('const P0_RESEARCH_REVIEWS')
-    expect(hub).toContain('P0_RESEARCH_REVIEWS.map((review) => (')
+    expect(hub).toContain("from '@/lib/mental-health-research-directory'")
+    expect(hub).toContain('<MentalHealthResearchDirectory reviews={P0_RESEARCH_REVIEWS} />')
     expect(hub).toContain('...P0_RESEARCH_REVIEWS.map((review) => ({')
     for (const slug of batch2Slugs) {
       const href = '/articles/' + slug + '/'
-      expect(hub).toContain(href)
-      expect(hub.split(href).length - 1).toBe(1)
+      expect(P0_RESEARCH_REVIEWS.filter((review) => review.href === href)).toHaveLength(1)
     }
   })
 

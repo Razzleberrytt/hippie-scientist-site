@@ -207,3 +207,5 @@ Needed future work includes preregistered replication, ecological sampling acros
 Psychotherapy offers grounds for hope about broad BPD symptoms and functioning. But the responsible conclusion remains conditional: evidence supports working toward more flexible appraisals, accountability and safer communication; it does not justify predicting a person's character or treatment outcome from an online label. [3–8]
 
 **Related evidence:** [Emotional dysregulation across disorders](/articles/emotional-dysregulation-across-disorders-evidence-review/), [BPD versus complex PTSD](/articles/bpd-vs-complex-ptsd-evidence-review/), [Loving a partner with BPD](/articles/loving-a-partner-with-bpd-evidence-review/), and [attachment to people who hurt us](/articles/attachment-to-people-who-hurt-us-evidence-review/).
+
+Browse the full [mental-health research library](/guides/mental-health/) for related evidence reviews.

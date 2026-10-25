@@ -30,7 +30,7 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     activePrefixes: ['/guides', '/learn', '/articles'],
     children: [
       { section: 'Browse guides', label: 'All guides', href: '/guides', description: 'Browse practical guides by topic or decision' },
-      { section: 'Browse guides', label: 'Mental Health & Relationships', href: '/guides/mental-health', description: 'Browse personality, relationships, emotions and 20 published evidence reviews' },
+      { section: 'Browse guides', label: 'Mental Health & Relationships', href: '/guides/mental-health', description: 'Browse personality, relationships, emotions and published evidence reviews' },
       { section: 'Browse guides', label: 'Search mental-health reviews', href: '/guides/mental-health/#research-directory', description: 'Filter published evidence reviews by topic or keyword' },
       { section: 'Browse guides', label: 'ADHD', href: '/guides/adhd', description: 'Attention, executive function, nutrients, and treatment context' },
       { section: 'Browse guides', label: 'Sleep', href: '/guides/sleep' },
