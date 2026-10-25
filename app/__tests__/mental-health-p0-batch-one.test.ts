@@ -3,6 +3,8 @@ import { join } from 'node:path'
 import matter from 'gray-matter'
 import { describe, expect, it } from 'vitest'
 
+import { normalizeCitationMetadata } from '@/lib/article-citation-metadata'
+
 const batch1Slugs = [
   'limerence-obsessive-love-evidence-review',
   'limerence-borderline-partner-evidence-review',
@@ -65,6 +67,20 @@ describe('THS mental health P0 ten-article batch 1', () => {
         seen.add(key)
       }
     }
+  })
+
+  it('renders authored FAQs through the page normalizer and preserves legacy override fallback', () => {
+    for (const article of articles) {
+      const normalized = normalizeCitationMetadata(article.data)
+      expect(normalized.faqAnswers).toHaveLength(article.data.faqs.length)
+      expect(normalized.faqAnswers).toEqual(article.data.faqs)
+      expect(normalized.faqAnswers.length).toBeGreaterThanOrEqual(4)
+    }
+
+    // All content-collection pages have faqs: [] by schema default. The older
+    // curated registry must still work when frontmatter does not supply answers.
+    expect(normalizeCitationMetadata({ slug: 'sleep-debt-and-recovery', faqs: [] }).faqAnswers.length)
+      .toBeGreaterThan(0)
   })
 
   it('surfaces all ten routes via one hub registry used by cards and structured data', () => {
