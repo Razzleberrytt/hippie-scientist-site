@@ -97,6 +97,24 @@ references:
     url: "https://www.thehotline.org/plan-for-safety/"
     sourceType: "Specialist survivor-centered safety planning guidance"
     evidenceLevel: "Practice resource, not a randomized trial"
+  - title: "Women escaping domestic violence to achieve safe housing: an integrative review"
+    authors: "Stulz V, Francis L, Naidu A, O'Reilly R"
+    journal: "BMC Women's Health"
+    year: "2024"
+    pmid: "38822284"
+    doi: "10.1186/s12905-024-03143-7"
+    url: "https://pubmed.ncbi.nlm.nih.gov/38822284/"
+    sourceType: "Integrative review of 12 survivor housing and service-access studies"
+    evidenceLevel: "Qualitative and mixed-method barriers, not causal intervention effects"
+  - title: "Comparing Battered and Nonbattered Women's Reasons for Staying in Intimate Relationships"
+    authors: "Mehlhausen-Hassoen D, Winstok Z"
+    journal: "Violence and Victims"
+    year: "2026"
+    pmid: "41942285"
+    doi: "10.1891/VV-2025-0052"
+    url: "https://pubmed.ncbi.nlm.nih.gov/41942285/"
+    sourceType: "Self-reported cross-sectional sample of 926 Israeli women"
+    evidenceLevel: "Reasons and barriers; no general population causal estimate"
 faqs:
   - question: "If I miss someone who hurt me, does that prove I have a trauma bond?"
     answer: "No. Missing a partner can reflect grief, familiarity, attachment, hope or practical connection. Traumatic bonding is one research hypothesis about attachment under intermittent maltreatment and power imbalance; it is not a test that can diagnose a person or relationship. [1,3,5]"
@@ -199,6 +217,14 @@ Support might include confidential conversations with trusted people, trauma-inf
 Avoid promising that **no contact** is always appropriate. People may share children, housing, legal obligations or safety concerns. If co-parenting or necessary communication continues, supported limits and safer channels may be more realistic. Unplanned abrupt confrontation or a breakup announcement can increase danger in some abusive situations; the appropriate response is individualized safety planning rather than a universal script. [7,8]
 
 Similarly, **couples therapy** is not automatically safe when intimidation and coercive control are present. Safety and specialized assessment take precedence over treating both parties as equally able to negotiate. In noncoercive relationships, collaborative communication may be useful, but persistent harm still merits independent judgment. [6–8]
+
+## Recent 2024–2026 research on why safety and choice can be constrained
+
+Stulz and colleagues' **2024 integrative review of 12 studies** identified recurring barriers experienced by women escaping domestic violence: losses from leaving, ongoing required contact with a former partner, financial insecurity, access to safe housing and services, and responsibility for children. Support, collaboration and providers who listen respectfully were recurring facilitators. These findings describe qualitative and mixed-method experiences, not a randomized trial or a universal psychological reason people stay. [9]
+
+In a **2026 self-report survey of 926 Israeli women**, Mehlhausen-Hassoen and Winstok examined positive reasons for staying alongside negative constraints labeled fear of failure, fear of terror and captivity. Recently battered women reported especially high negative barriers. The findings undermine a simplistic either/or claim that people stay entirely from affection or entirely from external force. Because the survey was cross-sectional and culturally specific, it cannot prove why any individual stayed or predict future safety. [10]
+
+Together, these studies reinforce an essential point: psychological theories of attachment and intermittent reinforcement **cannot replace resources such as housing, childcare, financial stability and confidential specialist advice**. A request to “just leave” without addressing such constraints can be unrealistic or unsafe. When danger or coercion exists, safety planning should be individualized rather than determined from someone's attachment label. [6–10]
 
 ## What if there are children, financial constraints, or threats?
 
