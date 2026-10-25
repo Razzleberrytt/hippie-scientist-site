@@ -100,7 +100,7 @@ const P0_RESEARCH_REVIEWS = [
             {
               title: 'Attachment to people who hurt us',
               description: 'Relationship persistence, insecurity, housing barriers, material realities and survivor-centered safety.',
-              href: '/articles/why-we-stay-attached-to-people-who-hurt-us-evidence-review/',
+              href: '/articles/attachment-to-people-who-hurt-us-evidence-review/',
             },
             {
               title: 'The anxious–avoidant relationship cycle',
