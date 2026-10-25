@@ -165,6 +165,14 @@ Better predictive studies would follow diverse couples over years, preregister c
 
 We conducted a targeted research synthesis, **not a new meta-analysis**, independent prediction validation or diagnostic assessment. No attachment style can be used here to diagnose a reader or a partner.
 
+## Prediction requires validation, not just correlation
+
+A study may find that an attachment scale correlates with a relationship measure and still be unable to forecast a new couple's future. Useful prediction requires a clearly defined outcome, a time horizon, calibration, and evaluation in participants who were not used to build the model. Researchers would also need to compare the scale with readily observed alternatives such as relationship stability, communication, safety and the partners' actual stated intentions. [1–4]
+
+A correlation of moderate size can be meaningful for research without classifying most individuals correctly. Heterogeneous study samples make the leap even riskier: a questionnaire developed in university students may behave differently in older couples, people parenting together, people with disabilities or relationships under chronic financial stress. The reports reviewed here do not validate a universal calculator for whether a particular couple will stay together. [1–3]
+
+Attachment may be one factor in a broader process. The same couple could have supportive interactions in ordinary periods and become less flexible during acute stress. Recording those fluctuations and testing interventions prospectively would be more informative than assigning each partner a permanent archetype after a disagreement. [3,4]
+
 ## Related reading
 
 - [Anxious–avoidant relationship cycle](/articles/anxious-avoidant-relationship-cycle-evidence-review/) examines specific communication patterns.
