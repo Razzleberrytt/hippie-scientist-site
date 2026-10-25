@@ -19,6 +19,10 @@ const fail=why=>{throw Error('R8.18 pinned physical art HOLD: '+why)}
  */
 export function stageR818PhysicalArt({artRoot,outputDir,beats}){
  if(!Array.isArray(beats))fail('canonical beat inventory missing')
+ // Reject declared physical artwork on unsupported beats instead of silently
+ // dropping the artist pixels while the canonical plan still claims them.
+ if(beats.some(b=>b?.physicalArt!=null&&!actions.has(b.semanticAction)))
+  fail('physical artwork supplied for unsupported semantic action')
  if(!beats.some(b=>actions.has(b.semanticAction)))return {}
  if(typeof artRoot!=='string'||!artRoot)fail('explicit trusted original-art input directory required')
  const source=path.resolve(artRoot),out=path.resolve(outputDir)

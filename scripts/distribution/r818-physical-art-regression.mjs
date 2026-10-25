@@ -44,6 +44,19 @@ function beats(primary,target){
     afterLabel:'Product container (illustration)'},physicalArt:{primary,target}}
  ]
 }
+test('physical artwork on unsupported semantic action is rejected, not silently discarded',()=>{
+ const unrecognized={id:'unsupported',semanticAction:'unreviewed-unknown-action',
+  physicalArt:{primary:{file:'art.png',sha256:'0'.repeat(64)}}}
+ assert.throws(()=>stageR818PhysicalArt({artRoot:null,outputDir:'unused',beats:[unrecognized]}),
+  /physical artwork supplied for unsupported semantic action/)
+ assert.throws(()=>stageR818PhysicalArt({artRoot:null,outputDir:'unused',beats:[
+  {id:'plain',semanticAction:'still-photo'},unrecognized,
+  {id:'known',semanticAction:'source-bound-scaffold-assembles'}]}),
+  /physical artwork supplied for unsupported semantic action/)
+ assert.deepEqual(stageR818PhysicalArt({artRoot:null,outputDir:'unused',beats:[
+  {id:'plain',semanticAction:'still-photo'}]}),{})
+})
+
 test('native 1080x1920 isolated original-art pixels admit only exact pinned separated source roles',async()=>{
  const root=makeRoot()
  try{
