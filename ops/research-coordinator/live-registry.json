@@ -82305,6 +82305,159 @@
       "reservation_id": "b6a6d8ea030d139a7c93",
       "reserved_at": "2026-10-24T14:30:13.321Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42830379",
+      "title": "Infections and the Opioid Epidemic: Changing Epidemiology and Treatment Options.",
+      "doi": "10.1007/s40265-026-02364-4",
+      "source_title": "Infections and the Opioid Epidemic: Changing Epidemiology and Treatment Options.",
+      "abstract": "The opioid epidemic has led to an infectious diseases syndemic, with injection drug use responsible for driving rising rates of HIV, viral hepatitis, and serious bacterial and fungal infections. Opioid use continues to cause devastating mortality, with over 80,000 opioid-involved overdose deaths in the USA in 2022. Despite the proven effectiveness of opioid agonist therapy, specifically methadone and buprenorphine, treatment coverage remains inadequate, with profound gaps in opioid use disorder (OUD) continuum of care. Injection-related infections, particularly skin and soft tissue infections, bacteremia, osteomyelitis, and infective endocarditis, have increased substantially since the early 2000s and carry a high risk of morbidity and mortality. Risk is further compounded by criminalization, stigma, incarceration, and comorbid psychiatric conditions. Emerging concerns such as xylazine-associated necrotic wounds illustrate the dynamic intersection of substance use and infectious disease. While direct-acting antivirals have made hepatitis C curable, barriers to treatment persist, and uptake of HIV prevention strategies, including pre-exposure prophylaxis, remains low among people who inject drugs. Integration of addiction treatment into infectious disease and hospital care improves outcomes, yet systemic and policy barriers limit access. Innovative models such as syringe service programs, mobile units, and inpatient addiction consult services demonstrate the feasibility of integrated, patient-centered care. Evidence gaps remain regarding optimal antibiotic strategies for serious infections in people with OUD, and research and policy must address exclusionary practices, stigma, and fragmented systems of care. A synergistic approach integrating OUD treatment, infectious disease management, risk reduction, and trauma-informed care is essential to reduce preventable deaths and improve long-term health outcomes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42830379/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42830379",
+        "doi": "10.1007/s40265-026-02364-4",
+        "journal": "Drugs",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-25T11:46:46.201Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f554b625c5c8bf3ee396",
+      "reserved_at": "2026-10-25T11:46:53.192Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42912056",
+      "title": "Organ damage after hemorrhagic shock: roles of anesthesia, shock duration, and assessment time.",
+      "doi": "10.1590/0001-3765202620251220",
+      "source_title": "Organ damage after hemorrhagic shock: roles of anesthesia, shock duration, and assessment time.",
+      "abstract": "Hemorrhagic shock (HS) is a condition associated with organ failure. Animal models are widely used to study pathophysiology and potential therapies. Our aim was to clarify how anesthetic choice, shock duration, decompensation phase length, and time post-reperfusion influence plasma damage markers in HS. For this, male rats were anesthetized with either thiopental or ketamine/xylazine and subjected to HS. Blood pressure was reduced to 40 mmHg for 60 or 90 minutes, followed by reperfusion with shed blood. Blood samples were collected 4 or 24 hours after reperfusion. Liver and renal damage were observed in animals that underwent a 90-minute shock, but not a 60-minute shock. Animals anesthetized with ketamine/xylazine exhibited higher hepatic aminotransferases levels than those anesthetized with thiopental, suggesting more severe liver injury in the former group. AST levels were higher 4 hours after reperfusion. The duration of decompensation phase was positively correlated with liver injury but not with kidney dysfunction. Cardiovascular parameters and other organ damage markers were similar among the groups. Therefore, HS protocols in rats require a minimum of 90 minutes of the ischemic phase to induce consistent organ dysfunction detectable through plasma markers. The duration of the decompensation phase directly influences the outcome.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42912056/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42912056",
+        "doi": "10.1590/0001-3765202620251220",
+        "journal": "Anais da Academia Brasileira de Ciencias",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-25T11:46:46.201Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d2086506407ee5ae06ad",
+      "reserved_at": "2026-10-25T11:46:53.192Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -82349,17 +82502,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 554,
+    "total_reservations": 556,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 79,
+      "4": 81,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 554
+      "SOURCE_VERIFIED": 556
     },
     "batches": [
       {
@@ -82379,7 +82532,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 54,
+        "count": 56,
         "pr_number": null,
         "blocker": null
       }
