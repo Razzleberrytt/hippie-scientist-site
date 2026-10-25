@@ -4,6 +4,12 @@ on:
     branches:
       - 'voice/**'
   workflow_dispatch:
+    inputs:
+      runtime_canary:
+        description: 'Check and synthesize original Kokoro voice only; no video project required'
+        required: true
+        type: boolean
+        default: true
 permissions:
   contents: read
 concurrency:
@@ -20,7 +26,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: scripts/distribution/requirements-local-voice.txt
+      - name: Test narrator readiness fail-closed behavior before installing heavyweight dependencies
+        run: python -m unittest discover -s scripts/distribution/tests -p 'test_voice_runtime_readiness.py' -v
       - name: Require canonical R8.05 creative gate before voice synthesis
+        if: ${{ github.event_name != 'workflow_dispatch' || !inputs.runtime_canary }}
         run: |
           node --input-type=module <<'NODE'
           import { readFileSync, existsSync } from 'node:fs'
@@ -39,6 +50,7 @@ jobs:
           sudo apt-get install -y espeak-ng
           python -m pip install --upgrade pip
           python -m pip install -r scripts/distribution/requirements-local-voice.txt
+          python -m pip check
       - name: Restore original portable ONNX narrator from permanent release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -48,13 +60,60 @@ jobs:
           mkdir -p "$THS_VOICE_VAULT"
           gh release download ths-kokoro-onnx-am-michael-int8-v1 --repo "$GITHUB_REPOSITORY" --dir "$THS_VOICE_VAULT"
           python scripts/distribution/voice-vault.py verify "$THS_VOICE_VAULT"
+      - name: Require complete original narrator runtime and verified model identity
+        run: |
+          python scripts/distribution/voice-runtime-readiness.py \
+            --vault "$THS_VOICE_VAULT" \
+            --receipt artifacts/narration/voice-runtime-readiness.json
+      - name: Synthesized voiced runtime canary (manual dispatch only)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.runtime_canary }}
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, pathlib, wave
+          import numpy as np
+          from kokoro_onnx import Kokoro
+          vault=pathlib.Path(os.environ['THS_VOICE_VAULT'])
+          root=pathlib.Path('artifacts/narration')
+          root.mkdir(parents=True,exist_ok=True)
+          speaker=Kokoro(str(vault/'kokoro-v1.0.int8.onnx'),str(vault/'voices-v1.0.bin'))
+          samples,rate=speaker.create(
+              'The Hippie Scientist is using its original verified narrator.',
+              voice='am_michael',speed=1.0,lang='en-us')
+          audio=np.asarray(samples,dtype=np.float32)
+          assert rate==24000 and len(audio)>12000 and np.isfinite(audio).all()
+          rms=float(np.sqrt(np.mean(audio*audio)))
+          assert rms>0.005, 'Original narrator synthesized silent speech'
+          pcm=(np.clip(audio,-1,1)*32767).astype('<i2')
+          destination=root/'original-narrator-canary.wav'
+          with wave.open(str(destination),'wb') as f:
+              f.setnchannels(1);f.setsampwidth(2);f.setframerate(rate)
+              f.writeframes(pcm.tobytes())
+          metadata={'status':'SYNTHESIZED_REVIEW_ONLY','voice':'am_michael',
+                    'engine':'kokoro-onnx==0.6.1','sha256':hashlib.sha256(destination.read_bytes()).hexdigest(),
+                    'sampleRate':rate,'rms':rms}
+          (root/'original-narrator-canary.json').write_text(json.dumps(metadata,indent=2)+'\n')
+          print('PASS: original narrator produced voiced SHA-locked canary; perceptual QA still pending')
+          PY
+      - name: Upload runtime canary and readiness proof (not a finished film)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.runtime_canary }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ths-kokoro-runtime-canary
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            artifacts/narration/original-narrator-canary.wav
+            artifacts/narration/original-narrator-canary.json
+            artifacts/narration/voice-runtime-readiness.json
       - name: Render exact Kokoro narration and timing
+        if: ${{ github.event_name != 'workflow_dispatch' || !inputs.runtime_canary }}
         run: |
           python scripts/distribution/render-local-narration.py \
             --package-dir artifacts/narration/active \
             --brief scripts/distribution/voice-briefs/active.json \
             --voice am_michael
       - name: Fail closed unless exact Kokoro-82M voice and hashes verify
+        if: ${{ github.event_name != 'workflow_dispatch' || !inputs.runtime_canary }}
         run: |
           python - <<'PY'
           import pathlib, json, hashlib, wave, math
@@ -100,6 +159,7 @@ jobs:
           print('Verified audible Kokoro-82M / am_michael PCM voice and bound timeline.')
           PY
       - uses: actions/upload-artifact@v4
+        if: ${{ github.event_name != 'workflow_dispatch' || !inputs.runtime_canary }}
         with:
           name: ths-kokoro-narration
           if-no-files-found: error
@@ -109,3 +169,4 @@ jobs:
             artifacts/narration/active/narration.wav.receipt.json
             artifacts/narration/active/semantic-beat-timeline.json
             artifacts/narration/active/r805-creative-brief.json
+            artifacts/narration/voice-runtime-readiness.json
