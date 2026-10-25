@@ -156,6 +156,14 @@ Social pain is real, socially meaningful and worth taking seriously. The field's
 
 This review selected influential experimental findings, a critical synthesis, a systematic imaging review and an attachment meta-analysis. We did not perform new quantitative pooling, independent image reanalysis or full risk-of-bias scoring, and we have not established a new clinical screening test.
 
+## Why imaging findings cannot determine whose pain matters more
+
+People sometimes compare two breakups by asking whose brain would show more activity. There is no validated interpretation that maps a single scan to the moral weight of a person's experience. Neuroimaging signals depend on the task, the person's memories, movement, timing, physiology and the analytic choices made by researchers. A brain picture does not reveal whether someone has been treated respectfully, whether their relationships can be repaired or whether their suffering deserves care. [1–3]
+
+Research on social pain also includes both rejection and acceptance because social relevance is not synonymous with harm. A response shared across positive and negative events might reflect attention to an important person, anticipation or emotion regulation. That possibility is one reason researchers need carefully matched comparison tasks and caution when describing a signal as a pain-specific result. [2,5]
+
+When distress persists, ordinary clinical assessment remains more useful than seeking a personal fMRI interpretation. Changes in daily functioning, social support, depression symptoms, risks and goals offer actionable information that the cited imaging studies cannot supply. [2,3,6]
+
 ## Related reading
 
 - [Limerence and obsessive love](/articles/limerence-obsessive-love-evidence-review/) discusses persistent romantic thoughts without overselling neurotransmitters.
