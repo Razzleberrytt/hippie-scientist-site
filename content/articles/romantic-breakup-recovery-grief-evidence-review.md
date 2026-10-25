@@ -173,6 +173,14 @@ We found no basis in these sources to advertise supplements, withdrawal regimens
 
 This targeted review prioritizes a longitudinal mood study, a study of post-breakup digital behavior, a small neuroimaging experiment, a systematic imaging review and related coping and attachment evidence. We did not run an original systematic review protocol, reanalyze individual participant data, pool effects or claim individualized prognostic accuracy.
 
+## Continued contact, parenting and unequal recovery conditions
+
+A clean separation is not always possible or desirable. People who share children, a home, employment, finances or legal obligations may need regular practical contact. The observational findings about checking an ex's social-media profile cannot be applied mechanically to these situations: voluntary surveillance for emotional reassurance differs from exchanging necessary information about a child's schedule, medical appointment or safety. Studies of ordinary breakups also may not capture the strain of prolonged negotiations or blocked access to support. [1,2]
+
+A useful question is whether a particular kind of contact serves a concrete obligation or instead becomes repetitive, unwanted checking that worsens distress. Sometimes a communication channel with specific topics and expectations can support practical functioning. This is a general, context-dependent approach, not a treatment tested in the cited social-media study. [2]
+
+The average recovery trajectory in young adults is compatible with wide individual variation. It is not evidence that a person with ongoing parenting or housing uncertainty should already have recovered, and it should never be used to dismiss their experience. [1]
+
 ## Related reading
 
 - [Limerence and obsessive love](/articles/limerence-obsessive-love-evidence-review/) explores intrusive romantic preoccupation and unproven treatments.
