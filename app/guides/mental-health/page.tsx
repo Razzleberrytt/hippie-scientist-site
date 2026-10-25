@@ -20,7 +20,7 @@ const HUB_TITLE = 'Mental Health: Personality, Emotions and Relationship Researc
 const HUB_DESCRIPTION = 'Evidence-based mental health research on personality disorders, OCD, attachment, relationships, emotional regulation, trauma, diagnosis and treatment.'
 const AUTHOR_NAME = 'Willie B. Randolph III'
 const AUTHOR_PATH = '/info/author/'
-const REVIEW_DATE = '2026-10-24'
+const REVIEW_DATE = '2026-10-25'
 
 const SOURCE_LINKS = {
   nimhOcd: 'https://www.nimh.nih.gov/health/topics/obsessive-compulsive-disorder-ocd',
@@ -111,6 +111,56 @@ const P0_RESEARCH_REVIEWS = [
               title: 'Rejection-sensitive dysphoria and ADHD',
               description: 'Direct positive and negative studies, rejected assumptions and why RSD is not a separate DSM diagnosis.',
               href: '/articles/rejection-sensitive-dysphoria-adhd-evidence-review/',
+            },
+            {
+              title: "Limerence vs relationship OCD",
+              description: "How relationship-themed compulsions differ from persistent romantic longing, with explicit treatment-evidence limits.",
+              href: '/articles/limerence-versus-relationship-ocd-evidence-review/',
+            },
+            {
+              title: "Excessive reassurance seeking",
+              description: "What two meta-analyses actually reveal about reassurance, depression and interpersonal rejection.",
+              href: '/articles/excessive-reassurance-seeking-relationships-evidence-review/',
+            },
+            {
+              title: "Social rejection and the brain",
+              description: "Physical-pain overlap, conflicting fMRI interpretations and why social pain has no brain-scan diagnosis.",
+              href: '/articles/social-rejection-pain-brain-evidence-review/',
+            },
+            {
+              title: "Grandiose vs vulnerable narcissism",
+              description: "An individual-data meta-analysis, a 229-study synthesis and why traits do not diagnose partners.",
+              href: '/articles/grandiose-vulnerable-narcissism-evidence-review/',
+            },
+            {
+              title: "Breakup grief and recovery",
+              description: "Longitudinal mood trajectories, romantic rejection imaging and the limits of social-media surveillance findings.",
+              href: '/articles/romantic-breakup-recovery-grief-evidence-review/',
+            },
+            {
+              title: "Emotional unavailability and attachment",
+              description: "Attachment avoidance, emotion-regulation flexibility and distinctions between labels and observable conduct.",
+              href: '/articles/emotional-unavailability-attachment-avoidance-evidence-review/',
+            },
+            {
+              title: "Leaving unhealthy relationships",
+              description: "Traumatic-bonding evidence, practical constraints and specialist safety-planning resources.",
+              href: '/articles/leaving-unhealthy-relationships-safety-evidence-review/',
+            },
+            {
+              title: "Attachment styles and outcomes",
+              description: "Large-scale attachment associations, dyadic coping and limits of predicting a particular couple's future.",
+              href: '/articles/attachment-styles-relationship-outcomes-evidence-review/',
+            },
+            {
+              title: "Dependent personality vs attachment anxiety",
+              description: "Classification, reassurance, practical dependence and the limits of personality-disorder treatment trials.",
+              href: '/articles/dependent-personality-vs-attachment-anxiety-evidence-review/',
+            },
+            {
+              title: "Rumination and negative thinking",
+              description: "A 223-study meta-analysis, intervention trials, clinical overlap and careful interpretation of causal models.",
+              href: '/articles/rumination-repetitive-negative-thinking-evidence-review/',
             },
           ]
 
@@ -227,7 +277,7 @@ export default function MentalHealthGuidesHub() {
         </p>
         <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
           <span>Written and edited by <Link href={AUTHOR_PATH} rel="author" className="font-semibold text-brand-700 hover:underline">{AUTHOR_NAME}</Link></span>
-          <span>Library updated <time dateTime={REVIEW_DATE}>October 24, 2026</time></span>
+          <span>Library updated <time dateTime={REVIEW_DATE}>October 25, 2026</time></span>
         </div>
       </header>
 
@@ -303,10 +353,10 @@ export default function MentalHealthGuidesHub() {
 
       <section className="mt-12" aria-labelledby="relationship-research">
         <div className="max-w-4xl">
-          <span className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">New evidence series · October 24, 2026</span>
+          <span className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">New evidence series · October 25, 2026</span>
           <h2 id="relationship-research" className="mt-2 text-2xl font-bold text-ink">Attachment, emotion and personality: deep research reviews</h2>
           <p className="mt-3 leading-7 text-muted">
-            Ten source-graded reviews examine limerence, attachment, emotional dysregulation, rejection
+            Twenty source-graded reviews examine limerence, attachment, emotional dysregulation, rejection
             sensitivity, personality-disorder recovery and diagnostic overlap. Each distinguishes direct
             studies from indirect evidence, and none diagnoses an absent partner or claims to be a new
             statistical meta-analysis.
