@@ -21,9 +21,9 @@
       "id": "voice-test-01",
       "role": "hook",
       "narration": "Can the original Hippie Scientist narrator work on a brand-new machine?",
-      "onScreenText": "original narrator",
+      "onScreenText": "Hippie Scientist narrator",
       "visualPurpose": "A real voice waveform emerges from a blank timeline",
-      "spokenAnchor": "original narrator",
+      "spokenAnchor": "Hippie Scientist narrator",
       "visualAction": "A narration wave builds from left to right",
       "motion": {
         "type": "reveal"
