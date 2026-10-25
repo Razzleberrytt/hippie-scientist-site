@@ -1,0 +1,158 @@
+{
+  "release": "R8.05",
+  "sourceIdentity": {
+    "id": "mushroom-gummies-va-cdc-fda-2024",
+    "sourceUrl": "https://www.cdc.gov/mmwr/volumes/73/wr/mm7328a3.htm"
+  },
+  "premise": {
+    "interestScore": 5,
+    "coldViewerWhyCare": "Unknown mushroom gummy constituents can contradict packaging",
+    "viewerQuestion": "What does 5,000 mg on a mushroom gummy actually mean?",
+    "earlyPayoff": "Four of six Virginia gummy bags contained unlabeled psilocybin or psilocin",
+    "methodologyBeforePayoff": false
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "beats": [
+    {
+      "id": "gummies-01",
+      "role": "hook",
+      "narration": "Five thousand milligrams. Of what, exactly?",
+      "onScreenText": "Five thousand milligrams",
+      "visualPurpose": "Illustrative gummy label challenges certainty",
+      "spokenAnchor": "Five thousand milligrams",
+      "visualAction": "Zoom from printed 5000 mg to the question mark",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "creative-framing",
+      "primaryEntities": [
+        "gummy"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.13
+    },
+    {
+      "id": "gummies-02",
+      "role": "finding",
+      "narration": "In one small study, four of six mushroom gummy bags contained unlabeled psilocybin or psilocin.",
+      "onScreenText": "four of six",
+      "visualPurpose": "Show the 4 of 6 positive bags",
+      "spokenAnchor": "four of six",
+      "visualAction": "Sequentially reveal four highlighted bags",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "CDC-01",
+      "primaryEntities": [
+        "gummies"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.13
+    },
+    {
+      "id": "gummies-03",
+      "role": "evidence",
+      "narration": "Researchers bought the six bags at stores in Virginia. This was a small sample, not a national estimate.",
+      "onScreenText": "six bags",
+      "visualPurpose": "Show retail convenience sample and limitations",
+      "spokenAnchor": "six bags",
+      "visualAction": "Animate sample bags into a simple grid",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "CDC-01",
+      "primaryEntities": [
+        "sample"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.13
+    },
+    {
+      "id": "gummies-04",
+      "role": "context",
+      "narration": "Separately, FDA testing of recalled Diamond Shruumz products found substances including four A C O D M T and pregabalin.",
+      "onScreenText": "FDA testing",
+      "visualPurpose": "Distinguish separate FDA product testing",
+      "spokenAnchor": "FDA testing",
+      "visualAction": "Highlight the compounds on the separate FDA card",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "FDA-01",
+      "primaryEntities": [
+        "Diamond Shruumz"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.13
+    },
+    {
+      "id": "gummies-05",
+      "role": "limitation",
+      "narration": "That does not mean every mushroom gummy contains these chemicals. Ingredients can differ between products and batches.",
+      "onScreenText": "does not mean every",
+      "visualPurpose": "Make essential no-generalization qualification",
+      "spokenAnchor": "does not mean every",
+      "visualAction": "Contrast two illustrated batches",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "FDA-02",
+      "primaryEntities": [
+        "batches"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.13
+    },
+    {
+      "id": "gummies-06",
+      "role": "cta",
+      "narration": "A big number on a label is not a lab result. Follow The Hippie Scientist for the evidence.",
+      "onScreenText": "not a lab result",
+      "visualPurpose": "Compare packaging claim to independent testing",
+      "spokenAnchor": "not a lab result",
+      "visualAction": "Reveal lab vial beside package; then brand lockup",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "creative-framing",
+      "primaryEntities": [
+        "lab"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.13
+    },
+    {
+      "id": "gummies-07",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://www.cdc.gov/mmwr/volumes/73/wr/mm7328a3.htm",
+      "visualPurpose": "Show primary study URL for viewer verification",
+      "spokenAnchor": "",
+      "visualAction": "Hold study citation for at least three seconds",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "end",
+      "factualAuthority": "CDC-01",
+      "primaryEntities": [
+        "CDC"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.13,
+      "holdSeconds": 3.3
+    }
+  ]
+}
