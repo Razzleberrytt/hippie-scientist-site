@@ -10,12 +10,12 @@ tags: [emotional numbness, anhedonia, emotional blunting, depression, SSRIs, ant
 evidenceGrade: "Moderate self-report evidence for antidepressant-associated emotional blunting; low-to-moderate trial evidence on anhedonia interventions; unresolved medication-versus-illness causality"
 relatedSlugs: [chronic-emptiness-bpd-depression-evidence-review, alexithymia-emotional-awareness-evidence-review, emotional-dysregulation-across-disorders-evidence-review]
 keyTakeaways:
-  - "Anhedonia is reduced interest or pleasure; emotional blunting describes muted emotional intensity across positive and sometimes negative experiences."
-  - "Neither term is interchangeable with depersonalization, apathy or chronic emptiness, though patients may report several at once."
-  - "A 2017 treated-depression survey reported emotional blunting in 46% of its selected sample, but the design cannot attribute all cases to antidepressants."
-  - "The Oxford Depression Questionnaire assesses patient-reported blunting but is not a test proving which biological cause is responsible."
-  - "A living meta-analysis found small reductions in anhedonia symptoms with pro-dopaminergic treatments across six RCTs, but the authors emphasized uncertainty about reward mechanisms."
-  - "Changing or stopping an antidepressant should involve the prescriber: residual depression, withdrawal and relapse complicate interpretation."
+  - "Anhedonia is reduced interest or pleasure; emotional blunting describes muted emotional intensity across positive and sometimes negative experiences. [1,2,6]"
+  - "Neither term is interchangeable with depersonalization, apathy or chronic emptiness, though patients may report several at once. [1,4,6]"
+  - "A 2017 treated-depression survey reported emotional blunting in 46% of its selected sample, but the design cannot attribute all cases to antidepressants. [2]"
+  - "The Oxford Depression Questionnaire assesses patient-reported blunting but is not a test proving which biological cause is responsible. [3,8]"
+  - "A living meta-analysis found small reductions in anhedonia symptoms with pro-dopaminergic treatments across six RCTs, but the authors emphasized uncertainty about reward mechanisms. [5]"
+  - "Changing or stopping an antidepressant should involve the prescriber: residual depression, withdrawal and relapse complicate interpretation. [1,4]"
 citationQuestions:
   - "Is emotional numbness the same as anhedonia?"
   - "Can antidepressants cause emotional blunting?"
@@ -204,4 +204,4 @@ Stronger research would randomize appropriate treatment strategies, use patient-
 
 Carefully reviewing the timeline, distress, function and full treatment context is more useful than a quick online diagnosis or abrupt treatment change. There is reason to investigate multiple possible paths to improvement—but no single, source-verified cure for every presentation. [1,5–7]
 
-**Related research:** [Emotional dysregulation](/articles/emotional-dysregulation-across-disorders-evidence-review/), [chronic emptiness](/articles/chronic-emptiness-bpd-depression-evidence-review/) (Batch 3 draft), [alexithymia](/articles/alexithymia-emotional-awareness-evidence-review/) (Batch 3 draft), and the [mental health library](/guides/mental-health/).
+**Related research:** [Emotional dysregulation](/articles/emotional-dysregulation-across-disorders-evidence-review/), [chronic emptiness](/articles/chronic-emptiness-bpd-depression-evidence-review/), [alexithymia](/articles/alexithymia-emotional-awareness-evidence-review/), and the [mental health library](/guides/mental-health/).

@@ -10,12 +10,12 @@ tags: [splitting, dichotomous thinking, black-and-white thinking, BPD, borderlin
 evidenceGrade: "Limited direct experimental evidence for group-level social-inference differences; preliminary computational mechanisms; stronger but indirect evidence for BPD psychotherapy benefits"
 relatedSlugs: [bpd-vs-complex-ptsd-evidence-review, emotional-dysregulation-across-disorders-evidence-review, loving-a-partner-with-bpd-evidence-review, attachment-to-people-who-hurt-us-evidence-review]
 keyTakeaways:
-  - "Black-and-white thinking describes a cognitive tendency, not a stand-alone disorder or proof that someone has borderline personality disorder."
-  - "A 2012 experimental study compared three groups of 18 participants and found stronger dichotomous person evaluations in the BPD group, while results did not convincingly establish splitting as a unique BPD marker."
-  - "A 2024 computational model proposes ways polarized good/bad beliefs could persist or switch, but fitted social-inference tasks are not clinical diagnostic tests or direct proof of a biological cause."
-  - "Emotional swings, changing opinions, legitimate reassessment of another person's behavior, and coercive relationships are not interchangeable with splitting."
-  - "Psychotherapies for BPD can improve symptoms and functioning; current reviews do not isolate a precisely measured splitting-specific treatment benefit for every therapy."
-  - "A person's behavior and its safety consequences matter more than retrospective diagnosis or internet labels."
+  - "Black-and-white thinking describes a cognitive tendency, not a stand-alone disorder or proof that someone has borderline personality disorder. [1,2,4]"
+  - "A 2012 experimental study compared three groups of 18 participants and found stronger dichotomous person evaluations in the BPD group, while results did not convincingly establish splitting as a unique BPD marker. [1]"
+  - "A 2024 computational model proposes ways polarized good/bad beliefs could persist or switch, but fitted social-inference tasks are not clinical diagnostic tests or direct proof of a biological cause. [2]"
+  - "Emotional swings, changing opinions, legitimate reassessment of another person's behavior, and coercive relationships are not interchangeable with splitting. [1,2,4]"
+  - "Psychotherapies for BPD can improve symptoms and functioning; current reviews do not isolate a precisely measured splitting-specific treatment benefit for every therapy. [3,4,5,6,8]"
+  - "A person's behavior and its safety consequences matter more than retrospective diagnosis or internet labels. [1,4]"
 citationQuestions:
   - "What does splitting mean in psychology?"
   - "Is black-and-white thinking always a sign of BPD?"

@@ -10,12 +10,12 @@ tags: [shame, guilt, depression, PTSD, trauma, borderline personality disorder, 
 evidenceGrade: "Moderate evidence for cross-sectional associations with depressive and posttraumatic symptoms; emerging and heterogeneous evidence for targeted intervention effects"
 relatedSlugs: [chronic-emptiness-bpd-depression-evidence-review, personality-disorder-recovery-long-term-evidence-review, emotional-dysregulation-across-disorders-evidence-review, attachment-to-people-who-hurt-us-evidence-review]
 keyTakeaways:
-  - "Shame often centers on a negative global judgment of self, while guilt is often tied to a particular action or responsibility; actual experiences and research measures overlap."
-  - "A meta-analysis of 108 studies (22,411 participants) associated shame more strongly with depressive symptoms than generic guilt, but maladaptive guilt variants had similarly strong associations."
-  - "Shame and trauma-related guilt are also associated with PTSD symptoms; correlational findings do not establish either emotion as the sole cause or a diagnostic test."
-  - "A ten-study meta-analysis found higher average reported shame in BPD groups than healthy controls; no individual partner can be diagnosed from appearing ashamed or angry."
-  - "Guilt can accompany repair and prosocial behavior, but a meta-analysis found that associations depend substantially on questionnaire formats and analytic choices."
-  - "Early trials and systematic reviews of compassion-focused work suggest promise for self-criticism and some forms of shame; follow-up and comparator evidence remain limited."
+  - "Shame often centers on a negative global judgment of self, while guilt is often tied to a particular action or responsibility; actual experiences and research measures overlap. [1,6]"
+  - "A meta-analysis of 108 studies (22,411 participants) associated shame more strongly with depressive symptoms than generic guilt, but maladaptive guilt variants had similarly strong associations. [1]"
+  - "Shame and trauma-related guilt are also associated with PTSD symptoms; correlational findings do not establish either emotion as the sole cause or a diagnostic test. [3,4,5]"
+  - "A ten-study meta-analysis found higher average reported shame in BPD groups than healthy controls; no individual partner can be diagnosed from appearing ashamed or angry. [2]"
+  - "Guilt can accompany repair and prosocial behavior, but a meta-analysis found that associations depend substantially on questionnaire formats and analytic choices. [6,8]"
+  - "Early trials and systematic reviews of compassion-focused work suggest promise for self-criticism and some forms of shame; follow-up and comparator evidence remain limited. [7,9]"
 citationQuestions:
   - "How are guilt and shame different?"
   - "Is shame stronger than guilt in depression?"
@@ -207,4 +207,4 @@ Future longitudinal and randomized research should distinguish appropriate respo
 
 The best-supported approach is neither to suppress every uncomfortable feeling nor to accept every accusation. It is to evaluate responsibility accurately, protect agency and safety, and seek appropriate support when self-criticism or trauma symptoms become persistent. The intervention evidence is encouraging in places, but it has not yet established a universal treatment formula. [7–9]
 
-**Related research:** [Chronic emptiness](/articles/chronic-emptiness-bpd-depression-evidence-review/) (staged for this batch), [emotion dysregulation across disorders](/articles/emotional-dysregulation-across-disorders-evidence-review/), [long-term personality-disorder recovery](/articles/personality-disorder-recovery-long-term-evidence-review/), and [the mental health evidence library](/guides/mental-health/).
+**Related research:** [Chronic emptiness](/articles/chronic-emptiness-bpd-depression-evidence-review/), [emotion dysregulation across disorders](/articles/emotional-dysregulation-across-disorders-evidence-review/), [long-term personality-disorder recovery](/articles/personality-disorder-recovery-long-term-evidence-review/), and [the mental health evidence library](/guides/mental-health/).

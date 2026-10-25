@@ -10,12 +10,12 @@ tags: [alexithymia, emotional awareness, identifying feelings, describing emotio
 evidenceGrade: "Moderate for self-report measurement and associations; emerging-to-moderate for psychological intervention effects with cross-study heterogeneity"
 relatedSlugs: [emotional-dysregulation-across-disorders-evidence-review, rumination-repetitive-negative-thinking-evidence-review, personality-disorder-recovery-long-term-evidence-review]
 keyTakeaways:
-  - "Alexithymia describes difficulty identifying and describing emotions and a more externally oriented thinking style; it is a research construct, not a stand-alone DSM-5-TR diagnosis."
-  - "The TAS-20 is extensively studied, but questionnaires cannot by themselves establish a cause, a clinical diagnosis, or whether someone cares about another person."
-  - "A 2025 meta-analysis of 35 studies involving 23,085 people found associations between alexithymia and depressive symptoms, without resolving direction of causality."
-  - "A 2026 psychological-intervention meta-analysis included 59 studies and synthesized 53 effects (N=3,368), finding an average reduction relative to controls (Hedges g about -0.52), but this is not proof that a particular therapy works best for everyone."
-  - "Interoception, emotional vocabulary, general distress, cultural expression, and neurodevelopmental differences complicate measurement and interpretation."
-  - "Emotional awareness can potentially improve; a high questionnaire score is not a fixed personality verdict."
+  - "Alexithymia describes difficulty identifying and describing emotions and a more externally oriented thinking style; it is a research construct, not a stand-alone DSM-5-TR diagnosis. [4,5,6]"
+  - "The TAS-20 is extensively studied, but questionnaires cannot by themselves establish a cause, a clinical diagnosis, or whether someone cares about another person. [4,5,6]"
+  - "A 2025 meta-analysis of 35 studies involving 23,085 people found associations between alexithymia and depressive symptoms, without resolving direction of causality. [3]"
+  - "A 2026 psychological-intervention meta-analysis included 59 studies and synthesized 53 effects (N=3,368), finding an average reduction relative to controls (Hedges g about -0.52), but this is not proof that a particular therapy works best for everyone. [1]"
+  - "Interoception, emotional vocabulary, general distress, cultural expression, and neurodevelopmental differences complicate measurement and interpretation. [4,5,6,7]"
+  - "Emotional awareness can potentially improve; a high questionnaire score is not a fixed personality verdict. [1,2,5]"
 citationQuestions:
   - "What is alexithymia and how does it feel?"
   - "Is alexithymia the same as not caring or lacking empathy?"

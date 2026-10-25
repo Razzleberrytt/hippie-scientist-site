@@ -40,6 +40,15 @@ describe('THS mental health P0 Batch 3 completeness and science integrity', () =
       expect(article.content.trim().split(/\s+/).length).toBeGreaterThan(1500)
       expect(article.data.description.length).toBeGreaterThanOrEqual(90)
       expect(article.data.keyTakeaways.length).toBeGreaterThanOrEqual(4)
+      for (const takeaway of article.data.keyTakeaways as string[]) {
+        const citations = takeaway.match(/\[([\d,]+)\]/g) ?? []
+        expect(citations.length).toBeGreaterThan(0)
+        for (const citation of citations) for (const id of citation.match(/\d+/g) ?? []) {
+          expect(Number(id)).toBeGreaterThan(0)
+          expect(Number(id)).toBeLessThanOrEqual(article.data.references.length)
+        }
+      }
+      expect(article.content).not.toMatch(/\(Batch \d+ draft\)|\(staged for this batch\)/i)
       expect(article.data.references.length).toBeGreaterThanOrEqual(6)
       expect(article.data.faqs.length).toBeGreaterThanOrEqual(4)
       expect(article.data.citationQuestions.length).toBeGreaterThanOrEqual(4)

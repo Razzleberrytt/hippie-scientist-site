@@ -10,12 +10,12 @@ tags: [dissociation, depersonalization, derealization, PTSD, trauma, unreality, 
 evidenceGrade: "Moderate observational prevalence evidence; low certainty for primary depersonalization-derealization treatments; small controlled effects for dissociation in PTSD studies"
 relatedSlugs: [bpd-vs-complex-ptsd-evidence-review, emotional-dysregulation-across-disorders-evidence-review, chronic-emptiness-bpd-depression-evidence-review]
 keyTakeaways:
-  - "Depersonalization means feeling detached from oneself; derealization describes feeling that the surroundings are unreal or distant."
-  - "These experiences are not synonymous with psychosis or proof of trauma, and a brief episode is not automatically a disorder."
-  - "A 23-paper prevalence review estimated depersonalization-derealization disorder at about one percent in the general population, with much greater variation in clinical samples."
-  - "A disorder-specific treatment review found 41 reports involving 300 people, mostly case reports and series, providing limited confidence in a specific treatment."
-  - "A 2026 meta-analysis of 13 controlled PTSD therapy studies found a small average reduction in dissociation; this is not a direct trial of primary depersonalization-derealization disorder."
-  - "Persistent, worsening, dangerous or function-limiting symptoms deserve individual assessment rather than online diagnosis."
+  - "Depersonalization means feeling detached from oneself; derealization describes feeling that the surroundings are unreal or distant. [5]"
+  - "These experiences are not synonymous with psychosis or proof of trauma, and a brief episode is not automatically a disorder. [1,4,5]"
+  - "A 23-paper prevalence review estimated depersonalization-derealization disorder at about one percent in the general population, with much greater variation in clinical samples. [1]"
+  - "A disorder-specific treatment review found 41 reports involving 300 people, mostly case reports and series, providing limited confidence in a specific treatment. [2]"
+  - "A 2026 meta-analysis of 13 controlled PTSD therapy studies found a small average reduction in dissociation; this is not a direct trial of primary depersonalization-derealization disorder. [3]"
+  - "Persistent, worsening, dangerous or function-limiting symptoms deserve individual assessment rather than online diagnosis. [5,6]"
 citationQuestions:
   - "How are depersonalization and derealization different?"
   - "Can derealization happen without psychosis?"

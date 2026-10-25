@@ -10,12 +10,12 @@ tags: [chronic emptiness, borderline personality disorder, depression, emotional
 evidenceGrade: "Moderate observational evidence for symptom burden and long-term change; preliminary evidence on distinct mechanisms and targeted treatments"
 relatedSlugs: [emotional-dysregulation-across-disorders-evidence-review, personality-disorder-recovery-long-term-evidence-review, bpd-vs-complex-ptsd-evidence-review, alexithymia-emotional-awareness-evidence-review]
 keyTakeaways:
-  - "Emptiness is often described as a lack of connection, meaning, identity or inner experience, but it is not equivalent to loneliness, sadness or an absence of empathy."
-  - "A 2020 systematic review identified 99 studies and emphasized the difficulty of defining and measuring emptiness."
-  - "In a 2024 transdiagnostic study of 150 treatment-seeking patients, emptiness themes overlapped substantially between BPD and depression; dissociation was more often linked to emptiness in the BPD subgroup."
-  - "A 24-year prospective study of 290 patients with BPD and 72 with other personality disorders found that average reported emptiness severity declined considerably over time."
-  - "Emptiness has been associated with suicidality in some studies, but no single symptom, questionnaire score, or correlation predicts whether an individual will attempt suicide."
-  - "There is no validated universal treatment that specifically cures emptiness; individualized assessment and evidence-based care for contributing conditions remain important."
+  - "Emptiness is often described as a lack of connection, meaning, identity or inner experience, but it is not equivalent to loneliness, sadness or an absence of empathy. [1,2,3]"
+  - "A 2020 systematic review identified 99 studies and emphasized the difficulty of defining and measuring emptiness. [1]"
+  - "In a 2024 transdiagnostic study of 150 treatment-seeking patients, emptiness themes overlapped substantially between BPD and depression; dissociation was more often linked to emptiness in the BPD subgroup. [3]"
+  - "A 24-year prospective study of 290 patients with BPD and 72 with other personality disorders found that average reported emptiness severity declined considerably over time. [4]"
+  - "Emptiness has been associated with suicidality in some studies, but no single symptom, questionnaire score, or correlation predicts whether an individual will attempt suicide. [7,8]"
+  - "There is no validated universal treatment that specifically cures emptiness; individualized assessment and evidence-based care for contributing conditions remain important. [1,3,4]"
 citationQuestions:
   - "What do people mean when they describe feeling empty inside?"
   - "How is chronic emptiness different from depression or loneliness?"

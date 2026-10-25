@@ -10,12 +10,12 @@ tags: [anger, emotional dysregulation, emotion regulation, aggression, ruminatio
 evidenceGrade: "Moderate pooled evidence for reducing anger arousal across experimental contexts; weaker, heterogeneous evidence about reducing harmful aggression and long-term outcomes"
 relatedSlugs: [emotional-dysregulation-across-disorders-evidence-review, splitting-dichotomous-thinking-evidence-review, shame-versus-guilt-evidence-review]
 keyTakeaways:
-  - "Anger is an emotion; aggression and violence are actions. Feeling angry does not establish abusive behavior or a mental-health diagnosis."
-  - "A 2024 meta-analysis of 154 studies involving 10,189 participants found that decreasing physiological arousal reduced anger and aggression on average more than increasing arousal."
-  - "A meta-analysis of dialectical behavior therapy studies found a small reduction in anger, while its mean aggression effect was not statistically significant."
-  - "Large reviews associate rumination, suppression and avoidance with higher anger, but largely observational designs cannot prove those strategies cause every angry episode."
-  - "Some mindfulness and cognitive-bias interventions yield improvements in measured anger, with limitations regarding active comparators and long-term behavior."
-  - "Accountability for threats, coercion, intimidation or violence is separate from symptom treatment; safety requires practical actions, not simply labeling someone dysregulated."
+  - "Anger is an emotion; aggression and violence are actions. Feeling angry does not establish abusive behavior or a mental-health diagnosis. [1,2,4,8]"
+  - "A 2024 meta-analysis of 154 studies involving 10,189 participants found that decreasing physiological arousal reduced anger and aggression on average more than increasing arousal. [1]"
+  - "A meta-analysis of dialectical behavior therapy studies found a small reduction in anger, while its mean aggression effect was not statistically significant. [2]"
+  - "Large reviews associate rumination, suppression and avoidance with higher anger, but largely observational designs cannot prove those strategies cause every angry episode. [3,4]"
+  - "Some mindfulness and cognitive-bias interventions yield improvements in measured anger, with limitations regarding active comparators and long-term behavior. [5,6]"
+  - "Accountability for threats, coercion, intimidation or violence is separate from symptom treatment; safety requires practical actions, not simply labeling someone dysregulated. [2,4,8]"
 citationQuestions:
   - "How is anger different from aggression?"
   - "Is venting anger helpful?"
@@ -215,4 +215,4 @@ There is substantial heterogeneity in intervention comparisons, study quality, a
 
 The most responsible approach combines emotional awareness with accountability, behavioral change, attention to safety, and treatment where needed. Neither emotion nor diagnosis predicts a particular person's character or future. [3,4,8]
 
-**Related THS research:** [Emotion dysregulation](/articles/emotional-dysregulation-across-disorders-evidence-review/), [splitting and black-and-white thinking](/articles/splitting-dichotomous-thinking-evidence-review/) (Batch 3 draft), and [the mental health evidence library](/guides/mental-health/).
+**Related THS research:** [Emotion dysregulation](/articles/emotional-dysregulation-across-disorders-evidence-review/), [splitting and black-and-white thinking](/articles/splitting-dichotomous-thinking-evidence-review/), and [the mental health evidence library](/guides/mental-health/).
