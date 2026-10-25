@@ -8,7 +8,7 @@ author: Will
 category: Mental Health
 tags: [attachment anxiety, attachment avoidance, anxious avoidant, pursuit withdrawal, demand withdraw, relationship satisfaction, reassurance, couples, communication]
 evidenceGrade: "Moderate for observational attachment–communication associations and longitudinal prediction; weak for deterministic 'anxious attracts avoidant' claims or universal therapy recipes"
-relatedSlugs: [why-we-stay-attached-to-people-who-hurt-us-evidence-review, limerence-obsessive-love-evidence-review, loving-a-partner-with-bpd-evidence-review]
+relatedSlugs: [attachment-to-people-who-hurt-us-evidence-review, limerence-obsessive-love-evidence-review, loving-a-partner-with-bpd-evidence-review]
 keyTakeaways:
   - "Attachment anxiety and avoidance are measured dimensions, not two clinical diagnoses or unchangeable personality types."
   - "The well-known pursuer–distancer cycle describes some couples, but no high-quality evidence shows all anxious people select avoidant partners."
@@ -202,4 +202,4 @@ These questions can support therapy or thoughtful conversation. They are **not**
 
 When safe and mutually desired, working toward reliable communication, shared expectations and independent functioning is more evidence-congruent than obsessive analysis of attachment “types.” If a relationship is harmful, understanding the cycle should expand a person's choices rather than trap them inside an explanation.
 
-**Related THS reviews:** [Attachment to people who hurt us](/articles/why-we-stay-attached-to-people-who-hurt-us-evidence-review/), [Limerence evidence review](/articles/limerence-obsessive-love-evidence-review/), [AVPD vs social anxiety](/articles/avoidant-personality-vs-social-anxiety-evidence-review/), and the [mental-health guide library](/guides/mental-health/).
+**Related THS reviews:** [Attachment to people who hurt us](/articles/attachment-to-people-who-hurt-us-evidence-review/), [Limerence evidence review](/articles/limerence-obsessive-love-evidence-review/), [AVPD vs social anxiety](/articles/avoidant-personality-vs-social-anxiety-evidence-review/), and the [mental-health guide library](/guides/mental-health/).
