@@ -1,9 +1,5 @@
 # Master Backlog
 
-### Owner P0 mental-health release / #6968 — Batch 3 and navigation (2026-10-25)
-
-In progress in existing PR #6970: complete ten distinct source-graded reviews and a searchable, topic-filtered mental-health directory with direct desktop/mobile navigation. Batches 1–2 (20 articles) are merged and verified live; this cohort is not yet released. Preserve ten-per-merge cadence, source and safety review, exact-head CI, production build, protected controller and all-ten-URL deployment proof. Batches 4–5 remain pending.
-
 ### B12-COMPARE-001 / #6670 — owner-directed vitamin B12 guide (2026-10-22)
 
 Status: **In review — [PR #6951](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6951), unmerged** — Will directly prioritizes this Revenue/Conversion ticket
