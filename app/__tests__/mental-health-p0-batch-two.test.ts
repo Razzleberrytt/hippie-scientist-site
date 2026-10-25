@@ -108,6 +108,6 @@ describe('THS mental health P0 Batch 2 completeness and science integrity', () =
     const limerence = articles.find(({ slug }) => slug === 'limerence-versus-relationship-ocd-evidence-review')!
     expect(limerence.content).toContain('would go beyond the direct evidence')
     const rejection = articles.find(({ slug }) => slug === 'social-rejection-pain-brain-evidence-review')!
-    expect(rejection.content).toContain('no validated clinical scan')
+    expect(rejection.content).toContain('There is no validated interpretation')
   })
 })
