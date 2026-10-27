@@ -82611,6 +82611,158 @@
       "reservation_id": "adc40b10a8ac7f8ed727",
       "reserved_at": "2026-10-27T08:02:18.898Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42934939",
+      "title": "Methadone to manage pain in pregnancy at Te Toka Tumai Auckland City Hospital: A retrospective observational analysis.",
+      "doi": "10.1177/0310057X261445465",
+      "source_title": "Methadone to manage pain in pregnancy at Te Toka Tumai Auckland City Hospital: A retrospective observational analysis.",
+      "abstract": "Pain during pregnancy is common, yet evidence-based management remains limited. While non-pharmacological treatments are first-line, severe pain may necessitate pharmacological intervention. Methadone is well studied for opioid use disorder, but its role in acute pain management during pregnancy is less defined. This retrospective observational study examined pregnant patients prescribed low-dose methadone for pain management between January 2022 and December 2023 at a tertiary multidisciplinary pain service. Patients receiving opioid substitution therapy were excluded. Data on methadone dosing, pain scores, maternal side effects, and neonatal outcomes were analysed. Twenty-three patients were identified, with 22 included in the analysis. The mean gestation at methadone initiation was 29.7 weeks (standard deviation 5.1), and the median starting dose was 5 mg per day (interquartile range 2.5 to 5). Pain severity decreased significantly: the proportion reporting severe pain at rest fell from 82% to 14% at 48 hours (absolute risk reduction (ARR) 68%, number needed to treat (NNT) 2), and the proportion reporting severe pain with movement fell from 95% to 32% (ARR 64%, NNT 2), with sustained improvement at 4 weeks. Side-effects included sedation (14%) and nausea (23%) and were generally well tolerated. Among 19 neonates, no cases of neonatal abstinence syndrome were observed. Six required neonatal intensive care unit admission, but none for opioid withdrawal. These findings suggest that low-dose methadone, when used within a closely monitored multidisciplinary setting, may provide effective pain relief in the pregnant patient without significant neonatal harm. However, this high level of oversight may limit generalisability to other care settings. Further research is warranted to guide safe implementation and optimise dosing.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42934939/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42934939",
+        "doi": "10.1177/0310057X261445465",
+        "journal": "Anaesthesia and intensive care",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-27T14:40:49.857Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0356ce1d666e1e7abd43",
+      "reserved_at": "2026-10-27T14:41:00.585Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42933669",
+      "title": "Method for collecting cerebrospinal fluid from the cisterna magna of anesthetized mice and processing single-animal samples for proteomic analysis.",
+      "doi": "10.1016/j.jneumeth.2026.110923",
+      "source_title": "Method for collecting cerebrospinal fluid from the cisterna magna of anesthetized mice and processing single-animal samples for proteomic analysis.",
+      "abstract": "CSF proteomics in preclinical mouse models holds great potential for biomarker discovery and CNS disease characterization, but low sample volume and protein content limit the applicability of existing protocols. We describe a workflow for cisternal CSF collection and single-animal proteomic analysis in mice, combining: continuous subcutaneous ketamine/xylazine infusion for extended anaesthesia; semi-automated microinjector-based withdrawal at a constant aspiration rate; syringe preloading with protease inhibitors and cold storage to prevent degradation; and bead-based protein enrichment (ENRICH-iST, PreOmics) for dynamic range reduction without sample pooling. The procedure yields 20µl of CSF per animal and was validated in healthy mice and a DSS-induced colitis model, enabling identification and quantification of 502 proteins from single-animal samples. The coefficient of variation in quantified proteins was below 10%, demonstrating adequate reproducibility for comparative proteomic analyses. Bead-based enrichment provided higher protein recovery than immunodepletion without pooling, preserving inter-individual variability. Semi-automated withdrawal reduces operator-dependent variability compared to manual aspiration. The protocol relies exclusively on commercially available equipment, unlike methods requiring custom-built tools. This workflow enables reliable single-animal CSF proteomics in mice, including debilitated animals, applicable to both basic research and preclinical pharmacological settings. Reproducibility is supported by a step-by-step protocol and troubleshooting guide. The proteomics data have been deposited to the ProteomeXchange Consortium via the PRIDE repository (PXD058129) and are publicly available.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42933669/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42933669",
+        "doi": "10.1016/j.jneumeth.2026.110923",
+        "journal": "Journal of neuroscience methods",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-27T14:40:49.858Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "17bc6e76f25c2430d175",
+      "reserved_at": "2026-10-27T14:41:00.585Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -82655,17 +82807,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 558,
+    "total_reservations": 560,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 83,
+      "4": 85,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 558
+      "SOURCE_VERIFIED": 560
     },
     "batches": [
       {
@@ -82685,7 +82837,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 58,
+        "count": 60,
         "pr_number": null,
         "blocker": null
       }
