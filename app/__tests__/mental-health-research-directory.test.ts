@@ -5,8 +5,8 @@ import { P0_RESEARCH_REVIEWS } from '@/lib/mental-health-research-directory'
 import { primaryNavigation } from '@/lib/primary-navigation'
 
 describe('mental health evidence navigation', () => {
-  it('exposes all 40 batch 1–4 release reviews from the searchable directory', () => {
-    expect(P0_RESEARCH_REVIEWS.length).toBe(40)
+  it('exposes all 50 batch 1–5 release reviews from the searchable directory', () => {
+    expect(P0_RESEARCH_REVIEWS.length).toBe(50)
     const paths = P0_RESEARCH_REVIEWS.map((article) => article.href)
     expect(new Set(paths).size).toBe(paths.length)
     for (const review of P0_RESEARCH_REVIEWS) {
