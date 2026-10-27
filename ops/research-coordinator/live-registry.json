@@ -82458,6 +82458,159 @@
       "reservation_id": "d2086506407ee5ae06ad",
       "reserved_at": "2026-10-25T11:46:53.192Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42896403",
+      "title": "Emergency Department-Administered Extended-Release Buprenorphine After Fentanyl Overdose Reversed by Emergency Medical Services With Naloxone.",
+      "doi": "10.1016/j.jemermed.2026.09.011",
+      "source_title": "Emergency Department-Administered Extended-Release Buprenorphine After Fentanyl Overdose Reversed by Emergency Medical Services With Naloxone.",
+      "abstract": "Emergency Medical Services (EMS) providers are on the frontline of the opioid epidemic and administered naloxone to reverse suspected overdose over 442,000 times in 2024. Interest in EMS-initiated sublingual (SL) buprenorphine (BUP) exists; however, initiation of month-long extended-release buprenorphine (XR-BUP) in the immediate postoverdose period has not yet been described. The high risk of death from repeat overdose in patients with opioid use disorder (OUD) could be reduced by administration of XR-BUP. The purpose of this case report is to highlight the utility of EMS-initiated SL-BUP followed by XR-BUP to potentially improve care linkage and adherence to medication-assisted OUD treatment. A bystander call to 911 dispatched a Basic Life Support (BLS) unit to an unresponsive 30-year-old man found with fentanyl-smoking paraphernalia. First responders administered 8 mg of intranasal naloxone. Paramedics arrived 8 min later and assessed the patient to be in opioid withdrawal with a Clinical Opiate Withdrawal Scale (COWS) score of 22. The patient reported using heroin or fentanyl and methamphetamine daily. After consent, paramedics administered 16 mg of SL-BUP. In the ED, an addiction medicine consult service administered a 300-mg monthly XR-BUP formulation. WHY SHOULD AN EMERGENCY PHYSICIAN BE AWARE OF THIS?: We report that rapid transition from naloxone reversal of overdose and EMS initiated SL-BUP to month-long XR-BUP is possible during a single emergency medicine encounter using a stepwise clinical pathway. We hope our observations encourage further prospective study of the intervention described as this may link patients to medication assisted OUD treatment, which decreases mortality in patients with OUD.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42896403/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Case Reports",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Case Reports"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42896403",
+        "doi": "10.1016/j.jemermed.2026.09.011",
+        "journal": "The Journal of emergency medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-27T08:02:08.433Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "db92f3f2d50258a8d93d",
+      "reserved_at": "2026-10-27T08:02:18.898Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42214433",
+      "title": "Association of Prenatal Counseling of the Mothers of In Utero Opioid Exposed Infants and the Need for Pharmacotherapy in those Infants-A Retrospective Cohort Study.",
+      "doi": "10.1055/a-2873-1626",
+      "source_title": "Association of Prenatal Counseling of the Mothers of In Utero Opioid Exposed Infants and the Need for Pharmacotherapy in those Infants-A Retrospective Cohort Study.",
+      "abstract": "A virtual prenatal counseling of mothers whose infants were exposed to opioids was started with the aim of providing an overview of what to expect for the infant after birth and how to reduce the severity of withdrawal. This study aimed to assess the characteristics of mothers who attended this type of visit and received prenatal counseling compared with those who did not. This was a retrospective cohort study of mother-infant dyads with gestational age of 35 weeks or more, with birth weight of≥ 2 kg, and in utero exposure to opioids. Subjects admitted to the neonatal intensive care unit for reasons other than withdrawal and with congenital anomalies were excluded. Subjects were divided into mothers compliant with the virtual prenatal appointment (Group A) and mothers who did not attend their appointment (Group B). Of the 153 dyads included, 80 mothers attended the virtual prenatal appointment, while 73 did not (52%). The need for pharmacotherapy was 53% lower in the compliant Group A ( p = 0.044, OR: 0.464, 95% CI: 0.22-0.98), after adjusting for selected covariates. Mothers who attended the appointment were more likely to be in a drug treatment program, less likely to have completed high school, and less likely to smoke during pregnancy. These mothers were more likely to provide mother's own milk (MoM) to their infants. Attendance at prenatal visits was low. Maternal compliance with prenatal visits in opioid exposed infants is associated with a significantly lower need for pharmacotherapy in the infant. · Prenatal opioid counseling was associated with reduced pharmacotherapy for NOWS.. · Mothers attending counseling more frequently provided mother's own milk.. · Maternal treatment program participation reduced need for pharmacotherapy.. · Telehealth prenatal counseling may improve non-pharmacologic NOWS care..",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42214433/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42214433",
+        "doi": "10.1055/a-2873-1626",
+        "journal": "American journal of perinatology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-27T08:02:08.434Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "adc40b10a8ac7f8ed727",
+      "reserved_at": "2026-10-27T08:02:18.898Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -82502,17 +82655,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 556,
+    "total_reservations": 558,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 81,
+      "4": 83,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 556
+      "SOURCE_VERIFIED": 558
     },
     "batches": [
       {
@@ -82532,7 +82685,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 56,
+        "count": 58,
         "pr_number": null,
         "blocker": null
       }
