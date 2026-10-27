@@ -82763,6 +82763,159 @@
       "reservation_id": "17bc6e76f25c2430d175",
       "reserved_at": "2026-10-27T14:41:00.585Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42799563",
+      "title": "Lessons Learned From Implementation of a Jail-Based Naloxone Vending Machine.",
+      "doi": "10.1177/10783458261491158",
+      "source_title": "Lessons Learned From Implementation of a Jail-Based Naloxone Vending Machine.",
+      "abstract": "To address postrelease overdose risk, a large urban county jail implemented an automated naloxone vending machine to provide no-cost, low-barrier naloxone at discharge. Through carceral and public health collaboration, staff installed a custom vending machine in the jail's discharge lobby to provide individuals 24/7 self-directed access to naloxone. In addition to the existing practice of providing naloxone units only to individuals clinically flagged for acute withdrawal at intake, machine-based distribution averaged 75 units monthly during the initial 4-month active phase and 100 units monthly during the 2024-2025 sustainment period. Overall, total jail-based distribution increased by 40% following implementation. These results demonstrate how interagency alignment can expand low-barrier naloxone access and support sustained distribution during community reentry.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42799563/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42799563",
+        "doi": "10.1177/10783458261491158",
+        "journal": "Journal of correctional health care : the official journal of the National Commission on Correctional Health Care",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-27T20:08:31.877Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "35f670d710a618a00bcc",
+      "reserved_at": "2026-10-27T20:08:42.021Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42936728",
+      "title": "Mitochondrial Dysfunction Across the Addiction Cycle: A Stage-Resolved Narrative Review.",
+      "doi": "10.2147/NDT.S640824",
+      "source_title": "Mitochondrial Dysfunction Across the Addiction Cycle: A Stage-Resolved Narrative Review.",
+      "abstract": "Addiction is a chronic, relapsing brain disorder defined by compulsive drug use, diminished self-control, and persistent vulnerability to relapse. Although addiction is conventionally framed in terms of synaptic and circuit-level adaptations within the mesolimbic dopamine system, prefrontal cortex, hippocampus, and amygdala, accumulating evidence indicates that these neuroadaptations are themselves substantially dependent on the bioenergetic integrity of the neurons that compose these circuits. Mitochondria, as the principal site of ATP synthesis, calcium buffering, and redox regulation, occupy a position from which their dysfunction can propagate outward to compromise synaptic transmission, plasticity, and ultimately behavior. This review synthesizes current evidence indicating that opioids, psychostimulants, alcohol, cannabinoids, and nicotine, despite engaging distinct primary pharmacological targets, converge on a common downstream phenotype of impaired oxidative phosphorylation, excessive reactive oxygen species production, disrupted mitochondrial fission-fusion dynamics, and defective mitophagy. Building on, and extending, existing cross-substance syntheses of drug-induced mitochondrial dysfunction, we integrate evidence on the signaling architecture, PGC-1α/NRF1/2, sirtuins, AMPK-mTOR, and BDNF-CREB, that couples mitochondrial quality control to synaptic plasticity, and we examine how oxidative, neuroinflammatory, and epigenetic mechanisms, including reciprocal signaling among neurons, astrocytes, and microglia, interact to convert transient drug-induced bioenergetic stress into durable, self-perpetuating dysfunction. Mapping these mechanisms onto the initiation, maintenance, and withdrawal/relapse phases of the addiction cycle reveals a dynamic trajectory in which mitochondria shift from an adaptively taxed to a chronically failing state, with direct implications for craving and relapse vulnerability. Finally, we critically evaluate mitochondria-targeted antioxidants, biogenesis modulators, exercise, metabolic interventions, and emerging biomarker-based strategies as candidate interventions, and we propose an integrated bioenergetic framework in which mitochondrial health functions both as a biological substrate and as a measurable target for understanding and treating substance use disorders. Because the underlying evidence base is drawn largely from preclinical and, in places, non-addiction models, we treat the relationship between mitochondrial dysfunction and addiction, whether causal, consequential, or self-perpetuating, as an open empirical question, and we present the resulting synthesis as a testable, stage-resolved theoretical framework rather than as an established mechanism.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42936728/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42936728",
+        "doi": "10.2147/NDT.S640824",
+        "journal": "Neuropsychiatric disease and treatment",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-27T20:08:31.878Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0c0c88647d97cd7a664f",
+      "reserved_at": "2026-10-27T20:08:42.021Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -82807,17 +82960,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 560,
+    "total_reservations": 562,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 85,
+      "4": 87,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 560
+      "SOURCE_VERIFIED": 562
     },
     "batches": [
       {
@@ -82837,7 +82990,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 60,
+        "count": 62,
         "pr_number": null,
         "blocker": null
       }
