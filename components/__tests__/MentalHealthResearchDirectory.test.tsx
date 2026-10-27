@@ -9,7 +9,7 @@ afterEach(cleanup)
 describe('mental-health research discovery', () => {
   it('combines keyword search and topic selection, then clears an empty result', () => {
     render(<MentalHealthResearchDirectory reviews={P0_RESEARCH_REVIEWS} />)
-    expect(screen.getAllByRole('link')).toHaveLength(40)
+    expect(screen.getAllByRole('link')).toHaveLength(50)
     const search = screen.getByRole('searchbox', { name: 'Search the mental health library' })
     fireEvent.change(search, { target: { value: 'Bipolar II vs BPD' } })
     expect(screen.getAllByRole('link')).toHaveLength(1)
@@ -18,7 +18,7 @@ describe('mental-health research discovery', () => {
     expect(screen.queryAllByRole('link')).toHaveLength(0)
     expect(screen.getByText('No matching reviews yet')).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: 'Clear filters' }))
-    expect(screen.getAllByRole('link')).toHaveLength(40)
+    expect(screen.getAllByRole('link')).toHaveLength(50)
     expect(screen.getByRole('button', { name: 'All topics' }).getAttribute('aria-pressed')).toBe('true')
     expect((search as HTMLInputElement).value).toBe('')
   })
