@@ -82916,6 +82916,82 @@
       "reservation_id": "0c0c88647d97cd7a664f",
       "reserved_at": "2026-10-27T20:08:42.021Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42892506",
+      "title": "Oxycodone self-administration induces microRNA and gene expression changes in the rat nucleus accumbens.",
+      "doi": "10.1016/j.ejphar.2026.179412",
+      "source_title": "Oxycodone self-administration induces microRNA and gene expression changes in the rat nucleus accumbens.",
+      "abstract": "Prescription opioid abuse remains a critical public health concern and is a major risk factor for the development of opioid use disorder (OUD). Thus, there is an urgent need to better understand the neurobiological mechanisms underlying OUD in order to develop therapeutics and address the ongoing opioid epidemic. In this study, we hypothesized that microRNAs (miRNAs) regulate gene expression changes following oxycodone self-administration. To test our hypothesis, we utilized a long-access drug self-administration paradigm in rats. Briefly, adult male Sprague-Dawley rats were trained to self-administer oxycodone (0.15 mg/kg/infusion) or saline and were sacrificed 24 h (withdrawal) following the last self-administration session. Brains were collected and the nucleus accumbens (NAc) was extracted and was processed for small RNA and RNA sequencing. We found that oxycodone self-administration changed the expression of 40 genes and 16 mature miRNAs. Bioinformatic predictions revealed that opioid-regulated genes are predicted targets of differentially regulated miRNAs, suggesting that miRNAs contribute to opioid-mediated transcriptomic changes in the NAc. Furthermore, we validated some of these findings in an independent cohort of male and female rats and across different stages of the addiction cycle. We identified miRNAs that are dynamically regulated during oxycodone withdrawal, as well as others that exhibit sustained regulation across different stages of the addiction cycle. Taken together, our data show that miRNAs may contribute to opioid-regulated gene expression and point to the therapeutic potential of miRNAs for OUD.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42892506/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42892506",
+        "doi": "10.1016/j.ejphar.2026.179412",
+        "journal": "European journal of pharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-28T05:56:11.563Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3dfe47cdeb945e939f49",
+      "reserved_at": "2026-10-28T05:56:21.601Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -82960,17 +83036,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 562,
+    "total_reservations": 563,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 87,
+      "4": 88,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 562
+      "SOURCE_VERIFIED": 563
     },
     "batches": [
       {
@@ -82990,7 +83066,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 62,
+        "count": 63,
         "pr_number": null,
         "blocker": null
       }
