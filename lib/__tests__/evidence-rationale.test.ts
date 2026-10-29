@@ -55,9 +55,23 @@ describe('buildEvidenceRationale', () => {
     expect(buildEvidenceRationale([claim('small_randomized_trials_inconsistent')]).consistency).toBe('Mixed')
   })
 
-  it('uses directional negative findings to flag mixed evidence, even if other designs are not classified', () => {
-    const rationale = buildEvidenceRationale([claim('RCT'), claim('negative_randomized_trial')])
-    expect(rationale.consistency).toBe('Mixed')
+  it('does not mistake negative or null results for disagreement between publications', () => {
+    for (const source of ['negative_randomized_trial', 'null_randomized_trial']) {
+      const single = buildEvidenceRationale([claim(source)])
+      expect(single.consistency).toBeNull()
+      expect(single.summary).not.toContain('studies disagree')
+    }
+    const noDirectionalComparison = buildEvidenceRationale([claim('RCT'), claim('negative_randomized_trial')])
+    expect(noDirectionalComparison.consistency).toBeNull()
+    expect(noDirectionalComparison.summary).not.toContain('studies disagree')
+  })
+
+  it('does not infer disagreement from multiple negative studies', () => {
+    const rationale = buildEvidenceRationale([
+      { ...claim('negative_randomized_trial'), pmid: '12345678' },
+      { ...claim('null_randomized_trial'), pmid: '23456789' },
+    ])
+    expect(rationale.consistency).toBeNull()
   })
 
   it('will not call thin evidence consistent', () => {
