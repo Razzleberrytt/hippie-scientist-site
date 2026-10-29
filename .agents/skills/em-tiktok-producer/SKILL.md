@@ -1,7 +1,7 @@
 ---
 name: em-tiktok-producer
 version: 3.0.1
-description: Standalone authentic EvidenceMotion video production; also trigger on ordinary requests like make today\u0027s video, make a video about X, and continue the video. Restore the original narrator and use the native producer only.
+description: Standalone authentic EvidenceMotion video production; also trigger on ordinary requests like make today's video, make a video about X, and continue the video. Restore the original narrator and use the native producer only.
 owner: The Hippie Scientist
 upgrades-from: 2.0.0
 ---
