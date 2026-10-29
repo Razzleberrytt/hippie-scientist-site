@@ -246,6 +246,36 @@ function checkBeat(beat,frames,ctx,record){
      !final||final.visible===false||!(final.opacity>.5))
     throw Error('R8.18 hidden target did not actually become visible')
   }
+ }else if(action==='source-locked-molecular-focus'){
+  if(beat.molecularIdentity?.pubchemCid!==44301524||
+      beat.molecularIdentity?.inchiKey!=='RYENLSMHLCNXJT-CYXFISRXSA-N'||
+      beat.molecularIdentity?.formula!=='C23H30N2O5'||
+      beat.molecularIdentity?.url!=='https://pubchem.ncbi.nlm.nih.gov/compound/44301524'||
+      !hex(beat.molecularRuntimeSha256)||
+      proof.sourceClaimId!=='STRUCTURE-PUBCHEM-44301524'||
+      !beat.claimIds?.includes(proof.sourceClaimId)||
+      !beat.onScreenSourceIds?.includes('PubChem:44301524')||
+      proof.beforeLabel!=='Computed 7-OH conformer'||
+      proof.afterLabel!=='Source-verified hydroxyl oxygen')
+     throw Error('R8.18 source-molecule camera telemetry lacks original chemical/source identity')
+  const molecules=frames.map(f=>find(f,proof.primaryObjectId))
+  const sites=frames.map(f=>find(f,proof.targetObjectId))
+  if(molecules.some(o=>!o||o.kind!=='source-verified-molecule'||
+      o.label!==proof.beforeLabel||o.computedMoleculeSha256!==beat.molecularRuntimeSha256)||
+     sites.some(o=>!o||o.kind!=='hydroxyl-site'||o.label!==proof.afterLabel||
+      o.computedMoleculeSha256!==beat.molecularRuntimeSha256))
+     throw Error('R8.18 molecular VTK camera subject and hydroxyl projection absent')
+  const distances=molecules.map(o=>o.cameraDistance)
+  const emph=sites.map(o=>o.emphasisLevel)
+  if(distances.some(n=>!Number.isFinite(n))||emph.some(n=>!Number.isFinite(n))||
+     distances[0]-distances.at(-1)<12||
+     distances.some((v,i)=>i&&v>distances[i-1]+.1)||
+     emph.at(-1)<.95||emph[0]>.05||
+     emph.some((v,i)=>i&&v<emph[i-1]-.015)||
+     sites.at(-1).activationLevel<.95)
+    throw Error('R8.18 source-locked native molecule camera did not teach a focused site reveal')
+  report.computedMoleculeSource='PubChem:44301524'
+  report.cameraTravelDistance=distances[0]-distances.at(-1)
  }else if(['evidence-boundary-panel-settles','botanical-versus-concentrate-reveal','source-bound-scaffold-assembles'].includes(action)){
   Object.assign(report,checkGroundedIllustrationAction(beat,frames,ctx.canvas))
  }else if(action==='activates'){

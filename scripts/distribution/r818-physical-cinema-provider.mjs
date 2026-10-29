@@ -14,6 +14,8 @@ export function createR818PhysicalCinemaProvider({
  const script=path.resolve(scriptFile||MODULE.pathname)
  if(!fs.existsSync(script))throw Error('R8.18 VTK/Pillow physical producer missing')
  const sourceCodeSha256=sha(fs.readFileSync(script))
+ const molecularPath=fileURLToPath(new URL('./r818_source_molecule.py',import.meta.url))
+ const molecularRuntimeSha256=fs.existsSync(molecularPath)?sha(fs.readFileSync(molecularPath)):null
  let completedPackageDir=null
  return {
   sourceCodeSha256,
@@ -23,6 +25,9 @@ export function createR818PhysicalCinemaProvider({
       scenes.length!==assets.length)
      throw Error('R8.18 physical rendering needs exact approved beat inventory')
    for(const b of canonicalFirstPassPlan.beats){
+    if(b.semanticAction==='source-locked-molecular-focus'&&
+       (!molecularRuntimeSha256||b.molecularRuntimeSha256!==molecularRuntimeSha256))
+      throw Error('R8.18 molecular geometry source SHA is not the active native helper')
     if(b.artMethod==='rendered-3d'&&b.visualObject?.assetSha256!==sourceCodeSha256)
       throw Error('R8.18 approved 3D geometry asset SHA differs from executing Python source')
    }

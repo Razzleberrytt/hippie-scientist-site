@@ -12,7 +12,8 @@ PALETTE={'reveals-hidden-action':(28,101,163),'ligand-enters-pocket':(38,133,208
  'bottle-rotates-to-reveal-label':(179,98,70),'reveal-emergency-guidance':(218,72,90),
  'evidence-boundary-panel-settles':(39,102,108),
  'botanical-versus-concentrate-reveal':(38,97,112),
- 'source-bound-scaffold-assembles':(37,94,109)}
+ 'source-bound-scaffold-assembles':(37,94,109),
+ 'source-locked-molecular-focus':(26,75,93)}
 FONT='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
 def digest(b):return hashlib.sha256(b).hexdigest()
 def ease(v):v=max(0,min(1,v));return v*v*(3-2*v)
@@ -120,6 +121,10 @@ def produce(job):
   directory=out/'r818-frames'/bid;directory.mkdir(parents=True,exist_ok=True)
   frames=[];samples=[];pocketStreak=0;maxPocketStreak=0
   approved_art=art_map.get(bid)
+  molecular_stage=None
+  if action=='source-locked-molecular-focus':
+   from r818_source_molecule import create_stage as create_molecular_stage, frame as render_molecular_frame
+   molecular_stage=create_molecular_stage(beat)
   if action in ('evidence-boundary-panel-settles','botanical-versus-concentrate-reveal','source-bound-scaffold-assembles'):
    if not approved_art:raise ValueError('R8.18 grounded physical action missing pinned art')
    primary_art=pinned_art(art_root,approved_art['primary'],source_plate=('art' in approved_art))
@@ -149,7 +154,15 @@ def produce(job):
     x,y,w,h=rect;objects.append({'objectId':oid,'kind':kind,'label':str(label),
       'bbox':[float(x),float(y),float(w),float(h)],'zIndex':2,'visible':True,
       'opacity':1,'value':value,**other})
-   if action=='reveals-hidden-action':
+   if action=='source-locked-molecular-focus':
+    img,live=render_molecular_frame(molecular_stage,t)
+    ob(primary,beat['visualObject']['kind'],proof['beforeLabel'],live['molecule'],
+       cameraDistance=live['cameraDistance'],
+       computedMoleculeSha256=beat['molecularRuntimeSha256'])
+    ob(proof['targetObjectId'],'hydroxyl-site',proof['afterLabel'],live['hydroxyl'],
+       emphasisLevel=live['emphasisLevel'],activationLevel=live['emphasisLevel'],
+       computedMoleculeSha256=beat['molecularRuntimeSha256'])
+   elif action=='reveals-hidden-action':
     # Reveal the biological mechanism, not a literal bottle-to-molecule metamorphosis.
     reveal=ease((t-.16)/.64)
     generic=Image.new('RGBA',(W,H),(0,0,0,0))
@@ -248,7 +261,7 @@ def produce(job):
     img.convert('RGB').save(file)
     frames.append({'frameIndex':fi,'file':str(file.relative_to(out)),'sha256':digest(file.read_bytes())})
    if fi%6==0:samples.append({'time':round(scene['start']+fi/30,6),'objects':objects})
-  telemetry_beats.append({'beatId':bid,'producer':{'instrumentation':'native-vtk-projection' if action in ('ligand-enters-pocket','reveals-hidden-action') else 'native-2d-canvas-geometry'},
+  telemetry_beats.append({'beatId':bid,'producer':{'instrumentation':'native-vtk-projection' if action in ('ligand-enters-pocket','reveals-hidden-action','source-locked-molecular-focus') else 'native-2d-canvas-geometry'},
     'frames':samples,'metrics':{'longestNativePocketDwellFrames':maxPocketStreak}})
   native_beats.append({'beatId':bid,'frames':frames});total+=count
  frame_doc={'schemaVersion':'ths-r818-native-frames-v1','fps':30,'width':W,'height':H,'beats':native_beats}
