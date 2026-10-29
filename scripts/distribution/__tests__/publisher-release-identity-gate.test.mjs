@@ -30,6 +30,7 @@ function fixture(method = 'R8.10', runtime = 'R8.05') {
     platform: 'short-video', format: 'short-video', campaignId: 'test',
   })
   const pilot = {
+    schemaVersion: 'bounded-distribution-pilot-v1', status: 'dry-run-scheduled',
     selectedOpportunity, assets,
     lifecycle: {
       schemaVersion: 'distribution-lifecycle-v1', identity, lifecycleId: identity.idempotencyKey,
