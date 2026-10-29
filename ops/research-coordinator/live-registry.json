@@ -83144,6 +83144,158 @@
       "reservation_id": "f10cafeef74f5c154116",
       "reserved_at": "2026-10-29T10:12:22.860Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42659903",
+      "title": "Same name, different drugs: variability of fentanyl ('dope') products sold under the same label.",
+      "doi": "10.1016/j.drugpo.2026.105476",
+      "source_title": "Same name, different drugs: variability of fentanyl ('dope') products sold under the same label.",
+      "abstract": "Unregulated opioid markets are increasingly characterized by complex and variable drug compositions. In North-eastern and Mid-Atlantic US street opioid markets, fentanyl-containing powders are commonly sold in stamped glassine bags. These \"stamps\" function as branding and are often used by people who use drugs, harm reduction programs and public health agencies as informal indicators of product composition or risk. This study quantified the extent to which stamp identity is associated with the presence and concentration of fentanyl and co-occurring compounds. We analyzed 1153 drug samples across 475 stamps collected during 2024-2025 in Philadelphia, Pennsylvania; Delaware; and Maryland. Laboratory testing identified compound presence and quantified concentrations. Multivariable logistic regression estimated stamp-specific probabilities of compound detection, and mixed-effects models generated intraclass correlation coefficients (ICCs) to assess clustering by stamp. Fentanyl was nearly ubiquitous (95.3%) but varied widely in concentration within stamps (<1% to >20%), indicating that branding was a poor indicator of potency. Several adulterants, including medetomidine (prevalence: 64.8%) and xylazine (prevalence: 42.2%), exhibited moderate-to-high clustering by stamp (ICCs up to 0.70), but substantial within-stamp inconsistency remained. Predicted probabilities varied widely, with two-thirds of compound-stamp combinations between 20% and 80%. Concentration analyses demonstrated inconsistent dosing, particularly for fentanyl (ICC=0.15). In this region, street opioid stamp branding is an unreliable indicator of fentanyl potency and only partially informative for some adulterants. Products sold under the same stamp often differ in composition and compound concentration, suggesting that stamp-based risk assessment is insufficient and reinforcing the value of sample-level drug checking.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42659903/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42659903",
+        "doi": "10.1016/j.drugpo.2026.105476",
+        "journal": "The International journal on drug policy",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-29T16:59:07.382Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c02479558169acf5c1ce",
+      "reserved_at": "2026-10-29T16:59:18.128Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42952122",
+      "title": "A portable voltammetric sensor for presumptive screening of xylazine and ketamine in spiked beverages.",
+      "doi": "10.1111/1556-4029.70503",
+      "source_title": "A portable voltammetric sensor for presumptive screening of xylazine and ketamine in spiked beverages.",
+      "abstract": "Xylazine and ketamine are psychoactive substances that may be encountered in drug-facilitated crimes, including their presence in beverages. Rapid and portable screening methods are therefore desirable for preliminary forensic analysis, particularly at the scene of investigation. This study developed a portable voltammetric sensor based on a screen-printed electrode modified with carbon graphite paste ink (CGP-ink/SPE) for the presumptive detection of xylazine and ketamine in spiked beverage samples using differential pulse voltammetry (DPV). Electrochemical characterization showed that the oxidation of both xylazine and ketamine was diffusion-controlled and irreversible. Key experimental parameters, including the volume of CGP-ink, pH of buffer, and DPV conditions, were systematically optimized to improve electrochemical response. Under optimized conditions, the CGP-ink/SPE exhibited linear response ranges of 2.0 to 50 μg mL -1 for xylazine and 2.0 to 70 μg mL -1 for ketamine, with a detection limit of 0.62 μg mL -1 and 0.60 μg mL -1 , respectively. The sensor demonstrated excellent repeatability and reproducibility, as well as good recoveries of 98 ± 3% to 103 ± 1% for xylazine and 98 ± 1% to 104 ± 1% for ketamine in drug-spiked beverage samples. The developed CGP-ink/SPE provides a simple, rapid, and portable approach for the dual presumptive screening of xylazine and ketamine in beverages and highlights its potential for supporting forensic investigations of drug-facilitated crimes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42952122/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42952122",
+        "doi": "10.1111/1556-4029.70503",
+        "journal": "Journal of forensic sciences",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-29T16:59:07.382Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "35de7f87ae867ee8a15b",
+      "reserved_at": "2026-10-29T16:59:18.128Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -83188,17 +83340,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 565,
+    "total_reservations": 567,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 90,
+      "4": 92,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 565
+      "SOURCE_VERIFIED": 567
     },
     "batches": [
       {
@@ -83218,7 +83370,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 65,
+        "count": 67,
         "pr_number": null,
         "blocker": null
       }
