@@ -28,7 +28,7 @@ describe('buildEvidenceRationale', () => {
     expect(rationale.totalClaimCount).toBe(3)
   })
 
-  it('leaves bias unassessed when only study design is known', () => {
+  it('leaves bias unassessed when only study designs are known', () => {
     expect(buildEvidenceRationale([claim('RCT')]).riskOfBias).toBeNull()
     expect(buildEvidenceRationale([claim('small human intervention trial')]).riskOfBias).toBeNull()
     expect(buildEvidenceRationale([claim('animal study')]).riskOfBias).toBeNull()
@@ -55,7 +55,7 @@ describe('buildEvidenceRationale', () => {
     expect(buildEvidenceRationale([claim('small_randomized_trials_inconsistent')]).consistency).toBe('Mixed')
   })
 
-  it('calls the evidence mixed when some but not all findings were negative', () => {
+  it('uses directional negative findings to flag mixed evidence, even if other designs are not classified', () => {
     const rationale = buildEvidenceRationale([claim('RCT'), claim('negative_randomized_trial')])
     expect(rationale.consistency).toBe('Mixed')
   })
@@ -81,20 +81,60 @@ describe('buildEvidenceRationale', () => {
 })
 
 describe('gradeIsBackedByEvidence', () => {
-  const human = [claim('RCT'), claim('RCT')]
+  const human = [
+    { ...claim('RCT'), pmid: '12345678' },
+    { ...claim('RCT'), pmid: '23456789' },
+  ]
 
-  it('withholds a settled grade when the authored summary explicitly disagrees', () => {
-    expect(gradeIsBackedByEvidence('A', buildEvidenceRationale(human), 'Limited/modest evidence for memory; no two studies showed the same significant changes.')).toMatchObject({ backed: false, reason: 'conflicting-editorial-evidence-signals' })
-    expect(gradeIsBackedByEvidence('A', { ...buildEvidenceRationale(human), riskOfBias: 'Low', consistency: 'Consistent' }, 'Long-term safety data are limited.').backed).toBe(true)
-  })
-
-  it('accepts a strong grade backed by human studies', () => {
-    expect(gradeIsBackedByEvidence('A', { ...buildEvidenceRationale(human), riskOfBias: 'Low', consistency: 'Consistent' }).backed).toBe(true)
+  it('does not infer Grade A certainty from study identity and design alone', () => {
+    expect(gradeIsBackedByEvidence('A', buildEvidenceRationale(human))).toMatchObject({ backed: false, reason: 'grade-a-certainty-not-assessed' })
     expect(gradeIsBackedByEvidence('B', buildEvidenceRationale(human)).backed).toBe(true)
   })
 
-  it('requires actual bias and consistency assessments for Grade A', () => {
-    expect(gradeIsBackedByEvidence('A', buildEvidenceRationale(human))).toMatchObject({ backed: false, reason: 'grade-a-certainty-not-assessed' })
+  it('supports an explicitly assessed Grade A while retaining independent publication identities', () => {
+    const rationale = { ...buildEvidenceRationale(human), riskOfBias: 'Low' as const, consistency: 'Consistent' as const }
+    expect(gradeIsBackedByEvidence('A', rationale).backed).toBe(true)
+  })
+
+  it('withholds a strong grade when authored evidence plainly conflicts with it', () => {
+    const rationale = { ...buildEvidenceRationale(human), riskOfBias: 'Low' as const, consistency: 'Consistent' as const }
+    expect(gradeIsBackedByEvidence('A', rationale, 'Limited/modest evidence for memory; no two studies showed the same significant changes.')).toMatchObject({ backed: false, reason: 'conflicting-editorial-evidence-signals' })
+    expect(gradeIsBackedByEvidence('A', rationale, 'Long-term safety data are limited.').backed).toBe(true)
+  })
+
+  it('does not count the same PMID twice across claim and detail sources', () => {
+    const rationale = buildEvidenceRationale([
+      { ...claim('meta-analysis'), pmid: '26875640' },
+      { ...claim('meta-analysis'), pubmedId: '26875640' },
+      { ...claim('animal study'), pmid: '34073784' },
+    ])
+    expect(rationale.totalClaimCount).toBe(3)
+    expect(rationale.classifiedStudyCount).toBe(2)
+    expect(rationale.humanStudyCount).toBe(1)
+    expect(rationale.identifiedHumanStudyCount).toBe(1)
+    expect(gradeIsBackedByEvidence('A', rationale)).toMatchObject({
+      backed: false,
+      reason: 'single-human-study-for-grade-a',
+    })
+  })
+
+  it('does not turn two unidentifiable claims into two independent publications', () => {
+    const rationale = buildEvidenceRationale([claim('RCT'), claim('RCT')])
+    expect(rationale.humanStudyCount).toBe(2)
+    expect(rationale.identifiedHumanStudyCount).toBe(0)
+    expect(gradeIsBackedByEvidence('A', rationale)).toMatchObject({
+      backed: false,
+      reason: 'no-identifiable-human-publications-for-grade-a',
+    })
+  })
+
+  it('deduplicates a PMID found in a PubMed source URL as well', () => {
+    const rationale = buildEvidenceRationale([
+      { ...claim('meta-analysis'), pmid: '24780090' },
+      { ...claim('meta-analysis'), source_url: 'https://pubmed.ncbi.nlm.nih.gov/24780090/' },
+    ])
+    expect(rationale.humanStudyCount).toBe(1)
+    expect(gradeIsBackedByEvidence('A', rationale).backed).toBe(false)
   })
 
   it('flags a strong grade with no human study on the record', () => {
@@ -106,7 +146,7 @@ describe('gradeIsBackedByEvidence', () => {
   })
 
   it('flags Grade A resting on a single human study', () => {
-    const rationale = buildEvidenceRationale([claim('RCT')])
+    const rationale = buildEvidenceRationale([{ ...claim('RCT'), pmid: '12345678' }])
     expect(gradeIsBackedByEvidence('A', rationale).reason).toBe('single-human-study-for-grade-a')
     // The same evidence is enough for a B.
     expect(gradeIsBackedByEvidence('B', rationale).backed).toBe(true)
