@@ -19,6 +19,8 @@ const TEST_EXCLUDES = [
   'scripts/enrichment-governor/__tests__/**',
   'scripts/content/__tests__/**',
   'scripts/ci/swarm-operational-ledger.test.mjs',
+  // Native node:test regression is executed by npm run test:node, not Vitest.
+  'scripts/ci/validate-production-indexability-budget.test.mjs',
   'scripts/ci/__tests__/fabricated-source-quarantine.test.mjs',
   // Native node:test, never Vitest: npm run test:node already discovers and runs each file.
   'scripts/research/*.test.mjs',

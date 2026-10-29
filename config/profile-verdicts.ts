@@ -63,7 +63,7 @@ export type ProfileVerdictOverlay = {
 export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
   // ══ Stress / Adaptogens (herbs) ═══════════════════════════════════════════
   ashwagandha: {
-    recommendation: 'Yes',
+    recommendation: 'Situation-dependent',
     confidence: 'Moderate–strong — the most-replicated adaptogen in human trials',
     bestFor: [
       'Chronic stress with anxiety',

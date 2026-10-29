@@ -237,7 +237,7 @@ export function AshwagandhaStressClaim() {
           </li>
         </ul>
         <div className="space-y-2">
-          <p className="hs-label">Evidence Engine proof of concept</p>
+          <p className="hs-label">Outcome-specific evidence review</p>
           <h2 className="font-semibold tracking-tight text-ink">{claim.statement}</h2>
           <p className="hs-sec__intro">A claim-level view for one practical question: does the evidence justify considering ashwagandha for perceived stress?</p>
         </div>
@@ -247,7 +247,7 @@ export function AshwagandhaStressClaim() {
             ['Goal category', claim.goal],
             ['Contradiction status', claim.contradictionStatus],
             ['Safety modifier', claim.safetyModifier],
-            ['Last reviewed', claim.lastReviewed],
+            ['Stress claim reviewed', claim.lastReviewed],
           ].map(([label, value]) => (
             <div key={label}>
               <dt>{label}</dt>

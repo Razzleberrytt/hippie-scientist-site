@@ -1,3 +1,4 @@
+import { profileCommonName } from '@/lib/profile-credibility'
 import type { Metadata } from 'next'
 import { formatDisplayLabel, list } from '@/lib/display-utils'
 import { getEvidenceLabel } from '@/lib/evidence'
@@ -203,7 +204,7 @@ export function buildPageMetadata({
   keepQueryParams = [],
   openGraphType = 'website',
   robots,
-  keywords,
+  keywords: _keywords,
 }: BuildPageMetadataArgs): Metadata {
   const meta = buildMeta({ title, description, path, image, keepQueryParams })
   const fullTitle = title || DEFAULT_TITLE
@@ -214,7 +215,6 @@ export function buildPageMetadata({
   return {
     title: fullTitle,
     description: fullDesc,
-    keywords,
     alternates: { canonical: meta.url, languages: languageAlternates },
     openGraph: {
       title: fullTitle,
@@ -459,7 +459,10 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
 
   if (/^\/herbs\/[^/]+$/.test(normalizedPath)) {
     const slug = normalizedPath.split('/').pop() || ''
-    // 1. Curated list is a priority index route and always overrides quality gate
+    if (pageData?.evidence_human_study_count === 0) {
+      return { index: false, follow: true, reason: 'no-recorded-human-evidence', priority: 0 }
+    }
+    // Curated discovery does not override the explicit human-evidence ceiling.
     const isCurated = isCuratedIndexableHerbRouteSlug(slug)
     if (isCurated) {
       return { index: true, follow: true, reason: 'curated-herb-allowlist', priority: 0.7 }
@@ -480,7 +483,10 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
 
   if (/^\/compounds\/[^/]+$/.test(normalizedPath)) {
     const slug = normalizedPath.split('/').pop() || ''
-    // 1. Curated list is a priority index route and always overrides quality gate
+    if (pageData?.evidence_human_study_count === 0) {
+      return { index: false, follow: true, reason: 'no-recorded-human-evidence', priority: 0 }
+    }
+    // Curated discovery does not override the explicit human-evidence ceiling.
     const isCurated = (CURATED_INDEXABLE_COMPOUND_SLUGS as readonly string[]).includes(slug)
     if (isCurated) {
       return { index: true, follow: true, reason: 'curated-compound-allowlist', priority: 0.7 }
@@ -1010,14 +1016,7 @@ export function isMeaningfulFaqAnswer(answer: unknown): boolean {
 
 /** Common-name-first display name: strips a trailing Latin parenthetical. */
 function getProfileDisplayName(record: any): string {
-  const raw = String(record?.name || record?.slug || '')
-  const commonName = raw.replace(/\s*\([^)]*\)\s*$/, '').trim()
-  return (
-    formatDisplayLabel(record?.displayName) ||
-    formatDisplayLabel(commonName || raw) ||
-    formatDisplayLabel(record?.slug) ||
-    (record ? 'Profile' : '')
-  )
+  return profileCommonName(record)
 }
 
 function getProfileEvidenceLabel(record: any): string {
@@ -1214,7 +1213,9 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
   // Title priority: hand-authored meta_title/seoTitle wins when valid;
   // profile intent overrides supply defaults, not replacements for editorial work.
   // A curated disambiguation fallback can still be used if no explicit title exists.
-  const title = getSafeProfileTitleOverride(record, displayName, type) ||
+  const title = record.evidence_human_study_count === 0
+    ? `${displayName}: Research Gaps & Safety`
+    : getSafeProfileTitleOverride(record, displayName, type) ||
                 override?.title ||
                 formatProfileTitle(displayName, type) ||
                 displayName
@@ -1246,20 +1247,8 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
 
   const indexDecision = shouldIndexRoute(path, record)
 
-  // Social card image: use the shared default OG image (a real `.jpg` served with
-  // a correct `image/jpeg` content-type). This matches the homepage and
-  // focus-cluster article pattern, which are the project's known-good references.
-  //
-  // Note on the per-profile `opengraph-image.tsx` route convention: under static
-  // export Next emits those images as *extension-less* files
-  // (`out/herbs/<slug>/opengraph-image`, a PNG with no `.png` suffix). On
-  // Cloudflare Pages, extension-less files are served as `application/octet-stream`,
-  // and the global `X-Content-Type-Options: nosniff` header (public/_headers) then
-  // makes social crawlers reject them as images — the same reason `_headers` already
-  // pins `Content-Type` for `/data/*` and `/sitemap.xml`. Pointing at the branded
-  // route URL (with or without `.png`) therefore yields a broken card, so we use the
-  // reliable shared image until those routes get a content-type rule.
-  const profileOgImage = DEFAULT_OG_IMAGE
+  // Static, extension-bearing per-profile cards are emitted by the existing build.
+  const profileOgImage = `${SITE_URL}/images/social/profiles/${type}/${record.slug}.png`
 
   return buildPageMetadata({
     title: meta.title,
