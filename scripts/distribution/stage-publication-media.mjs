@@ -304,6 +304,42 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
   }
 }
 
+// Generate the full provider bundle off-line; never delete an existing public bundle
+// because source assets, voice receipts, captions, or QA fail during staging.
+function promotePublisherStagedRoot(candidateRoot, publicRoot) {
+  const priorRoot = `${publicRoot}.previous-${crypto.randomUUID()}`
+  let savedPrevious = false
+  if (fs.existsSync(publicRoot)) {
+    if (!fs.lstatSync(publicRoot).isDirectory()) {
+      throw new Error('THS Publisher publication root exists but is not a directory')
+    }
+    fs.renameSync(publicRoot, priorRoot)
+    savedPrevious = true
+  }
+  try {
+    fs.renameSync(candidateRoot, publicRoot)
+  } catch (promotionError) {
+    if (savedPrevious) {
+      try {
+        fs.renameSync(priorRoot, publicRoot)
+      } catch (rollbackError) {
+        throw new AggregateError([promotionError, rollbackError],
+          `THS Publisher promotion failed and rollback requires recovery from ${priorRoot}`)
+      }
+    }
+    throw promotionError
+  }
+  if (savedPrevious) {
+    try {
+      fs.rmSync(priorRoot, { recursive: true, force: true })
+    } catch (cleanupError) {
+      // A successful publication is never undone just because its old backup
+      // could not be cleaned up. Retain the backup for manual inspection.
+      console.warn(`[distribution] previous publisher bundle retained at ${priorRoot}: ${cleanupError.message}`)
+    }
+  }
+}
+
 export function stagePublicationMedia({
   pilot,
   packageData,
@@ -324,11 +360,23 @@ export function stagePublicationMedia({
     assertPublisherVideoManifestParity(pilot, readJson(path.join(sourceDirectory, 'video-asset-manifest.json')))
   }
   const root = path.resolve(publicRoot)
-  const bundleDir = path.join(root, objectId, bundleId)
-  if (!bundleDir.startsWith(`${root}${path.sep}`)) throw new Error('THS Publisher publication bundle escaped public root')
-
-  fs.rmSync(root, { recursive: true, force: true })
-  fs.mkdirSync(bundleDir, { recursive: true })
+  if (root === path.parse(root).root) {
+    throw new Error('THS Publisher publication root must not be a filesystem root')
+  }
+  const parentDir = path.dirname(root)
+  fs.mkdirSync(parentDir, { recursive: true })
+  // Exclusive local lock prevents concurrent dry-run staging callers from
+  // interleaving promotions. A stale lock after a host crash fails closed.
+  const lockPath = path.join(parentDir, `.${path.basename(root)}.publisher-lock`)
+  const lockFd = fs.openSync(lockPath, 'wx', 0o600)
+  try {
+    const candidateRoot = fs.mkdtempSync(path.join(parentDir, `.${path.basename(root)}.candidate-`))
+    try {
+      const bundleDir = path.join(candidateRoot, objectId, bundleId)
+      if (!bundleDir.startsWith(`${candidateRoot}${path.sep}`)) {
+        throw new Error('THS Publisher publication bundle escaped candidate root')
+      }
+      fs.mkdirSync(bundleDir, { recursive: true })
 
   const pilotFormat = clean(pilot.lifecycle?.identity?.format || pilot.selectedOpportunity?.platform).toLowerCase()
   const staged = pilotFormat === 'carousel'
@@ -365,9 +413,19 @@ export function stagePublicationMedia({
         }
       : null,
   }
-  fs.writeFileSync(path.join(bundleDir, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
-  fs.writeFileSync(path.join(root, 'latest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
-  return manifest
+      fs.writeFileSync(path.join(bundleDir, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
+      fs.writeFileSync(path.join(candidateRoot, 'latest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
+      // Promote only a complete, hash/receipt/caption-validated bundle.
+      // If promotion fails, restore the earlier directory in place.
+      promotePublisherStagedRoot(candidateRoot, root)
+      return manifest
+    } finally {
+      fs.rmSync(candidateRoot, { recursive: true, force: true })
+    }
+  } finally {
+    fs.closeSync(lockFd)
+    fs.rmSync(lockPath, { force: true })
+  }
 }
 
 export async function stagePublicationMediaFromArtifacts({
