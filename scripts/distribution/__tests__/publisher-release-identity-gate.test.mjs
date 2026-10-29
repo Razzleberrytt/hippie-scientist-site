@@ -2,6 +2,10 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { hashStableValue } from '../asset-provenance.mjs'
 import { buildDistributionIdentity } from '../distribution-lifecycle.mjs'
+import fs from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
+import { stagePublicationMedia } from '../stage-publication-media.mjs'
 import { assertPublisherPilotIdentity, assertPublisherVideoManifestParity } from '../publisher-release-identity-gate.mjs'
 
 function fixture(method = 'R8.10', runtime = 'R8.05') {
@@ -50,7 +54,9 @@ test('legitimate R8.04 and legacy R8.05 remain eligible for their original gates
   for (const [method, runtime] of [['R8.04', 'R8.04'], ['R8.05', 'R8.05']]) {
     const { pilot, manifest } = fixture(method, runtime)
     assert.equal(assertPublisherPilotIdentity(pilot), true)
-    assert.equal(assertPublisherVideoManifestParity(pilot, manifest, { masterQa: {} }), true)
+    // The R8.04 route has no master-QA receipt; legacy R8.05 does.
+    assert.equal(assertPublisherVideoManifestParity(pilot, manifest,
+      runtime === 'R8.04' ? {} : { masterQa: {} }), true)
   }
 })
 test('honest R8.10 remains routed to downstream alignment quarantine, not approved', () => {
@@ -97,5 +103,46 @@ test('unsupported creative method/runtime combinations fail closed', () => {
     const { pilot, manifest } = fixture(method, runtime)
     assert.throws(() => assertPublisherVideoManifestParity(pilot, manifest),
       /unsupported creative release/)
+  }
+})
+
+test('real staging entrypoint rejects changed pilot before clearing existing public output', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ths-publisher-stage-negative-'))
+  try {
+    const sourceDir = path.join(dir, 'source')
+    const publicRoot = path.join(dir, 'published')
+    fs.mkdirSync(sourceDir)
+    fs.mkdirSync(publicRoot)
+    fs.writeFileSync(path.join(publicRoot, 'retain.txt'), 'must not delete')
+    const { pilot } = fixture()
+    pilot.assets.creativeMethodRelease = 'R8.05'
+    const packageData = { mediaPack: { status: 'validated', packId: pilot.assets.packId } }
+    assert.throws(() => stagePublicationMedia({
+      pilot, packageData, sourceDir, publicRoot,
+    }), /asset manifest hash/)
+    assert.equal(fs.readFileSync(path.join(publicRoot, 'retain.txt'), 'utf8'), 'must not delete')
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true })
+  }
+})
+test('real staging entrypoint rejects rekeyed R8.05 pilot with unchanged R8.10 render before reset', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ths-publisher-staging-parity-'))
+  try {
+    const sourceDir = path.join(dir, 'source')
+    const publicRoot = path.join(dir, 'published')
+    fs.mkdirSync(sourceDir)
+    fs.mkdirSync(publicRoot)
+    fs.writeFileSync(path.join(publicRoot, 'retain.txt'), 'must not delete')
+    const { pilot, manifest } = fixture()
+    pilot.assets.creativeMethodRelease = 'R8.05'
+    refreshIdentity(pilot)
+    fs.writeFileSync(path.join(sourceDir, 'video-asset-manifest.json'), JSON.stringify(manifest))
+    const packageData = { mediaPack: { status: 'validated', packId: pilot.assets.packId } }
+    assert.throws(() => stagePublicationMedia({
+      pilot, packageData, sourceDir, publicRoot,
+    }), /rendered video manifest differs/)
+    assert.equal(fs.readFileSync(path.join(publicRoot, 'retain.txt'), 'utf8'), 'must not delete')
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true })
   }
 })
