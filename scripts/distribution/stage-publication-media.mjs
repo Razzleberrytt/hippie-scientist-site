@@ -4,7 +4,7 @@ import crypto from 'node:crypto'
 import fs from 'node:fs'
 import { validateR808HudReview } from './r808-hud-inspection.mjs'
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
-import { assertPublisherPilotIdentity, assertPublisherVideoManifestParity } from './publisher-release-identity-gate.mjs'
+import { assertPublisherPilotIdentity, assertPublisherVideoManifestParity, assertPublisherPackageParity } from './publisher-release-identity-gate.mjs'
 import { assertNoUnreviewedR818PhysicalArt } from './r818-physical-art-loader.mjs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
@@ -51,6 +51,7 @@ function buildAttributedPublicationText(packageData, lifecycle) {
 
 function assertPilotAndPackage(pilot, packageData) {
   assertPublisherPilotIdentity(pilot)
+  assertPublisherPackageParity(pilot, packageData)
   if (pilot?.schemaVersion !== 'bounded-distribution-pilot-v1' || pilot?.status !== 'dry-run-scheduled') {
     throw new Error('THS Publisher media staging requires the bounded dry-run pilot')
   }

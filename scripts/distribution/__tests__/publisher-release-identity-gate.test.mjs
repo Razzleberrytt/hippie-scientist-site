@@ -7,7 +7,7 @@ import os from 'node:os'
 import path from 'node:path'
 import crypto from 'node:crypto'
 import { stagePublicationMedia } from '../stage-publication-media.mjs'
-import { assertPublisherPilotIdentity, assertPublisherVideoManifestParity } from '../publisher-release-identity-gate.mjs'
+import { assertPublisherPilotIdentity, assertPublisherVideoManifestParity, assertPublisherPackageParity } from '../publisher-release-identity-gate.mjs'
 
 function fixture(method = 'R8.10', runtime = 'R8.05') {
   const assets = {
@@ -42,6 +42,19 @@ function fixture(method = 'R8.10', runtime = 'R8.05') {
   }
   return { pilot, manifest: structuredClone(assets) }
 }
+
+function governedPackage(pilot, extra = {}) {
+  const runtime = pilot.assets.release || pilot.assets.systemRelease || 'R8.04'
+  return {
+    mediaPack: { status:'validated', packId:pilot.assets.packId,
+      contentHash:pilot.lifecycle.identity.researchObjectHash },
+    ...(pilot.lifecycle.identity.format === 'short-video'
+      ? {creativeSpec:{systemRelease:runtime,creativeMethodRelease:pilot.assets.creativeMethodRelease || runtime}}
+      : {}),
+    ...extra,
+  }
+}
+
 function refreshIdentity(pilot) {
   const identity = buildDistributionIdentity({
     ...pilot.lifecycle.identity, assetManifestHash: hashStableValue(pilot.assets),
@@ -118,7 +131,7 @@ test('real staging entrypoint rejects changed pilot before clearing existing pub
     fs.writeFileSync(path.join(publicRoot, 'retain.txt'), 'must not delete')
     const { pilot } = fixture()
     pilot.assets.creativeMethodRelease = 'R8.05'
-    const packageData = { mediaPack: { status: 'validated', packId: pilot.assets.packId } }
+    const packageData = governedPackage(pilot)
     assert.throws(() => stagePublicationMedia({
       pilot, packageData, sourceDir, publicRoot,
     }), /asset manifest hash/)
@@ -139,7 +152,7 @@ test('real staging entrypoint rejects rekeyed R8.05 pilot with unchanged R8.10 r
     pilot.assets.creativeMethodRelease = 'R8.05'
     refreshIdentity(pilot)
     fs.writeFileSync(path.join(sourceDir, 'video-asset-manifest.json'), JSON.stringify(manifest))
-    const packageData = { mediaPack: { status: 'validated', packId: pilot.assets.packId } }
+    const packageData = governedPackage(pilot)
     assert.throws(() => stagePublicationMedia({
       pilot, packageData, sourceDir, publicRoot,
     }), /rendered video manifest differs/)
@@ -199,7 +212,7 @@ test('late R8.05 missing MP4/receipt never deletes previously staged publisher c
     refreshIdentity(pilot)
     fs.writeFileSync(path.join(f.sourceDir, 'video-asset-manifest.json'), JSON.stringify(pilot.assets))
     assert.throws(() => stagePublicationMedia({
-      pilot, packageData: { mediaPack: { status: 'validated', packId: pilot.assets.packId } },
+      pilot, packageData: governedPackage(pilot),
       sourceDir: f.sourceDir, publicRoot: f.publicRoot,
     }), /requires the rendered MP4 and its provenance receipt/)
     f.assertPreserved()
@@ -210,7 +223,7 @@ test('late missing carousel WebP never deletes previous publisher latest/bundle'
   try {
     const { pilot } = carouselPilot()
     assert.throws(() => stagePublicationMedia({
-      pilot, packageData: { mediaPack: { status: 'validated', packId: pilot.assets.packId } },
+      pilot, packageData: governedPackage(pilot),
       sourceDir: f.sourceDir, publicRoot: f.publicRoot,
     }), /ENOENT/)
     f.assertPreserved()
@@ -224,7 +237,7 @@ test('late missing governed caption never deletes previous publisher latest/bund
     refreshIdentity(pilot)
     fs.writeFileSync(path.join(f.sourceDir, 'carousel-01.webp'), raster)
     assert.throws(() => stagePublicationMedia({
-      pilot, packageData: { mediaPack: { status: 'validated', packId: pilot.assets.packId } },
+      pilot, packageData: governedPackage(pilot),
       sourceDir: f.sourceDir, publicRoot: f.publicRoot,
     }), /requires governed caption text/)
     f.assertPreserved()
@@ -237,11 +250,10 @@ test('successful fully validated carousel promotion replaces old publisher bundl
     pilot.assets.assets[0].sha256 = crypto.createHash('sha256').update(raster).digest('hex')
     refreshIdentity(pilot)
     fs.writeFileSync(path.join(f.sourceDir, 'carousel-01.webp'), raster)
-    const packageData = {
-      mediaPack: { status: 'validated', packId: pilot.assets.packId },
+    const packageData = governedPackage(pilot, {
       instagram: 'Science summary: https://thehippiescientist.net/learn/example',
       sharedFacts: { title: 'A bounded science example' },
-    }
+    })
     const result = stagePublicationMedia({
       pilot, packageData, sourceDir: f.sourceDir, publicRoot: f.publicRoot,
     })
@@ -252,4 +264,41 @@ test('successful fully validated carousel promotion replaces old publisher bundl
     assert.equal(JSON.parse(fs.readFileSync(path.join(f.publicRoot, 'latest.json'), 'utf8')).identityFingerprint,
       pilot.lifecycle.identity.fingerprint)
   } finally { fs.rmSync(f.dir, { recursive: true, force: true }) }
+})
+
+test('source summary hash binds the scheduled canonical research identity', () => {
+  const { pilot } = fixture('R8.05','R8.05')
+  const pack = governedPackage(pilot)
+  assert.equal(assertPublisherPackageParity(pilot,pack),true)
+  delete pack.mediaPack.contentHash
+  assert.throws(() => assertPublisherPackageParity(pilot,pack),/source hash differs/)
+  pack.mediaPack.contentHash = 'wrong-source'
+  assert.throws(() => assertPublisherPackageParity(pilot,pack),/source hash differs/)
+})
+test('declaring older package creative release does not downgrade scheduled R8.10 method', () => {
+  const { pilot } = fixture('R8.10','R8.05')
+  const pack = governedPackage(pilot)
+  pack.creativeSpec.creativeMethodRelease='R8.05'
+  assert.throws(() => assertPublisherPackageParity(pilot,pack),/creative release disagrees/)
+})
+test('missing modern creative method fails closed, omitted genuine legacy method still works', () => {
+  const modern = fixture('R8.10','R8.05')
+  const bad = governedPackage(modern.pilot)
+  delete bad.creativeSpec.creativeMethodRelease
+  assert.throws(() => assertPublisherPackageParity(modern.pilot,bad),/creative release disagrees/)
+  const legacy = fixture('R8.05','R8.05')
+  const old = governedPackage(legacy.pilot)
+  delete old.creativeSpec.creativeMethodRelease
+  assert.equal(assertPublisherPackageParity(legacy.pilot,old),true)
+})
+test('real staging blocks tampered source hash before replacing a previous bundle', () => {
+  const f=preservedPublisherFixture()
+  try {
+    const {pilot}=carouselPilot()
+    const pack=governedPackage(pilot)
+    pack.mediaPack.contentHash='forged'
+    assert.throws(() => stagePublicationMedia({pilot,packageData:pack,
+      sourceDir:f.sourceDir,publicRoot:f.publicRoot}),/source hash differs/)
+    f.assertPreserved()
+  } finally {fs.rmSync(f.dir,{recursive:true,force:true})}
 })

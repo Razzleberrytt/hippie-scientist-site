@@ -69,3 +69,27 @@ export function assertPublisherVideoManifestParity(pilot, renderedManifest, { ma
   }
   return true
 }
+
+export function assertPublisherPackageParity(pilot, packageData) {
+  const summary = packageData?.mediaPack
+  const identity = pilot?.lifecycle?.identity
+  const assets = pilot?.assets
+  if (!summary || !identity || !assets ||
+      clean(summary.packId) !== clean(identity.packId) ||
+      !clean(summary.contentHash) ||
+      clean(summary.contentHash) !== clean(identity.researchObjectHash)) {
+    throw Error('THS Publisher package summary source hash differs from scheduled research identity')
+  }
+  // System runtime and creative methodology are separate; R8.10 uses R8.05 runtime.
+  if (clean(identity.format) === 'short-video') {
+    const runtime = clean(assets.release || assets.systemRelease) || 'R8.04'
+    const method = clean(assets.creativeMethodRelease) || runtime
+    const spec = packageData?.creativeSpec
+    const packageRuntime = clean(spec?.systemRelease) || 'R8.04'
+    const packageMethod = clean(spec?.creativeMethodRelease) || packageRuntime
+    if (packageRuntime !== runtime || packageMethod !== method) {
+      throw Error('THS Publisher package creative release disagrees with rendered pilot')
+    }
+  }
+  return true
+}
