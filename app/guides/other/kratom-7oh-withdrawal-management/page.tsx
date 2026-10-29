@@ -58,7 +58,7 @@ const FAQS = [
   {
     question: 'Is 7-OH federally Schedule I right now?',
     answer:
-      'The federal status now differs by substance. DEA temporarily placed mitragynine pseudoindoxyl, MGM-15, and MGM-16 into Schedule I effective August 26, 2026. The separate threshold-based process for 7-OH itself began with a July notice of intent; in our October 3, 2026 review, we located the later HHS comment-period extension but not a published temporary scheduling order for thresholded 7-OH. Verify current DEA/Federal Register status before making legal decisions.',
+      'As of HHS and DOJ announcements on October 9, 2026, DEA had not issued a temporary Schedule I order for 7-OH itself. DEA announced a new Notice of Intent proposing temporary control if 7-OH or MGPI separately or combined exceeds 1 mg/g in solids, 1 mg/mL in liquids, OR the mitragynine-to-7-OH/MGPI ratio is below 100:1. Ordinary botanical kratom with trace amounts is not the intended target, not a blanket legal exemption. MGPI, MGM-15, and MGM-16 have separately been in temporary Schedule I since August 26, 2026. Recheck official DEA/Federal Register status on the publication day; state law and FDA product requirements are distinct.',
   },
   {
     question: 'When should someone seek urgent medical care during suspected 7-OH withdrawal?',
@@ -270,6 +270,16 @@ const REFS = [
     n: 33,
     text: 'HHS/OASH. Temporary Placement of 7-Hydroxymitragynine Above a Specified Threshold in Schedule I; Request for Information; Extension of Comment Period. Federal Register publication August 26, 2026.',
     url: 'https://public-inspection.federalregister.gov/2026-17409.pdf',
+  },
+  {
+    n: 34,
+    text: 'HHS. HHS Recommends Science-Based Thresholds to Target Dangerous Enhanced Kratom Products. October 9, 2026.',
+    url: 'https://www.hhs.gov/press-room/hhs-recommends-thresholds-enhanced-kratom-products-7-oh-mgpi.html',
+  },
+  {
+    n: 35,
+    text: 'U.S. Department of Justice. Updates to Emergency Scheduling Actions for 7-OH and Related Opioid Substances. October 9, 2026.',
+    url: 'https://www.justice.gov/opa/pr/department-justice-announces-updates-emergency-scheduling-actions-7-oh-and-related-opioid',
   }
 ]
 
@@ -345,7 +355,7 @@ export default function Page() {
             <div className="card-premium p-5">
               <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">Regulation</p>
               <p className="mt-2 text-sm text-muted">
-                DEA began a threshold-based temporary-scheduling process for 7-OH in July 2026; separately, mitragynine pseudoindoxyl, MGM-15, and MGM-16 were placed into temporary Schedule I effective August 26, 2026 [2–5,32,33].
+                October 9, 2026: HHS/DOJ announced updated proposed 7-OH/MGPI thresholds (&gt;1 mg/g solids, &gt;1 mg/mL liquids, or &lt;100:1 mitragynine ratio) targeting enhanced products; as of that announcement, no 7-OH temporary order had issued. MGPI, MGM-15 and MGM-16 have remained Schedule I since August 26 [32–35].
               </p>
             </div>
           </div>
