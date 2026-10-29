@@ -4,6 +4,7 @@ import crypto from 'node:crypto'
 import fs from 'node:fs'
 import { validateR808HudReview } from './r808-hud-inspection.mjs'
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
+import { assertPublisherPilotIdentity, assertPublisherVideoManifestParity } from './publisher-release-identity-gate.mjs'
 import { assertNoUnreviewedR818PhysicalArt } from './r818-physical-art-loader.mjs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
@@ -49,6 +50,7 @@ function buildAttributedPublicationText(packageData, lifecycle) {
 }
 
 function assertPilotAndPackage(pilot, packageData) {
+  assertPublisherPilotIdentity(pilot)
   if (pilot?.schemaVersion !== 'bounded-distribution-pilot-v1' || pilot?.status !== 'dry-run-scheduled') {
     throw new Error('THS Publisher media staging requires the bounded dry-run pilot')
   }
@@ -114,6 +116,7 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
   }
 
   const manifestBytes = fs.readFileSync(manifestFile)
+  assertPublisherVideoManifestParity(pilot, JSON.parse(manifestBytes.toString('utf8')))
   const mp4Bytes = fs.readFileSync(mp4File)
   const receipt = readJson(receiptFile)
   const expectedRenderer = packageRelease === 'R8.05' ? 'vertical-video-mp4-v3-r805' : 'vertical-video-mp4-v2-r804'
@@ -157,6 +160,7 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
     }
     const masterQaBytes = fs.readFileSync(masterQaFile)
     masterQa = JSON.parse(masterQaBytes.toString('utf8'))
+    assertPublisherVideoManifestParity(pilot, JSON.parse(manifestBytes.toString('utf8')), { masterQa })
     if (clean(masterQa.schemaVersion) !== 'ths-r805-master-qa-receipt-v1'
         || clean(masterQa.release) !== 'R8.05'
         || masterQa.exactArtifactReviewed !== true
@@ -315,6 +319,10 @@ export function stagePublicationMedia({
   if (!/^[a-f0-9]{64}$/i.test(identityFingerprint)) throw new Error('THS Publisher media staging requires a lifecycle identity fingerprint')
   const bundleId = identityFingerprint.slice(0, 20)
   const sourceDirectory = path.resolve(sourceDir)
+  // Validate before deleting previous public bundles.
+  if (clean(pilot.lifecycle?.identity?.format || pilot.selectedOpportunity?.platform) === 'short-video') {
+    assertPublisherVideoManifestParity(pilot, readJson(path.join(sourceDirectory, 'video-asset-manifest.json')))
+  }
   const root = path.resolve(publicRoot)
   const bundleDir = path.join(root, objectId, bundleId)
   if (!bundleDir.startsWith(`${root}${path.sep}`)) throw new Error('THS Publisher publication bundle escaped public root')
@@ -375,6 +383,7 @@ export async function stagePublicationMediaFromArtifacts({
   const packageData = readJson(path.join(distributionDir, `${objectId}.json`))
   const sourceDir = path.join(distributionDir, 'pilots', objectId)
   const pilot = readJson(path.join(sourceDir, 'bounded-pilot.json'))
+  assertPublisherPilotIdentity(pilot)
   const pilotFormat = clean(pilot.lifecycle?.identity?.format || pilot.selectedOpportunity?.platform).toLowerCase()
   if (pilotFormat === 'short-video') {
     const release = clean(pilot?.assets?.release || pilot?.assets?.systemRelease) || 'R8.04'
