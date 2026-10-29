@@ -1,10 +1,10 @@
 # Mental Health Content Standard
 
-Last reviewed: 2026-07-13
+Last reviewed: 2026-10-24
 
 ## Scope
 
-This standard applies to the OCD and personality-disorder guide cluster under `/guides/mental-health/`.
+This standard applies to the OCD and personality-disorder guide cluster under `/guides/mental-health/`, all mental-health/relationship evidence reviews under `/articles/`, and the P0 50-article program tracked by issue #6968.
 
 ## Source hierarchy
 
@@ -41,3 +41,14 @@ Prefer sources in this order when they are relevant to the claim:
 ## Review cadence
 
 Recheck official guidance, diagnostic-framework changes, systematic reviews, retractions, and broken reference links at least annually or sooner after a major guideline update.
+
+## P0 research article batching and methodological honesty
+
+- Release in **exactly ten completed, distinct, verified articles per PR**; do not merge a partial batch. Verify the public deployment before starting the next batch.
+- Reuse and improve a canonical page if an idea overlaps an existing guide or article. Do not publish duplicate search intents or near-identical slugs.
+- Keep systematic reviews, meta-analyses, longitudinal studies, qualitative investigations, guidelines and theory papers distinct, in metadata and prose.
+- Calling a narrative synthesis a new *meta-analysis* is prohibited unless a genuine independently performed quantitative synthesis, search protocol, selection and extraction, effect sizes, heterogeneity, bias appraisal, and reproducibility receipts exist.
+- Direct clinical findings must not be falsely extrapolated from attachment scales, celebrity diagnoses, third-party anecdotes, receptor hypotheses or animal studies.
+- Include null and contradictory results, uncertainty, adequate citation records, and a working hub path with related-article links.
+- Do not make unverified claims of clinician review, DOI verification, full CI, build success, merger, publication or public deployment.
+- Protected admission, scientific/clinical-risk and publication gates remain required, even when all ten drafts exist.

@@ -29,7 +29,8 @@ test('every inventoried RC/NPS article retains a real referral path and canonica
   const all = names.map(name => matter(fs.readFileSync(`content/articles/${name}`, 'utf8')))
   const slugs = new Set(all.map(x => x.data.slug))
   const scoped = all.filter(x => ['Substance Use & Harm Reduction', 'Novel Psychoactive Substances'].includes(x.data.category))
-  assert.equal(scoped.length, 92)
+  // Includes the new smoke-shop mushroom-edibles investigation added in #6958.
+  assert.equal(scoped.length, 93)
   for (const {data,content} of scoped) {
     assert.match(content, /1-800-662-HELP \(4357\)/, data.slug)
     assert.match(content, /https:\/\/www.samhsa.gov\/find-help\/helplines\/national-helpline/, data.slug)

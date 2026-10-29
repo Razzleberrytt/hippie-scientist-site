@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import JsonLd from '@/components/seo/JsonLd'
+import { MentalHealthResearchDirectory } from '@/components/guides/MentalHealthResearchDirectory'
+import { P0_RESEARCH_REVIEWS } from '@/lib/mental-health-research-directory'
 import {
   getMentalHealthArticlesByCluster,
   mentalHealthArticles,
@@ -16,11 +18,11 @@ import {
 } from '@/lib/seo'
 
 const HUB_PATH = '/guides/mental-health'
-const HUB_TITLE = 'Mental Health Guides: OCD and Personality Disorders'
-const HUB_DESCRIPTION = 'Citation-rich, evidence-based guides to OCD, BPD, and all ten DSM-5-TR personality disorders, with diagnosis, differential diagnosis, treatment, safety, and stigma context.'
+const HUB_TITLE = 'Mental Health: Personality, Emotions and Relationship Research'
+const HUB_DESCRIPTION = 'Evidence-based mental health research on personality disorders, OCD, attachment, relationships, emotional regulation, trauma, diagnosis and treatment.'
 const AUTHOR_NAME = 'Willie B. Randolph III'
 const AUTHOR_PATH = '/info/author/'
-const REVIEW_DATE = '2026-07-15'
+const REVIEW_DATE = '2026-10-25'
 
 const SOURCE_LINKS = {
   nimhOcd: 'https://www.nimh.nih.gov/health/topics/obsessive-compulsive-disorder-ocd',
@@ -59,6 +61,8 @@ export const metadata: Metadata = {
   },
 }
 
+// Editorially sourced research articles use the existing /articles/* markdown system.
+// Keep hub cards and structured-data discovery generated from this one registry.
 const FEATURED_SLUGS = [
   'personality-disorders-overview',
   'obsessive-compulsive-disorder',
@@ -118,10 +122,16 @@ export default function MentalHealthGuidesHub() {
     id: itemListId,
     name: 'Evidence-Based Mental Health Guides',
     path: HUB_PATH,
-    items: mentalHealthArticles.map((article) => ({
-      name: article.title,
-      url: `${HUB_PATH}/${article.slug}/`,
-    })),
+    items: [
+      ...mentalHealthArticles.map((article) => ({
+        name: article.title,
+        url: `${HUB_PATH}/${article.slug}/`,
+      })),
+      ...P0_RESEARCH_REVIEWS.map((review) => ({
+        name: review.title,
+        url: review.href,
+      })),
+    ],
   })
   const collectionLd = {
     ...collectionPageJsonLd({
@@ -160,15 +170,29 @@ export default function MentalHealthGuidesHub() {
 
       <header className="max-w-4xl">
         <span className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Evidence-based mental health library</span>
-        <h1 className="mt-3 font-display text-4xl font-bold leading-tight text-ink sm:text-5xl">OCD and Personality Disorder Guides</h1>
+        <h1 className="mt-3 font-display text-4xl font-bold leading-tight text-ink sm:text-5xl">Mental Health, Relationships and Personality Research</h1>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">
-          Citation-rich guides to obsessive-compulsive disorder, borderline personality disorder, and every named DSM-5-TR personality disorder. Each page separates established evidence from clinical uncertainty and avoids reducing people to stereotypes.
+          Citation-rich reviews of personality disorders, OCD, emotional regulation, attachment, trauma, limerence and relationship psychology. Each guide separates established evidence from uncertainty without reducing people to labels.
         </p>
         <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
           <span>Written and edited by <Link href={AUTHOR_PATH} rel="author" className="font-semibold text-brand-700 hover:underline">{AUTHOR_NAME}</Link></span>
-          <span>Evidence reviewed <time dateTime={REVIEW_DATE}>July 15, 2026</time></span>
+          <span>Library updated <time dateTime={REVIEW_DATE}>October 25, 2026</time></span>
         </div>
       </header>
+
+      <nav aria-label="Explore mental health topics" className="mt-6 flex flex-wrap gap-2">
+        <Link href="#research-directory" className="inline-flex min-h-11 items-center rounded-full bg-brand-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700">
+          Browse {P0_RESEARCH_REVIEWS.length} research reviews
+        </Link>
+        <Link href="#start-here" className="inline-flex min-h-11 items-center rounded-full border border-brand-900/20 bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:border-brand-700/40">
+          Start with the basics
+        </Link>
+        <Link href="#personality-guides" className="inline-flex min-h-11 items-center rounded-full border border-brand-900/20 bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:border-brand-700/40">
+          Personality disorder guides
+        </Link>
+      </nav>
+
+      <MentalHealthResearchDirectory reviews={P0_RESEARCH_REVIEWS} />
 
       <section className="mt-7 rounded-2xl border border-brand-700/20 bg-brand-50/60 p-5 sm:p-6" aria-labelledby="quick-answer">
         <h2 id="quick-answer" className="text-xl font-bold text-ink">Quick answer: choose the guide that matches the question</h2>
@@ -223,7 +247,7 @@ export default function MentalHealthGuidesHub() {
       <section className="mt-7 rounded-2xl border border-brand-900/10 bg-brand-50/60 p-5 sm:p-6" aria-labelledby="editorial-standard">
         <h2 id="editorial-standard" className="text-lg font-bold text-ink">How these pages were verified</h2>
         <p className="mt-2 max-w-4xl text-sm leading-6 text-muted">
-          Claims are cited inline and linked to full references. Sources prioritize official clinical guidance, government health agencies, DSM-5-TR and ICD-11 materials, systematic reviews, meta-analyses, randomized trials, and peer-reviewed clinical reviews. All evidence was reviewed July 15, 2026.
+          Claims are cited inline and linked to references. Sources prioritize official guidance, diagnostic materials, systematic reviews, meta-analyses, randomized trials and peer-reviewed clinical reviews. Each research page shows its own date and limits; the hub update date does not mean every older guide was freshly re-reviewed.
         </p>
         <p className="mt-3 max-w-4xl text-sm leading-6 text-muted">
           These pages are educational and cannot diagnose the reader or an absent third party. They also do not present herbs or supplements as replacements for psychotherapy, psychiatric care, or crisis treatment.
@@ -240,6 +264,8 @@ export default function MentalHealthGuidesHub() {
         </div>
       </section>
 
+
+
       <section className="mt-10 rounded-2xl border border-amber-700/20 bg-amber-50/70 p-5 sm:p-6" aria-labelledby="ocd-note">
         <h2 id="ocd-note" className="text-lg font-bold text-ink">Why OCD appears in this library</h2>
         <p className="mt-2 leading-7 text-muted">
@@ -247,6 +273,7 @@ export default function MentalHealthGuidesHub() {
         </p>
       </section>
 
+      <div id="personality-guides" className="scroll-mt-24" />
       <ClusterSection
         title="Cluster A"
         description="Paranoid, schizoid, and schizotypal personality disorders. Research is comparatively sparse, so these pages make uncertainty and classification differences explicit."
