@@ -42,7 +42,6 @@ export type EvidenceRationale = {
 }
 
 /** A recorded design that also reports the finding went against the claim. */
-const NEGATIVE_MARKER = /\bnegative\b|\bnull\b/i
 /** A recorded design that reports the underlying studies disagreed. */
 const MIXED_MARKER = /\bmixed\b|\binconsistent\b|\bconflict/i
 /** A recorded design that explicitly flags its own bias problem. */
@@ -153,7 +152,8 @@ export function buildEvidenceRationale(claims: readonly RationaleClaimInput[], d
   // Publication identities are deduplicated for counts; directional authored markers are not separate publications.
   const texts = [...records, ...directions].map(markerText)
   const flaggedHighBias = texts.some((text) => HIGH_BIAS_MARKER.test(text))
-  const negativeCount = texts.filter((text) => NEGATIVE_MARKER.test(text)).length
+  // A negative/null result is not itself evidence that publications disagree.
+  // Only an explicit mixed/inconsistent/conflicting marker supports this label.
   const mixedCount = texts.filter((text) => MIXED_MARKER.test(text)).length
 
   const designMatch = strongestClass === 'unclassified' ? null : STUDY_CLASS_INFO[strongestClass].label
@@ -161,7 +161,7 @@ export function buildEvidenceRationale(claims: readonly RationaleClaimInput[], d
   const riskOfBias: RiskOfBias | null = flaggedHighBias ? 'High' : null
 
   let consistency: EvidenceConsistency | null = null
-  if (mixedCount > 0 || negativeCount > 0) consistency = 'Mixed'
+  if (mixedCount > 0) consistency = 'Mixed'
   // Absence of recorded disagreement does not prove that study results agree.
 
   return {
