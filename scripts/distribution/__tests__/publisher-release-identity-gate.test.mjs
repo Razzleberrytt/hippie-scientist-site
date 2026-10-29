@@ -6,7 +6,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import crypto from 'node:crypto'
-import { stagePublicationMedia } from '../stage-publication-media.mjs'
+import { stagePublicationMedia, recoverPublisherPreviousRoot } from '../stage-publication-media.mjs'
 import { assertPublisherPilotIdentity, assertPublisherVideoManifestParity, assertPublisherPackageParity } from '../publisher-release-identity-gate.mjs'
 
 function fixture(method = 'R8.10', runtime = 'R8.05') {
@@ -301,4 +301,76 @@ test('real staging blocks tampered source hash before replacing a previous bundl
       sourceDir:f.sourceDir,publicRoot:f.publicRoot}),/source hash differs/)
     f.assertPreserved()
   } finally {fs.rmSync(f.dir,{recursive:true,force:true})}
+})
+
+function eligibleCarouselStaging(f) {
+  const { pilot, raster } = carouselPilot()
+  pilot.assets.assets[0].sha256 = crypto.createHash('sha256').update(raster).digest('hex')
+  refreshIdentity(pilot)
+  fs.writeFileSync(path.join(f.sourceDir,'carousel-01.webp'),raster)
+  return {
+    pilot,
+    packageData: governedPackage(pilot, {
+      instagram: 'Science summary: https://thehippiescientist.net/learn/example',
+      sharedFacts: { title:'Rollback fixture' },
+    }),
+  }
+}
+
+test('failed second rename restores byte-identical previous publisher root', () => {
+  const f=preservedPublisherFixture()
+  const originalRename=fs.renameSync
+  try {
+    const {pilot,packageData}=eligibleCarouselStaging(f)
+    fs.renameSync=(src,dst)=>{
+      if (String(src).includes('.candidate-') && path.resolve(dst)===path.resolve(f.publicRoot)) {
+        throw Error('injected second rename failure')
+      }
+      return originalRename(src,dst)
+    }
+    assert.throws(()=>stagePublicationMedia({
+      pilot,packageData,sourceDir:f.sourceDir,publicRoot:f.publicRoot,
+    }),/injected second rename failure/)
+    f.assertPreserved()
+    assert.equal(fs.readdirSync(f.dir).filter(x=>x.startsWith('published.previous-')).length,0)
+  } finally {
+    fs.renameSync=originalRename
+    fs.rmSync(f.dir,{recursive:true,force:true})
+  }
+})
+test('failed rollback preserves backup for explicit operator-only recovery', () => {
+  const f=preservedPublisherFixture()
+  const originalRename=fs.renameSync
+  try {
+    const {pilot,packageData}=eligibleCarouselStaging(f)
+    fs.renameSync=(src,dst)=>{
+      if (String(src).includes('.candidate-') && path.resolve(dst)===path.resolve(f.publicRoot)) {
+        throw Error('injected candidate promotion failure')
+      }
+      if (String(src).includes('.previous-') && path.resolve(dst)===path.resolve(f.publicRoot)) {
+        throw Error('injected rollback failure')
+      }
+      return originalRename(src,dst)
+    }
+    assert.throws(()=>stagePublicationMedia({
+      pilot,packageData,sourceDir:f.sourceDir,publicRoot:f.publicRoot,
+    }),e=>e instanceof AggregateError && /rollback requires recovery/.test(e.message))
+    fs.renameSync=originalRename
+    const backups=fs.readdirSync(f.dir).filter(x=>x.startsWith('published.previous-'))
+    assert.equal(backups.length,1)
+    assert.equal(fs.existsSync(f.publicRoot),false)
+    const backupRoot=path.join(f.dir,backups[0])
+    assert.equal(fs.existsSync(path.join(backupRoot,'latest.json')),true)
+    // Simulated stale lock must not be bypassed by the explicit recovery entrypoint.
+    const lock=path.join(f.dir,'.published.publisher-lock')
+    fs.writeFileSync(lock,'synthetic crash lock')
+    assert.throws(()=>recoverPublisherPreviousRoot({publicRoot:f.publicRoot,backupRoot}),/active lock/)
+    fs.unlinkSync(lock)
+    assert.equal(recoverPublisherPreviousRoot({publicRoot:f.publicRoot,backupRoot}),true)
+    f.assertPreserved()
+    assert.throws(()=>recoverPublisherPreviousRoot({publicRoot:f.publicRoot,backupRoot}),/existing publication/)
+  } finally {
+    fs.renameSync=originalRename
+    fs.rmSync(f.dir,{recursive:true,force:true})
+  }
 })

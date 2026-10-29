@@ -341,6 +341,36 @@ function promotePublisherStagedRoot(candidateRoot, publicRoot) {
   }
 }
 
+
+/**
+ * Explicit, operator-supervised recovery after an interrupted rename.
+ * This function never overwrites an existing publication or bypasses a lock.
+ * After a host crash, verify staging is stopped before clearing a stale lock.
+ */
+export function recoverPublisherPreviousRoot({ publicRoot, backupRoot } = {}) {
+  if (!publicRoot || !backupRoot) throw Error('THS Publisher recovery needs explicit root and backup')
+  const root = path.resolve(publicRoot)
+  const backup = path.resolve(backupRoot)
+  const prefix = path.basename(root) + '.previous-'
+  const name = path.basename(backup)
+  const suffix = name.startsWith(prefix) ? name.slice(prefix.length) : ''
+  if (root === path.parse(root).root ||
+      path.dirname(root) !== path.dirname(backup) ||
+      !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(suffix)) {
+    throw Error('THS Publisher recovery backup is outside the expected namespace')
+  }
+  const lock = path.join(path.dirname(root), '.' + path.basename(root) + '.publisher-lock')
+  if (fs.existsSync(root) || fs.existsSync(lock)) {
+    throw Error('THS Publisher recovery refuses an existing publication or active lock')
+  }
+  const stats = fs.lstatSync(backup)
+  if (!stats.isDirectory() || stats.isSymbolicLink()) {
+    throw Error('THS Publisher recovery needs a real saved publication directory')
+  }
+  fs.renameSync(backup, root)
+  return true
+}
+
 export function stagePublicationMedia({
   pilot,
   packageData,
