@@ -1,0 +1,170 @@
+{
+  "release": "R8.05",
+  "sourceIdentity": {
+    "id": "niaaa-alcohol-hangover-2026",
+    "sourceUrl": "https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/hangovers"
+  },
+  "premise": {
+    "interestScore": 4.6,
+    "coldViewerWhyCare": "Hangovers are common yet commonly misunderstood; long-term risks matter too.",
+    "viewerQuestion": "What does alcohol do immediately, over time, and during a hangover?",
+    "earlyPayoff": "The hangover is not just dehydration.",
+    "methodologyBeforePayoff": false,
+    "paperSummaryOpening": false
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "beats": [
+    {
+      "id": "alcohol-01",
+      "role": "hook",
+      "narration": "Ever wonder why a hangover can feel worse after the alcohol is gone?",
+      "onScreenText": "ALCOHOL ≠ JUST DEHYDRATION",
+      "visualPurpose": "Show the early hangover question with brain versus glass",
+      "spokenAnchor": "hangover",
+      "visualAction": "Reveal a glass dissolving into a brain and clock",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "NIAAA",
+      "primaryEntities": [
+        "alcohol"
+      ],
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "alcohol-02",
+      "role": "finding",
+      "narration": "It isn't just dehydration. Alcohol disrupts sleep, irritates your stomach, and can trigger inflammation.",
+      "onScreenText": "MORE THAN DEHYDRATION",
+      "visualPurpose": "Reveal three causes of hangover beyond fluid loss",
+      "spokenAnchor": "isn't just dehydration",
+      "visualAction": "Expand sleep, stomach and inflammation diagrams",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "NIAAA",
+      "primaryEntities": [
+        "alcohol"
+      ],
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "alcohol-03",
+      "role": "context",
+      "narration": "In the short term, it disrupts brain signaling, impairing judgment, balance and memory. Heavy intoxication can suppress breathing.",
+      "onScreenText": "SHORT-TERM: BRAIN + BREATHING",
+      "visualPurpose": "Explain immediate nervous-system changes without invented percentages",
+      "spokenAnchor": "impairing judgment",
+      "visualAction": "Highlight balance and memory pathways and transition to breathing",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "NIAAA",
+      "primaryEntities": [
+        "alcohol"
+      ],
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "alcohol-04",
+      "role": "evidence",
+      "narration": "Your liver converts alcohol into acetaldehyde, then acetate. Alcohol also reduces vasopressin, making you pee more. As blood alcohol falls toward zero, a hangover often intensifies.",
+      "onScreenText": "LIVER → FLUIDS → HANGOVER",
+      "visualPurpose": "Teach real metabolic sequence and an additional dehydration mechanism",
+      "spokenAnchor": "acetaldehyde",
+      "visualAction": "Animate chemical conversion followed by kidney water outflow and a falling blood-alcohol curve",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "NIAAA",
+      "primaryEntities": [
+        "liver"
+      ],
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "alcohol-05",
+      "role": "finding",
+      "narration": "Over time, repeated heavy drinking can harm the liver, heart, and brain, and cause dependence. Alcohol also increases the risk of several cancers.",
+      "onScreenText": "LONG-TERM RISKS",
+      "visualPurpose": "Distinguish prolonged heavy intake harms from alcohol-related carcinogenicity",
+      "spokenAnchor": "increases the risk",
+      "visualAction": "Move from liver and heart to DNA vulnerability without unsupported quantification",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "NIAAA",
+      "primaryEntities": [
+        "alcohol"
+      ],
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "alcohol-06",
+      "role": "limitation",
+      "narration": "Coffee and cold showers won't cure a hangover. Time is what helps. And suddenly quitting heavy daily drinking can trigger dangerous withdrawal.",
+      "onScreenText": "NO QUICK CURE",
+      "visualPurpose": "Dispel myths and give a brief, clinically accurate withdrawal warning",
+      "spokenAnchor": "won't cure",
+      "visualAction": "Cross out quick-cure icons then highlight medical-care symbol",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "NIAAA",
+      "primaryEntities": [
+        "alcohol"
+      ],
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "alcohol-07",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/hangovers",
+      "visualPurpose": "Display exact primary reference for review and sourcing",
+      "spokenAnchor": "",
+      "visualAction": "Hold a clear NIAAA URL for citation",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "pause",
+      "factualAuthority": "NIAAA",
+      "primaryEntities": [
+        "alcohol"
+      ],
+      "pauseAfterSeconds": 0,
+      "holdSeconds": 3.5
+    },
+    {
+      "id": "alcohol-08",
+      "role": "cta",
+      "narration": "Drinking less generally means less risk. That's the science behind the buzz.",
+      "onScreenText": "LESS DRINKING. LESS RISK.",
+      "visualPurpose": "Offer clear plain-language take-away without claiming a safe dose",
+      "spokenAnchor": "less risk",
+      "visualAction": "Pull back from biological diagrams to clean final typography",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "end",
+      "factualAuthority": "NIAAA+CDC",
+      "primaryEntities": [
+        "alcohol"
+      ],
+      "pauseAfterSeconds": 0.14
+    }
+  ]
+}
