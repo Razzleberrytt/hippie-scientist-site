@@ -4,6 +4,8 @@ import crypto from 'node:crypto'
 import fs from 'node:fs'
 import { validateR808HudReview } from './r808-hud-inspection.mjs'
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
+import { assertPublisherPilotIdentity, assertPublisherVideoManifestParity, assertPublisherPackageParity } from './publisher-release-identity-gate.mjs'
+import { assertNoUnreviewedR818PhysicalArt } from './r818-physical-art-loader.mjs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { renderVerticalVideoMp4 } from './render-vertical-video-mp4.mjs'
@@ -48,6 +50,8 @@ function buildAttributedPublicationText(packageData, lifecycle) {
 }
 
 function assertPilotAndPackage(pilot, packageData) {
+  assertPublisherPilotIdentity(pilot)
+  assertPublisherPackageParity(pilot, packageData)
   if (pilot?.schemaVersion !== 'bounded-distribution-pilot-v1' || pilot?.status !== 'dry-run-scheduled') {
     throw new Error('THS Publisher media staging requires the bounded dry-run pilot')
   }
@@ -92,6 +96,7 @@ function stageCarousel({ pilot, sourceDirectory, bundleDir, publicOrigin, object
 }
 
 function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, objectId, bundleId }) {
+  assertNoUnreviewedR818PhysicalArt(sourceDirectory)
   const packageRelease = clean(pilot?.assets?.release || pilot?.assets?.systemRelease) || 'R8.04'
   const packageDuration = Number(pilot?.assets?.durationSeconds)
   if (pilot?.assets?.renderer !== 'vertical-video-package-v1') {
@@ -112,6 +117,7 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
   }
 
   const manifestBytes = fs.readFileSync(manifestFile)
+  assertPublisherVideoManifestParity(pilot, JSON.parse(manifestBytes.toString('utf8')))
   const mp4Bytes = fs.readFileSync(mp4File)
   const receipt = readJson(receiptFile)
   const expectedRenderer = packageRelease === 'R8.05' ? 'vertical-video-mp4-v3-r805' : 'vertical-video-mp4-v2-r804'
@@ -155,6 +161,7 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
     }
     const masterQaBytes = fs.readFileSync(masterQaFile)
     masterQa = JSON.parse(masterQaBytes.toString('utf8'))
+    assertPublisherVideoManifestParity(pilot, JSON.parse(manifestBytes.toString('utf8')), { masterQa })
     if (clean(masterQa.schemaVersion) !== 'ths-r805-master-qa-receipt-v1'
         || clean(masterQa.release) !== 'R8.05'
         || masterQa.exactArtifactReviewed !== true
@@ -298,6 +305,72 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
   }
 }
 
+// Generate the full provider bundle off-line; never delete an existing public bundle
+// because source assets, voice receipts, captions, or QA fail during staging.
+function promotePublisherStagedRoot(candidateRoot, publicRoot) {
+  const priorRoot = `${publicRoot}.previous-${crypto.randomUUID()}`
+  let savedPrevious = false
+  if (fs.existsSync(publicRoot)) {
+    if (!fs.lstatSync(publicRoot).isDirectory()) {
+      throw new Error('THS Publisher publication root exists but is not a directory')
+    }
+    fs.renameSync(publicRoot, priorRoot)
+    savedPrevious = true
+  }
+  try {
+    fs.renameSync(candidateRoot, publicRoot)
+  } catch (promotionError) {
+    if (savedPrevious) {
+      try {
+        fs.renameSync(priorRoot, publicRoot)
+      } catch (rollbackError) {
+        throw new AggregateError([promotionError, rollbackError],
+          `THS Publisher promotion failed and rollback requires recovery from ${priorRoot}`)
+      }
+    }
+    throw promotionError
+  }
+  if (savedPrevious) {
+    try {
+      fs.rmSync(priorRoot, { recursive: true, force: true })
+    } catch (cleanupError) {
+      // A successful publication is never undone just because its old backup
+      // could not be cleaned up. Retain the backup for manual inspection.
+      console.warn(`[distribution] previous publisher bundle retained at ${priorRoot}: ${cleanupError.message}`)
+    }
+  }
+}
+
+
+/**
+ * Explicit, operator-supervised recovery after an interrupted rename.
+ * This function never overwrites an existing publication or bypasses a lock.
+ * After a host crash, verify staging is stopped before clearing a stale lock.
+ */
+export function recoverPublisherPreviousRoot({ publicRoot, backupRoot } = {}) {
+  if (!publicRoot || !backupRoot) throw Error('THS Publisher recovery needs explicit root and backup')
+  const root = path.resolve(publicRoot)
+  const backup = path.resolve(backupRoot)
+  const prefix = path.basename(root) + '.previous-'
+  const name = path.basename(backup)
+  const suffix = name.startsWith(prefix) ? name.slice(prefix.length) : ''
+  if (root === path.parse(root).root ||
+      path.dirname(root) !== path.dirname(backup) ||
+      !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(suffix)) {
+    throw Error('THS Publisher recovery backup is outside the expected namespace')
+  }
+  const lock = path.join(path.dirname(root), '.' + path.basename(root) + '.publisher-lock')
+  if (fs.existsSync(root) || fs.existsSync(lock)) {
+    throw Error('THS Publisher recovery refuses an existing publication or active lock')
+  }
+  const stats = fs.lstatSync(backup)
+  if (!stats.isDirectory() || stats.isSymbolicLink()) {
+    throw Error('THS Publisher recovery needs a real saved publication directory')
+  }
+  fs.renameSync(backup, root)
+  return true
+}
+
 export function stagePublicationMedia({
   pilot,
   packageData,
@@ -313,12 +386,28 @@ export function stagePublicationMedia({
   if (!/^[a-f0-9]{64}$/i.test(identityFingerprint)) throw new Error('THS Publisher media staging requires a lifecycle identity fingerprint')
   const bundleId = identityFingerprint.slice(0, 20)
   const sourceDirectory = path.resolve(sourceDir)
+  // Validate before deleting previous public bundles.
+  if (clean(pilot.lifecycle?.identity?.format || pilot.selectedOpportunity?.platform) === 'short-video') {
+    assertPublisherVideoManifestParity(pilot, readJson(path.join(sourceDirectory, 'video-asset-manifest.json')))
+  }
   const root = path.resolve(publicRoot)
-  const bundleDir = path.join(root, objectId, bundleId)
-  if (!bundleDir.startsWith(`${root}${path.sep}`)) throw new Error('THS Publisher publication bundle escaped public root')
-
-  fs.rmSync(root, { recursive: true, force: true })
-  fs.mkdirSync(bundleDir, { recursive: true })
+  if (root === path.parse(root).root) {
+    throw new Error('THS Publisher publication root must not be a filesystem root')
+  }
+  const parentDir = path.dirname(root)
+  fs.mkdirSync(parentDir, { recursive: true })
+  // Exclusive local lock prevents concurrent dry-run staging callers from
+  // interleaving promotions. A stale lock after a host crash fails closed.
+  const lockPath = path.join(parentDir, `.${path.basename(root)}.publisher-lock`)
+  const lockFd = fs.openSync(lockPath, 'wx', 0o600)
+  try {
+    const candidateRoot = fs.mkdtempSync(path.join(parentDir, `.${path.basename(root)}.candidate-`))
+    try {
+      const bundleDir = path.join(candidateRoot, objectId, bundleId)
+      if (!bundleDir.startsWith(`${candidateRoot}${path.sep}`)) {
+        throw new Error('THS Publisher publication bundle escaped candidate root')
+      }
+      fs.mkdirSync(bundleDir, { recursive: true })
 
   const pilotFormat = clean(pilot.lifecycle?.identity?.format || pilot.selectedOpportunity?.platform).toLowerCase()
   const staged = pilotFormat === 'carousel'
@@ -355,9 +444,19 @@ export function stagePublicationMedia({
         }
       : null,
   }
-  fs.writeFileSync(path.join(bundleDir, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
-  fs.writeFileSync(path.join(root, 'latest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
-  return manifest
+      fs.writeFileSync(path.join(bundleDir, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
+      fs.writeFileSync(path.join(candidateRoot, 'latest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
+      // Promote only a complete, hash/receipt/caption-validated bundle.
+      // If promotion fails, restore the earlier directory in place.
+      promotePublisherStagedRoot(candidateRoot, root)
+      return manifest
+    } finally {
+      fs.rmSync(candidateRoot, { recursive: true, force: true })
+    }
+  } finally {
+    fs.closeSync(lockFd)
+    fs.rmSync(lockPath, { force: true })
+  }
 }
 
 export async function stagePublicationMediaFromArtifacts({
@@ -373,6 +472,7 @@ export async function stagePublicationMediaFromArtifacts({
   const packageData = readJson(path.join(distributionDir, `${objectId}.json`))
   const sourceDir = path.join(distributionDir, 'pilots', objectId)
   const pilot = readJson(path.join(sourceDir, 'bounded-pilot.json'))
+  assertPublisherPilotIdentity(pilot)
   const pilotFormat = clean(pilot.lifecycle?.identity?.format || pilot.selectedOpportunity?.platform).toLowerCase()
   if (pilotFormat === 'short-video') {
     const release = clean(pilot?.assets?.release || pilot?.assets?.systemRelease) || 'R8.04'

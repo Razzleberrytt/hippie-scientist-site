@@ -1,12 +1,18 @@
 ---
 name: em-tiktok-producer
 version: 3.0.1
-description: Standalone, authentic EvidenceMotion TikTok/Shorts production. Trigger on "EM video:", "make a TikTok with EM", and "EM TikTok Producer". Source-check, resume previous work, recover the pinned original voice, render exact master and verify before delivery.
+description: Standalone authentic EvidenceMotion video production; also trigger on ordinary requests like make today's video, make a video about X, and continue the video. Restore the original narrator and use the native producer only.
 owner: The Hippie Scientist
 upgrades-from: 2.0.0
 ---
 # EM TikTok Producer v3 — quality and completion-first
 This supersedes the Library v2 instruction file; it does not upgrade the Kokoro binaries, internal render engine, or remote services.
+
+## Mandatory routing of all THS video requests
+- Treat "make today's video", "make a video about X", "continue the video", "finish the TikTok" and "get it ready to post" as **this producer**, even without an "EM" prefix. Reuse the existing approved job; do not reroute to a disposable script.
+- No independent Python/Pillow/FFmpeg slideshow or template may be called an EvidenceMotion render. FFmpeg may encode an approved film **after** the original Kokoro WAV, source-bound native EvidenceMotion renderer and real scene/word timing are verified; it is not a substitute renderer.
+- Preflight actual renderer identity, model-verified house WAV, provenance and authored visual teaching plan **before** building a whole video. If any are unavailable, HOLD with PREPRODUCTION_ONLY files rather than make a cheap ninth cut.
+- Use the existing decoded-film negative critic before delivery. Repeated whole-stage brightness/theme flips, static teaching objects, unreadable captions or unverified voice return to art direction; a repair cannot count as an excellent first render. The lack of a machine warning is never an automatic craft pass.
 
 ## Scope and defaults
 - Standalone **production only**, not EvidenceMotion Lane 1/2 engineering, the 1,590-card backlog, any PR or scheduler. Isolate in `productions/<YYYYMMDD-topic>` or a disposable local folder and keep canonical repo unmodified.

@@ -16,6 +16,8 @@ export function verifyR810WordAlignment(packageDir) {
   const dir=path.resolve(packageDir)
   const manifest=JSON.parse(fs.readFileSync(path.join(dir,'video-asset-manifest.json'),'utf8'))
   if(manifest.creativeMethodRelease!=='R8.10')throw Error('R8.10 word alignment only accepts R8.10 packages')
+  // A local file and reviewerId cannot prove an authenticated independent review.
+  // Keep candidate timing/QA usable but make RELEASE fail closed until a trusted issuer exists.
   const alignmentFile=path.join(dir,'word-alignment.receipt.json')
   if(!fs.existsSync(alignmentFile))throw Error('R8.10 production requires local evidence-backed word alignment; phrase estimates are draft-only')
   const receipt=JSON.parse(fs.readFileSync(alignmentFile,'utf8'))
@@ -54,7 +56,7 @@ export function verifyR810WordAlignment(packageDir) {
   }
   if(receipt.humanAuditoryReview?.status!=='pass'||!norm(receipt.humanAuditoryReview?.reviewerId)
     ||receipt.humanAuditoryReview?.exactAudioSha256!==sha(wav))throw Error('R8.10 alignment needs independent exact-audio auditory QA')
-  return {receipt,receiptSha256:sha(fs.readFileSync(alignmentFile)),wordCount:words.length}
+  throw Error('R8.10 publication HOLD: no authenticated independent reviewer authority for word-alignment approval receipts')
 }
 const escapeXml=(value)=>String(value).replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[x]))
 export function verifyR810PackageGate(packageDir,{now=new Date(),requireAlignment=false}={}){

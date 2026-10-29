@@ -51,6 +51,8 @@ export function renderOfflineAlignmentDraft({packageDir,mfaBinary,expectedMfaVer
   const wav=existingFile(path.join(dir,'narration.wav'),'narration WAV')
   const manifestBytes=fs.readFileSync(path.join(dir,'video-asset-manifest.json'))
   const manifest=JSON.parse(manifestBytes)
+  if(sha(fs.readFileSync(wav))!==manifest.narrationAudio?.sha256)
+    throw Error('R8.10 source WAV differs from manifest-approved original audio')
   if(manifest.creativeMethodRelease!=='R8.10')throw Error('R8.10 alignment requires the actual R8.10 package')
   const scriptFile=existingFile(path.join(dir,'narration-script.json'),'narration transcript')
   const scriptBytes=fs.readFileSync(scriptFile),script=JSON.parse(scriptBytes)
@@ -84,25 +86,10 @@ export function renderOfflineAlignmentDraft({packageDir,mfaBinary,expectedMfaVer
   }
   return create(path.join(dir,'word-alignment.draft.json'),draft)
 }
-export function approveOfflineAlignment({packageDir,reviewerId,reviewedAt,observedExactAudioSha256}){
-  const dir=path.resolve(packageDir)
-  const draft=read(path.join(dir,'word-alignment.draft.json'))
-  const raw=fs.readFileSync(path.join(dir,'r810-mfa-output.json'))
-  const original=parseMfaJson(JSON.parse(raw.toString('utf8')))
-  if(draft.rawAlignmentSha256!==sha(raw)
-    ||original.length!==draft.words?.length
-    ||original.some((w,i)=>normalize(w.word)!==normalize(draft.words[i].word)
-      ||Math.abs(w.start-draft.words[i].start)>0.002
-      ||Math.abs(w.end-draft.words[i].end)>0.002)){
-    throw Error('R8.10 local MFA source output differs from its purported word receipt')
-  }
-  const actual=sha(fs.readFileSync(path.join(dir,'narration.wav')))
-  if(!clean(reviewerId)||!reviewedAt||Number.isNaN(Date.parse(reviewedAt))||
-     observedExactAudioSha256!==actual||draft.audioSha256!==actual)throw Error('R8.10 alignment approval requires exact-audio human review and matching SHA-256')
-  const approved={...draft,wordLevelAccuracyClaimed:true,releaseStatus:'human-review-approved',
-    humanAuditoryReview:{status:'pass',reviewerId:clean(reviewerId),
-      reviewedAt,exactAudioSha256:actual,provenance:'owner-attested manual audio and alignment inspection'}}
-  return create(path.join(dir,'word-alignment.receipt.json'),approved)
+// Candidate MFA output cannot attest independently verified human review.
+// Only an authenticated, auditable reviewer controller may ever issue that receipt.
+export function approveOfflineAlignment() {
+  throw Error('R8.10 local approval disabled: require authenticated independent reviewer workflow')
 }
 function parseArgs(argv){
   const [command,...rest]=argv,args={}

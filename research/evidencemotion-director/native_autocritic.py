@@ -61,9 +61,12 @@ def review_decoded_samples(samples):
     if frames.ndim != 3 or frames.shape[1:] != (FRAME_H, FRAME_W) or len(frames) < 4:
         raise ValueError("ACTUAL_DECODED_SAMPLES_REQUIRED")
     vectors, visible_stds, center_vectors, center_stds = [], [], [], []
+    stage_medians, stage_bright_coverage = [], []
     for arr in frames:
         subject = arr[33:226, 6:174]
         visible_stds.append(float(subject.std()))
+        stage_medians.append(float(np.median(subject)))
+        stage_bright_coverage.append(float(np.mean(subject >= 195)))
         x0, y0, x1, y1 = CENTER_HERO_BOX
         center_stds.append(float(arr[y0:y1, x0:x1].std()))
         edge = np.asarray(Image.fromarray(arr).filter(ImageFilter.FIND_EDGES)).copy()
@@ -117,7 +120,18 @@ def review_decoded_samples(samples):
                       if len(run) >= MIN_TWO_STATE_MATCHED_PAIRS]
     longest_run_sec = max((len(run) for run in runs), default=0) * SAMPLE_STEP_SECONDS
     empty_subject = float(np.median(visible_stds)) < MIN_VISIBLE_SUBJECT_STD
+    # A repeated full-stage ivory/dark inversion is visible even when
+    # moving captions or particles change edge histograms. A single deliberate
+    # day/night transition should not be rejected by this 2s negative probe.
+    full_stage_light_dark_flips = [
+        i for i in range(len(frames) - 1)
+        if abs(stage_medians[i + 1] - stage_medians[i]) >= 115
+        and min(stage_bright_coverage[i], stage_bright_coverage[i + 1]) <= .18
+        and max(stage_bright_coverage[i], stage_bright_coverage[i + 1]) >= .67
+    ]
     issues = []
+    if len(full_stage_light_dark_flips) >= 3:
+        issues.append("REPEATED_FULL_STAGE_LIGHT_DARK_FLIPS_REQUIRE_ART_DIRECTION_REPAIR")
     if empty_subject:
         issues.append("MISSING_RECOGNIZABLE_SUBJECT_OR_NEAR_BLANK_CENTRAL_STAGE")
     if repetition_fraction >= HIGH_REPETITION_FRAC:
@@ -126,6 +140,13 @@ def review_decoded_samples(samples):
         issues.append("SUSTAINED_REPEATED_SOURCE_LAYOUT_REQUIRES_ART_DIRECTION_REPAIR")
     return {
         "samples": len(frames),
+        "fullStageLightDarkFlipCount": len(full_stage_light_dark_flips),
+        "fullStageLightDarkFlipWindowsSec": [
+            {"startSec": i * SAMPLE_STEP_SECONDS,
+             "endSec": (i + 1) * SAMPLE_STEP_SECONDS}
+            for i in full_stage_light_dark_flips
+        ],
+        "fullStageLightDarkScope": "Two-second decoded frame negative screen; three or more wholesale light/dark reversals require art-direction repair, never confer premium approval.",
         "sampleEverySeconds": SAMPLE_STEP_SECONDS,
         "repeatedSamplePairsStartSec": [i * SAMPLE_STEP_SECONDS for i in repeated],
         "highEdgeSimilarityFraction": round(repetition_fraction, 4),
