@@ -18,13 +18,13 @@
     "voiceFirstBeatMapApproved": true
   },
   "recovery": {
-    "macroRebuildCount": 0
+    "macroRebuildCount": 1
   },
   "beats": [
     {
       "id": "alcohol-01",
       "role": "hook",
-      "narration": "Ever wonder why a hangover can feel worse after the alcohol is gone?",
+      "narration": "Why does a hangover hurt after the alcohol is gone?",
       "onScreenText": "ALCOHOL ≠ JUST DEHYDRATION",
       "visualPurpose": "Show the early hangover question with brain versus glass",
       "spokenAnchor": "hangover",
@@ -42,10 +42,10 @@
     {
       "id": "alcohol-02",
       "role": "finding",
-      "narration": "It isn't just dehydration. Alcohol disrupts sleep, irritates your stomach, and can trigger inflammation.",
+      "narration": "It is not just dehydration. Alcohol disturbs sleep, irritates your stomach, and triggers inflammation.",
       "onScreenText": "MORE THAN DEHYDRATION",
       "visualPurpose": "Reveal three causes of hangover beyond fluid loss",
-      "spokenAnchor": "isn't just dehydration",
+      "spokenAnchor": "dehydration",
       "visualAction": "Expand sleep, stomach and inflammation diagrams",
       "motion": {
         "type": "reveal"
@@ -60,10 +60,10 @@
     {
       "id": "alcohol-03",
       "role": "context",
-      "narration": "In the short term, it disrupts brain signaling, impairing judgment, balance and memory. Heavy intoxication can suppress breathing.",
+      "narration": "Right away, it impairs judgment, memory, and coordination. Too much can dangerously slow breathing.",
       "onScreenText": "SHORT-TERM: BRAIN + BREATHING",
       "visualPurpose": "Explain immediate nervous-system changes without invented percentages",
-      "spokenAnchor": "impairing judgment",
+      "spokenAnchor": "judgment",
       "visualAction": "Highlight balance and memory pathways and transition to breathing",
       "motion": {
         "type": "reveal"
@@ -78,7 +78,7 @@
     {
       "id": "alcohol-04",
       "role": "evidence",
-      "narration": "Your liver converts alcohol into acetaldehyde, then acetate. Alcohol also reduces vasopressin, making you pee more. As blood alcohol falls toward zero, a hangover often intensifies.",
+      "narration": "Your liver turns alcohol into acetaldehyde, then acetate. Alcohol increases urination, while hangovers often peak as blood alcohol reaches zero.",
       "onScreenText": "LIVER → FLUIDS → HANGOVER",
       "visualPurpose": "Teach real metabolic sequence and an additional dehydration mechanism",
       "spokenAnchor": "acetaldehyde",
@@ -96,10 +96,10 @@
     {
       "id": "alcohol-05",
       "role": "finding",
-      "narration": "Over time, repeated heavy drinking can harm the liver, heart, and brain, and cause dependence. Alcohol also increases the risk of several cancers.",
+      "narration": "Over time, heavy drinking harms the liver, brain, and heart, and can cause dependence. Alcohol also raises cancer risk.",
       "onScreenText": "LONG-TERM RISKS",
       "visualPurpose": "Distinguish prolonged heavy intake harms from alcohol-related carcinogenicity",
-      "spokenAnchor": "increases the risk",
+      "spokenAnchor": "heart",
       "visualAction": "Move from liver and heart to DNA vulnerability without unsupported quantification",
       "motion": {
         "type": "reveal"
@@ -114,10 +114,10 @@
     {
       "id": "alcohol-06",
       "role": "limitation",
-      "narration": "Coffee and cold showers won't cure a hangover. Time is what helps. And suddenly quitting heavy daily drinking can trigger dangerous withdrawal.",
+      "narration": "Coffee cannot cure a hangover. Recovery takes time. And suddenly stopping heavy daily drinking can cause dangerous withdrawal.",
       "onScreenText": "NO QUICK CURE",
       "visualPurpose": "Dispel myths and give a brief, clinically accurate withdrawal warning",
-      "spokenAnchor": "won't cure",
+      "spokenAnchor": "Coffee",
       "visualAction": "Cross out quick-cure icons then highlight medical-care symbol",
       "motion": {
         "type": "reveal"
@@ -151,7 +151,7 @@
     {
       "id": "alcohol-08",
       "role": "cta",
-      "narration": "Drinking less generally means less risk. That's the science behind the buzz.",
+      "narration": "Less alcohol generally means less risk.",
       "onScreenText": "LESS DRINKING. LESS RISK.",
       "visualPurpose": "Offer clear plain-language take-away without claiming a safe dose",
       "spokenAnchor": "less risk",
