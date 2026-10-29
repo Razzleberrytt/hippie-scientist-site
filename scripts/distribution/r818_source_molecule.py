@@ -99,7 +99,7 @@ def frame(stage,t):
  capture.ReadFrontBufferOff();capture.Update()
  px=vtk_to_numpy(capture.GetOutput().GetPointData().GetScalars()).reshape(1200,1080,3)
  picture=Image.fromarray(np.flipud(px).copy(),'RGB')
- canvas=Image.new('RGBA',(1080,1920),(7,18,25,255));canvas.alpha_composite(picture.convert('RGBA'),(0,280))
+ canvas=Image.new('RGBA',(1080,1920),(3,8,12,255));canvas.alpha_composite(picture.convert('RGBA'),(0,280))
  d=ImageDraw.Draw(canvas,'RGBA')
  d.text((74,310),'7-OH: THE HYDROXYL SITE',font=stage['font'],fill=(235,242,232,255))
  if p>.45:

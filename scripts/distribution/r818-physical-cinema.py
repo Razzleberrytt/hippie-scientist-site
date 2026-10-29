@@ -249,7 +249,7 @@ def produce(job):
    if action=='ligand-enters-pocket':
     d.text((540,1518),'SYMBOLIC 3D MODEL',font=font(34),fill=(222,238,251),anchor='mm')
     d.text((540,1560),'NOT ATOMISTIC DOCKING',font=font(25),fill=(176,201,222),anchor='mm')
-   if not separated and beat.get('onScreenSourceIds'):
+   if not separated and action!='source-locked-molecular-focus' and beat.get('onScreenSourceIds'):
     d.text((540,1645),' · '.join(beat['onScreenSourceIds']),font=font(24),fill=(178,198,212),anchor='mm')
    file=directory/('f'+str(fi).zfill(5)+'.png')
    if separated:
