@@ -18,6 +18,11 @@ const primaryLinks = primaryNavigation
 
 const mobilePrimaryLinks = [
   {
+    label: 'Mental Health',
+    href: '/guides/mental-health',
+    description: 'Search personality, relationships, emotions and evidence reviews.',
+  },
+  {
     label: 'Explore',
     href: '/explore',
     description: 'Find a path by goal, ingredient, guide, safety question, or evidence task.',
