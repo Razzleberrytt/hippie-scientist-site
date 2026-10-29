@@ -47,6 +47,31 @@ def _two_state_layout_frames(count=9):
 
 
 class AutonomousFilmCriticTests(unittest.TestCase):
+    def test_repeated_whole_stage_theme_flips_are_detected(self):
+        # Oct 28 alcohol v7 alternated ivory and charcoal stages eight times.
+        frames = np.full((10, m.FRAME_H, m.FRAME_W), 25, dtype=np.uint8)
+        frames[2:4] = 235
+        frames[6:8] = 235
+        result = m.review_decoded_samples(frames)
+        self.assertEqual(result["fullStageLightDarkFlipCount"], 4)
+        self.assertEqual([w["startSec"] for w in result["fullStageLightDarkFlipWindowsSec"]],
+                         [2, 6, 10, 14])
+        self.assertIn("REPEATED_FULL_STAGE_LIGHT_DARK_FLIPS_REQUIRE_ART_DIRECTION_REPAIR",
+                      result["issues"])
+
+    def test_one_light_scene_or_bright_object_on_dark_is_not_a_theme_flip(self):
+        frames = np.full((10, m.FRAME_H, m.FRAME_W), 25, dtype=np.uint8)
+        frames[4:6] = 235
+        report = m.review_decoded_samples(frames)
+        self.assertEqual(report["fullStageLightDarkFlipCount"], 2)
+        self.assertNotIn("REPEATED_FULL_STAGE_LIGHT_DARK_FLIPS_REQUIRE_ART_DIRECTION_REPAIR",
+                         report["issues"])
+        moving = np.full((10, m.FRAME_H, m.FRAME_W), 25, dtype=np.uint8)
+        for i in range(10):
+            moving[i, 95:125, 28+i*8:48+i*8] = 235
+        report = m.review_decoded_samples(moving)
+        self.assertEqual(report["fullStageLightDarkFlipCount"], 0)
+
     def test_invalid_decoded_samples_are_rejected(self):
         with self.assertRaisesRegex(ValueError,'ACTUAL_DECODED_SAMPLES_REQUIRED'):
             m.review_decoded_samples(np.zeros((2,320,180),dtype=np.uint8))
