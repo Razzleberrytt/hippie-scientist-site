@@ -82992,6 +82992,158 @@
       "reservation_id": "3dfe47cdeb945e939f49",
       "reserved_at": "2026-10-28T05:56:21.601Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42731533",
+      "title": "People who use drugs as frontline responders: Rethinking overdose response training through lived experience.",
+      "doi": "10.1016/j.drugpo.2026.105505",
+      "source_title": "People who use drugs as frontline responders: Rethinking overdose response training through lived experience.",
+      "abstract": "The United States continues to experience an unprecedented overdose crisis driven by synthetic opioids such as fentanyl and the increasing adulteration of the drug supply with substances including xylazine. Although overdose education and naloxone/Narcan distribution (OEND) programs reduce overdose mortality, many overdose response trainings remain institutionally designed and insufficiently grounded in the lived realities of people who use drugs (PWUD). PWUD frequently serve as frontline overdose responders within their communities, and their experiential knowledge is critical for developing effective, contextually relevant, and trauma-informed overdose response training programs. This qualitative study examined overdose response knowledge, practices, and training needs among PWUD accessing syringe service programs across urban and rural regions of Tennessee. Forty semi-structured interviews were conducted with adults reporting drug use within the past 12 months. Interviews explored overdose response experiences, prior training, Narcan use, peer education, emergency service engagement, and awareness of xylazine. Guided by Community-Based Participatory Research (CBPR) principles, Grounded Theory methodology, and Rhodes' Risk Environment Framework, transcripts were analyzed using a collaborative team-based process and iterative categorization. Participants described substantial overdose response expertise developed primarily through lived experience, peer observation, and informal peer-to-peer teaching rather than formal training. Common response practices included Narcan administration, rescue breathing, coordinated peer response, and real-time decision making under high-stress conditions. Participants also described the emotional toll of repeated overdose response and emphasized the importance of practical, hands-on, and peer-led training delivered in trusted harm reduction settings. Formal trainings were often viewed as disconnected from the realities of overdose response. Regional differences emerged across urban and rural contexts, particularly in willingness to engage emergency services, perceptions of law enforcement, and awareness of xylazine and polysubstance overdose risks. PWUD are already functioning as primary overdose responders in many communities and possess critical expertise that remains largely absent from institutional overdose response training models. Findings support the development of peer-informed, trauma-informed, and community-driven overdose response education that builds on existing experiential knowledge while addressing structural barriers, evolving drug supply conditions, and regional differences in overdose risk environments. Public health systems and overdose prevention initiatives should prioritize sustained investment in peer-led harm reduction infrastructure and community-designed training approaches, particularly within underserved rural and Appalachian communities.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42731533/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42731533",
+        "doi": "10.1016/j.drugpo.2026.105505",
+        "journal": "The International journal on drug policy",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-29T10:12:13.088Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2fd3faa1a02c5d78c9eb",
+      "reserved_at": "2026-10-29T10:12:22.860Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42721716",
+      "title": "From custody to abandonment: Conceptualising Aboriginal people's drug treatment discontinuation after release.",
+      "doi": "10.1016/j.drugpo.2026.105499",
+      "source_title": "From custody to abandonment: Conceptualising Aboriginal people's drug treatment discontinuation after release.",
+      "abstract": "Release from custody marks a period of acute risk for Aboriginal people receiving opioid agonist treatment, with discontinuation rates nearly five times higher than in non-Aboriginal populations. Yet the contexts and experiences shaping decisions to stop treatment remain poorly understood. This qualitative study examines the experiences of 22 Aboriginal people who discontinued long-acting injectable buprenorphine (LAIB) within 12 weeks of release from custody in New South Wales, Australia. Drawing on Biehl's concept of zones of abandonment alongside Aboriginal scholarship on health and wellbeing, we explore how participants who discontinued navigated the post-release transition. Participants described how release delivered them into zones of social abandonment characterised by homelessness, services withdrawal, and disrupted social ties. In these contexts, participants' priorities shifted to day-to-day needs, active parenting, employment, and intimate relationships, and LAIB's side effects became incompatible with these community goals. Experiences of abandonment was compounded by ongoing intergenerational trauma from colonisation manifested in weakened kinship connections, social networks entangled with drug use, and profound structural disadvantage. While LAIB had achieved critical harm reduction goals during incarceration, prison's institutional structures provided scaffolding for treatment that dissolved upon release. Bringing Biehl's framework into dialogue with Aboriginal conceptions of health and kinship, we theorise the post-release environment as a zone of social, structural, and cultural abandonment characterised by the simultaneous withdrawal of institutional supports and the colonial disruption of kinship systems. Through this lens, LAIB discontinuation emerges not as treatment failure, but as a rational response to impossible circumstances.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42721716/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42721716",
+        "doi": "10.1016/j.drugpo.2026.105499",
+        "journal": "The International journal on drug policy",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-29T10:12:13.089Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f10cafeef74f5c154116",
+      "reserved_at": "2026-10-29T10:12:22.860Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -83036,17 +83188,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 563,
+    "total_reservations": 565,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 88,
+      "4": 90,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 563
+      "SOURCE_VERIFIED": 565
     },
     "batches": [
       {
@@ -83066,7 +83218,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 63,
+        "count": 65,
         "pr_number": null,
         "blocker": null
       }
