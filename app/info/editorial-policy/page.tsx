@@ -38,6 +38,7 @@ const gradeRules = [
 ]
 
 const standards = [
+  { title: 'Who reviewed this page?', body: 'The author byline identifies the writer. It does not certify medical credentials or independent clinical review. A clinical or pharmacist review is attributed by name, credentials, scope and review date only when a page has a documented review receipt. Without that attribution, independent clinical review has not been established. Review dates apply to the named page or claim; template and factual updates do not reset them.' },
   {
     title: 'Evidence inclusion',
     body: 'Include sources that actually test or materially inform the ingredient, preparation, outcome, population, safety question, interaction, or mechanism being discussed. Primary human studies are preferred for efficacy claims; high-quality systematic reviews and meta-analyses can summarize a body of evidence.',

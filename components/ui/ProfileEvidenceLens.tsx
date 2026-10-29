@@ -201,7 +201,7 @@ export default function ProfileEvidenceLens({
 
       {citationsCount > 0 ? (
         <p className="mt-2 text-xs leading-5 text-muted">
-          This profile cites {citationsCount} human stud{citationsCount === 1 ? 'y' : 'ies'}.
+          This profile cites {citationsCount} publication{citationsCount === 1 ? '' : 's'}; study designs and human evidence are counted below.
         </p>
       ) : null}
     </section>

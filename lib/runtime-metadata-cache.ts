@@ -1,3 +1,4 @@
+import { profileCommonName } from '@/lib/profile-credibility'
 import { cache } from './react-cache'
 import { getRuntimeVisibility } from './runtime-visibility'
 import { getCompoundSummaryIndex, getHerbSummaryIndex } from './runtime-summary-indexes'
@@ -12,8 +13,7 @@ function cleanText(value: unknown): string {
 }
 
 function displayName(record: RuntimeRecord): string {
-  const raw = cleanText(record.displayName || record.name || record.slug)
-  return raw.replace(/\s*\([^)]*\)\s*$/, '').trim() || raw
+  return profileCommonName(record)
 }
 
 function compactTitle(value: string, fallback: string): string {
@@ -44,7 +44,7 @@ function optimizeMetadataRecord(record: RuntimeRecord, type: 'herb' | 'compound'
   const titleFallback = type === 'herb'
     ? `${name} Benefits, Dosage & Safety`
     : `${name}: Effects, Dose & Safety`
-  const metaTitle = compactTitle(rawTitle, titleFallback)
+  const metaTitle = compactTitle(rawTitle.toLowerCase().includes(name.toLowerCase()) ? rawTitle : '', titleFallback)
 
   const rawDescription = cleanText(record.meta_description || record.metaDescription || record.description)
   const richerDescription = rawDescription.length >= META_DESCRIPTION_MIN

@@ -20,8 +20,11 @@ const DATA_DIR = path.resolve(ROOT, dataDirArg ? dataDirArg.split('=')[1] : 'pub
 const REPORTS_DIR = path.join(ROOT, 'ops', 'reports')
 const REPORT_PATH = path.join(REPORTS_DIR, 'evidence-grade-migration.json')
 const UNBACKED_PUBLIC_TIER = 'Editorial grade not demonstrated by recorded studies'
+// Precautionary indexability changes remain opt-in until exact-head data review.
+const APPLY_PUBLICATION_CEILING = process.argv.includes('--publication-ceiling')
 
 const PROFILE_SYNC_FIELDS = [
+  'indexability_status', 'robots', 'sitemap_included', 'evidence_publication_hold',
   'summary', 'summary_source', 'evidence_grade', 'evidence_grade_source', 'evidence_tier', 'evidence_tier_source',
   'evidenceLevel', 'evidenceTier',
   'evidence_grade_band', 'evidence_grade_reason', 'evidence_grade_explanation', 'evidence_grade_adjusted',
@@ -97,7 +100,8 @@ function loadSourceDesignsBySlug(): Map<string, Row[]> {
         if (!classes.length) continue
         designs.push({ pmid, study_class: strongestStudyClass(classes), study_class_source: meta.publicationTypes.join('; ') })
       }
-      if (designs.length) bySlug.set(slug, designs)
+      // Herb and compound slugs are distinct namespaces; never cross-attribute source designs.
+      if (designs.length) bySlug.set(`${dir === 'herbs-detail' ? 'herb' : 'compound'}:${slug}`, designs)
     }
   }
   return bySlug
@@ -124,11 +128,14 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
     const result: EvidenceReconciliation = reconcileEvidenceGrade(authoredGrade, authoredTier)
     reasons[result.reason] = (reasons[result.reason] ?? 0) + 1
 
-    const evidenceInputs = [...(claimsBySlug.get(String(row.slug)) ?? []), ...(sourcesBySlug.get(String(row.slug)) ?? [])]
+    const claimInputs = claimsBySlug.get(String(row.slug)) ?? []
+    const sourceInputs = sourcesBySlug.get(`${file === 'herbs.json' ? 'herb' : 'compound'}:${row.slug}`) ?? []
+    const evidenceInputs = [...claimInputs, ...sourceInputs]
     const citationHold = isMelatoninCitationHold(String(row.slug ?? ''))
-    const rationale: EvidenceRationale = buildEvidenceRationale(evidenceInputs)
+    // Deduplicate identical publications across claims/detail; authored directional markers do not create independent studies.
+    const rationale: EvidenceRationale = buildEvidenceRationale(evidenceInputs, claimInputs)
     if (rationale.designMatch) rationaleCards += 1
-    const backing = gradeIsBackedByEvidence(result.grade, rationale)
+    const backing = gradeIsBackedByEvidence(result.grade, rationale, [curated?.summary ?? row.summary, curated?.description ?? row.description].filter(Boolean).join(' '))
     const backed = backing.backed && !citationHold
     const backingReason = citationHold ? MELATONIN_IDENTITY_HOLD : backing.reason
 
@@ -168,6 +175,11 @@ function normalizeProfiles(file: string, claimsBySlug: Map<string, Row[]>, sourc
 
     const enriched = {
       ...quarantineMelatoninDetail(row),
+      // Off by default. Never promote indexability from this evidence summary.
+      ...(APPLY_PUBLICATION_CEILING && !citationHold && rationale.humanStudyCount === 0
+        ? { evidence_publication_hold: row.evidence_publication_hold || { priorStatus: row.indexability_status, reason: 'no-recorded-human-evidence' },
+            indexability_status: /^(BLOCKED|NEEDS_REVIEW)$/.test(String(row.indexability_status)) ? row.indexability_status : 'NOINDEX',
+            robots: 'noindex,follow', sitemap_included: false } : {}),
       ...(curated ? {
         summary: curated.summary,
         summary_source: 'curated-detail',
@@ -253,7 +265,10 @@ function main() {
   const unbacked = profiles.flatMap((p) => p.unbacked)
   const reasons: Record<string, number> = {}
   for (const p of profiles) for (const [reason, count] of Object.entries(p.reasons)) reasons[reason] = (reasons[reason] ?? 0) + count
-  const report = { generatedAt: new Date().toISOString(), totals, gradeReasons: reasons, studyClasses: claims.classes, adjustments: profiles.flatMap((p) => p.changes), unbackedStrongGrades: unbacked }
+  const publicationPolicy = ['herbs.json', 'compounds.json'].flatMap(file => readJson(file).filter(row => row.evidence_publication_hold).map(row => ({ kind: file === 'herbs.json' ? 'herb' : 'compound', slug: row.slug, priorStatus: (row.evidence_publication_hold as Row).priorStatus, finalStatus: row.indexability_status, humanPublications: row.evidence_human_study_count, reason: (row.evidence_publication_hold as Row).reason })))
+  // An opt-in no-human-evidence hold must not accidentally affect a human-positive record.
+  if (APPLY_PUBLICATION_CEILING && publicationPolicy.some(row => Number(row.humanPublications) > 0)) throw new Error('Publication ceiling affected a human-positive profile')
+  const report = { generatedAt: new Date().toISOString(), totals, gradeReasons: reasons, studyClasses: claims.classes, publicationPolicy, adjustments: profiles.flatMap((p) => p.changes), unbackedStrongGrades: unbacked }
   mkdirSync(REPORTS_DIR, { recursive: true })
   writeFileAtomic(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`)
 

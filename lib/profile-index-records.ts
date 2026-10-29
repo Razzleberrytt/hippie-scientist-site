@@ -56,7 +56,11 @@ const INDEX_RECORD_KEYS = [
 ] as const
 
 function compactString(value: string): string {
-  return value.replace(/\s+/g, ' ').trim().slice(0, 240)
+  const normalized = value.replace(/\s+/g, ' ').trim()
+  if (normalized.length <= 240) return normalized
+  const sentence = normalized.slice(0, 240).match(/^[\s\S]*[.!?](?=\s|$)/)?.[0]
+  const wordBreak = normalized.lastIndexOf(' ', 237)
+  return sentence || normalized.slice(0, wordBreak > 0 ? wordBreak : 237).trimEnd() + '…'
 }
 
 function compactValue(value: unknown): unknown {

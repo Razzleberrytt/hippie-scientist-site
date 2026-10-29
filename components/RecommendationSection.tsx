@@ -120,7 +120,7 @@ export default async function RecommendationSection({
     return (
       <RecommendationUnavailable
         title={title}
-        reason='Product recommendations are not shown for this profile because the current site safety and monetization policy does not permit them.'
+        reason='Product recommendations are not shown for this profile. Review the evidence limitations, safety notes, and medication concerns before considering a product.'
       />
     )
   }
