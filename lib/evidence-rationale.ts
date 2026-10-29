@@ -30,6 +30,8 @@ export type EvidenceRationale = {
   consistency: EvidenceConsistency | null
   /** Claims backed by a design that measured an outcome in people. */
   humanStudyCount: number
+  /** Human-design records with distinct stable PMID/DOI source identities. */
+  identifiedHumanStudyCount: number
   /** Claims carrying any recorded design at all. */
   classifiedStudyCount: number
   totalClaimCount: number
@@ -46,11 +48,7 @@ const MIXED_MARKER = /\bmixed\b|\binconsistent\b|\bconflict/i
 /** A recorded design that explicitly flags its own bias problem. */
 const HIGH_BIAS_MARKER = /high[_\s-]?bias|\bpoor quality\b/i
 
-/**
- * Consistency needs a real body of work behind it. Below this many human
- * studies, "no disagreement recorded" only means there was little to disagree.
- */
-// A consistency assessment requires directional outcome evidence, not a count threshold.
+// A consistency assessment needs outcome-specific directional evidence, not merely a number of studies.
 
 export type RationaleClaimInput = {
   /** Canonical class, when the pipeline has already assigned one. */
@@ -58,6 +56,59 @@ export type RationaleClaimInput = {
   /** Raw recorded design, used both as fallback and for finding markers. */
   study_class_source?: unknown
   evidence_tier?: unknown
+  pmid?: unknown
+  pubmedId?: unknown
+  doi?: unknown
+  url?: unknown
+  source_url?: unknown
+}
+
+/** Publication identity is evidence of one record, never trial independence. */
+function publicationIdentity(claim: RationaleClaimInput): string | null {
+  for (const value of [claim.pmid, claim.pubmedId]) {
+    const id = String(value ?? '').trim()
+    if (/^\d{5,10}$/.test(id)) return `pmid:${id}`
+  }
+  for (const value of [claim.url, claim.source_url]) {
+    const text = String(value ?? '')
+    const match = text.match(/(?:pubmed\.ncbi\.nlm\.nih\.gov\/|ncbi\.nlm\.nih\.gov\/pubmed\/)(\d{5,10})(?:\b|\/)/i)
+    if (match) return `pmid:${match[1]}`
+  }
+  const doi = String(claim.doi ?? '').trim().replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, '').toLowerCase()
+  return /^10\.\d{4,9}\/\S+$/.test(doi) ? `doi:${doi}` : null
+}
+
+function uniqueRecordedPublications(claims: readonly RationaleClaimInput[]): {
+  records: RationaleClaimInput[]
+  identifiedHumanStudyCount: number
+} {
+  const withIdentity = new Map<string, RationaleClaimInput>()
+  const unknownIdentity: RationaleClaimInput[] = []
+  for (const claim of claims) {
+    const id = publicationIdentity(claim)
+    if (!id) {
+      // Unresolved source identity cannot satisfy the Grade A independence floor.
+      unknownIdentity.push(claim)
+      continue
+    }
+    const previous = withIdentity.get(id)
+    if (!previous) {
+      withIdentity.set(id, claim)
+      continue
+    }
+    // A publication appearing in claims and profile sources is still ONE item.
+    // Preserve the strongest recorded design and all negative/bias markers.
+    const strongest = strongestStudyClass([classOf(previous), classOf(claim)])
+    withIdentity.set(id, {
+      ...previous,
+      study_class: strongest,
+      study_class_source: `${sourceText(previous)}; ${sourceText(claim)}`,
+    })
+  }
+  return {
+    records: [...withIdentity.values(), ...unknownIdentity],
+    identifiedHumanStudyCount: [...withIdentity.values()].filter((claim) => isHumanStudyClass(classOf(claim))).length,
+  }
 }
 
 function sourceText(claim: RationaleClaimInput): string {
@@ -87,7 +138,9 @@ function classOf(claim: RationaleClaimInput): StudyClass {
  * rationale that the caller can render as "not assessed".
  */
 export function buildEvidenceRationale(claims: readonly RationaleClaimInput[], directions: readonly RationaleClaimInput[] = []): EvidenceRationale {
-  const classes = claims.map(classOf)
+  const unique = uniqueRecordedPublications(claims)
+  const records = unique.records
+  const classes = records.map(classOf)
   const classCounts: Partial<Record<StudyClass, number>> = {}
   for (const studyClass of classes) {
     classCounts[studyClass] = (classCounts[studyClass] ?? 0) + 1
@@ -97,24 +150,26 @@ export function buildEvidenceRationale(claims: readonly RationaleClaimInput[], d
   const humanStudyCount = classes.filter(isHumanStudyClass).length
   const strongestClass = strongestStudyClass(classes)
 
-  const texts = [...claims, ...directions].map(markerText)
+  // Publication identities are deduplicated for counts; directional authored markers are not separate publications.
+  const texts = [...records, ...directions].map(markerText)
   const flaggedHighBias = texts.some((text) => HIGH_BIAS_MARKER.test(text))
   const negativeCount = texts.filter((text) => NEGATIVE_MARKER.test(text)).length
   const mixedCount = texts.filter((text) => MIXED_MARKER.test(text)).length
 
   const designMatch = strongestClass === 'unclassified' ? null : STUDY_CLASS_INFO[strongestClass].label
-  // Study design alone is not an assessed risk-of-bias judgment.
+  // A design label alone cannot establish the assessed risk of bias.
   const riskOfBias: RiskOfBias | null = flaggedHighBias ? 'High' : null
 
   let consistency: EvidenceConsistency | null = null
   if (mixedCount > 0 || negativeCount > 0) consistency = 'Mixed'
-  // A list of designs cannot establish agreement between outcome-specific results.
+  // Absence of recorded disagreement does not prove that study results agree.
 
   return {
     designMatch,
     riskOfBias,
     consistency,
     humanStudyCount,
+    identifiedHumanStudyCount: unique.identifiedHumanStudyCount,
     classifiedStudyCount: classified.length,
     totalClaimCount: claims.length,
     strongestClass,
@@ -164,9 +219,7 @@ export function gradeIsBackedByEvidence(
   editorialSummary = '',
 ): { backed: boolean; reason: string | null } {
   if (grade !== 'A' && grade !== 'B') return { backed: true, reason: null }
-
-  // Conflicting authored signals require reconciliation, not an automatic
-  // choice of the more favorable grade. Preserve the authored grade upstream.
+  // A settled grade must not contradict a plainly limited or mixed authored summary.
   if (/limited\/modest evidence|evidence (?:is |remains )?(?:mixed|limited|modest|preliminary)|no two [^.]*same significant/i.test(editorialSummary)) {
     return { backed: false, reason: 'conflicting-editorial-evidence-signals' }
   }
@@ -177,8 +230,13 @@ export function gradeIsBackedByEvidence(
   if (rationale.humanStudyCount === 0) {
     return { backed: false, reason: 'no-human-study-recorded' }
   }
-  if (grade === 'A' && rationale.humanStudyCount < 2) {
-    return { backed: false, reason: 'single-human-study-for-grade-a' }
+  if (grade === 'A' && rationale.identifiedHumanStudyCount < 2) {
+    return {
+      backed: false,
+      reason: rationale.identifiedHumanStudyCount === 0
+        ? 'no-identifiable-human-publications-for-grade-a'
+        : 'single-human-study-for-grade-a',
+    }
   }
   if (grade === 'A' && (!rationale.riskOfBias || !rationale.consistency)) {
     return { backed: false, reason: 'grade-a-certainty-not-assessed' }
