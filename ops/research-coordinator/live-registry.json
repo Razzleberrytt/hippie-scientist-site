@@ -83296,6 +83296,158 @@
       "reservation_id": "35de7f87ae867ee8a15b",
       "reserved_at": "2026-10-29T16:59:18.128Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42879993",
+      "title": "Fully automated robotic sample preparation coupled with UPLC-MS/MS for high-throughput screening of 19 nitazene analogues in human urine.",
+      "doi": "10.1016/j.jpba.2026.117762",
+      "source_title": "Fully automated robotic sample preparation coupled with UPLC-MS/MS for high-throughput screening of 19 nitazene analogues in human urine.",
+      "abstract": "An automated protein precipitation (PPT) method coupled with ultra-performance liquid chromatography-tandem mass spectrometry (UPLC-MS/MS) was developed using an in-house developed automatic sample pretreatment platform. The platform integrates six sets of 8-position tube racks, a centrifuge vials rack, a reagent rack, an automatic decapper, a vortex mixer, a centrifuge, and an X-Y-Z axis robotic arm. The online sample preparation workflows and chromatographic conditions were systematically optimized for the comprehensive analysis of 19 nitazene analogues in human urine. The robotic platform operates in a pipeline-parallel processing mode, in which UPLC-MS/MS analysis (18 min per sample) is performed for one batch, while the subsequent batch of eight samples undergoes automated pretreatment (30 min per batch) without manual intervention. This design achieves a total turnaround time of 14.9 h for 48 samples, corresponding to an average processing time of 18.6 min per sample. Furthermore, the entire pretreatment procedure consumes only 400 μL of methanol per sample, thereby reducing organic solvent consumption. The method demonstrated good precision, with intra-day relative standard deviations (RSDs) of 1.2-7.0% and inter-day RSDs of 0.6-5.1%, indicating satisfactory analytical reproducibility. Application of the method to 24 authentic urine samples identified 15 positives specimens, with N,N-dimethylamino etonitazene (0.4-168.5 ng/mL) being the most frequently detected analyte, together with three other nitazene analogues or metabolites. Overall, the developed automated PPT-UPLC-MS/MS platform provides a rapid, reproducible, and solvent-efficient approach for high-throughput screening of nitazene analogues in human urine, with potential applications in forensic toxicology and public health surveillance.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42879993/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42879993",
+        "doi": "10.1016/j.jpba.2026.117762",
+        "journal": "Journal of pharmaceutical and biomedical analysis",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-30T08:45:48.610Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7df4641a942f4e2a54c9",
+      "reserved_at": "2026-10-30T08:45:57.135Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42444493",
+      "title": "Vatinoxan Prevents Medetomidine-Associated Exophthalmos and Increased Glucose Concentrations in Blood and Aqueous Humor in Rats.",
+      "doi": "10.1177/10807683261463884",
+      "source_title": "Vatinoxan Prevents Medetomidine-Associated Exophthalmos and Increased Glucose Concentrations in Blood and Aqueous Humor in Rats.",
+      "abstract": "To evaluate whether vatinoxan, a peripherally selective alpha 2 -adrenoceptor antagonist, prevents the acute, medetomidine-associated ophthalmic changes in rats. Adult male Wistar rats ( n = 9 in each group) were randomly allocated to receive subcutaneous medetomidine 0.4 mg/kg and midazolam 2 mg/kg (MM), MM with vatinoxan 8 mg/kg (MM-V), or MM with regular insulin 1 IU/kg (MM-I). Macroscopic photography (to assess globe position) and slit-lamp biomicroscopy were performed, and blood glucose (BG) concentration, intraocular pressure (IOP), and central corneal thickness (CCT) were measured at intervals until 50 min post-treatment. Surgical anesthesia was then induced, and aqueous humor glucose (AHG) concentration was measured prior to euthanasia. In MM and MM-I, exophthalmos worsened over time ( P < 0.05) and compared to MM-V ( P ≤ 0.04 for both). BG increased significantly over time ( P < 0.001) only in MM, and AHG was significantly higher in MM than in MM-V and MM-I ( P < 0.001). Lens clarity was decreased at 50 min in both MM ( P = 0.002) and MM-I ( P = 0.048), compared to MM-V. CCT was greater in MM-V than in MM at 50 min ( P = 0.02). Corneal clarity remained unchanged. IOP declined in all groups but remained significantly higher in MM-V 10 min versus 50 min post-treatment ( P = 0.02). Vatinoxan prevented pathological exophthalmos, lens opacification, the acute decline in IOP, hyperglycemia, and increased AHG in rats sedated with medetomidine-midazolam. Insulin similarly prevented hyperglycemia, but none of the ophthalmic changes. Acute alpha 2 -adrenoceptor agonist-mediated ophthalmic pathologies are independent from glycemic control.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42444493/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42444493",
+        "doi": "10.1177/10807683261463884",
+        "journal": "Journal of ocular pharmacology and therapeutics : the official journal of the Association for Ocular Pharmacology and Therapeutics",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-30T08:45:48.610Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "28f0e83ee26db34b45a1",
+      "reserved_at": "2026-10-30T08:45:57.135Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -83340,17 +83492,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 567,
+    "total_reservations": 569,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 92,
+      "4": 94,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 567
+      "SOURCE_VERIFIED": 569
     },
     "batches": [
       {
@@ -83370,7 +83522,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 67,
+        "count": 69,
         "pr_number": null,
         "blocker": null
       }
