@@ -39,7 +39,8 @@ The “Find an ingredient” card only opens herbs even though compounds are a s
   not a demonstrated application failure. Retry runs the same unmodified build
   script, using a temporary external npx wrapper that invokes tsx through Node’s
   import loader instead of its IPC CLI. No repository build or gate is changed.
-- Build retry: **running / not yet verified**.
+- Local diagnostic build retry: **all 37 production steps passed in 839.76 seconds**.
+  Final-source hosted output validation remains required as described below.
 - Browser could inspect production, but cannot reach this executor’s localhost:
   `ERR_CONNECTION_REFUSED`. Updated responsive/light/dark screenshot proof is
   **not yet available**. Source CSS is responsive and uses the established theme
@@ -63,3 +64,15 @@ Local build compilation preceded the final relocation of first-visit task cards
 above the reading section. Its eventual result is diagnostic; hosted final-head
 production output is the decisive exact-source release check. A local successful
 compile alone is not claimed as final-source export proof.
+
+## Full-suite stale presentation assertions
+
+At final-source head `d98d1e6...`, hosted Vitest completed **4,462 passing tests**
+with two failures, both source-string presentation assertions in
+`app/__tests__/front-door-architecture.test.ts` and
+`app/__tests__/mobile-premium-ux.test.ts`. They required the replaced headline,
+old intro wrapper and herb-only ingredient destination. Updated only those
+expected strings, retaining the navigation, search, safety, metrics, privacy,
+focus and theme contracts. Focused rerun includes both complete affected suites
+and the new rendered homepage suite; no application source changed in this follow-up.
+Release HOLD remains until the final exact-head checks complete.
