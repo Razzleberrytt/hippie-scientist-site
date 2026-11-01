@@ -25,7 +25,8 @@ The “Find an ingredient” card only opens herbs even though compounds are a s
   function `assessAdmission(inventory, { existing: 6723 })` returned **REUSE**.
   CLI wrapper uses unavailable `gh`; no new PR is created and the same inventory
   was checked through the unmodified policy function.
-- Five existing focused UI suites: **18/18 passed**.
+- Final focused UI run: **28/28 passed across seven suites**, including the retained
+  evidence-lens regressions.
 - New rendered homepage discovery/search regressions: **2/2 passed**.
   The first run exposed the test harness’s intentional slash normalization;
   assertions now check the normalized href while the form retains `/search/`.
@@ -43,5 +44,22 @@ The “Find an ingredient” card only opens herbs even though compounds are a s
   `ERR_CONNECTION_REFUSED`. Updated responsive/light/dark screenshot proof is
   **not yet available**. Source CSS is responsive and uses the established theme
   variables; that is not visual acceptance.
-- Existing PR remains draft/hold until final validations and review pass. No direct
+- Existing PR is ready for review with `hold-merge` preserved until final validations and review pass. No direct
   merge, deployment receipt, scientific approval or business uplift is claimed.
+
+## Hosted repair follow-up
+
+The first hosted structural contract still asserted the retired headline and herb-only
+lookup href. Its expected copy and destination now match the new experience while
+preserving all search, task-count, Explore, focus and uncertainty requirements;
+`node scripts/ci/validate-experience-backlog.mjs` passes **19/19 invariants**.
+The first hosted project-control attempt used the PR's stale October base snapshot
+`ecc249f5...` and misinterpreted later existing admissions as new. Refreshing the PR's
+base to the same `main` branch corrected its metadata to `aefa7594...`; comparison
+then verified **zero behind** and only the intended 13 paths before the validator
+follow-up. No admission/merge/security policy was weakened.
+
+Local build compilation preceded the final relocation of first-visit task cards
+above the reading section. Its eventual result is diagnostic; hosted final-head
+production output is the decisive exact-source release check. A local successful
+compile alone is not claimed as final-source export proof.
