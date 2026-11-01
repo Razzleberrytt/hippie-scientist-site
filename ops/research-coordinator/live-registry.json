@@ -83525,6 +83525,158 @@
       "reservation_id": "32dc579baa38ac8d72e4",
       "reserved_at": "2026-10-30T16:01:52.936Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42914877",
+      "title": "The impact of α3β4 partial agonist AT-1001 on oxycodone withdrawal.",
+      "doi": "10.1016/j.drugalcdep.2026.113388",
+      "source_title": "The impact of α3β4 partial agonist AT-1001 on oxycodone withdrawal.",
+      "abstract": "Opioid withdrawal remains a major barrier to successful treatment of opioid use disorder. Non-opioid treatments such as clonidine and lofexidine reduce acute somatic symptoms but do not address affective and protracted withdrawal signs. Neuronal nicotinic acetylcholine receptors (nAChRs), particularly the α3β4⁎ subtype, are a promising alternative target implicated in opioid withdrawal. Here we investigated whether AT-1001, a high-affinity α3β4⁎ partial agonist, reduces somatic and affective signs of oxycodone withdrawal in mice. Male and female C57BL/6J mice were rendered dependent on oxycodone (60mg/kg/day) or vehicle (0.9% saline) via a 7-day osmotic minipump infusion. Twenty-four hours after minipump removal, mice received an acute subcutaneous injection of vehicle, lofexidine (0.5mg/kg), or AT-1001 (0.3, 0.9, or 3mg/kg), followed by assessment of somatic withdrawal signs. In a separate cohort of oxycodone-dependent mice, animals received the highest dose of AT-1001 or lofexidine and were assessed two weeks post-minipump removal for mechanical sensitivity and anxiety-like behaviors (light/dark box assay). Our results showed that AT-1001 dose-dependently reduced somatic withdrawal signs in oxycodone-treated mice. In contrast to lofexidine, AT-1001 attenuated mechanical hypersensitivity and anxiety-like behavior compared to the vehicle group in oxycodone-dependent mice. Furthermore, AT-1001 had no significant effect on oxycodone-induced antinociception, as evaluated in the warm-water immersion assay. . Our findings suggest that AT-1001 effectively reduces oxycodone withdrawal signs without altering its antinociceptive effects. This supports α3β4⁎ partial agonists as promising candidates for further development as a safer and more comprehensive opioid withdrawal treatment.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42914877/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42914877",
+        "doi": "10.1016/j.drugalcdep.2026.113388",
+        "journal": "Drug and alcohol dependence",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-01T09:24:41.051Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "16b2617e0ed8e9bc6324",
+      "reserved_at": "2026-11-01T09:24:49.128Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42832850",
+      "title": "Behavioral economic analysis of the reinforcing effects of fentanyl, cocaine, and mixtures of fentanyl and cocaine in rats.",
+      "doi": "10.1016/j.drugalcdep.2026.113382",
+      "source_title": "Behavioral economic analysis of the reinforcing effects of fentanyl, cocaine, and mixtures of fentanyl and cocaine in rats.",
+      "abstract": "The co-use of opioids, primarily fentanyl, and stimulants has resulted in substantial increases in fatal multi-drug overdoses, yet few studies have systematically investigated the reinforcing effects of fentanyl + stimulant mixtures. Behavioral economic demand curve analyses can quantify the relative value of drug reinforcers across different classes (e.g., opioids and stimulants), making it a valuable method to determine factors that promote polysubstance use. The current study used a multiple-component drug self-administration procedure to assess economic demand for fentanyl (0.00032-0.01mg/kg/inf), cocaine (0.032-1.0mg/kg/inf), and mixtures of fentanyl:cocaine at fixed-ratios of 10:1, 3:1, 1:1, 1:3, 1:10 (relative to the dose ranges used for each drug alone) in male and female Sprague-Dawley rats. Available unit doses of drug increased within-session across four components and response requirement (fixed-ratio; FR) increased across sessions. Demand curves for fentanyl, cocaine, and fentanyl:cocaine mixtures were generated, and elasticity coefficients (ɑ) estimated from demand curve analyses were used to assess the reinforcing value of the drugs alone and mixtures. Demand for cocaine was more inelastic than demand for fentanyl (i.e., cocaine was a more valuable reinforcer); demand elasticity for the mixtures became more elastic as the proportion of fentanyl to cocaine increased, and more inelastic as the proportion of cocaine to fentanyl increased. These findings suggest that interactions between the reinforcing effects of fentanyl and cocaine are additive in nature, however, it is unclear whether similar interactions would be observed under clinically relevant states, such as physical dependence on opioids or opioid withdrawal.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42832850/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42832850",
+        "doi": "10.1016/j.drugalcdep.2026.113382",
+        "journal": "Drug and alcohol dependence",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-01T09:24:41.051Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e8f35419e2ff68c1feb2",
+      "reserved_at": "2026-11-01T09:24:49.128Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -83569,17 +83721,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 570,
+    "total_reservations": 572,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 95,
+      "4": 97,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 570
+      "SOURCE_VERIFIED": 572
     },
     "batches": [
       {
@@ -83599,7 +83751,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 70,
+        "count": 72,
         "pr_number": null,
         "blocker": null
       }
