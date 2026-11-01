@@ -83832,6 +83832,82 @@
       "reservation_id": "82410e48d28fa50c3535",
       "reserved_at": "2026-11-01T16:09:47.592Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42967256",
+      "title": "Evaluation of miR-155-5p expression and ovarian histopathological changes in a cyclophosphamide-induced mouse model of premature ovarian insufficiency.",
+      "doi": "10.1007/s10735-026-11025-5",
+      "source_title": "Evaluation of miR-155-5p expression and ovarian histopathological changes in a cyclophosphamide-induced mouse model of premature ovarian insufficiency.",
+      "abstract": "Premature ovarian insufficiency (POI) is a reproductive disorder characterized by amenorrhea, reduced estrogen levels, and elevated gonadotropins. Increasing evidence highlights the involvement of microRNAs, particularly miR-155-5p, in inflammation and apoptosis. This study aimed to evaluate the expression level of miR-155-5p and key folliculogenesis genes. Anti-Müllerian hormone(AMH) and growth differentiation factor 9 (GDF9) in the ovarian tissue of a cyclophosphamide-induced POI mouse model compared with healthy controls, alongside histopathological assessment and follicle quantification. Sixteen female NMRI mice were randomly assigned to two groups (n = 8 each). The experimental group received intraperitoneal cyclophosphamide (120 mg/kg) to induce POI, while the control group received normal saline. Ovarian tissues were harvested for molecular and histological analyses. Total RNA was extracted and subjected to cDNA synthesis, and miR-155-5p, AMH, and GDF9 expression were quantified by QRT-PCR. For morphological evaluation, serial ovarian sections were stained with hematoxylin-eosin (H&E), toluidine blue, and Periodic Acid-Schiff (PAS) special stains. miR-155-5p expression was significantly upregulated in the POI group compared with controls (P < 0.001). AMH expression was markedly downregulated (P < 0.001) and GDF9 expression was significantly upregulated (P < 0.05). Histopathology revealed reduced healthy follicles, increased atresia, stromal disruption, and oocyte degeneration in the POI group. Serum estradiol decreased, while FSH levels increased. Upregulation of miR-155-5p was associated with ovarian histopathological alterations and changes in folliculogenesis-related gene expression in the cyclophosphamide-induced POI model. These findings identify miR-155-5p as a potential candidate biomarker of ovarian injury in this experimental setting. However, the present findings do not establish a causal or mechanistic role for miR-155-5p. Further functional studies, including gain- and loss-of-function experiments and target validation, as well as clinical studies, are required to determine its biological and clinical significance.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42967256/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42967256",
+        "doi": "10.1007/s10735-026-11025-5",
+        "journal": "Journal of molecular histology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-01T20:37:06.238Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "54afdf54241142b30b80",
+      "reserved_at": "2026-11-01T20:37:14.408Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -83876,17 +83952,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 574,
+    "total_reservations": 575,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 99,
+      "4": 100,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 574
+      "SOURCE_VERIFIED": 575
     },
     "batches": [
       {
@@ -83906,7 +83982,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 74,
+        "count": 75,
         "pr_number": null,
         "blocker": null
       }
