@@ -83677,6 +83677,161 @@
       "reservation_id": "e8f35419e2ff68c1feb2",
       "reserved_at": "2026-11-01T09:24:49.128Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42743838",
+      "title": "Extended-release injection vs sublingual buprenorphine for illicit opioid use in pregnant patients with depression and/or anxiety.",
+      "doi": "10.1016/j.drugalcdep.2026.113358",
+      "source_title": "Extended-release injection vs sublingual buprenorphine for illicit opioid use in pregnant patients with depression and/or anxiety.",
+      "abstract": "Active depression and/or anxiety (D/A) symptoms among pregnant individuals with opioid use disorder (OUD) may impact the efficacy of new OUD medication treatment formulations. We conducted an exploratory secondary analysis of an intent-to-treat, parallel group, randomized trial that compared the effectiveness of injectable extended-release buprenorphine (XR-BUP) to sublingual (SL-BUP). Participants included pregnant adults (N = 140) seeking or receiving buprenorphine for OUD treatment. A total of 52.1% (n = 73) of participants screened positive for active D/A symptoms at baseline, assessed using the Hospital Anxiety and Depression Scale. The primary outcome of illicit opioid abstinence, measured by urine drug screens, was assessed from baseline through one-year postpartum. We also assessed buprenorphine adherence, opioid craving, and withdrawal during the same period. We employed descriptive statistics to characterize baseline population characteristics and longitudinal multiple regression to test treatment effects across time. Opioid abstinence during pregnancy was higher in the XR-BUP group than the SL-BUP group who were D/A positive (group difference=12.5%, p = 0.03) compared to D/A negative (group difference=6.7%, p = 0.27). Withdrawal was lower during the postpartum period in the XR-BUP group than the SL-BUP group for those D/A positive (group difference -2.9, p < 0.01) compared to those D/A negative (group difference= -0.7, p = 0.47). We observed a time effect for decreases in the proportion of participants who were D/A positive during pregnancy (Odds Ratio=0.27, p < 0.01). Among pregnant individuals with OUD and co-occurring D/A symptoms, XR-BUP may confer greater benefits related to opioid abstinence and reduced withdrawal symptoms compared to SL-BUP.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42743838/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42743838",
+        "doi": "10.1016/j.drugalcdep.2026.113358",
+        "journal": "Drug and alcohol dependence",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-01T16:09:39.191Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b51ce3dc9d6adb89ddda",
+      "reserved_at": "2026-11-01T16:09:47.592Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42715657",
+      "title": "Animal models of spontaneous opioid withdrawal.",
+      "doi": "10.1016/j.drugalcdep.2026.113338",
+      "source_title": "Animal models of spontaneous opioid withdrawal.",
+      "abstract": "Preclinical experiments have revealed much about opioid withdrawal, but have failed to discover novel treatments. The preclinical literature is dominated by experiments examining naloxone-precipitated withdrawal from morphine in male rats. These studies report a number of putative treatments for opioid withdrawal, none of which have become clinically approved. A major problem, supported by both human and animal research, is that antagonist-precipitated withdrawal is distinct from the spontaneous opioid withdrawal experienced by most opioid users. A second problem is the widespread focus in animal research on somatic symptoms (e.g., wet dog shakes). Although somatic symptoms can be disruptive, anxiety, anhedonia, and aches are the symptoms that cause distress and drive relapse. Somatic symptoms are also problematic because they are easily suppressed by treatments that produce sedative or motor effects. A potential solution to these problems is the use of voluntary home cage wheel running as a more general measure of opioid withdrawal. Wheel running provides a continuous and objective measure ideal for assessing changes in the magnitude and duration of spontaneous withdrawal over time. The decrease in wheel running caused by opioid withdrawal changes the definition of an effective treatment from suppressing behavior (somatic symptoms) to restoring behavior (wheel running), thereby avoiding confounds produced by sedative or motor effects. This review provides a detailed analysis of rodent experiments on opioid withdrawal, highlighting potential problems with external validity and describing wheel running experiments that align animal experiments with the clinical manifestation of opioid withdrawal to enhance the development of novel treatments.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42715657/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42715657",
+        "doi": "10.1016/j.drugalcdep.2026.113338",
+        "journal": "Drug and alcohol dependence",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-01T16:09:39.191Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "82410e48d28fa50c3535",
+      "reserved_at": "2026-11-01T16:09:47.592Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -83721,17 +83876,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 572,
+    "total_reservations": 574,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 97,
+      "4": 99,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 572
+      "SOURCE_VERIFIED": 574
     },
     "batches": [
       {
@@ -83751,7 +83906,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 72,
+        "count": 74,
         "pr_number": null,
         "blocker": null
       }
