@@ -1,5 +1,17 @@
 # Master Backlog
 
+### HOME-DISCOVERY-001 / #6983 — owner-directed homepage and visual repair (2026-11-01)
+
+In progress in existing **PR #6723**, rebased by a non-conflicting two-parent merge
+with main `aefa7594b9a15522756b0d43020d6337455b1014`. No new implementation PR.
+Scope: readable homepage introduction, six existing topic destinations, published
+relationship reading links, shared ingredient search, and the retained footer,
+safety-sentence and article-counter visual fixes. Preserve stable URLs and
+scientific data. Source and validation: [execution record](audit/homepage-discovery-2026-11-01.md).
+Exact-head CI, visual proof and protected-controller release remain required;
+no merge or production deployment is claimed.
+
+
 ### B12-COMPARE-001 / #6670 — owner-directed vitamin B12 guide (2026-10-22)
 
 Status: **In review — [PR #6951](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6951), unmerged** — Will directly prioritizes this Revenue/Conversion ticket
