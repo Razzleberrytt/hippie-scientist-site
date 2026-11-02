@@ -55,7 +55,7 @@ invariant('THS-001', 'homepage provides one Search, three safe first-visit tasks
   const firstPathEnd = homepage.indexOf('] as const', firstPathStart)
   const firstPaths = firstPathStart >= 0 && firstPathEnd > firstPathStart
     ? homepage.slice(firstPathStart, firstPathEnd) : ''
-  return homepage.includes('Understand the evidence. Make clearer choices.') &&
+  return homepage.includes('Nature, examined.') &&
     homepage.includes('where the evidence falls short') &&
     searchActions === 1 &&
     exploreActions === 1 &&
@@ -81,7 +81,7 @@ invariant('THS-001', 'homepage scientific search protects mobile ingredient term
     "autoCorrect='off'",
     'spellCheck={false}',
     "enterKeyHint='search'",
-    "placeholder='Search herbs, compounds, or questions'",
+    "placeholder='Search the field guide'",
   ]),
 )
 

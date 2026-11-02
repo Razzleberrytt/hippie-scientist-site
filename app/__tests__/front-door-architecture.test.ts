@@ -40,7 +40,7 @@ describe('front-door information architecture', () => {
   it('gives a first-time reader a specific ingredient, comparison, and safety choice without replacing the research library', () => {
     const home = read('components/homepage-v2.tsx')
 
-    expect(home).toContain('Understand the evidence. Make clearer choices.')
+    expect(home).toContain('Nature, examined.')
     expect(home).toContain('where the evidence falls short')
     expect(home).toContain("aria-label='Choose your first step'")
     expect(home).toContain('min-h-12')
