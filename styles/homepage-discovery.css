@@ -7,9 +7,8 @@
 }
 
 .home-discovery-lead {
-  display: grid;
-  gap: 2rem;
-  align-items: start;
+  max-width: 56rem;
+  margin-inline: auto;
 }
 
 .home-discovery-lead > div { min-width: 0; }
@@ -88,6 +87,16 @@
 
 @media (min-width: 640px) { .home-topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1024px) {
-  .home-discovery-lead { grid-template-columns: minmax(0, 1.7fr) minmax(17rem, 1fr); }
-  .home-topic-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .home-wellbeing-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .home-collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-reading-room ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
 }
+
+/* Task controls, topic groups, and featured articles have distinct roles. */
+.home-topic-groups { display: grid; gap: 1.75rem; }
+.home-group-heading { margin-bottom: .85rem; }
+.home-group-heading h3 { color: var(--home-ink); font-size: 1.1rem; font-weight: 650; line-height: 1.4; }
+.home-group-heading p { margin-top: .3rem; color: var(--home-body); font-size: .875rem; line-height: 1.6; }
+.home-reading-room { border-left: 0; border-top: 2px solid var(--home-gold); border-radius: 0 0 1rem 1rem; }
+.home-reading-room h2 { max-width: none; }
