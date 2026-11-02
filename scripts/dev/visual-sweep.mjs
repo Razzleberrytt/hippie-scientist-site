@@ -106,4 +106,5 @@ console.log(`horizontal overflow: ${over.length}`)
 console.log(`theme mismatches: ${themeMismatches.length}`)
 console.log(`screenshots: ${report.filter((r) => r.screenshot).length}`)
 for (const o of over.slice(0, 12)) console.log(`  ${o.route} @${o.w} ${o.theme}: +${o.overflow}px`)
-if (errs.length || over.length || themeMismatches.length || densityFailures.length) process.exitCode = 1
+if (errs.length || over.length || themeMismatches.length) process.exitCode = 1
+if (densityFailures.length) process.exitCode = 1
