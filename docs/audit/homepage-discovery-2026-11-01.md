@@ -115,3 +115,23 @@ the same unmodified build runs through the previously verified temporary externa
 Node import-loader wrappers. These wrappers are not repository changes.
 Current release state: source review and exact-head hosted build/theme/SEO/safety
 checks pending; no follow-up merge or live organization change claimed yet.
+
+
+## Mobile journal redesign — 2026-11-02
+
+User rejected the oversized mobile introduction and requested the proposed
+compact botanical journal direction. Replace the framed hero with “Nature,
+examined.”, a short explanation, slim search and three flat task links. Add a
+published ginkgo monograph feature using the existing optimized botanical photo;
+flatten topic and reading navigation. Keep all search keyboard protections,
+accessible task labels, methodology and safety destinations. Collapse coverage
+counts with their qualifications in the same native details element.
+
+Focused validation: 34 tests across seven suites pass; TypeScript and scoped
+ESLint passed before the final presentation assertions. Hosted visual proof now
+includes the homepage at 430px in both themes, and enforces compact mobile
+intro/title/search bounds. These bounds supplement screenshot review.
+The prior organization release merged as 28b73479117eb3c034058d30e49047639551e329;
+Cloudflare run 41371903350 completed successfully including exact production
+receipt and live privacy checks. This new visual revision awaits hosted proof.
+No scientific data, release policy or held workstream is changed.

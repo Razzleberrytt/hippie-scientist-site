@@ -18,7 +18,7 @@ describe('mobile premium UX regression contract', () => {
     expect(text).toContain("className='home-discovery-intro'")
     expect(text).toContain("href='/explore/'")
     expect(text).not.toContain('<SiteDestinationGrid />')
-    expect(text).toContain("placeholder='Search herbs, compounds, or questions'")
+    expect(text).toContain("placeholder='Search the field guide'")
     expect(text).toContain("autoCapitalize='none'")
     expect(text).toContain("autoCorrect='off'")
     expect(text).toContain('spellCheck={false}')

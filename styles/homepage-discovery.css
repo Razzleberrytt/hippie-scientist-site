@@ -1,102 +1,113 @@
-/* Homepage only: use the shared palette without the generic 14ch hero limit. */
-.hs-home .home-discovery-intro {
-  padding: clamp(1.25rem, 3vw, 2.5rem);
-  border: 1px solid var(--home-line);
-  border-radius: 1.5rem;
-  background: var(--surface-card);
-}
-
-.home-discovery-lead {
-  max-width: 56rem;
-  margin-inline: auto;
-}
-
+/* Home is a compact research journal. Shared theme and evidence colors stay canonical. */
+.hs-home, .dark .hs-home { padding-block: 0 2rem; background: var(--home-bg); }
+.hs-home .home-journal-shell { max-width: 72rem; padding-top: 1.25rem; }
+.hs-home .home-journal-shell > * + * { margin-top: 1.75rem; }
+.hs-home .home-discovery-intro { padding: 0; border: 0; border-radius: 0; background: transparent; }
+.home-discovery-lead { max-width: 56rem; margin: 0; }
 .home-discovery-lead > div { min-width: 0; }
-.home-discovery-intro form:focus-within { outline: 2px solid var(--home-forest); outline-offset: 3px; }
-
+.home-discovery-intro .eyebrow-label { font-size: .65rem; letter-spacing: .12em; line-height: 1.5; }
 .hs-home .home-discovery-intro h1 {
-  max-width: 22ch;
-  font-size: clamp(2.1rem, 4.2vw, 3.5rem);
-  line-height: 1.08;
+  max-width: 25ch;
+  margin-top: .45rem;
+  font-size: clamp(2rem, 3.5vw, 2.85rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -.035em;
   text-wrap: balance;
 }
-
-.home-reading-room {
-  padding: 1.4rem;
-  border-left: 2px solid var(--home-gold);
-  background: var(--home-panel);
-  border-radius: 0 1rem 1rem 0;
-}
-
-.home-reading-room h2, .home-topic-heading h2 {
-  margin-top: .6rem;
-  color: var(--home-ink);
-  font-family: var(--font-display), Georgia, serif;
-  font-size: 1.65rem;
-  line-height: 1.2;
-  letter-spacing: -.025em;
-}
-
-.home-reading-room > p:not(.eyebrow-label) {
-  margin-top: .65rem;
-  color: var(--home-body);
-  font-size: .9rem;
-  line-height: 1.65;
-}
-
-.home-reading-room ul { margin-top: 1rem; list-style: none; padding: 0; }
-.home-reading-room li { border-top: 1px solid var(--home-line); }
-.home-reading-room a, .home-topic-heading > a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: .8rem;
-  min-height: 2.75rem;
-  color: var(--home-ink);
-  font-size: .875rem;
-  font-weight: 600;
-  line-height: 1.5;
-  padding-block: .6rem;
-}
-.home-reading-room .home-reading-all { color: var(--home-forest); font-size: .8rem; margin-top: .5rem; }
-.home-reading-room svg, .home-topic-section svg { width: 1rem; height: 1rem; flex-shrink: 0; }
-.home-topic-section { padding-block: .5rem; }
-.home-topic-heading { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.2rem; }
-.home-topic-heading h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); }
-.home-topic-grid { display: grid; gap: .75rem; }
-.home-topic-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.15rem 1.25rem;
-  border: 1px solid var(--home-line);
-  border-radius: 1rem;
+.home-discovery-lead > div > p:not(.eyebrow-label) { max-width: 62ch; margin-top: .6rem; font-size: .94rem; line-height: 1.65; }
+.hs-home .home-journal-search {
+  max-width: 48rem;
+  min-height: 3rem;
+  margin-top: 1rem;
+  padding: .2rem .3rem .2rem .65rem;
+  border: 1px solid var(--home-line-strong);
+  border-radius: .4rem;
   background: var(--surface-card);
-  color: var(--home-ink);
+  box-shadow: none;
 }
+.home-journal-search:focus-within { outline: 2px solid var(--home-forest); outline-offset: 3px; }
+.hs-home .home-journal-search input { min-width: 0; padding: .45rem .2rem; border: 0; border-radius: 0; background: transparent; box-shadow: none; font-size: 1rem; line-height: 1.4; }
+.hs-home .home-journal-search button { min-height: 2.5rem; padding: .5rem .8rem; border: 0; border-radius: .25rem; font-size: .8rem; box-shadow: none; }
+.home-journal-tools { max-width: 48rem; margin-top: .5rem; border-bottom: 1px solid var(--home-line); }
+.home-journal-tools > div { gap: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.hs-home .home-journal-tools a {
+  min-height: 3rem;
+  padding: .5rem .65rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.home-journal-tools a + a { border-left: 1px solid var(--home-line); }
+.home-journal-tools a > span:first-child { justify-content: center; font-size: .8rem; font-weight: 600; }
+.home-journal-tools svg { width: .8rem; height: .8rem; }
+.home-journal-tools a > span + span { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.home-journal-tools a:hover { text-decoration: underline; text-underline-offset: .2em; }
+.home-botanical-feature { border-block: 1px solid var(--home-line); }
+.home-botanical-link { display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: center; gap: 1rem; padding-block: 1rem; color: var(--home-ink); }
+.home-botanical-art { width: 96px; height: 128px; overflow: hidden; border-radius: .25rem; background: var(--home-panel); }
+.home-botanical-image { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; transform: scale(1.5); transform-origin: 50% 0; }
+.home-botanical-link .eyebrow-label { font-size: .6rem; letter-spacing: .1em; }
+.hs-home .home-botanical-link h2 { margin-top: .3rem; font-family: var(--font-display), Georgia, serif; font-size: 1.35rem; font-weight: 600; line-height: 1.2; letter-spacing: -.025em; }
+.home-botanical-deck { max-width: 48ch; margin-top: .4rem; color: var(--home-body); font-size: .8rem; line-height: 1.5; }
+.home-botanical-action { display: inline-flex; align-items: center; gap: .5rem; margin-top: .55rem; color: var(--home-forest); font-size: .75rem; font-weight: 650; line-height: 1.4; }
+.home-botanical-action svg { width: .9rem; height: .9rem; }
+.home-botanical-link:hover .home-botanical-action { text-decoration: underline; text-underline-offset: .2em; }
+.home-topic-section { padding-block: 0; }
+.home-topic-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: 1rem; }
+.home-topic-heading .eyebrow-label { display: none; }
+.hs-home .home-topic-heading h2 { margin: 0; color: var(--home-ink); font-family: var(--font-display), Georgia, serif; font-size: 1.4rem; font-weight: 600; line-height: 1.2; }
+.home-topic-heading > a { display: inline-flex; align-items: center; gap: .35rem; min-height: 2.75rem; color: var(--home-forest); font-size: .75rem; font-weight: 600; }
+.home-topic-section svg, .home-reading-room svg { width: .9rem; height: .9rem; flex-shrink: 0; }
+.home-topic-groups { display: grid; gap: 1.25rem; }
+.home-group-heading { margin-bottom: .4rem; }
+.home-group-heading h3 { color: var(--home-body); font-size: .75rem; font-weight: 650; line-height: 1.5; letter-spacing: .015em; }
+.home-group-heading p { display: none; }
+.home-topic-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 1.25rem; row-gap: 0; }
+.home-topic-link { display: flex; align-items: center; justify-content: space-between; gap: .5rem; min-height: 2.9rem; padding: .65rem 0; border: 0; border-bottom: 1px solid var(--home-line); border-radius: 0; background: transparent; color: var(--home-ink); box-shadow: none; }
 .home-topic-link > span { min-width: 0; }
-.home-topic-link strong { display: block; font-size: 1rem; font-weight: 650; line-height: 1.4; }
-.home-topic-link span span { display: block; margin-top: .35rem; color: var(--home-body); font-size: .85rem; line-height: 1.6; }
-.home-topic-link:hover { border-color: var(--home-forest); }
-.home-reading-room a:hover, .home-topic-heading > a:hover { text-decoration: underline; text-underline-offset: .2em; }
-.home-reading-room a:focus-visible, .home-topic-section a:focus-visible {
-  outline: 2px solid var(--home-forest);
-  outline-offset: 4px;
+.home-topic-link strong { display: block; font-size: .9rem; font-weight: 600; line-height: 1.4; }
+.home-topic-link span span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.home-topic-link:hover strong { text-decoration: underline; text-underline-offset: .2em; }
+.home-reading-room { padding: 1rem 0 0; border: 0; border-top: 1px solid var(--home-line); border-radius: 0; background: transparent; }
+.home-reading-room .eyebrow-label { font-size: .65rem; }
+.hs-home .home-reading-room h2 { max-width: none; margin-top: .4rem; color: var(--home-ink); font-family: var(--font-display), Georgia, serif; font-size: 1.35rem; font-weight: 600; line-height: 1.25; }
+.home-reading-room > p:not(.eyebrow-label) { margin-top: .5rem; color: var(--home-body); font-size: .85rem; line-height: 1.6; }
+.home-reading-room ul { margin-top: .75rem; list-style: none; padding: 0; }
+.home-reading-room li { border-bottom: 1px solid var(--home-line); }
+.home-reading-room a { display: flex; align-items: center; justify-content: space-between; gap: .6rem; min-height: 2.75rem; padding-block: .65rem; color: var(--home-ink); font-size: .85rem; font-weight: 550; line-height: 1.45; }
+.home-reading-room .home-reading-all { color: var(--home-forest); font-size: .75rem; margin-top: .35rem; }
+.home-reading-room a:hover { text-decoration: underline; text-underline-offset: .2em; }
+.home-research-standard { border-top: 1px solid var(--home-line); padding-top: 1rem; }
+.home-research-standard > div { display: block; }
+.hs-home .home-research-standard h2 { margin-top: .4rem; font-size: 1.35rem; line-height: 1.25; }
+.home-research-standard .eyebrow-label { font-size: .65rem; }
+.home-research-standard p, .home-research-standard a { font-size: .85rem; line-height: 1.65; }
+.home-coverage { margin-top: 1rem; border-top: 1px solid var(--home-line); }
+.home-coverage summary { padding-block: .85rem; color: var(--home-ink); font-size: .8rem; font-weight: 600; cursor: pointer; }
+.home-coverage dl { margin-top: .5rem; }
+.home-coverage p { font-size: .75rem; }
+.home-botanical-link:focus-visible, .home-topic-section a:focus-visible, .home-reading-room a:focus-visible, .home-coverage summary:focus-visible { outline: 2px solid var(--home-forest); outline-offset: 3px; }
+@media (min-width: 640px) {
+  .hs-home .home-journal-shell { padding-top: 2rem; }
+  .home-botanical-link { grid-template-columns: 160px minmax(0, 1fr); gap: 1.5rem; }
+  .home-botanical-art { width: 160px; height: 160px; }
+  .hs-home .home-botanical-link h2 { font-size: 1.75rem; }
+  .home-botanical-deck { font-size: .95rem; }
+  .home-botanical-action { font-size: .85rem; }
+  .home-topic-link span span { position: static; display: block; width: auto; height: auto; margin-top: .3rem; overflow: visible; clip-path: none; white-space: normal; color: var(--home-body); font-size: .8rem; line-height: 1.5; }
+  .home-topic-link { align-items: start; padding-block: .9rem; }
+  .home-topic-link svg { margin-top: .2rem; }
 }
-
-@media (min-width: 640px) { .home-topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1024px) {
-
   .home-wellbeing-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .home-collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .home-reading-room ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
 }
-
-/* Task controls, topic groups, and featured articles have distinct roles. */
-.home-topic-groups { display: grid; gap: 1.75rem; }
-.home-group-heading { margin-bottom: .85rem; }
-.home-group-heading h3 { color: var(--home-ink); font-size: 1.1rem; font-weight: 650; line-height: 1.4; }
-.home-group-heading p { margin-top: .3rem; color: var(--home-body); font-size: .875rem; line-height: 1.6; }
-.home-reading-room { border-left: 0; border-top: 2px solid var(--home-gold); border-radius: 0 0 1rem 1rem; }
-.home-reading-room h2 { max-width: none; }
+@media (max-width: 639px) {
+  body:has(.hs-home) .site-primary-nav > div > div { height: 3.75rem; }
+  body:has(.hs-home) .site-primary-nav a[aria-label='The Hippie Scientist home'] { font-size: 1rem; }
+  body:has(.hs-home) .site-primary-nav .editorial-icon-disc { width: 2rem; height: 2rem; }
+  body:has(.hs-home) .site-primary-nav button { min-width: 2.75rem; min-height: 2.75rem; border-radius: .4rem; box-shadow: none; }
+  body:has(.hs-home) .site-primary-nav button:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 2px; box-shadow: none; }
+}

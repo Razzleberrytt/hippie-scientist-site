@@ -35,7 +35,7 @@ describe('premium visual refinement contracts', () => {
 
   it('keeps the homepage hero as an unmistakable flagship composition', () => {
     expect(homepage).toContain("className='home-discovery-intro'")
-    expect(homepage).toContain('Understand the evidence. Make clearer choices.')
+    expect(homepage).toContain('Nature, examined.')
     expect(homepage).toContain("aria-label='Choose your first step'")
     expect(homepage).toContain("label: 'Find an ingredient'")
     expect(homepage).toContain("label: 'Compare options'")

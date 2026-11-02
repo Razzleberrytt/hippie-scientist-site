@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, Search } from 'lucide-react'
 import '@/styles/homepage-discovery.css'
 import NewsletterSignup from '@/components/NewsletterSignup'
@@ -8,16 +9,19 @@ import { getResearchSourceRegisterSummary } from '@/lib/research-source-register
 const firstVisitPaths = [
   {
     label: 'Find an ingredient',
+    shortLabel: 'Ingredients',
     description: 'Look up a supplement and its evidence.',
     href: '/search/',
   },
   {
     label: 'Compare options',
+    shortLabel: 'Compare',
     description: 'See study context and tradeoffs.',
     href: '/guides/compare/',
   },
   {
     label: 'Check safety concerns',
+    shortLabel: 'Safety',
     description: 'Review interaction and caution signals.',
     href: '/safety-checker/',
   },
@@ -53,19 +57,19 @@ export default async function HomepageV2() {
 
   return (
     <div className='hs-home'>
-      <div className='mx-auto max-w-7xl space-y-8 px-4 pb-20 pt-5 sm:px-6 sm:pt-6 lg:px-8'>
+      <div className='mx-auto max-w-7xl home-journal-shell space-y-8 px-4 pb-20 pt-5 sm:px-6 sm:pt-6 lg:px-8'>
         <section className='home-discovery-intro' aria-labelledby='home-title'>
           <div className='home-discovery-lead'>
             <div>
-              <p className='eyebrow-label'>The Hippie Scientist · An evidence-first field guide</p>
+              <p className='eyebrow-label'>Herbs · supplements · the mind</p>
               <h1 id='home-title' className='mt-3 max-w-5xl font-display text-4xl font-bold tracking-tight text-ink sm:text-6xl'>
-                Understand the evidence. Make clearer choices.
+                Nature, examined.
               </h1>
               <p className='mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg sm:leading-8'>
-                Explore supplements, the mind, and the research behind them. See what human studies found, where the evidence falls short, and which risks deserve a closer look.
+                Herbs, supplements and the mind—what studies show and where the evidence falls short.
               </p>
 
-              <form className='mt-6 flex max-w-3xl items-center gap-2 rounded-2xl border border-brand-900/10 bg-white p-2.5 shadow-sm sm:gap-3 sm:p-3' action='/search/' method='get' role='search'>
+              <form className='home-journal-search flex items-center gap-2' action='/search/' method='get' role='search'>
                 <Search className='ml-1 h-5 w-5 shrink-0 text-brand-700' aria-hidden='true' />
                 <label className='sr-only' htmlFor='homepage-search'>Search herbs, compounds, or questions</label>
                 <input
@@ -77,7 +81,7 @@ export default async function HomepageV2() {
                   autoCorrect='off'
                   spellCheck={false}
                   enterKeyHint='search'
-                  placeholder='Search herbs, compounds, or questions'
+                  placeholder='Search the field guide'
                   className='min-w-0 flex-1 bg-transparent px-1 py-2 text-base text-ink outline-none placeholder:text-muted sm:px-2'
                 />
                 <button type='submit' className='inline-flex min-h-11 items-center justify-center rounded-full bg-[var(--text-primary)] px-4 text-sm font-bold !text-[var(--surface-elevated)] transition hover:opacity-90 sm:px-5'>
@@ -85,17 +89,18 @@ export default async function HomepageV2() {
                 </button>
               </form>
 
-              <nav className='mt-5' aria-label='Choose your first step'>
-                <p className='mb-3 text-sm font-semibold text-ink'>What would you like to do?</p>
+              <nav className='home-journal-tools' aria-label='Choose your first step'>
+                <p className='sr-only'>What would you like to do?</p>
                 <div className='grid gap-2 sm:grid-cols-3'>
                   {firstVisitPaths.map((path) => (
                     <Link
                       key={path.href}
                       href={path.href}
+                      aria-label={path.label}
                       className='group flex min-h-12 flex-col justify-center rounded-2xl border border-brand-900/10 bg-[var(--surface-elevated)] px-4 py-3 text-left shadow-sm transition hover:border-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700'
                     >
                       <span className='flex items-center justify-between gap-2 text-sm font-bold text-[var(--text-primary)]'>
-                        {path.label} <ArrowRight className='h-4 w-4 shrink-0 text-brand-700 transition group-hover:translate-x-0.5' aria-hidden='true' />
+                        {path.shortLabel} <ArrowRight className='h-4 w-4 shrink-0 text-brand-700 transition group-hover:translate-x-0.5' aria-hidden='true' />
                       </span>
                       <span className='mt-1 text-xs leading-5 text-muted'>{path.description}</span>
                     </Link>
@@ -104,6 +109,18 @@ export default async function HomepageV2() {
               </nav>
             </div>
           </div>
+        </section>
+
+        <section className='home-botanical-feature' aria-labelledby='home-botanical-heading'>
+          <Link href='/herbs/ginkgo-biloba/' className='home-botanical-link' aria-labelledby='home-botanical-heading'>
+            <div className='home-botanical-art'><Image src='/images/monographs/photos/ginkgo.jpg' width={160} height={160} sizes='(max-width: 639px) 96px, 160px' alt='Ginkgo leaves' className='home-botanical-image' /></div>
+            <div>
+              <p className='eyebrow-label'>From the herbarium</p>
+              <h2 id='home-botanical-heading'>Ginkgo biloba</h2>
+              <p className='home-botanical-deck'>Explore the studies, evidence limits, and safety context behind this botanical.</p>
+              <span className='home-botanical-action'>Read the monograph <ArrowRight aria-hidden='true' /></span>
+            </div>
+          </Link>
         </section>
 
         <section className='home-topic-section' aria-labelledby='home-topics-heading'>
@@ -163,12 +180,12 @@ export default async function HomepageV2() {
           <Link href='/guides/mental-health/' className='home-reading-all'>All mental-health reviews <ArrowRight aria-hidden='true' /></Link>
         </section>
 
-        <section className='rounded-[2rem] border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8' aria-labelledby='home-trust-heading'>
+        <section className='home-research-standard' aria-labelledby='home-trust-heading'>
           <div className='grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end'>
             <div>
               <p className='eyebrow-label'>Evidence stays visible</p>
               <h2 id='home-trust-heading' className='mt-2 text-2xl font-semibold tracking-tight text-ink'>
-                Human evidence, safety context, and uncertainty remain part of the answer.
+                How we read the evidence
               </h2>
               <p className='mt-3 max-w-3xl text-sm leading-7 text-muted'>
                 Clinical outcomes stay separate from mechanisms, while interaction context and uncertainty remain visible instead of being flattened into a recommendation.
@@ -178,6 +195,9 @@ export default async function HomepageV2() {
               </Link>
             </div>
 
+          </div>
+          <details className='home-coverage'>
+            <summary>Research coverage & source counts</summary>
             <dl className='grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3' aria-label='Research library size'>
               {stats.map((stat) => (
                 <div key={stat.label} className='min-w-0 rounded-xl bg-brand-50/60 p-3 text-center sm:p-4'>
@@ -186,13 +206,13 @@ export default async function HomepageV2() {
                 </div>
               ))}
             </dl>
-          </div>
           <p className='mt-4 max-w-4xl text-xs leading-6 text-muted'>
             <strong className='text-ink'>What these counts include:</strong> Published articles and herbs are public content or profile counts. Compounds tracked includes canonical research records that may not have a published profile. Structured studies counts deduplicated study/source records, not independently confirmed clinical trials. These populations differ from the indexable ingredient profiles counted in the <Link href='/evidence/evidence-report/' className='font-semibold text-brand-700 hover:underline'>evidence report</Link>.
           </p>
           <p className='mt-5 max-w-4xl border-t border-brand-900/10 pt-4 text-sm leading-6 text-muted'>
             Beyond the published evidence dataset, our source register tracks <strong className='text-ink'>{researchSourceRegister.totalIndexedPmids.toLocaleString()} unique PubMed references</strong> for further editorial review. Those are research-only identities, not an additional count of graded clinical studies. <Link href='/research/source-register/' className='font-semibold text-brand-700 hover:underline'>Explore the source trail →</Link>
           </p>
+          </details>
         </section>
 
         <section aria-label='Email signup' className='mx-auto w-full max-w-4xl'>
