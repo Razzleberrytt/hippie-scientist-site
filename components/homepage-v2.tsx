@@ -23,11 +23,14 @@ const firstVisitPaths = [
   },
 ] as const
 
-const topics = [
+const wellbeingTopics = [
   { title: 'Sleep', href: '/guides/sleep/', description: 'Sleep research and supplement comparisons.' },
   { title: 'Stress', href: '/guides/stress/', description: 'Stress, adaptogens, and the evidence behind them.' },
   { title: 'Anxiety', href: '/guides/anxiety/', description: 'Research, safety, and treatment context.' },
   { title: 'Focus & attention', href: '/guides/focus/', description: 'Cognition, caffeine, and nootropic research.' },
+] as const
+
+const researchCollections = [
   { title: 'Mental health & relationships', href: '/guides/mental-health/', description: 'Emotions, attachment, personality, and recovery.' },
   { title: 'Substance use & harm reduction', href: '/guides/substance-use/', description: 'Effects, risks, dependence, and withdrawal research.' },
 ] as const
@@ -100,43 +103,64 @@ export default async function HomepageV2() {
                 </div>
               </nav>
             </div>
-            <aside className='home-reading-room' aria-labelledby='home-reading-heading'>
-              <p className='eyebrow-label'>From the reading room</p>
-              <h2 id='home-reading-heading'>Making sense of attachment</h2>
-              <p>Explore the research on intense attachment and difficult relationships.</p>
-              <ul>
-                {readingRoom.map((article) => (
-                  <li key={article.href}>
-                    <Link href={article.href}>{article.title}<ArrowRight aria-hidden='true' /></Link>
-                  </li>
-                ))}
-              </ul>
-              <Link href='/guides/mental-health/' className='home-reading-all'>All mental-health reviews <ArrowRight aria-hidden='true' /></Link>
-            </aside>
           </div>
-
-
         </section>
 
         <section className='home-topic-section' aria-labelledby='home-topics-heading'>
           <div className='home-topic-heading'>
             <div>
               <p className='eyebrow-label'>Follow your question</p>
-              <h2 id='home-topics-heading'>A place to start.</h2>
+              <h2 id='home-topics-heading'>Browse by topic.</h2>
             </div>
             <Link href='/explore/'>Explore all sections <ArrowRight aria-hidden='true' /></Link>
           </div>
-          <nav className='home-topic-grid' aria-label='Browse research by topic'>
-            {topics.map((topic) => (
-              <Link key={topic.href} href={topic.href} className='home-topic-link'>
-                <span><strong>{topic.title}</strong><span>{topic.description}</span></span>
-                <ArrowRight aria-hidden='true' />
-              </Link>
-            ))}
+          <nav className='home-topic-groups' aria-label='Browse research by topic'>
+            <section aria-labelledby='home-wellbeing-heading'>
+              <div className='home-group-heading'>
+                <h3 id='home-wellbeing-heading'>Everyday wellbeing</h3>
+                <p>Start with the question you want to understand.</p>
+              </div>
+              <div className='home-topic-grid home-wellbeing-grid'>
+                {wellbeingTopics.map((topic) => (
+                  <Link key={topic.href} href={topic.href} className='home-topic-link'>
+                    <span><strong>{topic.title}</strong><span>{topic.description}</span></span>
+                    <ArrowRight aria-hidden='true' />
+                  </Link>
+                ))}
+              </div>
+            </section>
+            <section aria-labelledby='home-collections-heading'>
+              <div className='home-group-heading'>
+                <h3 id='home-collections-heading'>Research collections</h3>
+                <p>Explore a broader subject through related guides and reviews.</p>
+              </div>
+              <div className='home-topic-grid home-collection-grid'>
+                {researchCollections.map((topic) => (
+                  <Link key={topic.href} href={topic.href} className='home-topic-link'>
+                    <span><strong>{topic.title}</strong><span>{topic.description}</span></span>
+                    <ArrowRight aria-hidden='true' />
+                  </Link>
+                ))}
+              </div>
+            </section>
           </nav>
           <p className='mt-4 text-sm text-muted'>
             Have a specific name in mind? Browse <Link href='/herbs/' className='font-semibold text-brand-700 hover:underline'>herbs</Link> or <Link href='/compounds/' className='font-semibold text-brand-700 hover:underline'>compounds</Link>, or open the <Link href='/library/' className='font-semibold text-brand-700 hover:underline'>complete library</Link>.
           </p>
+        </section>
+
+        <section className='home-reading-room' aria-labelledby='home-reading-heading'>
+          <p className='eyebrow-label'>Featured reading</p>
+          <h2 id='home-reading-heading'>Attachment & relationships</h2>
+          <p>Explore the research on intense attachment and difficult relationships.</p>
+          <ul>
+            {readingRoom.map((article) => (
+              <li key={article.href}>
+                <Link href={article.href}>{article.title}<ArrowRight aria-hidden='true' /></Link>
+              </li>
+            ))}
+          </ul>
+          <Link href='/guides/mental-health/' className='home-reading-all'>All mental-health reviews <ArrowRight aria-hidden='true' /></Link>
         </section>
 
         <section className='rounded-[2rem] border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8' aria-labelledby='home-trust-heading'>

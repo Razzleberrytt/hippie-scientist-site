@@ -76,3 +76,33 @@ expected strings, retaining the navigation, search, safety, metrics, privacy,
 focus and theme contracts. Focused rerun includes both complete affected suites
 and the new rendered homepage suite; no application source changed in this follow-up.
 Release HOLD remains until the final exact-head checks complete.
+
+## Owner follow-up: organize the homepage hierarchy
+
+After #6723 was verified live as `b39033a631d6f0dbf3c776b9d1685ad768d47532`
+(deploy #41365172581), the owner requested a more logical, organized homepage.
+Reopened existing #6983; this is the same bounded homepage owner, not new scientific work.
+
+The hierarchy is now search/task controls → everyday wellbeing (four specific
+health questions) → research collections (two broader subjects) → featured
+attachment/relationship reading → evidence/methodology → newsletter. The
+featured articles no longer occupy the introduction. All six topic destinations,
+three article links, primary architecture, evidence qualifications and privacy
+controls are preserved. No new URLs, global navigation or scientific claims.
+
+PR admission: the complete 12-open-PR inventory was checked through the existing
+unmodified `assessAdmission` policy with issue #6983 and these four source paths;
+result **READY**. The docs-only EvidenceMotion planning PR #6974 explicitly says
+“No automatic merge/production activation requested”; added `hold-merge` to
+preserve that review-only intent while leaving all scientific/research holds intact.
+No other PR source is edited, no new WIP stream is introduced, and no release gate is relaxed.
+
+Validation before PR: seven targeted UI suites **33/33 passed**; all **19**
+structural acceptance invariants passed; scoped ESLint and diff checks passed.
+Added a rendered regression for group sizes, distinct destinations, the absence
+of featured article links in the introduction, and task/topic/article/trust order.
+Production build is running. The environment still blocks the tsx CLI IPC socket;
+the same unmodified build runs through the previously verified temporary external
+Node import-loader wrappers. These wrappers are not repository changes.
+Current release state: source review and exact-head hosted build/theme/SEO/safety
+checks pending; no follow-up merge or live organization change claimed yet.

@@ -11,6 +11,24 @@ vi.mock('@/lib/research-source-register', () => ({
 vi.mock('@/components/NewsletterSignup', () => ({ default: () => <div>Email signup</div> }))
 
 describe('homepage discovery', () => {
+  it('separates tasks, wellbeing topics, collections, and featured articles in reading order', async () => {
+    render(await HomepageV2())
+    const tasks = screen.getByRole('navigation', { name: 'Choose your first step' })
+    const topics = screen.getByRole('navigation', { name: 'Browse research by topic' })
+    const wellbeing = within(topics).getByRole('region', { name: 'Everyday wellbeing' })
+    const collections = within(topics).getByRole('region', { name: 'Research collections' })
+    const featured = screen.getByRole('region', { name: 'Attachment & relationships' })
+    const intro = screen.getByRole('region', { name: 'Understand the evidence. Make clearer choices.' })
+
+    expect(within(wellbeing).getAllByRole('link')).toHaveLength(4)
+    expect(within(collections).getAllByRole('link')).toHaveLength(2)
+    expect(within(intro).queryByRole('link', { name: 'Understanding limerence' })).not.toBeInTheDocument()
+    expect(within(featured).getByRole('link', { name: 'Understanding limerence' })).toHaveAttribute('href', '/articles/limerence-obsessive-love-evidence-review')
+    expect(tasks.compareDocumentPosition(topics) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(topics.compareDocumentPosition(featured) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(featured.compareDocumentPosition(screen.getByRole('heading', { name: /Human evidence, safety context/ })) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+  })
+
   it('offers distinct topic destinations before the research-count explanation', async () => {
     render(await HomepageV2())
     const topics = screen.getByRole('navigation', { name: 'Browse research by topic' })
