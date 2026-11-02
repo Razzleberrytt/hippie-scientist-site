@@ -18,7 +18,7 @@ describe('homepage discovery', () => {
     const wellbeing = within(topics).getByRole('region', { name: 'Everyday wellbeing' })
     const collections = within(topics).getByRole('region', { name: 'Research collections' })
     const featured = screen.getByRole('region', { name: 'Attachment & relationships' })
-    const intro = screen.getByRole('region', { name: 'Understand the evidence. Make clearer choices.' })
+    const intro = screen.getByRole('region', { name: 'Nature, examined.' })
 
     expect(within(wellbeing).getAllByRole('link')).toHaveLength(4)
     expect(within(collections).getAllByRole('link')).toHaveLength(2)
@@ -26,7 +26,19 @@ describe('homepage discovery', () => {
     expect(within(featured).getByRole('link', { name: 'Understanding limerence' })).toHaveAttribute('href', '/articles/limerence-obsessive-love-evidence-review')
     expect(tasks.compareDocumentPosition(topics) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
     expect(topics.compareDocumentPosition(featured) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
-    expect(featured.compareDocumentPosition(screen.getByRole('heading', { name: /Human evidence, safety context/ })) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(featured.compareDocumentPosition(screen.getByRole('heading', { name: /How we read the evidence/ })) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+  })
+
+  it('surfaces a real botanical monograph and keeps coverage context together in an expandable disclosure', async () => {
+    render(await HomepageV2())
+    const feature = screen.getByRole('region', { name: 'Ginkgo biloba' })
+    expect(within(feature).getByRole('link', { name: 'Ginkgo biloba' })).toHaveAttribute('href', '/herbs/ginkgo-biloba')
+    expect(within(feature).getByRole('img', { name: 'Ginkgo leaves' })).toBeInTheDocument()
+    expect(feature.compareDocumentPosition(screen.getByRole('navigation', { name: 'Browse research by topic' })) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    const coverage = screen.getByText('Research coverage & source counts').closest('details')
+    expect(coverage).not.toHaveAttribute('open')
+    expect(coverage).toHaveTextContent('not independently confirmed clinical trials')
+    expect(coverage).toHaveTextContent('research-only identities')
   })
 
   it('offers distinct topic destinations before the research-count explanation', async () => {
@@ -38,7 +50,7 @@ describe('homepage discovery', () => {
     expect(within(topics).getByRole('link', { name: /^Stress/ })).toHaveAttribute('href', '/guides/stress')
     expect(within(topics).getByRole('link', { name: /^Anxiety/ })).toHaveAttribute('href', '/guides/anxiety')
     expect(within(topics).getByRole('link', { name: /^Mental health/ })).toHaveAttribute('href', '/guides/mental-health')
-    expect(topics.compareDocumentPosition(screen.getByRole('heading', { name: /Human evidence, safety context/ })) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(topics.compareDocumentPosition(screen.getByRole('heading', { name: /How we read the evidence/ })) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
   })
 
   it('keeps a labeled static search and sends ingredient lookup to both ingredient families', async () => {
