@@ -90,18 +90,27 @@ featured articles no longer occupy the introduction. All six topic destinations,
 three article links, primary architecture, evidence qualifications and privacy
 controls are preserved. No new URLs, global navigation or scientific claims.
 
-PR admission: the complete 12-open-PR inventory was checked through the existing
-unmodified `assessAdmission` policy with issue #6983 and these four source paths;
-result **READY**. The docs-only EvidenceMotion planning PR #6974 explicitly says
-“No automatic merge/production activation requested”; added `hold-merge` to
-preserve that review-only intent while leaving all scientific/research holds intact.
-No other PR source is edited, no new WIP stream is introduced, and no release gate is relaxed.
+PR admission: the initial indexed search returned 12 open PRs and the local
+policy check returned READY, but that search was stale. Trusted hosted admission
+correctly blocked the new PR after its full REST inventory found five additional,
+unadmitted automatic dependency-update proposals (#6978–#6982), plus an older
+research draft. Added review holds to the dependency candidates to preserve them
+for dependency maintenance without changing their source or accepting upgrades.
+The docs-only planning PR #6974 also remains held in accordance with its explicit
+“No automatic merge/production activation requested” intent. Re-ran only the
+failed hosted admission job; exact-head `pre-pr-admission` passed (run #41369741647,
+latest attempt; check #125038156615). No release policy or scientific hold changed.
 
 Validation before PR: seven targeted UI suites **33/33 passed**; all **19**
 structural acceptance invariants passed; scoped ESLint and diff checks passed.
 Added a rendered regression for group sizes, distinct destinations, the absence
 of featured article links in the introduction, and task/topic/article/trust order.
-Production build is running. The environment still blocks the tsx CLI IPC socket;
+The full local production pipeline stopped at a generated-data black-cohosh
+summary/detail indexing disagreement (one divergence, baseline zero). It was
+not waived, the baseline was not changed, and no data repair is bundled with
+this UI ticket. A separate app-export check using the retained main data is
+running; hosted full-pipeline proof remains mandatory.
+The environment still blocks the tsx CLI IPC socket;
 the same unmodified build runs through the previously verified temporary external
 Node import-loader wrappers. These wrappers are not repository changes.
 Current release state: source review and exact-head hosted build/theme/SEO/safety
