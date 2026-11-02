@@ -40,14 +40,14 @@ describe('front-door information architecture', () => {
   it('gives a first-time reader a specific ingredient, comparison, and safety choice without replacing the research library', () => {
     const home = read('components/homepage-v2.tsx')
 
-    expect(home).toContain('Which supplements actually work—and what does the research say about their risks?')
-    expect(home).toContain('When the research cannot establish an answer, we say so.')
+    expect(home).toContain('Nature, examined.')
+    expect(home).toContain('where the evidence falls short')
     expect(home).toContain("aria-label='Choose your first step'")
     expect(home).toContain('min-h-12')
     expect(home).toContain('focus-visible:outline')
 
     for (const [label, href] of [
-      ['Find an ingredient', '/herbs/'],
+      ['Find an ingredient', '/search/'],
       ['Compare options', '/guides/compare/'],
       ['Check safety concerns', '/safety-checker/'],
     ]) {
