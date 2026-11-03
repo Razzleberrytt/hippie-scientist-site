@@ -84137,6 +84137,82 @@
       "reservation_id": "788d8f63678b65322a80",
       "reserved_at": "2026-11-03T01:40:45.796Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42972495",
+      "title": "Negative Affective States Are Not Detected in Rats Following an Intravenous Self-Administration Regimen Leading to Incubation of Oxycodone Craving.",
+      "doi": "10.1111/adb.70196",
+      "source_title": "Negative Affective States Are Not Detected in Rats Following an Intravenous Self-Administration Regimen Leading to Incubation of Oxycodone Craving.",
+      "abstract": "In rats, cue-induced opioid craving intensifies (incubates) during abstinence from opioid self-administration and then remains high for a prolonged period. The prolonged plateau models persistent vulnerability to cue-induced craving and relapse in humans recovering from opioid use disorder. However, a very significant contributor to relapse vulnerability in these individuals is the presence of negative affective states that can persist for months to years, far beyond physical dependence. The goal of this study was to determine, for oxycodone, if the incubation of craving model recapitulates this aspect of relapse vulnerability. We began by comparing rats trained to self-administer oxycodone using a regimen leading to persistent elevation of cue-induced craving (6 h/day × 10 days) and rats trained to self-administer saline. We assessed somatic withdrawal signs in early abstinence and conducted behavioural tests modelling negative affect (open field, social preference, sucrose preference and elevated plus maze) in late abstinence. Some oxycodone rats exhibited somatic withdrawal signs on abstinence day (AD)1. However, on AD41-46, no group differences were found in behavioural tests modelling negative affect. To compare early and late abstinence periods, a second cohort of rats self-administered saline or oxycodone and then received a sequence of tests (cue-induced seeking test followed by negative affect tests) in early abstinence (AD1-7) and again in late abstinence (AD40-46). While some time-dependent changes in affect were observed within each group, they did not indicate emergence of negative affect in oxycodone rats during incubation of craving. In conclusion, our results suggest that rats exhibiting incubation are not seeking the drug to relieve an aversive state that persists into protracted abstinence. An alternative explanation is that incubated seeking reflects increased incentive salience of the drug-paired cue. Our finding of modest somatic withdrawal signs in early abstinence and no detectable negative affective states in late abstinence probably reflects lower drug intake during the intravenous regimen compared to non-contingent escalating dose regimens typically used to study withdrawal signs. Thus, while the incubation model has utility for studying cue-induced oxycodone craving, our standard incubation regimen is not suited to studying oxycodone seeking driven by the desire to relieve an aversive state.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42972495/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42972495",
+        "doi": "10.1111/adb.70196",
+        "journal": "Addiction biology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-03T17:56:27.635Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "aed05b79b548b32c9114",
+      "reserved_at": "2026-11-03T17:56:38.888Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -84181,17 +84257,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 578,
+    "total_reservations": 579,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 103,
+      "4": 104,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 578
+      "SOURCE_VERIFIED": 579
     },
     "batches": [
       {
@@ -84211,7 +84287,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 78,
+        "count": 79,
         "pr_number": null,
         "blocker": null
       }
