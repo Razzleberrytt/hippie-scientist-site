@@ -84213,6 +84213,158 @@
       "reservation_id": "aed05b79b548b32c9114",
       "reserved_at": "2026-11-03T17:56:38.888Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42976266",
+      "title": "\"Every change I've done is worth it\": Black and Latine Patient Perspectives on Social Support and Methadone Stigma During the Recovery Journey.",
+      "doi": "10.1097/JAN.0000000000000727",
+      "source_title": "\"Every change I've done is worth it\": Black and Latine Patient Perspectives on Social Support and Methadone Stigma During the Recovery Journey.",
+      "abstract": "Social support is instrumental for recovering from opioid use disorder (OUD); indeed, a lack of support is linked to symptom recurrence (i.e., \"relapse\") and poor outcomes. Various manifestations of stigma are known barriers to long-term recovery, serving to alienate and withdraw support from people most in need of care. This study aimed to expand the understanding of the lived experiences of Black and Latine patients in methadone treatment, with a particular focus on the role of social support. Semi-structured interviews were conducted with Black and Latine patients in two methadone clinics in Newark, NJ (n = 37) between January and April 2019. Participants discussed OUD, OUD treatment, and stigma. Thematic analysis was used to identify salient themes. Most participants were women (59%), over half Black (54%), and 46% Latine. Three themes emerged: (1) losing social support devastates patients' mental health and hinders their recovery journey; (2) multiple support touchpoints are critical to recovery; and (3) participants wished that loved ones and health care settings viewed methadone positively. Social support is key to treatment and recovery journeys. Stigma related to addiction and methadone perpetuates social isolation, which discourages individuals from seeking treatment and contributes to disparities for underserved populations. Nursing programs can help reduce stigma by enhancing training on substance use disorders, and clinical settings can further leverage the unique role of nurses in close patient care by providing stigma education.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42976266/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42976266",
+        "doi": "10.1097/JAN.0000000000000727",
+        "journal": "International journal of addiction nursing",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-03T23:30:19.415Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "61482582eb5b9577a9cb",
+      "reserved_at": "2026-11-03T23:30:29.572Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42975738",
+      "title": "Reduced Spinal β-Arrestin-2 Immunoreactivity After Combined Fentanyl-α-2 Adrenoceptor Agonist Treatment in Rats: a Hypothesis-Generating Histological Study.",
+      "doi": "10.1007/s12035-026-06290-0",
+      "source_title": "Reduced Spinal β-Arrestin-2 Immunoreactivity After Combined Fentanyl-α-2 Adrenoceptor Agonist Treatment in Rats: a Hypothesis-Generating Histological Study.",
+      "abstract": "Fentanyl (FEN) is a potent μ-opioid receptor (MOR) agonist whose clinical use is limited by tolerance. The α-2 adrenoceptor (AR) agonists dexmedetomidine (DEX) and xylazine (XYL) prevented FEN tolerance and enhanced FEN antinociception in our previous behavioral study. β-arrestin-2 has been implicated in desensitization and internalization of G protein-coupled receptors. We examined spinal β-arrestin-2 immunoreactivity in those animals. Male Wistar albino rats (n = 45 analyzed) received intraperitoneal saline (control), FEN, DEX, XYL, FEN + DEX, or FEN + XYL (five injections over three days) and were sacrificed on day 3. Lumbar (L4-L5) spinal cord sections underwent β-arrestin-2 immunohistochemistry and were scored as weak, moderate, or strong by two observers, independently and blind to group. The main post hoc analysis compared the proportion of strongly positive animals with control (Fisher's exact test, Holm-corrected). Morphology was normal in all groups. No FEN + DEX (0/7) or FEN + XYL (0/6) animal was strongly positive, versus 6/8 controls (Holm-corrected p = 0.035 and 0.039). An omnibus exact test across the six groups was not significant (p = 0.064), neither combination group differed from its single-agent components, and β-arrestin-2 scores did not correlate with behavioral analgesic outcome (all p ≥ 0.078). Strongly positive spinal β-arrestin-2 immunoreactivity was less frequent after combined fentanyl-α-2 agonist treatment than in controls. Because immunohistochemistry measures total rather than receptor-bound arrestin, the finding is compatible with lower total β-arrestin-2 abundance or altered receptor-arrestin recruitment, but the two possibilities cannot be distinguished by this assay. We report the finding as a hypothesis-generating association only.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42975738/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42975738",
+        "doi": "10.1007/s12035-026-06290-0",
+        "journal": "Molecular neurobiology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-03T23:30:19.416Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "36f4f3503b6406f168e9",
+      "reserved_at": "2026-11-03T23:30:29.572Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -84257,17 +84409,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 579,
+    "total_reservations": 581,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 104,
+      "4": 106,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 579
+      "SOURCE_VERIFIED": 581
     },
     "batches": [
       {
@@ -84287,7 +84439,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 79,
+        "count": 81,
         "pr_number": null,
         "blocker": null
       }
