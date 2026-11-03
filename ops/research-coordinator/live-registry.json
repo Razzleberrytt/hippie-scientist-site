@@ -83984,6 +83984,159 @@
       "reservation_id": "e466ec8cf124257d8e57",
       "reserved_at": "2026-11-02T18:32:47.230Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42970777",
+      "title": "Examination of Infant Sex Differences in Neonatal Opioid Withdrawal Syndrome Severity After In-Utero Buprenorphine Exposure in the MOMS Clinical Trial.",
+      "doi": "10.1097/ADM.0000000000001781",
+      "source_title": "Examination of Infant Sex Differences in Neonatal Opioid Withdrawal Syndrome Severity After In-Utero Buprenorphine Exposure in the MOMS Clinical Trial.",
+      "abstract": "Neonatal opioid withdrawal syndrome (NOWS) severity is influenced by several clinical factors; however, the association with infant sex is poorly understood. We examined the association between infant sex and NOWS severity in a cohort of buprenorphine-exposed infants. This was a secondary analysis of the MOMS clinical trial (NCT03918850). Regression models evaluated the association between infant sex and NOWS severity measures, including (1) receipt of any pharmacologic treatment, (2) opioid treatment days, (3) adjunctive medication treatment, (4) length of hospital stay (LOS), and (5) LOS related to NOWS. There were 135 infants (67 male, 68 female). There were no significant differences in demographics or medical comorbidities by infant sex. Methamphetamine and phencyclidine exposures were positively associated with receipt of any pharmacologic treatment, and phencyclidine with longer LOS. Breastfeeding was associated with decreased receipt of any pharmacologic treatment and shorter total LOS, and preterm delivery and NICU admission with longer total LOS. In final regression models, NOWS severity did not differ by infant sex. Infant sex was not statistically associated with NOWS severity measures within this buprenorphine-exposed cohort. Meta-analyses are needed to better understand the relationship between infant sex and NOWS.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42970777/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42970777",
+        "doi": "10.1097/ADM.0000000000001781",
+        "journal": "Journal of addiction medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-03T01:40:37.440Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7b488e26d1a7a2f7546b",
+      "reserved_at": "2026-11-03T01:40:45.796Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42970190",
+      "title": "Echocardiographic phenotypes of opioid-induced cardiotoxicity: a narrative review.",
+      "doi": "10.1007/s12574-026-00754-x",
+      "source_title": "Echocardiographic phenotypes of opioid-induced cardiotoxicity: a narrative review.",
+      "abstract": "Opioid cardiotoxicity is an increasing clinical concern, yet its echocardiographic manifestations are heterogeneous and poorly characterized. This narrative review synthesizes available evidence, maps the principal echocardiographic phenotypes of opioid-related cardiac injury, and identifies major knowledge gaps. A structured PubMed search (January 2014-December 2024) combined opioid and echocardiographic terms without language restriction. Human and animal studies of any design assessing cardiac structure or function by echocardiography after acute or chronic opioid exposure were eligible. Of 209 records, 41 were included and grouped by dominant phenotype. No formal protocol (e.g., PRISMA) or risk-of-bias appraisal was applied. Five distinct-and often conflicting-phenotypes emerged: (1) severe, potentially reversible global left ventricular systolic dysfunction (LVEF as low as 20%), sometimes progressing to cardiogenic shock yet normalising within 48-72 h; (2) Takotsubo cardiomyopathy, classic after withdrawal and predominantly reverse after intoxication; (3) right ventricular dysfunction with pulmonary hypertension, usually secondary to hypoxia or left-sided failure but occasionally isolated; (4) consistent cardioprotection in animal ischaemia-reperfusion models, unsupported by any prospective human echocardiographic study; and (5) a mechanically normal profile despite QTc exceeding 610 ms and torsades de pointes. Phenotypes 1-3 rest largely on case reports, and many studies are confounded by co-administered cocaine, benzodiazepines or α2-adrenoceptor agonists. Opioid cardiac effects are context-dependent, and mechanical toxicity diverges from electrical toxicity: a normal echocardiogram does not exclude lethal arrhythmia, so echocardiography and serial QTc assessment are complementary rather than interchangeable. Prospective studies with advanced imaging are needed to establish phenotype frequency and determinants.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42970190/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42970190",
+        "doi": "10.1007/s12574-026-00754-x",
+        "journal": "Journal of echocardiography",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-03T01:40:37.441Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "788d8f63678b65322a80",
+      "reserved_at": "2026-11-03T01:40:45.796Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -84028,17 +84181,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 576,
+    "total_reservations": 578,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 101,
+      "4": 103,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 576
+      "SOURCE_VERIFIED": 578
     },
     "batches": [
       {
@@ -84058,7 +84211,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 76,
+        "count": 78,
         "pr_number": null,
         "blocker": null
       }
