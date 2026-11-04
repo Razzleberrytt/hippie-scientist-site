@@ -84593,6 +84593,82 @@
       "reservation_id": "8d1582b16650e327e862",
       "reserved_at": "2026-11-04T15:33:45.456Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42980628",
+      "title": "Pink Phoria: Emerging New Drug-Tusi.",
+      "doi": "10.1016/j.jen.2026.10.001",
+      "source_title": "Pink Phoria: Emerging New Drug-Tusi.",
+      "abstract": "Tusi (pronounced \"2C\"), commonly marketed as \"pink cocaine,\" is an emerging synthetic recreational drug that has become a growing public health concern in the United States following its increasing popularity in Latin America and Europe. Initially associated with electronic dance music nightlife, its use has expanded to nightclub settings in the United States, although national prevalence remains poorly defined. A 2024 study reported Tusi use among 2.7% of New York City dance club attendees, suggesting increasing use within high-risk recreational populations. Despite its street name, Tusi typically does not contain cocaine. Instead, it is a pink-colored powder produced with food dyes or other coloring agents and often contains an unpredictable combination of psychoactive substances, including ketamine, 3,4-methylenedioxymethamphetamine, lysergic acid diethylamide, methamphetamine, fentaNYL, xylazine, and other adulterants. This highly variable composition increases the risk of severe toxicity, overdose, and death, particularly when fentaNYL or other potent contaminants are present. Greater surveillance, toxicologic characterization, clinician awareness, and targeted public health interventions are needed to address the emergence of this increasingly hazardous polysubstance drug.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42980628/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42980628",
+        "doi": "10.1016/j.jen.2026.10.001",
+        "journal": "Journal of emergency nursing",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-04T21:58:35.906Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "daa803a37ac3d2b194f2",
+      "reserved_at": "2026-11-04T21:58:45.267Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -84637,17 +84713,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 584,
+    "total_reservations": 585,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 109,
+      "4": 110,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 584
+      "SOURCE_VERIFIED": 585
     },
     "batches": [
       {
@@ -84667,7 +84743,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 84,
+        "count": 85,
         "pr_number": null,
         "blocker": null
       }
