@@ -84517,6 +84517,82 @@
       "reservation_id": "64044f8c28645e46d686",
       "reserved_at": "2026-11-04T06:42:29.306Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42976308",
+      "title": "Engagement With and Acceptability of Telephone-based Telemedicine in Addiction Care in Vancouver, Canada, 2020-2023.",
+      "doi": "10.1097/ADM.0000000000001612",
+      "source_title": "Engagement With and Acceptability of Telephone-based Telemedicine in Addiction Care in Vancouver, Canada, 2020-2023.",
+      "abstract": "Telemedicine-based addiction medicine care expanded during the COVID-19 pandemic. We characterize the engagement with and acceptability of these services in Vancouver, Canada. Using longitudinal self-report data from participants who were prescribed medications to address cravings and withdrawal of any substances in 2020-2023 in 3 cohorts of community-recruited people who use drugs in Vancouver, we performed a multivariable generalized estimating equation analysis to identify factors associated with telemedicine use for substance use medications in the past 6 months (vs in-person care). We also explored participant perceptions of their telemedicine engagement. Among 871 eligible participants, 428 (49.1%) were prescribed substance use medications through telemedicine at the first interview during the study period. Compared with those who did not use telemedicine, telemedicine use in a 6-month period was positively associated with continuing to be prescribed substance use medications from the previous 6-month period (adjusted odds ratio [AOR]=1.53; 95% CI: 1.11-2.11) and negatively associated with homelessness (AOR=0.71, 95% CI: 0.54-0.92) and daily opioid use (AOR=0.78, 95% CI: 0.64-0.94). With each subsequent assessment, participants were less likely to have used telemedicine (AOR=0.86, 95% CI: 0.81-0.91). Of the 255 participants who preferred telemedicine (59.6%), 214 (83.9%) cited convenience as the reason. Telemedicine use was preferred to in-person care among most of our participants, but less likely among participants showing markers of structural vulnerability and higher intensity substance use. Future research should investigate the efficacy of telemedicine versus in-person addiction medicine care.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42976308/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42976308",
+        "doi": "10.1097/ADM.0000000000001612",
+        "journal": "Journal of addiction medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-04T15:33:33.618Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8d1582b16650e327e862",
+      "reserved_at": "2026-11-04T15:33:45.456Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -84561,17 +84637,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 583,
+    "total_reservations": 584,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 108,
+      "4": 109,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 583
+      "SOURCE_VERIFIED": 584
     },
     "batches": [
       {
@@ -84591,7 +84667,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 83,
+        "count": 84,
         "pr_number": null,
         "blocker": null
       }
