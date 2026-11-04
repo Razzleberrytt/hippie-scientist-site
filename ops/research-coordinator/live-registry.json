@@ -84365,6 +84365,158 @@
       "reservation_id": "36f4f3503b6406f168e9",
       "reserved_at": "2026-11-03T23:30:29.572Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42977000",
+      "title": "A psychedelic-rich alkaloid fraction obtained from Mimosa tenuiflora (Willd.) Poir attenuates somatic and affective symptoms of naloxone-precipitated morphine withdrawal in C57BL/6 mice.",
+      "doi": "10.1016/j.jep.2026.122602",
+      "source_title": "A psychedelic-rich alkaloid fraction obtained from Mimosa tenuiflora (Willd.) Poir attenuates somatic and affective symptoms of naloxone-precipitated morphine withdrawal in C57BL/6 mice.",
+      "abstract": "Mimosa tenuiflora (Willd.) Poir. root bark is traditionally used in northeastern Brazil to prepare \"Jurema wine\", a beverage employed to relieve emotional distress and restore psychological well-being. However, validating its traditional preparations in central substance withdrawal states remains underexplored. To evaluate the ethnopharmacological potential of M. tenuiflora, we investigated the effects of an alkaloid fraction (AF II) from its root bark on somatic and affective morphine withdrawal symptoms in mice, without compromising analgesia. Male C57BL/6 mice were used for the tests. Possible interference with morphine-induced analgesia was assessed using the acetic acid-induced writhing test. The animals were made morphine-dependent using a dose-escalation regimen, and withdrawal syndrome was precipitated with naloxone. AF II (3, 6, or 9 mg/kg, s.c.) was administered before withdrawal induction. AF II did not interfere with morphine analgesia. AF II significantly reduced key somatic signs of morphine withdrawal, decreasing jumping and paw tremor without affecting Walk in reverse. During withdrawal, AF II increased exploratory behavior in the open field and modulated anxiety-related parameters. The AF II from Mimosa tenuiflora, rich in serotonergic compounds, selectively attenuates somatic and affective components of opioid withdrawal in mice without compromising opioid analgesia, supporting its potential as a preliminary candidate for acute opioid withdrawal modulation. These findings provide scientific support for the traditional knowledge surrounding the central psychoactive and restorative properties of M. tenuiflora preparations.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42977000/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42977000",
+        "doi": "10.1016/j.jep.2026.122602",
+        "journal": "Journal of ethnopharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-04T06:42:20.407Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9d49f907387df55da28e",
+      "reserved_at": "2026-11-04T06:42:29.306Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42976234",
+      "title": "Medetomidine: Dose-Response Approach to Drug Monitoring.",
+      "doi": "10.1097/ADM.0000000000001794",
+      "source_title": "Medetomidine: Dose-Response Approach to Drug Monitoring.",
+      "abstract": "Drug supply monitoring programs commonly describe novel substances in binary terms: a substance is either present or absent, and its presence alone defines risk. Medetomidine, a veterinary imidazole alpha-2 agonist anesthetic, has been detected as an adulterant in illegally manufactured fentanyl across the United States, and reports of medetomidine toxicity have been similarly widespread. Yet its severe withdrawal syndrome has emerged in communities more gradually, with many unaffected. The environmental-health concept of dose-response offers a plausible explanation for this geographic mismatch. Some harms follow a linear relationship where any exposure carries risk, and that risk rises in proportion to dose. Opioid overdose and medetomidine toxicity fit this pattern. Others may follow a threshold relationship, appearing only once exposure surpasses a critical level. Medetomidine withdrawal fits the threshold pattern because tolerance, and therefore withdrawal, require sustained exposure of sufficient dose and duration. Where it has appeared, the withdrawal syndrome has strained local hospital systems. Preliminary review of hospital billing data and community drug-checking results suggests that hospital utilization rose only after medetomidine's prevalence and potentially concentration in the local supply crossed a threshold. Current evidence supporting application of this dose-response theory to medetomidine withdrawal is hypothesis-generating. Further work linking drug-supply prevalence and concentration data to well-defined, drug-specific clinical outcomes could support a surveillance system that lets public health and hospital stakeholders anticipate drug-related harms before they become widespread, using evidence-based thresholds.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42976234/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42976234",
+        "doi": "10.1097/ADM.0000000000001794",
+        "journal": "Journal of addiction medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-04T06:42:20.408Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "64044f8c28645e46d686",
+      "reserved_at": "2026-11-04T06:42:29.306Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -84409,17 +84561,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 581,
+    "total_reservations": 583,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 106,
+      "4": 108,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 581
+      "SOURCE_VERIFIED": 583
     },
     "batches": [
       {
@@ -84439,7 +84591,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 81,
+        "count": 83,
         "pr_number": null,
         "blocker": null
       }
