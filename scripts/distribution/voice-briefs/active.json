@@ -1,0 +1,172 @@
+{
+  "release": "R8.05",
+  "sourceIdentity": {
+    "id": "pmid-40265319-creatine-hair-lak2025",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/40265319/"
+  },
+  "premise": {
+    "interestScore": 4.7,
+    "coldViewerWhyCare": "A common everyday supplement anxiety; actual hair endpoints were measured in a human controlled trial.",
+    "viewerQuestion": "Does creatine really make your hair fall out?",
+    "earlyPayoff": "A controlled trial did not detect hair-density differences over 12 weeks.",
+    "methodologyBeforePayoff": false,
+    "paperSummaryOpening": false
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "beats": [
+    {
+      "id": "c01-hook",
+      "role": "hook",
+      "narration": "Could creatine be costing you your hair? Researchers actually checked.",
+      "onScreenText": "Could creatine cause hair loss?",
+      "visualPurpose": "Open on a realistic hair follicle silhouette; reveal an actual study instrument instead of a scary falling-hair montage.",
+      "spokenAnchor": "your hair",
+      "visualAction": "Hair follicle silhouette parts to show the study measuring actual follicles, not a hormone surrogate.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "creative-framing",
+      "primaryEntities": [
+        "hair follicle"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "c02-finding",
+      "role": "finding",
+      "narration": "In a twelve-week trial, creatine did not produce a detectable difference in hair density versus placebo.",
+      "onScreenText": "No detected difference in hair density.",
+      "visualPurpose": "Show two matched hair-density panels with the same measured outcome; no invented percentage or effect-size bar.",
+      "spokenAnchor": "twelve-week",
+      "visualAction": "Two hair-density fields resolve side-by-side with a neutral equal-direction visual; emphasize that no difference was detected.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "canonical-study",
+      "primaryEntities": [
+        "creatine",
+        "placebo"
+      ],
+      "comparisonRequired": true,
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "c03-evidence",
+      "role": "evidence",
+      "narration": "Thirty-eight men completed the study. Thirty-seven had hair measurements, including density and thickness.",
+      "onScreenText": "38 completed; 37 had hair assessments.",
+      "visualPurpose": "Introduce exact denominators and the two measured outcomes without substituting a fabricated effect size.",
+      "spokenAnchor": "Thirty-eight",
+      "visualAction": "Participant icons compress from 38 to the measured-hair subset of 37; labels identify actual hair tests.",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "canonical-study",
+      "primaryEntities": [
+        "participants"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "c04-limits",
+      "role": "limitation",
+      "narration": "That's encouraging, but one small trial in men can't rule out long-term effects. Several authors disclosed supplement-industry ties.",
+      "onScreenText": "One small 12-week trial in men. Long-term unknown.",
+      "visualPurpose": "Transform measured twelve-week timeline into a deliberately unmeasured, unfilled long-term track; overlay conflict disclosure.",
+      "spokenAnchor": "can't rule out",
+      "visualAction": "Timeline ends at 12 weeks, the later portion fades to a question mark; then disclosure card moves into view.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "canonical-study",
+      "primaryEntities": [
+        "study timeline"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "c05-context",
+      "role": "context",
+      "narration": "The original worry came from a hormone measurement, not a study showing actual hair loss.",
+      "onScreenText": "Hormone changes are not hair-loss measurements.",
+      "visualPurpose": "Draw two distinct pathways: a blood hormone assay versus a direct follicle count; do not pretend a proven biological cause.",
+      "spokenAnchor": "hormone measurement",
+      "visualAction": "Camera transitions between assay vial and actual follicle measurement with clear NOT THE SAME TEST sign.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "canonical-study",
+      "primaryEntities": [
+        "hormone test",
+        "hair assessment"
+      ],
+      "comparisonRequired": true,
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "c06-cta",
+      "role": "cta",
+      "narration": "Don't mistake a reassuring result for proof the question is settled. Follow for the evidence, not the hype.",
+      "onScreenText": "Reassuring is not conclusive.",
+      "visualPurpose": "Return to the matched study panels; reveal a limited-evidence label rather than a universal safety seal.",
+      "spokenAnchor": "reassuring",
+      "visualAction": "The study panels settle; a restrained 'one short trial' limitation label remains visible.",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "end",
+      "factualAuthority": "canonical-study",
+      "primaryEntities": [
+        "evidence summary"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "c07-source",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/40265319/",
+      "visualPurpose": "Show exact PubMed primary source address and citation, no unreviewed new fact.",
+      "spokenAnchor": "",
+      "visualAction": "Hold a static high-contrast source card for at least 3.8 seconds.",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "end",
+      "factualAuthority": "canonical-study",
+      "primaryEntities": [],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.14,
+      "holdSeconds": 3.8
+    }
+  ],
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "editorialStatus": "VOICE_ONLY_REVIEW_HOLD",
+  "sourceLedger": [
+    {
+      "pmid": "40265319",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40265319/",
+      "year": 2025,
+      "type": "randomized-controlled-trial",
+      "findings": "45 randomized; 38 completed; hair measured for 37; no significant creatine/placebo difference in measured hair outcomes over 12 weeks",
+      "limitations": "Healthy resistance-trained adult men only; 12 weeks; relatively small; family history unmeasured; multiple author industry ties disclosed",
+      "clinicalApproval": "PENDING"
+    }
+  ],
+  "publicationAuthorized": false
+}
