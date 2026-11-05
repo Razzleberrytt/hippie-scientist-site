@@ -30,6 +30,20 @@ test('R8.17 rejects captions with missing acoustic timestamps',()=>{
  expect(()=>renderR817ProgressiveWordCaptions([{beatId:'hook',text:'One two'}],
     [{start:0,end:0.4},{start:0.4,end:0.4}])).toThrow()
 })
+test('R8.17 refuses wrong-word, reversed, overlapping, and out-of-scene acoustic timestamps',()=>{
+ const scenes=[{beatId:'hook',start:0,speechEnd:1.4,text:'Alpha beta'}]
+ const valid=[{word:'Alpha',start:.1,end:.4},{word:'beta',start:.5,end:.9}]
+ expect(renderR817ProgressiveWordCaptions(scenes,valid).wordCount).toBe(2)
+ expect(()=>renderR817ProgressiveWordCaptions(scenes,
+   [{...valid[0],word:'Gamma'},valid[1]])).toThrow(/transcript/)
+ expect(()=>renderR817ProgressiveWordCaptions(scenes,
+   [valid[0],{...valid[1],start:.7,end:.6}])).toThrow(/nonmonotonic/)
+ expect(()=>renderR817ProgressiveWordCaptions(scenes,
+   [valid[0],{...valid[1],start:.3,end:.9}])).toThrow(/nonmonotonic/)
+ expect(()=>renderR817ProgressiveWordCaptions(scenes,
+   [valid[0],{...valid[1],end:1.6}])).toThrow(/spoken scene bounds/)
+})
+
 test('R8.17 visual twist and evidence-sourced secondary safety CTA',()=>{
  expect(assertR817RetentionPlan(makePlan()).explicitPrimaryCta).toBe(true)
  const stale=makePlan();stale.retention.hook.onlyLabelOrBottle=true
