@@ -84669,6 +84669,158 @@
       "reservation_id": "daa803a37ac3d2b194f2",
       "reserved_at": "2026-11-04T21:58:45.267Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42986262",
+      "title": "Pharmacology Update: Pruritus in Palliative Care With Focus on Naltrexone.",
+      "doi": "10.1177/10499091261505821",
+      "source_title": "Pharmacology Update: Pruritus in Palliative Care With Focus on Naltrexone.",
+      "abstract": "BackgroundPruritus is a common and often distressing symptom in palliative care, affecting a significant fraction of patients and significantly impairing sleep, mood, and quality of life. Common etiologies include chronic kidney disease, cholestatic liver disease, hematologic malignancies, solid tumors, medication-related syndromes, and paraneoplastic processes. Conventional treatments, including antihistamines, antidepressants, gabapentinoids, ondansetron, and ultraviolet-B phototherapy, are frequently limited by adverse effects, cost, or practicality in seriously ill patients.ObjectiveTo review the pathophysiology of pruritus relevant to palliative care and evaluate the emerging role of naltrexone as a therapeutic option for refractory pruritus.MethodsNarrative review of the literature addressing the mechanisms of pruritus, current treatment approaches, and clinical evidence supporting the use of naltrexone across various pruritic conditions encountered in palliative medicine.ResultsIncreasing evidence implicates dysregulation of the endogenous opioid system in the pathogenesis of several forms of chronic pruritus. As a competitive opioid receptor antagonist, naltrexone may mitigate \"itch\" through μ-opioid receptor blockade and restoration of opioid signaling balance. The strongest evidence supports its use in cholestatic pruritus, where randomized placebo-controlled trials demonstrated significant reductions in symptom severity with 50 mg daily dosing. Evidence in uremic pruritus is mixed, with some studies showing benefit and others finding no superiority over placebo. Case reports and small series suggest potential efficacy in malignancy-associated pruritus, polycythemia vera, and selected dermatologic disorders. Limitations include contraindication in patients receiving opioid therapy, potential precipitation of withdrawal, and adverse effects such as nausea, gastrointestinal distress, dizziness, fatigue, and sleep disturbance.ConclusionsNaltrexone represents a mechanistically rational and potentially effective option for selected patients with refractory pruritus in palliative care. Current evidence is most compelling for cholestatic pruritus, while data for other etiologies remain limited and heterogeneous. Larger prospective studies are needed to define optimal dosing strategies, identify patients most likely to benefit, and better characterize its role in opioid-exposed palliative care populations.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42986262/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42986262",
+        "doi": "10.1177/10499091261505821",
+        "journal": "The American journal of hospice & palliative care",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-05T18:50:39.784Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "62b30d6eeb49c08d2b66",
+      "reserved_at": "2026-11-05T18:50:49.208Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42984398",
+      "title": "Targeting pepsin provides superior protection to acid suppression in reflux-associated airway inflammation and lung dysfunction.",
+      "doi": "10.1113/EP093251",
+      "source_title": "Targeting pepsin provides superior protection to acid suppression in reflux-associated airway inflammation and lung dysfunction.",
+      "abstract": "Gastro-oesophageal reflux disease is a prevalent condition associated with extra-oesophageal manifestations, such as pulmonary inflammation. Pepsin, an essential gastric enzyme, has been implicated in pulmonary complications owing to its inflammatory effects. Although acid-suppressive therapies, such as proton pump inhibitors, reduce gastric acidity, they do not prevent reflux episodes, microaspiration or the harmful effects of pepsin. This study evaluated the effects of pepsin inhibition by pepstatin on inflammation and pulmonary dysfunction in a murine model of reflux. Male Swiss mice were anaesthetized with ketamine and xylazine and subjected to a surgical procedure involving pyloric stenosis and complete stenosis of the gastric fundus to induce reflux. The mice were divided into four groups: sham, reflux, reflux + pepstatin and reflux + omeprazole. Treatments were administered daily for 28 days. The evaluated parameters included oesophageal and pulmonary wet weights, myeloperoxidase activity, cytokine levels [interleukin (IL)-6, IL-10 and keratinocyte chemoattractant], histopathological alveolitis scores, functional analyses of spirometry and tracheal contractility. The reflux group exhibited significant oesophageal and pulmonary oedema, increased myeloperoxidase activity, elevated levels of IL-6 and keratinocyte chemoattractant, reduced IL-10, severe alveolitis, impaired pulmonary function and tracheal hyper-reactivity. Pepstatin treatment significantly reduced inflammatory and functional alterations in the reflux model. In contrast, omeprazole was less effective at controlling inflammation and improving pulmonary function. These findings suggest that pepsin inhibition might reduce pulmonary inflammation and help to preserve lung function in a murine reflux model. Targeting pepsin, rather than solely suppressing gastric acidity, shows promise in mitigating reflux-related extra-oesophageal complications.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42984398/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42984398",
+        "doi": "10.1113/EP093251",
+        "journal": "Experimental physiology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-05T18:50:39.785Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b88d9ec5c1aa0cd4c24c",
+      "reserved_at": "2026-11-05T18:50:49.208Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -84713,17 +84865,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 585,
+    "total_reservations": 587,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 110,
+      "4": 112,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 585
+      "SOURCE_VERIFIED": 587
     },
     "batches": [
       {
@@ -84743,7 +84895,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 85,
+        "count": 87,
         "pr_number": null,
         "blocker": null
       }
