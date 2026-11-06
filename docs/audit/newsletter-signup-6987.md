@@ -31,7 +31,7 @@ was sent, and provider delivery, tags and conversion impact remain unverified.
 - `npm run typecheck`: passed.
 - Existing pre-PR fast/security preflight: passed, including high-severity audit.
 - Full production build: incomplete. Compilation and integrated type validation
-  passed, then static generation reached 1,331/1,775 pages before the workspace
+  passed, then static generation reached 1,593/1,775 pages before the workspace
   connection was lost. No full-build PASS or deployment is claimed.
 - Generated newsletter HTML: exactly one form, one email field, one page-owned
   signup marker, the research-interest jump link, and the correct canonical URL.
@@ -43,7 +43,9 @@ The first production-build attempt encountered the environment's `tsx` Unix-sock
 restriction (`listen EPERM`). Local, untracked dependency launchers were adapted
 to invoke the same scripts through `node --import tsx`; no tracked build script,
 source check, threshold or release gate was changed. Regenerated data and media
-are excluded from this candidate.
+are excluded from this candidate. Generated tracked files and the local dependency
+launchers were restored after the interruption; only the four scoped files remain
+changed locally. The final export marker still reports `success: false`.
 
 ## Admission and release boundary
 
