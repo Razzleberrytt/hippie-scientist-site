@@ -162,7 +162,7 @@ export function getMonographImage(
   return {
     src,
     alt: `${displayName} monograph visual`,
-    credit: explicitCredit || (featuredImage ? featuredCredit : 'Generated profile category visual'),
+    credit: explicitCredit || (featuredImage ? featuredCredit : 'Botanical category illustration; not a species identification image'),
   }
 }
 

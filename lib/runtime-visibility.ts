@@ -113,6 +113,11 @@ function evaluateRuntimeVisibility(record: Record<string, unknown>) {
 export function getRuntimeVisibility(record: Record<string, unknown>) {
   try {
     const visibility = evaluateRuntimeVisibility(record)
+    if (record.evidence_human_study_count === 0) {
+      visibility.canIndex = false
+      visibility.canFeature = false
+      visibility.canMonetize = false
+    }
     const governance = record.governance
     if (!governance || typeof governance !== 'object' || Array.isArray(governance)) return visibility
     const policy = governance as Record<string, unknown>

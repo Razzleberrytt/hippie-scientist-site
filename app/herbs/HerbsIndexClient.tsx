@@ -1,8 +1,10 @@
 'use client'
 
+import { profileCommonName } from '@/lib/profile-credibility'
+
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
+import { cleanSummary, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { DecisionEmptyState, DecisionFilterGroup, DecisionProfileCard } from '@/components/ui/DecisionPrimitives'
 import type { RuntimeRecord } from '../../types/content'
@@ -42,32 +44,11 @@ const filterOptions: FilterOption[] = [
 ]
 
 function getName(item: RuntimeRecord) {
-  return formatDisplayLabel(item?.displayName) || formatDisplayLabel(item?.name) || formatDisplayLabel(item?.slug)
+  return profileCommonName(item)
 }
 
 function getSummary(item: RuntimeRecord) {
   const name = getName(item)
-  const firstPrimaryEffect = Array.isArray(item?.primary_effects)
-    ? item.primary_effects[0]
-    : (typeof item?.primary_effects === 'string' ? item.primary_effects : '')
-  const primaryUse = firstPrimaryEffect ? formatDisplayLabel(firstPrimaryEffect).toLowerCase() : ''
-  const firstMech = Array.isArray(item?.mechanisms)
-    ? item.mechanisms[0]
-    : (typeof item?.mechanisms === 'string' ? item.mechanisms : '')
-  const mech = firstMech ? formatDisplayLabel(firstMech).toLowerCase().replace(/\s+(signaling|modulation|context|response)/g, '') : ''
-  const ev = item?.evidence_tier ? formatDisplayLabel(item.evidence_tier) : ''
-
-  if (primaryUse || mech || ev) {
-    let s = `${name} `
-    if (primaryUse) s += `for ${primaryUse} `
-    if (mech) s += `via ${mech} `
-    if (ev) {
-      const cleanEv = ev.toLowerCase().replace(/\s+evidence$/i, '')
-      s += `(${cleanEv} evidence)`
-    }
-    return s.trim() + '.'
-  }
-
   const summary =
     (item?.short_earthy_summary as string) ||
     (item?.shortEarthySummary as string) ||

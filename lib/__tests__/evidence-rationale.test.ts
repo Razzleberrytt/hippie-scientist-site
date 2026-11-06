@@ -28,10 +28,10 @@ describe('buildEvidenceRationale', () => {
     expect(rationale.totalClaimCount).toBe(3)
   })
 
-  it('grades risk of bias from the strongest design', () => {
-    expect(buildEvidenceRationale([claim('RCT')]).riskOfBias).toBe('Low')
-    expect(buildEvidenceRationale([claim('small human intervention trial')]).riskOfBias).toBe('Medium')
-    expect(buildEvidenceRationale([claim('animal study')]).riskOfBias).toBe('High')
+  it('leaves bias unassessed when only study designs are known', () => {
+    expect(buildEvidenceRationale([claim('RCT')]).riskOfBias).toBeNull()
+    expect(buildEvidenceRationale([claim('small human intervention trial')]).riskOfBias).toBeNull()
+    expect(buildEvidenceRationale([claim('animal study')]).riskOfBias).toBeNull()
   })
 
   it('honours a study that flags its own bias problem', () => {
@@ -55,16 +55,30 @@ describe('buildEvidenceRationale', () => {
     expect(buildEvidenceRationale([claim('small_randomized_trials_inconsistent')]).consistency).toBe('Mixed')
   })
 
-  it('calls the evidence mixed when some but not all findings were negative', () => {
-    const rationale = buildEvidenceRationale([claim('RCT'), claim('negative_randomized_trial')])
-    expect(rationale.consistency).toBe('Mixed')
+  it('does not mistake negative or null results for disagreement between publications', () => {
+    for (const source of ['negative_randomized_trial', 'null_randomized_trial']) {
+      const single = buildEvidenceRationale([claim(source)])
+      expect(single.consistency).toBeNull()
+      expect(single.summary).not.toContain('studies disagree')
+    }
+    const noDirectionalComparison = buildEvidenceRationale([claim('RCT'), claim('negative_randomized_trial')])
+    expect(noDirectionalComparison.consistency).toBeNull()
+    expect(noDirectionalComparison.summary).not.toContain('studies disagree')
+  })
+
+  it('does not infer disagreement from multiple negative studies', () => {
+    const rationale = buildEvidenceRationale([
+      { ...claim('negative_randomized_trial'), pmid: '12345678' },
+      { ...claim('null_randomized_trial'), pmid: '23456789' },
+    ])
+    expect(rationale.consistency).toBeNull()
   })
 
   it('will not call thin evidence consistent', () => {
     // Two agreeing trials is not a consistent literature; "nothing disagreed"
     // mostly means there was little to disagree with.
     expect(buildEvidenceRationale([claim('RCT'), claim('RCT')]).consistency).toBeNull()
-    expect(buildEvidenceRationale([claim('RCT'), claim('RCT'), claim('RCT')]).consistency).toBe('Consistent')
+    expect(buildEvidenceRationale([claim('RCT'), claim('RCT'), claim('RCT')]).consistency).toBeNull()
   })
 
   it('returns an all-null rationale for a profile with no claims', () => {
@@ -86,9 +100,20 @@ describe('gradeIsBackedByEvidence', () => {
     { ...claim('RCT'), pmid: '23456789' },
   ]
 
-  it('accepts a strong grade backed by human studies', () => {
-    expect(gradeIsBackedByEvidence('A', buildEvidenceRationale(human)).backed).toBe(true)
+  it('does not infer Grade A certainty from study identity and design alone', () => {
+    expect(gradeIsBackedByEvidence('A', buildEvidenceRationale(human))).toMatchObject({ backed: false, reason: 'grade-a-certainty-not-assessed' })
     expect(gradeIsBackedByEvidence('B', buildEvidenceRationale(human)).backed).toBe(true)
+  })
+
+  it('supports an explicitly assessed Grade A while retaining independent publication identities', () => {
+    const rationale = { ...buildEvidenceRationale(human), riskOfBias: 'Low' as const, consistency: 'Consistent' as const }
+    expect(gradeIsBackedByEvidence('A', rationale).backed).toBe(true)
+  })
+
+  it('withholds a strong grade when authored evidence plainly conflicts with it', () => {
+    const rationale = { ...buildEvidenceRationale(human), riskOfBias: 'Low' as const, consistency: 'Consistent' as const }
+    expect(gradeIsBackedByEvidence('A', rationale, 'Limited/modest evidence for memory; no two studies showed the same significant changes.')).toMatchObject({ backed: false, reason: 'conflicting-editorial-evidence-signals' })
+    expect(gradeIsBackedByEvidence('A', rationale, 'Long-term safety data are limited.').backed).toBe(true)
   })
 
   it('does not count the same PMID twice across claim and detail sources', () => {

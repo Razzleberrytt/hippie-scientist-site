@@ -104,7 +104,7 @@ function buildRuntimeSummary(record: LooseRecord): RuntimeProfileSummary | undef
     ...asStringList(record.primaryActions),
     ...asStringList(record.primary_actions),
   ]
-  for (const candidate of useCandidates) {
+  for (const candidate of record.evidence_human_study_count === 0 ? [] : useCandidates) {
     const value = compactString(candidate)
     if (!value) continue
     const key = value.toLowerCase()
@@ -152,7 +152,7 @@ const INTENT_ROUTES: { keywords: string[]; path: ContinuePath }[] = [
 
 export function buildProfileDecision(record: LooseRecord, kind: 'herb' | 'compound'): ProfileDecision {
   const slug = String(record.slug ?? '')
-  const verdict = getProfileVerdict(slug)
+  const verdict = record.evidence_human_study_count === 0 ? undefined : getProfileVerdict(slug)
   const runtimeSummary = verdict ? undefined : buildRuntimeSummary(record)
 
   const corpus = corpusOf(record)
