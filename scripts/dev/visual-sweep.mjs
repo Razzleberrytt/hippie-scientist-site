@@ -28,12 +28,14 @@ const ROUTES = [
   '/articles/', '/articles/creatine-brain-health/', '/learn/', '/research/', '/safety-checker/', '/evidence/evidence-report/',
   '/evidence/evidence-checker/', '/search/', '/info/about/', '/info/faq/',
   '/info/methodology/', '/info/privacy/', '/novel-psychoactive-substances/',
+  '/info/newsletter/', '/info/newsletter/?interest=sleep',
 ]
 const WIDTHS = [390, 430, 768, 1280]
 const MOBILE_PROOF_ROUTES = new Set([
   '/', '/start/', '/explore/', '/guides/', '/herbs/', '/herbs/ashwagandha/',
   '/compounds/', '/compounds/l-theanine/', '/compounds/magnesium/',
   '/articles/creatine-brain-health/', '/research/',
+  '/info/newsletter/', '/info/newsletter/?interest=sleep',
 ])
 const tag = process.argv[2] || 'base'
 const dir = `${process.cwd()}/.visual-sweep/${tag}`
