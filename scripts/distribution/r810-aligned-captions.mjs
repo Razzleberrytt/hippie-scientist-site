@@ -1,6 +1,8 @@
 // Use the verified offline-acoustic alignment receipt, not proportional scene timing,
 // to make R8.10 final MP4 captions. The legacy R8.09 phrase SRT is draft-only.
 const clean = (v) => String(v ?? '').trim().replace(/\s+/g,' ')
+// Bind every acoustic timing entry to the exact scripted word, not merely its index.
+const wordIdentity = (v) => String(v ?? '').toLocaleLowerCase('en-US').replace(/[^\p{L}\p{N}]/gu,'')
 const stamp = (n,ass=false) => {
   const units=Math.round(Number(n)*(ass?100:1000))
   const factor=ass?100:1000
@@ -13,6 +15,7 @@ const stamp = (n,ass=false) => {
 export function buildR810AlignedCues(scenes,words){
   const cues=[]
   let offset=0
+  let lastAlignedEnd=0
   for(const scene of scenes){
     const spoken=clean(scene.text)
     if(!spoken)continue
@@ -33,8 +36,16 @@ export function buildR810AlignedCues(scenes,words){
     }
     for(let i=0;i<lexemes.length;i++){
       const w=lexemes[i],time=aligned[i]
-      if(!Number.isFinite(Number(time.start))||!Number.isFinite(Number(time.end)))throw Error('R8.10 nonfinite aligned caption timing')
-      chunk.push({word:w,time})
+      const start=Number(time?.start),end=Number(time?.end)
+      if(!wordIdentity(w)||wordIdentity(time?.word)!==wordIdentity(w))
+        throw Error('R8.10 acoustic word transcript does not match exact scene narration')
+      if(!Number.isFinite(start)||!Number.isFinite(end)||start<0||end<=start||start<lastAlignedEnd-0.002)
+        throw Error('R8.10 nonmonotonic or invalid acoustic word timing')
+      if((scene.start != null && start<Number(scene.start)-0.002)||
+         (scene.speechEnd != null && end>Number(scene.speechEnd)+0.002))
+        throw Error('R8.10 acoustic word outside spoken scene bounds')
+      lastAlignedEnd=end
+      chunk.push({word:w,time:{start,end}})
       if(chunk.length===7){push();continue}
       if(/[.!?]$/.test(w)&&chunk.length>=2)push()
     }

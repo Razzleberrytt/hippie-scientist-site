@@ -5,6 +5,7 @@ import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { validateR808HudReview } from './r808-hud-inspection.mjs'
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
+import { assertNoUnreviewedR818PhysicalArt } from './r818-physical-art-loader.mjs'
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
 const clean = (value) => String(value ?? '').trim()
@@ -80,6 +81,7 @@ export function approveR805Master({
   now = new Date().toISOString(),
 } = {}) {
   const dir = path.resolve(packageDir || '')
+  assertNoUnreviewedR818PhysicalArt(dir)
   const mp4File = requiredFile(dir, 'short-video.mp4')
   const mp4ReceiptFile = requiredFile(dir, 'short-video.mp4.receipt.json')
   const manifestFile = requiredFile(dir, 'video-asset-manifest.json')
