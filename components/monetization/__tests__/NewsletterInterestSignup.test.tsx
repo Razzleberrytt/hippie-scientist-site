@@ -16,7 +16,7 @@ beforeEach(() => {
     writable: true,
     value: { ...window.location, search: '' },
   })
-  vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true }))
+  vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, json: async () => ({ ok: true }) }))
 })
 
 afterEach(() => {
