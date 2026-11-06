@@ -30,7 +30,7 @@ was sent, and provider delivery, tags and conversion impact remain unverified.
 - Changed-source ESLint and `git diff --check`: passed.
 - `npm run typecheck`: passed.
 - Existing pre-PR fast/security preflight: passed, including high-severity audit.
-- Full production build: incomplete. Compilation and integrated type validation
+- Local full production build: incomplete. Compilation and integrated type validation
   passed, then static generation reached 1,593/1,775 pages before the workspace
   connection was lost. No full-build PASS or deployment is claimed.
 - Generated newsletter HTML: exactly one form, one email field, one page-owned
@@ -55,7 +55,7 @@ overlap or active non-held implementation PR for these four paths.
 
 That preflight does not grant sprint admission. The authoritative sprint still
 reserves Revenue/Conversion for #6810; #6934 also reserves the central control
-documents. This candidate remains draft/review-only, adds no active workstream,
+documents. This candidate remains held/review-only, adds no active workstream,
 and does not modify those reserved documents. Reconcile the existing R priority
 and current sprint admission before activation, then run all required exact-head
 checks and release through the existing protected serialized controller. No new
