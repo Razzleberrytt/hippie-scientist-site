@@ -24,7 +24,7 @@ was sent, and provider delivery, tags and conversion impact remain unverified.
 
 ## Validation
 
-- Four focused Vitest suites: 28 tests passed, including one form on the landing
+- Five focused Vitest suites: 36 tests passed, including one form on the landing
   page, default choice, sleep-query preselection, all five topic request payloads,
   shared ownership and backend segmentation regressions.
 - Changed-source ESLint and `git diff --check`: passed.
@@ -44,14 +44,19 @@ restriction (`listen EPERM`). Local, untracked dependency launchers were adapted
 to invoke the same scripts through `node --import tsx`; no tracked build script,
 source check, threshold or release gate was changed. Regenerated data and media
 are excluded from this candidate. Generated tracked files and the local dependency
-launchers were restored after the interruption; only the four scoped files remain
+launchers were restored after the interruption; only the five scoped files remain
 changed locally. The final export marker still reports `success: false`.
+
+The existing hosted visual sweep now includes the default newsletter route and
+its `?interest=sleep` arrival at 390, 768 and 1280 pixels in both themes, with
+mobile screenshots retained. This extends the existing sweep rather than adding
+a second browser system; hosted results are pending.
 
 ## Admission and release boundary
 
 All 18 open PRs were enumerated with independent changed-file counts; their file
 lists were complete. The existing admission evaluator found no scoped issue/path
-overlap or active non-held implementation PR for these four paths.
+overlap or active non-held implementation PR for these five paths.
 
 That preflight does not grant sprint admission. The authoritative sprint still
 reserves Revenue/Conversion for #6810; #6934 also reserves the central control
