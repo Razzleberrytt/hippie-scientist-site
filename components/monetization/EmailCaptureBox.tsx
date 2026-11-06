@@ -9,6 +9,7 @@ import {
   getLeadMagnet,
 } from '@/content/emailCapture'
 import { trackEmailSignup } from '@/lib/analytics'
+import TurnstileWidget, { turnstileEnabled } from '@/components/security/TurnstileWidget'
 
 type EmailCaptureBoxProps = {
   variant?: 'inline' | 'card' | 'wide'
@@ -34,9 +35,12 @@ export function EmailCaptureBox({
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0)
 
   const leadMagnet = getLeadMagnet(goal)
   const disabled = !emailCaptureProviderConfigured
+  const usesTurnstile = emailCaptureProviderAction.startsWith('/api/') && turnstileEnabled
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     if (disabled) {
@@ -58,6 +62,11 @@ export function EmailCaptureBox({
 
     e.preventDefault()
     if (status === 'submitting') return
+    if (usesTurnstile && !turnstileToken) {
+      setStatus('error')
+      setErrorMsg('Complete the security check before subscribing.')
+      return
+    }
     setStatus('submitting')
     setErrorMsg('')
 
@@ -65,20 +74,25 @@ export function EmailCaptureBox({
       const res = await fetch(emailCaptureProviderAction, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, magnet: leadMagnet.goal, source: `email-capture-${goal}` }),
+        body: JSON.stringify({ email, magnet: leadMagnet.goal, source: `email-capture-${goal}`, turnstileToken: usesTurnstile ? turnstileToken : undefined }),
       })
-      if (res.ok) {
+      const detail = await res.json().catch(() => ({})) as Record<string, unknown>
+      if (res.ok && detail.ok === true) {
         setStatus('success')
         setEmail('')
         trackEmailSignup({ source: `email-capture-${goal}` })
       } else {
-        const detail = await res.json().catch(() => ({})) as Record<string, unknown>
         setStatus('error')
         setErrorMsg(String(detail.error ?? 'Something went wrong. Try again.'))
       }
     } catch {
       setStatus('error')
       setErrorMsg('Could not connect to email service. Try again.')
+    } finally {
+      if (usesTurnstile) {
+        setTurnstileToken('')
+        setTurnstileResetKey((value) => value + 1)
+      }
     }
   }
 
@@ -124,6 +138,7 @@ export function EmailCaptureBox({
               />
             </div>
           ) : null}
+          {usesTurnstile ? <TurnstileWidget onTokenChange={setTurnstileToken} resetKey={turnstileResetKey} /> : null}
           <div className='flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row'>
             <label className='sr-only' htmlFor={`email-capture-${leadMagnet.goal}`}>
               Email address
@@ -141,14 +156,14 @@ export function EmailCaptureBox({
             />
             <button
               type='submit'
-              disabled={disabled || status === 'submitting'}
+              disabled={disabled || status === 'submitting' || (usesTurnstile && !turnstileToken)}
               className='min-h-11 rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-brand-900 disabled:cursor-not-allowed disabled:bg-stone-400 whitespace-nowrap'
             >
               {disabled ? 'Get the free checklist' : (status === 'submitting' ? 'Subscribing...' : leadMagnet.ctaLabel)}
             </button>
           </div>
           {status === 'error' && (
-            <p className='text-xs text-red-600 mt-1 font-semibold'>{errorMsg}</p>
+            <p role='alert' className='text-xs text-red-600 mt-1 font-semibold'>{errorMsg}</p>
           )}
         </form>
       </div>

@@ -4,7 +4,6 @@ import { buildPageMetadata } from '../../../lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
-import EmailCapture from '../../../components/EmailCapture'
 import NewsletterInterestSignup from '@/components/monetization/NewsletterInterestSignup'
 
 const TITLE = 'Supplement Research Newsletter: Evidence Notes and Safety Checklists'
@@ -108,6 +107,7 @@ export default function NewsletterArchivePage() {
           and safety-first supplement context without sales-first ranking language. Use this archive as a preview of the style.
         </p>
         <div className='mt-6 flex flex-wrap gap-3'>
+          <a href='#research-interests' className='chip-readable hover:bg-white transition'>Choose research interests</a>
           <Link href='/info/free-guide/' className='chip-readable hover:bg-white transition'>Free decision guide</Link>
           <Link href='/info/infographics/' className='chip-readable hover:bg-white transition'>Free infographics</Link>
           <Link href='/info/privacy/' className='chip-readable hover:bg-white transition'>Privacy policy</Link>
@@ -123,13 +123,6 @@ export default function NewsletterArchivePage() {
           </article>
         ))}
       </section>
-
-      <EmailCapture
-        headline='Get the next research note'
-        description='Join for concise supplement evidence notes, product-quality reminders, and safety-first guide updates.'
-        ctaLabel='Subscribe'
-        location='newsletter-archive'
-      />
 
       <NewsletterInterestSignup />
 
