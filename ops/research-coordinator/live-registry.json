@@ -84821,6 +84821,158 @@
       "reservation_id": "b88d9ec5c1aa0cd4c24c",
       "reserved_at": "2026-11-05T18:50:49.208Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42981710",
+      "title": "Comparison of the pharmacokinetics and sedative effects of Zenalpha (medetomidine and vatinoxan) administered intramuscularly and oral transmucosally in dogs.",
+      "doi": "10.2460/ajvr.26.02.0080",
+      "source_title": "Comparison of the pharmacokinetics and sedative effects of Zenalpha (medetomidine and vatinoxan) administered intramuscularly and oral transmucosally in dogs.",
+      "abstract": "To evaluate the sedative effects and pharmacokinetic profile of medetomidine and vatinoxan (Zenalpha) administered via the oral transmucosal (OTM) route. We hypothesized that sedation scores obtained from Zenalpha OTM (ZOTM) would not differ from Zenalpha IM (ZIM). Dogs received 20 µg/kg ZIM or 80 µg/kg ZOTM. Sedation, anxiolytic, and handling scores were collected at 0, 15, 30, 30, 45, 60, 75, 90, 120, 150, and 180 minutes after administration of Zenalpha. Normality was tested using the Shapiro-Wilk test, and data were presented as median and range. Physiologic data were collected at 0, 5, 10, 15, 30, 45, 60, 90, 120, 240, 360, and 480 minutes. Plasma samples were collected at 0, 3, 5, 8, 8, 10, 15, 30, 45, 60, 90, 120, 240, 360, 480, 720, and 1,440 minutes and analyzed for concentration of medetomidine and vatinoxan using LC-MS-MS. 8 healthy adult Beagles participated in this study. Dogs in ZIM and ZOTM showed significant increases in sedation, anxiolysis, and handling scores compared to baselines. Medetomidine OTM was associated with a time to maximum concentration and relative bioavailability of 86 minutes (6 minutes ZIM) and 26.4%, respectively. Vatinoxan OTM was associated with a time to maximum concentration and relative bioavailability of 216 minutes (15 minutes ZIM) and 55.2%, respectively. ZOTM (80 μg/kg) provided effective sedation, anxiolysis, and improved handling in healthy dogs comparable to ZIM (20 μg/kg) administration. Zenalpha administered OTM, at higher doses, may provide an attractive alternative to IM injection to achieve similar sedation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42981710/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42981710",
+        "doi": "10.2460/ajvr.26.02.0080",
+        "journal": "American journal of veterinary research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-06T00:25:12.315Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "eeafb097e12c30d4ddef",
+      "reserved_at": "2026-11-06T00:25:20.589Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42669473",
+      "title": "Incidence of emesis induced by low-dose intravenous medetomidine administration in dogs: a retrospective study of 155 cases.",
+      "doi": "10.1292/jvms.25-0479",
+      "source_title": "Incidence of emesis induced by low-dose intravenous medetomidine administration in dogs: a retrospective study of 155 cases.",
+      "abstract": "This study aimed to determine the incidence of emesis in dogs receiving a low dose of intravenous medetomidine. Anesthetic records of dogs that received ≤3 µg/kg medetomidine intravenously before anesthesia induction were retrospectively reviewed. Data included demographics, doses, and the presence of emesis, retching, sialorrhea, or lip licking. A total of 155 cases met the criteria. The administered dose of medetomidine was 3.0 (0.5-3.0) µg/kg (median [range]). Emesis occurred in 3 of 155 dogs (1.9%), while retching, sialorrhea, and lip licking occurred in two, two, and five dogs, respectively. The incidence of emesis observed in dogs receiving low-dose (≤3 µg/kg) intravenous medetomidine was lower than that reported in studies using higher doses.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42669473/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42669473",
+        "doi": "10.1292/jvms.25-0479",
+        "journal": "The Journal of veterinary medical science",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-06T00:25:12.316Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d10fb1e168f460ffb72e",
+      "reserved_at": "2026-11-06T00:25:20.589Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -84865,17 +85017,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 587,
+    "total_reservations": 589,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 112,
+      "4": 114,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 587
+      "SOURCE_VERIFIED": 589
     },
     "batches": [
       {
@@ -84895,7 +85047,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 87,
+        "count": 89,
         "pr_number": null,
         "blocker": null
       }
