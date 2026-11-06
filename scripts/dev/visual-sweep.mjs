@@ -80,7 +80,7 @@ for (const theme of ['light', 'dark']) {
       })
       const capture = (w === 1280 && theme === 'light') || ((w === 390 && MOBILE_PROOF_ROUTES.has(route)) || (w === 430 && route === '/'))
       const screenshot = capture
-        ? `${String(routeIndex).padStart(2, '0')}-${route.split('/').filter(Boolean).join('-') || 'home'}-${w}-${theme}.png`
+        ? `${String(routeIndex).padStart(2, '0')}-${route.split('/').filter(Boolean).join('-').replace(/[^a-z0-9_-]/gi, '-') || 'home'}-${w}-${theme}.png`
         : null
       if (screenshot) {
         await page.screenshot({ path: `${dir}/${screenshot}` })
