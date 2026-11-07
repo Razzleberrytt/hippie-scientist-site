@@ -93,11 +93,12 @@ describe('getDosePresentation', () => {
     expect(result.note).toMatch(/no studied dose/i)
   })
 
-  it('keeps a substantive abstention as its own wording', () => {
+  it('keeps editorial abstentions out of public dose guidance', () => {
     const value = 'Preparation-specific; use standardized product label for Root powder and require source-backed dosing'
     const result = getDosePresentation(value)
     expect(result.kind).toBe('abstention')
-    expect(result.note).toBe(value)
+    expect(result.note).toMatch(/no standardized dose is established/i)
+    expect(result.note).not.toMatch(/require source-backed dosing/i)
     expect(result.dose).toBeUndefined()
   })
 

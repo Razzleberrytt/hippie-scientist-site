@@ -80,7 +80,7 @@ const PROFILE_SECTIONS = [
     'Citations',
     100,
     [/references/i, /representative studies/i],
-    [/Clinical Study Summaries\s*\(/i, />\s*References\s*</i],
+    [/(?:Cited Research Publications|Clinical Study Summaries)\s*\(/i, />\s*References\s*</i],
   ),
 ]
 

@@ -1,9 +1,9 @@
 {
   "name": "The Hippie Scientist citation library",
-  "description": "Citation library for https://thehippiescientist.net — 838 studies. Metadata retrieved from PubMed.",
+  "description": "Citation library for https://thehippiescientist.net — 837 studies. Metadata retrieved from PubMed.",
   "license": "Bibliographic metadata is factual and sourced from PubMed. Attribution appreciated.",
   "source": "https://pubmed.ncbi.nlm.nih.gov/",
-  "studyCount": 838,
+  "studyCount": 837,
   "studies": [
     {
       "pmid": "30000830",
@@ -8958,7 +8958,7 @@
       "design": "rct",
       "url": "https://pubmed.ncbi.nlm.nih.gov/25282031/",
       "referencedBy": [
-        "/compounds/coenzyme-q10/"
+        "/compounds/coq10/"
       ]
     },
     {
@@ -9963,19 +9963,6 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/17919303/",
       "referencedBy": [
         "/herbs/elecampane/"
-      ]
-    },
-    {
-      "pmid": "18072817",
-      "doi": "10.2165/00023210-200822010-00007",
-      "title": "Spotlight on rasagiline in Parkinson's disease",
-      "authors": "Oldfield V et al.",
-      "journal": "CNS Drugs",
-      "year": 2008,
-      "design": "unclassified",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/18072817/",
-      "referencedBy": [
-        "/herbs/maca/"
       ]
     },
     {

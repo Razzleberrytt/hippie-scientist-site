@@ -29,14 +29,14 @@ describe('ProfileEvidenceLens', () => {
     expect(screen.getByText(/Gaba Modulation/)).toBeTruthy()
   })
 
-  it('uses singular "study" wording for exactly one citation', () => {
+  it('uses singular publication wording for exactly one source', () => {
     render(<ProfileEvidenceLens record={{ slug: 'test' }} citationsCount={1} />)
-    expect(screen.getByText('This profile cites 1 human study.')).toBeTruthy()
+    expect(screen.getByText('This profile cites 1 publication; study designs and human evidence are counted below.')).toBeTruthy()
   })
 
-  it('uses plural "studies" wording for more than one citation', () => {
+  it('uses plural publication wording for more than one source', () => {
     render(<ProfileEvidenceLens record={{ slug: 'test' }} citationsCount={4} />)
-    expect(screen.getByText('This profile cites 4 human studies.')).toBeTruthy()
+    expect(screen.getByText('This profile cites 4 publications; study designs and human evidence are counted below.')).toBeTruthy()
   })
 
   it('omits the citation count line entirely when citationsCount is 0', () => {

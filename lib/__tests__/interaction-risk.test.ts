@@ -10,8 +10,10 @@ const edgesFixture = {
       partner_slug: 'herb-c', partner_name: 'Herb C', risk_mechanism: 'serotonergic', severity: 'severe', weight: 40,
       certainty: 'probable', provenance: { source_ids: ['PMID:123', 'PMID:456'], reviewed_at: '2026-08-15' }, claim_language: '', notes: '',
     },
-    // Deliberately legacy-shaped to verify the truthful theoretical fallback.
+    // Deliberately legacy-shaped: theoretical matches must not look confirmed.
     { partner_slug: 'herb-d', partner_name: 'Herb D', risk_mechanism: 'cns_sedation', severity: 'moderate', weight: 70, claim_language: '', notes: '' },
+    { partner_slug: 'herb-e', partner_name: 'Herb E', risk_mechanism: 'serotonergic', severity: 'severe', weight: 25, certainty: 'known', provenance: { source_ids: ['PMID:789'] }, claim_language: '', notes: '' },
+    { partner_slug: 'herb-f', partner_name: 'Herb F', risk_mechanism: 'cns_sedation', severity: 'moderate', weight: 20, certainty: 'known', provenance: { source_ids: ['PMID:790'] }, claim_language: '', notes: '' },
   ],
 }
 
@@ -62,7 +64,7 @@ describe('interaction-risk', () => {
     const risks = getAdditiveRisks('herb-a')
     const serotonergic = risks.find(r => r.mechanism === 'serotonergic')!
 
-    expect(serotonergic.topPartners.map(p => p.slug)).toEqual(['herb-b', 'herb-c'])
+    expect(serotonergic.topPartners.map(p => p.slug)).toEqual(['herb-c', 'herb-e'])
     expect(serotonergic.partnerCount).toBe(2)
   })
 
@@ -73,10 +75,10 @@ describe('interaction-risk', () => {
     const sedation = risks.find(r => r.mechanism === 'cns_sedation')!
 
     expect(serotonergic.severity).toBe('severe')
-    expect(serotonergic.certainties).toEqual(['theoretical', 'probable'])
+    expect(serotonergic.certainties).toEqual(['probable', 'known'])
     expect(serotonergic.provenanceCoverage).toEqual({ withProvenance: 2, total: 2 })
-    expect(sedation.certainties).toEqual(['theoretical'])
-    expect(sedation.provenanceCoverage).toEqual({ withProvenance: 0, total: 1 })
+    expect(sedation.certainties).toEqual(['known'])
+    expect(sedation.provenanceCoverage).toEqual({ withProvenance: 1, total: 1 })
   })
 
   it('returns an empty array when no additive tags exist for the slug', async () => {
