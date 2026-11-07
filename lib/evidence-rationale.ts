@@ -41,7 +41,6 @@ export type EvidenceRationale = {
   summary: string
 }
 
-/** A recorded design that also reports the finding went against the claim. */
 /** A recorded design that reports the underlying studies disagreed. */
 const MIXED_MARKER = /\bmixed\b|\binconsistent\b|\bconflict/i
 /** A recorded design that explicitly flags its own bias problem. */
@@ -123,6 +122,14 @@ function markerText(claim: RationaleClaimInput): string {
   return sourceText(claim).replace(/[_/+]+/g, ' ')
 }
 
+/** Funding disclosures and analysis designs do not describe outcome agreement. */
+function hasDisagreementMarker(text: string): boolean {
+  const findingsText = text
+    .replace(/\bconflicts?[\s-]+of[\s-]+interest\b/gi, '')
+    .replace(/\bmixed[\s-]+(?:methods?|effects?)\b/gi, '')
+  return MIXED_MARKER.test(findingsText)
+}
+
 function classOf(claim: RationaleClaimInput): StudyClass {
   const assigned = claim.study_class
   if (typeof assigned === 'string' && assigned in STUDY_CLASS_INFO) return assigned as StudyClass
@@ -154,7 +161,7 @@ export function buildEvidenceRationale(claims: readonly RationaleClaimInput[], d
   const flaggedHighBias = texts.some((text) => HIGH_BIAS_MARKER.test(text))
   // A negative/null result is not itself evidence that publications disagree.
   // Only an explicit mixed/inconsistent/conflicting marker supports this label.
-  const mixedCount = texts.filter((text) => MIXED_MARKER.test(text)).length
+  const mixedCount = texts.filter(hasDisagreementMarker).length
 
   const designMatch = strongestClass === 'unclassified' ? null : STUDY_CLASS_INFO[strongestClass].label
   // A design label alone cannot establish the assessed risk of bias.

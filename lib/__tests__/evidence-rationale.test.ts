@@ -55,6 +55,28 @@ describe('buildEvidenceRationale', () => {
     expect(buildEvidenceRationale([claim('small_randomized_trials_inconsistent')]).consistency).toBe('Mixed')
   })
 
+  it('does not turn funding disclosures or mixed-methods designs into disagreeing findings', () => {
+    for (const source of [
+      'RCT; conflicts of interest disclosed',
+      'RCT; no conflict of interest',
+      'mixed_methods_human_study',
+      'RCT; mixed-effects model',
+    ]) {
+      const rationale = buildEvidenceRationale([claim(source)])
+      expect(rationale.consistency, source).toBeNull()
+      expect(rationale.summary, source).not.toContain('studies disagree')
+    }
+  })
+
+  it('preserves explicit disagreement alongside an unrelated methods or funding disclosure', () => {
+    for (const source of [
+      'RCT; conflicts of interest disclosed; conflicting findings',
+      'mixed_methods_human_study; mixed results',
+    ]) {
+      expect(buildEvidenceRationale([claim(source)]).consistency, source).toBe('Mixed')
+    }
+  })
+
   it('does not mistake negative or null results for disagreement between publications', () => {
     for (const source of ['negative_randomized_trial', 'null_randomized_trial']) {
       const single = buildEvidenceRationale([claim(source)])

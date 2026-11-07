@@ -2,6 +2,25 @@
 
 Status: implementation in review in PR #6934; local production export passed, exact-head hosted build and protected merge/deployment evidence pending. Owner instruction: fix the supplied homepage/herb-index/Ashwagandha/Brassica audit and merge. Admission is tracked separately in PR #6933. No clinical signoff or search/business outcome is claimed.
 
+## November 7 continuation — outcome agreement wording
+
+On reconciled head `e163648fa64e0667017ccb8ce55dec03e113f785`, reproduced an
+additional false disagreement classification: `RCT; conflicts of interest
+disclosed` produced `Mixed` and the public sentence “Findings across those studies
+disagree.” Funding disclosures, mixed-methods designs and mixed-effects models
+do not establish disagreement between outcomes. The existing rationale parser now
+excludes those phrases from its disagreement-marker scan while preserving genuine
+mixed/conflicting findings elsewhere in the same record. No source record or
+authored grade is changed.
+
+The new negative regression failed before the fix; all 97 tests across ten focused
+evidence/safety/UI/runtime suites passed afterward. The native publication-floor
+negative regression also passed. Full 18-PR file inventory confirmed reuse of
+#6934; no new implementation PR was opened. Production build, shared fast/security
+preflight and typecheck are being rerun locally. Latest hosted checks for the
+starting head are `action_required` with no CI jobs, not passing tests. Keep the
+release hold until fresh final-head validation and protected release proof exist.
+
 ## Existing architecture and repair boundary
 
 Reuse the workbook/runtime pipeline, `extractCitationsFromRecord` publication inventory, existing grade backing, runtime visibility ceiling, final invariant enforcement, shared metadata builder, static media pipeline and international SEO registry. Preserve source grades, citation context records, stricter governance holds, author attribution and stable URLs. This repair does not create a parallel science dataset or invent reviewer credentials. The independent reviewer inspected these boundaries and required final-only publication changes, reviewed-edge filtering and late social-card generation.
