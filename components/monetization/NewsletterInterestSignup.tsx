@@ -30,7 +30,7 @@ export default function NewsletterInterestSignup() {
   }, [])
 
   return (
-    <section id='research-interests' className='scroll-mt-24 rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
+    <section id='research-interests' data-email-capture-owner='page' className='scroll-mt-24 rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
       <p className='eyebrow-label'>Research interests</p>
       <h2 className='mt-2 text-3xl font-semibold tracking-tight text-ink'>What do you want to research?</h2>
       <p className='mt-3 max-w-3xl text-sm leading-7 text-muted'>
