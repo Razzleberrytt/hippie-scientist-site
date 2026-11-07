@@ -84973,6 +84973,159 @@
       "reservation_id": "d10fb1e168f460ffb72e",
       "reserved_at": "2026-11-06T00:25:20.589Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42994086",
+      "title": "Premedication with medetomidine compared to acepromazine reduces the risk of hypotension and mild acute kidney injury in healthy dogs undergoing gonadectomy surgery: results of a randomized clinical trial.",
+      "doi": "10.2460/javma.26.07.0574",
+      "source_title": "Premedication with medetomidine compared to acepromazine reduces the risk of hypotension and mild acute kidney injury in healthy dogs undergoing gonadectomy surgery: results of a randomized clinical trial.",
+      "abstract": "To compare premedication with medetomidine or acepromazine in regard to hypotension and acute kidney injury (AKI) in dogs undergoing elective gonadectomy. This randomized clinical trial included healthy dogs ≥ 6 months of age undergoing gonadectomy in a university teaching hospital. Exclusion criteria were weight < 4 kg, American Society of Anesthesiologists risk > 2, or cardiovascular/renal disease. Premedication consisted of methadone and medetomidine at 0.3 to 5 µg/kg or acepromazine at 0.01 to 0.05 mg/kg IM. Anesthesia was induced with alfaxalone and maintained with isoflurane. Hypotension (mean arterial pressure < 60 mm Hg) frequency, severity, and duration; recovery temperature; and vomiting and pain interventions were compared. Oliguria 24 hours postoperatively was defined as no urination with low-volume bladder. Serum creatinine was measured from blood before and 24 hours after surgery. Acute kidney injury was defined as an increase of > 26.5 µmol/L. The medetomidine group included 51 dogs and the acepromazine group 43. There were no differences in preoperative characteristics, anesthetic doses, or time. Hypotension was significantly less frequent (51% vs 84%), had a shorter duration (14 ± 20.2 minutes vs 26 ± 24.2 minutes), and was less severe (lowest mean arterial pressure 60.0 ± 14.9 mm Hg vs 51 ± 10.3 mm Hg) following medetomidine. Acute kidney injury was less frequent in the medetomidine group (9.8% vs 20.9%), with no oliguric AKI cases compared to 4 following acepromazine. There were no differences in postoperative hypothermia or treatments for vomiting or pain. Premedication with medetomidine results in a lower frequency and duration of hypotension and might reduce the risk of AKI. For healthy dogs undergoing elective surgery, premedication with medetomidine is preferable to acepromazine.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42994086/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42994086",
+        "doi": "10.2460/javma.26.07.0574",
+        "journal": "Journal of the American Veterinary Medical Association",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-07T07:20:01.558Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "525bd9ee842b7978f5ed",
+      "reserved_at": "2026-11-07T07:20:10.822Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42988375",
+      "title": "Safety and effectiveness of rapid methadone titration protocols in opioid use disorder: A systematic review.",
+      "doi": "10.1111/add.70684",
+      "source_title": "Safety and effectiveness of rapid methadone titration protocols in opioid use disorder: A systematic review.",
+      "abstract": "Methadone is an effective, first-line treatment for opioid use disorder. Guidelines recommend slow titration to minimize the risk of methadone toxicity, a process exposing patients to sub-therapeutic doses for weeks to months. Protocols that titrate more rapidly reduce the time to achieving a therapeutic dose. This systematic review evaluated the safety and effectiveness of rapid methadone titrations in patients with opioid use disorder. Systematic review of prospective and retrospective studies of patients undergoing rapid methadone titration for treatment of opioid use disorder. Both outpatient and inpatient/acute settings were included. A total of 4297 records were screened from MEDLINE, EMBASE, Cochrane CENTRAL and PsycINFO. Following the initial screen, 79 texts were reviewed in full, with 29 studies included in the review, representing 16 154 participants. A wide variety of rapid titration schedules were described across inpatient and outpatient settings. A common protocol (6 studies) started at 30-40 mg, with additional 10 mg every 3-4 hours as needed up to 50-80 mg on day 1. Average dose on day 7 ranged from 53 to 97 mg across 5 randomised controlled trials/cohort studies (n = 14 758) and from 60 to 200 mg in 5 case series/case reports (n = 124). Among 26 studies reporting on mortality (n = 1431), there were 63 deaths in 3 outpatient studies over 2-180 days after starting methadone; 61 deaths were from 2 case series that specifically selected cases of death from coroner reports. Among all 18 studies conducted in the fentanyl era (post-2013, n = 705), and all 18 inpatient studies from any time period (n = 604) reporting on mortality, there were no deaths reported. Overdose rates were less than 1% across all studies and sedation events were often mild, with most patients continuing methadone. One study found a correlation between improved retention rates and higher methadone doses during the first week of initiation. Pooled analysis could not be performed due to substantial heterogeneity across studies. A wide range of rapid methadone titration protocols for opioid use disorder are described in the literature, with generally low-quality evidence and little standardization in protocols or evaluations. Overall adverse events were rare, particularly with rapid methadone titration in the fentanyl era and during inpatient admissions. Data on retention in treatment and changes in unregulated drug use were limited.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42988375/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42988375",
+        "doi": "10.1111/add.70684",
+        "journal": "Addiction (Abingdon, England)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-07T07:20:01.559Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3a0f7804141d9723d659",
+      "reserved_at": "2026-11-07T07:20:10.822Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -85017,17 +85170,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 589,
+    "total_reservations": 591,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 114,
+      "4": 116,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 589
+      "SOURCE_VERIFIED": 591
     },
     "batches": [
       {
@@ -85047,7 +85200,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 89,
+        "count": 91,
         "pr_number": null,
         "blocker": null
       }
