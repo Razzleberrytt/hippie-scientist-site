@@ -100,6 +100,9 @@ function sourceObjectToCitation(src: Record<string, unknown>): Citation {
     safetyOutcome: firstString(src, ['safety_outcome', 'adverse_events', 'safety_result']),
   }
 
+  if (pmid === '41644067') {
+    citation.limitation = [citation.limitation, 'The abstract reports unusually large standardized effects. Heterogeneity and the full-text methods require appraisal before interpreting these estimates as a typical or clinically meaningful benefit.'].filter(Boolean).join(' ')
+  }
   return citation
 }
 

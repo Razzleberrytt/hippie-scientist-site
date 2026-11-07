@@ -45,7 +45,7 @@ describe('ShowMeTheStudies default evidence snapshot', () => {
     expect(screen.getByText('What the evidence actually shows')).toBeTruthy()
     expect(screen.getAllByText(/2 human evidence sources/i).length).toBeGreaterThan(0)
     expect(screen.getAllByText(/2 human trials/i).length).toBeGreaterThan(0)
-    expect(screen.getByText(/approximate participant total is 200/i)).toBeTruthy()
+    expect(screen.getByText(/unique participant total is not established/i)).toBeTruthy()
     expect(screen.getByText(/1 supports the conclusion, 0 are mixed, 1 contradict it/i)).toBeTruthy()
   })
 

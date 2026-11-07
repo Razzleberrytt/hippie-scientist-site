@@ -11,10 +11,10 @@
  *    overstates the evidence base, so they are withdrawn to an internal report
  *    where the underlying research note is preserved for a human to resolve.
  *
- * 2. MISATTRIBUTED — a citation checked against PubMed by hand and found to be
- *    about something else entirely. This list is explicit and hand-verified,
+ * 2. MISATTRIBUTED — a citation checked against its PubMed record and found to be
+ *    about something else entirely. This list is explicit and source-verified,
  *    never inferred: the script will not remove a citation because a heuristic
- *    disliked it. Adding an entry here means someone read the paper.
+ *    disliked it. Verification provenance is recorded per entry; no human review is inferred.
  *
  * Nothing is ever *reassigned*. A citation is either kept as it is or
  * withdrawn; moving a paper to a different supplement requires reading it.
@@ -22,6 +22,7 @@
  * Usage: node scripts/data/quarantine-unverifiable-citations.mjs [--data-dir=public/data] [--dry-run]
  */
 
+import { CONFIRMED_MISATTRIBUTIONS, isConfirmedMisattribution, findConfirmedMisattribution } from '../../lib/confirmed-citation-misattributions.mjs'
 import fs from 'node:fs'
 import path from 'node:path'
 import { writeFileAtomic } from '../lib/atomic-json.mjs'
@@ -33,32 +34,6 @@ const dirArg = args.find((arg) => arg.startsWith('--data-dir='))
 const DATA_DIR = path.resolve(ROOT, dirArg ? dirArg.split('=')[1] : 'public/data')
 const DRY_RUN = args.includes('--dry-run')
 const REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'quarantined-citations.json')
-
-/**
- * Citations verified against PubMed and found to be about a different subject.
- * `verifiedAgainst` records what was actually read, so the decision can be
- * re-checked rather than taken on trust.
- *
- * @type {{ profile: string, pmid: string, reason: string, verifiedAgainst: string }[]}
- */
-const CONFIRMED_MISATTRIBUTIONS = [
-  {
-    profile: 'curcumin',
-    pmid: '27403209',
-    reason:
-      'Study is a pilot of an art-gallery engagement programme for people with dementia. It does not involve curcumin, turmeric, or any supplement.',
-    verifiedAgainst:
-      "PubMed 27403209 — \"Impact of the 'Artful Moments' Intervention on Persons with Dementia and Their Care Partners: a Pilot Study\", Can Geriatr J 2016, doi:10.5770/cgj.19.220",
-  },
-  {
-    profile: 'potassium',
-    pmid: '25059961',
-    reason:
-      'Item is a news piece in a veterinary journal about One Health policy. It is not a study, and it concerns neither potassium nor any supplement.',
-    verifiedAgainst:
-      'PubMed 25059961 — "One Health: time to move on from just talking", Vet Rec 2014, doi:10.1136/vr.g4746, publication type News',
-  },
-]
 
 /**
  * PMIDs PubMed will not resolve at all.
@@ -125,9 +100,6 @@ function main() {
     process.exit(1)
   }
 
-  const misattributionKeys = new Set(
-    CONFIRMED_MISATTRIBUTIONS.map((entry) => `${entry.profile}::${entry.pmid}`),
-  )
   const misattributionsSeen = new Set()
   const unresolvableKeys = new Set(
     CONFIRMED_UNRESOLVABLE.map((entry) => `${entry.profile}::${entry.pmid}`),
@@ -195,10 +167,11 @@ function main() {
         }
 
         const key = `${slug}::${pmid}`
-        if (pmid && misattributionKeys.has(key)) {
+        const misattribution = findConfirmedMisattribution(source, slug)
+        if (misattribution) {
           if (sourceId(source)) removedSourceIds.add(sourceId(source))
-          const entry = CONFIRMED_MISATTRIBUTIONS.find((item) => `${item.profile}::${item.pmid}` === key)
-          misattributionsSeen.add(key)
+          const entry = misattribution
+          misattributionsSeen.add(`${slug}::${entry.pmid}`)
           quarantined.push({
             profile: slug,
             kind,
@@ -261,6 +234,14 @@ function main() {
           return false
         })
       }
+      if (record.evidence) {
+        record.evidence.sourceIds = kept.map(sourceId).filter(Boolean)
+        record.evidence.sourceCount = kept.length
+        if (Array.isArray(record.claimMap)) {
+          record.evidence.claimIds = record.claimMap.map(claim => claim.id).filter(Boolean)
+          record.evidence.claimCount = record.claimMap.length
+        }
+      }
       if (!DRY_RUN) {
         const pretty = /\n\s+"/.test(raw.slice(0, 4096))
         const serialized = pretty ? JSON.stringify(record, null, 2) : JSON.stringify(record)
@@ -291,14 +272,15 @@ function main() {
   // reference, keep the claim if anything still supports it. A claim is only
   // withdrawn when nothing is left to follow.
   let claimsScrubbed = 0
-  const withdrawnPairs = new Set(
-    quarantined
+  const withdrawnPairs = new Set([
+    ...CONFIRMED_MISATTRIBUTIONS.filter(entry => entry.profile === 'maca').map(entry => `${entry.profile}::${entry.pmid}`),
+    ...quarantined
       .map((entry) => {
         const pmid = String(entry.source?.pmid ?? entry.source?.pubmedId ?? '').trim()
         return pmid ? `${entry.profile}::${pmid}` : null
       })
       .filter(Boolean),
-  )
+  ])
 
   const claimsPath = path.join(DATA_DIR, 'claims.json')
   if (fs.existsSync(claimsPath)) {
@@ -309,6 +291,11 @@ function main() {
       for (const claim of claims) {
         if (hasCitationIntegrityHold({ slug: claim?.profile_slug, entityType: claim?.entityType || 'herb' })) {
           quarantinedClaims.push({ profile: claim.profile_slug, kind: 'claim', classification: 'SEMANTIC_REVIEW_HOLD', reason: CITATION_INTEGRITY_HOLD_REASON, claim })
+          continue
+        }
+        if (claim?.profile_slug === 'maca' && isConfirmedMisattribution(claim, 'maca')) {
+          quarantinedClaims.push({ profile: 'maca', kind: 'claim', classification: 'CLEARLY_MISATTRIBUTED',
+            reason: 'Withhold the contaminated workbook claim; an alternate URL is not an outcome-specific approval.', claim })
           continue
         }
         const pmid = String(claim?.pmid ?? '').trim()

@@ -12,6 +12,7 @@ const makeEdges = (count: number): InteractionEdge[] =>
     weight: 60,
     claim_language: `Partner ${index + 1} shares a blood-glucose caution.`,
     notes: '',
+    certainty: 'known',
   }))
 
 const makeSlugTypeMap = (count: number): SlugEntityTypeMap =>
@@ -20,6 +21,19 @@ const makeSlugTypeMap = (count: number): SlugEntityTypeMap =>
   )
 
 describe('InteractionWarnings', () => {
+  it('does not identify partners from shared warning keywords alone', () => {
+    render(<InteractionWarnings edges={makeEdges(2).map(edge => ({ ...edge, certainty: 'theoretical' }))} slugTypeMap={makeSlugTypeMap(2)} />)
+    expect(screen.queryByText(/flagged pairings/)).toBeNull()
+    expect(screen.queryByRole('link')).toBeNull()
+    expect(screen.getByText(/shared warning keywords do not establish an interaction/)).toBeInTheDocument()
+  })
+  it('keeps theoretical edges out when reviewed pair evidence also exists', () => {
+    const edges = makeEdges(2)
+    edges[1] = { ...edges[1], partner_name: 'Unverified black tea pairing', certainty: 'theoretical' }
+    render(<InteractionWarnings edges={edges} slugTypeMap={makeSlugTypeMap(2)} />)
+    expect(screen.getByText('1 flagged pairings')).toBeInTheDocument()
+    expect(screen.queryByText(/Unverified black tea pairing/)).toBeNull()
+  })
   it('summarizes large mechanism groups instead of rendering every partner link', () => {
     render(
       <InteractionWarnings
