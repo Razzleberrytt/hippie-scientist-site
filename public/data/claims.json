@@ -3411,19 +3411,6 @@
     "study_class_human": true
   },
   {
-    "id": "study-row-151",
-    "title": "energy, libido",
-    "pmid": "18072817",
-    "source_url": "https://pubmed.ncbi.nlm.nih.gov/18072817/ | https://pubmed.ncbi.nlm.nih.gov/23674952/",
-    "evidence_tier": "randomized_clinical_trials",
-    "profile_slug": "maca",
-    "study_class": "rct",
-    "study_class_source": "randomized_clinical_trials",
-    "study_class_label": "Randomized controlled trial",
-    "study_class_rank": 7,
-    "study_class_human": true
-  },
-  {
     "id": "study-row-152",
     "title": "energy, stress",
     "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK548496/",

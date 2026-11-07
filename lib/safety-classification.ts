@@ -16,8 +16,8 @@ function safetyText(record: Record<string, unknown>): string {
     record?.avoid,
     record?.cautions,
     record?.warnings,
-    record?.summary,
-    record?.description,
+    record?.contraindications_or_flags,
+    record?.interaction_notes,
   ]
     .map(text)
     .filter(Boolean)
@@ -49,11 +49,11 @@ export function getSafetyClassifications(record: Record<string, unknown>, limit 
     classifications.push(item('Stimulant-Like Profile', 'Stimulant-like or activating caution language is present.', 'context'))
   }
 
-  if (/\b(anticoagul|antiplatelet|warfarin|bleed|bleeding|blood thinner|clotting)\b/.test(source)) {
+  if (/\b(anticoagul\w*|antiplatelet|warfarin|bleed|bleeding|blood thinner|clotting)\b/.test(source)) {
     classifications.push(item('Anticoagulant Caution', 'Bleeding or anticoagulant-adjacent caution language is present.'))
   }
 
-  if (/\b(pregnan|breastfeeding|lactation|nursing)\b/.test(source)) {
+  if (/\b(pregnan\w*|breastfeeding|lactation|nursing)\b/.test(source)) {
     classifications.push(item('Pregnancy/Breastfeeding Caution', 'Pregnancy or breastfeeding caution language is present.'))
   }
 

@@ -1,12 +1,12 @@
+import { profileCommonName } from '@/lib/profile-credibility'
 import type { RuntimeRecord } from '../../types/content'
 
 import { getHerbSummaryIndex } from '../../lib/runtime-summary-indexes'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
-import { formatDisplayLabel } from '@/lib/display-utils'
 import { isRedirectedDuplicate } from '@/lib/deprecated-herb-canonicals'
 
 export function getHerbName(herb: RuntimeRecord) {
-  return formatDisplayLabel(herb.displayName) || formatDisplayLabel(herb.name) || formatDisplayLabel(herb.slug)
+  return profileCommonName(herb)
 }
 
 export function selectPublishedHerbs(allHerbs: RuntimeRecord[]): RuntimeRecord[] {

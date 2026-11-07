@@ -1,3 +1,4 @@
+import { PARTICIPANT_BOUNDARY } from '@/lib/profile-credibility'
 import {
   evidenceConsistencyLabel,
   evidenceRelationshipLabel,
@@ -200,7 +201,8 @@ function QuantitativeContext({ study }: { study: EvidenceStudyRecord }) {
   )
 }
 
-function StudyRow({ study, index }: { study: EvidenceStudyRecord; index: number }) {
+type OptionalColumn = 'sampleSize' | 'dose' | 'duration' | 'population' | 'outcome'
+function StudyRow({ study, index, columns }: { study: EvidenceStudyRecord; index: number; columns: OptionalColumn[] }) {
   const sourceUrl = evidenceSourceUrl(study)
   const sourceLabel = study.pmid ? 'PubMed' : study.doi ? 'DOI' : sourceUrl ? 'Source' : ''
   const preview = previewText(study)
@@ -250,13 +252,11 @@ function StudyRow({ study, index }: { study: EvidenceStudyRecord; index: number 
           {evidenceStudyClassDefinition(study.evidenceClass).plainEnglish}
         </p>
       </td>
-      <td className="whitespace-nowrap px-3 py-3 align-top text-[12px] text-muted sm:px-4">
-        {study.sampleSize ? `n=${study.sampleSize}` : '—'}
-      </td>
-      <td className="min-w-[150px] px-3 py-3 align-top text-[12px] leading-5 text-muted sm:px-4">{study.dose || '—'}</td>
-      <td className="min-w-[130px] px-3 py-3 align-top text-[12px] leading-5 text-muted sm:px-4">{study.duration || '—'}</td>
-      <td className="min-w-[190px] px-3 py-3 align-top text-[12px] leading-5 text-muted sm:px-4">{study.population || '—'}</td>
-      <td className="min-w-[180px] px-3 py-3 align-top text-[12px] leading-5 text-muted sm:px-4">{study.outcome || '—'}</td>
+      {columns.map(column => (
+        <td key={column} className="px-3 py-3 align-top text-xs leading-5 text-muted sm:px-4">
+          {study[column] ? column === 'sampleSize' ? `n=${study[column]}` : study[column] : 'Not reported'}
+        </td>
+      ))}
       <td className="min-w-[240px] px-3 py-3 align-top text-[12px] leading-5 text-muted sm:px-4">
         {study.result || '—'}
         {study.statisticalConsistency ? <p className="mt-1 text-[10px] text-muted">{study.statisticalConsistency}</p> : null}
@@ -296,9 +296,9 @@ export default function ShowMeTheStudies({
   const overflow = studies.slice(VISIBLE_ROWS)
   const directionalRelationships = metrics.supportive + metrics.mixed + metrics.contradicting + metrics.noClearEffect
 
-  const participantLabel = metrics.studiesWithParticipantCounts > 0
-    ? `~${metrics.approximateParticipants.toLocaleString()} participants across ${metrics.studiesWithParticipantCounts} human evidence source${metrics.studiesWithParticipantCounts === 1 ? '' : 's'} with reported N`
-    : 'Participant totals not consistently reported'
+  const columns = (['sampleSize', 'dose', 'duration', 'population', 'outcome'] as OptionalColumn[]).filter(column => studies.some(study => Boolean(study[column])))
+  const participantLabel = 'Unique participant total not established'
+
   const namedExtracts = [...new Set(studies.map(study => study.extractName).filter((value): value is string => Boolean(value)))]
   const relationshipSummary = directionalRelationships > 0
     ? [
@@ -313,9 +313,7 @@ export default function ShowMeTheStudies({
   // near-duplicates to crawlers; an absent value now omits its sentence instead.
   const evidenceSnapshot = conclusion || [
     `This table contains ${metrics.totalStudies} structured source${metrics.totalStudies === 1 ? '' : 's'}, including ${metrics.humanStudies} human evidence source${metrics.humanStudies === 1 ? '' : 's'}; ${metrics.humanTrials} ${metrics.humanTrials === 1 ? 'is a human trial' : 'are human trials'}.`,
-    metrics.studiesWithParticipantCounts > 0
-      ? `Across ${metrics.studiesWithParticipantCounts} human evidence source${metrics.studiesWithParticipantCounts === 1 ? '' : 's'} with a reported sample size, the approximate participant total is ${metrics.approximateParticipants.toLocaleString()}; overlapping publications may include some of the same people.`
-      : '',
+    PARTICIPANT_BOUNDARY,
     relationshipSummary,
   ].filter(Boolean).join(' ')
   const evidenceGradeLine = [
@@ -331,7 +329,7 @@ export default function ShowMeTheStudies({
     >
       <summary className="flex min-h-11 cursor-pointer items-center justify-between gap-3 bg-[color:var(--surface-subtle)] px-4 py-3 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40">
         <span>
-          <span className="block text-sm font-semibold text-ink">Clinical Study Summaries ({citations.length})</span>
+          <span className="block text-sm font-semibold text-ink">Cited Research Publications ({citations.length})</span>
           <span className="mt-0.5 block text-[11px] leading-5 text-muted">
             {metrics.humanStudies} human evidence source{metrics.humanStudies === 1 ? '' : 's'} · {metrics.humanTrials} human trial{metrics.humanTrials === 1 ? '' : 's'} · {participantLabel} · {evidenceConsistencyLabel(metrics.consistency)}
           </span>
@@ -390,22 +388,18 @@ export default function ShowMeTheStudies({
       ) : null}
 
       <div className="overflow-x-auto border-t border-[color:var(--hs-hairline)]">
-        <table className="w-full min-w-[1600px] border-collapse text-left text-sm">
+        <table className="w-full min-w-[720px] border-collapse text-left text-sm">
           <thead>
             <tr className="bg-[var(--surface-card)] text-[10px] font-bold uppercase tracking-wider text-muted">
               <th className="px-3 py-2 sm:px-4">Study</th>
               <th className="px-3 py-2 sm:px-4">Design</th>
-              <th className="px-3 py-2 sm:px-4">N</th>
-              <th className="px-3 py-2 sm:px-4">Dose</th>
-              <th className="px-3 py-2 sm:px-4">Duration</th>
-              <th className="px-3 py-2 sm:px-4">Population</th>
-              <th className="px-3 py-2 sm:px-4">Outcome</th>
+              {columns.map(column => <th key={column} className="px-3 py-2 sm:px-4">{{ sampleSize: 'N', dose: 'Dose', duration: 'Duration', population: 'Population', outcome: 'Outcome' }[column]}</th>)}
               <th className="px-3 py-2 sm:px-4">Result &amp; magnitude</th>
               <th className="px-3 py-2 text-right sm:px-4">Source</th>
             </tr>
           </thead>
           <tbody>
-            {visible.map((study, index) => <StudyRow key={citationKey(study, index)} study={study} index={index} />)}
+            {visible.map((study, index) => <StudyRow key={citationKey(study, index)} study={study} index={index} columns={columns} />)}
           </tbody>
         </table>
       </div>
@@ -420,9 +414,9 @@ export default function ShowMeTheStudies({
             <span data-study-overflow-label>Show {overflow.length} more stud{overflow.length === 1 ? 'y' : 'ies'}</span>
           </summary>
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[1600px] border-collapse text-left text-sm">
+            <table className="w-full min-w-[720px] border-collapse text-left text-sm">
               <tbody>
-                {overflow.map((study, index) => <StudyRow key={citationKey(study, index)} study={study} index={index} />)}
+                {overflow.map((study, index) => <StudyRow key={citationKey(study, index)} study={study} index={index} columns={columns} />)}
               </tbody>
             </table>
           </div>

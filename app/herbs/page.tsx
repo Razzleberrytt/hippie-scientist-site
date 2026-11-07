@@ -18,6 +18,7 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     'Browse published herb profiles — mechanisms, safety notes, active compounds, and research context in plain language.',
   path: '/herbs',
+  image: '/images/social/profiles/library/herbs.png',
 })
 
 export const dynamic = 'force-static'
