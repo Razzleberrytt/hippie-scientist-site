@@ -1,5 +1,25 @@
 # Current Sprint
 
+### November 7 — existing maca source-integrity repair (#6645 / PR #6952)
+
+Owner-directed continuation resumes the existing one-file draft as a bounded
+negative source-assignment repair. PMID 18072817 is a rasagiline/Parkinson disease
+review, not maca evidence. Quarantine the contaminated workbook claim before
+export; keep its original row for audit, remove the wrong detail source, reconcile
+counts, and regenerate citation downloads. Do not promote an alternate source URL
+into an approved outcome claim. Preserve other maca references and all broader
+Batch 8 review holds. This safety/accuracy interruption adds no publishing/science
+authority, new normal workstream or implementation PR. Scope and validation are in
+[audit/maca-source-identity-2026-11-07.md](audit/maca-source-identity-2026-11-07.md).
+
+D #6932 / PR #6934 is completed: protected merge `ddac0eec31a09b956bc366b70d197aee6c9b32d9`,
+production receipt/run 42381331279 and fresh public profile checks verified.
+Its older active/in-review prose below is historical. Other owners retain their
+separate scopes. #6645 remains open for the unprovided Batch 8 findings; this repair
+cannot close that broader ticket. Reuse #6952 and retain draft/HOLD until source
+review, focused/full checks, export and protected release proof pass.
+
+
 ### HOME-DISCOVERY-001 / #6983 — owner-directed homepage and visual repair (2026-11-01)
 
 In progress in existing **PR #6723**, rebased by a non-conflicting two-parent merge
@@ -193,7 +213,7 @@ Live GitHub #6259 is CLOSED and PR #6260 MERGED as `bba24cd536f7f75e95f86c0a8ec9
 
 Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0/3. Candidate #6149 is OPEN and `ready-next` with direct code reproduction and scored 4×4×3×5×1/1 = **240.0**. This separate control-plane PR admits only one R owner and does not implement consent logic or activate GA4/Ahrefs transport; exact-head checks, privacy and release proof remain required.
 
-## Active / in review — implementation WIP 3/3
+## Active / in review — implementation WIP 2/3
 
 **2026-10-15 exact-base R #6810 scored admission:** Owner-authorized continuation proposes admitting only the smallest read-only Publisher PUBLISHED job → existing Flywheel receipt integration in [#6810](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6810), grounded by merged Phase 0 audit. Existing score **45.0 = 3×4×3×5×0.75÷3**, estimated priority only; D #6685 and A #6769 remain owned independently. This control change itself is **not** a working bridge: a separate implementation PR with negative fixtures and exact-head CI/build must pass the sole controller, and a real published/metric observation remains Unknown pending real canonical receipts. No new publisher, future experiment winner automation, medical-claim rewriting, private data ingestion, EvidenceMotion checklist credit or sacrifice of the 46-item craft priority. (This R admission becomes effective only on protected merge.)
 
@@ -236,7 +256,7 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6932 / PR #6934 | Repair public herb profile credibility and audit regressions | In review — current-main source reconciliation; exact-head CI and publication evidence review pending | P1 | 75.0 | 2026-10-19 |
+| D | #6932 / PR #6934 | Repair public herb profile credibility and audit regressions | Completed — merged ddac0eec3; deployment 42381331279 and fresh public profiles verified | P1 | 75.0 | 2026-10-19 |
 | A | #6769 | Semantic Opportunity Compiler: source-bound cross-system review pilot | Active — admitted (research-only, review requests only; no publication) | P1 | 75.0 | 2026-10-13 |
 | R | #6810 | Read-only Publisher-verified published-video → R8.10 Flywheel integration | Active — narrowly admitted; no provider API, uploader or claims | P2 | 45.0 | 2026-10-15 |
 
