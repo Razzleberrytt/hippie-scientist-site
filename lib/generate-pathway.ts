@@ -39,7 +39,7 @@ const EFFECT_DISPLAY: Record<string, { label: string; sublabel: string }> = {
   recovery:     { label: 'Recovery Speed ↑', sublabel: 'Repair support'     },
   digestion:    { label: 'Digestive Health', sublabel: 'GI comfort'         },
   cognitive:    { label: 'Cognitive Health', sublabel: 'Mental performance' },
-  antioxidant:  { label: 'Antioxidant Efct', sublabel: 'Cell protection'    },
+  antioxidant:  { label: 'Antioxidant effect', sublabel: 'Cell protection'    },
   longevity:    { label: 'Longevity Support',sublabel: 'Healthy aging'      },
   weight:       { label: 'Weight Mgmt.',     sublabel: 'Metabolic support'  },
   hormonal:     { label: 'Hormone Balance',  sublabel: 'Endocrine support'  },

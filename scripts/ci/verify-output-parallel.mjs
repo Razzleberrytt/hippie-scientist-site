@@ -25,7 +25,7 @@ export const PREBUILD_GROUPS = [
 export const POSTBUILD_GROUPS = [
   {
     name: 'route-and-metadata',
-    command: 'node scripts/verify-core-routes.mjs && node scripts/verify-redirects.mjs && node scripts/ci/audit-profile-robots.mjs && node scripts/ci/validate-deploy-readiness.mjs && node scripts/ci/validate-build-seo-metadata.mjs && node scripts/ci/audit-metadata-duplicates.mjs',
+    command: 'node scripts/verify-core-routes.mjs && node scripts/verify-redirects.mjs && node scripts/ci/audit-profile-robots.mjs && node scripts/ci/validate-deploy-readiness.mjs && node scripts/ci/validate-build-seo-metadata.mjs && node scripts/ci/audit-metadata-duplicates.mjs && npx tsx scripts/ci/validate-profile-credibility.ts',
   },
   {
     name: 'links',
