@@ -71,8 +71,9 @@ export function getAdditiveRisks(slug: string): MechanismRisk[] {
   const risks: MechanismRisk[] = []
   for (const mech of additiveMechs) {
     const mechEdges = slugEdges
-      .filter(e => e.risk_mechanism === mech)
+      .filter(e => e.risk_mechanism === mech && ['known', 'probable'].includes(certainty(e)))
       .sort((a, b) => b.weight - a.weight)
+    if (!mechEdges.length) continue
     const withProvenance = mechEdges.filter((edge) => (edge.provenance?.source_ids?.length || 0) > 0).length
 
     risks.push({
