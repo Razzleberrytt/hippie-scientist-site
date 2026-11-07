@@ -110,7 +110,7 @@ export function getDosePresentation(raw: unknown): DosePresentation {
       // beyond the honest absence.
       return { kind, note: NO_DOSE_NOTE }
     case 'abstention':
-      return { kind, note: value.length > 24 ? value : NO_DOSE_NOTE }
+      return { kind, note: /use standardized product label|preparation varies by tradition/i.test(value) ? NO_DOSE_NOTE : value.length > 24 ? value : NO_DOSE_NOTE }
     default:
       return { kind: 'empty', note: NO_DOSE_NOTE }
   }

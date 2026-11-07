@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import { isConfirmedMisattribution } from '../../lib/confirmed-citation-misattributions.mjs'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -794,6 +795,10 @@ function isAggregateClaimRow(id, title, claim) {
 }
 
 function claimRow(row) {
+  const profileSlug = slug(first(row, ['profile_slug', 'slug', 'herb_slug', 'compound_slug', 'entity_slug']))
+  // Preserve the original workbook row for audit; withhold its unreviewed claim
+  // rather than relabel an unrelated publication or promote an alternate URL.
+  if (profileSlug === 'maca' && isConfirmedMisattribution(row, profileSlug)) return null
   const title = clean(first(row, ['title', 'study title', 'claim', 'summary', 'supported_claim_language', 'effect_or_condition']))
   const pmid = clean(first(row, ['pmid', 'PMID']))
   const id = rowId(row, ['claim_id', 'claim id', 'record_id']) || slug(pmid || title)
