@@ -13,9 +13,14 @@ const TEST_EXCLUDES = [
   '**/.claude/**',
   '**/out/**',
   'agent/lib/runtime-resilience.test.js',
+  // This is a native node:test suite owned by npm run test:node; bundling it
+  // under app-dom Vitest fails on the node:test builtin.
+  '.agents/skills/pr-admission-preflight.test.mjs',
   'scripts/enrichment-governor/__tests__/**',
   'scripts/content/__tests__/**',
   'scripts/ci/swarm-operational-ledger.test.mjs',
+  // Native node:test regression is executed by npm run test:node, not Vitest.
+  'scripts/ci/validate-production-indexability-budget.test.mjs',
   'scripts/ci/__tests__/fabricated-source-quarantine.test.mjs',
   // Native node:test, never Vitest: npm run test:node already discovers and runs each file.
   'scripts/research/*.test.mjs',

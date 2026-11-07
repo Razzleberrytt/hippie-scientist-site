@@ -22,17 +22,20 @@ import { mkdirSync, writeFileSync } from 'node:fs'
 const ROUTES = [
   '/', '/start/', '/explore/', '/library/', '/goals/',
   '/goals/sleep/', '/goals/stress/', '/goals/anxiety/', '/goals/focus/',
-  '/herbs/', '/herbs/ashwagandha/', '/compounds/', '/compounds/l-theanine/',
+  '/herbs/', '/herbs/ashwagandha/', '/compounds/', '/compounds/l-theanine/', '/compounds/magnesium/',
   '/guides/', '/guides/compare/', '/guides/compare/rhodiola-vs-ashwagandha/',
   '/guides/mental-health/', '/guides/metabolic-health/', '/guides/other/',
-  '/articles/', '/learn/', '/research/', '/safety-checker/', '/evidence/evidence-report/',
+  '/articles/', '/articles/creatine-brain-health/', '/learn/', '/research/', '/safety-checker/', '/evidence/evidence-report/',
   '/evidence/evidence-checker/', '/search/', '/info/about/', '/info/faq/',
   '/info/methodology/', '/info/privacy/', '/novel-psychoactive-substances/',
+  '/info/newsletter/', '/info/newsletter/?interest=sleep',
 ]
-const WIDTHS = [390, 768, 1280]
+const WIDTHS = [390, 430, 768, 1280]
 const MOBILE_PROOF_ROUTES = new Set([
   '/', '/start/', '/explore/', '/guides/', '/herbs/', '/herbs/ashwagandha/',
-  '/compounds/', '/compounds/l-theanine/', '/research/',
+  '/compounds/', '/compounds/l-theanine/', '/compounds/magnesium/',
+  '/articles/creatine-brain-health/', '/research/',
+  '/info/newsletter/', '/info/newsletter/?interest=sleep',
 ])
 const tag = process.argv[2] || 'base'
 const dir = `${process.cwd()}/.visual-sweep/${tag}`
@@ -46,15 +49,28 @@ for (const theme of ['light', 'dark']) {
     // The app's theme source of truth is localStorage, not the browser preference.
     await page.addInitScript((selectedTheme) => localStorage.setItem('theme', selectedTheme), theme)
     for (const [routeIndex, route] of ROUTES.entries()) {
+      if (w === 430 && route !== '/') continue // Owner's phone width: homepage proof only.
       const resp = await page.goto(`http://localhost:3000${route}`, { waitUntil: 'domcontentloaded', timeout: 120000 }).catch(() => null)
       if (!resp || !resp.ok()) { report.push({ route, w, theme, status: resp ? resp.status() : 'ERR', screenshot: null }); continue }
       await page.waitForTimeout(350)
+      await page.evaluate(() => document.fonts.ready)
       const m = await page.evaluate(() => {
         const de = document.documentElement
         const body = document.body
         const bodyBg = getComputedStyle(body).backgroundColor
         const p = document.querySelector('main p, p')
+        const intro = document.querySelector('.home-discovery-intro')
+        const title = document.querySelector('#home-title')
+        const feature = document.querySelector('.home-botanical-feature')
+        const search = document.querySelector('.home-journal-search')
+        const homeDensity = intro ? {
+          introHeight: Math.ceil(intro.getBoundingClientRect().height),
+          titleFontSize: title ? parseFloat(getComputedStyle(title).fontSize) : null,
+          featureTop: feature ? Math.ceil(feature.getBoundingClientRect().top) : null,
+          searchHeight: search ? Math.ceil(search.getBoundingClientRect().height) : null,
+        } : null
         return {
+          homeDensity,
           overflow: de.scrollWidth - de.clientWidth,
           bodyBg,
           appliedTheme: de.dataset.theme,
@@ -62,9 +78,9 @@ for (const theme of ['light', 'dark']) {
           h1: (document.querySelector('h1')?.textContent || '').trim().slice(0, 40),
         }
       })
-      const capture = (w === 1280 && theme === 'light') || (w === 390 && MOBILE_PROOF_ROUTES.has(route))
+      const capture = (w === 1280 && theme === 'light') || ((w === 390 && MOBILE_PROOF_ROUTES.has(route)) || (w === 430 && route === '/'))
       const screenshot = capture
-        ? `${String(routeIndex).padStart(2, '0')}-${route.split('/').filter(Boolean).join('-') || 'home'}-${w}-${theme}.png`
+        ? `${String(routeIndex).padStart(2, '0')}-${route.split('/').filter(Boolean).join('-').replace(/[^a-z0-9_-]/gi, '-') || 'home'}-${w}-${theme}.png`
         : null
       if (screenshot) {
         await page.screenshot({ path: `${dir}/${screenshot}` })
@@ -79,6 +95,13 @@ writeFileSync(`${dir}/report.json`, JSON.stringify(report, null, 1))
 const over = report.filter((r) => r.overflow > 0)
 const errs = report.filter((r) => r.status)
 const themeMismatches = report.filter((r) => !r.status && r.appliedTheme !== r.theme)
+const densityFailures = report.filter((r) => r.route === '/' && r.w <= 430 && !r.status && (
+  !r.homeDensity || r.homeDensity.introHeight > 320 || r.homeDensity.titleFontSize > 36 ||
+  r.homeDensity.featureTop === null || r.homeDensity.featureTop > 520 ||
+  r.homeDensity.searchHeight === null || r.homeDensity.searchHeight > 56
+))
+console.log('mobile homepage density failures:', densityFailures.length)
+for (const row of densityFailures) console.log(JSON.stringify({ w: row.w, theme: row.theme, ...row.homeDensity }))
 console.log(`routes=${ROUTES.length} widths=${WIDTHS.length} themes=2 checks=${report.length}`)
 console.log(`failed loads: ${errs.length}`, errs.slice(0, 8).map((e) => `${e.route}@${e.status}`).join(', '))
 console.log(`horizontal overflow: ${over.length}`)
@@ -86,3 +109,4 @@ console.log(`theme mismatches: ${themeMismatches.length}`)
 console.log(`screenshots: ${report.filter((r) => r.screenshot).length}`)
 for (const o of over.slice(0, 12)) console.log(`  ${o.route} @${o.w} ${o.theme}: +${o.overflow}px`)
 if (errs.length || over.length || themeMismatches.length) process.exitCode = 1
+if (densityFailures.length) process.exitCode = 1

@@ -1,0 +1,161 @@
+/** P0 mental-health release registry. Only complete cohorts are promoted with their manuscripts. */
+export type ResearchTopic = 'relationships' | 'personality' | 'emotions'
+export interface ResearchReview {
+  title: string
+  description: string
+  href: string
+  topic: ResearchTopic
+}
+
+export const P0_RESEARCH_REVIEWS: ResearchReview[] = [
+            {
+              title: 'Limerence and obsessive love',
+              description: 'The 2025–2026 limerence studies, validated measurement, uncertainty, compulsive checking and treatment limitations.',
+              href: '/articles/limerence-obsessive-love-evidence-review/',
+              topic: 'relationships',
+            },
+            {
+              title: 'Limerence and a BPD partner',
+              description: 'What attachment correlations and couple studies show, and why they cannot prove BPD causes limerence.',
+              href: '/articles/limerence-borderline-partner-evidence-review/',
+              topic: 'relationships',
+            },
+            {
+              title: 'Loving someone with BPD',
+              description: 'Published therapy meta-analyses, long-term prognosis, couple evidence, boundaries and partner support.',
+              href: '/articles/loving-a-partner-with-bpd-evidence-review/',
+              topic: 'relationships',
+            },
+            {
+              title: 'Borderline personality disorder vs complex PTSD',
+              description: 'Diagnostic overlap, official ICD-11 criteria, recent systematic reviews and interpersonal meta-analysis limits.',
+              href: '/articles/bpd-vs-complex-ptsd-evidence-review/',
+              topic: 'personality',
+            },
+            {
+              title: 'Avoidant personality disorder vs social anxiety',
+              description: 'Overlapping diagnoses, core differences and the randomized schema therapy versus CBT comparison.',
+              href: '/articles/avoidant-personality-vs-social-anxiety-evidence-review/',
+              topic: 'personality',
+            },
+            {
+              title: 'Long-term personality-disorder recovery',
+              description: 'What remission means, long-term cohort outcomes and why functioning may improve differently than symptoms.',
+              href: '/articles/personality-disorder-recovery-long-term-evidence-review/',
+              topic: 'personality',
+            },
+            {
+              title: 'Emotional dysregulation across disorders',
+              description: 'ADHD, BPD, trauma and a 188-study meta-analysis, with careful limits on causal claims.',
+              href: '/articles/emotional-dysregulation-across-disorders-evidence-review/',
+              topic: 'emotions',
+            },
+            {
+              title: 'Attachment to people who hurt us',
+              description: 'Relationship persistence, insecurity, housing barriers, material realities and survivor-centered safety.',
+              href: '/articles/attachment-to-people-who-hurt-us-evidence-review/',
+              topic: 'relationships',
+            },
+            {
+              title: 'The anxious–avoidant relationship cycle',
+              description: 'A 263-couple longitudinal study, demand–withdraw dynamics and what partner support can and cannot fix.',
+              href: '/articles/anxious-avoidant-relationship-cycle-evidence-review/',
+              topic: 'relationships',
+            },
+            {
+              title: 'Rejection-sensitive dysphoria and ADHD',
+              description: 'Direct positive and negative studies, rejected assumptions and why RSD is not a separate DSM diagnosis.',
+              href: '/articles/rejection-sensitive-dysphoria-adhd-evidence-review/',
+              topic: 'emotions',
+            },
+            {
+              title: "Limerence vs relationship OCD",
+              description: "How relationship-themed compulsions differ from persistent romantic longing, with explicit treatment-evidence limits.",
+              href: '/articles/limerence-versus-relationship-ocd-evidence-review/',
+              topic: 'relationships',
+            },
+            {
+              title: "Excessive reassurance seeking",
+              description: "What two meta-analyses actually reveal about reassurance, depression and interpersonal rejection.",
+              href: '/articles/excessive-reassurance-seeking-relationships-evidence-review/',
+              topic: 'relationships',
+            },
+            {
+              title: "Social rejection and the brain",
+              description: "Physical-pain overlap, conflicting fMRI interpretations and why social pain has no brain-scan diagnosis.",
+              href: '/articles/social-rejection-pain-brain-evidence-review/',
+              topic: 'emotions',
+            },
+            {
+              title: "Grandiose vs vulnerable narcissism",
+              description: "An individual-data meta-analysis, a 229-study synthesis and why traits do not diagnose partners.",
+              href: '/articles/grandiose-vulnerable-narcissism-evidence-review/',
+              topic: 'personality',
+            },
+            {
+              title: "Breakup grief and recovery",
+              description: "Longitudinal mood trajectories, romantic rejection imaging and the limits of social-media surveillance findings.",
+              href: '/articles/romantic-breakup-recovery-grief-evidence-review/',
+              topic: 'relationships',
+            },
+            {
+              title: "Emotional unavailability and attachment",
+              description: "Attachment avoidance, emotion-regulation flexibility and distinctions between labels and observable conduct.",
+              href: '/articles/emotional-unavailability-attachment-avoidance-evidence-review/',
+              topic: 'relationships',
+            },
+            {
+              title: "Leaving unhealthy relationships",
+              description: "Traumatic-bonding evidence, practical constraints and specialist safety-planning resources.",
+              href: '/articles/leaving-unhealthy-relationships-safety-evidence-review/',
+              topic: 'relationships',
+            },
+            {
+              title: "Attachment styles and outcomes",
+              description: "Large-scale attachment associations, dyadic coping and limits of predicting a particular couple's future.",
+              href: '/articles/attachment-styles-relationship-outcomes-evidence-review/',
+              topic: 'relationships',
+            },
+            {
+              title: "Dependent personality vs attachment anxiety",
+              description: "Classification, reassurance, practical dependence and the limits of personality-disorder treatment trials.",
+              href: '/articles/dependent-personality-vs-attachment-anxiety-evidence-review/',
+              topic: 'personality',
+            },
+            {
+              title: "Rumination and negative thinking",
+              description: "A 223-study meta-analysis, intervention trials, clinical overlap and careful interpretation of causal models.",
+              href: '/articles/rumination-repetitive-negative-thinking-evidence-review/',
+              topic: 'emotions',
+            },
+            {"title":"Alexithymia: Difficulty Identifying Feelings, Measurement, and What Helps","description":"A source-graded 2026 review of alexithymia, emotional awareness, depression, interoception, measurement controversies, and psychotherapy evidence.","href":"/articles/alexithymia-emotional-awareness-evidence-review/","topic":"emotions"},
+  {"title":"Anger Dysregulation: What Actually Helps, and What Research Cannot Say","description":"An evidence-graded review separating anger from aggression, examining regulation strategies, arousal, DBT and mindfulness trials, with honest limits about individual outcomes.","href":"/articles/anger-dysregulation-regulation-evidence-review/","topic":"emotions"},
+  {"title":"Chronic Emptiness: Why It Feels Different From Sadness, Loneliness, or Numbness","description":"An evidence-graded 2026 research review of chronic emptiness across BPD and depression, symptom measurement, long-term course, suicide risk associations, and clinical uncertainties.","href":"/articles/chronic-emptiness-bpd-depression-evidence-review/","topic":"emotions"},
+  {"title":"Dissociation and Derealization: What the Evidence Actually Shows","description":"A research review of feeling detached from self or surroundings, PTSD-related dissociation, prevalence, diagnosis and evidence limitations for treatments.","href":"/articles/dissociation-depersonalization-derealization-evidence-review/","topic":"emotions"},
+  {"title":"Emotional Numbness vs Anhedonia: Depression and Antidepressant Evidence","description":"A source-graded 2026 review explaining differences between emotional blunting, anhedonia, dissociation and apathy, including antidepressant survey biases and trial evidence.","href":"/articles/emotional-numbness-anhedonia-blunting-evidence-review/","topic":"emotions"},
+  {"title":"Shame vs Guilt: What Depression, Trauma and Relationship Studies Show","description":"A source-graded review of shame and guilt, depression and PTSD correlations, self-compassion treatments, interpersonal repair, and the limits of using emotions as psychiatric labels.","href":"/articles/shame-versus-guilt-evidence-review/","topic":"emotions"},
+  {"title":"Splitting and Black-and-White Thinking: What Research Actually Shows","description":"A source-graded 2026 review of dichotomous thinking, idealization and devaluation, social-inference experiments, BPD, and psychotherapy evidence without diagnosing other people.","href":"/articles/splitting-dichotomous-thinking-evidence-review/","topic":"emotions"},
+  {"title":"Bipolar II vs BPD: Episodes, Emotional Reactivity and Diagnostic Overlap","description":"A source-graded review of bipolar II and borderline personality disorder, including hypomania, overlapping symptoms, co-occurrence, assessment and treatment evidence limits.","href":"/articles/bipolar-ii-versus-bpd-evidence-review/","topic":"personality"},
+  {"title":"ADHD vs Trauma and PTSD: Similar Symptoms, Different Histories, Real Overlap","description":"An evidence-graded review of ADHD and PTSD overlap, developmental history, bidirectional associations, diagnostic pitfalls and the limits of treatment studies in adults.","href":"/articles/adhd-versus-trauma-ptsd-evidence-review/","topic":"emotions"},
+  {"title":"Persistent Depressive Disorder: Dysthymia, Chronic Depression and Recovery Evidence","description":"A source-graded review of persistent depressive disorder, chronic depression trials, CBASP, medication safety, combined treatment and why longstanding symptoms are not a fixed identity.","href":"/articles/persistent-depressive-disorder-dysthymia-evidence-review/","topic":"personality"},
+  {"title": "OCPD vs OCD: Perfectionism, Control and the Limits of Treatment Evidence", "description": "How obsessive-compulsive personality disorder differs from OCD, what treatment trials actually studied, and why perfectionism alone is not a diagnosis.", "href": "/articles/ocpd-versus-ocd-perfectionism-evidence-review/", "topic": "personality"},
+  {"title": "Paranoid Personality Disorder: Mistrust, Real Threats and Treatment Uncertainty", "description": "An evidence review of persistent mistrust, paranoia across diagnoses, trauma and social context, and the small direct paranoid-personality treatment literature.", "href": "/articles/paranoid-personality-mistrust-evidence-review/", "topic": "personality"},
+  {"title": "Schizoid vs Avoidant Personality: Solitude, Fear and Diagnostic Uncertainty", "description": "Why social withdrawal alone cannot distinguish schizoid personality, avoidant personality, autism or depression, and what limited treatment studies show.", "href": "/articles/schizoid-versus-avoidant-personality-evidence-review/", "topic": "personality"},
+  {"title": "Histrionic Personality Disorder: Diagnostic Validity, Gender Bias and Treatment Evidence", "description": "A careful review of the histrionic-personality label, dimensional traits, diagnostic stereotypes and why small or mixed studies cannot establish a cure.", "href": "/articles/histrionic-personality-diagnostic-validity-evidence-review/", "topic": "personality"},
+  {"title": "ASPD, Psychopathy and Sociopathy: Different Terms, New Treatment Evidence", "description": "How antisocial personality disorder differs from psychopathy and sociopathy, with the 2025 MOAM trial, uncertain older reviews and explicit safety boundaries.", "href": "/articles/antisocial-personality-psychopathy-sociopathy-evidence-review/", "topic": "personality"},
+  {"title": "Cyclothymia: Mood Instability, Bipolar Boundaries and Research Gaps", "description": "What cyclothymia means, how it differs from ordinary mood changes and bipolar episodes, and why its treatment literature requires careful qualification.", "href": "/articles/cyclothymia-mood-instability-evidence-review/", "topic": "personality"},
+  {"title": "Autistic Burnout vs Depression: What Lived-Experience Research Can Establish", "description": "A critical review of autistic burnout, exhaustion, loss of function, depression overlap and the limits of treatment recommendations from qualitative studies.", "href": "/articles/autistic-burnout-versus-depression-evidence-review/", "topic": "emotions"},
+  {"title": "PMDD: Cycle Timing, Depression Overlap and What Treatment Trials Show", "description": "A critical review of PMDD assessment, prospective symptom tracking, SSRI and drospirenone trials, adverse effects and the limits of hormonal explanations.", "href": "/articles/pmdd-premenstrual-mood-evidence-review/", "topic": "emotions"},
+  {"title": "Maladaptive Daydreaming: Immersive Fantasy, Impairment and the First Treatment Trial", "description": "What distinguishes maladaptive daydreaming from ordinary imagination, what a large association review found, and how to interpret the first web-based trial.", "href": "/articles/maladaptive-daydreaming-evidence-review/", "topic": "emotions"},
+  {"title": "Childhood Emotional Neglect: Adult Outcomes Without a Deterministic Story", "description": "A critical review of emotional neglect, adult mental-health associations, retrospective measurement, proposed mechanisms and the limits of brain-imaging claims.", "href": "/articles/childhood-emotional-neglect-adult-outcomes-evidence-review/", "topic": "emotions"},
+  {"title": "DBT for BPD: Which Components Help, and Which Outcomes Actually Improve?", "description": "A detailed appraisal of DBT skills, comprehensive care, self-harm outcomes and why a skills worksheet cannot inherit the evidence for a full treatment program.", "href": "/articles/dbt-components-self-harm-bpd-evidence-review/", "topic": "personality"},
+  {"title": "Mentalization-Based Treatment: BPD Trials, Structured Care and Conflicting Outcomes", "description": "How mentalization-based treatment was tested against structured management, what an independent service trial found, and why outcomes cannot be collapsed into one claim.", "href": "/articles/mentalization-mbt-structured-care-evidence-review/", "topic": "personality"},
+  {"title": "Schema Therapy: Why Individual, Group and Combined Formats Are Not Equivalent", "description": "A critical appraisal of schema-therapy trials across personality disorders and BPD, including format differences, active comparators and the limits of mechanism claims.", "href": "/articles/schema-therapy-formats-evidence-review/", "topic": "personality"},
+  {"title": "Treating Avoidant Personality: Retention, CBT vs Schema Therapy and What Predicts Benefit", "description": "An appraisal of the 154-person avoidant-personality/social-anxiety trial and its follow-up mechanism analysis, separating retention from symptom superiority.", "href": "/articles/avoidant-personality-treatment-retention-evidence-review/", "topic": "personality"},
+  {"title": "Which Personality-Disorder Therapy Works Best? Why the Evidence Resists One Ranking", "description": "How to compare DBT, MBT, schema therapy and structured management without pooling diagnoses, outcomes or unequal comparators into a misleading league table.", "href": "/articles/personality-disorder-therapy-comparison-evidence-review/", "topic": "personality"},
+  {"title": "Antidepressant Withdrawal vs Relapse: Why Estimates Differ and Timing Matters", "description": "A critical comparison of recent withdrawal meta-analyses, symptom definitions, placebo comparisons and the limits of distinguishing withdrawal from relapse.", "href": "/articles/antidepressant-withdrawal-versus-relapse-evidence-review/", "topic": "emotions"},
+  {"title": "Sleep Loss and Emotional Regulation: Experimental Findings, Mixed Outcomes and Treatment Limits", "description": "What 154 sleep-loss experiments and 65 sleep-intervention trials show about emotion, anxiety and depression, without reducing mental illness to sleep habits.", "href": "/articles/sleep-loss-emotion-regulation-evidence-review/", "topic": "emotions"},
+  {"title": "Supplements for Depression and Anxiety: Adjunct Evidence Is Not Replacement Evidence", "description": "How to interpret nutrient and herbal mental-health research, including adjunct trials, formulation limits, evidence grades, null findings and incomplete safety reporting.", "href": "/articles/supplements-mental-health-adjunct-evidence-review/", "topic": "emotions"},
+  {"title": "Psychedelic-Assisted Therapy: Promising Trials, Blinding Problems and Safety Boundaries", "description": "What controlled psilocybin and MDMA-assisted studies actually tested, why support and expectancy matter, and why trial results do not validate smoke-shop products.", "href": "/articles/psychedelic-assisted-therapy-trial-limits-evidence-review/", "topic": "emotions"},
+  {"title": "Complex PTSD Treatment: Stabilization, Trauma-Focused Care and the Sequencing Debate", "description": "What trials and meta-analyses can say about phased complex-PTSD treatment, symptom-domain differences and why stabilization is not a universal waiting requirement.", "href": "/articles/complex-ptsd-treatment-sequencing-evidence-review/", "topic": "emotions"},
+]

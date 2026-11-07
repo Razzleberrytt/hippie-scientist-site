@@ -1,0 +1,12 @@
+{
+  "checkedOn": "2026-10-25",
+  "source": "Europe PMC core records with PubMed identities",
+  "uniquePmids": 64,
+  "resolved": 64,
+  "retractedRecords": [],
+  "titleCorrections": [
+    "40222147",
+    "37307657"
+  ],
+  "limits": "Metadata/source-abstract audit by authoring assistant; not independent human medical review or deployment proof"
+}

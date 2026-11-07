@@ -1,0 +1,606 @@
+{
+  "scope": "Source identity/design audit and linked-notice screen by authoring assistant; not independent medical review",
+  "corrections": {
+    "26332352": "Publisher notice read: CME questions/answers, not new trial results",
+    "40694362": "Publisher/PMC notice read: omitted conflict-of-interest disclosures; disclosed in manuscript",
+    "39096930": "Identity linked from MED source; full text unavailable. Precise 2024 pooled incidence estimates withheld."
+  },
+  "records": [
+    {
+      "article": "personality-disorder-therapy-comparison-evidence-review",
+      "pmid": "32368793",
+      "title": "Psychological therapies for people with borderline personality disorder",
+      "authors": "Storebø OJ, Stoffers-Winterling JM, Völlm BA, Kongerslev MT, Mattivi JT, Jørgensen MS, Faltinsen E, Todorovac A, Sales CP, Callesen HE, Lieb K, Simonsen E.",
+      "studyType": "Cochrane review of BPD psychotherapies",
+      "allowedInference": "75 trials; different certainty and clinical importance across outcomes",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "36260893",
+            "reference": "Am Fam Physician. 2022 Oct;106(4):381-382.",
+            "type": "Comment in",
+            "orderIn": 1
+          }
+        ]
+      },
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "personality-disorder-therapy-comparison-evidence-review",
+      "pmid": "24322378",
+      "title": "Results of a multicenter randomized controlled trial of the clinical effectiveness of schema therapy for personality disorders",
+      "authors": "Bamelis LL, Evers SM, Spinhoven P, Arntz A.",
+      "studyType": "Mixed-personality-disorder randomized schema trial",
+      "allowedInference": "Diagnostic and comparator differences constrain transfer",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "25009174",
+            "reference": "Evid Based Ment Health. 2014 Aug;17(3):90-1. doi: 10.1136/eb-2014-101858",
+            "type": "Comment in",
+            "orderIn": 1
+          }
+        ]
+      },
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "personality-disorder-therapy-comparison-evidence-review",
+      "pmid": "35234828",
+      "title": "Effectiveness of Predominantly Group Schema Therapy and Combined Individual and Group Schema Therapy for Borderline Personality Disorder: A Randomized Clinical Trial",
+      "authors": "Arntz A, Jacob GA, Lee CW, Brand-de Wilde OM, Fassbinder E, Harper RP, Lavender A, Lockwood G, Malogiannis IA, Ruths FA, Schweiger U, Shaw IA, Zarbock G, Farrell JM.",
+      "studyType": "BPD randomized schema-format trial",
+      "allowedInference": "Delivery format changes comparative findings",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {},
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "personality-disorder-therapy-comparison-evidence-review",
+      "pmid": "33262710",
+      "title": "A Randomized-Controlled Trial of Mentalization-Based Treatment Compared With Structured Case Management for Borderline Personality Disorder in a Mainstream Public Health Service",
+      "authors": "Carlyle D, Green R, Inder M, Porter R, Crowe M, Mulder R, Frampton C.",
+      "studyType": "Public-service MBT versus case-management randomized trial",
+      "allowedInference": "Mixed outcomes; structured comparator also improved",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {},
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "avoidant-personality-treatment-retention-evidence-review",
+      "pmid": "38714138",
+      "title": "Group schema therapy versus group cognitive behavioral therapy for patients with social anxiety disorder and comorbid avoidant personality disorder: A randomized controlled trial",
+      "authors": "Baljé AE, Greeven A, Deen M, van Giezen AE, Arntz A, Spinhoven P.",
+      "studyType": "Randomized group schema versus group CBT trial",
+      "allowedInference": "154 adults with both SAD and AvPD; no clear symptom superiority",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {},
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "avoidant-personality-treatment-retention-evidence-review",
+      "pmid": "41081422",
+      "title": "Exploring Moderators and Mediators of the Outcome of Group Cognitive Behavioural Therapy Compared With Group Schema Therapy for Social Anxiety Disorder and Comorbid Avoidant Personality Disorder",
+      "authors": "Baljé AE, Greeven A, Deen M, van Giezen AE, Arntz A, Spinhoven P.",
+      "studyType": "Moderator/mediator analysis of the same randomized sample",
+      "allowedInference": "No identified differential moderators or mediators; not independent replication",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {},
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "avoidant-personality-treatment-retention-evidence-review",
+      "pmid": "24322378",
+      "title": "Results of a multicenter randomized controlled trial of the clinical effectiveness of schema therapy for personality disorders",
+      "authors": "Bamelis LL, Evers SM, Spinhoven P, Arntz A.",
+      "studyType": "Mixed-personality-disorder randomized trial",
+      "allowedInference": "Indirect context for AvPD-specific selection and delivery",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "25009174",
+            "reference": "Evid Based Ment Health. 2014 Aug;17(3):90-1. doi: 10.1136/eb-2014-101858",
+            "type": "Comment in",
+            "orderIn": 1
+          }
+        ]
+      },
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "psychedelic-assisted-therapy-trial-limits-evidence-review",
+      "pmid": "36322843",
+      "title": "Single-Dose Psilocybin for a Treatment-Resistant Episode of Major Depression",
+      "authors": "Goodwin GM, Aaronson ST, Alvarez O, Arden PC, Baker A, Bennett JC, Bird C, Blom RE, Brennan C, Brusch D, Burke L, Campbell-Coker K, Carhart-Harris R, Cattell J, Daniel A, DeBattista C, Dunlop BW, Eisen K, Feifel D, Forbes M, Haumann HM, Hellerstein DJ, Hoppe AI, Husain MI, Jelen LA, Kamphuis J, Kawasaki J, Kelly JR, Key RE, Kishon R, Knatz Peck S, Knight G, Koolen MHB, Lean M, Licht RW, Maples-Keller JL, Mars J, Marwood L, McElhiney MC, Miller TL, Mirow A, Mistry S, Mletzko-Crowe T, Modlin LN, Nielsen RE, Nielson EM, Offerhaus SR, O'Keane V, Páleníček T, Printz D, Rademaker MC, van Reemst A, Reinholdt F, Repantis D, Rucker J, Rudow S, Ruffell S, Rush AJ, Schoevers RA, Seynaeve M, Shao S, Soares JC, Somers M, Stansfield SC, Sterling D, Strockis A, Tsai J, Visser L, Wahba M, Williams S, Young AH, Ywema P, Zisook S, Malievskaia E.",
+      "studyType": "Phase 2 randomized psilocybin dose-comparison trial",
+      "allowedInference": "233 adults with treatment-resistant depression; short primary endpoint and adverse events",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "36322849",
+            "reference": "N Engl J Med. 2022 Nov 3;387(18):1708-1709. doi: 10.1056/NEJMe2210975.",
+            "type": "Comment in",
+            "orderIn": 1
+          },
+          {
+            "source": "MED",
+            "id": "36648650",
+            "reference": "MMW Fortschr Med. 2023 Jan;165(1):21. doi: 10.1007/s15006-022-2239-3.",
+            "type": "Comment in",
+            "orderIn": 2
+          },
+          {
+            "source": "MED",
+            "id": "36652915",
+            "reference": "Cell Rep Med. 2023 Jan 17;4(1):100906. doi: 10.1016/j.xcrm.2022.100906.",
+            "type": "Comment in",
+            "orderIn": 3
+          },
+          {
+            "source": "MED",
+            "id": "36812443",
+            "reference": "N Engl J Med. 2023 Feb 23;388(8):e22. doi: 10.1056/NEJMc2215459.",
+            "type": "Comment in",
+            "orderIn": 4
+          },
+          {
+            "source": "MED",
+            "id": "36812444",
+            "reference": "N Engl J Med. 2023 Feb 23;388(8):e22. doi: 10.1056/NEJMc2215459.",
+            "type": "Comment in",
+            "orderIn": 5
+          },
+          {
+            "source": "MED",
+            "id": "36812445",
+            "reference": "N Engl J Med. 2023 Feb 23;388(8):e22. doi: 10.1056/NEJMc2215459.",
+            "type": "Comment in",
+            "orderIn": 6
+          },
+          {
+            "source": "MED",
+            "id": "36812446",
+            "reference": "N Engl J Med. 2023 Feb 23;388(8):e22. doi: 10.1056/NEJMc2215459.",
+            "type": "Comment in",
+            "orderIn": 7
+          },
+          {
+            "source": "MED",
+            "id": "37016226",
+            "reference": "MMW Fortschr Med. 2023 Apr;165(7):31. doi: 10.1007/s15006-023-2540-9.",
+            "type": "Comment in",
+            "orderIn": 8
+          }
+        ]
+      },
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "psychedelic-assisted-therapy-trial-limits-evidence-review",
+      "pmid": "37709999",
+      "title": "MDMA-assisted therapy for moderate to severe PTSD: a randomized, placebo-controlled phase 3 trial",
+      "authors": "Mitchell JM, Ot'alora G M, van der Kolk B, Shannon S, Bogenschutz M, Gelfand Y, Paleos C, Nicholas CR, Quevedo S, Balliett B, Hamilton S, Mithoefer M, Kleiman S, Parker-Guilbert K, Tzarfaty K, Harrison C, de Boer A, Doblin R, Yazar-Klosinski B, MAPP2 Study Collaborator Group.",
+      "studyType": "Phase 3 randomized MDMA-assisted therapy trial",
+      "allowedInference": "104 adults with PTSD; drug-plus-therapy package, expectancy and selected-population limits",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "37967550",
+            "reference": "ACS Chem Neurosci. 2023 Dec 6;14(23):4062-4063. doi: 10.1021/acschemneuro.3c00692",
+            "type": "Comment in",
+            "orderIn": 1
+          },
+          {
+            "source": "MED",
+            "id": "39375459",
+            "reference": "Nat Med. 2024 Nov;30(11):3382. doi: 10.1038/s41591-024-03331-w",
+            "type": "Erratum in",
+            "orderIn": 2
+          }
+        ]
+      },
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "complex-ptsd-treatment-sequencing-evidence-review",
+      "pmid": "30857567",
+      "title": "Psychological interventions for ICD-11 complex PTSD symptoms: systematic review and meta-analysis",
+      "authors": "Karatzias T, Murphy P, Cloitre M, Bisson J, Roberts N, Shevlin M, Hyland P, Maercker A, Ben-Ezra M, Coventry P, Mason-Roberts S, Bradley A, Hutton P.",
+      "studyType": "Systematic review and meta-analysis of 51 PTSD trials with complex symptom features",
+      "allowedInference": "Indirect for universally clinician-confirmed ICD-11 CPTSD; outcome coverage varies",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {},
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "complex-ptsd-treatment-sequencing-evidence-review",
+      "pmid": "41949043",
+      "title": "Phase-based versus non-phase-based psychological interventions for complex PTSD: a systematic review and meta-analysis",
+      "authors": "Lee Y, Park S, Cho YE.",
+      "studyType": "2026 systematic review and meta-analysis of treatment sequencing",
+      "allowedInference": "Small trial base, heterogeneous measures and outcome-specific subgroup findings",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {},
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "schema-therapy-formats-evidence-review",
+      "pmid": "24322378",
+      "title": "Results of a multicenter randomized controlled trial of the clinical effectiveness of schema therapy for personality disorders",
+      "authors": "Bamelis LL, Evers SM, Spinhoven P, Arntz A.",
+      "studyType": "Multicenter randomized trial across personality disorders",
+      "allowedInference": "323 participants; combined diagnostic outcomes and therapist-training differences",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "25009174",
+            "reference": "Evid Based Ment Health. 2014 Aug;17(3):90-1. doi: 10.1136/eb-2014-101858",
+            "type": "Comment in",
+            "orderIn": 1
+          }
+        ]
+      },
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "schema-therapy-formats-evidence-review",
+      "pmid": "35234828",
+      "title": "Effectiveness of Predominantly Group Schema Therapy and Combined Individual and Group Schema Therapy for Borderline Personality Disorder: A Randomized Clinical Trial",
+      "authors": "Arntz A, Jacob GA, Lee CW, Brand-de Wilde OM, Fassbinder E, Harper RP, Lavender A, Lockwood G, Malogiannis IA, Ruths FA, Schweiger U, Shaw IA, Zarbock G, Farrell JM.",
+      "studyType": "Multinational three-arm randomized BPD trial",
+      "allowedInference": "495 participants; combined individual/group format differed from predominantly group treatment",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {},
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "schema-therapy-formats-evidence-review",
+      "pmid": "39754989",
+      "title": "Early maladaptive schemas as mediators between childhood maltreatment and adult psychopathology in psychiatric inpatients",
+      "authors": "Azadfar Z, Rossi G, Dierckx E, Duenas J, Diaz-Batanero C, Schoevaerts K, Peuskens H, Santens E, Pauwels E, Haekens A, Baetens K.",
+      "studyType": "Cross-sectional schema and maltreatment study",
+      "allowedInference": "Associations cannot establish a treatment mechanism",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {},
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "mentalization-mbt-structured-care-evidence-review",
+      "pmid": "19833787",
+      "title": "Randomized controlled trial of outpatient mentalization-based treatment versus structured clinical management for borderline personality disorder",
+      "authors": "Bateman A, Fonagy P.",
+      "studyType": "Randomized MBT versus structured clinical management trial",
+      "allowedInference": "134 specialist-service participants; both conditions improved",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {},
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "mentalization-mbt-structured-care-evidence-review",
+      "pmid": "33262710",
+      "title": "A Randomized-Controlled Trial of Mentalization-Based Treatment Compared With Structured Case Management for Borderline Personality Disorder in a Mainstream Public Health Service",
+      "authors": "Carlyle D, Green R, Inder M, Porter R, Crowe M, Mulder R, Frampton C.",
+      "studyType": "Independent public-service randomized trial",
+      "allowedInference": "72 participants; mixed self-harm and suicide-attempt comparisons",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {},
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "mentalization-mbt-structured-care-evidence-review",
+      "pmid": "32368793",
+      "title": "Psychological therapies for people with borderline personality disorder",
+      "authors": "Storebø OJ, Stoffers-Winterling JM, Völlm BA, Kongerslev MT, Mattivi JT, Jørgensen MS, Faltinsen E, Todorovac A, Sales CP, Callesen HE, Lieb K, Simonsen E.",
+      "studyType": "Cochrane systematic review of BPD therapies",
+      "allowedInference": "Low certainty for several MBT outcomes; no universal modality ranking",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "36260893",
+            "reference": "Am Fam Physician. 2022 Oct;106(4):381-382.",
+            "type": "Comment in",
+            "orderIn": 1
+          }
+        ]
+      },
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "sleep-loss-emotion-regulation-evidence-review",
+      "pmid": "38127505",
+      "title": "Sleep loss and emotion: A systematic review and meta-analysis of over 50 years of experimental research",
+      "authors": "Palmer CA, Bower JL, Cho KW, Clementi MA, Lau S, Oosterhoff B, Alfano CA.",
+      "studyType": "Preregistered systematic review and meta-analysis of sleep-loss experiments",
+      "allowedInference": "154 studies in healthy populations; emotion-specific rather than universal effects",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {},
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "sleep-loss-emotion-regulation-evidence-review",
+      "pmid": "34607184",
+      "title": "Improving sleep quality leads to better mental health: A meta-analysis of randomised controlled trials",
+      "authors": "Scott AJ, Webb TL, Martyn-St James M, Rowse G, Weich S.",
+      "studyType": "Meta-analysis of 65 randomized sleep-improvement trials",
+      "allowedInference": "Benefits across mental-health outcomes; intervention and population heterogeneity",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {
+        "commentCorrection": [
+          {
+            "source": "PPR",
+            "id": "PPR353082",
+            "type": "Preprint in",
+            "note": "CrossRef Pre-print loader",
+            "orderIn": 10002
+          }
+        ]
+      },
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "supplements-mental-health-adjunct-evidence-review",
+      "pmid": "35311615",
+      "title": "Clinician guidelines for the treatment of psychiatric disorders with nutraceuticals and phytoceuticals: The World Federation of Societies of Biological Psychiatry (WFSBP) and Canadian Network for Mood and Anxiety Treatments (CANMAT) Taskforce",
+      "authors": "Sarris J, Ravindran A, Yatham LN, Marx W, Rucklidge JJ, McIntyre RS, Akhondzadeh S, Benedetti F, Caneo C, Cramer H, Cribb L, de Manincor M, Dean O, Deslandes AC, Freeman MP, Gangadhar B, Harvey BH, Kasper S, Lake J, Lopresti A, Lu L, Metri NJ, Mischoulon D, Ng CH, Nishi D, Rahimi R, Seedat S, Sinclair J, Su KP, Zhang ZJ, Berk M.",
+      "studyType": "WFSBP/CANMAT evidence-informed clinical guideline",
+      "allowedInference": "Condition- and preparation-specific recommendations; literature cutoff and safety limits",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {},
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "supplements-mental-health-adjunct-evidence-review",
+      "pmid": "31496103",
+      "title": "The efficacy and safety of nutrient supplements in the treatment of mental disorders: a meta-review of meta-analyses of randomized controlled trials",
+      "authors": "Firth J, Teasdale SB, Allott K, Siskind D, Marx W, Cotter J, Veronese N, Schuch F, Smith L, Solmi M, Carvalho AF, Vancampfort D, Berk M, Stubbs B, Sarris J.",
+      "studyType": "Meta-review of 33 meta-analyses of randomized trials",
+      "allowedInference": "Overlapping trial evidence and heterogeneous preparations; not blanket safety assurance",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {},
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "dbt-components-self-harm-bpd-evidence-review",
+      "pmid": "25806661",
+      "title": "Dialectical behavior therapy for high suicide risk in individuals with borderline personality disorder: a randomized clinical trial and component analysis",
+      "authors": "Linehan MM, Korslund KE, Harned MS, Gallop RJ, Lungu A, Neacsiu AD, McDavid J, Comtois KA, Murray-Gregory AM.",
+      "studyType": "Randomized DBT component-analysis trial",
+      "allowedInference": "99 high-risk women; active conditions and shared risk-management protocol",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "26172897",
+            "reference": "JAMA. 2015 Jul 14;314(2):181-2. doi: 10.1001/jama.2015.4557",
+            "type": "Comment in",
+            "orderIn": 1
+          },
+          {
+            "source": "MED",
+            "id": "26332352",
+            "reference": "JAMA Psychiatry. 2015 Sep;72(9):951. doi: 10.1001/jamapsychiatry.2015.1480",
+            "type": "Erratum in",
+            "orderIn": 2
+          }
+        ]
+      },
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "dbt-components-self-harm-bpd-evidence-review",
+      "pmid": "32368793",
+      "title": "Psychological therapies for people with borderline personality disorder",
+      "authors": "Storebø OJ, Stoffers-Winterling JM, Völlm BA, Kongerslev MT, Mattivi JT, Jørgensen MS, Faltinsen E, Todorovac A, Sales CP, Callesen HE, Lieb K, Simonsen E.",
+      "studyType": "Cochrane systematic review of BPD psychotherapies",
+      "allowedInference": "Outcome-specific certainty; not proof every DBT format is equivalent",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "36260893",
+            "reference": "Am Fam Physician. 2022 Oct;106(4):381-382.",
+            "type": "Comment in",
+            "orderIn": 1
+          }
+        ]
+      },
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "dbt-components-self-harm-bpd-evidence-review",
+      "pmid": "26332352",
+      "title": "Errors in Continuing Medical Education Questions and Answers",
+      "authors": "JAMA psychiatry (unsigned correction notice)",
+      "studyType": "Published correction to continuing medical education questions",
+      "allowedInference": "Teaching-question correction; not an independent clinical trial",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "25806661",
+            "reference": "JAMA Psychiatry. 2015 May;72(5):475-82. doi: 10.1001/jamapsychiatry.2014.3039",
+            "type": "Erratum for",
+            "orderIn": 1
+          }
+        ]
+      },
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "antidepressant-withdrawal-versus-relapse-evidence-review",
+      "pmid": "38851198",
+      "title": "Incidence of antidepressant discontinuation symptoms: a systematic review and meta-analysis",
+      "authors": "Henssler J, Schmidt Y, Schmidt U, Schwarzer G, Bschor T, Baethge C.",
+      "studyType": "Systematic review and meta-analysis of 79 studies",
+      "allowedInference": "Mixed designs; symptom incidence and placebo-associated symptoms require separation",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "38851199",
+            "reference": "Lancet Psychiatry. 2024 Jul;11(7):485-486. doi: 10.1016/S2215-0366(24)00174-3",
+            "type": "Comment in",
+            "orderIn": 1
+          },
+          {
+            "source": "MED",
+            "id": "39096930",
+            "reference": "Lancet Psychiatry. 2024 Sep;11(9):e11. doi: 10.1016/S2215-0366(24)00253-0",
+            "type": "Erratum in",
+            "orderIn": 2
+          },
+          {
+            "source": "MED",
+            "id": "39300632",
+            "reference": "Lancet Psychiatry. 2024 Oct;11(10):787-788. doi: 10.1016/S2215-0366(24)00242-6",
+            "type": "Comment in",
+            "orderIn": 3
+          },
+          {
+            "source": "MED",
+            "id": "39300633",
+            "reference": "Lancet Psychiatry. 2024 Oct;11(10):788-789. doi: 10.1016/S2215-0366(24)00273-6",
+            "type": "Comment in",
+            "orderIn": 4
+          },
+          {
+            "source": "MED",
+            "id": "39300634",
+            "reference": "Lancet Psychiatry. 2024 Oct;11(10):788. doi: 10.1016/S2215-0366(24)00274-8",
+            "type": "Comment in",
+            "orderIn": 5
+          },
+          {
+            "source": "MED",
+            "id": "39300635",
+            "reference": "Lancet Psychiatry. 2024 Oct;11(10):789-790. doi: 10.1016/S2215-0366(24)00287-6",
+            "type": "Comment in",
+            "orderIn": 6
+          }
+        ]
+      },
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "antidepressant-withdrawal-versus-relapse-evidence-review",
+      "pmid": "40632531",
+      "title": "Incidence and Nature of Antidepressant Discontinuation Symptoms: A Systematic Review and Meta-Analysis",
+      "authors": "Kalfas M, Tsapekos D, Butler M, McCutcheon RA, Pillinger T, Strawbridge R, Bhat BB, Haddad PM, Cowen PJ, Howes OD, Joyce DW, Nutt DJ, Baldwin DS, Pariante CM, Lewis G, Young AH, Lewis G, Hayes JF, Jauhar S.",
+      "studyType": "Systematic review and meta-analysis emphasizing randomized comparisons",
+      "allowedInference": "Short-term average burden does not settle prolonged or severe withdrawal",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "40694362",
+            "reference": "JAMA Psychiatry. 2025 Nov 1;82(11):1153. doi: 10.1001/jamapsychiatry.2025.2398.",
+            "type": "Erratum in",
+            "orderIn": 1
+          }
+        ]
+      },
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "antidepressant-withdrawal-versus-relapse-evidence-review",
+      "pmid": "39394455",
+      "title": "Incidence and risk factors of antidepressant withdrawal symptoms: a meta-analysis and systematic review",
+      "authors": "Zhang MM, Tan X, Zheng YB, Zeng N, Li Z, Horowitz MA, Feng XZ, Wang K, Li ZY, Zhu WL, Zhou X, Xie P, Zhang X, Wang Y, Shi J, Bao YP, Lu L, Li SX.",
+      "studyType": "Systematic review and meta-analysis of withdrawal incidence",
+      "allowedInference": "Different inclusion and measurement choices; not directly interchangeable estimates",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {},
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "antidepressant-withdrawal-versus-relapse-evidence-review",
+      "pmid": "40694362",
+      "title": "Omitted Disclosures",
+      "authors": "JAMA psychiatry (unsigned correction notice)",
+      "studyType": "Published correction: omitted disclosures",
+      "allowedInference": "Conflict-of-interest disclosure correction; not new outcome data",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "40632531",
+            "reference": "JAMA Psychiatry. 2025 Sep 1;82(9):896-904. doi: 10.1001/jamapsychiatry.2025.1362.",
+            "type": "Erratum for",
+            "orderIn": 1
+          }
+        ]
+      },
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    },
+    {
+      "article": "antidepressant-withdrawal-versus-relapse-evidence-review",
+      "pmid": "39096930",
+      "title": "Correction to Lancet Psychiatry 2024; 11: 526-35",
+      "authors": "The lancet. Psychiatry (unsigned correction notice)",
+      "studyType": "Linked published correction to the 2024 incidence review",
+      "allowedInference": "Notice identity verified; full correction text unavailable, so precise 2024 pooled estimates are withheld",
+      "provider": "Europe PMC MED source record and abstract",
+      "checkedOn": "2026-10-26",
+      "linkedNotices": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "38851198",
+            "reference": "Lancet Psychiatry. 2024 Jul;11(7):526-535. doi: 10.1016/S2215-0366(24)00133-0",
+            "type": "Erratum for",
+            "orderIn": 1
+          }
+        ]
+      },
+      "fullTextAndConflictAudit": "Not comprehensive; specific correction handling documented separately"
+    }
+  ]
+}

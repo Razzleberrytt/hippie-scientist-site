@@ -1,5 +1,49 @@
 # Current Sprint
 
+### November 7 — existing maca source-integrity repair (#6645 / PR #6952)
+
+Owner-directed continuation resumes the existing one-file draft as a bounded
+negative source-assignment repair. PMID 18072817 is a rasagiline/Parkinson disease
+review, not maca evidence. Quarantine the contaminated workbook claim before
+export; keep its original row for audit, remove the wrong detail source, reconcile
+counts, and regenerate citation downloads. Do not promote an alternate source URL
+into an approved outcome claim. Preserve other maca references and all broader
+Batch 8 review holds. This safety/accuracy interruption adds no publishing/science
+authority, new normal workstream or implementation PR. Scope and validation are in
+[audit/maca-source-identity-2026-11-07.md](audit/maca-source-identity-2026-11-07.md).
+
+D #6932 / PR #6934 is completed: protected merge `ddac0eec31a09b956bc366b70d197aee6c9b32d9`,
+production receipt/run 42381331279 and fresh public profile checks verified.
+Its older active/in-review prose below is historical. Other owners retain their
+separate scopes. #6645 remains open for the unprovided Batch 8 findings; this repair
+cannot close that broader ticket. Reuse #6952 and retain draft/HOLD until source
+review, focused/full checks, export and protected release proof pass.
+
+
+### HOME-DISCOVERY-001 / #6983 — owner-directed homepage and visual repair (2026-11-01)
+
+In progress in existing **PR #6723**, rebased by a non-conflicting two-parent merge
+with main `aefa7594b9a15522756b0d43020d6337455b1014`. No new implementation PR.
+Scope: readable homepage introduction, six existing topic destinations, published
+relationship reading links, shared ingredient search, and the retained footer,
+safety-sentence and article-counter visual fixes. Preserve stable URLs and
+scientific data. Source and validation: [execution record](audit/homepage-discovery-2026-11-01.md).
+Exact-head CI, visual proof and protected-controller release remain required;
+no merge or production deployment is claimed.
+
+
+### B12-COMPARE-001 / #6670 — owner-directed vitamin B12 guide (2026-10-22)
+
+Status: **In review — [PR #6951](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6951), unmerged** — Will directly prioritizes this Revenue/Conversion ticket
+from the October 19 instruction (#6670, comment 6280536899), ahead of the stalled
+research intake. Scope: one new `/guides/compare/vitamin-b12/` guide following the
+merged psyllium template, PubMed-verified evidence, safety before shopping,
+10–12 shared visible/schema FAQ answers, and catalog-verified ASINs or labeled
+Amazon searches. Keep PR #6951 explicitly held until its current exact-head CI, evidence/source provenance, safety and independent-review checks have passed.
+The owner's October 23 directive supersedes mandatory human approval: once those checks are verified, clear `hold-merge` and integrate through the protected serialized controller. No pipeline repair or unrelated comparison page is authorized.
+Acceptance and validation: [B12 implementation record](content/vitamin-b12-comparison-2026-10-22.md).
+
+
 ### AH-P0-005 / existing PR #6938 — terminal release-state repair (2026-10-21)
 
 In progress: owner-directed safety interruption. Reproduced late hold/draft
@@ -212,7 +256,7 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6932 / PR #6934 | Repair public herb profile credibility and audit regressions | Active — owner-directed public presentation repair; scientific approvals unchanged | P1 | 75.0 | 2026-10-19 |
+| D | #6932 / PR #6934 | Repair public herb profile credibility and audit regressions | In review — current-main source reconciliation; exact-head CI and publication evidence review pending | P1 | 75.0 | 2026-10-19 |
 | A | #6769 | Semantic Opportunity Compiler: source-bound cross-system review pilot | Active — admitted (research-only, review requests only; no publication) | P1 | 75.0 | 2026-10-13 |
 | R | #6810 | Read-only Publisher-verified published-video → R8.10 Flywheel integration | Active — narrowly admitted; no provider API, uploader or claims | P2 | 45.0 | 2026-10-15 |
 

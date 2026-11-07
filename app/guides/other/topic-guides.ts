@@ -61,6 +61,7 @@ export const TOPIC_GUIDE_GROUPS: TopicGuideGroup[] = [
       { href: '/guides/other/berberine-weight-loss/', title: 'Berberine and Weight Loss', desc: 'Review clinical evidence, safety, and the limits of GLP-1 comparisons.' },
       { href: '/guides/other/intermittent-fasting-supplements/', title: 'Supplements and Intermittent Fasting', desc: 'Check which products may support a fast and which change its purpose.' },
       { href: '/guides/other/menopause-supplements/', title: 'Menopause Supplements', desc: 'Compare evidence for common symptom-focused supplement options.' },
+      { href: '/guides/other/ms-rachel-toddler-screen-time-evidence/', title: 'Ms. Rachel and Toddler Screen Time', desc: 'Review what toddler screen-time studies do—and do not—show about educational videos, co-viewing, and language development.' },
       { href: '/guides/other/nmn-supplements/', title: 'NMN Supplements', desc: 'Review human evidence, safety, and the gap between NAD+ and lifespan claims.' },
       { href: '/guides/other/nootropic-stacking-guide/', title: 'Nootropic Stacking', desc: 'Build simpler combinations with mechanism, dosing, and interaction context.' },
       { href: '/guides/other/saffron-supplement/', title: 'Saffron and Mood', desc: 'Review the mood evidence, safety context, and study limitations.' },

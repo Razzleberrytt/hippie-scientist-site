@@ -55,14 +55,14 @@ invariant('THS-001', 'homepage provides one Search, three safe first-visit tasks
   const firstPathEnd = homepage.indexOf('] as const', firstPathStart)
   const firstPaths = firstPathStart >= 0 && firstPathEnd > firstPathStart
     ? homepage.slice(firstPathStart, firstPathEnd) : ''
-  return homepage.includes('Which supplements actually work—and what does the research say about their risks?') &&
-    homepage.includes('When the research cannot establish an answer, we say so.') &&
+  return homepage.includes('Nature, examined.') &&
+    homepage.includes('where the evidence falls short') &&
     searchActions === 1 &&
     exploreActions === 1 &&
     firstPaths.split('href:').length - 1 === 3 &&
     includesAll(firstPaths, [
       "label: 'Find an ingredient'",
-      "href: '/herbs/'",
+      "href: '/search/'",
       "label: 'Compare options'",
       "href: '/guides/compare/'",
       "label: 'Check safety concerns'",
@@ -81,7 +81,7 @@ invariant('THS-001', 'homepage scientific search protects mobile ingredient term
     "autoCorrect='off'",
     'spellCheck={false}',
     "enterKeyHint='search'",
-    "placeholder='Search herbs, compounds, or questions'",
+    "placeholder='Search the field guide'",
   ]),
 )
 

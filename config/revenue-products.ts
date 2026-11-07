@@ -2587,7 +2587,7 @@ const revenueProductAliases: Record<string, string> = {
 
 // These researched ingredients retain educational coverage but are not eligible for
 // automated product recommendations until the outstanding safety gates are met.
-export const COMMERCE_SAFETY_HOLDS = new Set(['kava', 'st-johns-wort', '5-htp'])
+export const COMMERCE_SAFETY_HOLDS = new Set(['kava', 'st-johns-wort', '5-htp', 'licorice'])
 
 export function getRevenueProductSet(slug: string): RevenueProductSet | null {
   const normalized = slug.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-')

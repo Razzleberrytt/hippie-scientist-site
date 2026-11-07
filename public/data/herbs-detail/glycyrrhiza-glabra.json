@@ -73,12 +73,12 @@
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "high",
+    "monetizationAllowed": false,
     "indexingAllowed": true,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "Glycyrrhizin-containing licorice can increase blood pressure and cause hypokalemia and arrhythmias; restrict recommendations pending human safety review. See PMID 38246526 and NIH NCCIH licorice safety guidance."
   },
   "evidence": {
     "reviewStatus": "sourced",

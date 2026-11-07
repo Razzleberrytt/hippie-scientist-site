@@ -82,7 +82,8 @@ function firstReadable(value: unknown): string {
   const source = text(value)
   if (!source) return ''
   const sentences = source.match(/[^.!?]+[.!?]+|[^.!?]+$/g)?.map((item) => item.trim()).filter(Boolean) || []
-  return (sentences[0] || source).slice(0, 220)
+  // Never slice safety copy mid-word; a full first sentence can wrap naturally.
+  return sentences[0] || source
 }
 
 function SignalRow({
@@ -201,7 +202,7 @@ export default function ProfileEvidenceLens({
 
       {citationsCount > 0 ? (
         <p className="mt-2 text-xs leading-5 text-muted">
-          This profile cites {citationsCount} human stud{citationsCount === 1 ? 'y' : 'ies'}.
+          This profile cites {citationsCount} publication{citationsCount === 1 ? '' : 's'}; study designs and human evidence are counted below.
         </p>
       ) : null}
     </section>

@@ -1,5 +1,33 @@
 # Master Backlog
 
+### November 7: source integrity continuation
+
+Existing PR #6952 / #6645 is the bounded maca wrong-source quarantine interruption recorded in [CURRENT_SPRINT.md](CURRENT_SPRINT.md). No new implementation PR or scientific publication authority. Completed #6932 / PR #6934 is merged and production-verified at `ddac0eec31a09b956bc366b70d197aee6c9b32d9`; older active prose is superseded. Preserve broader Batch 8 and independent-owner holds.
+
+### HOME-DISCOVERY-001 / #6983 — owner-directed homepage and visual repair (2026-11-01)
+
+In progress in existing **PR #6723**, rebased by a non-conflicting two-parent merge
+with main `aefa7594b9a15522756b0d43020d6337455b1014`. No new implementation PR.
+Scope: readable homepage introduction, six existing topic destinations, published
+relationship reading links, shared ingredient search, and the retained footer,
+safety-sentence and article-counter visual fixes. Preserve stable URLs and
+scientific data. Source and validation: [execution record](audit/homepage-discovery-2026-11-01.md).
+Exact-head CI, visual proof and protected-controller release remain required;
+no merge or production deployment is claimed.
+
+
+### B12-COMPARE-001 / #6670 — owner-directed vitamin B12 guide (2026-10-22)
+
+Status: **In review — [PR #6951](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6951), unmerged** — Will directly prioritizes this Revenue/Conversion ticket
+from the October 19 instruction (#6670, comment 6280536899), ahead of the stalled
+research intake. Scope: one new `/guides/compare/vitamin-b12/` guide following the
+merged psyllium template, PubMed-verified evidence, safety before shopping,
+10–12 shared visible/schema FAQ answers, and catalog-verified ASINs or labeled
+Amazon searches. Keep PR #6951 explicitly held until its current exact-head CI, evidence/source provenance, safety and independent-review checks have passed.
+The owner's October 23 directive supersedes mandatory human approval: once those checks are verified, clear `hold-merge` and integrate through the protected serialized controller. No pipeline repair or unrelated comparison page is authorized.
+Acceptance and validation: [B12 implementation record](content/vitamin-b12-comparison-2026-10-22.md).
+
+
 ### AH-P0-005 / existing PR #6938 — terminal release-state repair (2026-10-21)
 
 In progress: owner-directed safety interruption. Reproduced late hold/draft
@@ -153,7 +181,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-| #6932 / PR #6934 | Repair public herb profile credibility and audit regressions | D | Active — owner-directed public presentation repair; scientific approvals unchanged | P1 | 5/5/4/5/0.75/5 | 75.0 | 2026-10-19 | Audit regressions, build, protected merge and production receipt |
+| #6932 / PR #6934 | Repair public herb profile credibility and audit regressions | D | In review — current-main source reconciliation; exact-head CI and publication evidence review pending | P1 | 5/5/4/5/0.75/5 | 75.0 | 2026-10-19 | Audit regressions, build, protected merge and production receipt |
 | #6810 | Read-only Publisher-verified published-video → R8.10 Flywheel integration | R | Active — scoped R admission proposed, effective on protected merge | P2 | 3/4/3/5/0.75/3 | 45.0 | 2026-10-15 code/Metricool coverage audit; independent field link Unknown | No publisher duplicate, scientific claims or posting; T0/T1 negative tests and T2 exact-head checks; verified PUBLISHED post and accurate matching media hash |
 
 **2026-10-15 bounded R #6810 admission proposal:** Scope is the exact read-only Publisher PUBLISHED → existing R8.10 flywheel join from [Phase 0](algorithm-observatory-phase0-audit-2026-10-15.md) and [issue #6810](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6810). Score remains **45.0** under the only approved formula; actual revenue and retention results Unknown. No independent EvidenceMotion 46 quality task is completed, no publishing/clinical authority granted. Active D #6685 and A #6769 unchanged. This must merge through the protected controller before implementation starts; future owner retirement must follow proof.

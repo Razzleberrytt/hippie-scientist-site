@@ -1,0 +1,103 @@
+{
+  "checkedOn": "2026-10-22",
+  "method": "NCBI PubMed E-utilities efetch XML; PMID, article title and abstract checked before drafting. Funding/COI checked where available.",
+  "scope": "Identity and source-bounded editorial verification; not independent scientific or publication approval.",
+  "records": [
+    {
+      "pmid": "25820384",
+      "title": "Cobalamin coenzyme forms are not likely to be superior to cyano- and hydroxyl-cobalamin in prevention or treatment of cobalamin deficiency.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25820384/",
+      "abstractSha256": "0dc66056b979ecfbce4e3c3319c3f92b07817dcd9d9babf99e86882391aa8195"
+    },
+    {
+      "pmid": "29543316",
+      "title": "Oral vitamin B12 versus intramuscular vitamin B12 for vitamin B12 deficiency.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29543316/",
+      "abstractSha256": "676d4b0c28dadefed23872e502494a1e4ee9d5a75066c491c7d0b5c7722accd0"
+    },
+    {
+      "pmid": "14616423",
+      "title": "Replacement therapy for vitamin B12 deficiency: comparison between the sublingual and oral route.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14616423/",
+      "abstractSha256": "807bc4e76b2c69e27313b1af4423976e9dbd2bb80e7ba492cc47e22d2bcc3a04"
+    },
+    {
+      "pmid": "29499976",
+      "title": "Effect of two different sublingual dosages of vitamin B12 on cobalamin nutritional status in vegans and vegetarians with a marginal deficiency: A randomized controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29499976/",
+      "abstractSha256": "5fa3c7758fc3a7f7edc3fd232ba3cf02a591afabf3729cb322105eecac4c9202"
+    },
+    {
+      "pmid": "15911731",
+      "title": "Oral cyanocobalamin supplementation in older people with vitamin B12 deficiency: a dose-finding trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15911731/",
+      "abstractSha256": "3d94dba6f423f0872f2c91e5c38876ab9e73822049cdcf8ebc1f5655bffe4f82"
+    },
+    {
+      "pmid": "33513879",
+      "title": "Vitamin B12 Supplementation in Diabetic Neuropathy: A 1-Year, Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33513879/",
+      "abstractSha256": "3b809b79aa960bf826d2f1f28e49c18201c7436d01caf7a32a689f10366c6fa9"
+    },
+    {
+      "pmid": "20488910",
+      "title": "Long term treatment with metformin in patients with type 2 diabetes and risk of vitamin B-12 deficiency: randomised placebo controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20488910/",
+      "abstractSha256": "193b0e4ae9d88aef1dd8e72bcc656bd1998d40a104efb9a2c8354ca0be3f0d8d"
+    },
+    {
+      "pmid": "24327038",
+      "title": "Proton pump inhibitor and histamine 2 receptor antagonist use and vitamin B12 deficiency.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24327038/",
+      "abstractSha256": "2e477edda30e206453646503faff43eef66151daefdff4b06e026a0c658c7e17"
+    },
+    {
+      "pmid": "28829668",
+      "title": "Long-Term, Supplemental, One-Carbon Metabolism-Related Vitamin B Use in Relation to Lung Cancer Risk in the Vitamins and Lifestyle (VITAL) Cohort.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28829668/",
+      "abstractSha256": "b9b89742be5340216bae47cc64c3de78d4a25fbac9e31782872434b8761e97aa"
+    },
+    {
+      "pmid": "11282797",
+      "title": "Association of the B-vitamins pyridoxal 5'-phosphate (B(6)), B(12), and folate with lung cancer risk in older men.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11282797/",
+      "abstractSha256": "8832e843a7e861b6fca1aedfce9d0cfea78f7ee6ba9191c0d2448502df44b5a3"
+    },
+    {
+      "pmid": "30499135",
+      "title": "Is high vitamin B12 status a cause of lung cancer?",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30499135/",
+      "abstractSha256": "e854ca743079cbbd87ace04d70230517cb43460738bdca6737971d2e6f262032"
+    },
+    {
+      "pmid": "28594082",
+      "title": "Acneiform eruptions caused by vitamin B12: A report of five cases and review of the literature.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28594082/",
+      "abstractSha256": "682fa3c785082efebd25e5a11dfaacec73f2bfb22c03ce822cd1684e398791cb"
+    },
+    {
+      "pmid": "18606874",
+      "title": "How I treat cobalamin (vitamin B12) deficiency.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18606874/",
+      "abstractSha256": "2789a7e0de8b328b3cc6bc127989641d078a79f39b5a17491499c3f82a8396c6"
+    },
+    {
+      "pmid": "24942828",
+      "title": "Guidelines for the diagnosis and treatment of cobalamin and folate disorders.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24942828/",
+      "abstractSha256": "da7ead2dea76c8223f02e394724ea7580f45a2a5d480c657bf7380198bef8e95"
+    },
+    {
+      "pmid": "33809274",
+      "title": "Effects of Vitamin B12 Supplementation on Cognitive Function, Depressive Symptoms, and Fatigue: A Systematic Review, Meta-Analysis, and Meta-Regression.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33809274/",
+      "abstractSha256": "16dc21c11e79919fe69735723e42eaa5d5a8346f8b14d981b59c88933a848eba"
+    },
+    {
+      "pmid": "32819927",
+      "title": "Oral versus intramuscular administration of vitamin B12 for vitamin B12 deficiency in primary care: a pragmatic, randomised, non-inferiority clinical trial (OB12).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32819927/",
+      "abstractSha256": "1c1ff726fbbcc8971fbde3753a25d374c45ce65c90ee5d3d9c8b6c6ae233d3cd"
+    }
+  ]
+}

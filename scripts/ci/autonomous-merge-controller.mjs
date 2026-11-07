@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import { spawnSync } from 'node:child_process'
 import { assessPublicationApproval, loadPublicationApprovalEvidence } from './canonical-publication-approval.mjs'
 import { pathToFileURL } from 'node:url'
 
@@ -628,7 +629,13 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
     checkScore,
   )
   const checksByName = new Map(relevantChecks.map((check) => [check.name, check]))
-  const requiredCheckNames = requiredChecksFor(riskTier)
+  // Enforce the new trusted-main exact-head PR admission check only for PRs
+  // created after the October 23 backlog snapshot (#6956). Existing held
+  // research and content PRs retain their original review/release gates.
+  const requiredCheckNames = [
+    ...requiredChecksFor(riskTier),
+    ...(pr.number > 6956 ? ['pre-pr-admission'] : []),
+  ]
   const missingRequiredChecks = requiredCheckNames.filter((name) => !checksByName.has(name))
   if (missingRequiredChecks.length) return { action: 'wait', reason: `${riskTier}-risk required checks not registered yet: ${missingRequiredChecks.join(', ')}` }
 
@@ -652,6 +659,34 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
       : `${riskTier}-risk changed-file-relevant gates are green; unrelated pending checks are non-blocking`,
     baseSha: currentBaseSha,
     riskTier,
+  }
+}
+
+/**
+ * Last-moment, trusted-main admission recheck. A PR body can change without
+ * changing its head SHA. Earlier completed check-runs then describe stale
+ * metadata; do not let a pre-admission success alone authorize a merge.
+ *
+ * This runs only after ordinary exact-head build, science, security and release
+ * checks pass. It uses the same complete paginated GitHub file inventory as
+ * the new-PR gate. Missing auth, CLI errors, incomplete API data, or a
+ * different claimed issue fail closed rather than merging.
+ */
+export function verifyLiveAdmissionForMerge(repo, number, runner = spawnSync) {
+  if (!Number.isSafeInteger(number) || number <= 0 ||
+      typeof repo !== 'string' || !/^[\w.-]+\/[\w.-]+$/.test(repo)) return false
+  if (number <= 6956) return true // Existing research/review backlog remains grandfathered.
+  try {
+    const result = runner(process.execPath, [
+      '.agents/skills/pr-admission-preflight.mjs',
+      '--repo', repo, '--from-pr', String(number),
+    ], { encoding: 'utf8', timeout: 60000, maxBuffer: 32 * 1024 * 1024 })
+    if (result.error || result.status !== 0) return false
+    const verdict = JSON.parse(result.stdout)
+    return verdict.decision === 'READY' &&
+      Array.isArray(verdict.prs) && verdict.prs.length === 0
+  } catch {
+    return false
   }
 }
 
@@ -829,7 +864,31 @@ export async function mergeIfStillCurrent({ repo, number, headSha, validatedBase
     console.log(`Terminal merge revalidation blocked PR #${number}: base changed during final publication approval reload`)
     return false
   }
-  console.log(`Terminal merge revalidation passed for PR #${number}: head ${headSha} on base ${baseAfterApproval}`)
+  // Independent live check immediately before the merge API: changed PR
+  // descriptions or issue scope must not reuse a stale exact-head check-run.
+  if (!verifyLiveAdmissionForMerge(repo, number)) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: current admission inventory is incomplete, stale or conflicting`)
+    return false
+  }
+  // The live admission CLI can paginate other PRs for up to 60 seconds.
+  // It must not make the previously checked main SHA stale just before PUT.
+  const baseAfterAdmission = await getBranchSha(repo, finalPr.base.ref)
+  if (baseAfterAdmission !== validatedBaseSha ||
+      !(await headContainsBase(repo, baseAfterAdmission, headSha))) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: base changed during live admission recheck`)
+    return false
+  }
+  // Scope checks may also race a PR edit/label change. Recheck the current
+  // head and explicit holds after the admission subprocess before release.
+  const postAdmissionPr = await getPr(repo, number)
+  if (postAdmissionPr.state !== 'open' || postAdmissionPr.draft ||
+      postAdmissionPr.head?.sha !== headSha ||
+      postAdmissionPr.base?.ref !== finalPr.base.ref ||
+      (postAdmissionPr.labels || []).some(label => HOLD_LABELS.has(label.name))) {
+    console.log(`Terminal merge revalidation blocked PR #${number}: PR state changed during live admission recheck`)
+    return false
+  }
+  console.log(`Terminal merge revalidation passed for PR #${number}: head ${headSha} on base ${baseAfterAdmission}`)
   await mergePr(repo, number, headSha)
   return true
 }

@@ -20,12 +20,12 @@ describe('ShowMeTheStudies', () => {
 
   it('shows the citation count in the collapsed summary heading', () => {
     render(<ShowMeTheStudies citations={[citation()]} />)
-    expect(screen.getByText(/Clinical Study Summaries \(1\)/)).toBeTruthy()
+    expect(screen.getByText(/Cited Research Publications \(1\)/)).toBeTruthy()
   })
 
   it('shows the total count for more than one citation', () => {
     render(<ShowMeTheStudies citations={[citation({ title: 'A' }), citation({ title: 'B' })]} />)
-    expect(screen.getByText(/Clinical Study Summaries \(2\)/)).toBeTruthy()
+    expect(screen.getByText(/Cited Research Publications \(2\)/)).toBeTruthy()
   })
 
   it('links the study title and "PubMed" cell to PubMed when a pmid is present', () => {

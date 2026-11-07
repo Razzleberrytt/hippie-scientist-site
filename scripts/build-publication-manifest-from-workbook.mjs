@@ -77,6 +77,7 @@ function canIndex(record) {
   const hidden = /^hide$/i.test(text(record?.runtime_export_decision))
   if (hidden) return false
 
+  if (record?.evidence_human_study_count === 0) return false
   const status = text(record?.indexability_status)
   if (/^(PUBLISH|NOINDEX|NEEDS_REVIEW|BLOCKED)$/i.test(status)) {
     return status.toUpperCase() === 'PUBLISH'

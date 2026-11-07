@@ -56,6 +56,7 @@ export const BUILT_COMPARE_SLUGS = [
   'sleep-herbs-vs-melatonin',
   'st-johns-wort-vs-saffron',
   'turmeric-vs-curcumin',
+  'vitamin-b12',
 ] as const
 
 const validSlugs = new Set<string>(BUILT_COMPARE_SLUGS)

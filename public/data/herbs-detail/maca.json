@@ -75,16 +75,10 @@
   },
   "evidence": {
     "reviewStatus": "sourced_pending_review",
-    "sourceCount": 1,
-    "sourceIds": [
-      "src_1f49196ffdbf"
-    ],
-    "claimCount": 3,
-    "claimIds": [
-      "clm_210f972e45a4",
-      "clm_22802f29e888",
-      "clm_ada4e0ca6714"
-    ]
+    "sourceCount": 3,
+    "sourceIds": [],
+    "claimCount": 0,
+    "claimIds": []
   },
   "claimMap": [],
   "dosage": "Gelatinized powder: 1.5-3 g/day; extracts vary; limited standardization",

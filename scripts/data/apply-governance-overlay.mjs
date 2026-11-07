@@ -30,6 +30,7 @@ import path from 'node:path'
 import { writeJsonAtomic } from '../lib/atomic-json.mjs'
 import { curatedPolicySlugSet, loadCuratedIndexPolicy } from '../lib/curated-index-policy.mjs'
 import { buildClaimEvidenceIndex, hasApprovedClaimSourceReceipt } from './evidence-receipts.mjs'
+import { applyLicoriceSafetyFloor } from './licorice-safety-floor.mjs'
 
 const repoRoot = process.cwd()
 const dataDirArg = process.argv.find((arg) => arg.startsWith('--data-dir='))
@@ -532,14 +533,14 @@ function processKind(kind, listFile, detailDirName, report) {
     // Stable across re-runs: a record we previously downgraded still counts as "meant to
     // be indexable" even though its status is now NEEDS_REVIEW.
     const wasIndexable = baseIndexable || existingReasons.includes(DOWNGRADE_REASON)
-    const governance = manualOverride || buildGovernance({
+    const governance = applyLicoriceSafetyFloor(kind, slug, manualOverride || buildGovernance({
       slug,
       record,
       hasSources,
       hasGovernedReceipt,
       baseIndexable,
       wasIndexable,
-    })
+    }))
 
     // 3. Enforce indexability consequences on the flat list record.
     if (manualOverride) {
