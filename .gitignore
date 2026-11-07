@@ -194,3 +194,6 @@ ops/evidencemotion/.cache/
 ops/evidencemotion/flywheel/
 ops/evidencemotion/assets/
 ops/evidencemotion/r811/
+
+# Deterministic profile social cards, rebuilt by the production media step.
+public/images/social/profiles/
