@@ -85126,6 +85126,158 @@
       "reservation_id": "3a0f7804141d9723d659",
       "reserved_at": "2026-11-07T07:20:10.822Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42995502",
+      "title": "Rocavorexant, a novel, selective orexin-1 receptor antagonist: Safety, tolerability and pharmacokinetics in healthy adults and individuals with opioid use disorder.",
+      "doi": "10.1002/bcp.70865",
+      "source_title": "Rocavorexant, a novel, selective orexin-1 receptor antagonist: Safety, tolerability and pharmacokinetics in healthy adults and individuals with opioid use disorder.",
+      "abstract": "Rocavorexant (INDV-2000), a selective orexin-1 receptor antagonist, reduces drug self-administration and anxiety in nonclinical studies. This Phase 1 programme evaluated the safety, pharmacokinetics and pharmacodynamics of rocavorexant in healthy volunteers and treatment-seeking individuals with opioid use disorder (OUD). Two double-blinded Phase I studies were conducted: a first-in-human, single-ascending dose (SAD) study administering 1 to 720 mg under fasting condition with a food-effect arm (360 mg, fasting vs. fed); and a multiple-ascending dose (MAD) study evaluating up to 400 mg twice daily for up to 28 days in healthy volunteers, followed by an open-label cohort enrolling individuals with OUD who received 400 mg twice daily during co-administration with buprenorphine/naloxone and after discontinuation. Rocavorexant was rapidly absorbed with a mean plasma terminal half-life of 2-5 h. Plasma exposure after single doses increased dose proportionally for the area under the curve (AUC 0-inf ) and less than dose proportionally for maximum plasma concentration (C max ). A high-fat meal increased rocavorexant C max by 62% (90% confidence interval [CI] of geometric mean ratio [GMR] 1.47-1.79) without affecting AUC 0-inf (GMR 0.90; 90% CI: 0.74-1.10). Steady-state was achieved by Day 2 with minimal accumulation. Buprenorphine/naloxone co-administration increased rocavorexant AUC by 21% (GMR 90% CI: 1.01-1.45), with minor change in C max (GMR 1.10; 90% CI: 0.94-1.28). Rocavorexant was safe and well tolerated; somnolence was the most frequent adverse event. In the OUD cohort, rocavorexant helped manage opioid withdrawal following buprenorphine/naloxone discontinuation. Rocavorexant demonstrated favourable safety, pharmacokinetic and pharmacodynamic characteristics supporting further clinical evaluation for OUD.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42995502/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42995502",
+        "doi": "10.1002/bcp.70865",
+        "journal": "British journal of clinical pharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-08T10:35:29.161Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9ba1171f2653a5e0c31e",
+      "reserved_at": "2026-11-08T10:35:38.962Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42995347",
+      "title": "\"They've Come a Long Way\": A Qualitative Study of Hospitalization Experiences for Serious Injection-Related Infections in Boston, MA.",
+      "doi": "10.1007/s11606-026-10923-4",
+      "source_title": "\"They've Come a Long Way\": A Qualitative Study of Hospitalization Experiences for Serious Injection-Related Infections in Boston, MA.",
+      "abstract": "Serious injection-related infections (SIRIs) have risen during the opioid overdose epidemic. SIRIs are morbid, costly, and lead to prolonged hospitalizations. Efforts to link patients to medications for opioid use disorder (MOUD) during SIRI hospitalizations have expanded. Additional understanding about patient experiences during SIRI hospitalizations may guide improving satisfaction with inpatient treatment as well as post-hospital care. To explore experiences in the hospital and with transitions of care, we conducted qualitative interviews of individuals with opioid use disorder (OUD) who had been diagnosed with a SIRI over a three-year period ending in 2022. Participants with a qualifying SIRI were identified and recruited directly from an inpatient hospital service, a harm reduction program or through telephone outreach to individuals previously discharged with a SIRI or enrolled in an outpatient parental antibiotic program. We administered a brief survey and conducted semi-structured interviews. Interviews were transcribed and inductively coded. Key themes were then identified. Participants (n = 30) were mostly male (19), white (21), housed (20), and had endocarditis (10) or osteomyelitis (9). Four themes emerged. First, participants delayed presentation to the hospital due to concerns about stigma, withdrawal, and pain control. Second, positive experiences in the hospital were shaped by empathy and adequate pain and withdrawal management; negative experiences were related to stigma, withdrawal and pain. Third, in-hospital substance use and patient-directed discharges (PDDs) were driven by withdrawal and conflict with hospital staff. Fourth, efforts to plan discharges were valued, though some participants identified opportunities for improvement, including greater emphasis on consistent protocols and shared decision-making. Individuals with OUD and SIRIs provided four themes of clinical care that can guide efforts to improve hospital experiences and discharge planning for people with SIRIs. MOUD and shared decision-making about treatments are practical approaches to improving care for people with SIRIs.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42995347/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42995347",
+        "doi": "10.1007/s11606-026-10923-4",
+        "journal": "Journal of general internal medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-08T10:35:29.162Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b1a312afa44c6222c432",
+      "reserved_at": "2026-11-08T10:35:38.962Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -85170,17 +85322,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 591,
+    "total_reservations": 593,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 116,
+      "4": 118,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 591
+      "SOURCE_VERIFIED": 593
     },
     "batches": [
       {
@@ -85200,7 +85352,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 91,
+        "count": 93,
         "pr_number": null,
         "blocker": null
       }
