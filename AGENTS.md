@@ -32,6 +32,10 @@ Before beginning work, agents must:
 - Urgent security interruptions require explicit issue/owner scope and may replace the active integration priority, **not** silently open another PR or relax audit. CI/governance, human science, publication and serialized protected-merge controls remain fully binding. No mass close/merge/rebase simply to meet a PR-count target.
 - Track verified **merged-and-deployed changes**, elapsed development effort per accepted change, full CI reruns per merge, and work abandoned/reused. Opening PRs is not a completion metric.
 
+## Video production must use the native workflow
+- All THS/EvidenceMotion video requests, including ordinary "make today's video", "continue" and "get it ready to post", first use `.agents/skills/em-tiktok-producer/SKILL.md`. Never substitute disposable-chat Python/FFmpeg slides, third-party credit services, generic voices or forged QA for the approved source-locked narrator/native producer. If the canonical runtime/assets or original-film proof are unavailable, stop at PREPRODUCTION_ONLY; do not call an improvised MP4 a release.
+- Video production is separate from EvidenceMotion code-development lanes; engineer actual native blockers only under the existing single-PR admission and protection rules.
+
 ## Optional project-local agent skills
 
 - For scoped work with a matching specialty, consult [`.agents/skills/README.md`](.agents/skills/README.md) and its relevant `SKILL.md` after reading the required authoritative docs. These are instruction references, not new agents, admission slots, release permissions, installed ChatGPT plugins, or independently tested capabilities.

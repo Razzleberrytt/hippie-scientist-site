@@ -20,7 +20,7 @@ test('T1: 4fps PIXEL proof rejects static phrase-flash and accepts progressive c
 })
 test('T2: acoustic karaoke below 80ms is imperceptible and blocked',()=>{
  expect(()=>renderR817ProgressiveWordCaptions([{beatId:'a',text:'One two three'}],[
- {start:0,end:.04},{start:.04,end:.6},{start:.6,end:1}
+ {word:'One',start:0,end:.04},{word:'two',start:.04,end:.6},{word:'three',start:.6,end:1}
  ])).toThrow(/imperceptible/)
 })
 test('T3: independently sampled MFA start/end boundary errors cannot exceed tolerance',()=>{

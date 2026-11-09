@@ -81,6 +81,18 @@ if(video?.codec_name!=='h264'||video.width!==1080||video.height!==1920||
  throw Error('R8.18 physical pilot MP4 has broken frame count or profile')
 const contact=await renderR818ContactSheet({masterMp4:mp4,beats:scenes.map(s=>({...s,id:s.beatId})),
  outputDir:destination})
+// Execute both new imported-art actions through the SAME physical producer,
+// independent native-frame validator and object-telemetry validator, including
+// tamper/missing-source negatives. This runs in the existing R8.18 hosted smoke
+// workflow; no additional job, pipeline or new PR is required.
+const artRun=spawnSync(process.execPath,['--test','scripts/distribution/r818-physical-art-regression.mjs'],{
+ encoding:'utf8',timeout:6*60*1000,maxBuffer:6000000,
+ env:{...process.env,R818_PHYSICAL_TEST:'1',
+   R818_ART_PROOF_OUTPUT:path.join(destination,'original-art-proof')}
+})
+if(artRun.status!==0)throw Error('R8.18 original-art physical smoke failed: '+
+ String(artRun.stderr||artRun.stdout||artRun.error||'').slice(-2500))
+console.log('R8.18 source-pinned original-art object motion / provenance tests PASS')
 const result={status:'PHYSICAL_RENDERER_TECHNICAL_SMOKE_PASS; NOT RELEASE-READY',
   sourceCodeSha256:provider.sourceCodeSha256,mp4File:path.basename(mp4),
   mp4Sha256:sha(fs.readFileSync(mp4)),frames:native.frameCount,

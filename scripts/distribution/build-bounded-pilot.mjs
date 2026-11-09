@@ -272,7 +272,9 @@ export async function buildBoundedPilot({
       if (renderCreativeSpec.claimSafetyStatus !== 'validated-lossless') {
         throw new Error('R8.05 short-video pilot requires fresh lossless evidence-safety validation of the exact brief copy')
       }
-      const nativeProvider=requestedR817?createR818PhysicalCinemaProvider():null
+      // Original isolated source art must be staged next to the pinned voice/scene artifacts.
+       // Missing art fails closed; no network, stock SVG, or alternative renderer fallback.
+       const nativeProvider=requestedR817?createR818PhysicalCinemaProvider({artRoot:path.join(outputDir,'physical-art')}):null
       const videoManifest = renderVerticalVideoPackage({
         mediaPack,creativeSpec:renderCreativeSpec,outputDir,
         ...(nativeProvider?{

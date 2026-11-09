@@ -6,6 +6,12 @@ on:
       - 'scripts/distribution/r817-*'
       - 'scripts/distribution/r818-*'
       - 'scripts/distribution/r810-aligned-captions.mjs'
+      - 'scripts/distribution/r810-local-aligner.mjs'
+      - 'scripts/distribution/r810-package-qa.mjs'
+      - 'scripts/distribution/__tests__/r810-approval-provenance.test.mjs'
+      - 'scripts/distribution/stage-publication-media.mjs'
+      - 'scripts/distribution/publisher-release-identity-gate.mjs'
+      - 'scripts/distribution/__tests__/publisher-release-identity-gate.test.mjs'
       - 'scripts/distribution/render-vertical-video-mp4.mjs'
       - 'scripts/distribution/render-vertical-video-package.mjs'
       - 'scripts/distribution/__tests__/r817-*'
@@ -31,5 +37,15 @@ jobs:
           done
       - name: Run R8.17 positive and adversarial regressions
         run: npx vitest run scripts/distribution/__tests__/r817-canonical-first-pass.test.mjs scripts/distribution/__tests__/r817-retention-and-experiments.test.mjs scripts/distribution/__tests__/r817-v-adversarial-audit.test.mjs scripts/distribution/__tests__/r818-telemetry-qa.test.mjs scripts/distribution/__tests__/r818-native-telemetry-recorder.test.mjs scripts/distribution/__tests__/r818-cache-and-contact.test.mjs
+      - name: Reject forged R8.10 word-alignment approval at release boundary
+        run: |
+          node --check scripts/distribution/r810-local-aligner.mjs
+          node --check scripts/distribution/r810-package-qa.mjs
+          node --test scripts/distribution/__tests__/r810-approval-provenance.test.mjs
+      - name: Fail closed on publisher creative-release and lifecycle identity downgrades
+        run: |
+          node --check scripts/distribution/stage-publication-media.mjs
+          node --check scripts/distribution/publisher-release-identity-gate.mjs
+          node --test scripts/distribution/__tests__/publisher-release-identity-gate.test.mjs
       - name: Block fake finished R8.18 videos and robotic narrator substitutions
         run: node --test scripts/distribution/__tests__/r818-voiced-review-qa.test.mjs
