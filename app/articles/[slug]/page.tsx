@@ -103,6 +103,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
 
   const sourceAuthor = 'author' in page && typeof page.author === 'string' ? page.author.trim() : ''
   const author = sourceAuthor || AUTHOR_NAME
+  const aiAssisted = 'ai_assisted' in page && page.ai_assisted === true
   const reviewEvent = latestReviewForPage(editorialReviewEvents, pagePath)
   const lastReviewed = reviewEvent?.reviewedAt
   const reviewedBy = reviewEvent?.reviewerName
@@ -231,6 +232,12 @@ export default async function ArticleMonographPage({ params }: PageProps) {
           <span>
             Written by <span className="font-semibold text-[color:var(--hs-ink)]">{author}</span>
           </span>
+          {aiAssisted ? (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>Prepared with AI assistance; sources and limitations are provided for independent review.</span>
+            </>
+          ) : null}
           {reviewerLabel ? (
             <>
               <span aria-hidden="true">·</span>

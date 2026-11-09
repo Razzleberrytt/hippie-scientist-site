@@ -44,6 +44,9 @@ const citationPageSchema = z.object({
   evidenceGrade: z.string().min(1).optional(),
   evidence_grade: z.string().min(1).optional(),
   author: z.string().optional(),
+  // Preserve the author's AI-assistance disclosure; omission in a content
+  // collections schema silently strips the source frontmatter value.
+  ai_assisted: z.boolean().optional(),
   reviewedBy: z.string().optional(),
   reviewerCredential: z.string().optional(),
   lastReviewed: z.string().regex(isoDatePattern).optional(),
