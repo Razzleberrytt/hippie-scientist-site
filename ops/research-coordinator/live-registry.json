@@ -85278,6 +85278,158 @@
       "reservation_id": "b1a312afa44c6222c432",
       "reserved_at": "2026-11-08T10:35:38.962Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43003234",
+      "title": "A measurement-based care strategy for buprenorphine-naloxone treatment (Bup-MBC): Development of an EHR-integrated intervention.",
+      "doi": "10.1016/j.josat.2026.210150",
+      "source_title": "A measurement-based care strategy for buprenorphine-naloxone treatment (Bup-MBC): Development of an EHR-integrated intervention.",
+      "abstract": "Risk of recurrent opioid use during buprenorphine-naloxone (bup-nx) treatment is dynamic and remains elevated after initiation, with vulnerability shaped in part by treatment intensity and gaps between visits, yet routine outpatient care relies on episodic encounters and retrospective data. This mismatch can delay recognition of emerging instability and limit timely treatment adjustments. This paper reports the development and specification of an intervention strategy to address this mismatch. We used a structured, multi-phase design process to specify and configure a measurement-based care (MBC) strategy for bup-nx treatment (Bup-MBC) in outpatient addiction clinics through three phases: (1) a systematic review of patient-reported outcome measures (PROMs) for substance use treatment; (2) a qualitative needs assessment using the Theoretical Domains Framework and COM-B (Capability, Opportunity, Motivation-Behavior) model to identify gaps in risk monitoring, agency, and trust; and (3) iterative co-design with multidisciplinary clinicians to refine workflow fit and trust-preserving use of data. Patients informed item and feedback content during the needs assessment but did not participate in the co-design cycles. Bup-MBC integrates (1) brief between-visit PROMs (e.g., withdrawal, craving, adherence); (2) immediate non-punitive patient feedback; (3) clinician-facing summaries and non-directive prompts in the electronic health record (EHR); and (4) an opt-in between-visit outreach pathway with predefined safety triggers, all configured within existing EHR and patient portal infrastructure. It targets patient and clinician capability to recognize changes in risk, opportunity for action through structured monitoring and visit preparation, and trust and agency through non-punitive communication, without adding substantial burden. The full measure set, severity bands, and question-to-action map are provided as supplementary material. Key trade-offs included prioritizing single-item measures for feasibility, balancing opt-in outreach with safety overrides, and assuming routine clinician use of summaries. This development study specifies an EHR-integrated MBC strategy for outpatient bup-nx treatment. As single-center design work with co-design limited to clinicians and delivery contingent on portal or text-message access, its outputs are hypotheses about mechanism and fit rather than demonstrated effects. Feasibility studies are needed to evaluate uptake, acceptability, workflow fit, and effects on treatment.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43003234/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43003234",
+        "doi": "10.1016/j.josat.2026.210150",
+        "journal": "Journal of substance use and addiction treatment",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-10T10:02:23.637Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a5fdb9eac7e1f1313cab",
+      "reserved_at": "2026-11-10T10:02:32.526Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "43003233",
+      "title": "\"Feeling unseen, not judged\": Provider stigma, clinical non-recognition, and KUSH treatment access in Sierra Leone.",
+      "doi": "10.1016/j.josat.2026.210152",
+      "source_title": "\"Feeling unseen, not judged\": Provider stigma, clinical non-recognition, and KUSH treatment access in Sierra Leone.",
+      "abstract": "Provider-related barriers to substance use treatment are often framed as attitudinal stigma. In rapid synthetic drug epidemics, patients also experience clinical non-recognition: encounters in which providers hear the account but do not translate it into condition-specific assessment, explanation, management, or referral. Because patient-experienced competence shapes return, avoidance, and peer referral, we treat clinical non-recognition as an access-relevant quality signal distinct from direct provider testing. This study examined whether barrier forms differed across Sierra Leone's KUSH service contexts. KUSH is the local name for a synthetic drug preparation of variable composition. We conducted a focused secondary comparative qualitative analysis of a four-district dataset. All 250 participants reported KUSH use histories and joined focus group discussions; 90 of these participants also completed semi-structured interviews. We returned to provider-related transcript segments and NVivo memos, extracted 115 accounts, and analyzed them through two pre-specified sub-types: attitudinal enacted stigma and patient-experienced clinical non-recognition. Peer-network reputation effects and disconfirming enabling encounters were coded separately. Findings are participant-reported experiences, not direct provider assessment. Provider-related barriers appeared across all sites. In Western Area, accounts more often described attitudinal enacted stigma (26/43 accounts) than clinical non-recognition (11/43), including public labelling, moralistic language, and confidentiality breach. In Bombali, Bo, and Kenema, accounts more often described clinical non-recognition (15/22, 18/26, and 17/24 accounts, respectively): health workers listened without obvious judgement, but the encounter did not produce KUSH-specific assessment, management, or referral. Negative and positive facility reputations circulated through peer networks before attendance. Enabling accounts showed that competent, respectful recognition within resource constraints also travelled through networks. Similar provider-barrier frequencies concealed different mechanisms. Specialist-center responses need stronger confidentiality, reception, and anti-stigma practice; district-hospital responses need KUSH- and opioid-type withdrawal recognition, initial management, and referral training. Patient-experienced competence is a quality signal for treatment access. Monitoring should extend beyond attender satisfaction surveys to capture community-level facility reputation effects.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43003233/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43003233",
+        "doi": "10.1016/j.josat.2026.210152",
+        "journal": "Journal of substance use and addiction treatment",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-10T10:02:23.637Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5c07c5ac016352364917",
+      "reserved_at": "2026-11-10T10:02:32.526Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -85322,17 +85474,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 593,
+    "total_reservations": 595,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 118,
+      "4": 120,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 593
+      "SOURCE_VERIFIED": 595
     },
     "batches": [
       {
@@ -85352,7 +85504,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 93,
+        "count": 95,
         "pr_number": null,
         "blocker": null
       }
