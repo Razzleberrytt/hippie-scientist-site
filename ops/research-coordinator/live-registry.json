@@ -85430,6 +85430,158 @@
       "reservation_id": "5c07c5ac016352364917",
       "reserved_at": "2026-11-10T10:02:32.526Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43013761",
+      "title": "Withdrawal-related calls to a statewide poison control center: a ten-year review.",
+      "doi": "10.1080/15563650.2026.2750476",
+      "source_title": "Withdrawal-related calls to a statewide poison control center: a ten-year review.",
+      "abstract": "Poison control centers are commonly utilized by the public and healthcare providers following potentially harmful substance exposures. Less frequently, poison control centers are contacted regarding substance withdrawal. This study characterizes a decade of withdrawal-related calls to a statewide poison control center and explores their potential value in identifying emerging public health concerns. We conducted a retrospective review of all calls to a statewide poison control center from 2015-2024 that were classified as \"withdrawal\" for reason of call. Variables assessed included year of call, patient demographics, substance(s) involved, disposition, and medical outcome. Medical outcomes were categorized using National Poison Data System ® definitions as minor, moderate, or major. Descriptive statistics were performed. During the study period, 198 withdrawal-related calls were identified, averaging approximately 20 annually. Most calls originated from hospitals (58.1%), while 36.9% came from private residences. The most frequently implicated substances were tianeptine (24.2%), opioids (20.7%), and benzodiazepines (14.1%). Tianeptine first appeared in 2019 and contributed substantially to an increase in withdrawal-related calls beginning in 2020. The median patient age was 35 years, and 53.0% were male. Overall, 37.4% of cases resulted in at least a moderate medical outcome (34.8% moderate, 2.5% major). Tianeptine accounted for the largest proportion of moderate or major outcomes, followed by opioids, benzodiazepines, gamma-hydroxybutyrate, antidepressants, and phenibut. Sixty-three patients (31.8%) required hospital admission, including 36 (18.2%) admitted to an intensive care unit; tianeptine was associated with 27.8% of ICU admissions. No deaths were documented. This ten-year review demonstrates that withdrawal-related calls represent a small but clinically important component of PCC utilization. Although PCCs are traditionally associated with the management of acute toxic exposures, our findings highlight their broader role in providing consultation for substance withdrawal syndromes and their value as a real-time toxicovigilance resource. An important finding of this study was the changing pattern of substances associated with withdrawal over time. Poison control center utilization extends beyond substance exposure and includes management of substance withdrawal. Withdrawal-related calls may provide valuable surveillance data regarding emerging substance use trends and public health concerns, particularly involving tianeptine and opioids.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43013761/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43013761",
+        "doi": "10.1080/15563650.2026.2750476",
+        "journal": "Clinical toxicology (Philadelphia, Pa.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-12T03:09:02.146Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f0fee09079c6edb6e37c",
+      "reserved_at": "2026-11-12T03:09:10.494Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "43003943",
+      "title": "Fatal polysubstance intoxications involving inhalation of nitazene analogues: identification of fluetonitazepyne and 5-methyl etodesnitazene.",
+      "doi": "10.1007/s00414-026-04062-y",
+      "source_title": "Fatal polysubstance intoxications involving inhalation of nitazene analogues: identification of fluetonitazepyne and 5-methyl etodesnitazene.",
+      "abstract": "The illicit opioid market has undergone notable diversification, with 2-benzylbenzimidazoles (nitazenes) representing an increasingly prevalent class of non-fentanyl synthetic opioids. These compounds challenge forensic toxicology through marked µ-opioid receptor potency and rapid structural evolution, often undetected by routine immunoassay screening. We report two fatal polysubstance intoxications involving inhalation of nitazene analogues via vaping devices, identified in biological matrices. GC-MS-based identification was corroborated by untargeted LC-HRMS screening with in silico data mining and confirmed against certified reference standards.Case 1 involved a 40-year-old male found deceased after an estimated 2-3 days without contact. Fluetonitazepyne was quantified at 0.58 ng/mL in peripheral blood alongside ethanol (0.55 g/kg), supra-therapeutic citalopram (340 ng/mL), sub-therapeutic lithium, and cannabinoid metabolites, concordant with a recovered vaping vial containing the same nitazene. Death could not be established with certainty; based on toxicological findings, it was most likely acute fluetonitazepyne intoxication in the presence of central nervous system (CNS) depressants. Case 2 concerned a 22-year-old male with a witnessed cardiorespiratory arrest following inhalation from a vaping device confirmed to contain 5-methyl etodesnitazene. Despite bystander cardiopulmonary resuscitation (CPR), naloxone administration (1.6 mg), and intensive care, he died from acute anoxic encephalopathy approximately 24 h later. Ante mortem peripheral blood confirmed 5-methyl etodesnitazene at 3.3 ng/mL alongside barbital at toxic concentrations (39 mg/L).Concurrent CNS depressant exposure potentiated fatal respiratory depression, more clearly established in Case 2. These cases document the lethal potential of emerging nitazene analogues and the value of untargeted HRMS-based screening in the absence of certified reference standards.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43003943/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43003943",
+        "doi": "10.1007/s00414-026-04062-y",
+        "journal": "International journal of legal medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-12T03:09:02.146Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b18ed5d50f71dbd2a34f",
+      "reserved_at": "2026-11-12T03:09:10.494Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -85474,17 +85626,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 595,
+    "total_reservations": 597,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 120,
+      "4": 122,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 595
+      "SOURCE_VERIFIED": 597
     },
     "batches": [
       {
@@ -85504,7 +85656,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 95,
+        "count": 97,
         "pr_number": null,
         "blocker": null
       }
