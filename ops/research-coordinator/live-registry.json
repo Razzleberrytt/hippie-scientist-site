@@ -85582,6 +85582,159 @@
       "reservation_id": "b18ed5d50f71dbd2a34f",
       "reserved_at": "2026-11-12T03:09:10.494Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43020214",
+      "title": "Comparative sedative effects of subcutaneous injection at GV20 versus intramuscular opioid administration in dogs: a randomized clinical trial.",
+      "doi": "10.1016/j.tvjl.2026.106966",
+      "source_title": "Comparative sedative effects of subcutaneous injection at GV20 versus intramuscular opioid administration in dogs: a randomized clinical trial.",
+      "abstract": "To compare sedation after butorphanol or methadone administered intramuscularly (IM) or subcutaneously (SC) at Governing Vessel 20 (GV20) in dogs. Twenty-four healthy client-owned dogs were randomized to four groups (n = 6) receiving either opioid (0.4mgkg-1) by IM injection or SC injection at GV20. Sedation was scored every 5min for 35min on a 21-point scale by three evaluators. Friedman and Kruskal-Wallis tests assessed changes over time and differences among groups; intraclass correlation coefficients (ICCs) assessed agreement. Mean onset of observable sedation was 3.5 ± 2.4min in the pooled SC groups and 10.5 ± 5.9min in the pooled IM groups. Scores changed over time in all groups (P < 0.001) and differed among groups at every assessment (P = 0.003-0.044). SC-group scores approached 18/21 at 20-30min, whereas IM-group scores approached 12/21 at 35min. ICCs were 0.94-0.99. No serious adverse event required intervention or withdrawal. SC administration at GV20 was associated with earlier and greater sedation than IM administration. Route- and site-matched studies are needed before attributing the effect specifically to GV20 or recommending routine use.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43020214/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43020214",
+        "doi": "10.1016/j.tvjl.2026.106966",
+        "journal": "Veterinary journal (London, England : 1997)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-13T08:10:03.593Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6d7ac1513e5dd8d8e833",
+      "reserved_at": "2026-11-13T08:10:12.067Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "43015112",
+      "title": "Mu-Opioid Receptor in Habenula Circuits as a Substrate for Psychiatric Disorders and Addiction.",
+      "doi": "10.1523/JNEUROSCI.1193-26.2026",
+      "source_title": "Mu-Opioid Receptor in Habenula Circuits as a Substrate for Psychiatric Disorders and Addiction.",
+      "abstract": "The habenula is a critical regulator of affect, negative reinforcement, avoidance, and coping behavior. It is thus unsurprising that accumulating evidence supports pivotal roles for habenular circuits in the expression of major psychiatric illnesses including depression and addiction. Though high levels of mu-opioid receptors (MORs) were identified in the habenula more than a generation ago, the functional effects of MORs on habenular circuits remained largely unexplored due to challenges of selectively targeting this small and heterogeneous brain structure. In this SfN mini-symposium report, we highlight studies that resolve how MOR is distributed across medial and lateral habenular subnuclei and how MOR expression maps onto molecularly defined habenular cell types. We further describe some of the habenula-intersecting circuits that express MORs and how MOR signaling modulates neural activity and neurotransmission within these unique habenular circuits and cell types. Going beyond cellular-level effects of MOR signaling, we illustrate how neural activity in the habenula can influence affect and behaviors associated with opioid analgesia, opioid seeking, opioid dependence, and opioid withdrawal. Drawing on works outside the opioid field, we suggest commonalities through which drugs of abuse may influence habenula circuits to induce states of negative affect that contribute to continued drug use or relapse. Finally, we discuss how better understanding the molecular and functional properties of habenular cell types and circuits can identify new druggable targets, such as the orphan receptors GPR151 and GPR139, for the treatment of pain, mood disorders, or opioid and other substance use disorders.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43015112/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43015112",
+        "doi": "10.1523/JNEUROSCI.1193-26.2026",
+        "journal": "The Journal of neuroscience : the official journal of the Society for Neuroscience",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-13T08:10:03.594Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "69f08aba29a512c5c28c",
+      "reserved_at": "2026-11-13T08:10:12.067Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -85626,17 +85779,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 597,
+    "total_reservations": 599,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 122,
+      "4": 124,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 597
+      "SOURCE_VERIFIED": 599
     },
     "batches": [
       {
@@ -85656,7 +85809,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 97,
+        "count": 99,
         "pr_number": null,
         "blocker": null
       }
