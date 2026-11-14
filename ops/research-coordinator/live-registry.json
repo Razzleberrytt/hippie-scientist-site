@@ -85735,6 +85735,158 @@
       "reservation_id": "69f08aba29a512c5c28c",
       "reserved_at": "2026-11-13T08:10:12.067Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43026134",
+      "title": "Nitric oxide, prone positioning, and sedation and analgesia in mechanical ventilation.",
+      "doi": "10.1016/j.anpede.2026.504321",
+      "source_title": "Nitric oxide, prone positioning, and sedation and analgesia in mechanical ventilation.",
+      "abstract": "There are complementary treatments to mechanical ventilation in critically ill pediatric patients that are essential for optimizing oxygenation, gas exchange, and adaptation to respiratory support. Inhaled nitric oxide is a selective pulmonary vasodilator useful in specific situations such as pulmonary hypertension, right ventricular failure, and refractory hypoxemia, especially as rescue therapy, although its routine use in pediatric acute respiratory distress syndrome (ARDS) has not been found to improve survival. The prone position improves ventilation/perfusion distribution, promotes alveolar recruitment, and reduces ventilator-associated lung injury, making it a valuable adjunctive strategy in patients with severe ARDS and persistent hypoxemia. Although its impact on pediatric survival is still being evaluated, it represents a physiologically sound tool for protective ventilation. Protocolized sedation and analgesia are essential to ensure comfort, synchrony with the ventilator, and prevention of complications such as delirium, withdrawal syndrome, or oversedation. The rational use of opioids, alpha-2 agonist sedatives, and neuromuscular blocking agents, along with monitoring using validated scales, allows for optimized clinical outcomes and reduced adverse effects. The individualized combination of these strategies is currently a cornerstone of advanced respiratory support for critically ill pediatric patients.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43026134/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43026134",
+        "doi": "10.1016/j.anpede.2026.504321",
+        "journal": "Anales de pediatria",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-14T10:41:30.872Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e4b8a7207a772af88921",
+      "reserved_at": "2026-11-14T10:41:37.813Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "43023382",
+      "title": "Oral Naltrexone in Hailey-Hailey Disease: Review of the Current Clinical Evidence.",
+      "doi": "10.1093/ced/llag476",
+      "source_title": "Oral Naltrexone in Hailey-Hailey Disease: Review of the Current Clinical Evidence.",
+      "abstract": "Hailey-Hailey disease (HHD) is a rare, chronic dermatosis that has a significant negative impact on patients' quality of life due to recurrent painful erosions in intertriginous areas. Despite various available therapies, treatment remains challenging. Naltrexone, an opioid receptor antagonist, represents an emerging potential therapeutic option in refractory HHD. This review aimed to summarise the current evidence on efficacy and safety of naltrexone as a treatment for HHD, focusing on therapeutic outcomes, adverse effects, and clinical applicability in adult patients. A literature search was conducted for publications available up to December 2025. A total of 17 publications (11 case reports, 5 case series and 1 retrospective study) met the inclusion criteria, representing a total of 47 patients. Most patients had refractory HHD with poor response to conventional therapies. Treatment resulted in improvement - defined as clearance of lesions or reduction of affected body surface area (BSA), with no reported relapse - in 64% of patients (30 of 47). Thirty-eight patients received naltrexone monotherapy whilst 9 received other treatment concomitantly. Of the monotherapy patients 25 (65.8%) reported clinical improvement, compared with 5 of 9 (55.6%) receiving concomitant therapy. Using a more stringent definition of response (complete clearance or ≥70% improvement), 24 of 47 patients (51.1%) met the criterion, including 21 of 38 (55.3%) receiving monotherapy. Complete clearance was reported in 11 patients (23.4%). These proportions reflect outcomes reported in published cases and should not be interpreted as true response rates. Relapse was reported both during continued treatment and following withdrawal, highlighting uncertainty regarding the durability of response. Adverse effects were minimal, most commonly nausea, dizziness and vivid dreams and were reported in 15% of patients (7 of 47). Current reports suggest that naltrexone may represent a safe novel treatment option for patients with refractory HHD. However, this is based solely on very low level evidence, limited by publication bias, heterogeneous outcome definitions, incomplete reporting of seasonality, and concomitant treatments. Prospective controlled studies with standardised outcome measures, long-term follow-up across different seasons, and careful reporting of concomitant therapies are required to establish the efficacy, optimal dosing and long-term safety of naltrexone in HHD.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43023382/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43023382",
+        "doi": "10.1093/ced/llag476",
+        "journal": "Clinical and experimental dermatology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-14T10:41:30.873Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9aaaf1608680cf5adb01",
+      "reserved_at": "2026-11-14T10:41:37.813Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -85779,17 +85931,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 599,
+    "total_reservations": 601,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 124,
+      "4": 126,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 599
+      "SOURCE_VERIFIED": 601
     },
     "batches": [
       {
@@ -85809,7 +85961,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 99,
+        "count": 101,
         "pr_number": null,
         "blocker": null
       }
