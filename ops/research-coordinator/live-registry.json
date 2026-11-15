@@ -86191,6 +86191,83 @@
       "reservation_id": "1bef394aaf89064b4ff2",
       "reserved_at": "2026-11-15T17:16:54.502Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43032722",
+      "title": "Toxic Epidermal Necrolysis After Carbamazepine Use in Trigeminal Neuralgia: A Case Report.",
+      "doi": "10.7759/cureus.119600",
+      "source_title": "Toxic Epidermal Necrolysis After Carbamazepine Use in Trigeminal Neuralgia: A Case Report.",
+      "abstract": "Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN) are rare, potentially life-threatening mucocutaneous reactions, most commonly associated with medication exposure. Early recognition, immediate discontinuation of the suspected causative drug, and intensive supportive care are essential for clinical management. We report the case of a 55-year-old woman who developed TEN following carbamazepine treatment for trigeminal neuralgia. Approximately 24 days after initiating carbamazepine at 200 mg/day, the patient developed malaise, severe pruritus, and erythematous lesions initially affecting the face and trunk. Over the following days, the lesions progressed rapidly to widespread blistering, erosions, and epidermal detachment, with approximately 55% of the body surface area clinically affected. Oral, ocular, and genital mucosal involvement resulted in severe pain, dysphagia, odynophagia, dysuria, dehydration, and conjunctival complications. Carbamazepine was discontinued, and treatment consisted of intensive supportive care, including intravenous and enteral hydration, opioid analgesia, wound and mucosal care, nutritional support, and multidisciplinary management. A nasoenteric feeding tube and urinary catheter were temporarily required because of severe mucosal involvement. Systemic corticosteroids and other systemic immunomodulatory therapies were not administered. The patient showed progressive clinical improvement, with substantial resolution of cutaneous and mucosal lesions, and was discharged with outpatient follow-up recommendations. This case highlights the importance of recognizing severe cutaneous adverse reactions associated with carbamazepine, particularly during the first weeks of treatment. It also illustrates the role of early drug withdrawal, comprehensive supportive care, adequate pain control, and multidisciplinary management in achieving a favorable clinical outcome, even in patients with extensive epidermal involvement.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43032722/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43032722",
+        "doi": "10.7759/cureus.119600",
+        "journal": "Cureus",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-15T21:54:13.888Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "903e22c4eb72d9a6c0c6",
+      "reserved_at": "2026-11-15T21:54:20.171Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -86235,17 +86312,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 605,
+    "total_reservations": 606,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 130,
+      "4": 131,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 605
+      "SOURCE_VERIFIED": 606
     },
     "batches": [
       {
@@ -86265,7 +86342,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 105,
+        "count": 106,
         "pr_number": null,
         "blocker": null
       }
