@@ -85887,6 +85887,158 @@
       "reservation_id": "9aaaf1608680cf5adb01",
       "reserved_at": "2026-11-14T10:41:37.813Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42790555",
+      "title": "Phytochemical characterization, safety assessment and antinociceptive activity of Psidium guineense sw. leaf extract.",
+      "doi": "10.1016/j.jep.2026.122409",
+      "source_title": "Phytochemical characterization, safety assessment and antinociceptive activity of Psidium guineense sw. leaf extract.",
+      "abstract": "Psidium guineense Sw. (Myrtaceae) is traditionally used in South American folk medicine to treat inflammatory disorders, intestinal pain, headaches, abdominal discomfort, and diarrhea. However, scientific evidence supporting its antinociceptive effects and safety profile remains limited. To optimize the extraction conditions of P. guineense leaves based on polyphenol recovery, characterize the resulting extract, and evaluate its acute oral toxicity and antinociceptive activity in mice. Extraction conditions were optimized using a 2 3 factorial design considering solvent composition, extraction method, and plant material concentration. The optimized methanolic extract (MEPg) was characterized by TLC and HPLC-DAD. Acute oral toxicity was assessed following OECD guidelines at a dose of 2000 mg kg -1 in Swiss mice. Antinociceptive activity was evaluated using acetic acid-induced writhing, formalin-induced nociception, and tail immersion tests. The involvement of opioid receptors was investigated using naloxone pretreatment. Phytochemical analysis revealed the presence of flavonoids, hydrolyzable tannins, cinnamic acid derivatives, saponins, sugars, and terpenes/steroids. HPLC-DAD analysis identified gallic acid, ellagic acid, hydrolyzable tannins, and flavonoid derivatives as major constituents. MEPg showed low acute oral toxicity, with no mortality, behavioral alterations, or significant changes in body weight gain, food and water intake, hematological parameters, or biochemical markers after administration of 2000 mg kg -1 . In the acetic acid-induced writhing test, MEPg reduced nociceptive responses by 69.43%, 78.25%, and 89.41% at doses of 25, 50, and 100 mg kg -1 , respectively. In the formalin test, MEPg inhibited the neurogenic phase by 53.04-58.66% and the inflammatory phase by 40.70-63.21%. In the tail immersion assay, the extract significantly increased withdrawal latency, reaching maximal increases of 68%, 85%, and 87% at doses of 25, 50, and 100 mg kg -1 , respectively. Pretreatment with naloxone abolished the antinociceptive effects of MEPg, indicating the involvement of opioid pathways. The optimized polyphenol-rich extract from P. guineense leaves exhibited low acute oral toxicity and significant antinociceptive activity against peripheral, inflammatory, and neurogenic pain. The observed effects appear to be mediated, at least in part, by opioid-dependent mechanisms. These findings support the traditional use of P. guineense and highlight its potential as a source of bioactive compounds for the development of novel analgesic agents.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42790555/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42790555",
+        "doi": "10.1016/j.jep.2026.122409",
+        "journal": "Journal of ethnopharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-15T09:37:10.254Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e5781062c5a179b71623",
+      "reserved_at": "2026-11-15T09:37:17.016Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "43032661",
+      "title": "A prospective randomised study on the effects of medetomidine with or without tramadol premedication on intraocular pressure, tear production and pupil diameter in dogs undergoing propofol anaesthesia.",
+      "doi": "10.1016/j.vas.2026.100926",
+      "source_title": "A prospective randomised study on the effects of medetomidine with or without tramadol premedication on intraocular pressure, tear production and pupil diameter in dogs undergoing propofol anaesthesia.",
+      "abstract": "The primary objective was to determine whether premedication with medetomidine alone or in combination with tramadol affects ocular parameters, including intraocular pressure, aqueous tear production, and pupil diameter, in dogs anesthetized with propofol. The secondary objective was to compare cardiopulmonary variables and recovery characteristics between the two protocols. Prospective, randomised experimental study. Twenty healthy female mixed-breed dogs. Twenty healthy dogs were randomly allocated to receive medetomidine (M: 5 µg kg -1 ) alone or medetomidine-tramadol (M: 5 µg kg -1 + T: 4 mg kg -1 ) before propofol anaesthesia. Ocular variables, cardiorespiratory variables, recovery quality and recovery times were evaluated at predetermined time points from baseline (before premedication), to recovery. No significant differences were observed between groups in intraocular pressure, aqueous tear production or pupil diameter. Heart rate was significantly higher in the MT group at 15 and 30 minutes (p = 0.024 and p = 0.021, respectively). Recovery quality differed significantly between groups (p= 0.001), and dogs receiving MT had longer times to extubation, first head lift and sternal recumbency (p = 0.024, p = 0.008 and p = 0.025, respectively). No significant differences were observed in systemic blood pressure or the remaining cardiorespiratory variables. Medetomidine-tramadol premedication followed by propofol anaesthesia was well tolerated ocularly and did not induce clinically relevant changes in intraocular pressure, pupil diameter, or tear production compared with medetomidine alone in this study.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43032661/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43032661",
+        "doi": "10.1016/j.vas.2026.100926",
+        "journal": "Veterinary and animal science",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-15T09:37:10.255Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4fa7f9354c6f98630e88",
+      "reserved_at": "2026-11-15T09:37:17.016Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -85931,17 +86083,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 601,
+    "total_reservations": 603,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 126,
+      "4": 128,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 601
+      "SOURCE_VERIFIED": 603
     },
     "batches": [
       {
@@ -85961,7 +86113,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 101,
+        "count": 103,
         "pr_number": null,
         "blocker": null
       }
