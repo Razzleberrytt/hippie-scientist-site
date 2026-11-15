@@ -86039,6 +86039,158 @@
       "reservation_id": "4fa7f9354c6f98630e88",
       "reserved_at": "2026-11-15T09:37:17.016Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43034411",
+      "title": "Preliminary in vivo evaluation of Adenosma indianum (Lour.) Merr. against diarrhea and pain: in vivo pharmacology and in silico hypothesis generation through molecular docking, DFT, and ADMET profiling of isoacteoside.",
+      "doi": "10.1007/s40203-026-00792-4",
+      "source_title": "Preliminary in vivo evaluation of Adenosma indianum (Lour.) Merr. against diarrhea and pain: in vivo pharmacology and in silico hypothesis generation through molecular docking, DFT, and ADMET profiling of isoacteoside.",
+      "abstract": "Adenosma indianum (Lour.) Merr. (Plantaginaceae) is used in Vietnamese ethnomedicine for gastrointestinal and pain-related conditions. This study aimed to provide the first integrated preclinical evaluation of the antidiarrheal and analgesic activities of A. indianum and using chemotaxonomic reasoning, to apply molecular docking, DFT, and ADMET analyses to isoacteoside, a phenylethanoid glycoside that has not yet been isolated from A. indianum , to generate experimentally testable hypotheses for future isolation and bioassay-guided fractionation. Preliminary phytochemical screening of the crude methanolic extract (CME) indicated the presence of tannins, phlobatannins, alkaloids, flavonoids, and steroids. The CME was evaluated in Swiss-Albino mice using the castor oil-induced diarrhea model, hot-water tail immersion assay and acetic acid-induced writhing assay. Isoacteoside, a representative phenylethanoid glycoside that was not isolated or detected in the extract in this study, was used as a representative computational surrogate and subjected to molecular docking against the M3 muscarinic acetylcholine receptor, µ-opioid receptor, and cyclooxygenase-2. Quantum-chemical properties were evaluated using DFT calculations, and pharmacokinetic and toxicity profiles were predicted through ADMET analyses. CME of the plant showed significant reduction in the anti-diarrheal test up to 52.38% and significantly prolonged tail-withdrawal latency in the hot-water tail-immersion assay (CME 600 mg/kg at 90 min: 7.11 ± 0.53 s vs. 1.64 ± 0.32 s in the control) and reduced acetic acid-induced writhing (5.5 ± 1.3 vs. 17.8 ± 1.0 writhes per mouse). In silico, isoacteoside showed moderate predicted binding affinities to the three targets, DFT-derived electronic properties provided electronic-structure support for the plausibility of these docking interactions; ADMET predictions are reported separately. The findings provide the first experimental evidence supporting the traditional use of A. indianum for the management of diarrhea and pain. The in silico results are predictive only. They do not show that isoacteoside is present in the extract or responsible for its activity. They provide a testable hypothesis for future isolation, structural confirmation, and bioassay-guided fractionation. The online version contains supplementary material available at https://doi.org/10.1007/s40203-026-00792-4.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43034411/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43034411",
+        "doi": "10.1007/s40203-026-00792-4",
+        "journal": "In silico pharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-15T17:16:47.894Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6e2226515c4e3aec4630",
+      "reserved_at": "2026-11-15T17:16:54.502Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "43034334",
+      "title": "Patterns of Intravenous Buprenorphine-Naloxone Misuse: Psychiatric Morbidity, Risk Behaviours, Diversion, and Serological Findings.",
+      "doi": "10.1177/02537176261503189",
+      "source_title": "Patterns of Intravenous Buprenorphine-Naloxone Misuse: Psychiatric Morbidity, Risk Behaviours, Diversion, and Serological Findings.",
+      "abstract": "Intravenous misuse of buprenorphine-naloxone (BPNX) is a growing concern for patients with opioid use disorder (OUD). However, data on psychiatric comorbidities, patterns of diversion, and the burden of infectious diseases among individuals who inject BPNX in India remain limited. This study aimed to assess the clinical profile, diversion patterns, and seroprevalence among these patients. Seventy-three patients with a diagnosis of OUD injecting BPNX, were recruited for this study. Sociodemographic and clinical variables, diversion patterns, high-risk behaviors, and overdose history were assessed using a semi-structured proforma. Triple serology testing for HIV, HBV, and HCV was conducted, and relevant statistical analyses were performed. The participants were predominantly young men with a mean age of 25.9 ± 6.05 years. Psychiatric comorbidity was present in 67.1% of participants, and attention-deficit hyperactivity disorder (ADHD) was the most common diagnosis. HCV seropositivity was found in 68.5% and HCV RNA in 52.05%. Most participants used both prescription and diverted BPNX to avoid withdrawal symptoms. High-frequency misuse was significantly linked to longer opioid dependence and needle sharing. The misuse of intravenous BPNX was linked to significant psychiatric comorbidity, unsafe injection practices, and a high burden of infectious diseases. The persistence of diversion despite the BPNX combination formulation suggests the current naloxone dose ratio may not be effective as a deterrent. Urgent integrated addiction, psychiatric, and harm-reduction services are needed.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43034334/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43034334",
+        "doi": "10.1177/02537176261503189",
+        "journal": "Indian journal of psychological medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-15T17:16:47.895Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "1bef394aaf89064b4ff2",
+      "reserved_at": "2026-11-15T17:16:54.502Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -86083,17 +86235,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 603,
+    "total_reservations": 605,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 128,
+      "4": 130,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 603
+      "SOURCE_VERIFIED": 605
     },
     "batches": [
       {
@@ -86113,7 +86265,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 103,
+        "count": 105,
         "pr_number": null,
         "blocker": null
       }
