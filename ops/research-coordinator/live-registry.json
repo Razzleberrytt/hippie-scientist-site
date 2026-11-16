@@ -86268,6 +86268,82 @@
       "reservation_id": "903e22c4eb72d9a6c0c6",
       "reserved_at": "2026-11-15T21:54:20.171Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43036681",
+      "title": "Computed Tomographic Study of the Normal Nasal Cavity and Paranasal Sinuses in Persian Cats.",
+      "doi": "10.1155/vmi/2383627",
+      "source_title": "Computed Tomographic Study of the Normal Nasal Cavity and Paranasal Sinuses in Persian Cats.",
+      "abstract": "Persian cats are predisposed to respiratory disorders due to brachycephalic skull conformation. This study aimed to evaluate the nasal cavity and paranasal sinuses using computed tomography (CT). This study included 10 Persian cats (5 males, 5 females) with a mean age of 3.83 ± 1.18 years and body weight of 4.92 ± 0.81 kg. CT was performed after anesthesia with medetomidine, ketamine, and butorphanol from the nasal tip to the caudal margin of the foramen magnum. The frontal sinus was the largest paranasal sinus and was divided into four compartments: rostral, medial, lateral, and caudal. The ethmoidal turbinates were located in the caudal nasal cavity and extended into the ventral aspect of the frontal sinus. The maxillary sinus formed a diverticulum of the nasal cavity, with the root of the carnassial tooth projecting into it. The lacrimal, palatine, incisive, nasal, maxillary, and presphenoid bones were best visualized in transverse CT images, whereas the ethmoid and vomer bones were more clearly identified in sagittal images. The zygomatic bone and cribriform plate were best evaluated in dorsal images. The palatine fissures appeared as two oval openings in the cranial hard palate. These findings provide CT reference data for the nasal cavity and paranasal sinuses in Persian cats, supporting anatomical assessment, clinical image interpretation, and future comparative studies.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43036681/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43036681",
+        "doi": "10.1155/vmi/2383627",
+        "journal": "Veterinary medicine international",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-16T20:34:30.657Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e0ee78892d23f1542538",
+      "reserved_at": "2026-11-16T20:34:39.078Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -86312,17 +86388,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 606,
+    "total_reservations": 607,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 131,
+      "4": 132,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 606
+      "SOURCE_VERIFIED": 607
     },
     "batches": [
       {
@@ -86342,7 +86418,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 106,
+        "count": 107,
         "pr_number": null,
         "blocker": null
       }
