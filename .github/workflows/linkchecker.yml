@@ -61,13 +61,14 @@ jobs:
             --markdown \
             --verbosity error \
             --format json \
-            --output link-check-results.json || true
+            --output link-check-results.json
           node -e "
             const fs = require('fs');
-            if (!fs.existsSync('link-check-results.json')) { console.log('No results file generated'); process.exit(0); }
+            if (!fs.existsSync('link-check-results.json')) { console.error('Full-site crawl produced no results file'); process.exit(1); }
             const raw = fs.readFileSync('link-check-results.json', 'utf8');
             const results = JSON.parse(raw);
-            const broken = (results.links || []).filter(l => l.state === 'BROKEN');
+            if (!Array.isArray(results.links) || results.links.length === 0) { console.error('Full-site crawl results empty or malformed'); process.exit(1); }
+            const broken = results.links.filter(l => l.state === 'BROKEN');
             if (broken.length > 0) {
               console.error('Broken links found:');
               broken.forEach(l => console.error('  ' + l.status + ' ' + l.url + ' (from: ' + l.parent + ')'));
