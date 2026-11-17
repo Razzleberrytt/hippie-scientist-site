@@ -67,6 +67,13 @@ jobs:
           npm run audit:content
           npm run gate:content-quality
 
+      # seo:audit-sitemap inspects out/sitemap.xml and each exported HTML
+      # route. A fresh Actions checkout contains no out/ directory, so the
+      # local indexability audit cannot run without a real static build.
+      # Keep this fail-closed; do not replace it with a live-only crawl.
+      - name: Build static export for sitemap indexability
+        run: npm run build:deploy
+
       - name: Sitemap checks
         run: |
           npm run audit:sitemap
