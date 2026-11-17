@@ -11,17 +11,20 @@
  */
 
 import { parseArgs } from 'node:util'
+import { probeCriticalRoutes, probeCriticalUrl } from './check-links-lib.mjs'
 
 const { values: args } = parseArgs({
   options: {
     url: { type: 'string', default: process.env.SITE_URL ?? 'https://thehippiescientist.net' },
-    timeout: { type: 'string', default: '10000' },
+    timeout: { type: 'string', default: '15000' },
+    retries: { type: 'string', default: '2' },
   },
   strict: false,
 })
 
 const BASE_URL = args.url.replace(/\/$/, '')
 const TIMEOUT_MS = parseInt(args.timeout, 10)
+const RETRIES = parseInt(args.retries, 10)
 
 const CRITICAL_ROUTES = [
   '/',
@@ -60,29 +63,19 @@ const CRITICAL_ROUTES = [
   '/robots.txt',
 ]
 
-async function checkUrl(url) {
-  const controller = new AbortController()
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS)
-  try {
-    const res = await fetch(url, {
-      method: 'HEAD',
-      signal: controller.signal,
-      redirect: 'follow',
-      headers: { 'User-Agent': 'HippieScientist-LinkChecker/1.0' },
-    })
-    clearTimeout(timer)
-    return { url, status: res.status, ok: res.status >= 200 && res.status < 400 }
-  } catch (err) {
-    clearTimeout(timer)
-    return { url, status: 0, ok: false, error: err.message }
-  }
-}
 
 async function main() {
   console.log(`Checking ${CRITICAL_ROUTES.length} critical routes against ${BASE_URL}\n`)
 
-  const results = await Promise.all(
-    CRITICAL_ROUTES.map(route => checkUrl(`${BASE_URL}${route}`))
+  const results = await probeCriticalRoutes(
+    CRITICAL_ROUTES.map(route => `${BASE_URL}${route}`),
+    {
+      concurrency: 5,
+      probe: (url) => probeCriticalUrl(url, {
+        timeoutMs: TIMEOUT_MS,
+        retries: RETRIES,
+      }),
+    },
   )
 
   const passed = results.filter(r => r.ok)
@@ -91,7 +84,7 @@ async function main() {
   for (const r of results) {
     const icon = r.ok ? '✓' : '✗'
     const detail = r.error ? ` (${r.error})` : ''
-    console.log(`${icon} ${r.status.toString().padStart(3)} ${r.url}${detail}`)
+    console.log(`${icon} ${r.status.toString().padStart(3)} ${r.url}${detail} [attempts=${r.attempts}]`)
   }
 
   console.log(`\n${passed.length}/${results.length} routes OK`)
