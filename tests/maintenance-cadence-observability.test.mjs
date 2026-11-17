@@ -38,6 +38,17 @@ describe('weekly maintenance observability execution', () => {
     },
   );
 
+  it('builds a real export before the local sitemap indexability audit', () => {
+    const build = stepBlock('Build static export for sitemap indexability');
+    const sitemap = stepBlock('Sitemap checks');
+    expect(build).toContain('npm run build:deploy');
+    expect(build).not.toContain('continue-on-error');
+    expect(build).not.toContain('if: always()');
+    expect(workflow.indexOf('- name: Build static export for sitemap indexability'))
+      .toBeLessThan(workflow.indexOf('- name: Sitemap checks'));
+    expect(sitemap).toContain('npm run seo:audit-sitemap');
+  });
+
   it.each(failClosedQualitySteps)('%s remains fail-closed', (stepName, requiredCommands) => {
     const block = stepBlock(stepName);
     expect(block).not.toContain('if: always()');
