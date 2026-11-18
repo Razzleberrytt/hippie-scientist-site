@@ -1,7 +1,5 @@
 name: Research lane 4 native hourly discovery
 on:
-  schedule:
-    - cron: '27 * * * *'
   workflow_dispatch:
 
 permissions:

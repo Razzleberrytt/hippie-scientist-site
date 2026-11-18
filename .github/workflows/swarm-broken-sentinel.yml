@@ -2,7 +2,7 @@ name: 🚨 BROKEN!!!!! Swarm Sentinel
 
 on:
   schedule:
-    - cron: '7,37 * * * *'
+    - cron: '37 12 * * *'
   workflow_dispatch:
 
 permissions:
@@ -30,15 +30,15 @@ jobs:
           set -euo pipefail
 
           now_epoch=$(date -u +%s)
-          heartbeat_cutoff=$((now_epoch - 45*60))
-          failure_cutoff=$((now_epoch - 120*60))
+          heartbeat_cutoff=$((now_epoch - 36*60*60))
+          failure_cutoff=$((now_epoch - 48*60*60))
           reasons=()
           controller_stale=false
           other_broken=false
 
           runs_json=$(gh api "repos/$REPO/actions/runs?per_page=100")
 
-          latest_controller=$(printf '%s' "$runs_json" | jq -c '[.workflow_runs[] | select(
+          latest_controller=$(gh api "repos/$REPO/actions/workflows/autonomous-merge-controller.yml/runs?per_page=100" | jq -c '[.workflow_runs[] | select(
             .name == "Autonomous merge controller" and
             (
               .event == "schedule" or
@@ -55,7 +55,7 @@ jobs:
             url=$(printf '%s' "$latest_controller" | jq -r '.html_url')
             if [ "$created_epoch" -lt "$heartbeat_cutoff" ]; then
               controller_stale=true
-              reasons+=("Autonomous merge heartbeat is stale (>45 minutes): $url")
+              reasons+=("Autonomous merge heartbeat is stale (>36 hours): $url")
             fi
             case "$conclusion" in
               failure|timed_out|action_required|startup_failure)

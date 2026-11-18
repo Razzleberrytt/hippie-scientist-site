@@ -9,7 +9,7 @@ on:
       - 'scripts/ci/stale-actions-reaper.mjs'
       - 'scripts/ci/stale-actions-reaper.test.mjs'
   schedule:
-    - cron: '17 * * * *'
+    - cron: '17 9 * * *'
   workflow_dispatch:
     inputs:
       threshold_hours:
