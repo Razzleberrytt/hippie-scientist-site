@@ -86344,6 +86344,158 @@
       "reservation_id": "e0ee78892d23f1542538",
       "reserved_at": "2026-11-16T20:34:39.078Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42976541",
+      "title": "Pharmacophore-based construction of spiro[indoline-3,4'-piperidine] ureas as dual-target MOR/TRPV1 lead agents for pain.",
+      "doi": "10.1016/j.ejmech.2026.119483",
+      "source_title": "Pharmacophore-based construction of spiro[indoline-3,4'-piperidine] ureas as dual-target MOR/TRPV1 lead agents for pain.",
+      "abstract": "Chronic pain remains a severe clinical challenge. Conventional μ-opioid receptor (MOR) agonists produce robust analgesia but trigger severe adverse effects including analgesic tolerance and physical dependence, while single-target TRPV1 antagonists cause hyperthermia, restricting their clinical translation. Functional crosstalk between MOR and TRPV1 in pain signaling provides a rational basis for developing dual-target ligands combining MOR agonism and TRPV1 antagonism to achieve improved analgesic effects via dual-pathway regulation and mitigate single-target liabilities. Herein, we rationally designed two series of spiro[indoline-3,4'-piperidine] urea derivatives by fusing the core pharmacophores of classic TRPV1 antagonists and fentanyl-type MOR agonists, and systematically investigated their structure-activity relationships (SAR). Among all synthesized derivatives, compound 8m exhibited ideal dual-target bioactivity, with potent TRPV1 antagonism (hTRPV1 IC 50 = 23 nM) and MOR agonism (EC 50 = 63 nM, E max = 94%). In vivo experiments showed that compound 8m produced dose-dependent analgesia in formalin and capsaicin-induced pain models via dual-pathway regulation. Unlike the TRPV1 antagonist BCTC, 8m did not elicit obvious hyperthermia in mice. Moreover, repeated administration of 8m hardly induced analgesic tolerance compared with morphine. Molecular docking and molecular dynamics simulations suggested that 8m could stably bind to the pockets of both receptors through hydrogen bonds, halogen bonds and hydrophobic interactions, and maintain the rational conformational dynamics of receptor proteins. This work provides a promising spirocyclic lead compound and a feasible dual-target design strategy to mitigate partial single-target related adverse liabilities for chronic pain analgesic development.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42976541/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42976541",
+        "doi": "10.1016/j.ejmech.2026.119483",
+        "journal": "European journal of medicinal chemistry",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-18T04:33:47.004Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c7c02d5bb767b88beaeb",
+      "reserved_at": "2026-11-18T04:33:55.676Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "43043664",
+      "title": "A National Poison Data System ® description of neonatal opioid withdrawal syndrome related to maternal kratom use.",
+      "doi": "10.1080/15563650.2026.2760340",
+      "source_title": "A National Poison Data System ® description of neonatal opioid withdrawal syndrome related to maternal kratom use.",
+      "abstract": "Kratom is a drug derived from the Mitragyna speciosa tree that can exhibit dose-dependent stimulant, analgesic, and sedative effects through mu-opioid agonism and other mechanisms. In the United States, kratom is regulated at the state and local level in some areas but is not federally regulated. As such, it is available for purchase at head shops and gas stations in many markets, as well as through the internet. There are limited data describing Neonatal Opioid Withdrawal Syndrome in children born to mothers using kratom. We seek to further describe neonatal kratom-associated withdrawal using cases reported to United States poison centers. This was a retrospective observational study using the National Poison Data System ® . We queried the National Poison Data System ® for all exposures of kratom in children < 21 days of age from January 1, 2015 through December 31, 2023. We reviewed de-identified notes, or poison centers completed an online data entry form to provide additional data about the exposure. There were 20 reported exposures; 14 were included. Median symptom duration was eight days. Symptoms included agitation, tremor, increased tone, tachypnea, decrease oral intake, and weight loss. Nine of 14 received opioid therapy (most commonly morphine and/or methadone), generally starting within 1-3 days after the consult when reported. Neonatal opioid withdrawal syndrome may occur in a child exposed to kratom in utero. Our data predate widespread availability of 7-hydroxymitragynine products and exposures were reported only as kratom, limiting the interpretation about current risks. Maternal use of kratom during pregnancy is associated with neonatal opioid withdrawal syndrome in neonates immediately or shortly following birth. Women who are pregnant or are planning to become pregnant and use kratom should be counseled on possible risks.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43043664/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43043664",
+        "doi": "10.1080/15563650.2026.2760340",
+        "journal": "Clinical toxicology (Philadelphia, Pa.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-18T04:33:47.005Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d098fdeb8e0231c24a94",
+      "reserved_at": "2026-11-18T04:33:55.676Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -86388,17 +86540,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 607,
+    "total_reservations": 609,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 132,
+      "4": 134,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 607
+      "SOURCE_VERIFIED": 609
     },
     "batches": [
       {
@@ -86418,7 +86570,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 107,
+        "count": 109,
         "pr_number": null,
         "blocker": null
       }
