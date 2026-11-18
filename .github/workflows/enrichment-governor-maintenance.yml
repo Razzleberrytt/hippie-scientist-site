@@ -2,7 +2,7 @@ name: Enrichment Governor Maintenance
 
 on:
   schedule:
-    - cron: '2 * * * *'
+    - cron: '2 11 * * *'
   workflow_dispatch:
 
 concurrency:
