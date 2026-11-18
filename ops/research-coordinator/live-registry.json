@@ -86496,6 +86496,83 @@
       "reservation_id": "d098fdeb8e0231c24a94",
       "reserved_at": "2026-11-18T04:33:55.676Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43048544",
+      "title": "Methadone withdrawal-associated multivessel coronary vasospasm presenting as ST-segment elevation myocardial infarction: a case report.",
+      "doi": "10.1093/ehjcr/ytag823",
+      "source_title": "Methadone withdrawal-associated multivessel coronary vasospasm presenting as ST-segment elevation myocardial infarction: a case report.",
+      "abstract": "Increased catecholaminergic tone from opioid (methadone) withdrawal has been associated with cardiovascular complications, including stress-induced cardiomyopathy and possibly acute coronary syndrome. A 75-year-old man presented with nausea, vomiting, and chills after missing 2-3 days of his daily methadone. Within 24 h, he developed acute anterior and inferior ST-segment elevation requiring emergent coronary angiography, which revealed severe multivessel vasospasm successfully treated with intracoronary nitroglycerine. Opioid (methadone) withdrawal-induced sympathetic hyperactivation represents a biologically plausible trigger for severe epicardial coronary vasospasm and transient myocardial ischaemia, particularly in patients with underlying endothelial dysfunction or otherwise non-obstructive coronary artery disease. Early recognition of withdrawal-associated vasospastic ischaemia is critical, as prompt vasodilator therapy with nitrates and calcium-channel blockers can rapidly reverse it and prevent irreversible myocardial injury.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43048544/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43048544",
+        "doi": "10.1093/ehjcr/ytag823",
+        "journal": "European heart journal. Case reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-18T22:08:26.530Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "672ad22a51c1e62a0cbc",
+      "reserved_at": "2026-11-18T22:08:37.178Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -86540,17 +86617,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 609,
+    "total_reservations": 610,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 134,
+      "4": 135,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 609
+      "SOURCE_VERIFIED": 610
     },
     "batches": [
       {
@@ -86570,7 +86647,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 109,
+        "count": 110,
         "pr_number": null,
         "blocker": null
       }
