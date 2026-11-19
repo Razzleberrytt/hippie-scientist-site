@@ -86573,6 +86573,158 @@
       "reservation_id": "672ad22a51c1e62a0cbc",
       "reserved_at": "2026-11-18T22:08:37.178Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43053574",
+      "title": "Emerging Trends in Etomidate and Xylazine: Wastewater-Based Monitoring Reveals the First Detection of Etomidate in Australia.",
+      "doi": "10.1002/dta.70198",
+      "source_title": "Emerging Trends in Etomidate and Xylazine: Wastewater-Based Monitoring Reveals the First Detection of Etomidate in Australia.",
+      "abstract": "The emergence of non-opioid adulterants in illicit opioid products has increased the complexity and health risks associated with illicit drug markets worldwide. Although xylazine has become a recognised adulterant within illicit opioid markets, etomidate has emerged as a novel adulterant in the fentanyl supply and illicit electronic cigarette (vape) products. Wastewater-based epidemiology provides a population-level surveillance approach capable of detecting emerging psychoactive substances before they are recognised through conventional monitoring systems. This study reports the first detection of etomidate in Australian wastewater and examines temporal and spatial trends in etomidate and xylazine over a one-year period. A total of 936 influent wastewater samples were analysed across seven collection periods between April 2025 and April 2026 from metropolitan and regional catchments throughout Australia. Xylazine was detected in 188 samples and etomidate in 183 samples. Xylazine was widely distributed across Australia but declined steadily throughout the study, with detection frequency decreasing from 41% to 5%. In contrast, etomidate detections increased from 28% to 43% across major cities and expanded into regional areas during the latter stages of monitoring. These wastewater findings provided early evidence of etomidate's emergence in Australia, preceding subsequent reports through other surveillance systems. The contrasting trends are consistent with international reports describing a shift from xylazine towards alternative veterinary sedatives, including etomidate and the emergence of etomidate in electronic cigarettes. These findings demonstrate the value of national wastewater surveillance programs for monitoring changes in illicit drug markets and informing timely public health and harm reduction responses.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43053574/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43053574",
+        "doi": "10.1002/dta.70198",
+        "journal": "Drug testing and analysis",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-19T13:31:24.536Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "df3f54ff16bc3f901152",
+      "reserved_at": "2026-11-19T13:31:34.577Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "43051883",
+      "title": "Flumazenil accelerates emergence from medetomidine-midazolam-butorphanol and dexmedetomidine-remimazolam-butorphanol anesthesia in mice.",
+      "doi": "10.1538/expanim.26-0183",
+      "source_title": "Flumazenil accelerates emergence from medetomidine-midazolam-butorphanol and dexmedetomidine-remimazolam-butorphanol anesthesia in mice.",
+      "abstract": "Injectable three-drug anesthesia in mice combines an α2-adrenoceptor agonist, a benzodiazepine and an opioid, as in the medetomidine-midazolam-butorphanol mixture and its newer variant, dexmedetomidine-remimazolam-butorphanol. Atipamezole, the usual reversal agent, antagonizes only the α2-adrenoceptor agonist, but does not directly reverse benzodiazepine-mediated activity. We examined whether adding the benzodiazepine antagonist flumazenil to atipamezole hastens emergence and alters post-anesthetic body temperature. Male C57BL/6JJcl mice received one of the two mixtures intraperitoneally and, 40 min later, atipamezole alone or with flumazenil (0.5 mg/kg each) in a 2 × 2 factorial design (n=6 per group). Flumazenil shortened the interval from antagonist administration to return of the righting reflex (RORR) by 4.54 min (95% CI, 1.93-7.15; P=0.002), with no anesthetic × antagonist interaction (P=0.62), although the study was not powered to establish equivalent effects between mixtures. Flumazenil approximately halved the temperature decline before RORR (P<0.001) without a detectable change in cooling rate (P=0.18), a pattern consistent with less time spent cooling rather than improved thermoregulation. Active warming was discontinued at antagonist administration in all groups, so the additional benefit under continued warming remains unknown. Later in recovery, temperature differences reflected the anesthetic mixture rather than the antagonist, dexmedetomidine-remimazolam-butorphanol-treated mice being 1.73°C warmer at the interpolated 220-min point (P=0.003). Adjunctive flumazenil hastened emergence under the tested conditions but does not replace thermal support and monitoring during recovery.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43051883/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43051883",
+        "doi": "10.1538/expanim.26-0183",
+        "journal": "Experimental animals",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-19T13:31:24.536Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8abda09fdee649f0b239",
+      "reserved_at": "2026-11-19T13:31:34.577Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -86617,17 +86769,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 610,
+    "total_reservations": 612,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 135,
+      "4": 137,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 610
+      "SOURCE_VERIFIED": 612
     },
     "batches": [
       {
@@ -86647,7 +86799,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 110,
+        "count": 112,
         "pr_number": null,
         "blocker": null
       }
