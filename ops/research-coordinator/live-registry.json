@@ -86878,6 +86878,159 @@
       "reservation_id": "9d00154d14bb5048425d",
       "reserved_at": "2026-11-20T13:13:32.370Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43061994",
+      "title": "Pharmacological considerations in opioid use disorder treatment in pregnant and postpartum patients.",
+      "doi": "10.1080/14656566.2026.2768091",
+      "source_title": "Pharmacological considerations in opioid use disorder treatment in pregnant and postpartum patients.",
+      "abstract": "Untreated perinatal opioid use disorder (OUD) is a major contributor to maternal and infant morbidity and mortality, worsened by an often adulterated fentanyl-dominant drug supply. Medication for OUD (MOUD) is standard of care, yet evidence guiding selection, initiation, dosing, pain management, neonatal withdrawal, breastfeeding, and postpartum continuity is evolving. This narrative review with expert opinion synthesizes five years of literature, alongside foundational trials, on MOUD treatment across pregnancy, delivery, and the first postpartum year, prioritizing shared decision-making and trauma-responsive care. Topics include MOUD maternal dose and formulation, fentanyl-era induction, adulterant-complicated withdrawal, peripartum pain management, neonatal considerations, medication-specific breastfeeding, postpartum co-occurring mental health and MOUD access challenges, and long-term child outcomes. A PubMed, Embase, and ClinicalTrials.gov search (2020-2026) supplemented foundational sources. Treatment needs to center in trust, non-judgment, and shared decision-making. Extended-release buprenorphine is an emerging preferred option, especially for patients stabilized on buprenorphine, and buprenorphine-naloxone appears to be as good as, if not better than, buprenorphine alone. Withdrawal management must accommodate an increasingly adulterated drug supply, and breastfeeding is generally compatible with MOUD. Like all children, prenatally opioid-exposed children need nurturing care, developmental screening, and early intervention when indicated.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43061994/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43061994",
+        "doi": "10.1080/14656566.2026.2768091",
+        "journal": "Expert opinion on pharmacotherapy",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-20T21:18:32.986Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "86ce7c1e0005716d3c28",
+      "reserved_at": "2026-11-20T21:18:45.315Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "43061855",
+      "title": "Clinical characteristics of unregulated psychoactive supplement exposures: a 15-year multicenter study of kratom, phenibut, and tianeptine.",
+      "doi": "10.1080/15563650.2026.2761523",
+      "source_title": "Clinical characteristics of unregulated psychoactive supplement exposures: a 15-year multicenter study of kratom, phenibut, and tianeptine.",
+      "abstract": "Unregulated psychoactive \"supplements\" including kratom, phenibut, and tianeptine are readily accessible, raising concern for toxicity and dependence owing to their GABA and opioid receptor activity; however, clinical features associated with their use are poorly characterized. We describe hospital presentations and management of kratom, phenibut, and tianeptine exposures. We analyzed data from the Toxicology Investigators Consortium (ToxIC) Core Registry, which prospectively collects information on patients managed by medical toxicologists (1 January 2010-31 December 2024). All cases involving kratom, phenibut, and/or tianeptine exposures were included. Demographics, exposure circumstances, clinical presentation, management, and outcomes were examined. We identified 152 patient encounters involving kratom ( n = 97), phenibut ( n = 44) and/or tianeptine ( n = 11), with case counts increasing over time. Median age was 35 years (IQR 26-42 years), and 127 (83.6%) were male. Co-ingestions were common ( n = 73; 48.0%) frequently involving other psychoactive supplements ( n = 27; 17.8%), stimulants ( n = 23; 15.1%) and/or opioids ( n = 22; 14.5%). Most consultations involved intentional use ( n = 131; 86.2%), including euphoria ( n = 60; 39.5%), perceived therapeutic/wellness benefit ( n = 18; 11.8%) and withdrawal self-management ( n = 13; 8.6%). Thirty-five encounters (23.0%) resulted in intensive care admission and one patient died. Addiction treatment infrequently involved buprenorphine/naloxone ( n = 15; 9.9%). At hospital discharge 16 (10.5%) patients received naloxone overdose prevention kit education and/or prescription. Psychoactive supplement exposures evaluated by medical toxicologists were associated with substantial morbidity, with nearly one-quarter requiring intensive care unit admission. Withdrawal was common, and nearly half of encounters involved co-ingestants. Hospital presentations involving kratom, phenibut, and tianeptine increased over time, supporting recognition of these substances as emerging drugs of misuse rather than benign supplements. These findings highlight opportunities to strengthen addiction-focused care, regulatory oversight and public education.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43061855/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43061855",
+        "doi": "10.1080/15563650.2026.2761523",
+        "journal": "Clinical toxicology (Philadelphia, Pa.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-20T21:18:32.987Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5ae178f567e9dac68c33",
+      "reserved_at": "2026-11-20T21:18:45.315Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -86922,17 +87075,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 614,
+    "total_reservations": 616,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 139,
+      "4": 141,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 614
+      "SOURCE_VERIFIED": 616
     },
     "batches": [
       {
@@ -86952,7 +87105,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 114,
+        "count": 116,
         "pr_number": null,
         "blocker": null
       }
