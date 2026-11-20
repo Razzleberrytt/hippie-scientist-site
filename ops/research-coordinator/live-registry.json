@@ -86725,6 +86725,159 @@
       "reservation_id": "8abda09fdee649f0b239",
       "reserved_at": "2026-11-19T13:31:34.577Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42044783",
+      "title": "An Open-Label Trial of Effects of Varenicline in Nonconstipation Irritable Bowel Syndrome and Pain.",
+      "doi": "10.1016/j.cgh.2026.03.045",
+      "source_title": "An Open-Label Trial of Effects of Varenicline in Nonconstipation Irritable Bowel Syndrome and Pain.",
+      "abstract": "Based on Rome III criteria, the prevalence of irritable bowel syndrome (IBS) in 395,385 adults from 38 countries was 9.2% (95% confidence interval, 7.6-10.8). 1 Neostigmine, an acetylcholine (ACh) esterase inhibitor that increases synaptic ACh, enhances pain sensitivity to colorectal distension in humans. 2 There are distinct neuronal nicotinic ACh receptors (AChR): α3β4, α4β2, α5β2, and α6β2. The α3β4 nicotinic AChR mediates ganglionic neurotransmission in sympathetic, parasympathetic throughout the body, and enteric neurons. 'Ganglionic blockers' at the same receptors would have profound systemic effects. The α6β2 nicotinic AChR is expressed in a distinct class of colon-projecting dorsal root ganglia in mice. 3 , 4 Varenicline, a partial agonist at α4β2 and α6β2 nicotinic AChRs, 5 is approved for nicotine addiction. In a pilot trial in adults with chronic pain undergoing opioid detoxification, varenicline decreased opioid withdrawal scores during opioid dose-tapering. 6 Although there are other partial agonists at α4β2 and α6β2 nicotinic AChRs and selective α6β2 agents, 7 , 8 prior approval led to our focus on varenicline.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42044783/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Clinical Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Clinical Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42044783",
+        "doi": "10.1016/j.cgh.2026.03.045",
+        "journal": "Clinical gastroenterology and hepatology : the official clinical practice journal of the American Gastroenterological Association",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-20T13:13:22.218Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "329723296f3bcb409128",
+      "reserved_at": "2026-11-20T13:13:32.370Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "43058258",
+      "title": "An engineered nanobody inhibitor for molecular-to-circuit control of opioid receptors.",
+      "doi": "10.1038/s41589-026-02390-z",
+      "source_title": "An engineered nanobody inhibitor for molecular-to-circuit control of opioid receptors.",
+      "abstract": "Opioid receptors (ORs) orchestrate pain relief, reward and dependence, yet their signaling across diverse cell types and subcellular compartments cannot be resolved by current pharmacological or genetic approaches. Single-domain antibodies, or nanobodies (Nbs), can probe receptor states, but their potential for controlling native receptor signaling at the systems level remains unexplored. Here we engineer high-affinity intracellular Nbs that bind active ORs through structure-guided evolution. Iterative functional optimization yields Nb64, an active-state-selective inhibitor that rapidly suppresses transducer engagement, receptor internalization and downstream signaling, including native μOR-driven G protein-coupled inwardly rectifying potassium currents in ventral tegmental area neurons. Organelle targeting enables precise subcellular control of OR signaling, while bioreversible cell-penetrating peptide conjugation enables nongenetic cytosolic delivery. Cell-type-specific Nb64 expression in ventral tegmental area GABAergic neurons attenuates fentanyl-evoked dopamine release and behavioral responses in mice. Nb64 provides a versatile strategy for dissecting OR biology and establishes a generalizable framework for precision inhibition of native G protein-coupled-receptor signaling in vivo.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43058258/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43058258",
+        "doi": "10.1038/s41589-026-02390-z",
+        "journal": "Nature chemical biology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-20T13:13:22.219Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9d00154d14bb5048425d",
+      "reserved_at": "2026-11-20T13:13:32.370Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -86769,17 +86922,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 612,
+    "total_reservations": 614,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 137,
+      "4": 139,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 612
+      "SOURCE_VERIFIED": 614
     },
     "batches": [
       {
@@ -86799,7 +86952,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 112,
+        "count": 114,
         "pr_number": null,
         "blocker": null
       }
