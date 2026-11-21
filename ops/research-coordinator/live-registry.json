@@ -87108,6 +87108,82 @@
       "reservation_id": "7647d94525a215ca8406",
       "reserved_at": "2026-11-21T02:32:09.474Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43063795",
+      "title": "Nitazene analogs in unintentional and undetermined intent drug overdose deaths - United States, 2019-2025.",
+      "doi": "10.1016/j.drugpo.2026.105588",
+      "source_title": "Nitazene analogs in unintentional and undetermined intent drug overdose deaths - United States, 2019-2025.",
+      "abstract": "Nitazene analogs have emerged as a class of synthetic opioids in the illegal drug supply, presenting challenges for overdose surveillance, forensic detection, and public health response due to high potency, structural diversity, and limited routine toxicology testing. We analyzed data from CDC's State Unintentional Drug Overdose Reporting System (SUDORS) and two forensic toxicology laboratories, the Center for Forensic Science Research and Education (CFSRE) and NMS Labs, to describe trends and characteristics of overdose deaths with nitazene analogs detected. Quarterly trends were assessed during 2019-2024 for SUDORS data and through the third quarter of 2025 for CFSRE/NMS Labs data. Analyses of SUDORS data examined drug co-detection, demographics, and overdose circumstances. During 2019-2024, nitazene analogs were detected in 1443 overdose deaths across 47 jurisdictions, with isotonitazene, metonitazene, protonitazene, N-pyrrolidino etonitazene and N-pyrrolidino protonitazene most commonly detected. Detection patterns varied over time by analog. Substances were often identified earlier or in higher initial numbers in forensic laboratory data before appearing in SUDORS. Co-detection with illegally-made fentanyls, stimulants, and illegal benzodiazepines was common. Compared with overdose deaths with other opioids detected, deaths with nitazene analogs more often had evidence of injection drug use, prior overdose, and prior substance use disorder treatment. Nitazene analogs represent a persistent and evolving overdose threat that is likely under-detected in routine surveillance. Integrating complementary forensic and public health data sources can improve identification of emerging substances. Expanding toxicology capacity, innovative surveillance, and targeted overdose prevention strategies are critical to mitigating adverse outcomes associated with highly potent substances.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43063795/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43063795",
+        "doi": "10.1016/j.drugpo.2026.105588",
+        "journal": "The International journal on drug policy",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-21T11:25:59.816Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e22712ba1a15f1bdb3b2",
+      "reserved_at": "2026-11-21T11:26:08.625Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -87152,17 +87228,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 617,
+    "total_reservations": 618,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 142,
+      "4": 143,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 617
+      "SOURCE_VERIFIED": 618
     },
     "batches": [
       {
@@ -87182,7 +87258,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 117,
+        "count": 118,
         "pr_number": null,
         "blocker": null
       }
