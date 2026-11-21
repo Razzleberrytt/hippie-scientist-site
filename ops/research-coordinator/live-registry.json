@@ -87031,6 +87031,83 @@
       "reservation_id": "5ae178f567e9dac68c33",
       "reserved_at": "2026-11-20T21:18:45.315Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43062184",
+      "title": "An Integrated Chronic Cisterna Magna Access Preparation for Glymphatic MRI in Awake and Mechanically Ventilated Anesthetized Mice.",
+      "doi": "10.3791/74496",
+      "source_title": "An Integrated Chronic Cisterna Magna Access Preparation for Glymphatic MRI in Awake and Mechanically Ventilated Anesthetized Mice.",
+      "abstract": "Dynamic contrast-enhanced magnetic resonance imaging (DCE-MRI) enables serial whole-brain tracking of intracisternally administered contrast, but comparisons across awake and anesthetized states are complicated by differences in animal preparation, motion, respiration, and catheter stability. Here, we describe an integrated mouse preparation centered on chronic cisterna magna access mechanically linked to an implanted head holder, allowing the same intracisternal access strategy to be retained across awake and mechanically ventilated anesthetized imaging. A custom-pulled borosilicate capillary connected to PE-10 tubing is inserted into the cisterna magna, with successful placement confirmed by cerebrospinal fluid backflow. The posterior catheter-fixation assembly is bridged to the implanted head holder to provide additional mechanical support during postoperative recovery, awake habituation, and the head and neck manipulation required for endotracheal intubation and positioning under anesthesia. Awake mice undergo graded habituation to head fixation and scanner noise, whereas anesthetized mice are intubated, mechanically ventilated, and physiologically monitored. Gd-DTPA is infused intracisternally during serial three-dimensional T1-weighted imaging. Representative data demonstrate stable intracisternal access, manageable residual motion during awake acquisition, and interpretable spatiotemporal signal changes in awake, isoflurane-anesthetized, and ketamine/xylazine-anesthetized mice. The protocol is intended to standardize animal preparation and tracer delivery while allowing laboratories to use validated motion-correction and analysis pipelines appropriate to their experimental goals. This framework supports comparative and longitudinal studies of cerebrospinal fluid tracer transport across physiological and anesthetic conditions.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43062184/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Video-Audio Media",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Video-Audio Media"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43062184",
+        "doi": "10.3791/74496",
+        "journal": "Journal of visualized experiments : JoVE",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-21T02:31:59.689Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7647d94525a215ca8406",
+      "reserved_at": "2026-11-21T02:32:09.474Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -87075,17 +87152,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 616,
+    "total_reservations": 617,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 141,
+      "4": 142,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 616
+      "SOURCE_VERIFIED": 617
     },
     "batches": [
       {
@@ -87105,7 +87182,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 116,
+        "count": 117,
         "pr_number": null,
         "blocker": null
       }
