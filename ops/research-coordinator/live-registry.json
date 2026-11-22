@@ -87184,6 +87184,158 @@
       "reservation_id": "e22712ba1a15f1bdb3b2",
       "reserved_at": "2026-11-21T11:26:08.625Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43065801",
+      "title": "The \"Philadelphia Treatment Algorithm for Xylazine Wounds\" Demonstrates High Accuracy and Interobserver Reliability.",
+      "doi": "10.1016/j.jhsg.2026.101196",
+      "source_title": "The \"Philadelphia Treatment Algorithm for Xylazine Wounds\" Demonstrates High Accuracy and Interobserver Reliability.",
+      "abstract": "Xylazine, an α 2 -adrenergic agonist and prevalent adulterant in the illicit drug supply, causes distinct necrotizing wounds that can progress to soft-tissue necrosis, osteomyelitis, and autoamputation. The previously published \"Philadelphia Treatment Algorithm for Xylazine Wounds\" (hereafter, the Philadelphia Xylazine Algorithm) is a novel system developed to classify and guide management of upper-extremity xylazine-associated wounds. This study sought to evaluate the interobserver reliability and accuracy of the algorithm as a classification tool. An anonymous REDCap survey presented eight de-identified clinical cases of upper-extremity xylazine-associated wounds, each consisting of a clinical image with its associated vignette and, when available, a radiograph. Each of the four stages in the classification system was evaluated using two distinct questions. The survey also recorded demographics, prior algorithm exposure, position, specialty trained in, and involvement with trainees. The survey was distributed to health care providers between January and April 2026. The outcomes assessed were classification accuracy and interobserver reliability, which were assessed using Krippendorff's alpha with ordinal weighting and a bootstrap 95% confidence interval (CI). A total of 50 respondents completed the survey. The mean age was 37.6 years, 90% of respondents were orthopedic surgeons, and 62% were attending physicians. Of 398 completed questions, 288 were correct, yielding an overall accuracy of 72%. Accuracy was highest for stage 3B (98%), followed by stage 2 (78%) and stage 1 (75%), with the lowest being stage 3A (38%). Interobserver reliability across the dataset was 0.84 (95% CI, 0.76-0.89), exceeding the 0.80 threshold for reliable agreement. The Philadelphia Xylazine Algorithm demonstrated reliable interobserver agreement ( α = 0.84), comparable to most established wound classification systems used in practice. This study supports the algorithm's adoption as a classification system for xylazine-associated wounds. However, it was not designed to evaluate the algorithm's management component and therefore warrants further investigation. Diagnostic III.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43065801/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43065801",
+        "doi": "10.1016/j.jhsg.2026.101196",
+        "journal": "Journal of hand surgery global online",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-22T07:07:10.347Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0ed48e7f561d7b72ade4",
+      "reserved_at": "2026-11-22T07:07:19.909Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "43065937",
+      "title": "Wastewater-Based Epidemiological Determination of Substances Used during the Super Bowl and Mardi Gras in New Orleans, Louisiana.",
+      "doi": "10.1021/acsomega.6c05885",
+      "source_title": "Wastewater-Based Epidemiological Determination of Substances Used during the Super Bowl and Mardi Gras in New Orleans, Louisiana.",
+      "abstract": "The unprecedented rise in drug overdose mortality over the past decade highlights the severity of ongoing public health crisis in the United States. Increasing polysubstance use involving synthetic fentanyl, psychostimulants, prescription opioids, veterinary tranquilizers, and nitazenes has further exacerbated this crisis, largely due to their unpredictable composition and pharmacological effects. Wastewater-based epidemiology was utilized to quantify 22 drug residues and metabolites, including psychostimulants, fentanyl, prescription opioids, medications for opioid use disorder, xylazine, and THC during the 2025 Super Bowl and Mardi Gras in New Orleans, Louisiana. Raw wastewater ( n = 28) was collected during the Super Bowl and Mardi Gras weeks and typical weeks before or after the events. Samples were extracted and analyzed for residual drug residues employing isotopic dilution mass spectrometry using a state-of-the-art ultraperformance liquid chromatography and tandem mass spectrometry technique. The cocaine discharge during Mardi Gras (1220 ± 390 g/d) was significantly higher ( p = 0.023) than a typical week. However, fentanyl discharge after Mardi Gras (4.43 ± 1.50 g/d) was significantly higher than during the Mardi Gras week ( p = 0.015). This corresponds to an average daily discharge of 3.18 kg of cocaine (31,800 doses), 0.59 kg of methamphetamine (19,600 doses), 0.050 kg of fentanyl (49,600 doses), and 7.03 kg of THC (234,000 doses) during the 2025 Super Bowl and Mardi Gras in New Orleans. Average equivalent consumptions calculated based on estimated populations during the Super Bowl and Mardi Gras weeks, such as cocaine (5380-10,500 mg/d/1000 people), methamphetamine (1200-1780 mg/d/1000 people), and fentanyl (90.6-150 mg/d/1000 people), were not significantly higher than those during baseline weeks. Evidence-based mass loads of substances will be useful for the event planners, safety professionals, and emergency medical service personnel for improved understanding and prediction of spectator behavior to minimize associated public health risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43065937/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43065937",
+        "doi": "10.1021/acsomega.6c05885",
+        "journal": "ACS omega",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-22T07:07:10.347Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a3d9ec0a8527175d3796",
+      "reserved_at": "2026-11-22T07:07:19.909Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -87228,17 +87380,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 618,
+    "total_reservations": 620,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 143,
+      "4": 145,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 618
+      "SOURCE_VERIFIED": 620
     },
     "batches": [
       {
@@ -87258,7 +87410,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 118,
+        "count": 120,
         "pr_number": null,
         "blocker": null
       }
