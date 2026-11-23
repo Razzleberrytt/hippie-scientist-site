@@ -87336,6 +87336,159 @@
       "reservation_id": "a3d9ec0a8527175d3796",
       "reserved_at": "2026-11-22T07:07:19.909Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43068856",
+      "title": "A scoping review of the role of pharmacogenomics in the discontinuation of psychotropic medication.",
+      "doi": "10.1002/bcp.70939",
+      "source_title": "A scoping review of the role of pharmacogenomics in the discontinuation of psychotropic medication.",
+      "abstract": "The role of pharmacogenomics has been extensively investigated in relation to psychotropic treatment response and adverse outcomes. However, limited attention has been directed toward pharmacogenomic variability during discontinuation, which is frequently associated with withdrawal symptoms, relapse and other complications. Current deprescribing guidelines generally recommend gradual dose reduction but rarely account for genetic differences influencing discontinuation outcomes. This scoping review aimed to map and synthesize the current evidence regarding the role of pharmacogenomics in psychotropic medication discontinuation. Following the Joanna Briggs Institute's methodological framework, MEDLINE, EMBASE, CINAHL, Web of Science and PsycINFO were systematically searched for studies investigating pharmacogenomic factors related to the discontinuation of psychotropic medication (antidepressants, antipsychotics, mood stabilizers, anxiolytics, hypnotics, stimulants and opioids). The review followed PRISMA-ScR guidelines, and findings were synthesized narratively. Thirteen studies met inclusion criteria, comprising eight observational studies and five case reports. Included studies and case reports involved opioids (n = 8), benzodiazepines (n = 4), antidepressants (n = 4), antipsychotics (n = 1) and anxiolytics (n = 1), with four studies involving multiple medication classes. Gradual dose reduction was the predominant discontinuation approach; however, discontinuation protocols frequently lacked detail. Variants in CYP2D6, OPRM1, OPRD1, ARRB2, COMT, GNB3, GNAS, SLC6A4 and HTR1A were associated with discontinuation outcomes (withdrawal symptoms, adverse drug reactions and discontinuation syndrome). Pharmacogenomic variability may influence psychotropic medication discontinuation outcomes; however, current evidence remains limited and heterogeneous. Larger prospective studies evaluating pharmacogenomic-informed deprescribing strategies are needed.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43068856/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43068856",
+        "doi": "10.1002/bcp.70939",
+        "journal": "British journal of clinical pharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-23T13:14:52.009Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c37e19a9937c0ba08c19",
+      "reserved_at": "2026-11-23T13:15:03.145Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "43068744",
+      "title": "Discriminative stimulus effects of fentanyl-xylazine in rats: Roles of mu opioid and alpha-2 adrenergic receptors.",
+      "doi": "10.1016/j.pbb.2026.174295",
+      "source_title": "Discriminative stimulus effects of fentanyl-xylazine in rats: Roles of mu opioid and alpha-2 adrenergic receptors.",
+      "abstract": "Xylazine-adulterated fentanyl has been associated with significant adverse health risks. Anecdotal evidence from people who use drugs and recent preclinical findings suggest that xylazine may potentiate and/or prolong the subjective effects of fentanyl, but the pharmacological mechanisms underlying this interaction have not been fully characterized. Male and female Sprague-Dawley rats were trained to discriminate fentanyl (0.032 mg/kg) vs. saline. One group of animals underwent generalization studies with fentanyl (0-0.032 mg/kg), xylazine (0-1.0 mg/kg), and their combination. We also compared the duration of action of fentanyl with a fentanyl-xylazine mixture. In a second group of animals, we examined the impact of treatment with the opioid receptor antagonist naloxone, the α2 adrenoceptor antagonist atipamezole, and their combination on the discriminative stimulus effects of a fentanyl-xylazine mixture. Xylazine alone produced weak fentanyl-like stimulus effects that satisfied threshold for partial substitution in one cohort but not another. Xylazine did not significantly alter the dose-response curve for fentanyl's stimulus effects, but dose-dependently potentiated the rate-suppressing effects of fentanyl and extended the duration of fentanyl's stimulus effects. Neither naloxone nor atipamezole alone affected the discriminative stimulus effects of a fentanyl-xylazine mixture, although atipamezole fully reversed fentanyl-xylazine-induced rate suppression. However, combined administration of naloxone and atipamezole fully antagonized both the discriminative stimulus effects and rate-suppressing effects of fentanyl-xylazine. We provide further evidence that xylazine partially substitutes for and prolongs the discriminative stimulus effects of fentanyl, and demonstrate that shared opioid and α2 adrenoceptor activation may mediate the discriminative stimulus effects of fentanyl-xylazine mixtures.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43068744/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43068744",
+        "doi": "10.1016/j.pbb.2026.174295",
+        "journal": "Pharmacology, biochemistry, and behavior",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-23T13:14:52.009Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "83f563bcc05de6a63727",
+      "reserved_at": "2026-11-23T13:15:03.145Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -87380,17 +87533,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 620,
+    "total_reservations": 622,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 145,
+      "4": 147,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 620
+      "SOURCE_VERIFIED": 622
     },
     "batches": [
       {
@@ -87410,7 +87563,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 120,
+        "count": 122,
         "pr_number": null,
         "blocker": null
       }
