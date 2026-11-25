@@ -87565,6 +87565,82 @@
       "reservation_id": "431d70b1a4d56bb9b112",
       "reserved_at": "2026-11-24T11:08:17.850Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43077572",
+      "title": "Methadone Treatment During Acute Care Hospitalization: A Call for Systems-level Change.",
+      "doi": "10.1097/ADM.0000000000001797",
+      "source_title": "Methadone Treatment During Acute Care Hospitalization: A Call for Systems-level Change.",
+      "abstract": "In the United States, over 900,000 acute care hospitalizations occur each year among persons with opioid use disorder (OUD). Methadone is an effective medication for OUD; however, barriers unique to this medication often prevent hospitalized patients from accessing treatment, resulting in withdrawal, loss of trust, and patient-directed discharge. Using the Consolidated Framework for Implementation Research, this commentary identifies barriers to the provision of methadone in the hospital setting and pairs each with actionable strategies. In addition to policy reform, recommended strategies include provisional dosing protocols, formulary review, formalized communication with opioid treatment programs, and metrics reflecting OUD care.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43077572/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43077572",
+        "doi": "10.1097/ADM.0000000000001797",
+        "journal": "Journal of addiction medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-25T04:21:08.581Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "45fb3f9a046881122374",
+      "reserved_at": "2026-11-25T04:21:20.572Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -87609,17 +87685,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 623,
+    "total_reservations": 624,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 148,
+      "4": 149,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 623
+      "SOURCE_VERIFIED": 624
     },
     "batches": [
       {
@@ -87639,7 +87715,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 123,
+        "count": 124,
         "pr_number": null,
         "blocker": null
       }
