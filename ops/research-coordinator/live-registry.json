@@ -87641,6 +87641,83 @@
       "reservation_id": "45fb3f9a046881122374",
       "reserved_at": "2026-11-25T04:21:20.572Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42551617",
+      "title": "Drug-opposite neuroadaptation and breakthrough pain.",
+      "doi": "10.1016/j.jpain.2026.106394",
+      "source_title": "Drug-opposite neuroadaptation and breakthrough pain.",
+      "abstract": "It is only through the advent of extended release/long-acting opioids that the concept of breakthrough pain emerged. The concept suggests that if pain emerges through satisfactory analgesia achieved by an extended release/long-acting opioid, then additional dosing with a short-acting opioid is needed. The concept therefore suggests that breakthrough pain is due to inadequate dosing of opioid. A different explanation, that of drug opposite neuroadaptation or tolerance, turns this thinking on its head. Suppose inadequate analgesia while receiving opioids is not due to an inadequate dose, but rather due to the rebound pain of tolerance. As such, the need to increase the dose sets up further need for pain relief by increasing the dose, the hallmark of negative reinforcement. Negative reinforcement, continued use to avoid negative effects (in this case withdrawal pain), then drives the unhappy state of needing higher doses in a futile attempt to relieve the pain created by the drug itself. PERSPECTIVE: This article describes the neurobiological basis for tolerance to opioid analgesics and highlights the ultimate futility of dose increase as a means of overcoming tolerance. The article argues that so called breakthrough pain could equally be withdrawal hyperalgesia demanding a different response. SUMMARY: Could neuroadaptation explain breakthrough pain, and what would this mean in terms of optimizing opioid efficacy and reducing risk of dependence on opioids.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42551617/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42551617",
+        "doi": "10.1016/j.jpain.2026.106394",
+        "journal": "The journal of pain",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-25T14:38:29.448Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4e47c34f0a86516ea06d",
+      "reserved_at": "2026-11-25T14:38:42.021Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -87685,17 +87762,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 624,
+    "total_reservations": 625,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 149,
+      "4": 150,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 624
+      "SOURCE_VERIFIED": 625
     },
     "batches": [
       {
@@ -87715,7 +87792,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 124,
+        "count": 125,
         "pr_number": null,
         "blocker": null
       }
