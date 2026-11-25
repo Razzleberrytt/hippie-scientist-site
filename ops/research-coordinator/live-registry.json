@@ -87718,6 +87718,82 @@
       "reservation_id": "4e47c34f0a86516ea06d",
       "reserved_at": "2026-11-25T14:38:42.021Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43084191",
+      "title": "VP3.15 Ameliorates Tramadol Withdrawal-Associated Neurobehavioral and Neurochemical Alterations: Potential Involvement of CREB-Mediated Signaling.",
+      "doi": "10.1007/s12010-026-05984-4",
+      "source_title": "VP3.15 Ameliorates Tramadol Withdrawal-Associated Neurobehavioral and Neurochemical Alterations: Potential Involvement of CREB-Mediated Signaling.",
+      "abstract": "Opioid withdrawal is associated with neurobehavioral and biochemical alterations, including oxidative stress, neuroinflammation, and disrupted neurotransmission. Tramadol is a widely used centrally acting analgesic; however, the neurobiological alterations associated with its withdrawal remain incompletely understood. The present study investigated the effects of VP3.15, a small heterocyclic molecule previously characterized as a dual GSK-3β/PDE7 inhibitor, on behavioral, oxidative, inflammatory, and neurochemical alterations associated with tramadol withdrawal in mice. A total of 100 male Swiss albino mice were randomly allocated into ten experimental groups (n = 10/group). Animals assigned to the tramadol-withdrawal groups received tramadol (50 mg/kg, s.c.) twice daily for 56 days, followed by a single tramadol dose on Day 57. Two hours later, naloxone (5 mg/kg, i.p.) was administered to precipitate withdrawal. VP3.15 (5, 10, or 20 mg/kg, i.p.) was administered once daily from Day 40 to Day 57, as a delayed intervention during prolonged tramadol exposure. Withdrawal-associated behavioral responses, including jumping frequency, withdrawal severity score, and hyperalgesia, were assessed together with brain levels of TBARS, GSH, glutamate, dopamine, serotonin, NF-κB, TNF-α, IL-1β, and IL-6. VP3.15 dose-dependently attenuated withdrawal-associated behavioral abnormalities, reduced lipid peroxidation, improved antioxidant status, ameliorated alterations in neurotransmitter levels, and decreased NF-κB and pro-inflammatory cytokine levels. Co-administration of 666 - 15 (10 mg/kg, i.p.), an inhibitor of CREB-mediated transcription, significantly attenuated several beneficial effects of VP3.15, suggesting a possible contribution of CREB-sensitive transcriptional processes. Clonidine (0.1 mg/kg, i.p.) also produced protective effects. Collectively, these findings demonstrate the beneficial pharmacological effects of VP3.15 against multiple alterations associated with tramadol withdrawal. Although the attenuation of these effects by 666 - 15 suggests potential involvement of CREB-sensitive processes, direct molecular engagement of CREB, GSK-3β, PDE7, and functional CREB-NF-κB interactions remains to be established.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43084191/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43084191",
+        "doi": "10.1007/s12010-026-05984-4",
+        "journal": "Applied biochemistry and biotechnology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-25T23:41:26.349Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "fa14004d3304236bae5c",
+      "reserved_at": "2026-11-25T23:41:36.381Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -87762,17 +87838,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 625,
+    "total_reservations": 626,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 150,
+      "4": 151,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 625
+      "SOURCE_VERIFIED": 626
     },
     "batches": [
       {
@@ -87792,7 +87868,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 125,
+        "count": 126,
         "pr_number": null,
         "blocker": null
       }
