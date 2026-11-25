@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
   "active_batch_id": "rolling-0003",
-  "total_reservations": 623,
+  "total_reservations": 624,
   "by_lane": {
     "1": 76,
     "2": 120,
     "3": 54,
-    "4": 148,
+    "4": 149,
     "5": 225
   },
   "by_state": {
     "RELEASED": 500,
-    "SOURCE_VERIFIED": 623
+    "SOURCE_VERIFIED": 624
   },
   "batches": [
     {
@@ -31,12 +31,12 @@
     {
       "id": "rolling-0003",
       "state": "ACTIVE",
-      "count": 123,
+      "count": 124,
       "pr_number": null,
       "blocker": null
     }
   ],
   "incidents": [],
-  "generated_at": "2026-11-25T02:21:34.018Z",
+  "generated_at": "2026-11-25T04:21:42.776Z",
   "research_only": true
 }
