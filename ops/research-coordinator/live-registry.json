@@ -87871,6 +87871,158 @@
       "reservation_id": "306fc2b5341efed761f5",
       "reserved_at": "2026-11-26T08:37:47.752Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43096958",
+      "title": "Opioid withdrawal, craving and drug demand in individuals with comorbid opioid and stimulant use disorder: investigating glutamatergic mechanisms.",
+      "doi": "10.1097/FBP.0000000000000910",
+      "source_title": "Opioid withdrawal, craving and drug demand in individuals with comorbid opioid and stimulant use disorder: investigating glutamatergic mechanisms.",
+      "abstract": "Polydrug use presents a significant public health problem, with combined use of opioids and stimulants being a particular concern. Despite this, little research has used controlled laboratory methods to understand pharmacological and behavioral mechanisms underlying co-use of opioids and stimulants. This project evaluated the effects of n-acetylcysteine, which normalizes glutamate homeostasis in brain reward pathways following substance use, during active opioid maintenance and spontaneous opioid withdrawal in individuals who co-use opioids and stimulants. Twelve non-treatment-seeking individuals with opioid and stimulant use disorder participated in this mixed-design human laboratory study. Participants were all maintained on oral hydromorphone (up to 32 mg every 4 h) and assigned to either placebo or n-acetylcysteine maintenance (2.4 g/day) in counterbalanced order across participants (n = 6/group). After a week of stabilization, opioid withdrawal, craving, hypothetical drug demand, and magnetic resonance spectroscopy (MRS) for glutamate/glutamine were evaluated during hydromorphone maintenance and opioid withdrawal. Placebo substitution of hydromorphone increased opioid withdrawal scale scores and opioid craving, while also decreasing price sensitivity for hypothetical cocaine and methamphetamine. No effects of n-acetylcysteine treatment were observed, nor were there any changes in MRS outcomes, which could be due to the small sample size. Data suggest that decreased sensitivity to changes in stimulant prices during opioid withdrawal may contribute to the co-use of opioids and stimulants.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43096958/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43096958",
+        "doi": "10.1097/FBP.0000000000000910",
+        "journal": "Behavioural pharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-26T19:09:23.892Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ca0d4cd5be46bf3d4c0c",
+      "reserved_at": "2026-11-26T19:09:33.539Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "43087105",
+      "title": "Potential therapeutic role of kratom (Mitragyna speciosa) in mental health: a mini-review.",
+      "doi": "10.1097/FBP.0000000000000911",
+      "source_title": "Potential therapeutic role of kratom (Mitragyna speciosa) in mental health: a mini-review.",
+      "abstract": "Mitragyna speciosa Korth. (kratom) is becoming increasingly popular as a natural remedy for a variety of therapeutic purposes, including chronic pain management, opioid dependence and withdrawal, and mental health improvement. Its principal alkaloids, which include mitragynine, paynantheine, speciociliatine, speciogynine, and 7-hydroxymitragynine, interact with multiple neurotransmitter systems, including the opioidergic, dopaminergic, adrenergic, and serotonergic pathways. The diverse pharmacological actions of these indole alkaloids highlight kratom as a particularly promising source of bioactive compounds with potential therapeutic value, especially in addressing negative mood states and mental disorders such as anxiety and depression. This review consolidates current literature on the potential applications of kratom and its alkaloids in managing various psychiatric and psychological conditions. While preclinical studies provide mechanistic support for potential therapeutic effects, the human evidence is largely derived from self-reports, surveys, and observational studies, which are subject to recall bias, selection bias, and a lack of standardized clinical assessments. Therefore, the findings should be interpreted with caution, and controlled clinical trials are necessary to validate efficacy, optimal dosing, safety, and long-term outcomes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43087105/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43087105",
+        "doi": "10.1097/FBP.0000000000000911",
+        "journal": "Behavioural pharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-26T19:09:23.892Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "fb39bd36d99182856536",
+      "reserved_at": "2026-11-26T19:09:33.539Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -87915,17 +88067,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 627,
+    "total_reservations": 629,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 152,
+      "4": 154,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 627
+      "SOURCE_VERIFIED": 629
     },
     "batches": [
       {
@@ -87945,7 +88097,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 127,
+        "count": 129,
         "pr_number": null,
         "blocker": null
       }
