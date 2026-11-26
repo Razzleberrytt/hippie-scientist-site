@@ -87794,6 +87794,83 @@
       "reservation_id": "fa14004d3304236bae5c",
       "reserved_at": "2026-11-25T23:41:36.381Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43085293",
+      "title": "Emerging designer sedatives and adulterants in the emergency department: A narrative review.",
+      "doi": "10.1016/j.ajem.2026.11.025",
+      "source_title": "Emerging designer sedatives and adulterants in the emergency department: A narrative review.",
+      "abstract": "The illicit drug supply in the United States is rapidly evolving, with veterinary sedatives and novel synthetic opioids increasingly detected alongside fentanyl and other substances. To review the epidemiology, clinical presentation, emergency department recognition and management, and public health implications of emerging veterinary sedatives and novel synthetic opioids in the illicit drug supply. Xylazine and medetomidine are α2-adrenergic agonists that may cause profound sedation, bradycardia, hypotension, and respiratory depression, particularly when combined with opioids. Naloxone remains indicated for suspected opioid co-exposure but does not reverse the effects of these non-opioid sedatives. Repeated xylazine exposure is associated with severe skin ulceration and soft-tissue injury, while medetomidine exposure may produce prolonged toxicity and a severe withdrawal syndrome characterized by hypertension, tachycardia, agitation, and autonomic instability. Nitazenes and orphine analogues are potent μ-opioid receptor agonists capable of causing severe and recurrent respiratory depression. Management centers on airway and ventilatory support and naloxone titrated to adequate ventilation, with repeated dosing or infusion when necessary. Recognition of these substances is complicated by polysubstance exposure and limited detection on routine hospital toxicology screens. Emerging veterinary sedatives and novel synthetic opioids are creating increasingly complex overdose presentations in the emergency department. Persistent sedation after naloxone, unexplained bradycardia or hypotension, recurrent respiratory depression, severe autonomic withdrawal, and characteristic wounds should raise suspicion for emerging adulterants or synthetic opioids.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43085293/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43085293",
+        "doi": "10.1016/j.ajem.2026.11.025",
+        "journal": "The American journal of emergency medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-26T08:37:37.216Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "306fc2b5341efed761f5",
+      "reserved_at": "2026-11-26T08:37:47.752Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -87838,17 +87915,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 626,
+    "total_reservations": 627,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 151,
+      "4": 152,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 626
+      "SOURCE_VERIFIED": 627
     },
     "batches": [
       {
@@ -87868,7 +87945,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 126,
+        "count": 127,
         "pr_number": null,
         "blocker": null
       }
