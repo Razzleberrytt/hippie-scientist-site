@@ -36,5 +36,7 @@
       "blocker": null
     }
   ],
-  "incidents": []
+  "incidents": [],
+  "generated_at": "2026-11-27T18:54:37.544Z",
+  "research_only": true
 }
