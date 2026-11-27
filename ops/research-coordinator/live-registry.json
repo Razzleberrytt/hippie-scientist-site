@@ -88176,6 +88176,159 @@
       "reservation_id": "784ab0228b19e88f4975",
       "reserved_at": "2026-11-27T11:00:55.673Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43102039",
+      "title": "Concentration, substitution, and adulteration: navigating North America's evolving unregulated opioid supply.",
+      "doi": "10.1080/17512433.2026.2771871",
+      "source_title": "Concentration, substitution, and adulteration: navigating North America's evolving unregulated opioid supply.",
+      "abstract": "North America's unregulated opioid supply is increasingly dynamic and heterogeneous. Variable concentrations and combinations of highly potent synthetic opioids (HPSOs), α₂-adrenergic agonists, and novel psychoactive substance benzodiazepines (NPS-BZDs) can alter toxicity, withdrawal, and treatment response. Unknown exposures, overlapping syndromes, and incomplete routine testing complicate clinical care. We organize clinically relevant unregulated drug supply changes into three overlapping dynamics: concentration variability, within-class substitution, and adulteration with pharmacologically distinct active components. Literature was identified through Google Scholar searches without publication-date restrictions (last searched August 2026). Drawing on pharmacological studies, clinical reports, and supply surveillance, we examine these dynamics across HPSOs, α₂-adrenergic agonists, and NPS-BZDs, and their implications for acute toxicity, withdrawal, and opioid use disorder treatment. Continuous characterization of local unregulated drug supply dynamics should be linked to clinician-facing interpretation and proportionate action. Drug checking services can provide timely sample-level data on composition and concentration, complementing toxicology and bedside assessment. Clinicians need access to these findings and training in their use, including their limits for identifying individual exposures.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43102039/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43102039",
+        "doi": "10.1080/17512433.2026.2771871",
+        "journal": "Expert review of clinical pharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-27T20:03:22.712Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "58f21c1db7bf6a581359",
+      "reserved_at": "2026-11-27T20:03:32.230Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "43100582",
+      "title": "Yohimbine Stress Moderates the Relationship Between Opioid Craving and Seeking Behavior.",
+      "doi": "10.21203/rs.3.rs-11235755/v1",
+      "source_title": "Yohimbine Stress Moderates the Relationship Between Opioid Craving and Seeking Behavior.",
+      "abstract": "The linkage between drug craving and seeking behavior is theoretically and clinically important but poorly understood. This secondary data analysis examined the association between opioid craving and seeking in regular heroin users exposed to the pharmacological stressor yohimbine. We hypothesized that acute noradrenergic activation would strengthen the opioid craving/seeking linkage, such that opioid craving would be positively associated with seeking during yohimbine but not placebo. Participants ( N = 21) were out-of-treatment, chronic regular heroin users stabilized on buprenorphine 8 mg/day, which suppressed baseline withdrawal symptoms. Across two similar studies, participants were pretreated with oral yohimbine (32.4 mg; NCT00684840: Study 1, n = 10] or 27 mg; NCT01536925: Study 2, n = 11]) or placebo on different session days under randomized, double-blinded conditions, and could work (progressive ratio schedule; 12 trials/session) to earn units of IM hydromorphone (1.5 mg/trial) or money ($2/trial). Opioid craving and vital signs were repeatedly measured each session. A two-level moderation model examined the relationship between opioid craving and seeking and whether the relationship differed as a function of placebo vs. yohimbine challenge. As hypothesized, exposure to yohimbine significantly moderated the relationship between opioid craving and opioid-seeking behavior. Increased systolic blood pressure relative to each participant's mean level similarly acted as a moderator, indicating the role of physiological stress as a link between craving and seeking. These findings support the idea that acute noradrenergic activation, a key driver of the physiological stress response, facilitates increased risk of opioid use, independent of withdrawal symptoms.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43100582/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Preprint",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Preprint"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43100582",
+        "doi": "10.21203/rs.3.rs-11235755/v1",
+        "journal": "Research square",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-27T20:03:22.712Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "17a39ae1d9d497e241f6",
+      "reserved_at": "2026-11-27T20:03:32.230Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -88220,17 +88373,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 631,
+    "total_reservations": 633,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 156,
+      "4": 158,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 631
+      "SOURCE_VERIFIED": 633
     },
     "batches": [
       {
@@ -88250,7 +88403,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 131,
+        "count": 133,
         "pr_number": null,
         "blocker": null
       }
