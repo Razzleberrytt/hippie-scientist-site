@@ -88023,6 +88023,159 @@
       "reservation_id": "fb39bd36d99182856536",
       "reserved_at": "2026-11-26T19:09:33.539Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "43099202",
+      "title": "A fentanyl vaccine adjuvanted with a TLR7/8 agonist does not precipitate withdrawal in fentanyl-dependent rats but does block fentanyl's acute reinforcement-enhancing effects.",
+      "doi": "10.1007/s00213-026-07203-8",
+      "source_title": "A fentanyl vaccine adjuvanted with a TLR7/8 agonist does not precipitate withdrawal in fentanyl-dependent rats but does block fentanyl's acute reinforcement-enhancing effects.",
+      "abstract": "Opioid use disorder (OUD) and overdose involving synthetic opioids such as fentanyl are major public health problems. Vaccines against opioids have several advantages over current OUD pharmacotherapies (e.g., longer duration of action), can reduce several OUD- and overdose-related effects of fentanyl and other opioids in animals, and are being evaluated in clinical trials. A potential concern regarding this approach is that the resulting reduction in brain opioid levels could precipitate withdrawal symptoms (e.g., anhedonia), which could motivate relapse. This study assessed the potential for the anti-fentanyl vaccine F 1 -CRM + INI-4001 to precipitate withdrawal in fentanyl-dependent rats as measured by elevations in intracranial self-stimulation (ICSS) thresholds (anhedonia-like behavior), weight loss, and somatic (physical) withdrawal signs. We also evaluated the ability of F 1 -CRM + INI-4001 to attenuate the acute ICSS threshold-lowering (i.e., reinforcement-enhancing) effects of fentanyl in fentanyl-naïve rats. Despite eliciting a strong anti-fentanyl antibody response and increasing serum fentanyl levels, vaccination with F 1 -CRM + INI-4001 did not precipitate withdrawal in fentanyl (0.3 mg/kg/day)-dependent rats as measured by elevation of ICSS thresholds, weight loss, or somatic signs. However, F 1 -CRM + INI-4001 did attenuate the amount and duration of weight loss during spontaneous fentanyl withdrawal. F 1 -CRM + INI-4001 also reduced the acute ICSS threshold-lowering effects of fentanyl (0.0032-0.01 mg/kg, s.c.), indicating reduced fentanyl abuse liability. These findings support the safety and efficacy of F 1 -CRM + INI-4001 in preclinical models of OUD and support its evaluation for the treatment of OUD and prevention of overdose in clinical trials.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43099202/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43099202",
+        "doi": "10.1007/s00213-026-07203-8",
+        "journal": "Psychopharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-27T11:00:44.107Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "46d416307539fede03fc",
+      "reserved_at": "2026-11-27T11:00:55.673Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "43100254",
+      "title": "Zhx2 expression in the mouse brain.",
+      "doi": "10.64898/2026.11.11.765907",
+      "source_title": "Zhx2 expression in the mouse brain.",
+      "abstract": "Prescription opioids like oxycodone ( OXY ; the active component in OxyContin™) continue to drive the ongoing opioid use disorder (OUD) epidemic due to their widespread prescription and distribution. Genetic factors influencing pharmacokinetic and pharmacodynamic properties of opioids can have profound impacts on drug response and, in turn, influence risk for OUD. We previously used quantitative trait locus (QTL) mapping and gene validation to identify zinc-finger homeobox 2 (Zhx2) loss-of-function as a quantitative trait gene and mechanism underlying increased brain concentration of oxymorphone (OMOR) following systemic administration of OXY in BALB/cJ females that was linked to increased OXY reward. To test whether we could rescue the behavioral phenotype, we overexpressed Zhx2 in the brain via retro-orbital injection of a brain-specific adeno-associated virus (AAV) . We observed restricted Zhx2 expression (especially females), with more widespread expression in males. Consequently, we did not observe any significant effect of brain Zhx2 overexpression on OXY reward as measured via conditioned place preference (CPP) . However, Zhx2 overexpression did protect against OXY-induced weight loss in females following a high-dose OXY regimen. Despite the effect on weight loss, Zhx2 overexpression had no effect on spontaneous or naloxone-precipitated withdrawal behaviors. We then examined native Zhx2 protein expression in the brains of the BALB/cByJ substrain (showing wild-type levels of Zhx2 expression) via immunohistochemical co-localization and found that Zhx2 is mainly expressed in neurons located in key reward, motivational, and emotion-related regions such as the hippocampus (HPC) , amygdala, striatum (Str) , and cerebellum. To summarize, Zhx2 overexpression via retro-orbital AAV administration was quite limited, yet had significant effects on opioid-induced weight loss. Furthermore, for the first time, we provide anatomical visualization of Zhx2 expression at the protein level in neurons vs. glia throughout multiple brain regions.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/43100254/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Preprint",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Preprint"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "43100254",
+        "doi": "10.64898/2026.11.11.765907",
+        "journal": "bioRxiv : the preprint server for biology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-11-27T11:00:44.107Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0003",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "784ab0228b19e88f4975",
+      "reserved_at": "2026-11-27T11:00:55.673Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -88067,17 +88220,17 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0003",
-    "total_reservations": 629,
+    "total_reservations": 631,
     "by_lane": {
       "1": 76,
       "2": 120,
       "3": 54,
-      "4": 154,
+      "4": 156,
       "5": 225
     },
     "by_state": {
       "RELEASED": 500,
-      "SOURCE_VERIFIED": 629
+      "SOURCE_VERIFIED": 631
     },
     "batches": [
       {
@@ -88097,7 +88250,7 @@
       {
         "id": "rolling-0003",
         "state": "ACTIVE",
-        "count": 129,
+        "count": 131,
         "pr_number": null,
         "blocker": null
       }
